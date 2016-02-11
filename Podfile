@@ -19,8 +19,9 @@ pod 'ReactiveCocoa', '~> 4.0'
 pod 'RESideMenu', '~> 4.0.7'
 
 #Networking
-pod 'AFNetworking', '~> 3.0'
-    
+pod 'AlamofireImage', '~> 2.0'
+pod 'Alamofire', '~> 3.1'
+
 #Form
 pod 'Eureka', '~> 1.3'
 

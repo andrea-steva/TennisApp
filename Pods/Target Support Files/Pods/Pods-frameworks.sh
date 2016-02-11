@@ -84,7 +84,8 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods/AFNetworking.framework"
+  install_framework "Pods/Alamofire.framework"
+  install_framework "Pods/AlamofireImage.framework"
   install_framework "Pods/Charts.framework"
   install_framework "Pods/DZNEmptyDataSet.framework"
   install_framework "Pods/Eureka.framework"
@@ -102,7 +103,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/SWTableViewCell.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods/AFNetworking.framework"
+  install_framework "Pods/Alamofire.framework"
+  install_framework "Pods/AlamofireImage.framework"
   install_framework "Pods/Charts.framework"
   install_framework "Pods/DZNEmptyDataSet.framework"
   install_framework "Pods/Eureka.framework"

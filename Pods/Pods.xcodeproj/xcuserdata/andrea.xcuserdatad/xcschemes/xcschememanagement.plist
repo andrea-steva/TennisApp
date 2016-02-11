@@ -4,7 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AFNetworking.xcscheme</key>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AlamofireImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -102,7 +107,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>06940C2188501F8C00BDFD75AE0F3D14</key>
+		<key>05094CC4A047119F7ADC14EE74C4881C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,17 +117,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1C3436CEA5C3D39764C5F54374794ECB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>23D4B5C9CC657B68134305BFEB076270</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>263198F7F68A37FF3721AECBBAA7ACC4</key>
+		<key>2AA7BE5597DE05B68DCF27545DF90355</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2EB915833A4EA018B378F494BD46993A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,7 +137,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4EDA62AF61252DA4E49FD91DF5DE8143</key>
+		<key>341E43CB50CBB8A3ADA688757D19D416</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>37FCD76CC87C1818B8C2BE9B28D85040</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E1EE9B3ED24EC80556C55F32F438435</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -147,7 +162,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6C44E8E4B3A240645F0FABD13736BE09</key>
+		<key>63A0F9ED4CB48AD7277F827BD8894ACD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -167,7 +182,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7EB91E9EC948EF3BB7F3BCA177880FE4</key>
+		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -177,17 +192,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9F9AE3D16A8F04829CB6BDD276406289</key>
+		<key>AB075DC4E2673928B6FEFC3A0A3DAB83</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>AB663F278A3C1379577D5E3122589792</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CA3C5A00F0451527AF85BF0B3BD9B4AB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
