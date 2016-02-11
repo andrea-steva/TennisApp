@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		65B04DA31C6CA02300011439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04DA21C6CA02300011439 /* AppDelegate.swift */; };
+		65B04DA51C6CA02300011439 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04DA41C6CA02300011439 /* ViewController.swift */; };
+		65B04DA81C6CA02300011439 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B04DA61C6CA02300011439 /* Main.storyboard */; };
+		65B04DAA1C6CA02300011439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65B04DA91C6CA02300011439 /* Assets.xcassets */; };
+		65B04DAD1C6CA02300011439 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B04DAB1C6CA02300011439 /* LaunchScreen.storyboard */; };
+		65B04DB81C6CA02300011439 /* TennisAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04DB71C6CA02300011439 /* TennisAppTests.swift */; };
+		65B04DC31C6CA02300011439 /* TennisAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04DC21C6CA02300011439 /* TennisAppUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		65B04DB41C6CA02300011439 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65B04D971C6CA02300011439 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65B04D9E1C6CA02300011439;
+			remoteInfo = TennisApp;
+		};
+		65B04DBF1C6CA02300011439 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65B04D971C6CA02300011439 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65B04D9E1C6CA02300011439;
+			remoteInfo = TennisApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		65B04D9F1C6CA02300011439 /* TennisApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TennisApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		65B04DA21C6CA02300011439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		65B04DA41C6CA02300011439 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		65B04DA71C6CA02300011439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		65B04DA91C6CA02300011439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		65B04DAC1C6CA02300011439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		65B04DAE1C6CA02300011439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65B04DB31C6CA02300011439 /* TennisAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TennisAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		65B04DB71C6CA02300011439 /* TennisAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisAppTests.swift; sourceTree = "<group>"; };
+		65B04DB91C6CA02300011439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65B04DBE1C6CA02300011439 /* TennisAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TennisAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		65B04DC21C6CA02300011439 /* TennisAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisAppUITests.swift; sourceTree = "<group>"; };
+		65B04DC41C6CA02300011439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		65B04D9C1C6CA02300011439 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B04DB01C6CA02300011439 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B04DBB1C6CA02300011439 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		65B04D961C6CA02300011439 = {
+			isa = PBXGroup;
+			children = (
+				65B04DA11C6CA02300011439 /* TennisApp */,
+				65B04DB61C6CA02300011439 /* TennisAppTests */,
+				65B04DC11C6CA02300011439 /* TennisAppUITests */,
+				65B04DA01C6CA02300011439 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		65B04DA01C6CA02300011439 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				65B04D9F1C6CA02300011439 /* TennisApp.app */,
+				65B04DB31C6CA02300011439 /* TennisAppTests.xctest */,
+				65B04DBE1C6CA02300011439 /* TennisAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		65B04DA11C6CA02300011439 /* TennisApp */ = {
+			isa = PBXGroup;
+			children = (
+				65B04DA21C6CA02300011439 /* AppDelegate.swift */,
+				65B04DA41C6CA02300011439 /* ViewController.swift */,
+				65B04DA61C6CA02300011439 /* Main.storyboard */,
+				65B04DA91C6CA02300011439 /* Assets.xcassets */,
+				65B04DAB1C6CA02300011439 /* LaunchScreen.storyboard */,
+				65B04DAE1C6CA02300011439 /* Info.plist */,
+			);
+			path = TennisApp;
+			sourceTree = "<group>";
+		};
+		65B04DB61C6CA02300011439 /* TennisAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				65B04DB71C6CA02300011439 /* TennisAppTests.swift */,
+				65B04DB91C6CA02300011439 /* Info.plist */,
+			);
+			path = TennisAppTests;
+			sourceTree = "<group>";
+		};
+		65B04DC11C6CA02300011439 /* TennisAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				65B04DC21C6CA02300011439 /* TennisAppUITests.swift */,
+				65B04DC41C6CA02300011439 /* Info.plist */,
+			);
+			path = TennisAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		65B04D9E1C6CA02300011439 /* TennisApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65B04DC71C6CA02300011439 /* Build configuration list for PBXNativeTarget "TennisApp" */;
+			buildPhases = (
+				65B04D9B1C6CA02300011439 /* Sources */,
+				65B04D9C1C6CA02300011439 /* Frameworks */,
+				65B04D9D1C6CA02300011439 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TennisApp;
+			productName = TennisApp;
+			productReference = 65B04D9F1C6CA02300011439 /* TennisApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		65B04DB21C6CA02300011439 /* TennisAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65B04DCA1C6CA02300011439 /* Build configuration list for PBXNativeTarget "TennisAppTests" */;
+			buildPhases = (
+				65B04DAF1C6CA02300011439 /* Sources */,
+				65B04DB01C6CA02300011439 /* Frameworks */,
+				65B04DB11C6CA02300011439 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65B04DB51C6CA02300011439 /* PBXTargetDependency */,
+			);
+			name = TennisAppTests;
+			productName = TennisAppTests;
+			productReference = 65B04DB31C6CA02300011439 /* TennisAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		65B04DBD1C6CA02300011439 /* TennisAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65B04DCD1C6CA02300011439 /* Build configuration list for PBXNativeTarget "TennisAppUITests" */;
+			buildPhases = (
+				65B04DBA1C6CA02300011439 /* Sources */,
+				65B04DBB1C6CA02300011439 /* Frameworks */,
+				65B04DBC1C6CA02300011439 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65B04DC01C6CA02300011439 /* PBXTargetDependency */,
+			);
+			name = TennisAppUITests;
+			productName = TennisAppUITests;
+			productReference = 65B04DBE1C6CA02300011439 /* TennisAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		65B04D971C6CA02300011439 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Andrea Stevanato";
+				TargetAttributes = {
+					65B04D9E1C6CA02300011439 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					65B04DB21C6CA02300011439 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 65B04D9E1C6CA02300011439;
+					};
+					65B04DBD1C6CA02300011439 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 65B04D9E1C6CA02300011439;
+					};
+				};
+			};
+			buildConfigurationList = 65B04D9A1C6CA02300011439 /* Build configuration list for PBXProject "TennisApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 65B04D961C6CA02300011439;
+			productRefGroup = 65B04DA01C6CA02300011439 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				65B04D9E1C6CA02300011439 /* TennisApp */,
+				65B04DB21C6CA02300011439 /* TennisAppTests */,
+				65B04DBD1C6CA02300011439 /* TennisAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		65B04D9D1C6CA02300011439 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B04DAD1C6CA02300011439 /* LaunchScreen.storyboard in Resources */,
+				65B04DAA1C6CA02300011439 /* Assets.xcassets in Resources */,
+				65B04DA81C6CA02300011439 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B04DB11C6CA02300011439 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B04DBC1C6CA02300011439 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		65B04D9B1C6CA02300011439 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B04DA51C6CA02300011439 /* ViewController.swift in Sources */,
+				65B04DA31C6CA02300011439 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B04DAF1C6CA02300011439 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B04DB81C6CA02300011439 /* TennisAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B04DBA1C6CA02300011439 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B04DC31C6CA02300011439 /* TennisAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		65B04DB51C6CA02300011439 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65B04D9E1C6CA02300011439 /* TennisApp */;
+			targetProxy = 65B04DB41C6CA02300011439 /* PBXContainerItemProxy */;
+		};
+		65B04DC01C6CA02300011439 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65B04D9E1C6CA02300011439 /* TennisApp */;
+			targetProxy = 65B04DBF1C6CA02300011439 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		65B04DA61C6CA02300011439 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65B04DA71C6CA02300011439 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		65B04DAB1C6CA02300011439 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65B04DAC1C6CA02300011439 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		65B04DC51C6CA02300011439 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		65B04DC61C6CA02300011439 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		65B04DC81C6CA02300011439 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TennisApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.as..TennisApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		65B04DC91C6CA02300011439 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TennisApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.as..TennisApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		65B04DCB1C6CA02300011439 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TennisAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.as..TennisAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TennisApp.app/TennisApp";
+			};
+			name = Debug;
+		};
+		65B04DCC1C6CA02300011439 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TennisAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.as..TennisAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TennisApp.app/TennisApp";
+			};
+			name = Release;
+		};
+		65B04DCE1C6CA02300011439 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TennisAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.as..TennisAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TennisApp;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		65B04DCF1C6CA02300011439 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TennisAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.as..TennisAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TennisApp;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		65B04D9A1C6CA02300011439 /* Build configuration list for PBXProject "TennisApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65B04DC51C6CA02300011439 /* Debug */,
+				65B04DC61C6CA02300011439 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65B04DC71C6CA02300011439 /* Build configuration list for PBXNativeTarget "TennisApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65B04DC81C6CA02300011439 /* Debug */,
+				65B04DC91C6CA02300011439 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		65B04DCA1C6CA02300011439 /* Build configuration list for PBXNativeTarget "TennisAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65B04DCB1C6CA02300011439 /* Debug */,
+				65B04DCC1C6CA02300011439 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		65B04DCD1C6CA02300011439 /* Build configuration list for PBXNativeTarget "TennisAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65B04DCE1C6CA02300011439 /* Debug */,
+				65B04DCF1C6CA02300011439 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 65B04D971C6CA02300011439 /* Project object */;
+}
