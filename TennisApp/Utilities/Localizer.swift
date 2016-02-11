@@ -14,6 +14,12 @@ enum LocalizerKey : String {
     
     case appName = "appName"
     
+    case menu_home = "menu.home"
+    case menu_rackets = "menu.rackets"
+    case menu_stats = "menu.stats"
+    case menu_profile = "menu.profile"
+    case menu_settings = "menu.settings"
+    
     case generic_done = "generic.done"
     case generic_cancel = "generic.cancel"
     case generic_wait = "generic.wait"
@@ -34,22 +40,7 @@ enum LocalizerKey : String {
     case generic_notAvailable = "generic.notAvailable"
     case generic_alertTitle = "generic.alertTitle"
     
-    case toolbar_keyboard_done = "toolbar.keyboard.done"
-    case toolbar_keyboard_cancel = "toolbar.keyboard.cancel"
-    
     case settings_title = "settings.title"
-    case settings_account = "settings.account"
-    case settings_status = "settings.status"
-    case settings_others = "settings.others"
-    case settings_logout = "settings.logout"
-    case settings_twitter = "settings.twitter"
-    case settings_paymentMethod = "settings.paymentMethod"
-    case settings_streamStatus = "settings.streamStatus"
-    case settings_serverStatus = "settings.serverStatus"
-    case settings_deliveryAddress = "settings.deliveryAddress"
-    case settings_verifyPhone = "settings.verifyPhone"
-    case settings_privacyPolicy = "settings.privacyPolicy"
-    case settings_termsOfUser = "settings.termsOfUser"
     case settings_walkthrough = "settings.walkthrough"
     case settings_support = "settings.support"
 }

@@ -12,6 +12,50 @@ import PassKit
 import Alamofire
 import AlamofireImage
 
+
+//MARK: - Menu Item
+
+enum MenuItem : Int {
+    
+    case Home = 0
+    case Rackets = 1
+    case Stats = 2
+    case Profile = 3
+    case Settings = 4
+    
+    static var count: Int { return MenuItem.Settings.rawValue + 1}
+    
+    func getStoryboardName() -> String {
+        switch self {
+        case .Home:
+            return "Main"
+        case .Rackets:
+            return "Rackets"
+        case .Stats:
+            return "Stats"
+        case .Profile:
+            return "Profile"
+        case .Settings:
+            return "Settings"
+        }
+    }
+    
+    func getLocalizedName() -> String {
+        switch self {
+        case .Home:
+            return localizer.get(LocalizerKey.menu_home)
+        case .Rackets:
+            return localizer.get(LocalizerKey.menu_rackets)
+        case .Stats:
+            return localizer.get(LocalizerKey.menu_stats)
+        case .Profile:
+            return localizer.get(LocalizerKey.menu_profile)
+        case .Settings:
+            return localizer.get(LocalizerKey.menu_settings)
+        }
+    }
+}
+
 //MARK: - Utils Class
 
 class Utils {
@@ -191,7 +235,7 @@ class Utils {
     
     //MARK: Storyboard
     
-    static func getControllerFromStoryboard(storyboard : String, controllerId : String?)  -> UIViewController {
+    static func getControllerFromStoryboard(storyboard : String, controllerId : String? = nil)  -> UIViewController {
         
         let storyboard = UIStoryboard(name: storyboard, bundle: nil)
         
@@ -199,10 +243,6 @@ class Utils {
             return storyboard.instantiateViewControllerWithIdentifier(controllerId)
         }
         return storyboard.instantiateInitialViewController()!
-    }
-    
-    static func getInitialControllerFromStoryboard(storyboard : String) -> UIViewController {
-        return Utils.getControllerFromStoryboard(storyboard, controllerId: nil)
     }
     
     //MARK: EventStore Utils

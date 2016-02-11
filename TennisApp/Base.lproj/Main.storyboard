@@ -22,5 +22,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Side Left View Controller-->
+        <scene sceneID="NMy-VS-bXC">
+            <objects>
+                <viewController restorationIdentifier="MenuViewController" storyboardIdentifier="MenuViewController" id="rQq-g2-x8M" customClass="RESideLeftViewController" customModule="TennisApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lIc-Zz-Hfx"/>
+                        <viewControllerLayoutGuide type="bottom" id="lWz-Us-AC6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uBJ-IH-god">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Yso-Hm-o0P">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WqI-KW-exX">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="80" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="menu_cell" id="nlI-H3-8x6">
+                                        <rect key="frame" x="0.0" y="22" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nlI-H3-8x6" id="mSu-Jd-jA7">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="rQq-g2-x8M" id="AiT-kF-TcZ"/>
+                                    <outlet property="delegate" destination="rQq-g2-x8M" id="Brs-ZT-pU4"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Yso-Hm-o0P" firstAttribute="leading" secondItem="uBJ-IH-god" secondAttribute="leading" id="0V5-aj-3pO"/>
+                            <constraint firstItem="WqI-KW-exX" firstAttribute="leading" secondItem="uBJ-IH-god" secondAttribute="leading" id="2Zo-hQ-AVX"/>
+                            <constraint firstItem="WqI-KW-exX" firstAttribute="top" secondItem="uBJ-IH-god" secondAttribute="top" id="9SX-MO-dCd"/>
+                            <constraint firstAttribute="trailing" secondItem="WqI-KW-exX" secondAttribute="trailing" id="Nbb-Ya-kMH"/>
+                            <constraint firstItem="Yso-Hm-o0P" firstAttribute="top" secondItem="uBJ-IH-god" secondAttribute="top" id="arx-Yl-ZBJ"/>
+                            <constraint firstItem="lWz-Us-AC6" firstAttribute="top" secondItem="WqI-KW-exX" secondAttribute="bottom" id="bWz-vz-ieG"/>
+                            <constraint firstItem="lWz-Us-AC6" firstAttribute="top" secondItem="Yso-Hm-o0P" secondAttribute="bottom" id="quB-8G-efz"/>
+                            <constraint firstAttribute="trailing" secondItem="Yso-Hm-o0P" secondAttribute="trailing" id="sIT-KI-OWm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImage" destination="Yso-Hm-o0P" id="MTO-js-Nn4"/>
+                        <outlet property="tableViewOutlet" destination="WqI-KW-exX" id="dn7-SQ-KJK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YRG-GA-ooI" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="84" y="756"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="menu_background.jpg" width="2500" height="1667"/>
+    </resources>
 </document>

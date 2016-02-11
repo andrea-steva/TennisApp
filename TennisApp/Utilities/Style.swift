@@ -10,7 +10,7 @@ import UIKit
 
 //MARK: FontType
 
-enum StyleColor : String {
+enum ThemeColor : String {
     case Defaulf = "default"
 }
 
@@ -114,9 +114,9 @@ enum FontSize {
     
 }
 
-//MARK: AppStyle
+//MARK: Style
 
-struct AppStyle {
+struct Style {
     
     static func setup() {
         Colors.setupStyle()
@@ -135,7 +135,7 @@ struct AppStyle {
         static let primaryDarkPressedColor = primaryDarkColor.colorWithAlphaComponent(0.8)
         
         static let lightColor = UIColor.whiteColor()
-        static let darkColor = UIColor(hexRgba: "1C1C1CFF")
+        static let darkColor = UIColor(hexRgba: "111111FF")
         static let grayColor = UIColor(hexRgba: "a7a7aaff")
         static let lightGrayColor = UIColor(hexRgba: "F3F3F3ff")
 

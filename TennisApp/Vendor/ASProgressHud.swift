@@ -128,7 +128,7 @@ class ASProgressHud: UIView {
         var imageArray : [UIImage] = []
         for var c = 0; c < imagesNumber; c++ {
             var image = UIImage(named: NSString(format: "%@_%02d", prefixImageName, c) as String)
-            image = image!.tint(AppStyle.Colors.primaryColor)
+            image = image!.tint(Style.Colors.primaryColor)
             imageArray.append(image!)
         }
         return imageArray
