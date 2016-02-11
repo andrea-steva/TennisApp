@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
-class BaseViewController: UIViewController {
+class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,15 +22,20 @@ class BaseViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //MARK: DZNEmptyDataSetSource
+    
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: "No element available")
     }
-    */
+    
+    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+        return Style.Images.notAvailable
+    }
+    
+    func offsetForEmptyDataSet(scrollView: UIScrollView!) -> CGPoint {
+        return CGPointMake(0, -64)
+    }
+
+    //MARK: DZNEmptyDataSetDelegate
 
 }

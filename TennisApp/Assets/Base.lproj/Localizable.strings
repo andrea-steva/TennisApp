@@ -14,8 +14,17 @@
 "menu.profile" = "Profile";
 "menu.settings" = "Settings";
 
-"UNABLE-TO-LOCALIZE" = "Unable to localize";
-"CHECK-CONNECTION" = "Please check your network connection or that you are not in airplane mode";
+"generic.done" = "Done";
+"generic.cancel" = "Cancel";
+"generic.error" = "Error";
+"generic.ok" = "Ok";
+"generic.yes" = "Yes";
+"generic.emptyDataSetTitle" = "No element available";
+"generic.notAvailable" = "Not available";
+"generic.alertTitle" = "Notice";
+
+"dialog.unableToLocalize" = "Unable to localize";
+"dialog.checkConnection" = "Please check your network connection or that you are not in airplane mode";
 
 "settings.section1" = "Name section 1";
 "settings.section2" = "Name section 2";
@@ -24,3 +33,4 @@
 "settings.support" = "Support";
 "settings.website" = "Website";
 "settings.version" = "Version";
+

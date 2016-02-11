@@ -22,27 +22,23 @@ enum LocalizerKey : String {
     
     case generic_done = "generic.done"
     case generic_cancel = "generic.cancel"
-    case generic_wait = "generic.wait"
-    case generic_search = "generic.search"
-    case generic_confirm = "generic.confirm"
-    case generic_success = "generic.success"
     case generic_error = "generic.error"
     case generic_ok = "generic.ok"
     case generic_yes = "generic.yes"
-    case generic_warning = "generic.warning"
-    case generic_loadMore = "generic.loadMore"
-    case generic_featureNotImplemented = "generic.featureNotImplemented"
     case generic_emptyDataSetTitle = "generic.emptyDataSetTitle"
-    case generic_addToCalendar = "generic.addToCalendar"
-    case generic_addToWallet = "generic.addToWallet"
-    case generic_showDetails = "generic.showDetails"
-    case generic_cannotSendEmail = "generic.cannotSendEmail"
     case generic_notAvailable = "generic.notAvailable"
     case generic_alertTitle = "generic.alertTitle"
     
-    case settings_title = "settings.title"
-    case settings_walkthrough = "settings.walkthrough"
+    case dialog_unableToLocalize = "dialog.unableToLocalize"
+    case dialog_checkConnection = "dialog.checkConnection"
+    
+    case settings_section1 = "settings.section1"
+    case settings_section2 = "settings.section2"
+    case settings_currency = "settings.currency"
+    case settings_tour = "settings.tour"
     case settings_support = "settings.support"
+    case settings_website = "settings.website"
+    case settings_version = "settings.version"
 }
 
 class Localizer {

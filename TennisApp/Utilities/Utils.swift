@@ -409,7 +409,7 @@ class Utils {
         
         let alertController = UIAlertController(title: alertTitle, message: message, preferredStyle: .Alert)
         
-        let actionConfirm = UIAlertAction(title: localizer.get(.generic_confirm), style: .Default) { (alertAction) -> Void in
+        let actionConfirm = UIAlertAction(title: localizer.get(.generic_ok), style: .Default) { (alertAction) -> Void in
             controller.dismissViewControllerAnimated(true, completion: nil)
             completionBlock(userCancelAction: false)
         }
