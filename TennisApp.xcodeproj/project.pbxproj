@@ -44,6 +44,15 @@
 		65B04E231C6CBEEF00011439 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E221C6CBEEF00011439 /* Utils.swift */; };
 		65B04E251C6CC01000011439 /* Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E241C6CC01000011439 /* Localizer.swift */; };
 		65B04E281C6CC0C600011439 /* ASProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E271C6CC0C600011439 /* ASProgressHud.swift */; };
+		65B04E2B1C6CC69400011439 /* RealmDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E2A1C6CC69400011439 /* RealmDao.swift */; };
+		65B04E2D1C6CC95F00011439 /* TNUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E2C1C6CC95F00011439 /* TNUser.swift */; };
+		65B04E2F1C6CCD4D00011439 /* TNRacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E2E1C6CCD4D00011439 /* TNRacket.swift */; };
+		65B04E311C6CCD5C00011439 /* TNActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E301C6CCD5C00011439 /* TNActivity.swift */; };
+		65B04E351C6CCE1100011439 /* TNString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E341C6CCE1100011439 /* TNString.swift */; };
+		65B04E391C6CCFCE00011439 /* TNFitness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E381C6CCFCE00011439 /* TNFitness.swift */; };
+		65B04E3B1C6CD03500011439 /* TNMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E3A1C6CD03500011439 /* TNMatch.swift */; };
+		65B04E3D1C6CD05900011439 /* TNPractice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E3C1C6CD05900011439 /* TNPractice.swift */; };
+		65B04E3F1C6CD06600011439 /* TNMatchScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E3E1C6CD06600011439 /* TNMatchScore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +118,15 @@
 		65B04E221C6CBEEF00011439 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		65B04E241C6CC01000011439 /* Localizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizer.swift; sourceTree = "<group>"; };
 		65B04E271C6CC0C600011439 /* ASProgressHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ASProgressHud.swift; path = Vendor/ASProgressHud.swift; sourceTree = "<group>"; };
+		65B04E2A1C6CC69400011439 /* RealmDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmDao.swift; path = Storage/RealmDao.swift; sourceTree = "<group>"; };
+		65B04E2C1C6CC95F00011439 /* TNUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TNUser.swift; sourceTree = "<group>"; };
+		65B04E2E1C6CCD4D00011439 /* TNRacket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TNRacket.swift; sourceTree = "<group>"; };
+		65B04E301C6CCD5C00011439 /* TNActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TNActivity.swift; sourceTree = "<group>"; };
+		65B04E341C6CCE1100011439 /* TNString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TNString.swift; sourceTree = "<group>"; };
+		65B04E381C6CCFCE00011439 /* TNFitness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TNFitness.swift; sourceTree = "<group>"; };
+		65B04E3A1C6CD03500011439 /* TNMatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TNMatch.swift; sourceTree = "<group>"; };
+		65B04E3C1C6CD05900011439 /* TNPractice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TNPractice.swift; sourceTree = "<group>"; };
+		65B04E3E1C6CD06600011439 /* TNMatchScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TNMatchScore.swift; sourceTree = "<group>"; };
 		9246E445FB094E36A048BFB1 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -173,6 +191,7 @@
 			children = (
 				65B04E1D1C6CBCB700011439 /* Managers */,
 				65B04DE21C6CA74400011439 /* Assets */,
+				65B04E291C6CC67300011439 /* Storage */,
 				65B04DE41C6CA74400011439 /* Model */,
 				65B04DE61C6CA74400011439 /* ViewModel */,
 				65B04DE31C6CA74400011439 /* Controller */,
@@ -243,6 +262,9 @@
 		65B04DE41C6CA74400011439 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				65B04E2C1C6CC95F00011439 /* TNUser.swift */,
+				65B04E321C6CCDC600011439 /* Equipment */,
+				65B04E331C6CCDE000011439 /* Activity */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -315,6 +337,35 @@
 				65B04E271C6CC0C600011439 /* ASProgressHud.swift */,
 			);
 			name = Vendor;
+			sourceTree = "<group>";
+		};
+		65B04E291C6CC67300011439 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				65B04E2A1C6CC69400011439 /* RealmDao.swift */,
+			);
+			name = Storage;
+			sourceTree = "<group>";
+		};
+		65B04E321C6CCDC600011439 /* Equipment */ = {
+			isa = PBXGroup;
+			children = (
+				65B04E2E1C6CCD4D00011439 /* TNRacket.swift */,
+				65B04E341C6CCE1100011439 /* TNString.swift */,
+			);
+			name = Equipment;
+			sourceTree = "<group>";
+		};
+		65B04E331C6CCDE000011439 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				65B04E301C6CCD5C00011439 /* TNActivity.swift */,
+				65B04E3A1C6CD03500011439 /* TNMatch.swift */,
+				65B04E381C6CCFCE00011439 /* TNFitness.swift */,
+				65B04E3C1C6CD05900011439 /* TNPractice.swift */,
+				65B04E3E1C6CD06600011439 /* TNMatchScore.swift */,
+			);
+			name = Activity;
 			sourceTree = "<group>";
 		};
 		FD46F718F2D8FE99929347BD /* Pods */ = {
@@ -531,13 +582,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				65B04E281C6CC0C600011439 /* ASProgressHud.swift in Sources */,
+				65B04E311C6CCD5C00011439 /* TNActivity.swift in Sources */,
+				65B04E391C6CCFCE00011439 /* TNFitness.swift in Sources */,
 				65B04E211C6CBDC200011439 /* Settings.swift in Sources */,
+				65B04E3F1C6CD06600011439 /* TNMatchScore.swift in Sources */,
+				65B04E2B1C6CC69400011439 /* RealmDao.swift in Sources */,
+				65B04E351C6CCE1100011439 /* TNString.swift in Sources */,
 				65B04E1A1C6CA8BD00011439 /* Extension.swift in Sources */,
+				65B04E3B1C6CD03500011439 /* TNMatch.swift in Sources */,
+				65B04E2D1C6CC95F00011439 /* TNUser.swift in Sources */,
+				65B04E2F1C6CCD4D00011439 /* TNRacket.swift in Sources */,
 				65B04DA51C6CA02300011439 /* ViewController.swift in Sources */,
 				65B04E231C6CBEEF00011439 /* Utils.swift in Sources */,
 				65B04E1F1C6CBCD000011439 /* LocationManager.swift in Sources */,
 				65B04DA31C6CA02300011439 /* AppDelegate.swift in Sources */,
 				65B04E1C1C6CBAF700011439 /* Style.swift in Sources */,
+				65B04E3D1C6CD05900011439 /* TNPractice.swift in Sources */,
 				65B04E251C6CC01000011439 /* Localizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

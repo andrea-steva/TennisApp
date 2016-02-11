@@ -15,10 +15,11 @@ enum StyleColor : String {
 }
 
 enum FontType: String {
-    case BOLD = "OpenSans-Bold"
-    case SEMIBOLD = "OpenSans-Semibold"
-    case REGULAR = "OpenSans"
-    case LIGHT = "OpenSans-Light"
+    case BOLD = "Lato-Bold"
+    case SEMIBOLD = "Lato-Semibold"
+    case REGULAR = "Lato-Regular"
+    case LIGHT = "Lato-Light"
+    case THIN = "Lato-Thin"
     
     static func fromIndex(index: Int) -> FontType? {
         switch index {
@@ -30,6 +31,8 @@ enum FontType: String {
             return .REGULAR
         case 3:
             return .LIGHT
+        case 4:
+            return .THIN
         default:
             return nil
         }
@@ -45,6 +48,8 @@ enum FontType: String {
             return 2
         case .LIGHT:
             return 3
+        case .THIN:
+            return 4
         }
     }
     
