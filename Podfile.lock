@@ -1,0 +1,107 @@
+PODS:
+  - AFNetworking (3.0.4):
+    - AFNetworking/NSURLSession (= 3.0.4)
+    - AFNetworking/Reachability (= 3.0.4)
+    - AFNetworking/Security (= 3.0.4)
+    - AFNetworking/Serialization (= 3.0.4)
+    - AFNetworking/UIKit (= 3.0.4)
+  - AFNetworking/NSURLSession (3.0.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.0.4)
+  - AFNetworking/Security (3.0.4)
+  - AFNetworking/Serialization (3.0.4)
+  - AFNetworking/UIKit (3.0.4):
+    - AFNetworking/NSURLSession
+  - Charts (2.2.2):
+    - Charts/Core (= 2.2.2)
+  - Charts/Core (2.2.2)
+  - Crashlytics (3.6.0):
+    - Fabric (~> 1.6.3)
+  - DZNEmptyDataSet (1.7.3)
+  - Eureka (1.3.1)
+  - Fabric (1.6.5)
+  - FontAwesome.swift (0.7.0)
+  - FormatterKit (1.8.0):
+    - FormatterKit/AddressFormatter (= 1.8.0)
+    - FormatterKit/ArrayFormatter (= 1.8.0)
+    - FormatterKit/ColorFormatter (= 1.8.0)
+    - FormatterKit/LocationFormatter (= 1.8.0)
+    - FormatterKit/NameFormatter (= 1.8.0)
+    - FormatterKit/OrdinalNumberFormatter (= 1.8.0)
+    - FormatterKit/TimeIntervalFormatter (= 1.8.0)
+    - FormatterKit/UnitOfInformationFormatter (= 1.8.0)
+    - FormatterKit/URLRequestFormatter (= 1.8.0)
+  - FormatterKit/AddressFormatter (1.8.0)
+  - FormatterKit/ArrayFormatter (1.8.0)
+  - FormatterKit/ColorFormatter (1.8.0)
+  - FormatterKit/LocationFormatter (1.8.0)
+  - FormatterKit/NameFormatter (1.8.0)
+  - FormatterKit/OrdinalNumberFormatter (1.8.0)
+  - FormatterKit/TimeIntervalFormatter (1.8.0)
+  - FormatterKit/UnitOfInformationFormatter (1.8.0)
+  - FormatterKit/URLRequestFormatter (1.8.0)
+  - INSPullToRefresh (1.1.4)
+  - IQKeyboardManager (3.3.7)
+  - MBProgressHUD (0.9.2)
+  - PagingMenuController (0.7.9)
+  - ReactiveCocoa (4.0.1):
+    - ReactiveCocoa/UI (= 4.0.1)
+    - Result (~> 1.0.2)
+  - ReactiveCocoa/Core (4.0.1):
+    - ReactiveCocoa/no-arc
+    - Result (~> 1.0.2)
+  - ReactiveCocoa/no-arc (4.0.1):
+    - Result (~> 1.0.2)
+  - ReactiveCocoa/UI (4.0.1):
+    - ReactiveCocoa/Core
+    - Result (~> 1.0.2)
+  - Realm (0.98.1):
+    - Realm/Headers (= 0.98.1)
+  - Realm/Headers (0.98.1)
+  - RealmSwift (0.98.1):
+    - Realm (= 0.98.1)
+  - RESideMenu (4.0.7)
+  - Result (1.0.2)
+  - SWTableViewCell (0.3.7)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.0)
+  - Charts (~> 2.1)
+  - Crashlytics
+  - DZNEmptyDataSet
+  - Eureka (~> 1.3)
+  - Fabric (~> 1.5)
+  - FontAwesome.swift (~> 0.6)
+  - FormatterKit
+  - INSPullToRefresh (~> 1.0)
+  - IQKeyboardManager (~> 3.3)
+  - MBProgressHUD (~> 0.8)
+  - PagingMenuController
+  - ReactiveCocoa (~> 4.0)
+  - RealmSwift (~> 0.98)
+  - RESideMenu (~> 4.0.7)
+  - SWTableViewCell (~> 0.3)
+
+SPEC CHECKSUMS:
+  AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  Charts: e32b718fa716bdb7693b9e419d6d4a39a3f7992e
+  Crashlytics: e4e8d02914f2608fbc7bf42b1a7af838b0db67a2
+  DZNEmptyDataSet: dd7cca17c1d07dfa78956859b1e70a52505678ef
+  Eureka: 10df73e578ed8ec1f30c8fda5b4ffc8739786b74
+  Fabric: 338ffd3c2afcab120638907b4251189de9ad17b3
+  FontAwesome.swift: c6e30a1a81716306ff9c81f2d38dda88ac5b8294
+  FormatterKit: bddde83e054edf9d9ee14f9de3b3a5103db256f4
+  INSPullToRefresh: a27f7faf022f858f02a7680943e11a1f7ce3430a
+  IQKeyboardManager: 249c3946acf61345c18b038eb50863fe2793e3a8
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  PagingMenuController: 619ab0852545e0619fcfa8672f10f39f8d10de1f
+  ReactiveCocoa: f7011630aee4deeb16352fcb1b50d6bde9db4f90
+  Realm: ca4a4122e939e228e10694fc49011386cb2ecb07
+  RealmSwift: 7d3c7033427816a2c3417ba0d004d694987e503a
+  RESideMenu: f24c508404b49c667344c54aba7e590883533958
+  Result: dd3dd71af3fa2e262f1a999e14fba2c25ec14f16
+  SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
+
+COCOAPODS: 0.39.0
