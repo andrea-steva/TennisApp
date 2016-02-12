@@ -13,6 +13,11 @@ import INSPullToRefresh
 
 class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
 
+    //MARK: IBOutlet
+    @IBOutlet var backgroundView : UIImageView!
+    
+    //MARK: View Management
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

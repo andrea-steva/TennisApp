@@ -46,7 +46,7 @@ class HomeViewController: BaseViewController, PagingMenuControllerDelegate {
         options.selectedFont = Style.Fonts.get(.REGULAR, size: .NORMAL)
         options.selectedTextColor = Style.Colors.lightColor
         options.backgroundColor = Style.Colors.courtClay
-        options.menuItemMode = PagingMenuOptions.MenuItemMode.RoundRect(radius: 10, horizontalPadding: 10, verticalPadding: 10, selectedColor: Style.Colors.darkColor)
+        options.menuItemMode = PagingMenuOptions.MenuItemMode.RoundRect(radius: 10, horizontalPadding: 10, verticalPadding: 10, selectedColor: Style.Colors.courtClay.darker())
         options.menuDisplayMode = PagingMenuOptions.MenuDisplayMode.SegmentedControl
         
         let pagingMenuController = self.childViewControllers.first as! PagingMenuController

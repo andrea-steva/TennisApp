@@ -14,7 +14,7 @@ class RacketsViewController: BaseViewController {
     
     @IBOutlet var tableView : UITableView!
     
-    //MARK:
+    //MARK: View Management
     
     override func controllerTitleKey() -> LocalizerKey {
         return .menu_rackets
@@ -22,13 +22,9 @@ class RacketsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.backgroundView.image =  self.backgroundView.image?.applyMenuEffect()
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     /*
     // MARK: - Navigation

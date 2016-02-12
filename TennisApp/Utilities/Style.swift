@@ -129,9 +129,9 @@ struct Style {
         appearance.tintColor = Style.Colors.lightColor
         appearance.titleTextAttributes = [NSForegroundColorAttributeName : Style.Colors.lightColor, NSFontAttributeName : Style.Fonts.get(.LIGHT, size: .EXTRALARGE)]
         //appearance.barTintColor = Style.Colors.navigationBarColor
-        //appearance.shadowImage = UIImage.imageWithColor(Style.Colors.grayColor)
+        appearance.shadowImage = UIImage.imageWithColor(UIColor.clearColor())
         //appearance.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        //appearance.translucent = false
+        appearance.translucent = false
     }
     
     static func setupTextFieldStyle() {
