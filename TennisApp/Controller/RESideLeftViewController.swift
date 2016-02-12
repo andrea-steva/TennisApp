@@ -20,9 +20,7 @@ class RESideLeftViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Blur effect
         self.backgroundView.image = self.backgroundView.image?.applyMenuEffect()
-        
     }
     
     //MARK: UITableViewDataSource
@@ -30,17 +28,19 @@ class RESideLeftViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        let menuItem = MenuItem(rawValue: indexPath.row)!
         let cell = tableView.dequeueReusableCellWithIdentifier("menu_cell", forIndexPath: indexPath)
         cell.textLabel?.font = Style.Fonts.get(.LIGHT, size: 18.0);
         cell.textLabel?.textColor = Style.Colors.lightColor.colorWithAlphaComponent(0.7)
-        cell.textLabel?.text = MenuItem(rawValue: indexPath.row)!.getLocalizedName()
+        cell.imageView?.image = menuItem.menuIcon()
+        cell.textLabel?.text = menuItem.localizedName()
         return cell;
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let menuItem = MenuItem(rawValue: indexPath.row)!
-        let contentViewController = Utils.getControllerFromStoryboard(menuItem.getStoryboardName())
+        let contentViewController = Utils.getControllerFromStoryboard(menuItem.storyboardName())
         self.sideMenuViewController.setContentViewController(contentViewController, animated: true)
         self.sideMenuViewController.hideMenuViewController()
     }

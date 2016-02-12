@@ -16,7 +16,7 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -81,32 +81,6 @@
             </objects>
             <point key="canvasLocation" x="-120" y="856"/>
         </scene>
-        <!--Home View Controller-->
-        <scene sceneID="5fq-iG-525">
-            <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="PGu-FK-SWt" customClass="HomeViewController" customModule="TennisApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="p9j-Cx-nSc"/>
-                        <viewControllerLayoutGuide type="bottom" id="p75-xL-NrO"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Nv5-rc-Oc9">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="vwW-Kv-BA4">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu-icon" id="WUk-3t-Nvk">
-                            <color key="tintColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="presentLeftMenuViewController:" destination="PGu-FK-SWt" id="acI-a0-KGp"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NIc-2Y-SQ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1350" y="182"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="p8z-Ex-SQ7">
             <objects>
@@ -114,18 +88,120 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xYi-Ko-bPW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.92156862750000001" green="0.4431372549" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="PGu-FK-SWt" kind="relationship" relationship="rootViewController" id="c9a-V9-RdQ"/>
+                        <segue destination="VAR-NB-opc" kind="relationship" relationship="rootViewController" id="8KK-wp-vJK"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CgE-E0-Qb1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="664" y="182"/>
         </scene>
+        <!--Home View Controller-->
+        <scene sceneID="Yj5-lD-QqG">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="VAR-NB-opc" customClass="HomeViewController" customModule="TennisApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fj2-Mg-XvZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="u7O-D0-X65"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PXP-lA-Lr2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7m-s1-8Hk">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <connections>
+                                    <segue destination="Dh1-mt-IA1" kind="embed" id="bno-cf-DWN"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="u7O-D0-X65" firstAttribute="top" secondItem="c7m-s1-8Hk" secondAttribute="bottom" id="128-DM-K4M"/>
+                            <constraint firstAttribute="trailing" secondItem="c7m-s1-8Hk" secondAttribute="trailing" id="Xdm-nr-xn8"/>
+                            <constraint firstItem="c7m-s1-8Hk" firstAttribute="leading" secondItem="PXP-lA-Lr2" secondAttribute="leading" id="dHf-NU-1gf"/>
+                            <constraint firstItem="c7m-s1-8Hk" firstAttribute="top" secondItem="Fj2-Mg-XvZ" secondAttribute="bottom" id="gcr-Is-NJ2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ufz-tM-Xl0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WGD-XN-EM9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1402" y="182"/>
+        </scene>
+        <!--Activities View Controller-->
+        <scene sceneID="Ks8-oN-7Ru">
+            <objects>
+                <viewController storyboardIdentifier="ActivitiesViewController" id="0CF-r7-oW5" customClass="ActivitiesViewController" customModule="TennisApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dvB-Om-C96"/>
+                        <viewControllerLayoutGuide type="bottom" id="zlh-ou-vvl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nPJ-L1-Rcw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ixs-Co-3Fg">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="yTr-h4-Seu">
+                                    <size key="itemSize" width="600" height="110"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <tableView key="backgroundView" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Q1f-st-HpN">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </tableView>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ixs-Co-3Fg" firstAttribute="top" secondItem="nPJ-L1-Rcw" secondAttribute="top" id="0aJ-G9-dzz"/>
+                            <constraint firstItem="zlh-ou-vvl" firstAttribute="top" secondItem="Ixs-Co-3Fg" secondAttribute="bottom" id="P6J-WC-gfm"/>
+                            <constraint firstItem="zlh-ou-vvl" firstAttribute="top" secondItem="Ixs-Co-3Fg" secondAttribute="bottom" id="Pgj-fT-pkk"/>
+                            <constraint firstItem="Ixs-Co-3Fg" firstAttribute="top" secondItem="dvB-Om-C96" secondAttribute="bottom" id="UTw-cz-nwm"/>
+                            <constraint firstAttribute="trailing" secondItem="Ixs-Co-3Fg" secondAttribute="trailing" id="cfo-Bh-ty7"/>
+                            <constraint firstItem="Ixs-Co-3Fg" firstAttribute="leading" secondItem="nPJ-L1-Rcw" secondAttribute="leading" id="e76-gE-OS0"/>
+                            <constraint firstAttribute="trailing" secondItem="Ixs-Co-3Fg" secondAttribute="trailing" id="gj0-Ad-OGb"/>
+                            <constraint firstItem="Ixs-Co-3Fg" firstAttribute="leading" secondItem="nPJ-L1-Rcw" secondAttribute="leading" id="ozG-nT-ohf"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="Q1f-st-HpN" id="up6-mD-zdE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Clg-2b-pSw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2760" y="214"/>
+        </scene>
+        <!--Paging Menu Controller-->
+        <scene sceneID="hyB-4O-3vl">
+            <objects>
+                <viewController id="Dh1-mt-IA1" customClass="PagingMenuController" customModule="PagingMenuController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EPE-3h-715"/>
+                        <viewControllerLayoutGuide type="bottom" id="gbH-OP-2fe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gpk-I4-M15">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vE5-hE-50M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2106" y="182"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="menu-icon" width="26" height="19"/>
         <image name="menu_background.jpg" width="2500" height="1667"/>
     </resources>
 </document>

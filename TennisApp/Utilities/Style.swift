@@ -126,12 +126,12 @@ struct Style {
     
     static func setupNavigationBarStyle() {
         let appearance = UINavigationBar.appearance()
-        appearance.tintColor = Style.Colors.navigationBarColor
-        appearance.titleTextAttributes = [NSForegroundColorAttributeName : Style.Colors.darkColor, NSFontAttributeName : Style.Fonts.get(.LIGHT, size: .EXTRALARGE)]
-        appearance.barTintColor = Style.Colors.navigationBarColor
-        appearance.shadowImage = UIImage.imageWithColor(Style.Colors.grayColor)
-        appearance.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        appearance.translucent = false
+        appearance.tintColor = Style.Colors.lightColor
+        appearance.titleTextAttributes = [NSForegroundColorAttributeName : Style.Colors.lightColor, NSFontAttributeName : Style.Fonts.get(.LIGHT, size: .EXTRALARGE)]
+        //appearance.barTintColor = Style.Colors.navigationBarColor
+        //appearance.shadowImage = UIImage.imageWithColor(Style.Colors.grayColor)
+        //appearance.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        //appearance.translucent = false
     }
     
     static func setupTextFieldStyle() {
@@ -171,7 +171,7 @@ struct Style {
         static let grayColor = UIColor(hexRgba: "a7a7aaff")
         static let lightGrayColor = UIColor(hexRgba: "F3F3F3ff")
         
-        static let navigationBarColor = UIColor(hexRgba: "#2867A5FF")
+        static let navigationBarColor = UIColor(hexRgba: "F2FB68FF")
         static let errorColor = UIColor(hexRgba: "FF0000FF")
         static let notificationColor = UIColor(hexRgba: "fd3e01ff")
         static let cellBackgroundColor = lightColor

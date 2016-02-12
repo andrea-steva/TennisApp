@@ -58,6 +58,7 @@
 		65B04E3B1C6CD03500011439 /* TNMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E3A1C6CD03500011439 /* TNMatch.swift */; };
 		65B04E3D1C6CD05900011439 /* TNPractice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E3C1C6CD05900011439 /* TNPractice.swift */; };
 		65B04E3F1C6CD06600011439 /* TNMatchScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E3E1C6CD06600011439 /* TNMatchScore.swift */; };
+		65D8249D1C6E38BE00E2918C /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8249C1C6E38BE00E2918C /* ActivitiesViewController.swift */; };
 		65FB52C11C6DE60C003A6DAE /* court_clay.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65FB52BE1C6DE60C003A6DAE /* court_clay.jpg */; };
 		65FB52C21C6DE60C003A6DAE /* court_grass.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65FB52BF1C6DE60C003A6DAE /* court_grass.jpg */; };
 		65FB52C31C6DE60C003A6DAE /* court_hard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65FB52C01C6DE60C003A6DAE /* court_hard.jpg */; };
@@ -146,6 +147,7 @@
 		65B04E3A1C6CD03500011439 /* TNMatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TNMatch.swift; sourceTree = "<group>"; };
 		65B04E3C1C6CD05900011439 /* TNPractice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TNPractice.swift; sourceTree = "<group>"; };
 		65B04E3E1C6CD06600011439 /* TNMatchScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TNMatchScore.swift; sourceTree = "<group>"; };
+		65D8249C1C6E38BE00E2918C /* ActivitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
 		65FB52BE1C6DE60C003A6DAE /* court_clay.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = court_clay.jpg; sourceTree = "<group>"; };
 		65FB52BF1C6DE60C003A6DAE /* court_grass.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = court_grass.jpg; sourceTree = "<group>"; };
 		65FB52C01C6DE60C003A6DAE /* court_hard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = court_hard.jpg; sourceTree = "<group>"; };
@@ -300,8 +302,8 @@
 			isa = PBXGroup;
 			children = (
 				6507CA701C6D119E00B7AD5C /* BaseViewController.swift */,
-				65FB52C41C6DEC0B003A6DAE /* HomeViewController.swift */,
-				65FB52D71C6DF252003A6DAE /* RacketsViewController.swift */,
+				65D824981C6E37D200E2918C /* Activitites */,
+				65D824991C6E37DA00E2918C /* Rackets */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -419,6 +421,23 @@
 				65B04E3E1C6CD06600011439 /* TNMatchScore.swift */,
 			);
 			name = Activity;
+			sourceTree = "<group>";
+		};
+		65D824981C6E37D200E2918C /* Activitites */ = {
+			isa = PBXGroup;
+			children = (
+				65FB52C41C6DEC0B003A6DAE /* HomeViewController.swift */,
+				65D8249C1C6E38BE00E2918C /* ActivitiesViewController.swift */,
+			);
+			name = Activitites;
+			sourceTree = "<group>";
+		};
+		65D824991C6E37DA00E2918C /* Rackets */ = {
+			isa = PBXGroup;
+			children = (
+				65FB52D71C6DF252003A6DAE /* RacketsViewController.swift */,
+			);
+			name = Rackets;
 			sourceTree = "<group>";
 		};
 		FD46F718F2D8FE99929347BD /* Pods */ = {
@@ -658,6 +677,7 @@
 				65FB52D81C6DF252003A6DAE /* RacketsViewController.swift in Sources */,
 				65B04E2D1C6CC95F00011439 /* TNUser.swift in Sources */,
 				6507CA681C6D065A00B7AD5C /* SwiftUIImageEffects.swift in Sources */,
+				65D8249D1C6E38BE00E2918C /* ActivitiesViewController.swift in Sources */,
 				65B04E2F1C6CCD4D00011439 /* TNRacket.swift in Sources */,
 				65B04E231C6CBEEF00011439 /* Utils.swift in Sources */,
 				65B04E1F1C6CBCD000011439 /* LocationManager.swift in Sources */,
