@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Side View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TennisApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RESideViewController" customModule="TennisApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,16 +16,17 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-120" y="188"/>
         </scene>
         <!--Side Left View Controller-->
         <scene sceneID="NMy-VS-bXC">
             <objects>
-                <viewController restorationIdentifier="MenuViewController" storyboardIdentifier="MenuViewController" id="rQq-g2-x8M" customClass="RESideLeftViewController" customModule="TennisApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuViewController" id="rQq-g2-x8M" customClass="RESideLeftViewController" customModule="TennisApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lIc-Zz-Hfx"/>
                         <viewControllerLayoutGuide type="bottom" id="lWz-Us-AC6"/>
@@ -54,8 +55,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="rQq-g2-x8M" id="AiT-kF-TcZ"/>
-                                    <outlet property="delegate" destination="rQq-g2-x8M" id="Brs-ZT-pU4"/>
+                                    <outlet property="dataSource" destination="rQq-g2-x8M" id="39F-3a-y5t"/>
+                                    <outlet property="delegate" destination="rQq-g2-x8M" id="bCI-5v-LSH"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -72,16 +73,59 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="backgroundImage" destination="Yso-Hm-o0P" id="MTO-js-Nn4"/>
-                        <outlet property="tableViewOutlet" destination="WqI-KW-exX" id="dn7-SQ-KJK"/>
+                        <outlet property="backgroundView" destination="Yso-Hm-o0P" id="JcM-6O-Ud7"/>
+                        <outlet property="tableView" destination="WqI-KW-exX" id="VA1-2z-JUh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YRG-GA-ooI" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="84" y="756"/>
+            <point key="canvasLocation" x="-120" y="856"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="5fq-iG-525">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="PGu-FK-SWt" customClass="HomeViewController" customModule="TennisApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p9j-Cx-nSc"/>
+                        <viewControllerLayoutGuide type="bottom" id="p75-xL-NrO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Nv5-rc-Oc9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vwW-Kv-BA4">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu-icon" id="WUk-3t-Nvk">
+                            <color key="tintColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="presentLeftMenuViewController:" destination="PGu-FK-SWt" id="acI-a0-KGp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NIc-2Y-SQ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1350" y="182"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="p8z-Ex-SQ7">
+            <objects>
+                <navigationController storyboardIdentifier="ContentViewController" id="doM-eJ-igx" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xYi-Ko-bPW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="PGu-FK-SWt" kind="relationship" relationship="rootViewController" id="c9a-V9-RdQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CgE-E0-Qb1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="664" y="182"/>
         </scene>
     </scenes>
     <resources>
+        <image name="menu-icon" width="26" height="19"/>
         <image name="menu_background.jpg" width="2500" height="1667"/>
     </resources>
 </document>

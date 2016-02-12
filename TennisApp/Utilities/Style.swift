@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import FontAwesome_swift
 
 //MARK: FontType
 
-enum ThemeColor : String {
-    case Defaulf = "default"
+enum Theme : String {
+    case Default = "default"
+    case Clay = "clay"
+    case Hard = "hard"
+    case Grass = "grass"
 }
 
 enum FontType: String {
@@ -118,6 +122,30 @@ enum FontSize {
 
 struct Style {
     
+    //MARK: Style
+    
+    static func setupNavigationBarStyle() {
+        let appearance = UINavigationBar.appearance()
+        appearance.tintColor = Style.Colors.navigationBarColor
+        appearance.titleTextAttributes = [NSForegroundColorAttributeName : Style.Colors.darkColor, NSFontAttributeName : Style.Fonts.get(.LIGHT, size: .EXTRALARGE)]
+        appearance.barTintColor = Style.Colors.navigationBarColor
+        appearance.shadowImage = UIImage.imageWithColor(Style.Colors.grayColor)
+        appearance.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        appearance.translucent = false
+    }
+    
+    static func setupTextFieldStyle() {
+        UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).backgroundColor = Style.Colors.primaryColor
+        UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = Style.Colors.lightColor
+        UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).textColor = Style.Colors.lightColor
+    }
+    
+    static func setupSearchBarStyle() {
+        UISearchBar.appearance().setBackgroundImage(UIImage(), forBarPosition: UIBarPosition.Any, barMetrics: UIBarMetrics.Default)
+        UISearchBar.appearance().setImage(UIImage.fontAwesomeIconWithName(FontAwesome.Search, textColor: Style.Colors.lightColor, size: CGSizeMake(32, 32)), forSearchBarIcon: UISearchBarIcon.Search, state: .Normal)
+        UISearchBar.appearance().setImage(UIImage.fontAwesomeIconWithName(FontAwesome.TimesCircle, textColor: Style.Colors.lightColor, size: CGSizeMake(20, 20)), forSearchBarIcon: UISearchBarIcon.Clear, state: .Normal)
+    }
+    
     static func setup() {
         Colors.setupStyle()
     }
@@ -134,16 +162,18 @@ struct Style {
         static var primaryDarkColor = UIColor(hexRgba: "60800AFF")
         static let primaryDarkPressedColor = primaryDarkColor.colorWithAlphaComponent(0.8)
         
+        static var courtClay = UIColor(hexRgba: "EB7116FF")
+        static var courtHard = UIColor(hexRgba: "#2867A5FF")
+        static var courtGrass = UIColor(hexRgba: "#8EA525FF")
+        
         static let lightColor = UIColor.whiteColor()
         static let darkColor = UIColor(hexRgba: "111111FF")
         static let grayColor = UIColor(hexRgba: "a7a7aaff")
         static let lightGrayColor = UIColor(hexRgba: "F3F3F3ff")
-
-        static let barTintColor = UIColor.whiteColor()
+        
+        static let navigationBarColor = UIColor(hexRgba: "#2867A5FF")
         static let errorColor = UIColor(hexRgba: "FF0000FF")
         static let notificationColor = UIColor(hexRgba: "fd3e01ff")
-        static let warningColor = UIColor(hexRgba: "FF8000FF")
-        static let twitterColor = UIColor(hexRgba: "55ACEEFF")
         static let cellBackgroundColor = lightColor
         static let separatorColor = UIColor(hexRgba: "a7a7aaff")
         

@@ -8,7 +8,6 @@
 
 import UIKit
 
-let localizer = Localizer()
 
 enum LocalizerKey : String {
     
@@ -41,6 +40,9 @@ enum LocalizerKey : String {
     case settings_version = "settings.version"
 }
 
+let localizer = Localizer()
+
+/// The localizer class used to get the localized string
 class Localizer {
     
     private var resources = [String : String]()
@@ -55,7 +57,7 @@ class Localizer {
     }
     
     func get(key : LocalizerKey) -> String {
-        return self.get(key)
+        return self.get(key.rawValue)
     }
     
     func get(key : String) -> String {

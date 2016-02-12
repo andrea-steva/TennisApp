@@ -28,7 +28,7 @@ enum MenuItem : Int {
     func getStoryboardName() -> String {
         switch self {
         case .Home:
-            return "Main"
+            return "Home"
         case .Rackets:
             return "Rackets"
         case .Stats:

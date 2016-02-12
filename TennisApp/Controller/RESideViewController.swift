@@ -27,8 +27,8 @@ class RESideViewController: RESideMenu, RESideMenuDelegate {
         self.contentViewShadowRadius = 12;
         self.contentViewShadowEnabled = true;
         
-        self.contentViewController = Utils.getControllerFromStoryboard("Main", controllerId: "ContentViewController")
-        self.leftMenuViewController = Utils.getControllerFromStoryboard("Main", controllerId: "ContentViewController")
+        self.contentViewController = Utils.getControllerFromStoryboard("Home", controllerId: "ContentViewController")
+        self.leftMenuViewController = Utils.getControllerFromStoryboard("Home", controllerId: "MenuViewController")
         self.backgroundImage = UIImage(named: "Stars")
         self.delegate = self;
     }
