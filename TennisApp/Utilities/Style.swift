@@ -19,24 +19,24 @@ enum Theme : String {
 }
 
 enum FontType: String {
-    case BOLD = "Lato-Bold"
-    case SEMIBOLD = "Lato-Semibold"
-    case REGULAR = "Lato-Regular"
-    case LIGHT = "Lato-Light"
-    case THIN = "Lato-Thin"
+    case Bold = "Lato-Bold"
+    case Semibold = "Lato-Semibold"
+    case Regular = "Lato-Regular"
+    case Light = "Lato-Light"
+    case Thin = "Lato-Thin"
     
     static func fromIndex(index: Int) -> FontType? {
         switch index {
         case 0:
-            return .BOLD
+            return .Bold
         case 1:
-            return .SEMIBOLD
+            return .Semibold
         case 2:
-            return .REGULAR
+            return .Regular
         case 3:
-            return .LIGHT
+            return .Light
         case 4:
-            return .THIN
+            return .Thin
         default:
             return nil
         }
@@ -44,15 +44,15 @@ enum FontType: String {
     
     func toIndex() -> Int {
         switch self {
-        case .BOLD:
+        case .Bold:
             return 0
-        case .SEMIBOLD:
+        case .Semibold:
             return 1
-        case .REGULAR:
+        case .Regular:
             return 2
-        case .LIGHT:
+        case .Light:
             return 3
-        case .THIN:
+        case .Thin:
             return 4
         }
     }
@@ -68,11 +68,12 @@ enum FontType: String {
 //MARK: FontSize
 
 enum FontSize {
-    case EXTRASMALL
-    case SMALL
-    case NORMAL
-    case LARGE
-    case EXTRALARGE
+    case ExtraSmall
+    case Small
+    case Normal
+    case Large
+    case ExtraLarge
+    case NavigationBar
     
     /**
      Get font size value based on FontSize and DeviceType
@@ -87,6 +88,7 @@ enum FontSize {
         let normalSize : CGFloat = 15;
         let largeSize : CGFloat = 18;
         let extraLargeSize : CGFloat = 22;
+        let navigationBarSize : CGFloat = 26;
         
         let additionIphone6Plus : CGFloat = 3
         let additionIphone6 : CGFloat = 1
@@ -95,17 +97,20 @@ enum FontSize {
         var standardSize : CGFloat = normalSize
         
         switch self {
-        case .EXTRASMALL:
+        case .ExtraSmall:
             standardSize = extraSmallSize
-        case .SMALL:
+        case .Small:
             standardSize = smallSize
-        case .NORMAL:
+        case .Normal:
             standardSize = normalSize
-        case .LARGE:
+        case .Large:
             standardSize = largeSize
-        case .EXTRALARGE:
+        case .ExtraLarge:
             standardSize = extraLargeSize
+        case .NavigationBar:
+            standardSize = navigationBarSize
         }
+
         
         if UIDevice.isIphone6Plus {
             return standardSize + additionIphone6Plus
@@ -127,7 +132,7 @@ struct Style {
     static func setupNavigationBarStyle() {
         let appearance = UINavigationBar.appearance()
         appearance.tintColor = Style.Colors.lightColor
-        appearance.titleTextAttributes = [NSForegroundColorAttributeName : Style.Colors.lightColor, NSFontAttributeName : Style.Fonts.get(.LIGHT, size: .EXTRALARGE)]
+        appearance.titleTextAttributes = [NSForegroundColorAttributeName : Style.Colors.lightColor, NSFontAttributeName : Style.Fonts.get(.Light, size: .NavigationBar)]
         //appearance.barTintColor = Style.Colors.navigationBarColor
         appearance.shadowImage = UIImage.imageWithColor(UIColor.clearColor())
         //appearance.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
@@ -163,7 +168,8 @@ struct Style {
         static let primaryDarkPressedColor = primaryDarkColor.colorWithAlphaComponent(0.8)
         
         static var courtClay = UIColor(hexRgba: "EB7116FF")
-        static var courtHard = UIColor(hexRgba: "#2867A5FF")
+        static var courtHardB = UIColor(hexRgba: "2867A5FF")
+        static var courtHardG = UIColor(hexRgba: "6B8468FF")
         static var courtGrass = UIColor(hexRgba: "#8EA525FF")
         
         static let lightColor = UIColor.whiteColor()
@@ -224,5 +230,14 @@ struct Style {
     
     struct Images {
         static let notAvailable =  UIImage(named: "not_available")
+        
+        static let menuBackground1 = UIImage(named: "menu_background_1")
+        static let menuBackground2 = UIImage(named: "menu_background_2")
+        static let menuBackground3 = UIImage(named: "menu_background_3")
+        
+        static let courtClay =  UIImage(named: "court_clay")
+        static let courtGrass =  UIImage(named: "court_grass")
+        static let courtHardB =  UIImage(named: "court_hard_b")
+        static let courtHardG =  UIImage(named: "court_hard_g")
     }
 }

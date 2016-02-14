@@ -10,9 +10,16 @@ import UIKit
 
 class RacketTableViewCell: UITableViewCell {
 
+    //MARK: IBAction
+    
+    @IBOutlet var racketNameLabel : UILabel!
+    
+    //MARK: View Management
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        racketNameLabel.font = Style.Fonts.get(.Regular, size: .Normal)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

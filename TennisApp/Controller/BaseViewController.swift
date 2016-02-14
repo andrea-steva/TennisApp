@@ -14,12 +14,16 @@ import INSPullToRefresh
 class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
 
     //MARK: IBOutlet
-    @IBOutlet var backgroundView : UIImageView!
+    @IBOutlet var backgroundView : UIImageView?
     
     //MARK: View Management
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let backgroundView = self.backgroundView {
+            backgroundView.image =  backgroundView.image?.applyMenuEffect()
+        }
 
         self.title = localizer.get(controllerTitleKey())
         
@@ -146,5 +150,11 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: Status Bar
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
 }

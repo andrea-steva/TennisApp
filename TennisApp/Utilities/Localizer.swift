@@ -31,6 +31,8 @@ enum LocalizerKey : String {
     case dialog_unableToLocalize = "dialog.unableToLocalize"
     case dialog_checkConnection = "dialog.checkConnection"
     
+    case rackets_addRacket = "rackets.addRacket"
+    
     case settings_section1 = "settings.section1"
     case settings_section2 = "settings.section2"
     case settings_currency = "settings.currency"

@@ -41,9 +41,9 @@ class HomeViewController: BaseViewController, PagingMenuControllerDelegate {
     private func setupPagedMenu(controllers : [UIViewController]) {
         let options = PagingMenuOptions()
         options.menuHeight = 50
-        options.font = Style.Fonts.get(.REGULAR, size: .NORMAL)
+        options.font = Style.Fonts.get(.Regular, size: .Normal)
         options.textColor = Style.Colors.lightColor
-        options.selectedFont = Style.Fonts.get(.REGULAR, size: .NORMAL)
+        options.selectedFont = Style.Fonts.get(.Regular, size: .Normal)
         options.selectedTextColor = Style.Colors.lightColor
         options.backgroundColor = Style.Colors.courtClay
         options.menuItemMode = PagingMenuOptions.MenuItemMode.RoundRect(radius: 10, horizontalPadding: 10, verticalPadding: 10, selectedColor: Style.Colors.courtClay.darker())
@@ -51,6 +51,7 @@ class HomeViewController: BaseViewController, PagingMenuControllerDelegate {
         
         let pagingMenuController = self.childViewControllers.first as! PagingMenuController
         pagingMenuController.delegate = self
+        //pagingMenuController.view.backgroundColor = UIColor.clearColor()
         pagingMenuController.setup(viewControllers: controllers, options: options)
     }
     

@@ -17,31 +17,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="court_hard" translatesAutoresizingMaskIntoConstraints="NO" id="OWV-jg-3W4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="court_hard_b" translatesAutoresizingMaskIntoConstraints="NO" id="OWV-jg-3W4">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="ta4-Aa-3JF">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RacketCell" rowHeight="100" id="teR-Oj-YNg" customClass="RacketTableViewCell" customModule="TennisApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1" width="600" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RacketCell" rowHeight="150" id="teR-Oj-YNg" customClass="RacketTableViewCell" customModule="TennisApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1" width="600" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="teR-Oj-YNg" id="D5L-mD-eh6">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="149"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_gray" translatesAutoresizingMaskIntoConstraints="NO" id="MM8-zC-aYS">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="149"/>
                                                 </imageView>
+                                                <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RMM-zr-lWs" userLabel="Overlay">
+                                                    <rect key="frame" x="0.0" y="99" width="600" height="50"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wilson Prostaff 97 LS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EP5-Tj-KTn">
+                                                            <rect key="frame" x="15" y="14" width="570" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="EP5-Tj-KTn" secondAttribute="trailing" constant="15" id="TsC-5n-0Cr"/>
+                                                        <constraint firstItem="EP5-Tj-KTn" firstAttribute="leading" secondItem="RMM-zr-lWs" secondAttribute="leading" constant="15" id="c99-jp-jik"/>
+                                                        <constraint firstAttribute="bottom" secondItem="EP5-Tj-KTn" secondAttribute="bottom" constant="15" id="fWG-GM-ifP"/>
+                                                        <constraint firstAttribute="height" constant="50" id="yy2-2P-He0"/>
+                                                        <constraint firstItem="EP5-Tj-KTn" firstAttribute="top" secondItem="RMM-zr-lWs" secondAttribute="top" constant="14" id="yzT-Ui-B2Q"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="RMM-zr-lWs" firstAttribute="leading" secondItem="D5L-mD-eh6" secondAttribute="leading" id="1Qy-A0-LA0"/>
                                                 <constraint firstItem="MM8-zC-aYS" firstAttribute="top" secondItem="D5L-mD-eh6" secondAttribute="top" id="6Mt-YT-ZEd"/>
                                                 <constraint firstItem="MM8-zC-aYS" firstAttribute="leading" secondItem="D5L-mD-eh6" secondAttribute="leading" id="WGr-wM-VhH"/>
                                                 <constraint firstAttribute="trailing" secondItem="MM8-zC-aYS" secondAttribute="trailing" id="YDJ-8k-wr8"/>
+                                                <constraint firstAttribute="bottom" secondItem="RMM-zr-lWs" secondAttribute="bottom" id="bqY-MS-8EX"/>
+                                                <constraint firstAttribute="trailing" secondItem="RMM-zr-lWs" secondAttribute="trailing" id="iv0-Oy-4fy"/>
                                                 <constraint firstAttribute="bottom" secondItem="MM8-zC-aYS" secondAttribute="bottom" id="jy7-xV-s7t"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="racketNameLabel" destination="EP5-Tj-KTn" id="N2i-Lg-HiX"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -59,7 +84,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9Hd-21-E2g">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xuu-Zu-9jw"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xuu-Zu-9jw">
+                            <connections>
+                                <segue destination="xis-Bn-ZW8" kind="show" id="4GR-bZ-rDh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="backgroundView" destination="OWV-jg-3W4" id="YfP-0D-WzU"/>
@@ -87,9 +116,35 @@
             </objects>
             <point key="canvasLocation" x="-96" y="362"/>
         </scene>
+        <!--Racket Form View Controller-->
+        <scene sceneID="S5r-yd-j2P">
+            <objects>
+                <viewController id="xis-Bn-ZW8" customClass="RacketFormViewController" customModule="TennisApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3ti-Oa-cMf"/>
+                        <viewControllerLayoutGuide type="bottom" id="CxT-sK-x3N"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IUB-Mq-UL0">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="AqN-nd-pQ3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="mby-Io-TZa">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="xis-Bn-ZW8" id="XaW-m4-rq4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZp-GE-Sj9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1290" y="362"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="court_hard" width="534" height="300"/>
+        <image name="court_hard_b" width="534" height="300"/>
         <image name="placeholder_gray" width="266" height="266"/>
     </resources>
 </document>

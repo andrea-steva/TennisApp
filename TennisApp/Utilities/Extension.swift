@@ -40,22 +40,22 @@ private let DeviceList = [
 
 extension UIFont {
     func bold() -> UIFont {
-        let descriptor = UIFontDescriptor(fontAttributes: [NSFontAttributeName : FontType.BOLD.rawValue])
+        let descriptor = UIFontDescriptor(fontAttributes: [NSFontAttributeName : FontType.Bold.rawValue])
         return UIFont(descriptor: descriptor, size: self.pointSize)
     }
     
     func semibold() -> UIFont {
-        let descriptor = UIFontDescriptor(fontAttributes: [NSFontAttributeName : FontType.SEMIBOLD.rawValue])
+        let descriptor = UIFontDescriptor(fontAttributes: [NSFontAttributeName : FontType.Semibold.rawValue])
         return UIFont(descriptor: descriptor, size: self.pointSize)
     }
     
     func regular() -> UIFont {
-        let descriptor = UIFontDescriptor(fontAttributes: [NSFontAttributeName : FontType.LIGHT.rawValue])
+        let descriptor = UIFontDescriptor(fontAttributes: [NSFontAttributeName : FontType.Regular.rawValue])
         return UIFont(descriptor: descriptor, size: self.pointSize)
     }
     
     func light() -> UIFont {
-        let descriptor = UIFontDescriptor(fontAttributes: [NSFontAttributeName : FontType.LIGHT.rawValue])
+        let descriptor = UIFontDescriptor(fontAttributes: [NSFontAttributeName : FontType.Light.rawValue])
         return UIFont(descriptor: descriptor, size: self.pointSize)
     }
 }

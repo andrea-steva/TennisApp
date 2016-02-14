@@ -22,7 +22,6 @@ class StatsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.backgroundView.image =  self.backgroundView.image?.applyMenuEffect()
     }
     
 

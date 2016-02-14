@@ -29,9 +29,7 @@
                             <constraint firstItem="SR2-uW-6qq" firstAttribute="top" secondItem="QOm-oZ-szW" secondAttribute="bottom" id="dsy-B3-oMm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="vCU-fT-7T8">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="sgm-8T-0P1"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="vCU-fT-7T8"/>
                     <connections>
                         <outlet property="backgroundView" destination="QOm-oZ-szW" id="N07-4F-soT"/>
                     </connections>
