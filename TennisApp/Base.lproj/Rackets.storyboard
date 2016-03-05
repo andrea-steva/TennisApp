@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RacketCell" rowHeight="150" id="teR-Oj-YNg" customClass="RacketTableViewCell" customModule="TennisApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="racket_cell" rowHeight="150" id="teR-Oj-YNg" customClass="RacketTableViewCell" customModule="TennisApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1" width="600" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="teR-Oj-YNg" id="D5L-mD-eh6">
@@ -38,7 +38,7 @@
                                                     <rect key="frame" x="0.0" y="99" width="600" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wilson Prostaff 97 LS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EP5-Tj-KTn">
-                                                            <rect key="frame" x="15" y="14" width="570" height="21"/>
+                                                            <rect key="frame" x="13" y="14" width="579" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
@@ -46,8 +46,8 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="EP5-Tj-KTn" secondAttribute="trailing" constant="15" id="TsC-5n-0Cr"/>
-                                                        <constraint firstItem="EP5-Tj-KTn" firstAttribute="leading" secondItem="RMM-zr-lWs" secondAttribute="leading" constant="15" id="c99-jp-jik"/>
+                                                        <constraint firstAttribute="trailing" secondItem="EP5-Tj-KTn" secondAttribute="trailing" constant="8" id="TsC-5n-0Cr"/>
+                                                        <constraint firstItem="EP5-Tj-KTn" firstAttribute="leading" secondItem="RMM-zr-lWs" secondAttribute="leading" constant="13" id="c99-jp-jik"/>
                                                         <constraint firstAttribute="bottom" secondItem="EP5-Tj-KTn" secondAttribute="bottom" constant="15" id="fWG-GM-ifP"/>
                                                         <constraint firstAttribute="height" constant="50" id="yy2-2P-He0"/>
                                                         <constraint firstItem="EP5-Tj-KTn" firstAttribute="top" secondItem="RMM-zr-lWs" secondAttribute="top" constant="14" id="yzT-Ui-B2Q"/>
