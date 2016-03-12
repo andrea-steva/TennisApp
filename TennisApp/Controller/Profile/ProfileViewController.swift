@@ -10,8 +10,8 @@ import UIKit
 
 class ProfileViewController: BaseViewController {
 
-    //MARK: IBAction
-    
+    //MARK: IBOutlets
+    @IBOutlet var tableView : UITableView!
     
     //MARK: View Management
     
@@ -22,7 +22,12 @@ class ProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+        let headerView = NSBundle.mainBundle().loadNibNamed("ProfileHeaderView", owner: self, options: nil).first as! ProfileHeaderView
+        self.tableView.addSubview(headerView)
+        
+        //self.stretchyHeaderView = nibViews.firstObject;
+        
     }
 
     override func didReceiveMemoryWarning() {

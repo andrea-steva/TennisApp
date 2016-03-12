@@ -1,12 +1,11 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-# Uncomment this line to define a global platform for your project
 platform :ios, "8.0"
 
-use_frameworks!
+# ignore all warnings from all pods
+#inhibit_all_warnings!
 
-target "TennisApp" do
-
+def shared_pods
 	#Crashlytics
 	pod 'Fabric', '~> 1.5'
 	pod 'Crashlytics'
@@ -34,6 +33,7 @@ target "TennisApp" do
 	pod 'MBProgressHUD', '~> 0.8'
 	pod 'IQKeyboardManager', '~> 3.3'
 	pod 'SWTableViewCell', '~> 0.3'
+	pod 'GSKStretchyHeaderView'
     
 	#Charts
 	pod 'Charts', '~> 2.1'
@@ -43,5 +43,12 @@ target "TennisApp" do
     
 	#Pull to refresh for tablew view and collection view
 	pod 'INSPullToRefresh', '~> 1.0'
+end
+
+use_frameworks!
+
+target "TennisApp" do
+
+	shared_pods
 
 end

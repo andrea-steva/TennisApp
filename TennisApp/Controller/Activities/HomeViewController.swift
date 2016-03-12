@@ -29,8 +29,7 @@ class HomeViewController: BaseViewController, PagingMenuControllerDelegate {
         
         
         for index in 0...2 {
-            let activityController =  Utils.getControllerFromStoryboard("Home", controllerId: "ActivitiesViewController") as! ActivitiesViewController
-            //activityController.viewModel.products = Array(activityController.items)
+            let activityController =  Utils.getControllerFromStoryboard("Main", controllerId: "ActivitiesViewController") as! ActivitiesViewController
             activityController.title = "Activity \(index+1)"
             menuControllers.append(activityController)
         }

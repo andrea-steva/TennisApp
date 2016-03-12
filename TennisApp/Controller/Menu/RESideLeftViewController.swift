@@ -30,10 +30,15 @@ class RESideLeftViewController: UIViewController, UITableViewDataSource, UITable
         
         let menuItem = MenuItem(rawValue: indexPath.row)!
         let cell = tableView.dequeueReusableCellWithIdentifier("menu_cell", forIndexPath: indexPath)
-        cell.textLabel?.font = Style.Fonts.get(.Light, size: .ExtraLarge);
+        cell.textLabel?.font = Style.Fonts.get(.Light, size: .Large);
         cell.textLabel?.textColor = Style.Colors.lightColor.colorWithAlphaComponent(0.7)
         cell.imageView?.image = menuItem.menuIcon()
         cell.textLabel?.text = menuItem.localizedName()
+        
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
+        cell.selectedBackgroundView = bgColorView
+        
         return cell;
     }
     

@@ -10,7 +10,7 @@ import UIKit
 
 class StatsViewController: BaseViewController {
 
-    //MARK: IBAction
+    //MARK: IBOutlets
 
     
     //MARK: View Management

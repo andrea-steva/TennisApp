@@ -7,5 +7,16 @@
 //
 
 class RacketsViewModel: BaseViewModel {
+    
+    private let dao = RacketDao()
+    
+    func getRacket(forIndex index: Int) -> TNRacket {
+        let rackets = dao.getRackets()
+        return rackets[index]
+    }
+    
+    func getRacketsCount() -> Int {
+        return dao.getRackets().count
+    }
 
 }

@@ -16,14 +16,14 @@ class TNUser: Object {
     dynamic var firstName: String!
     dynamic var lastName: String!
     dynamic var age: Int = 0
-    dynamic var email: NSDate!
+    dynamic var email: String!
     dynamic var phoneNumber: String!
     dynamic var profileImage: NSData!
 
     dynamic var handType: String!
     dynamic var backhandType: String!
 
-    dynamic var backhandrankingType: String!
+    dynamic var ranking: String!
     
     //MARK: Relationship
     
@@ -31,12 +31,15 @@ class TNUser: Object {
     var activities = List<TNActivity>()
     
     //MARK:  Methods
+
+    override static func primaryKey() -> String? {
+        return "userId"
+    }
     
     required init() {
         super.init()
     }
 
-    
     convenience init(_ dictionary: Dictionary<String, AnyObject>) {
         self.init()
         

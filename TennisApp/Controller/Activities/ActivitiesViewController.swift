@@ -10,7 +10,7 @@ import UIKit
 
 class ActivitiesViewController: UIViewController {
 
-    static let ProductCellReuseId = "activity_cell"
+    static let ActivityCellReuseId = "activity_cell"
     
     //MARK: IBOutlet
     

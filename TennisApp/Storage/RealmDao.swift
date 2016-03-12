@@ -170,8 +170,8 @@ class RealmDao {
      
      - return: The objects list.
      */
-    func getAllObjects<O : Object>(soryBy : String) -> [O] {
-        return self.realm.objects(O.self).sorted(soryBy, ascending: false).toArray(O.self)
+    func getAllObjects<O : Object>(sortedBy sortedBy : String) -> [O] {
+        return self.realm.objects(O.self).sorted(sortedBy, ascending: false).toArray(O.self)
     }
     
     // MARK: Delete
