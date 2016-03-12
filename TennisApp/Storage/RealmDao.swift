@@ -8,7 +8,6 @@
 
 import RealmSwift
 
-/** Slhash default storage implementation. */
 class RealmDao {
     
     /** The Realm object. */

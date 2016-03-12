@@ -12,7 +12,10 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    static func instance() -> AppDelegate {
+        return UIApplication.sharedApplication().delegate as! AppDelegate
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
@@ -22,8 +25,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Style.setupTextFieldStyle()
         Style.setupSearchBarStyle()
         
+        if TNDao().getUser().count == 0 {
+            //Load Home
+            let rootViewController = Utils.getControllerFromStoryboard("Login")
+            self.setRootViewController(rootViewController)
+
+        } else {
+            //Load login            
+            let rootViewController = Utils.getControllerFromStoryboard("Main")
+            self.setRootViewController(rootViewController)
+        }
+        
         return true
     }
+    
+    func setRootViewController(rootViewController : UIViewController) {
+        if window?.rootViewController != rootViewController {
+            window?.rootViewController = rootViewController
+        }
+    }
+    
     
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

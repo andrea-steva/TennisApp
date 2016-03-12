@@ -1,5 +1,5 @@
 //
-//  RacketDao.swift
+//  TNDao.swift
 //  TennisApp
 //
 //  Created by Andrea Stevanato on 12/03/16.
@@ -7,10 +7,14 @@
 //
 
 
-class RacketDao: RealmDao {
+class TNDao: RealmDao {
+    
+    func getUser() -> [TNUser] {
+        return self.getAllObjects()
+    }
     
     func getRackets() -> [TNRacket] {
         return self.getAllObjects(sortedBy: "purchasedDate")
     }
-
+    
 }

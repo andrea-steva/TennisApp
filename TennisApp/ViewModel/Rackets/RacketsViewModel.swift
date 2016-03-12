@@ -8,7 +8,7 @@
 
 class RacketsViewModel: BaseViewModel {
     
-    private let dao = RacketDao()
+    private let dao = TNDao()
     
     func getRacket(forIndex index: Int) -> TNRacket {
         let rackets = dao.getRackets()
