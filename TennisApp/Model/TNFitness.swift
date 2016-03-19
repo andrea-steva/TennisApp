@@ -8,6 +8,14 @@
 
 import RealmSwift
 
-class TNFitness: Object {
+class TNFitness: TNActivity {
 
+    //MARK: Stored Attributes
+
+    var fitnessType : FitnessType = .kRunning
+    
+    //MARK: Relationship
+    
+    
+    //MARK: Methods
 }

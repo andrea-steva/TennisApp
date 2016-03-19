@@ -8,11 +8,14 @@
 
 import RealmSwift
 
-class TNPractice: Object {
+class TNPractice: TNActivity {
     
-// Specify properties to ignore (Realm won't persist these)
+    //MARK: Stored Attributes
     
-//  override static func ignoredProperties() -> [String] {
-//    return []
-//  }
+    var practiceType : PracticeType = .kForehand
+    
+    //MARK: Relationship
+    
+    
+    //MARK: Methods
 }

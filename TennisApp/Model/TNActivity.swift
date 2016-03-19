@@ -10,4 +10,35 @@ import RealmSwift
 
 class TNActivity: Object {
 
+    //MARK: Stored Attributes
+    
+    dynamic var activityId : String!
+    dynamic var title : String!
+    dynamic var notes : String = ""
+    dynamic var date : NSDate!
+    dynamic var place : String = ""
+    dynamic var timeSpent : Float = 0
+    
+    //MARK: Relationship
+    
+    var user: [TNUser] {
+        // Realm doesn't persist this property because it only has a getter defined
+        // Define "user" as the inverse relationship to TNUser.activities
+        return linkingObjects(TNUser.self, forProperty: "activities")
+    }
+    
+    //MARK: Methods
+    
+    override static func primaryKey() -> String? {
+        return "activityId"
+    }
+    
+    required init() {
+        super.init()
+    }
+    
+    
+    convenience init(_ dictionary: Dictionary<String, AnyObject>) {
+        self.init()
+    }
 }
