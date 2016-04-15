@@ -25,6 +25,9 @@ def shared_pods
 
 	#Form
 	pod 'Eureka', '~> 1.3'
+	
+    # Camera View Controller https://github.com/AlexLittlejohn/ALCameraViewController∫
+    pod 'ALCameraViewController'
 
 	#UI
 	pod 'FontAwesome.swift', '~> 0.6'

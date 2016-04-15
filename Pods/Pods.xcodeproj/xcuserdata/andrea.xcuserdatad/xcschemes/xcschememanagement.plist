@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ALCameraViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -132,22 +137,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>29E7B39A4D37FE032DB9562132112198</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3358D5FE8D93D2590042DBFD99AAFE33</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>34B5A1276D9EF499DA05795F4716A096</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>40F580A48FF2C38CCBC58A6B3C8F5505</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>535B17D38FEA2C8812C430F27670C960</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -162,12 +157,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6D9EDCF48A5AA1A0B1FB393CB904CF6F</key>
+		<key>5C1157685616C731A69B2109A62B3E42</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6F46B9B8621B9ECD26E2B8325B1FECE8</key>
+		<key>6D9EDCF48A5AA1A0B1FB393CB904CF6F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -182,7 +177,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7F032AE0D6EB423BC82C88835AFBC8F6</key>
+		<key>87330B1DCE9E3653334A1C392975BFB8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9153F1E48E6AEBC698024195320A7F8B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -192,7 +192,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9A9F7CFF407F596D513866AC1F857419</key>
+		<key>A385BBA55231244B4024EA65855B9088</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -212,7 +212,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>BE0BA90E031EA793E6141B45F56FCD1E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C6828C2508515BC0428D6BDAA1292DC9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CE17F588088C2088A336FEE601B11CD9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -222,7 +232,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FA0A968DEDC46C2A0A466D4FCA999357</key>
+		<key>F78CECE6E8E39AB24BF186E7C953E155</key>
 		<dict>
 			<key>primary</key>
 			<true/>

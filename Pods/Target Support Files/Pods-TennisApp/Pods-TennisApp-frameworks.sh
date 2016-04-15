@@ -84,6 +84,7 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-TennisApp/ALCameraViewController.framework"
   install_framework "Pods-TennisApp/Alamofire.framework"
   install_framework "Pods-TennisApp/AlamofireImage.framework"
   install_framework "Pods-TennisApp/Charts.framework"
@@ -104,6 +105,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-TennisApp/SWTableViewCell.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-TennisApp/ALCameraViewController.framework"
   install_framework "Pods-TennisApp/Alamofire.framework"
   install_framework "Pods-TennisApp/AlamofireImage.framework"
   install_framework "Pods-TennisApp/Charts.framework"
