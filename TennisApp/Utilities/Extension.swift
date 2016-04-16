@@ -265,7 +265,7 @@ extension String {
     
     func substringWithRange(start start: Int, end: Int) -> String {
         let index = self.startIndex
-        return self.substringWithRange(Range<String.Index>(start: index.advancedBy(start), end: index.advancedBy(start + end)))
+        return self.substringWithRange(Range<String.Index>(index.advancedBy(start) ..< index.advancedBy(start + end)))
     }
     
     mutating func replace(targetString target: String, withString replacingString: String) {
@@ -279,15 +279,15 @@ extension String {
 public extension UITableViewCell {
     func removeMargins() {
         
-        if self.respondsToSelector("setSeparatorInset:") {
+        if self.respondsToSelector(Selector("setSeparatorInset:")) {
             self.separatorInset = UIEdgeInsetsZero
         }
         
-        if self.respondsToSelector("setPreservesSuperviewLayoutMargins:") {
+        if self.respondsToSelector(Selector("setPreservesSuperviewLayoutMargins:")) {
             self.preservesSuperviewLayoutMargins = false
         }
         
-        if self.respondsToSelector("setLayoutMargins:") {
+        if self.respondsToSelector(Selector("setLayoutMargins:")) {
             self.layoutMargins = UIEdgeInsetsZero
         }
     }
@@ -372,7 +372,7 @@ public extension NSRange {
     func stringRangeForText(string: String) -> Range<String.Index> {
         let start = string.startIndex.advancedBy(self.location)
         let end = start.advancedBy(self.length)
-        return Range<String.Index>(start: start, end: end)
+        return Range<String.Index>(start ..< end)
     }
 }
 
@@ -782,7 +782,8 @@ extension CGSize {
 
 extension NSLayoutConstraint {
     
-    class func reportAmbiguity (var v:UIView?) {
+    class func reportAmbiguity (aView : UIView?) {
+        var v = aView
         if v == nil {
             v = UIApplication.sharedApplication().keyWindow
         }
@@ -793,7 +794,8 @@ extension NSLayoutConstraint {
             }
         }
     }
-    class func listConstraints (var v:UIView?) {
+    class func listConstraints (aView : UIView?) {
+        var v = aView
         if v == nil {
             v = UIApplication.sharedApplication().keyWindow
         }

@@ -6,6 +6,7 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
+import Realm
 import RealmSwift
 
 class TNFitness: TNActivity {
@@ -17,5 +18,5 @@ class TNFitness: TNActivity {
     //MARK: Relationship
     
     
-    //MARK: Methods
+    //MARK: Class Methods
 }

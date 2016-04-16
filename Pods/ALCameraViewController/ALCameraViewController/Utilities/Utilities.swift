@@ -7,18 +7,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 internal func radians(degrees: Double) -> Double {
     return degrees / 180 * M_PI
 }
 
-internal func SpringAnimation(animations: () -> Void) {
-    UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.BeginFromCurrentState], animations: {
-        animations()
-        }, completion: nil)
-}
-
-internal func LocalizedString(key: String) -> String {
+internal func localizedString(key: String) -> String {
     return NSLocalizedString(key, tableName: CameraGlobals.shared.stringsTable, bundle: CameraGlobals.shared.bundle, comment: key)
 }
 
@@ -44,7 +39,7 @@ internal func largestPhotoSize() -> CGSize {
 }
 
 internal func errorWithKey(key: String, domain: String) -> NSError {
-    let errorString = LocalizedString(key)
+    let errorString = localizedString(key)
     let errorInfo = [NSLocalizedDescriptionKey: errorString]
     let error = NSError(domain: domain, code: 0, userInfo: errorInfo)
     return error
@@ -71,5 +66,17 @@ internal func normalizedRect(rect: CGRect, orientation: UIImageOrientation) -> C
     }
     
     return normalizedRect
-    
+}
+
+internal func flashImage(mode: AVCaptureFlashMode) -> String {
+    let image: String
+    switch mode {
+    case .Auto:
+        image = "flashAutoIcon"
+    case .On:
+        image = "flashOnIcon"
+    case .Off:
+        image = "flashOffIcon"
+    }
+    return image
 }

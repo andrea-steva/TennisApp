@@ -6,6 +6,7 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
+import Realm
 import RealmSwift
 
 class TNUser: Object {
@@ -30,14 +31,24 @@ class TNUser: Object {
     var rackets = List<TNRacket>()
     var activities = List<TNActivity>()
     
-    //MARK:  Methods
+    //MARK:  Primary Key
 
     override static func primaryKey() -> String? {
         return "userId"
     }
     
+    //MARK: Init
+    
     required init() {
         super.init()
+    }
+    
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    required init(value: AnyObject, schema: RLMSchema) {
+        fatalError("init(value:schema:) has not been implemented")
     }
 
     convenience init(_ dictionary: Dictionary<String, AnyObject>) {
@@ -47,4 +58,7 @@ class TNUser: Object {
         firstName = dictionary["firstName"] as? String
         lastName = dictionary["lastName"] as? String
     }
+    
+    //MARK: Class Methods
+
 }

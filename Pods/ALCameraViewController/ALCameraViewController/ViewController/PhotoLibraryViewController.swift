@@ -13,11 +13,13 @@ internal let ImageCellIdentifier = "ImageCell"
 
 internal let defaultItemSpacing: CGFloat = 1
 
-typealias PhotoLibraryViewSelectionComplete = (asset: PHAsset?) -> Void
+public typealias PhotoLibraryViewSelectionComplete = (asset: PHAsset?) -> Void
 
-internal class PhotoLibraryViewController: UIViewController {
+public class PhotoLibraryViewController: UIViewController {
     
-    internal var onSelectionComplete: PhotoLibraryViewSelectionComplete?
+    private var assets: PHFetchResult? = nil
+    
+    public var onSelectionComplete: PhotoLibraryViewSelectionComplete?
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -26,24 +28,24 @@ internal class PhotoLibraryViewController: UIViewController {
         layout.minimumInteritemSpacing = defaultItemSpacing
         layout.minimumLineSpacing = defaultItemSpacing
         layout.sectionInset = UIEdgeInsetsZero
-        
-        return UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+      
+        let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = UIColor.clearColor()
+        return collectionView
     }()
     
-    private var assets: PHFetchResult!
-    
-    internal override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
-    }
-    
-    internal override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         setNeedsStatusBarAppearanceUpdate()
+        
+        let buttonImage = UIImage(named: "libraryCancel", inBundle: CameraGlobals.shared.bundle, compatibleWithTraitCollection: nil)?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: buttonImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(dismiss))
+        
         view.backgroundColor = UIColor(white: 0.2, alpha: 1)
         view.addSubview(collectionView)
-
-        collectionView.backgroundColor = UIColor.clearColor()
         
         ImageFetcher()
             .onFailure(onFailure)
@@ -51,17 +53,23 @@ internal class PhotoLibraryViewController: UIViewController {
             .fetch()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        collectionView.userInteractionEnabled = true
-    }
-
-    internal override func viewWillLayoutSubviews() {
+    public override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        collectionView.frame = view.frame
+        collectionView.frame = view.bounds
     }
     
-    internal func dismiss() {
+    public override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
+    public func present(inViewController: UIViewController, animated: Bool) {
+        let navigationController = UINavigationController(rootViewController: self)
+        navigationController.navigationBar.barTintColor = UIColor.blackColor()
+        navigationController.navigationBar.barStyle = UIBarStyle.Black
+        inViewController.presentViewController(navigationController, animated: animated, completion: nil)
+    }
+    
+    public func dismiss() {
         onSelectionComplete?(asset: nil)
     }
     
@@ -72,8 +80,8 @@ internal class PhotoLibraryViewController: UIViewController {
     
     private func onFailure(error: NSError) {
         let permissionsView = PermissionsView(frame: view.bounds)
-        permissionsView.titleLabel.text = LocalizedString("permissions.library.title")
-        permissionsView.descriptionLabel.text = LocalizedString("permissions.library.description")
+        permissionsView.titleLabel.text = localizedString("permissions.library.title")
+        permissionsView.descriptionLabel.text = localizedString("permissions.library.description")
         
         view.addSubview(permissionsView)
     }
@@ -84,32 +92,33 @@ internal class PhotoLibraryViewController: UIViewController {
         collectionView.dataSource = self
     }
     
-    func itemAtIndexPath(indexPath: NSIndexPath) -> PHAsset {
-        return assets[indexPath.row] as! PHAsset
+    private func itemAtIndexPath(indexPath: NSIndexPath) -> PHAsset? {
+        return assets?[indexPath.row] as? PHAsset
     }
 }
 
 // MARK: - UICollectionViewDataSource -
 extension PhotoLibraryViewController : UICollectionViewDataSource {
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return assets.count
+    public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return assets?.count ?? 0
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
-        let model = itemAtIndexPath(indexPath)
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ImageCellIdentifier, forIndexPath: indexPath) as! ImageCell
-        
-        cell.configureWithModel(model)
-        
-        return cell
+    public func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        if cell is ImageCell {
+            if let model = itemAtIndexPath(indexPath) {
+                (cell as! ImageCell).configureWithModel(model)
+            }
+        }
+    }
+    
+    public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        return collectionView.dequeueReusableCellWithReuseIdentifier(ImageCellIdentifier, forIndexPath: indexPath)
     }
 }
 
 // MARK: - UICollectionViewDelegate -
 extension PhotoLibraryViewController : UICollectionViewDelegateFlowLayout {
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let asset = itemAtIndexPath(indexPath)
-        onSelectionComplete?(asset: asset)
+    public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        onSelectionComplete?(asset: itemAtIndexPath(indexPath))
     }
 }

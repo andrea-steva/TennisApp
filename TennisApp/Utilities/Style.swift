@@ -59,7 +59,9 @@ enum FontType: String {
     
     static var count: Int {
         var max: Int = 0
-        while let _ =  FontType.fromIndex(++max) {}
+        while let _ =  FontType.fromIndex(max) {
+            max += 1
+        }
         return max
     }
     

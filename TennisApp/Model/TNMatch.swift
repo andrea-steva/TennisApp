@@ -6,6 +6,7 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
+import Realm
 import RealmSwift
 
 class TNMatch: TNActivity {
@@ -20,7 +21,7 @@ class TNMatch: TNActivity {
     
     var scores = List<TNMatchScore>()
         
-    //MARK: Methods
+    //MARK: Class Methods
     
     func isMatchWon() -> Bool {
         

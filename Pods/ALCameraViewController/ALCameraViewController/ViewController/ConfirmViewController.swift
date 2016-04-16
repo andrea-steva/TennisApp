@@ -11,19 +11,18 @@ import Photos
 
 internal class ConfirmViewController: UIViewController, UIScrollViewDelegate {
     
-    @IBOutlet weak var scrollView: UIScrollView!
     let imageView = UIImageView()
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var cropOverlay: CropOverlay!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var centeringView: UIView!
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     var allowsCropping: Bool = false
     var verticalPadding: CGFloat = 30
     var horizontalPadding: CGFloat = 30
     
-    var onComplete: ALCameraViewCompletion?
+    var onComplete: CameraViewCompletion?
     
     var asset: PHAsset!
     
@@ -31,17 +30,10 @@ internal class ConfirmViewController: UIViewController, UIScrollViewDelegate {
         self.allowsCropping = allowsCropping
         self.asset = asset
         super.init(nibName: "ConfirmViewController", bundle: CameraGlobals.shared.bundle)
-        commonInit()
     }
     
     internal required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-    
-    func commonInit() {
-        if UIScreen.mainScreen().bounds.width <= 320 {
-            horizontalPadding = 15
-        }
     }
     
     internal override func prefersStatusBarHidden() -> Bool {
@@ -67,17 +59,20 @@ internal class ConfirmViewController: UIViewController, UIScrollViewDelegate {
             return
         }
         
-        spinner.startAnimating()
+        let spinner = showSpinner()
         
+        disable()
+
         SingleImageFetcher()
             .setAsset(asset)
             .setTargetSize(largestPhotoSize())
             .onSuccess { image in
                 self.configureWithImage(image)
-                self.spinner.stopAnimating()
+                self.hideSpinner(spinner)
+                self.enable()
             }
             .onFailure { error in
-                self.spinner.stopAnimating()
+                self.hideSpinner(spinner)
             }
             .fetch()
     }
@@ -203,26 +198,31 @@ internal class ConfirmViewController: UIViewController, UIScrollViewDelegate {
     }
     
     private func buttonActions() {
-        confirmButton.addTarget(self, action: "confirmPhoto", forControlEvents: UIControlEvents.TouchUpInside)
-        cancelButton.addTarget(self, action: "cancel", forControlEvents: UIControlEvents.TouchUpInside)
+        confirmButton.addTarget(self, action: #selector(ConfirmViewController.confirmPhoto), forControlEvents: UIControlEvents.TouchUpInside)
+        cancelButton.addTarget(self, action: #selector(ConfirmViewController.cancel), forControlEvents: UIControlEvents.TouchUpInside)
     }
     
     internal func cancel() {
-        onComplete?(nil)
+        onComplete?(nil, nil)
     }
     
     internal func confirmPhoto() {
         
-        imageView.hidden = true
-        spinner.startAnimating()
+        disable()
         
+        imageView.hidden = true
+        
+        let spinner = showSpinner()
+
         let fetcher = SingleImageFetcher()
             .onSuccess { image in
-                self.onComplete?(image)
-                self.spinner.stopAnimating()
+                self.onComplete?(image, self.asset)
+                self.hideSpinner(spinner)
+                self.enable()
            }
             .onFailure { error in            
-                self.spinner.stopAnimating()
+                self.hideSpinner(spinner)
+                self.showNoImageScreen(error)
             }
             .setAsset(asset)
         
@@ -253,4 +253,38 @@ internal class ConfirmViewController: UIViewController, UIScrollViewDelegate {
     internal func scrollViewDidZoom(scrollView: UIScrollView) {
         centerScrollViewContents()
     }
+    
+    func showSpinner() -> UIActivityIndicatorView {
+        let spinner = UIActivityIndicatorView()
+        spinner.activityIndicatorViewStyle = .White
+        spinner.center = view.center
+        spinner.startAnimating()
+        
+        view.addSubview(spinner)
+        view.bringSubviewToFront(spinner)
+        
+        return spinner
+    }
+    
+    func hideSpinner(spinner: UIActivityIndicatorView) {
+        spinner.stopAnimating()
+        spinner.removeFromSuperview()
+    }
+    
+    func disable() {
+        confirmButton.enabled = false
+    }
+    
+    func enable() {
+        confirmButton.enabled = true
+    }
+    
+    func showNoImageScreen(error: NSError) {
+        let permissionsView = PermissionsView(frame: view.bounds)
+        
+        let desc = localizedString("error.cant-fetch-photo.description")
+        
+        permissionsView.configureInView(view, title: error.localizedDescription, descriptiom: desc, completion: cancel)
+    }
+    
 }

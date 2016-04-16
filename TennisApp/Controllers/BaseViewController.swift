@@ -11,6 +11,10 @@ import DZNEmptyDataSet
 import FontAwesome_swift
 import INSPullToRefresh
 
+private extension Selector {
+    static let didTapOnButtonMenu = #selector(BaseViewController.didTapOnButtonMenu(_:))
+}
+
 class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource, MVVMViewResource {
 
     //MARK: IBOutlet
@@ -33,7 +37,7 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
             if self.navigationItem.leftBarButtonItems == nil {
                 self.navigationItem.leftBarButtonItems = [UIBarButtonItem]()
             }
-            self.navigationItem.leftBarButtonItems?.insert(self.getBarButtonItem(FontAwesome.Bars, selector: "didTapOnButtonMenu:"), atIndex: 0)
+            self.navigationItem.leftBarButtonItems?.insert(self.getBarButtonItem(FontAwesome.Bars, selector: .didTapOnButtonMenu), atIndex: 0)
         }
     }
     

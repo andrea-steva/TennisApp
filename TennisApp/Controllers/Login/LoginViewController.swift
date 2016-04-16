@@ -10,7 +10,7 @@ import UIKit
 import ALCameraViewController
 
 class LoginViewController: BaseViewController {
-
+    
     //MARK: IBOutlets
     @IBOutlet var userImageView : UIImageView!
     @IBOutlet var firstNameTextField : UITextField!
@@ -26,12 +26,11 @@ class LoginViewController: BaseViewController {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.userImageView.layer.cornerRadius = 20.0
         self.userImageView.layer.borderColor = Style.Colors.lightColor.CGColor
         self.userImageView.layer.borderWidth = 5.0
@@ -47,12 +46,12 @@ class LoginViewController: BaseViewController {
     
     @IBAction func didTapOnCameraButton(sender: AnyObject) {
         
-        let cameraViewController = ALCameraViewController(croppingEnabled: true) { image in
+        let cameraViewController = CameraViewController(croppingEnabled: true) { (image, asset) in
             // Do something with your image here.
             // If cropping is enabled this image will be the cropped version
             self.userImageView.image = image
         }
         presentViewController(cameraViewController, animated: true, completion: nil)
     }
-
+    
 }

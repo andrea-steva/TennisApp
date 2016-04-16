@@ -6,6 +6,7 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
+import Realm
 import RealmSwift
 
 class TNMatchScore: Object {
@@ -23,10 +24,18 @@ class TNMatchScore: Object {
             return linkingObjects(TNMatch.self, forProperty: "scores")
         }
     
-    //MARK: Methods
+    //MARK: Init
     
     required init() {
         super.init()
+    }
+    
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    required init(value: AnyObject, schema: RLMSchema) {
+        fatalError("init(value:schema:) has not been implemented")
     }
     
     convenience init(_ dictionary: Dictionary<String, AnyObject>) {
@@ -39,6 +48,8 @@ class TNMatchScore: Object {
         self.gamePlayerB = gamePlayerB;
         
     }
+    
+    //MARK: Class Methods
     
     func matchScoreToString() -> String {
         return "\(self.gamePlayerA)-\(self.gamePlayerB)";

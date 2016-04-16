@@ -6,6 +6,7 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
+import Realm
 import RealmSwift
 
 class TNString: Object {
@@ -27,19 +28,30 @@ class TNString: Object {
         return linkingObjects(TNRacket.self, forProperty: "strings")
     }
     
-    //MARK: Methods
+    //MARK: Primary Key
     
     override static func primaryKey() -> String? {
         return "stringId"
     }
     
+    //MARK: Init
+    
     required init() {
         super.init()
     }
     
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    required init(value: AnyObject, schema: RLMSchema) {
+        fatalError("init(value:schema:) has not been implemented")
+    }
     
     convenience init(_ dictionary: Dictionary<String, AnyObject>) {
         self.init()
     }
+    
+    //MARK: Class Methods
     
 }
