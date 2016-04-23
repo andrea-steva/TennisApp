@@ -1,1 +1,0 @@
-../../../GSKStretchyHeaderView/Pod/Classes/GSKGeometry.h

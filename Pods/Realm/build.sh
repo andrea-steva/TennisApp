@@ -14,7 +14,7 @@ set -o pipefail
 set -e
 
 # You can override the version of the core library
-: ${REALM_CORE_VERSION:=0.97.3} # set to "current" to always use the current build
+: ${REALM_CORE_VERSION:=0.97.4} # set to "current" to always use the current build
 
 # You can override the xcmode used
 : ${XCMODE:=xcodebuild} # must be one of: xcodebuild (default), xcpretty, xctool
@@ -411,7 +411,7 @@ case "$COMMAND" in
             exit 1
         fi
 
-        git -C $path format-patch --stdout $commit..HEAD | git am -p 2 --directory Realm/ObjectStore --exclude='*CMake*'
+        git -C $path format-patch --stdout $commit..HEAD src | git am -p 2 --directory Realm/ObjectStore --exclude='*CMake*' --reject
         ;;
 
     ######################################
@@ -909,10 +909,12 @@ case "$COMMAND" in
           mv core/include include/core
 
           mkdir -p include/impl/apple
+          mkdir -p include/util
           cp Realm/*.hpp include
           cp Realm/ObjectStore/*.hpp include
           cp Realm/ObjectStore/impl/*.hpp include/impl
           cp Realm/ObjectStore/impl/apple/*.hpp include/impl/apple
+          cp Realm/ObjectStore/util/*.hpp include/util
 
           touch Realm/RLMPlatform.h
           if [ -n "$COCOAPODS_VERSION" ]; then

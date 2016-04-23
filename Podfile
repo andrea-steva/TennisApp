@@ -34,7 +34,7 @@ def shared_pods
 	pod 'DZNEmptyDataSet'
 	pod 'FormatterKit'
 	pod 'MBProgressHUD', '~> 0.8'
-	pod 'IQKeyboardManager', '~> 3.3'
+	pod 'IQKeyboardManagerSwift'
 	pod 'SWTableViewCell', '~> 0.3'
 	pod 'GSKStretchyHeaderView'
     

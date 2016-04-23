@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B282D8B0166D5C17E4B22A7 /* Pods_TennisApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5773522CF85985FD154DD5 /* Pods_TennisApp.framework */; };
+		09EC0178D4E79F7F6D639467 /* Pods_TennisApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D1AE1094934F1BDA5C2436 /* Pods_TennisApp.framework */; };
 		6507CA641C6CFE6400B7AD5C /* RESideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA631C6CFE6400B7AD5C /* RESideViewController.swift */; };
 		6507CA661C6D023C00B7AD5C /* RESideLeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA651C6D023C00B7AD5C /* RESideLeftViewController.swift */; };
 		6507CA681C6D065A00B7AD5C /* SwiftUIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA671C6D065A00B7AD5C /* SwiftUIImageEffects.swift */; };
@@ -106,8 +106,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		135CAD352F653F5C1F3E046C /* Pods-TennisApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TennisApp/Pods-TennisApp.debug.xcconfig"; sourceTree = "<group>"; };
-		3CEF9A5E187F9BA4B45D1F5A /* Pods-TennisApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TennisApp/Pods-TennisApp.release.xcconfig"; sourceTree = "<group>"; };
+		17D1AE1094934F1BDA5C2436 /* Pods_TennisApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TennisApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26C33F3D6C7F65404097A424 /* Pods-TennisApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TennisApp/Pods-TennisApp.debug.xcconfig"; sourceTree = "<group>"; };
 		6507CA631C6CFE6400B7AD5C /* RESideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESideViewController.swift; sourceTree = "<group>"; };
 		6507CA651C6D023C00B7AD5C /* RESideLeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESideLeftViewController.swift; sourceTree = "<group>"; };
 		6507CA671C6D065A00B7AD5C /* SwiftUIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftUIImageEffects.swift; path = Vendor/SwiftUIImageEffects.swift; sourceTree = "<group>"; };
@@ -194,8 +194,8 @@
 		65FB52D51C6DF1D6003A6DAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		65FB52D71C6DF252003A6DAE /* RacketsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketsViewController.swift; sourceTree = "<group>"; };
 		65FB52D91C6DF7EE003A6DAE /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "TennisApp/Bridging-Header.h"; sourceTree = "<group>"; };
+		887DC7EA41CD5C29A829E5C7 /* Pods-TennisApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TennisApp/Pods-TennisApp.release.xcconfig"; sourceTree = "<group>"; };
 		9246E445FB094E36A048BFB1 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF5773522CF85985FD154DD5 /* Pods_TennisApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TennisApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,7 +203,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B282D8B0166D5C17E4B22A7 /* Pods_TennisApp.framework in Frameworks */,
+				09EC0178D4E79F7F6D639467 /* Pods_TennisApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,7 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				9246E445FB094E36A048BFB1 /* Pods.framework */,
-				FF5773522CF85985FD154DD5 /* Pods_TennisApp.framework */,
+				17D1AE1094934F1BDA5C2436 /* Pods_TennisApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -260,7 +260,7 @@
 				65B04DC11C6CA02300011439 /* TennisAppUITests */,
 				65B04DA01C6CA02300011439 /* Products */,
 				0303B36F1A585C2AC46A506F /* Frameworks */,
-				A5FECA4F226A2E39308354D2 /* Pods */,
+				D548C0B49C67EE2041E74F80 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -529,11 +529,11 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		A5FECA4F226A2E39308354D2 /* Pods */ = {
+		D548C0B49C67EE2041E74F80 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				135CAD352F653F5C1F3E046C /* Pods-TennisApp.debug.xcconfig */,
-				3CEF9A5E187F9BA4B45D1F5A /* Pods-TennisApp.release.xcconfig */,
+				26C33F3D6C7F65404097A424 /* Pods-TennisApp.debug.xcconfig */,
+				887DC7EA41CD5C29A829E5C7 /* Pods-TennisApp.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -545,12 +545,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65B04DC71C6CA02300011439 /* Build configuration list for PBXNativeTarget "TennisApp" */;
 			buildPhases = (
-				62D1F00EEB951D19C3A16F16 /* Check Pods Manifest.lock */,
+				0403EA7FA4D434161A2C8B61 /* 📦 Check Pods Manifest.lock */,
 				65B04D9B1C6CA02300011439 /* Sources */,
 				65B04D9C1C6CA02300011439 /* Frameworks */,
 				65B04D9D1C6CA02300011439 /* Resources */,
-				6831C1F88C38D3E0105B1875 /* Embed Pods Frameworks */,
-				78E3F4BC7BFC1511FE55FC68 /* Copy Pods Resources */,
+				7579BFFBD2CD76E70E46DDEF /* 📦 Embed Pods Frameworks */,
+				A7F71F2E6927FCBFF195194B /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -701,14 +701,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		62D1F00EEB951D19C3A16F16 /* Check Pods Manifest.lock */ = {
+		0403EA7FA4D434161A2C8B61 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -716,14 +716,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		6831C1F88C38D3E0105B1875 /* Embed Pods Frameworks */ = {
+		7579BFFBD2CD76E70E46DDEF /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -731,14 +731,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TennisApp/Pods-TennisApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		78E3F4BC7BFC1511FE55FC68 /* Copy Pods Resources */ = {
+		A7F71F2E6927FCBFF195194B /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -972,7 +972,7 @@
 		};
 		65B04DC81C6CA02300011439 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 135CAD352F653F5C1F3E046C /* Pods-TennisApp.debug.xcconfig */;
+			baseConfigurationReference = 26C33F3D6C7F65404097A424 /* Pods-TennisApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TennisApp/Info.plist;
@@ -985,7 +985,7 @@
 		};
 		65B04DC91C6CA02300011439 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3CEF9A5E187F9BA4B45D1F5A /* Pods-TennisApp.release.xcconfig */;
+			baseConfigurationReference = 887DC7EA41CD5C29A829E5C7 /* Pods-TennisApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TennisApp/Info.plist;
