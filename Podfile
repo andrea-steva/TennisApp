@@ -37,6 +37,7 @@ def shared_pods
 	pod 'IQKeyboardManagerSwift'
 	pod 'SWTableViewCell', '~> 0.3'
 	pod 'GSKStretchyHeaderView'
+    pod 'ASProgressHud'
     
 	#Charts
 	pod 'Charts', '~> 2.1'

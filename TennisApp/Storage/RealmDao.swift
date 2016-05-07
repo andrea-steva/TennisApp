@@ -21,19 +21,22 @@ class RealmDao {
     
     private func setupRealm() {
         
-        //Set the realm database file with name "slhash_db.realm"
+        //Set the realm database file with name "tennis_db.realm"
         let realmConfiguration = Realm.Configuration()
-        let realmPath = NSURL.fileURLWithPath(realmConfiguration.path!)
+        guard let path = realmConfiguration.fileURL?.absoluteString else {
+            return
+        }
+    
+        let realmPath = NSURL.fileURLWithPath(path)
             .URLByDeletingLastPathComponent?
             .URLByAppendingPathComponent("tennis_db")
             .URLByAppendingPathExtension("realm")
-            .path
         
         //When you change Realm objects you need to increase the schemaVersion to perform the migration.
         //Increase this number when you change the schema of your database
         let schemaVersion : UInt64 = 0
         
-        let config = Realm.Configuration(path: realmPath, schemaVersion: schemaVersion, migrationBlock: { migration, oldSchemaVersion in
+        let config = Realm.Configuration(fileURL: realmPath, schemaVersion: schemaVersion, migrationBlock: { migration, oldSchemaVersion in
             if (oldSchemaVersion < schemaVersion) {
                 print("---- Perform Migration block ----")
                 print("Old schema version: \(oldSchemaVersion)")
@@ -46,7 +49,7 @@ class RealmDao {
         
         realm = try! Realm(configuration: config)
         
-        print("Realm DB path: \(realm.path)")
+        print("Realm DB path: \(realm.configuration.fileURL?.absoluteString)")
         print("Current schema version: \(realm.configuration.schemaVersion)")
     }
     
@@ -228,10 +231,12 @@ extension Results {
         if i >= self.count {
             return []
         }
-        for; i < page * pageSize && i < self.count; i++ {
+
+        while i < page * pageSize && i < self.count {
             if let result = self[i] as? T {
                 array.append(result)
             }
+            i += 1
         }
         return array
     }

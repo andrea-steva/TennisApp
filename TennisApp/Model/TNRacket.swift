@@ -23,12 +23,7 @@ class TNRacket: Object {
     
     //MARK: Relationship
     
-    var user: [TNUser] {
-        // Realm doesn't persist this property because it only has a getter defined
-        // Define "user" as the inverse relationship to TNUser.rackets
-        return linkingObjects(TNUser.self, forProperty: "rackets")
-    }
-    
+    let user = LinkingObjects(fromType: TNUser.self, property: "rackets")
     var strings = List<TNString>()
         
     //MARK: Primary Key

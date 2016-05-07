@@ -22,11 +22,7 @@ class TNString: Object {
     
     //MARK: Relationship
 
-    var racket: [TNRacket] {
-        // Realm doesn't persist this property because it only has a getter defined
-        // Define "racket" as the inverse relationship to TNRacket.strings
-        return linkingObjects(TNRacket.self, forProperty: "strings")
-    }
+    let racket = LinkingObjects(fromType: TNRacket.self, property: "string")
     
     //MARK: Primary Key
     

@@ -1,40 +1,70 @@
 //
-//  ASProgressHud.swift
-//  TennisApp
+//  ASProgress.swift
+//  Pods
 //
-//  Created by Andrea Stevanato on 11/02/16.
-//  Copyright © 2016 Andrea Stevanato. All rights reserved.
+//  Created by Andrea Stevanato on 17/02/16.
+//
 //
 
-import UIKit
-
-struct HudProperty {
-    var prefixName: String
-    var frameNumber: Int
-    var backgroundColor: UIColor
+/**
+*  Specify the property for the Hud.
+*/
+public struct HudProperty {
+    
+    /// The images predix name (eg. For a image with format "my_loader_XX.png" with NN from 0 to 20 the predix name is "my:loader")
+    public let prefixName: String
+    /// The number of images used to animate the loader
+    let frameNumber: Int
+    /// The size for the loader. Defaut value 60 px
+    let size: CGFloat
+    /// The animation duration for a single cycles. Default value 1.0 second
+    let animationDuration: NSTimeInterval
+    /// An optional background color. The defuault value is clear color
+    let backgroundColor: UIColor?
+    
+    private var mainBundle : Bool = false
+    
+    /**
+     Specify the property for the Hud
+     
+     - parameter prefixName:        The images predix name (eg. For a image with format "my_loader_XX.png" with NN from 0 to 20 the predix name is "my:loader")
+     - parameter frameNumber:       The number of images used to animate the loader
+     - parameter size:              The size for the loader. Defaut value 60 px
+     - parameter animationDuration: The animation duration for a single cycles. Default value 1.0 second
+     - parameter backgroundColor:   An optional background color. The defuault value is clear color
+     
+     - returns: The property struct
+     */
+    public init(prefixName : String, frameNumber : Int, size : CGFloat = 60, animationDuration : NSTimeInterval = 1.0, backgroundColor : UIColor? = UIColor.clearColor()) {
+        self.prefixName = prefixName
+        self.frameNumber = frameNumber
+        self.size = size
+        self.animationDuration = animationDuration
+        self.backgroundColor = backgroundColor
+    }
 }
 
-enum ASProgressHudType : Int {
-    case Flag, Google, Default
+/// A set of custom Hud
+public enum HudType : Int {
+    case Default, Flag, Google
     
     var properties : HudProperty {
         switch self {
-        case .Flag:
-            return HudProperty(prefixName: "loader_flag", frameNumber: 20, backgroundColor: UIColor.clearColor())
-        case .Google:
-            return HudProperty(prefixName: "loader_google", frameNumber: 30, backgroundColor: UIColor.clearColor())
         case .Default:
-            return HudProperty(prefixName: "loader_default", frameNumber: 30, backgroundColor: UIColor.whiteColor())
+            return HudProperty(prefixName: "default", frameNumber: 18)
+        case .Flag:
+            return HudProperty(prefixName: "flag", frameNumber: 20)
+        case .Google:
+            return HudProperty(prefixName: "google", frameNumber: 30)
         }
     }
 }
 
 /**
- *  ASProgressHud is UIView subclass plus UIImageView on the center.
+ *  ASProgressHud is UIView subclass
  */
-class ASProgressHud: UIView {
+public class ASProgressHud: UIView {
     
-    private static let LoaderSize : CGFloat = 65 //Depending on screen size: UIScreen.mainScreen().nativeBounds.width * 0.12
     private var useAnimation = true
     private var showStarted : NSDate?
     private var hudImageView : UIImageView?
@@ -42,7 +72,7 @@ class ASProgressHud: UIView {
     
     //MARK: - Init
     
-    required init(coder aDecoder: NSCoder) {
+    public required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -52,9 +82,9 @@ class ASProgressHud: UIView {
      :param: frame frame
      :param: type  Progress Hud Type
      
-     :returns: ERProgressHud istance
+     :returns: ASProgressHud istance
      */
-    init(frame: CGRect, type: ASProgressHudType) {
+    init(frame: CGRect, type: HudType) {
         super.init(frame: frame)
         
         let hudProperty = type.properties
@@ -70,7 +100,7 @@ class ASProgressHud: UIView {
      :param: frame       Frame
      :param: hudProperty Hud property
      
-     :returns: ERProgressHud istance
+     :returns: ASProgressHud istance
      */
     init(frame: CGRect, hudProperty: HudProperty) {
         super.init(frame: frame)
@@ -88,13 +118,13 @@ class ASProgressHud: UIView {
         self.autoresizingMask = [.FlexibleTopMargin, .FlexibleBottomMargin, .FlexibleLeftMargin, .FlexibleRightMargin]
         
         //Configure HudImageView
-        self.hudImageView = UIImageView(frame:CGRectMake(0, 0, ASProgressHud.LoaderSize, ASProgressHud.LoaderSize))
+        self.hudImageView = UIImageView(frame:CGRectMake(0, 0, hudProperty.size, hudProperty.size))
         self.hudImageView?.center = CGPointMake(frame.size.width/2, frame.size.height/2)
         self.hudImageView?.contentMode = UIViewContentMode.ScaleAspectFit
         self.hudImageView?.backgroundColor = hudProperty.backgroundColor
         
         //Load images
-        let imagesArray = self.getImagesArray(hudProperty.prefixName, imagesNumber: hudProperty.frameNumber)
+        let imagesArray = self.loadImages(hudProperty)
         
         //Animation configuration
         self.hudImageView?.animationImages = imagesArray
@@ -104,12 +134,11 @@ class ASProgressHud: UIView {
         self.hudImageView?.layer.cornerRadius = 10.0
     }
     
-    private func customTypeBasedConfiguration(type: ASProgressHudType) {
-        //Type-based property configuration
+    private func customTypeBasedConfiguration(type: HudType) {
         switch type {
         case .Default:
             
-            //Add Shadow
+            //Add a black shadow with radius offset and opacity
             self.hudImageView?.layer.shadowColor = UIColor.blackColor().CGColor
             self.hudImageView?.layer.shadowOpacity = 0.4
             self.hudImageView?.layer.shadowRadius = 3.0
@@ -123,15 +152,36 @@ class ASProgressHud: UIView {
     
     //MARK: - Utils
     
-    private func getImagesArray(prefixImageName : String, imagesNumber : Int) -> Array<UIImage> {
+    private func loadImages(property : HudProperty) -> Array<UIImage> {
+
         //Load images
         var imageArray : [UIImage] = []
-        for var c = 0; c < imagesNumber; c++ {
-            var image = UIImage(named: NSString(format: "%@_%02d", prefixImageName, c) as String)
-            image = image!.tint(Style.Colors.primaryColor)
-            imageArray.append(image!)
+        
+        for c in 0 ..< property.frameNumber {
+            guard let image = UIImage(named: String(format: "%@_%02d.png", property.prefixName, c), inBundle: property.mainBundle ? nil : self.podBundle(), compatibleWithTraitCollection: nil) else {
+                assertionFailure("Cannot load the image")
+                return []
+            }
+            imageArray.append(image)
         }
+        
         return imageArray
+    }
+    
+    private func podBundle() -> NSBundle {
+        
+        let podBundle = NSBundle(forClass: self.classForCoder)
+        if let bundleURL = podBundle.URLForResource("Resources", withExtension: "bundle") {
+            
+            if let bundle = NSBundle(URL: bundleURL) {
+                return bundle
+            } else {
+                assertionFailure("Could not load the bundle")
+            }
+        } else {
+            assertionFailure("Could not create a path to the bundle")
+        }
+        return podBundle
     }
     
     //MARK: - Class methods
@@ -150,7 +200,7 @@ class ASProgressHud: UIView {
     :see: hideHUDForView:animated:
     :see: animationType
     */
-    static func showHUDAddedTo(view : UIView, animated : Bool, type : ASProgressHudType) -> ASProgressHud {
+    public static func showHUDAddedTo(view : UIView, animated : Bool, type : HudType) -> ASProgressHud {
         let hud = ASProgressHud(frame: view.bounds, type: type)
         view.addSubview(hud)
         hud.show(animated)
@@ -171,7 +221,9 @@ class ASProgressHud: UIView {
      :see: hideHUDForView:animated:
      :see: animationType
      */
-    static func showCustomHUDAddedTo(view : UIView, animated : Bool, hudProperty : HudProperty) -> ASProgressHud {
+    public static func showCustomHUDAddedTo(view : UIView, animated : Bool, property : HudProperty) -> ASProgressHud {
+        var hudProperty = property
+        hudProperty.mainBundle = true
         let hud = ASProgressHud(frame: view.bounds, hudProperty: hudProperty)
         view.addSubview(hud)
         hud.show(animated)
@@ -191,7 +243,7 @@ class ASProgressHud: UIView {
      :see: showHUDAddedTo:animated:
      :see: animationType
      */
-    static func hideHUDForView(view : UIView, animated : Bool) -> Bool {
+    public static func hideHUDForView(view : UIView, animated : Bool) -> Bool {
         let hud = self.HUDForView(view)
         
         if hud != nil {
@@ -214,7 +266,7 @@ class ASProgressHud: UIView {
      :see: hideHUDForView:animated:
      :see: animationType
      */
-    static func hideAllHUDsForView(view: UIView, animated: Bool) -> NSInteger {
+    public static func hideAllHUDsForView(view: UIView, animated: Bool) -> NSInteger {
         
         let huds = ASProgressHud.allHUDsForView(view)
         for hud in huds {
@@ -277,8 +329,7 @@ class ASProgressHud: UIView {
             UIView.beginAnimations(nil, context: nil)
             UIView.setAnimationDuration(0.30)
             UIView.setAnimationDelegate(self)
-            // default = NULL. -animationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
-            UIView.setAnimationDidStopSelector("animationFinished")
+            UIView.setAnimationDidStopSelector(#selector(ASProgressHud.animationFinished))
             // 0.02 prevents the hud from passing through touches during the animation the hud will get completely hidden
             // in the done method
             self.alpha = 0.02
@@ -291,13 +342,13 @@ class ASProgressHud: UIView {
     }
     
     private func show(animated : Bool) {
-        assert(NSThread.isMainThread(), "ERProgressHud needs to be accessed on the main thread.")
+        assert(NSThread.isMainThread(), "ASProgressHud needs to be accessed on the main thread.")
         self.useAnimation = animated
         self.showUsingAnimation(useAnimation)
     }
     
     private func hide(animated : Bool) {
-        assert(NSThread.isMainThread(), "ERProgressHud needs to be accessed on the main thread.")
+        assert(NSThread.isMainThread(), "ASProgressHud needs to be accessed on the main thread.")
         self.useAnimation = animated
         self.hideUsingAnimation(useAnimation)
     }
@@ -319,4 +370,3 @@ class ASProgressHud: UIView {
     }
     
 }
-

@@ -18,11 +18,7 @@ class TNMatchScore: Object {
 
     //MARK: Relationship
     
-        var match: [TNMatch] {
-            // Realm doesn't persist this property because it only has a getter defined
-            // Define "user" as the inverse relationship to TNUser.activities
-            return linkingObjects(TNMatch.self, forProperty: "scores")
-        }
+    let match = LinkingObjects(fromType: TNMatch.self, property: "scores")
     
     //MARK: Init
     

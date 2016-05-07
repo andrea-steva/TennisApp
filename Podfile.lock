@@ -3,6 +3,7 @@ PODS:
   - AlamofireImage (2.4.0):
     - Alamofire (~> 3.3)
   - ALCameraViewController (1.1.9)
+  - ASProgressHud (0.0.3)
   - Charts (2.2.4):
     - Charts/Core (= 2.2.4)
   - Charts/Core (2.2.4)
@@ -11,7 +12,7 @@ PODS:
   - DZNEmptyDataSet (1.8)
   - Eureka (1.5.0)
   - Fabric (1.6.7)
-  - FontAwesome.swift (0.7.1)
+  - FontAwesome.swift (0.7.3)
   - FormatterKit (1.8.1):
     - FormatterKit/AddressFormatter (= 1.8.1)
     - FormatterKit/ArrayFormatter (= 1.8.1)
@@ -46,7 +47,7 @@ PODS:
   - INSPullToRefresh (1.1.5)
   - IQKeyboardManagerSwift (4.0.2)
   - MBProgressHUD (0.9.2)
-  - PagingMenuController (0.9.0)
+  - PagingMenuController (0.9.1)
   - ReactiveCocoa (4.1.0):
     - ReactiveCocoa/UI (= 4.1.0)
     - Result (~> 2.0)
@@ -58,11 +59,11 @@ PODS:
   - ReactiveCocoa/UI (4.1.0):
     - ReactiveCocoa/Core
     - Result (~> 2.0)
-  - Realm (0.99.0):
-    - Realm/Headers (= 0.99.0)
-  - Realm/Headers (0.99.0)
-  - RealmSwift (0.99.0):
-    - Realm (= 0.99.0)
+  - Realm (0.101.0):
+    - Realm/Headers (= 0.101.0)
+  - Realm/Headers (0.101.0)
+  - RealmSwift (0.101.0):
+    - Realm (= 0.101.0)
   - RESideMenu (4.0.7)
   - Result (2.0.0)
   - SWTableViewCell (0.3.7)
@@ -71,6 +72,7 @@ DEPENDENCIES:
   - Alamofire (~> 3.1)
   - AlamofireImage (~> 2.0)
   - ALCameraViewController
+  - ASProgressHud
   - Charts (~> 2.1)
   - Crashlytics
   - DZNEmptyDataSet
@@ -92,25 +94,26 @@ SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
   ALCameraViewController: f171ffb7e84d211277a0f97823a2bda7418dc573
+  ASProgressHud: 6a921cac52428f75f0bbdd6d4c3f9e454818e6fd
   Charts: a9e735c83c6d376ade20f6612dcf0ba217394a49
   Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
   DZNEmptyDataSet: d2351b2e8daefa40433ef292e246e21f6be31a7b
   Eureka: 2fb37bb50569c62ee3284689d5b7aca694b040e0
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
-  FontAwesome.swift: 21ec9db57af8b92d4b4d6ca8208b9ae07031e828
+  FontAwesome.swift: f694fe0f667d6d3390b5919cdb0556a27b75d427
   FormatterKit: 11ad17b983200629246a5a466f6f1bfa2df823cb
   GSKStretchyHeaderView: 14d0aa8dcc89fa29330ba30d7ff0d98376b46748
   INSPullToRefresh: 112ae2c295d2b3a76daa9dff86e7ef40ed002c47
   IQKeyboardManagerSwift: 2f2c19c509f67c4c0df2826db54033d3e090ce65
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
-  PagingMenuController: 46ff3b4dab1479a8409a91429acdc0605b931e36
+  PagingMenuController: 95bab00761e1ba4f4f9fa6bf22ac71b065a675aa
   ReactiveCocoa: d70004d7a366a7b8e87e60ce2347182c77701949
-  Realm: cf275f109b94e5399896960c90285a043edb3d56
-  RealmSwift: f40e5634bbc74f063163561d02acc4aa040d40a5
+  Realm: b21596d6d7e1c054f6fae967d27263d2593ca309
+  RealmSwift: 5247501bcd68b9db3a718cba808e1ce45ba67034
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   Result: 9e75e1111c774c6ac594e14907b15057053a7959
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
 
-PODFILE CHECKSUM: 74c358546cb88b17fbf57800d4235f921ba910a9
+PODFILE CHECKSUM: ef3e6faeb9ae974582ab3d788c5306bcae206b66
 
-COCOAPODS: 1.0.0.beta.8
+COCOAPODS: 1.0.0.rc.2

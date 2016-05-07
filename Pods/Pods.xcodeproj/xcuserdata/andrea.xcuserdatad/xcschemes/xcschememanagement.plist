@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ASProgressHud-Resources.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ASProgressHud.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -137,6 +147,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>13FBBA3E524CBAA7B4FA55B2A6917B17</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>1520003FEBEC114D6C84F832AFEDB994</key>
 		<dict>
 			<key>primary</key>
@@ -147,27 +162,37 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>2341AECE0F35DFE9575FA6C93FCC0D83</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>23D4B5C9CC657B68134305BFEB076270</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>28BA763D6A282724EF0347E705E71520</key>
+		<key>24CFD4DC45BA865500756A200DA812A7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>45CB72D925FF4FD59836783257F7FAA5</key>
+		<key>32F789B79A806D38997C9F6F5DC0950B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>42559CC5EC0236D10EF250E8D28B7484</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>49C1BB1C089E8CD8A0312E35C7E31617</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>5BBB34170986C897E8931C1768FD6EE3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>61D3309E5682CBA1BE5EBF5E0F05DD82</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -182,22 +207,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>851312EF3BFB2D3A6C3F33344E6BD043</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8CF5AA07F6CCC89ADF05829E0E1328E1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>9762A4F5E738427BEA0378EC2AAE2910</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9E0CBAA4A1C3D11E4A727797886C8802</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -232,7 +242,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FCA36BA20B78C9EF7D6DAFB26CD94BD7</key>
+		<key>F181D194F20F731D94565D4CB9037A04</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F2CE449260E767692A3078142937C25D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FE9C40AE27559C4B67E1CA80ED213BD2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

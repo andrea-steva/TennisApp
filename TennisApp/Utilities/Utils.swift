@@ -12,6 +12,7 @@ import PassKit
 import Alamofire
 import AlamofireImage
 import FontAwesome_swift
+import ASProgressHud
 
 //MARK: - Utils Class
 
@@ -52,7 +53,7 @@ class Utils {
     static func showHUD(view : UIView) {
         dispatch_async(dispatch_get_main_queue(),{
             let hudProperty = HudProperty(prefixName: "loader_clear", frameNumber: 30, backgroundColor: UIColor.whiteColor())
-            ASProgressHud.showCustomHUDAddedTo(view, animated: true, hudProperty: hudProperty)
+            ASProgressHud.showCustomHUDAddedTo(view, animated: true, property: hudProperty)
         })
     }
     

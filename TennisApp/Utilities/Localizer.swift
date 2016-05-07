@@ -69,8 +69,7 @@ class Localizer {
         var value = NSLocalizedString(key, tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: "")
         
         value = value.stringByReplacingOccurrencesOfString("%s", withString: "%@")
-        
-        for var i = 0; i <= 10; i++ {
+        for i in 0...10 {
             let pattern = String(format: "%i$s", i)
             value = value.stringByReplacingOccurrencesOfString(pattern, withString: "%@")
         }
