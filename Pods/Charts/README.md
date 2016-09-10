@@ -1,4 +1,4 @@
-**Version 2.2.4**, synced to [MPAndroidChart #2e41714](https://github.com/PhilJay/MPAndroidChart/commit/2e41714)
+**Version 3.0**, synced to [MPAndroidChart #1b9b3da](https://github.com/PhilJay/MPAndroidChart/commit/a233e38)
 
 ![alt tag](https://raw.github.com/danielgindi/Charts/master/Assets/feature_graphic.png)
   ![Supported Platforms](https://img.shields.io/cocoapods/p/Charts.svg) [![Releases](https://img.shields.io/github/release/danielgindi/Charts.svg)](https://github.com/danielgindi/Charts/releases) [![Latest pod release](https://img.shields.io/cocoapods/v/Charts.svg)](http://cocoapods.org/pods/charts) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Build Status](https://travis-ci.org/danielgindi/Charts.svg?branch=master)](https://travis-ci.org/danielgindi/Charts) 
@@ -7,7 +7,6 @@
 ## Just a heads up: We've renamed from *ios-charts* to **Charts**.
 
 * Xcode 7.3 / Swift 2.2 / 3.0
-* iOS 7.0 (Drag .swift files to your project)
 * iOS 8.0 / 9.0 (Use as an **Embedded** Framework)
 * tvOS 9.0
 * OSX 10.11
@@ -70,11 +69,15 @@ pod 'Charts/Realm'
 Charts now include Carthage prebuilt binaries.
 
 ```carthage
-github "danielgindi/Charts" == 2.2.4
-github "danielgindi/Charts" ~> 2.2.4
+github "danielgindi/Charts" == 2.2.5
+github "danielgindi/Charts" ~> 2.2.5
 ```
 
 In order to build the binaries for a new release, use `carthage build --no-skip-current && carthage archive Charts && carthage archive ChartsRealm`.
+
+## 3rd party bindings
+
+Xamarin (by @Flash3001): *iOS* - [GitHub](https://github.com/Flash3001/iOSCharts.Xamarin)/[NuGet](https://www.nuget.org/packages/iOSCharts/). *Android* - [GitHub](https://github.com/Flash3001/MPAndroidChart.Xamarin)/[NuGet](https://www.nuget.org/packages/MPAndroidChart/).
 
 ## Help
 

@@ -542,12 +542,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65B04DC71C6CA02300011439 /* Build configuration list for PBXNativeTarget "TennisApp" */;
 			buildPhases = (
-				0403EA7FA4D434161A2C8B61 /* 📦 Check Pods Manifest.lock */,
+				0403EA7FA4D434161A2C8B61 /* [CP] Check Pods Manifest.lock */,
 				65B04D9B1C6CA02300011439 /* Sources */,
 				65B04D9C1C6CA02300011439 /* Frameworks */,
 				65B04D9D1C6CA02300011439 /* Resources */,
-				7579BFFBD2CD76E70E46DDEF /* 📦 Embed Pods Frameworks */,
-				A7F71F2E6927FCBFF195194B /* 📦 Copy Pods Resources */,
+				7579BFFBD2CD76E70E46DDEF /* [CP] Embed Pods Frameworks */,
+				A7F71F2E6927FCBFF195194B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -606,13 +606,16 @@
 				TargetAttributes = {
 					65B04D9E1C6CA02300011439 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 					};
 					65B04DB21C6CA02300011439 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 65B04D9E1C6CA02300011439;
 					};
 					65B04DBD1C6CA02300011439 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 65B04D9E1C6CA02300011439;
 					};
 				};
@@ -698,14 +701,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0403EA7FA4D434161A2C8B61 /* 📦 Check Pods Manifest.lock */ = {
+		0403EA7FA4D434161A2C8B61 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -713,14 +716,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		7579BFFBD2CD76E70E46DDEF /* 📦 Embed Pods Frameworks */ = {
+		7579BFFBD2CD76E70E46DDEF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -728,14 +731,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TennisApp/Pods-TennisApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A7F71F2E6927FCBFF195194B /* 📦 Copy Pods Resources */ = {
+		A7F71F2E6927FCBFF195194B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -976,6 +979,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.as.TennisApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TennisApp/Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -989,6 +993,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.as.TennisApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TennisApp/Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -1000,6 +1005,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.as..TennisAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TennisApp.app/TennisApp";
 			};
 			name = Debug;
@@ -1012,6 +1018,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.as..TennisAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TennisApp.app/TennisApp";
 			};
 			name = Release;
@@ -1023,6 +1030,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.as..TennisAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = TennisApp;
 				USES_XCTRUNNER = YES;
 			};
@@ -1035,6 +1043,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.as..TennisAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = TennisApp;
 				USES_XCTRUNNER = YES;
 			};

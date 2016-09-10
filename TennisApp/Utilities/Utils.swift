@@ -11,7 +11,7 @@ import EventKit
 import PassKit
 import Alamofire
 import AlamofireImage
-import FontAwesome_swift
+//import FontAwesome_swift
 import ASProgressHud
 
 //MARK: - Utils Class

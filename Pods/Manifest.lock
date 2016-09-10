@@ -1,18 +1,18 @@
 PODS:
-  - Alamofire (3.3.1)
-  - AlamofireImage (2.4.0):
-    - Alamofire (~> 3.3)
-  - ALCameraViewController (1.1.9)
+  - Alamofire (3.5.0)
+  - AlamofireImage (2.5.0):
+    - Alamofire (~> 3.5)
+  - ALCameraViewController (1.2.3)
   - ASProgressHud (0.0.3)
-  - Charts (2.2.4):
-    - Charts/Core (= 2.2.4)
-  - Charts/Core (2.2.4)
-  - Crashlytics (3.7.0):
+  - Charts (2.2.6):
+    - Charts/Core (= 2.2.6)
+  - Charts/Core (2.2.6)
+  - Crashlytics (3.8.1):
     - Fabric (~> 1.6.3)
-  - DZNEmptyDataSet (1.8)
-  - Eureka (1.5.0)
-  - Fabric (1.6.7)
-  - FontAwesome.swift (0.7.3)
+  - DZNEmptyDataSet (1.8.1)
+  - Eureka (1.7.0)
+  - Fabric (1.6.8)
+  - FontAwesome.swift (0.8.0)
   - FormatterKit (1.8.1):
     - FormatterKit/AddressFormatter (= 1.8.1)
     - FormatterKit/ArrayFormatter (= 1.8.1)
@@ -43,29 +43,20 @@ PODS:
     - FormatterKit/Resources
   - FormatterKit/URLRequestFormatter (1.8.1):
     - FormatterKit/Resources
-  - GSKStretchyHeaderView (0.8.2)
+  - GSKStretchyHeaderView (0.12.2)
   - INSPullToRefresh (1.1.5)
-  - IQKeyboardManagerSwift (4.0.2)
+  - IQKeyboardManagerSwift (4.0.5)
   - MBProgressHUD (0.9.2)
   - PagingMenuController (0.9.1)
-  - ReactiveCocoa (4.1.0):
-    - ReactiveCocoa/UI (= 4.1.0)
+  - ReactiveCocoa (4.2.2):
     - Result (~> 2.0)
-  - ReactiveCocoa/Core (4.1.0):
-    - ReactiveCocoa/no-arc
-    - Result (~> 2.0)
-  - ReactiveCocoa/no-arc (4.1.0):
-    - Result (~> 2.0)
-  - ReactiveCocoa/UI (4.1.0):
-    - ReactiveCocoa/Core
-    - Result (~> 2.0)
-  - Realm (0.101.0):
-    - Realm/Headers (= 0.101.0)
-  - Realm/Headers (0.101.0)
-  - RealmSwift (0.101.0):
-    - Realm (= 0.101.0)
+  - Realm (0.103.2):
+    - Realm/Headers (= 0.103.2)
+  - Realm/Headers (0.103.2)
+  - RealmSwift (0.103.2):
+    - Realm (= 0.103.2)
   - RESideMenu (4.0.7)
-  - Result (2.0.0)
+  - Result (2.1.3)
   - SWTableViewCell (0.3.7)
 
 DEPENDENCIES:
@@ -73,10 +64,10 @@ DEPENDENCIES:
   - AlamofireImage (~> 2.0)
   - ALCameraViewController
   - ASProgressHud
-  - Charts (~> 2.1)
+  - Charts (from `https://github.com/danielgindi/Charts`, branch `Swift-2.3`)
   - Crashlytics
   - DZNEmptyDataSet
-  - Eureka (~> 1.3)
+  - Eureka (from `https://github.com/xmartlabs/Eureka`, branch `swift2.3`)
   - Fabric (~> 1.5)
   - FontAwesome.swift (~> 0.6)
   - FormatterKit
@@ -84,36 +75,52 @@ DEPENDENCIES:
   - INSPullToRefresh (~> 1.0)
   - IQKeyboardManagerSwift
   - MBProgressHUD (~> 0.8)
-  - PagingMenuController
+  - PagingMenuController (= 0.9.1)
   - ReactiveCocoa (~> 4.0)
   - RealmSwift (~> 0.98)
   - RESideMenu (~> 4.0.7)
   - SWTableViewCell (~> 0.3)
 
+EXTERNAL SOURCES:
+  Charts:
+    :branch: Swift-2.3
+    :git: https://github.com/danielgindi/Charts
+  Eureka:
+    :branch: swift2.3
+    :git: https://github.com/xmartlabs/Eureka
+
+CHECKOUT OPTIONS:
+  Charts:
+    :commit: ee51dba3be3bab2cae90fcaa5d9b295021f2da03
+    :git: https://github.com/danielgindi/Charts
+  Eureka:
+    :commit: b8f35699244c9f7c9ff4c8355fc8542a16a731bc
+    :git: https://github.com/xmartlabs/Eureka
+
 SPEC CHECKSUMS:
-  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
-  AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
-  ALCameraViewController: f171ffb7e84d211277a0f97823a2bda7418dc573
+  Alamofire: b70a7352335f8ea5babd0a923eb7e8eacc67b877
+  AlamofireImage: 2d34936e5201270bb17a316a786e90e83b4a249d
+  ALCameraViewController: b890aae2f0b2958346f7ea5ae4f8f2b3ad9d5524
   ASProgressHud: 6a921cac52428f75f0bbdd6d4c3f9e454818e6fd
-  Charts: a9e735c83c6d376ade20f6612dcf0ba217394a49
-  Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
-  DZNEmptyDataSet: d2351b2e8daefa40433ef292e246e21f6be31a7b
-  Eureka: 2fb37bb50569c62ee3284689d5b7aca694b040e0
-  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
-  FontAwesome.swift: f694fe0f667d6d3390b5919cdb0556a27b75d427
+  Charts: ae18bd29200328832ee8c53d124d25ef51d3193c
+  Crashlytics: 4391d8df0b125345e9f209c5db6e7f40a6a8435d
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  Eureka: 2020d9faeef7b7e9adeb9e3d8af779e5931c1897
+  Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
+  FontAwesome.swift: f8c6cc5c42cbe93bdc04371363bc7b371fb3d3a1
   FormatterKit: 11ad17b983200629246a5a466f6f1bfa2df823cb
-  GSKStretchyHeaderView: 14d0aa8dcc89fa29330ba30d7ff0d98376b46748
+  GSKStretchyHeaderView: affdd9f3ae6d6f3cea31dccf604367c617d037ad
   INSPullToRefresh: 112ae2c295d2b3a76daa9dff86e7ef40ed002c47
-  IQKeyboardManagerSwift: 2f2c19c509f67c4c0df2826db54033d3e090ce65
+  IQKeyboardManagerSwift: 41fd3a45a2cdb2a0e031af697708a95b865068a1
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   PagingMenuController: 95bab00761e1ba4f4f9fa6bf22ac71b065a675aa
-  ReactiveCocoa: d70004d7a366a7b8e87e60ce2347182c77701949
-  Realm: b21596d6d7e1c054f6fae967d27263d2593ca309
-  RealmSwift: 5247501bcd68b9db3a718cba808e1ce45ba67034
+  ReactiveCocoa: 72263e7ac0770c274617ccd345e01049d0ca38ae
+  Realm: 448f0416079fe5b0ed947e7d86f3c4e1c75826cb
+  RealmSwift: 8a45cc8f02dfac093b72a3b5a01d567e27e15891
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
-  Result: 9e75e1111c774c6ac594e14907b15057053a7959
+  Result: 18e1a7597fbcca5923c565b40a25a98afafdee02
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
 
-PODFILE CHECKSUM: ef3e6faeb9ae974582ab3d788c5306bcae206b66
+PODFILE CHECKSUM: a90b99502ade8989399c16b3d610ca3a52eb7192
 
-COCOAPODS: 1.0.0.rc.2
+COCOAPODS: 1.0.1

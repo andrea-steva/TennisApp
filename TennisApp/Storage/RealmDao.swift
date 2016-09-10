@@ -29,7 +29,7 @@ class RealmDao {
     
         let realmPath = NSURL.fileURLWithPath(path)
             .URLByDeletingLastPathComponent?
-            .URLByAppendingPathComponent("tennis_db")
+            .URLByAppendingPathComponent("tennis_db")!
             .URLByAppendingPathExtension("realm")
         
         //When you change Realm objects you need to increase the schemaVersion to perform the migration.

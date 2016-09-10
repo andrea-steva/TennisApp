@@ -24,7 +24,7 @@ def shared_pods
 	pod 'Alamofire', '~> 3.1'
 
 	#Form
-	pod 'Eureka', '~> 1.3'
+	pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka', :branch => 'swift2.3'
 	
     # Camera View Controller https://github.com/AlexLittlejohn/ALCameraViewController∫
     pod 'ALCameraViewController'
@@ -40,10 +40,10 @@ def shared_pods
     pod 'ASProgressHud'
     
 	#Charts
-	pod 'Charts', '~> 2.1'
+	pod 'Charts', :git => 'https://github.com/danielgindi/Charts', :branch => 'Swift-2.3'
     
 	#PagedView
-	pod 'PagingMenuController'
+	pod 'PagingMenuController' , '0.9.1'
     
 	#Pull to refresh for tablew view and collection view
 	pod 'INSPullToRefresh', '~> 1.0'
@@ -55,4 +55,12 @@ target "TennisApp" do
 
 	shared_pods
 
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |configuration|
+            configuration.build_settings['SWIFT_VERSION'] = "2.3"
+        end
+    end
 end

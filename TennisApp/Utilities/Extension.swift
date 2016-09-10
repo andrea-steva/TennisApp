@@ -181,16 +181,16 @@ extension UIImage {
         let rect = CGRectMake(0.0, 0.0, size, size)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetFillColorWithColor(context, color.CGColor)
+        CGContextSetFillColorWithColor(context!, color.CGColor)
         if(circular) {
-            CGContextFillEllipseInRect(context, rect)
+            CGContextFillEllipseInRect(context!, rect)
         }
         else {
-            CGContextFillRect(context, rect)
+            CGContextFillRect(context!, rect)
         }
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return image
+        return image!
     }
     
     // colorize image with given tint color
@@ -207,7 +207,7 @@ extension UIImage {
             
             // draw original image
             CGContextSetBlendMode(context, .Normal)
-            CGContextDrawImage(context, rect, self.CGImage)
+            CGContextDrawImage(context, rect, self.CGImage!)
             
             // tint image (loosing alpha) - the luminosity of the original image is preserved
             CGContextSetBlendMode(context, .Color)
@@ -216,7 +216,7 @@ extension UIImage {
             
             // mask by alpha values of original image
             CGContextSetBlendMode(context, .DestinationIn)
-            CGContextDrawImage(context, rect, self.CGImage)
+            CGContextDrawImage(context, rect, self.CGImage!)
         }
     }
     
@@ -232,7 +232,7 @@ extension UIImage {
             
             // mask by alpha values of original image
             CGContextSetBlendMode(context, .DestinationIn)
-            CGContextDrawImage(context, rect, self.CGImage)
+            CGContextDrawImage(context, rect, self.CGImage!)
         }
     }
     
@@ -253,7 +253,7 @@ extension UIImage {
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return image
+        return image!
     }
 }
 
