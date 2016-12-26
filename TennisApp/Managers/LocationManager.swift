@@ -10,26 +10,26 @@ import CoreLocation
 
 protocol LocationManagerDelegate {
     
-    func locationManagerDidUpdateLocation(_ localizationManager : LocationManager)
+    func locationManagerDidUpdateLocation(_ localizationManager: LocationManager)
 }
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
     
-    //MARK: Property
+    // MARK: Property
     
     fileprivate let manager = CLLocationManager()
     fileprivate static let geocoder = CLGeocoder()
     
     fileprivate var isMonitoring = false
     
-    fileprivate var lastLocation : CLLocation?
-    fileprivate var placemark : CLPlacemark?
+    fileprivate var lastLocation: CLLocation?
+    fileprivate var placemark: CLPlacemark?
     
-    fileprivate let delegate : LocationManagerDelegate?
+    fileprivate let delegate: LocationManagerDelegate?
     
-    //MARK: Istance
+    // MARK: Istance
     
-    init(delegate : LocationManagerDelegate?) {
+    init(delegate: LocationManagerDelegate?) {
         self.delegate = delegate
         super.init()
         manager.delegate = self
@@ -56,11 +56,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         }
         objc_sync_exit(manager)
     }
-    
-    func getCurrentLocation() -> (location : CLLocation?, name : String?) {
+
+    func getCurrentLocation() -> (location: CLLocation?, name: String?) {
         return (location : lastLocation, name : placemark?.locality)
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else {
             return
@@ -82,7 +82,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    //MARK: Static
+    // MARK: Static
     
     static func getPlacemark(_ location : CLLocation, completion : @escaping (_ placemark : CLPlacemark?) -> Void) {
         geocoder.reverseGeocodeLocation(location) { (placemarks, error) -> Void in

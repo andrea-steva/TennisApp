@@ -11,7 +11,7 @@ import RealmSwift
 
 class Strings: Object {
 
-    //MARK: Stored Attributes
+    // MARK: Stored Attributes
     
     dynamic var stringId : String!
     dynamic var manufacter : String!
@@ -20,17 +20,17 @@ class Strings: Object {
     dynamic var duration : Float = 0
     dynamic var tension : Float = 0
     
-    //MARK: Relationship
+    // MARK: Relationship
 
     let racket = LinkingObjects(fromType: Racket.self, property: "strings")
     
-    //MARK: Primary Key
+    // MARK: Primary Key
     
     override static func primaryKey() -> String? {
         return "stringId"
     }
     
-    //MARK: Init
+    // MARK: Init
     
     required init() {
         super.init()
@@ -48,6 +48,6 @@ class Strings: Object {
         fatalError("init(value:schema:) has not been implemented")
     }
     
-    //MARK: Class Methods
+    // MARK: Class Methods
     
 }

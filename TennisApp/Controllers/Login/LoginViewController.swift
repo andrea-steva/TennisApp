@@ -11,17 +11,17 @@ import ALCameraViewController
 
 class LoginViewController: BaseViewController {
     
-    //MARK: IBOutlets
+    // MARK: IBOutlets
     @IBOutlet var userImageView : UIImageView!
     @IBOutlet var firstNameTextField : UITextField!
     @IBOutlet var lastNameTextField : UITextField!
     @IBOutlet var startButton : UIButton!
     @IBOutlet var cameraButton : UIButton!
     
-    //MARK: ViewModel
+    // MARK: ViewModel
     var viewModel = LoginViewModel()
     
-    //MARK: View Management
+    // MARK: View Management
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,7 +38,7 @@ class LoginViewController: BaseViewController {
         self.backgroundView?.image = self.backgroundView?.image?.applyMenuEffect()
     }
     
-    //MARK: IBAction
+    // MARK: IBAction
     
     @IBAction func didTapStartButton(_ sender : UIButton) {
         AppDelegate.instance().setRootViewController(Utils.getControllerFromStoryboard("Main"))
@@ -53,5 +53,7 @@ class LoginViewController: BaseViewController {
         }
         present(cameraViewController, animated: true, completion: nil)
     }
+    
+    // MARK: Firebase Auth
     
 }

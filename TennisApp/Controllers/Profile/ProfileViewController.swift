@@ -10,10 +10,10 @@ import UIKit
 
 class ProfileViewController: BaseViewController {
 
-    //MARK: IBOutlets
+    // MARK: IBOutlets
     @IBOutlet var tableView : UITableView!
     
-    //MARK: View Management
+    // MARK: View Management
     
     override func controllerTitleKey() -> LocalizerKey {
         return .menu_profile

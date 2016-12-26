@@ -33,7 +33,7 @@ class RESideViewController: RESideMenu, RESideMenuDelegate {
         self.delegate = self;
     }
     
-    //MARK: RESideMenu Delegate
+    // MARK: RESideMenu Delegate
     
     func sideMenu(_ sideMenu: RESideMenu!, willShowMenuViewController menuViewController: UIViewController!) {
         //DDLogDebug(@"willShowMenuViewController: %@", NSStringFromClass([menuViewController class]));

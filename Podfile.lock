@@ -11,6 +11,26 @@ PODS:
   - DZNEmptyDataSet (1.8.1)
   - Eureka (2.0.0-beta.1)
   - Fabric (1.6.11)
+  - Firebase/Auth (3.11.0):
+    - Firebase/Core
+    - FirebaseAuth (= 3.1.0)
+  - Firebase/Core (3.11.0):
+    - FirebaseAnalytics (= 3.6.0)
+    - FirebaseCore (= 3.4.6)
+  - FirebaseAnalytics (3.6.0):
+    - FirebaseCore (~> 3.4)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseAuth (3.1.0):
+    - FirebaseAnalytics (~> 3.6)
+    - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseCore (3.4.6):
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseInstanceID (1.0.8)
   - FontAwesome.swift (1.0.0)
   - FormatterKit (1.8.1):
     - FormatterKit/AddressFormatter (= 1.8.1)
@@ -42,7 +62,21 @@ PODS:
     - FormatterKit/Resources
   - FormatterKit/URLRequestFormatter (1.8.1):
     - FormatterKit/Resources
+  - GoogleInterchangeUtilities (1.2.2):
+    - GoogleSymbolUtilities (~> 1.1)
+  - GoogleSymbolUtilities (1.1.2)
+  - GoogleToolboxForMac/DebugUtils (2.1.0):
+    - GoogleToolboxForMac/Defines (= 2.1.0)
+  - GoogleToolboxForMac/Defines (2.1.0)
+  - GoogleToolboxForMac/NSData+zlib (2.1.0):
+    - GoogleToolboxForMac/Defines (= 2.1.0)
+  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.0):
+    - GoogleToolboxForMac/DebugUtils (= 2.1.0)
+    - GoogleToolboxForMac/Defines (= 2.1.0)
+    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.0)
+  - GoogleToolboxForMac/NSString+URLArguments (2.1.0)
   - GSKStretchyHeaderView (1.0.0)
+  - GTMSessionFetcher/Core (1.1.7)
   - INSPullToRefresh (1.1.5)
   - IQKeyboardManagerSwift (4.0.8)
   - MBProgressHUD (1.0.0)
@@ -64,6 +98,8 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - Eureka (~> 2.0.0-beta.1)
   - Fabric
+  - Firebase/Auth
+  - Firebase/Core
   - FontAwesome.swift (~> 1.0)
   - FormatterKit
   - GSKStretchyHeaderView
@@ -84,9 +120,18 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
+  Firebase: b8134e285eb33201115bc688bc5d7f112923bc1f
+  FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
+  FirebaseAuth: b436e4ecebe068bf8e8c6e4e29de5756ffe7ee24
+  FirebaseCore: 03da1cb32615569bbc2830a22f9ad753d9a02ef5
+  FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   FontAwesome.swift: 2d32a3d62195343c2004b7c9043294ed2948553a
   FormatterKit: 11ad17b983200629246a5a466f6f1bfa2df823cb
+  GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
+  GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
+  GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   GSKStretchyHeaderView: daba8f035eaade6326d05ee2a382be714bb019c0
+  GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
   INSPullToRefresh: 112ae2c295d2b3a76daa9dff86e7ef40ed002c47
   IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
@@ -96,6 +141,6 @@ SPEC CHECKSUMS:
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SwiftyBeaver: 2b68694df862381235e32bcfc4ec991e26bf131d
 
-PODFILE CHECKSUM: 9e4a769783e2ccdbb882a55361c8bd7019217169
+PODFILE CHECKSUM: 6d7b9756909fa54ee9c1a8df0aa5c7a647237683
 
 COCOAPODS: 1.1.1

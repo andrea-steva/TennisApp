@@ -10,10 +10,10 @@ import UIKit
 
 class SettingsViewController: BaseViewController {
 
-    //MARK: IBAction
+    // MARK: IBAction
     
     
-    //MARK: View Management
+    // MARK: View Management
     
     override func controllerTitleKey() -> LocalizerKey {
         return .menu_settings

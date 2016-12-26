@@ -17,7 +17,7 @@ class Settings : NSObject {
         settings.firstLaunch = nil
     }
     
-    //MARK: User Settings
+    // MARK: User Settings
     
     var exampleSettings: Int? {
         get {
@@ -32,7 +32,7 @@ class Settings : NSObject {
         }
     }
     
-    //MARK: App Settings
+    // MARK: App Settings
     
     var firstLaunch: Bool? {
         get {

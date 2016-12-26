@@ -11,7 +11,7 @@ import RealmSwift
 
 class Practice: Object, PracticeProtocol {
     
-    //MARK: Stored Attributes
+    // MARK: Stored Attributes
     
     var activityId : String!
     var title : String!
@@ -22,17 +22,17 @@ class Practice: Object, PracticeProtocol {
     
     var practiceType : PracticeType = .kForehand
     
-    //MARK: Relationship
+    // MARK: Relationship
     
     let user = LinkingObjects(fromType: User.self, property: "practices")
     
-    //MARK: Primary Key
+    // MARK: Primary Key
     
     override static func primaryKey() -> String? {
         return "activityId"
     }
     
-    //MARK: Init
+    // MARK: Init
     
     required init() {
         super.init()
@@ -46,5 +46,5 @@ class Practice: Object, PracticeProtocol {
         fatalError("init(value:schema:) has not been implemented")
     }
     
-    //MARK: Class Methods
+    // MARK: Class Methods
 }

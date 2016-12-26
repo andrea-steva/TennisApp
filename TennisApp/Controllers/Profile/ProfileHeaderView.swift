@@ -12,7 +12,7 @@ import GSKStretchyHeaderView
 class ProfileHeaderView: GSKStretchyHeaderView {
     
     
-    //MARK: IBOutlets
+    // MARK: IBOutlets
     @IBOutlet var backgroundImageView : UIImageView!
     @IBOutlet var userImageView : UIImageView!
     @IBOutlet var userNameLabel : UILabel!

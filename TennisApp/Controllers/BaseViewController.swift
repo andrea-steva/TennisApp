@@ -17,11 +17,11 @@ private extension Selector {
 
 class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
 
-    //MARK: IBOutlet
+    // MARK: IBOutlet
     @IBOutlet var backgroundView : UIImageView?
     
     
-    //MARK: View Management
+    // MARK: View Management
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +41,7 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
         }
     }
     
-    //MARK: Controller title
+    // MARK: Controller title
     
     /**
     Get title localized key
@@ -53,7 +53,7 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
     }
     
 
-    //MARK: Menu Management
+    // MARK: Menu Management
     
     @IBAction func didTapOnButtonMenu(_ sender : UIBarButtonItem) {
         self.presentLeftMenuViewController(sender)
@@ -63,7 +63,7 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
         return true
     }
     
-    //MARK: DZNEmptyDataSetSource
+    // MARK: DZNEmptyDataSetSource
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         return NSAttributedString(string: localizer.get( .generic_emptyDataSetTitle))
@@ -77,7 +77,7 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
         return CGPoint(x: 0, y: -64)
     }
 
-    //MARK: DZNEmptyDataSetDelegate
+    // MARK: DZNEmptyDataSetDelegate
     
     func emptyDataSetShouldAllowTouch(_ scrollView: UIScrollView!) -> Bool {
         return true
@@ -91,7 +91,7 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
         return false
     }
     
-    //MARK: PullToRefresh & InfiniteIndicator
+    // MARK: PullToRefresh & InfiniteIndicator
     
     func addPullToRefresh(_ scrollView : UIScrollView, completionBlock : @escaping () -> Void) {
         
@@ -116,7 +116,7 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
         scrollView.ins_infiniteScrollBackgroundView.preserveContentInset = false
     }
     
-    //MARK: View Controller Utils
+    // MARK: View Controller Utils
     
     /**
     Get margin from top considering status bar and navigation bar.
@@ -135,7 +135,7 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
         return UIBarButtonItem(image: UIImage.fontAwesomeIcon(name: icon, textColor: Style.Colors.primaryColor, size : CGSize(width: 32, height: 32)), style: UIBarButtonItemStyle.plain, target: self, action: selector)
     }
     
-    //MARK: Navigation Bar Utils
+    // MARK: Navigation Bar Utils
     
     /**
     Show back button
@@ -156,7 +156,7 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: Status Bar
+    // MARK: Status Bar
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return UIStatusBarStyle.lightContent

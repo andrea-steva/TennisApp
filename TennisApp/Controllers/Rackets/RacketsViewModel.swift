@@ -8,15 +8,15 @@
 
 class RacketsViewModel: BaseViewModel {
     
-    fileprivate let dao = TNDao()
+    fileprivate let dataAccess = TNDao()
     
     func getRacket(forIndex index: Int) -> Racket {
-        let rackets = dao.getRackets()
+        let rackets = dataAccess.getRackets()
         return rackets[index]
     }
     
     func getRacketsCount() -> Int {
-        return dao.getRackets().count
+        return dataAccess.getRackets().count
     }
 
 }

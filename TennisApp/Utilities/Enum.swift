@@ -32,7 +32,7 @@ enum FitnessType : Int {
     case kOther
 }
 
-//MARK: - Menu Item
+// MARK: - Menu Item
 
 enum MenuItem : Int {
     

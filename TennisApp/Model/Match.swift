@@ -11,7 +11,7 @@ import RealmSwift
 
 class Match: Object, ActivityProtocol, MatchProtocol {
  
-    //MARK: Stored Attributes
+    // MARK: Stored Attributes
     
     var activityId : String!
     var title : String!
@@ -24,18 +24,18 @@ class Match: Object, ActivityProtocol, MatchProtocol {
     var playerNameAB : String!
     var matchType : MatchType = .kSingle
 
-    //MARK: Relationship
+    // MARK: Relationship
     
     let user = LinkingObjects(fromType: User.self, property: "matches")
     var scores = List<MatchScore>()
     
-    //MARK: Primary Key
+    // MARK: Primary Key
     
     override static func primaryKey() -> String? {
         return "activityId"
     }
     
-    //MARK: Init
+    // MARK: Init
     
     required init() {
         super.init()
@@ -49,7 +49,7 @@ class Match: Object, ActivityProtocol, MatchProtocol {
         fatalError("init(value:schema:) has not been implemented")
     }
     
-    //MARK: Class Methods
+    // MARK: Class Methods
     
     func isMatchWon() -> Bool {
         

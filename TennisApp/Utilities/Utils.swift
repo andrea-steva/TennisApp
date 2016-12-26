@@ -38,7 +38,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 }
 
 
-//MARK: - Utils Class
+// MARK: - Utils Class
 
 class Utils {
     
@@ -61,7 +61,7 @@ class Utils {
         return bounds;
     }
     
-    //MARK: HUD - Network activity indicator
+    // MARK: HUD - Network activity indicator
     
     static func setNetworkActivityIndicator(_ active : Bool) {
         DispatchQueue.main.async(execute: {
@@ -69,7 +69,7 @@ class Utils {
         })
     }
     
-    //MARK: UIImageView Setter
+    // MARK: UIImageView Setter
     
     /**
     Set rounded image on image view with user placeholder
@@ -111,7 +111,7 @@ class Utils {
         )
     }
     
-    //MARK: Parallax Effect
+    // MARK: Parallax Effect
     
     static func parallaxEffect(_ value : Int) -> UIMotionEffectGroup {
         
@@ -167,7 +167,7 @@ class Utils {
     }
     
     
-    //MARK: Local notification
+    // MARK: Local notification
     
     
     /**
@@ -192,7 +192,7 @@ class Utils {
     }
     
     
-    //MARK: Storyboard
+    // MARK: Storyboard
     
     static func getControllerFromStoryboard(_ storyboard : String, controllerId : String? = nil)  -> UIViewController {
         
@@ -204,7 +204,7 @@ class Utils {
         return storyboard.instantiateInitialViewController()!
     }
     
-    //MARK: EventStore Utils
+    // MARK: EventStore Utils
     
     static func addEvent(_ eventDate : Date, title : String, notes : String, completion : @escaping (Bool) -> ()) {
         let eventStore = EKEventStore()
@@ -231,7 +231,7 @@ class Utils {
     }
     
     
-    //MARK: FileManager Utils
+    // MARK: FileManager Utils
     
     static let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
     static let fileManager = FileManager.default
@@ -349,7 +349,7 @@ class Utils {
         return true
     }
     
-    //MARK: Alert Controller
+    // MARK: Alert Controller
     
     /**
     Present a generic alert controller with Confirm and Cancel action
@@ -399,7 +399,7 @@ class Utils {
         controller.present(alertController, animated: true, completion: nil)
     }
     
-    //MARK: Dispatch After
+    // MARK: Dispatch After
     
     static func dispatchAfter(_ delay:Double, closure:@escaping ()->()) {
         DispatchQueue.main.asyncAfter(
@@ -407,7 +407,7 @@ class Utils {
     }
 }
 
-//MARK: - Generic UIKit subclass
+// MARK: - Generic UIKit subclass
 
 /// Label with custom edge insets, default value 10.0 for left and right, 0 for top and bottom
 class INSLabel : UILabel {

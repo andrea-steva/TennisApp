@@ -11,16 +11,16 @@ import RealmSwift
 
 class MatchScore: Object {
     
-    //MARK: Stored Attributes
+    // MARK: Stored Attributes
     
     dynamic var gamePlayerA : Int = 0
     dynamic var gamePlayerB : Int = 0
 
-    //MARK: Relationship
+    // MARK: Relationship
     
     let match = LinkingObjects(fromType: Match.self, property: "scores")
     
-    //MARK: Init
+    // MARK: Init
     
     required init() {
         super.init()
@@ -45,7 +45,7 @@ class MatchScore: Object {
         fatalError("init(value:schema:) has not been implemented")
     }
     
-    //MARK: Class Methods
+    // MARK: Class Methods
     
     func matchScoreToString() -> String {
         return "\(self.gamePlayerA)-\(self.gamePlayerB)";

@@ -10,10 +10,10 @@ import UIKit
 
 class StatsViewController: BaseViewController {
 
-    //MARK: IBOutlets
+    // MARK: IBOutlets
 
     
-    //MARK: View Management
+    // MARK: View Management
     
     override func controllerTitleKey() -> LocalizerKey {
         return .menu_stats
