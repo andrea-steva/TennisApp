@@ -61,8 +61,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         return (location : lastLocation, name : placemark?.locality)
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-        self.updateLocation(newLocation)
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else {
+            return
+        }
+        self.updateLocation(location)
     }
     
     func updateLocation(_ location : CLLocation?) {

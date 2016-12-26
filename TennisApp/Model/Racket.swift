@@ -1,5 +1,5 @@
 //
-//  TNRacket.swift
+//  Racket.swift
 //  TennisApp
 //
 //  Created by Andrea Stevanato on 11/02/16.
@@ -9,7 +9,7 @@
 import Realm
 import RealmSwift
 
-class TNRacket: Object {
+class Racket: Object {
     
     //MARK:  Stored Attributes
     
@@ -23,8 +23,8 @@ class TNRacket: Object {
     
     //MARK: Relationship
     
-    let user = LinkingObjects(fromType: TNUser.self, property: "rackets")
-    var strings = List<TNString>()
+    let user = LinkingObjects(fromType: User.self, property: "rackets")
+    var strings = List<Strings>()
         
     //MARK: Primary Key
     

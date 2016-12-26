@@ -47,12 +47,13 @@ PODS:
   - IQKeyboardManagerSwift (4.0.8)
   - MBProgressHUD (1.0.0)
   - PagingMenuController (2.1.1)
-  - Realm (2.0.4):
-    - Realm/Headers (= 2.0.4)
-  - Realm/Headers (2.0.4)
-  - RealmSwift (2.0.4):
-    - Realm (= 2.0.4)
+  - Realm (2.1.2):
+    - Realm/Headers (= 2.1.2)
+  - Realm/Headers (2.1.2)
+  - RealmSwift (2.1.2):
+    - Realm (= 2.1.2)
   - RESideMenu (4.0.7)
+  - SwiftyBeaver (1.1.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
@@ -70,8 +71,9 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - MBProgressHUD (~> 1.0)
   - PagingMenuController
-  - RealmSwift (~> 2.0.0)
+  - RealmSwift (~> 2.0)
   - RESideMenu (~> 4.0.7)
+  - SwiftyBeaver
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
@@ -89,10 +91,11 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   PagingMenuController: 394af0edd93ae6d574e138df0bb458f81b355646
-  Realm: 9da97f48365f8b99dd95c28d45ad8222d62e1775
-  RealmSwift: 01e8db006035f16003e6307ae8eae1adccce68db
+  Realm: efe855f4d977c8ce5a82d3116d9f1ff155a6550c
+  RealmSwift: 17d6ee30b6f9df86364408c2197492e33bfea567
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
+  SwiftyBeaver: 2b68694df862381235e32bcfc4ec991e26bf131d
 
-PODFILE CHECKSUM: 63fb1b3f5ae55b4d0a19efea1ff8c3a121cd6332
+PODFILE CHECKSUM: 9e4a769783e2ccdbb882a55361c8bd7019217169
 
 COCOAPODS: 1.1.1

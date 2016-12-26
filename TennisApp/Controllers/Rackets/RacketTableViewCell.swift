@@ -28,7 +28,7 @@ class RacketTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setRacket(_ racket : TNRacket) {
+    func setRacket(_ racket : Racket) {
         
     }
 

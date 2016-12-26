@@ -9,11 +9,11 @@
 
 class TNDao: RealmDao {
     
-    func getUser() -> [TNUser] {
+    func getUser() -> [User] {
         return self.getAllObjects()
     }
     
-    func getRackets() -> [TNRacket] {
+    func getRackets() -> [Racket] {
         return self.getAllObjects(sortedBy: "purchasedDate")
     }
     

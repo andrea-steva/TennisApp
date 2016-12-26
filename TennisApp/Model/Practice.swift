@@ -1,5 +1,5 @@
 //
-//  TNActivity.swift
+//  Practice.swift
 //  TennisApp
 //
 //  Created by Andrea Stevanato on 11/02/16.
@@ -9,20 +9,22 @@
 import Realm
 import RealmSwift
 
-class TNActivity: Object {
-
+class Practice: Object, PracticeProtocol {
+    
     //MARK: Stored Attributes
     
-    dynamic var activityId : String!
-    dynamic var title : String!
-    dynamic var notes : String = ""
-    dynamic var date : Date!
-    dynamic var place : String = ""
-    dynamic var timeSpent : Float = 0
+    var activityId : String!
+    var title : String!
+    var notes : String = ""
+    var date : Date!
+    var place : String = ""
+    var timeSpent : Float = 0
+    
+    var practiceType : PracticeType = .kForehand
     
     //MARK: Relationship
     
-    let user = LinkingObjects(fromType: TNUser.self, property: "activities")
+    let user = LinkingObjects(fromType: User.self, property: "practices")
     
     //MARK: Primary Key
     
@@ -43,7 +45,6 @@ class TNActivity: Object {
     required init(value: Any, schema: RLMSchema) {
         fatalError("init(value:schema:) has not been implemented")
     }
-
-    //MARK: Class Methods
     
+    //MARK: Class Methods
 }

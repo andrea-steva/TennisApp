@@ -26,9 +26,10 @@ class RealmDao {
         guard let path = realmConfiguration.fileURL?.absoluteString else {
             return
         }
-    
-        let realmPath = NSURL.fileURLWithPath(path).deletingLastPathComponent()?
-            .appendingPathComponent("tennis_db")!
+        
+        let realmPath = NSURL.fileURL(withPath: path)
+            .deletingLastPathComponent()
+            .appendingPathComponent("tennis_db")
             .appendingPathExtension("realm")
         
         //When you change Realm objects you need to increase the schemaVersion to perform the migration.
@@ -37,9 +38,9 @@ class RealmDao {
         
         let config = Realm.Configuration(fileURL: realmPath, schemaVersion: schemaVersion, migrationBlock: { migration, oldSchemaVersion in
             if (oldSchemaVersion < schemaVersion) {
-                print("---- Perform Migration block ----")
-                print("Old schema version: \(oldSchemaVersion)")
-                print("Current schema version: \(schemaVersion)")
+                Log.debug("---- Perform Migration block ----")
+                Log.debug("Old schema version: \(oldSchemaVersion)")
+                Log.debug("Current schema version: \(schemaVersion)")
                 // Nothing to do!
                 // Realm will automatically detect new properties and removed properties
                 // And will update the schema on disk automatically
@@ -48,8 +49,8 @@ class RealmDao {
         
         realm = try! Realm(configuration: config)
         
-        print("Realm DB path: \(realm.configuration.fileURL?.absoluteString)")
-        print("Current schema version: \(realm.configuration.schemaVersion)")
+        Log.debug("Realm DB path: \(realm.configuration.fileURL?.absoluteString)")
+        Log.debug("Current schema version: \(realm.configuration.schemaVersion)")
     }
     
     // MARK: Save
@@ -140,7 +141,7 @@ class RealmDao {
      - return: The objects list.
      */
     func getObjects<O : Object>(_ predicate : String, sortBy : String) -> [O] {
-        return self.realm.objects(O.self).filter(predicate).sorted(sortBy).toArray(O.self)
+        return self.realm.objects(O.self).filter(predicate).sorted(byProperty: sortBy).toArray(O.self)
     }
     
     /**
@@ -154,7 +155,7 @@ class RealmDao {
      - returns: The objects list.
      */
     func getObjects<O : Object>(_ predicate : String, sortedBy : String, page : Int, pageSize : Int) -> [O] {
-        return self.realm.objects(O.self).filter(predicate).sorted(sortedBy).toArray(O.self, page : page, pageSize : pageSize)
+        return self.realm.objects(O.self).filter(predicate).sorted(byProperty: sortedBy).toArray(O.self, page : page, pageSize : pageSize)
     }
     
     /**
@@ -172,7 +173,7 @@ class RealmDao {
      - return: The objects list.
      */
     func getAllObjects<O : Object>(sortedBy : String) -> [O] {
-        return self.realm.objects(O.self).sorted(sortedBy, ascending: false).toArray(O.self)
+        return self.realm.objects(O.self).sorted(byProperty: sortedBy, ascending: false).toArray(O.self)
     }
     
     // MARK: Delete
@@ -212,7 +213,7 @@ class RealmDao {
         do {
             try self.realm.write(block)
         } catch {
-            print("Error writing on storage.")
+            Log.debug("Error writing on storage.")
         }
     }
     

@@ -9,10 +9,73 @@
 import UIKit
 import PagingMenuController
 
-class HomeViewController: BaseViewController, PagingMenuControllerDelegate {
+// MARK: PagingMenuOptions
+private struct PagingMenuOptions: PagingMenuControllerCustomizable {
+    
+    init(controllers: [ActivitiesViewController]) {
+        self.pagingControllers = controllers
+    }
+    
+    private var pagingControllers: [ActivitiesViewController]
+    
+    fileprivate var componentType: ComponentType {
+        return .all(menuOptions: MenuOptions(pagingControllers: self.pagingControllers), pagingControllers: pagingControllers)
+    }
+    
+    private struct MenuOptions: MenuViewCustomizable {
+        
+        init(pagingControllers: [ActivitiesViewController]) {
+            
+            self.itemsOptions = []
+            for controller in pagingControllers {
+                let menuItemViewOptions = MenuItemViewOptions(title: controller.title!)
+                self.itemsOptions.append(menuItemViewOptions)
+            }
+        }
+        
+        // MARK: Menu items options
+        var itemsOptions: [MenuItemViewCustomizable]
+        
+        struct MenuItemViewOptions: MenuItemViewCustomizable {
+            private let title: String
+            
+            var displayMode: MenuItemDisplayMode {
+                let title = MenuItemText(text: self.title,
+                                         color: Style.Colors.lightColor,
+                                         selectedColor: Style.Colors.lightColor,
+                                         font: Style.Fonts.get(.Regular, size: .normal),
+                                         selectedFont: Style.Fonts.get(.Regular, size: .normal))
+                
+                return .text(title: title)
+            }
+            
+            init(title: String) {
+                self.title = title
+            }
+        }
+        
+        // MARK: Custom menu options
+        
+        var backgroundColor: UIColor {
+            return Style.Colors.grayColor
+        }
+        var selectedBackgroundColor: UIColor {
+            return Style.Colors.darkColor
+        }
+        
+        var mode: MenuDisplayMode {
+            return .segmentedControl
+        }
+        var focusMode: MenuFocusMode {
+            return .roundRect(radius: 10, horizontalPadding: 10, verticalPadding: 10, selectedColor: Style.Colors.primaryColor)
+        }
+    }
+}
+
+class HomeViewController: BaseViewController {
     
     //MARK: Property
-        
+    
     /// The array with the view controllers for the paging menu
     fileprivate var menuControllers : [ActivitiesViewController] = []
     
@@ -31,33 +94,33 @@ class HomeViewController: BaseViewController, PagingMenuControllerDelegate {
             activityController.title = "Activity \(index+1)"
             menuControllers.append(activityController)
         }
-
+        
         setupPagedMenu(menuControllers)
     }
     
     fileprivate func setupPagedMenu(_ controllers : [UIViewController]) {
-        let options = PagingMenuOptions()
-        options.menuHeight = 50
-        options.font = Style.Fonts.get(.Regular, size: .normal)
-        options.textColor = Style.Colors.lightColor
-        options.selectedFont = Style.Fonts.get(.Regular, size: .normal)
-        options.selectedTextColor = Style.Colors.lightColor
-        options.backgroundColor = Style.Colors.courtClay
-        options.menuItemMode = PagingMenuOptions.MenuItemMode.roundRect(radius: 10, horizontalPadding: 10, verticalPadding: 10, selectedColor: Style.Colors.courtClay.darker())
-        options.menuDisplayMode = PagingMenuOptions.MenuDisplayMode.segmentedControl
         
         let pagingMenuController = self.childViewControllers.first as! PagingMenuController
-        pagingMenuController.delegate = self
-        //pagingMenuController.view.backgroundColor = UIColor.clearColor()
-        pagingMenuController.setup(viewControllers: controllers, options: options)
-    }
-    
-    // MARK: PagingMenuControllerDelegate
-    
-    func willMoveToMenuPage(_ page: Int) {
-    }
-    
-    func didMoveToMenuPage(_ page: Int) {
+        
+        let paginMenuOptions = PagingMenuOptions(controllers: menuControllers)
+        pagingMenuController.setup(paginMenuOptions)
+        
+        pagingMenuController.onMove = { state in
+            switch state {
+            case let .willMoveController(menuController, previousMenuController):
+                Log.debug(previousMenuController)
+                Log.debug(menuController)
+            case let .didMoveController(menuController, previousMenuController):
+                Log.debug(previousMenuController)
+                Log.debug(menuController)
+            case let .willMoveItem(menuItemView, previousMenuItemView):
+                Log.debug(previousMenuItemView)
+                Log.debug(menuItemView)
+            case let .didMoveItem(menuItemView, previousMenuItemView):
+                Log.debug(previousMenuItemView)
+                Log.debug(menuItemView)
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -67,13 +130,13 @@ class HomeViewController: BaseViewController, PagingMenuControllerDelegate {
     
     
     /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
 }

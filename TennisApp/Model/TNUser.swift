@@ -1,5 +1,5 @@
 //
-//  TNUser.swift
+//  User.swift
 //  TennisApp
 //
 //  Created by Andrea Stevanato on 11/02/16.
@@ -9,7 +9,7 @@
 import Realm
 import RealmSwift
 
-class TNUser: Object {
+class User: Object {
 
     //MARK: Stored Attributes
     
@@ -28,8 +28,10 @@ class TNUser: Object {
     
     //MARK: Relationship
     
-    var rackets = List<TNRacket>()
-    var activities = List<TNActivity>()
+    var rackets = List<Racket>()
+    var matches = List<Match>()
+    var fitness = List<Fitness>()
+    var practices = List<Practice>()
     
     //MARK:  Primary Key
 

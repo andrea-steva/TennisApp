@@ -370,12 +370,12 @@ class Utils {
         
         let actionConfirm = UIAlertAction(title: localizer.get(.generic_ok), style: .default) { (alertAction) -> Void in
             controller.dismiss(animated: true, completion: nil)
-            completionBlock(userCancelAction: false)
+            completionBlock(false)
         }
         
         let actionCancel = UIAlertAction(title: localizer.get(.generic_cancel), style: .cancel ) { (alertAction) -> Void in
             controller.dismiss(animated: true, completion: nil)
-            completionBlock(userCancelAction: true)
+            completionBlock(true)
         }
         
         alertController.addAction(actionConfirm)

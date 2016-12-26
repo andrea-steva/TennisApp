@@ -94,9 +94,11 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
     //MARK: PullToRefresh & InfiniteIndicator
     
     func addPullToRefresh(_ scrollView : UIScrollView, completionBlock : @escaping () -> Void) {
-        scrollView.ins_addPullToRefresh(withHeight: 60.0) { (scrollView : UIScrollView!) -> Void in
+        
+        scrollView.ins_addPullToRefresh(withHeight: 60.0) { (scrollView) in
             completionBlock()
         }
+
         scrollView.ins_pullToRefreshBackgroundView.preserveContentInset = false
         
         //let pullToRefresh = SHPullToRefresh(frame: CGRectMake(0, 0, 40, 40))
@@ -105,16 +107,13 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
     }
     
     func addInfiniteIndicator(_ scrollView : UIScrollView, completionBlock : @escaping () -> Void) {
-        scrollView.ins_addInfinityScroll(withHeight: 60.0) { (scrollView : UIScrollView!) -> Void in
+        
+        scrollView.ins_addInfinityScroll(withHeight: 60.0) { (scrollView) in
             completionBlock()
             //scrollView.ins_endPullToRefresh()
             //scrollView.ins_endInfinityScrollWithStoppingContentOffset(true)
         }
         scrollView.ins_infiniteScrollBackgroundView.preserveContentInset = false
-        
-        //let infinityIndicator = SHInfiniteIndicator(frame: CGRectMake(0, 0, 40, 40))
-        //scrollView.ins_infiniteScrollBackgroundView.addSubview(infinityIndicator)
-        //infinityIndicator.startAnimating()
     }
     
     //MARK: View Controller Utils
@@ -161,5 +160,9 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
+    }
+    
+    deinit {
+        Log.verbose("Deinit \(self)")
     }
 }

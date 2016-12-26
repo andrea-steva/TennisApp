@@ -11,7 +11,7 @@ def shared_pods
 	pod 'Crashlytics'
 
 	#Mobile Database
-	pod 'RealmSwift', '~> 2.0.0'
+	pod 'RealmSwift', '~> 2.0'
 
 	#Menu
 	pod 'RESideMenu', '~> 4.0.7'
@@ -42,6 +42,9 @@ def shared_pods
     
 	#Pull to refresh for tablew view and collection view
 	pod 'INSPullToRefresh', '~> 1.0'
+    
+    #Logger
+    pod 'SwiftyBeaver'
 end
 
 use_frameworks!
@@ -51,11 +54,3 @@ target "TennisApp" do
 	shared_pods
 
 end
-
-#post_install do |installer|
-#    installer.pods_project.targets.each do |target|
-#        target.build_configurations.each do |configuration|
-#            configuration.build_settings['SWIFT_VERSION'] = "2.3"
-#        end
-#    end
-#end

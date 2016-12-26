@@ -1,5 +1,5 @@
 //
-//  TNMatchScore.swift
+//  Strings.swift
 //  TennisApp
 //
 //  Created by Andrea Stevanato on 11/02/16.
@@ -9,16 +9,26 @@
 import Realm
 import RealmSwift
 
-class TNMatchScore: Object {
-    
+class Strings: Object {
+
     //MARK: Stored Attributes
     
-    dynamic var gamePlayerA : Int = 0
-    dynamic var gamePlayerB : Int = 0
-
-    //MARK: Relationship
+    dynamic var stringId : String!
+    dynamic var manufacter : String!
+    dynamic var model : String!
+    dynamic var price : String = ""
+    dynamic var duration : Float = 0
+    dynamic var tension : Float = 0
     
-    let match = LinkingObjects(fromType: TNMatch.self, property: "scores")
+    //MARK: Relationship
+
+    let racket = LinkingObjects(fromType: Racket.self, property: "strings")
+    
+    //MARK: Primary Key
+    
+    override static func primaryKey() -> String? {
+        return "stringId"
+    }
     
     //MARK: Init
     
@@ -34,21 +44,10 @@ class TNMatchScore: Object {
         self.init()
     }
     
-    convenience init(gamePlayerA : Int, gamePlayerB : Int) {
-        self.init()
-        self.gamePlayerA = gamePlayerA;
-        self.gamePlayerB = gamePlayerB;
-        
-    }
-    
     required init(value: Any, schema: RLMSchema) {
         fatalError("init(value:schema:) has not been implemented")
     }
     
     //MARK: Class Methods
     
-    func matchScoreToString() -> String {
-        return "\(self.gamePlayerA)-\(self.gamePlayerB)";
-    }
-
 }

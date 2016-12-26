@@ -81,15 +81,15 @@ enum MenuItem : Int {
         
         switch self {
         case .home:
-            return UIImage.fontAwesomeIconWithName(.Home, textColor: color, size: size)
+            return UIImage.fontAwesomeIcon(name: .home, textColor: color, size: size)
         case .rackets:
-            return UIImage.fontAwesomeIconWithName(.Rocket, textColor: color, size: size)
+            return UIImage.fontAwesomeIcon(name: .rocket, textColor: color, size: size)
         case .stats:
-            return UIImage.fontAwesomeIconWithName(.BarChartO, textColor: color, size: size)
+            return UIImage.fontAwesomeIcon(name: .barChartO, textColor: color, size: size)
         case .profile:
-            return UIImage.fontAwesomeIconWithName(.User, textColor: color, size: size)
+            return UIImage.fontAwesomeIcon(name: .user, textColor: color, size: size)
         case .settings:
-            return UIImage.fontAwesomeIconWithName(.Cogs, textColor: color, size: size)
+            return UIImage.fontAwesomeIcon(name: .cogs, textColor: color, size: size)
         }
         
     }
