@@ -10,16 +10,16 @@ import UIKit
 
 class RacketsViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
-    let RacketCellReuseId = "racket_cell"
+    static let RacketCellReuseId = "racket_cell"
     
-    //MARK: IBOutlets
+    // MARK: IBOutlets
     
     @IBOutlet var tableView : UITableView!
     
-    //MARK: ViewModel
+    // MARK: ViewModel
     var viewModel = RacketsViewModel()
     
-    //MARK: View Management
+    // MARK: View Management
     
     override func controllerTitleKey() -> LocalizerKey {
         return .menu_rackets
@@ -30,7 +30,7 @@ class RacketsViewController: BaseViewController, UITableViewDataSource, UITableV
     
     }
     
-    //MARK: UITableViewDataSource
+    // MARK: UITableViewDataSource
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -41,7 +41,7 @@ class RacketsViewController: BaseViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: RacketCellReuseId, for: indexPath) as! RacketTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: RacketsViewController.RacketCellReuseId, for: indexPath) as! RacketTableViewCell
 
         let racket = viewModel.getRacket(forIndex: indexPath.row)
         cell.setRacket(racket)
@@ -49,7 +49,7 @@ class RacketsViewController: BaseViewController, UITableViewDataSource, UITableV
         return cell
     }
     
-    //MARK: UITableViewDelegate
+    // MARK: UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

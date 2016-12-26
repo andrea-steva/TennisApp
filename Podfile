@@ -6,9 +6,14 @@ platform :ios, "9.0"
 #inhibit_all_warnings!
 
 def shared_pods
+    
 	#Crashlytics
 	pod 'Fabric'
 	pod 'Crashlytics'
+    
+    #Firebase
+    pod 'Firebase/Core'
+    pod 'Firebase/Auth'
 
 	#Mobile Database
 	pod 'RealmSwift', '~> 2.0'

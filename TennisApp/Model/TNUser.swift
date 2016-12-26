@@ -11,7 +11,7 @@ import RealmSwift
 
 class User: Object {
 
-    //MARK: Stored Attributes
+    // MARK: Stored Attributes
     
     dynamic var userId: String!
     dynamic var firstName: String!
@@ -26,20 +26,20 @@ class User: Object {
 
     dynamic var ranking: String!
     
-    //MARK: Relationship
+    // MARK: Relationship
     
     var rackets = List<Racket>()
     var matches = List<Match>()
     var fitness = List<Fitness>()
     var practices = List<Practice>()
     
-    //MARK:  Primary Key
+    // MARK:  Primary Key
 
     override static func primaryKey() -> String? {
         return "userId"
     }
     
-    //MARK: Init
+    // MARK: Init
     
     required init() {
         super.init()
@@ -61,6 +61,6 @@ class User: Object {
         fatalError("init(value:schema:) has not been implemented")
     }
     
-    //MARK: Class Methods
+    // MARK: Class Methods
 
 }

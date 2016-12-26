@@ -11,7 +11,7 @@ import RealmSwift
 
 class Racket: Object {
     
-    //MARK:  Stored Attributes
+    // MARK:  Stored Attributes
     
     dynamic var racketId : String!
     dynamic var manufacter : String!
@@ -21,18 +21,18 @@ class Racket: Object {
     dynamic var image : Data?
     dynamic var purchaseDate : Date?
     
-    //MARK: Relationship
+    // MARK: Relationship
     
     let user = LinkingObjects(fromType: User.self, property: "rackets")
     var strings = List<Strings>()
         
-    //MARK: Primary Key
+    // MARK: Primary Key
     
     override static func primaryKey() -> String? {
         return "racketId"
     }
     
-    //MARK: Init
+    // MARK: Init
     
     required init() {
         super.init()
@@ -50,6 +50,6 @@ class Racket: Object {
         fatalError("init(value:schema:) has not been implemented")
     }
     
-    //MARK: Class Methods
+    // MARK: Class Methods
 
 }

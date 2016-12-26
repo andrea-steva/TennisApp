@@ -12,7 +12,7 @@ class ActivitiesViewController: UIViewController {
 
     static let ActivityCellReuseId = "activity_cell"
     
-    //MARK: IBOutlet
+    // MARK: IBOutlet
     
     @IBOutlet var tableView : UITableView!
     

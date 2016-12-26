@@ -9,7 +9,7 @@
 import UIKit
 import FontAwesome_swift
 
-//MARK: FontType
+// MARK: FontType
 
 enum Theme : String {
     case Default = "default"
@@ -67,7 +67,7 @@ enum FontType: String {
     
 }
 
-//MARK: FontSize
+// MARK: FontSize
 
 enum FontSize {
     case extraSmall
@@ -125,11 +125,11 @@ enum FontSize {
     
 }
 
-//MARK: Style
+// MARK: Style
 
 struct Style {
     
-    //MARK: Style
+    // MARK: Style
     
     static func setupNavigationBarStyle() {
         let appearance = UINavigationBar.appearance()

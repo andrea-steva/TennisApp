@@ -10,11 +10,11 @@ import UIKit
 
 class RacketTableViewCell: UITableViewCell {
 
-    //MARK: IBAction
+    // MARK: IBAction
     
     @IBOutlet var racketNameLabel : UILabel!
     
-    //MARK: View Management
+    // MARK: View Management
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -11,19 +11,19 @@ import RESideMenu
 
 class RESideLeftViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, RESideMenuDelegate {
     
-    //MARK: IBAction
+    // MARK: IBAction
     
     @IBOutlet var tableView : UITableView!
     @IBOutlet var backgroundView : UIImageView!
     
-    //MARK:
+    // MARK:
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.backgroundView.image = self.backgroundView.image?.applyMenuEffect()
     }
     
-    //MARK: UITableViewDataSource
+    // MARK: UITableViewDataSource
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,7 +50,7 @@ class RESideLeftViewController: UIViewController, UITableViewDataSource, UITable
         self.sideMenuViewController.hideViewController()
     }
     
-    //MARK: UITableViewDelegate
+    // MARK: UITableViewDelegate
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

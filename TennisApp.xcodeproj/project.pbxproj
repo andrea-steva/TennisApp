@@ -16,6 +16,7 @@
 		6507CA711C6D119E00B7AD5C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA701C6D119E00B7AD5C /* BaseViewController.swift */; };
 		6521CBA51C6F5E63006D007C /* RacketFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6521CBA41C6F5E63006D007C /* RacketFormViewController.swift */; };
 		657234881E114DD40050F319 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657234871E114DD40050F319 /* Logger.swift */; };
+		6572348A1E11726B0050F319 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 657234891E11726B0050F319 /* GoogleService-Info.plist */; };
 		659B53041C9D93C200829BF3 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659B53031C9D93C200829BF3 /* Enum.swift */; };
 		65B04DA31C6CA02300011439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04DA21C6CA02300011439 /* AppDelegate.swift */; };
 		65B04DA81C6CA02300011439 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B04DA61C6CA02300011439 /* Main.storyboard */; };
@@ -113,6 +114,7 @@
 		6507CA701C6D119E00B7AD5C /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		6521CBA41C6F5E63006D007C /* RacketFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketFormViewController.swift; sourceTree = "<group>"; };
 		657234871E114DD40050F319 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		657234891E11726B0050F319 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		659B53031C9D93C200829BF3 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		65B04D9F1C6CA02300011439 /* TennisApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TennisApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B04DA21C6CA02300011439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 		65B04DA11C6CA02300011439 /* TennisApp */ = {
 			isa = PBXGroup;
 			children = (
+				657234891E11726B0050F319 /* GoogleService-Info.plist */,
 				65B04DA21C6CA02300011439 /* AppDelegate.swift */,
 				65B04E1D1C6CBCB700011439 /* Managers */,
 				65B04DE21C6CA74400011439 /* Assets */,
@@ -534,6 +537,7 @@
 				65B04D9D1C6CA02300011439 /* Resources */,
 				7579BFFBD2CD76E70E46DDEF /* [CP] Embed Pods Frameworks */,
 				A7F71F2E6927FCBFF195194B /* [CP] Copy Pods Resources */,
+				6572348B1E1173E00050F319 /* Swift Lint */,
 			);
 			buildRules = (
 			);
@@ -637,6 +641,7 @@
 				65FB52CF1C6DF188003A6DAE /* Profile.storyboard in Resources */,
 				65B04E121C6CA86400011439 /* Lato-Regular.ttf in Resources */,
 				6507CA6B1C6D111700B7AD5C /* Rackets.storyboard in Resources */,
+				6572348A1E11726B0050F319 /* GoogleService-Info.plist in Resources */,
 				65B04DE91C6CA7A300011439 /* Localizable.strings in Resources */,
 				65B04E131C6CA86400011439 /* Lato-Semibold.ttf in Resources */,
 				65C511EE1C948C450051D645 /* Login.storyboard in Resources */,
@@ -701,6 +706,20 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		6572348B1E1173E00050F319 /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    echo \"\" >/dev/null;\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		7579BFFBD2CD76E70E46DDEF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

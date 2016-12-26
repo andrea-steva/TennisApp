@@ -17,11 +17,11 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
     }
     
     private var pagingControllers: [ActivitiesViewController]
-    
+
     fileprivate var componentType: ComponentType {
         return .all(menuOptions: MenuOptions(pagingControllers: self.pagingControllers), pagingControllers: pagingControllers)
     }
-    
+
     private struct MenuOptions: MenuViewCustomizable {
         
         init(pagingControllers: [ActivitiesViewController]) {
@@ -32,10 +32,10 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
                 self.itemsOptions.append(menuItemViewOptions)
             }
         }
-        
+
         // MARK: Menu items options
         var itemsOptions: [MenuItemViewCustomizable]
-        
+
         struct MenuItemViewOptions: MenuItemViewCustomizable {
             private let title: String
             
@@ -74,12 +74,12 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
 
 class HomeViewController: BaseViewController {
     
-    //MARK: Property
+    // MARK: Property
     
     /// The array with the view controllers for the paging menu
     fileprivate var menuControllers : [ActivitiesViewController] = []
     
-    //MARK: View Management
+    // MARK: View Management
     
     override func controllerTitleKey() -> LocalizerKey {
         return .menu_home

@@ -667,8 +667,8 @@ extension CGSize {
      
      - returns: The new CGSize
      */
-    func sizeByDelta(dw:CGFloat, dh:CGFloat) -> CGSize {
-        return CGSize(width: self.width + dw, height: self.height + dh)
+    func sizeByDelta(deltaWidth:CGFloat, deltaHeight:CGFloat) -> CGSize {
+        return CGSize(width: self.width + deltaWidth, height: self.height + deltaHeight)
     }
 }
 
@@ -683,7 +683,7 @@ extension NSLayoutConstraint {
         }
         for vv in v!.subviews {
             print("\(vv) \(vv.hasAmbiguousLayout)")
-            if vv.subviews.count > 0 {
+            if !vv.subviews.isEmpty {
                 self.reportAmbiguity(vv)
             }
         }
@@ -697,14 +697,14 @@ extension NSLayoutConstraint {
             let arr1 = vv.constraintsAffectingLayout(for: .horizontal)
             let arr2 = vv.constraintsAffectingLayout(for: .vertical)
             NSLog("\n\n%@\nH: %@\nV:%@", vv, arr1, arr2)
-            if vv.subviews.count > 0 {
+            if !vv.subviews.isEmpty {
                 self.listConstraints(vv)
             }
         }
     }
 }
 
-//MARK: Array
+// MARK: Array
 
 extension Array {
     
@@ -720,7 +720,7 @@ extension Array {
     }
 }
 
-//MARK: CollectionView
+// MARK: CollectionView
 
 extension UICollectionView {
     
