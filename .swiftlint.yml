@@ -2,6 +2,8 @@ disabled_rules: # rule identifiers to exclude from running
     - comma
     - control_statement
     - missing_docs
+    - force_cast
+    - force_try
 
 opt_in_rules: # some rules are only opt-in
     - empty_count
@@ -20,6 +22,7 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
 force_cast: warning # implicitly
 force_try:
 severity: warning # explicitly
+empty_count: warning
 
 # rules that have both warning and error levels, can set just the warning level
 # implicitly
@@ -27,12 +30,12 @@ line_length: 180
 
 # they can set both implicitly with an array
 type_body_length:
-    - 500 # warning
+    - 800 # warning
     - 1000 # error
 # or they can set both explicitly
 
 file_length:
-    warning: 500
+    warning: 800
     error: 1200
 
 # naming rules can set warnings/errors for min_length and max_length
@@ -53,5 +56,6 @@ variable_name:
         - id
         - URL
         - GlobalAPIKey
+        - Log
 
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji)

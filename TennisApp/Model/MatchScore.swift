@@ -10,45 +10,45 @@ import Realm
 import RealmSwift
 
 class MatchScore: Object {
-    
+
     // MARK: Stored Attributes
-    
-    dynamic var gamePlayerA : Int = 0
-    dynamic var gamePlayerB : Int = 0
+
+    dynamic var gamePlayerA: Int = 0
+    dynamic var gamePlayerB: Int = 0
 
     // MARK: Relationship
-    
+
     let match = LinkingObjects(fromType: Match.self, property: "scores")
-    
+
     // MARK: Init
-    
+
     required init() {
         super.init()
     }
-    
+
     required init(realm: RLMRealm, schema: RLMObjectSchema) {
         super.init(realm: realm, schema: schema)
     }
-    
-    convenience init(_ dictionary: Dictionary<String, AnyObject>) {
+
+    convenience init(_ dictionary: [String: AnyObject]) {
         self.init()
     }
-    
-    convenience init(gamePlayerA : Int, gamePlayerB : Int) {
+
+    convenience init(gamePlayerA: Int, gamePlayerB: Int) {
         self.init()
-        self.gamePlayerA = gamePlayerA;
-        self.gamePlayerB = gamePlayerB;
-        
+        self.gamePlayerA = gamePlayerA
+        self.gamePlayerB = gamePlayerB
+
     }
-    
+
     required init(value: Any, schema: RLMSchema) {
         fatalError("init(value:schema:) has not been implemented")
     }
-    
+
     // MARK: Class Methods
-    
+
     func matchScoreToString() -> String {
-        return "\(self.gamePlayerA)-\(self.gamePlayerB)";
+        return "\(self.gamePlayerA)-\(self.gamePlayerB)"
     }
 
 }

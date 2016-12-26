@@ -11,21 +11,21 @@ import UIKit
 
 //MARK - TN Enum
 
-enum MatchType : Int {
+enum MatchType: Int {
     case kSingle
     case kDouble
     case kMixed
     case kOther
 }
 
-enum PracticeType : Int {
+enum PracticeType: Int {
     case kForehand
     case kBackhand
     case kService
     case kVolley
 }
 
-enum FitnessType : Int {
+enum FitnessType: Int {
     case kRunning
     case kUpperBody
     case kDownBody
@@ -34,16 +34,16 @@ enum FitnessType : Int {
 
 // MARK: - Menu Item
 
-enum MenuItem : Int {
-    
+enum MenuItem: Int {
+
     case home = 0
     case rackets = 1
     case stats = 2
     case profile = 3
     case settings = 4
-    
+
     static var count: Int { return MenuItem.settings.rawValue + 1}
-    
+
     func storyboardName() -> String {
         switch self {
         case .home:
@@ -58,7 +58,7 @@ enum MenuItem : Int {
             return "Settings"
         }
     }
-    
+
     func localizedName() -> String {
         switch self {
         case .home:
@@ -73,12 +73,12 @@ enum MenuItem : Int {
             return localizer.get(LocalizerKey.menu_settings)
         }
     }
-    
+
     func menuIcon() -> UIImage {
-        
+
         let size = CGSize(width: 35, height: 35)
         let color  = Style.Colors.lightColor.withAlphaComponent(0.8)
-        
+
         switch self {
         case .home:
             return UIImage.fontAwesomeIcon(name: .home, textColor: color, size: size)
@@ -91,6 +91,6 @@ enum MenuItem : Int {
         case .settings:
             return UIImage.fontAwesomeIcon(name: .cogs, textColor: color, size: size)
         }
-        
+
     }
 }

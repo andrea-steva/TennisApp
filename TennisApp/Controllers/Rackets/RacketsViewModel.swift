@@ -7,14 +7,14 @@
 //
 
 class RacketsViewModel: BaseViewModel {
-    
+
     fileprivate let dataAccess = TNDao()
-    
+
     func getRacket(forIndex index: Int) -> Racket {
         let rackets = dataAccess.getRackets()
         return rackets[index]
     }
-    
+
     func getRacketsCount() -> Int {
         return dataAccess.getRackets().count
     }

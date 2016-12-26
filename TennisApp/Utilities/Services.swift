@@ -7,28 +7,28 @@
 //
 
 class Services {
-    
+
     // MARK: Shared instance and framework initialization
-    
+
     /** The shared instance */
-    fileprivate static var instance : Services!
-    
+    fileprivate static var instance: Services!
+
     /** Get the shared instance. */
     static func sharedInstance() -> Services {
         return instance
     }
-    
+
     class func initialize() {
         instance = Services()
     }
-    
+
     // MARK: Properties
-    let realm : RealmDao
-    
+    let realm: RealmDao
+
     // MARK: Init
 
     init() {
         self.realm = RealmDao()
     }
-    
+
 }

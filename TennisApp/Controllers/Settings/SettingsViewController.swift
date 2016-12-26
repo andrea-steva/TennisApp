@@ -11,14 +11,13 @@ import UIKit
 class SettingsViewController: BaseViewController {
 
     // MARK: IBAction
-    
-    
+
     // MARK: View Management
-    
+
     override func controllerTitleKey() -> LocalizerKey {
         return .menu_settings
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,7 +28,6 @@ class SettingsViewController: BaseViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation

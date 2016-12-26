@@ -10,12 +10,12 @@ import Realm
 import RealmSwift
 
 protocol ActivityProtocol {
-    var activityId : String! { get set }
-    var title : String! { get set }
-    var notes : String { get set }
-    var date : Date! { get set }
-    var place : String { get set }
-    var timeSpent : Float { get set }
+    var activityId: String! { get set }
+    var title: String! { get set }
+    var notes: String { get set }
+    var date: Date! { get set }
+    var place: String { get set }
+    var timeSpent: Float { get set }
 }
 
 extension ActivityProtocol {
@@ -29,9 +29,9 @@ protocol MatchProtocol {
 }
 
 protocol FitnessProtocol {
-    var fitnessType : FitnessType { get set }
+    var fitnessType: FitnessType { get set }
 }
 
 protocol PracticeProtocol {
-    var practiceType : PracticeType { get set }
+    var practiceType: PracticeType { get set }
 }

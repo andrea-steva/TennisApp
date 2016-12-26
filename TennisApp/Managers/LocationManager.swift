@@ -8,27 +8,27 @@
 
 import CoreLocation
 
-protocol LocationManagerDelegate {
-    
+protocol LocationManagerDelegate: class {
+
     func locationManagerDidUpdateLocation(_ localizationManager: LocationManager)
 }
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
-    
+
     // MARK: Property
-    
+
     fileprivate let manager = CLLocationManager()
     fileprivate static let geocoder = CLGeocoder()
-    
+
     fileprivate var isMonitoring = false
-    
+
     fileprivate var lastLocation: CLLocation?
     fileprivate var placemark: CLPlacemark?
-    
-    fileprivate let delegate: LocationManagerDelegate?
-    
+
+    fileprivate weak var delegate: LocationManagerDelegate?
+
     // MARK: Istance
-    
+
     init(delegate: LocationManagerDelegate?) {
         self.delegate = delegate
         super.init()
@@ -36,7 +36,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         manager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         manager.distanceFilter = 5000
     }
-    
+
     func start() {
         objc_sync_enter(manager)
         if !isMonitoring {
@@ -47,7 +47,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         }
         objc_sync_exit(manager)
     }
-    
+
     func stop() {
         objc_sync_enter(manager)
         if isMonitoring {
@@ -67,8 +67,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         }
         self.updateLocation(location)
     }
-    
-    func updateLocation(_ location : CLLocation?) {
+
+    func updateLocation(_ location: CLLocation?) {
         lastLocation = location
         placemark = nil
         if let location = lastLocation {
@@ -76,24 +76,21 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                 self.placemark = placemark
                 self.delegate?.locationManagerDidUpdateLocation(self)
             })
-        }
-        else {
+        } else {
             self.delegate?.locationManagerDidUpdateLocation(self)
         }
     }
-    
+
     // MARK: Static
-    
-    static func getPlacemark(_ location : CLLocation, completion : @escaping (_ placemark : CLPlacemark?) -> Void) {
+
+    static func getPlacemark(_ location: CLLocation, completion : @escaping (_ placemark: CLPlacemark?) -> Void) {
         geocoder.reverseGeocodeLocation(location) { (placemarks, error) -> Void in
             if error == nil {
                 completion(placemarks?.first)
-            }
-            else {
+            } else {
                 completion(nil)
             }
         }
-        
+
     }
 }
-
