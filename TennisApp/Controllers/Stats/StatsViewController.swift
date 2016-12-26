@@ -12,18 +12,16 @@ class StatsViewController: BaseViewController {
 
     // MARK: IBOutlets
 
-    
     // MARK: View Management
-    
+
     override func controllerTitleKey() -> LocalizerKey {
         return .menu_stats
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
     }
-    
 
     /*
     // MARK: - Navigation

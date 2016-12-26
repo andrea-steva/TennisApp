@@ -10,42 +10,42 @@ import UIKit
 import ALCameraViewController
 
 class LoginViewController: BaseViewController {
-    
+
     // MARK: IBOutlets
-    @IBOutlet var userImageView : UIImageView!
-    @IBOutlet var firstNameTextField : UITextField!
-    @IBOutlet var lastNameTextField : UITextField!
-    @IBOutlet var startButton : UIButton!
-    @IBOutlet var cameraButton : UIButton!
-    
+    @IBOutlet var userImageView: UIImageView!
+    @IBOutlet var firstNameTextField: UITextField!
+    @IBOutlet var lastNameTextField: UITextField!
+    @IBOutlet var startButton: UIButton!
+    @IBOutlet var cameraButton: UIButton!
+
     // MARK: ViewModel
     var viewModel = LoginViewModel()
-    
+
     // MARK: View Management
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.userImageView.layer.cornerRadius = 20.0
         self.userImageView.layer.borderColor = Style.Colors.lightColor.cgColor
         self.userImageView.layer.borderWidth = 5.0
-        
+
         self.backgroundView?.image = self.backgroundView?.image?.applyMenuEffect()
     }
-    
+
     // MARK: IBAction
-    
-    @IBAction func didTapStartButton(_ sender : UIButton) {
+
+    @IBAction func didTapStartButton(_ sender: UIButton) {
         AppDelegate.instance().setRootViewController(Utils.getControllerFromStoryboard("Main"))
     }
-    
+
     @IBAction func didTapOnCameraButton(_ sender: AnyObject) {
-        
+
         let cameraViewController = CameraViewController(croppingEnabled: true) { (image, asset) in
             // Do something with your image here.
             // If cropping is enabled this image will be the cropped version
@@ -53,7 +53,7 @@ class LoginViewController: BaseViewController {
         }
         present(cameraViewController, animated: true, completion: nil)
     }
-    
+
     // MARK: Firebase Auth
-    
+
 }

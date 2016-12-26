@@ -11,30 +11,28 @@ import UIKit
 class ProfileViewController: BaseViewController {
 
     // MARK: IBOutlets
-    @IBOutlet var tableView : UITableView!
-    
+    @IBOutlet var tableView: UITableView!
+
     // MARK: View Management
-    
+
     override func controllerTitleKey() -> LocalizerKey {
         return .menu_profile
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         let headerView = Bundle.main.loadNibNamed("ProfileHeaderView", owner: self, options: nil)!.first as! ProfileHeaderView
         self.tableView.addSubview(headerView)
-        
+
         //self.stretchyHeaderView = nibViews.firstObject;
-        
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation

@@ -11,11 +11,11 @@ import UIKit
 class ActivitiesViewController: UIViewController {
 
     static let ActivityCellReuseId = "activity_cell"
-    
+
     // MARK: IBOutlet
-    
-    @IBOutlet var tableView : UITableView!
-    
+
+    @IBOutlet var tableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,7 +26,6 @@ class ActivitiesViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation

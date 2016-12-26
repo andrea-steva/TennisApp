@@ -13,12 +13,12 @@ class RacketFormViewController: FormViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.title = localizer.get( .rackets_addRacket)
 
         form +++ Section("Custom cells")
-            <<< IntRow("IntRow1"){ $0.title = "Int 1"; $0.value = 1 }
-            <<< IntRow("IntRow2"){ $0.title = "Int 2"; $0.value = 2 }
+            <<< IntRow("IntRow1") { $0.title = "Int 1"; $0.value = 1 }
+            <<< IntRow("IntRow2") { $0.title = "Int 2"; $0.value = 2 }
     }
 
     /*

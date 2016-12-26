@@ -11,14 +11,14 @@ import UIKit
 class RacketTableViewCell: UITableViewCell {
 
     // MARK: IBAction
-    
-    @IBOutlet var racketNameLabel : UILabel!
-    
+
+    @IBOutlet var racketNameLabel: UILabel!
+
     // MARK: View Management
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         racketNameLabel.font = Style.Fonts.get(.Regular, size: .normal)
     }
 
@@ -27,9 +27,9 @@ class RacketTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    func setRacket(_ racket : Racket) {
-        
+
+    func setRacket(_ racket: Racket) {
+
     }
 
 }

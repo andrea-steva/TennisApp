@@ -13,7 +13,7 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+
     static func instance() -> AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
@@ -23,11 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let _ = Logger()
         Services.initialize()
         FIRApp.configure()
-        
+
         Style.setupNavigationBarStyle()
         Style.setupTextFieldStyle()
         Style.setupSearchBarStyle()
-        
+
         if TNDao().getUser().isEmpty {
             //Load Home
             let rootViewController = Utils.getControllerFromStoryboard("Login")
@@ -38,17 +38,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let rootViewController = Utils.getControllerFromStoryboard("Main")
             self.setRootViewController(rootViewController)
         }
-        
+
         return true
     }
-    
-    func setRootViewController(_ rootViewController : UIViewController) {
+
+    func setRootViewController(_ rootViewController: UIViewController) {
         if window?.rootViewController != rootViewController {
             window?.rootViewController = rootViewController
         }
     }
-    
-    
+
     func applicationWillResignActive(_ application: UIApplication) {
     }
 
