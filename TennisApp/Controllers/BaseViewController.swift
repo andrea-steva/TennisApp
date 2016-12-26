@@ -15,7 +15,7 @@ private extension Selector {
     static let didTapOnButtonMenu = #selector(BaseViewController.didTapOnButtonMenu(_:))
 }
 
-class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource, MVVMViewResource {
+class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
 
     //MARK: IBOutlet
     @IBOutlet var backgroundView : UIImageView?
@@ -32,12 +32,12 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
 
         self.title = localizer.get(controllerTitleKey())
         
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         if hasMenuButton() {
             if self.navigationItem.leftBarButtonItems == nil {
                 self.navigationItem.leftBarButtonItems = [UIBarButtonItem]()
             }
-            self.navigationItem.leftBarButtonItems?.insert(self.getBarButtonItem(FontAwesome.Bars, selector: .didTapOnButtonMenu), atIndex: 0)
+            self.navigationItem.leftBarButtonItems?.insert(self.getBarButtonItem(FontAwesome.bars, selector: .didTapOnButtonMenu), at: 0)
         }
     }
     
@@ -55,7 +55,7 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
 
     //MARK: Menu Management
     
-    @IBAction func didTapOnButtonMenu(sender : UIBarButtonItem) {
+    @IBAction func didTapOnButtonMenu(_ sender : UIBarButtonItem) {
         self.presentLeftMenuViewController(sender)
     }
     
@@ -65,36 +65,36 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
     
     //MARK: DZNEmptyDataSetSource
     
-    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         return NSAttributedString(string: localizer.get( .generic_emptyDataSetTitle))
     }
     
-    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return Style.Images.notAvailable
     }
     
-    func offsetForEmptyDataSet(scrollView: UIScrollView!) -> CGPoint {
-        return CGPointMake(0, -64)
+    func offset(forEmptyDataSet scrollView: UIScrollView!) -> CGPoint {
+        return CGPoint(x: 0, y: -64)
     }
 
     //MARK: DZNEmptyDataSetDelegate
     
-    func emptyDataSetShouldAllowTouch(scrollView: UIScrollView!) -> Bool {
+    func emptyDataSetShouldAllowTouch(_ scrollView: UIScrollView!) -> Bool {
         return true
     }
     
-    func emptyDataSetShouldShow(scrollView: UIScrollView!) -> Bool {
+    func emptyDataSetShouldShow(_ scrollView: UIScrollView!) -> Bool {
         return true
     }
     
-    func emptyDataSetShouldAllowScroll(scrollView: UIScrollView!) -> Bool {
+    func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {
         return false
     }
     
     //MARK: PullToRefresh & InfiniteIndicator
     
-    func addPullToRefresh(scrollView : UIScrollView, completionBlock : () -> Void) {
-        scrollView.ins_addPullToRefreshWithHeight(60.0) { (scrollView : UIScrollView!) -> Void in
+    func addPullToRefresh(_ scrollView : UIScrollView, completionBlock : @escaping () -> Void) {
+        scrollView.ins_addPullToRefresh(withHeight: 60.0) { (scrollView : UIScrollView!) -> Void in
             completionBlock()
         }
         scrollView.ins_pullToRefreshBackgroundView.preserveContentInset = false
@@ -104,8 +104,8 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
         //scrollView.ins_pullToRefreshBackgroundView.addSubview(pullToRefresh)
     }
     
-    func addInfiniteIndicator(scrollView : UIScrollView, completionBlock : () -> Void) {
-        scrollView.ins_addInfinityScrollWithHeight(60.0) { (scrollView : UIScrollView!) -> Void in
+    func addInfiniteIndicator(_ scrollView : UIScrollView, completionBlock : @escaping () -> Void) {
+        scrollView.ins_addInfinityScroll(withHeight: 60.0) { (scrollView : UIScrollView!) -> Void in
             completionBlock()
             //scrollView.ins_endPullToRefresh()
             //scrollView.ins_endInfinityScrollWithStoppingContentOffset(true)
@@ -125,15 +125,15 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
     - returns: top margin
     */
     func getMarginFromTop() -> CGFloat {
-        var margin = UIApplication.sharedApplication().statusBarFrame.size.height
+        var margin = UIApplication.shared.statusBarFrame.size.height
         if let navigationBarHeight = navigationController?.navigationBar.frame.height {
             margin += navigationBarHeight
         }
         return margin
     }
     
-    func getBarButtonItem(icon : FontAwesome, selector : Selector) -> UIBarButtonItem {
-        return UIBarButtonItem(image: UIImage.fontAwesomeIconWithName(icon, textColor: Style.Colors.primaryColor, size : CGSizeMake(32, 32)), style: UIBarButtonItemStyle.Plain, target: self, action: selector)
+    func getBarButtonItem(_ icon : FontAwesome, selector : Selector) -> UIBarButtonItem {
+        return UIBarButtonItem(image: UIImage.fontAwesomeIcon(name: icon, textColor: Style.Colors.primaryColor, size : CGSize(width: 32, height: 32)), style: UIBarButtonItemStyle.plain, target: self, action: selector)
     }
     
     //MARK: Navigation Bar Utils
@@ -159,7 +159,7 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
     
     //MARK: Status Bar
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
 }

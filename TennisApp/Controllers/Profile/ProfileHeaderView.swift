@@ -23,13 +23,13 @@ class ProfileHeaderView: GSKStretchyHeaderView {
         super.awakeFromNib()
         
         self.userImageView.layer.cornerRadius = 20.0
-        self.userImageView.layer.borderColor = Style.Colors.lightColor.CGColor
+        self.userImageView.layer.borderColor = Style.Colors.lightColor.cgColor
         self.userImageView.layer.borderWidth = 5.0
     
         self.minimumContentHeight = 64.0
     }
     
-    override func didChangeStretchFactor(stretchFactor: CGFloat) {
+    override func didChangeStretchFactor(_ stretchFactor: CGFloat) {
         
         var alpha = CGFloatTranslateRange(stretchFactor, 0.2, 0.8, 0, 1)
         alpha = max(0, min(1, alpha))

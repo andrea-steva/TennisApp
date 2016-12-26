@@ -10,7 +10,7 @@ import Foundation
 
 class Settings : NSObject {
     
-    private let userDefaults = NSUserDefaults.standardUserDefaults()
+    fileprivate let userDefaults = UserDefaults.standard
     
     func deleteAll() {
         let settings = Settings()
@@ -28,7 +28,7 @@ class Settings : NSObject {
         }
         
         set {
-            self.set("exampleSettings", value: newValue)
+            self.set("exampleSettings", value: newValue as AnyObject?)
         }
     }
     
@@ -43,37 +43,37 @@ class Settings : NSObject {
         }
     
         set {
-            self.set("firstLaunch", value: newValue)
+            self.set("firstLaunch", value: newValue as AnyObject?)
         }
     }
     
     // MARK: - Get/set from user defaults
     
-    private func get(key : String) -> AnyObject? {
-        return userDefaults.valueForKey(key)
+    fileprivate func get(_ key : String) -> AnyObject? {
+        return userDefaults.value(forKey: key) as AnyObject?
         
     }
     
-    private func set(key : String, value : AnyObject?) {
+    fileprivate func set(_ key : String, value : AnyObject?) {
         if value != nil {
             userDefaults.setValue(value, forKey: key)
         }
         else {
-            userDefaults.removeObjectForKey(key)
+            userDefaults.removeObject(forKey: key)
         }
         userDefaults.synchronize()
     }
     
-    private func getArray(key : String) -> [AnyObject]? {
-        if let watchlistData : AnyObject = userDefaults.objectForKey(key) {
-            if let watchlist : AnyObject = NSKeyedUnarchiver.unarchiveObjectWithData(watchlistData as! NSData) {
+    fileprivate func getArray(_ key : String) -> [AnyObject]? {
+        if let watchlistData : AnyObject = userDefaults.object(forKey: key) as AnyObject? {
+            if let watchlist : AnyObject = NSKeyedUnarchiver.unarchiveObject(with: watchlistData as! Data) as AnyObject? {
                 return watchlist as? [AnyObject]
             }
         }
         return []
     }
     
-    private func setArray(key : String, value : [AnyObject]?)  {
+    fileprivate func setArray(_ key : String, value : [AnyObject]?)  {
         var arrayToSave : [AnyObject]
         if let value = value {
             arrayToSave = value
@@ -81,8 +81,8 @@ class Settings : NSObject {
         else {
             arrayToSave = [AnyObject]()
         }
-        let watchlistData = NSKeyedArchiver.archivedDataWithRootObject(arrayToSave)
-        userDefaults.setObject(watchlistData, forKey: key)
+        let watchlistData = NSKeyedArchiver.archivedData(withRootObject: arrayToSave)
+        userDefaults.set(watchlistData, forKey: key)
         userDefaults.synchronize()
     }
     

@@ -19,7 +19,7 @@ class TNUser: Object {
     dynamic var age: Int = 0
     dynamic var email: String!
     dynamic var phoneNumber: String!
-    dynamic var profileImage: NSData!
+    dynamic var profileImage: Data!
 
     dynamic var handType: String!
     dynamic var backhandType: String!
@@ -47,16 +47,16 @@ class TNUser: Object {
         super.init(realm: realm, schema: schema)
     }
     
-    required init(value: AnyObject, schema: RLMSchema) {
-        fatalError("init(value:schema:) has not been implemented")
-    }
-
     convenience init(_ dictionary: Dictionary<String, AnyObject>) {
         self.init()
         
         userId = dictionary["userId"] as? String
         firstName = dictionary["firstName"] as? String
         lastName = dictionary["lastName"] as? String
+    }
+    
+    required init(value: Any, schema: RLMSchema) {
+        fatalError("init(value:schema:) has not been implemented")
     }
     
     //MARK: Class Methods

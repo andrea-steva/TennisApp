@@ -11,7 +11,7 @@ class Services {
     // MARK: Shared instance and framework initialization
     
     /** The shared instance */
-    private static var instance : Services!
+    fileprivate static var instance : Services!
     
     /** Get the shared instance. */
     static func sharedInstance() -> Services {

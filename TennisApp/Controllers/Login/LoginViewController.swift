@@ -32,7 +32,7 @@ class LoginViewController: BaseViewController {
         super.viewDidLoad()
         
         self.userImageView.layer.cornerRadius = 20.0
-        self.userImageView.layer.borderColor = Style.Colors.lightColor.CGColor
+        self.userImageView.layer.borderColor = Style.Colors.lightColor.cgColor
         self.userImageView.layer.borderWidth = 5.0
         
         self.backgroundView?.image = self.backgroundView?.image?.applyMenuEffect()
@@ -40,18 +40,18 @@ class LoginViewController: BaseViewController {
     
     //MARK: IBAction
     
-    @IBAction func didTapStartButton(sender : UIButton) {
+    @IBAction func didTapStartButton(_ sender : UIButton) {
         AppDelegate.instance().setRootViewController(Utils.getControllerFromStoryboard("Main"))
     }
     
-    @IBAction func didTapOnCameraButton(sender: AnyObject) {
+    @IBAction func didTapOnCameraButton(_ sender: AnyObject) {
         
         let cameraViewController = CameraViewController(croppingEnabled: true) { (image, asset) in
             // Do something with your image here.
             // If cropping is enabled this image will be the cropped version
             self.userImageView.image = image
         }
-        presentViewController(cameraViewController, animated: true, completion: nil)
+        present(cameraViewController, animated: true, completion: nil)
     }
     
 }

@@ -10,22 +10,22 @@ import CoreLocation
 
 protocol LocationManagerDelegate {
     
-    func locationManagerDidUpdateLocation(localizationManager : LocationManager)
+    func locationManagerDidUpdateLocation(_ localizationManager : LocationManager)
 }
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
     
     //MARK: Property
     
-    private let manager = CLLocationManager()
-    private static let geocoder = CLGeocoder()
+    fileprivate let manager = CLLocationManager()
+    fileprivate static let geocoder = CLGeocoder()
     
-    private var isMonitoring = false
+    fileprivate var isMonitoring = false
     
-    private var lastLocation : CLLocation?
-    private var placemark : CLPlacemark?
+    fileprivate var lastLocation : CLLocation?
+    fileprivate var placemark : CLPlacemark?
     
-    private let delegate : LocationManagerDelegate?
+    fileprivate let delegate : LocationManagerDelegate?
     
     //MARK: Istance
     
@@ -61,11 +61,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         return (location : lastLocation, name : placemark?.locality)
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+    func locationManager(_ manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
         self.updateLocation(newLocation)
     }
     
-    func updateLocation(location : CLLocation?) {
+    func updateLocation(_ location : CLLocation?) {
         lastLocation = location
         placemark = nil
         if let location = lastLocation {
@@ -81,13 +81,13 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     //MARK: Static
     
-    static func getPlacemark(location : CLLocation, completion : (placemark : CLPlacemark?) -> Void) {
+    static func getPlacemark(_ location : CLLocation, completion : @escaping (_ placemark : CLPlacemark?) -> Void) {
         geocoder.reverseGeocodeLocation(location) { (placemarks, error) -> Void in
             if error == nil {
-                completion(placemark : placemarks?.first)
+                completion(placemarks?.first)
             }
             else {
-                completion(placemark: nil)
+                completion(nil)
             }
         }
         

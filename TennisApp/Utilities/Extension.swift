@@ -107,12 +107,12 @@ extension UIColor {
         var blue:  CGFloat = 0.0
         var alpha: CGFloat = 1.0
         
-        let index   = hexRgba.hasPrefix("#") ? hexRgba.startIndex.successor() : hexRgba.startIndex
+        let index   = hexRgba.hasPrefix("#") ? hexRgba.characters.index(after: hexRgba.startIndex) : hexRgba.startIndex
         
-        let hex     = hexRgba.substringFromIndex(index)
-        let scanner = NSScanner(string: hex)
+        let hex     = hexRgba.substring(from: index)
+        let scanner = Scanner(string: hex)
         var hexValue: CUnsignedLongLong = 0
-        if scanner.scanHexLongLong(&hexValue) {
+        if scanner.scanHexInt64(&hexValue) {
             switch (hex.characters.count) {
             case 3:
                 red   = CGFloat((hexValue & 0xF00) >> 8)       / 15.0
@@ -142,15 +142,15 @@ extension UIColor {
         self.init(red:red, green:green, blue:blue, alpha:alpha)
     }
     
-    func lighter(amount : CGFloat = 0.25) -> UIColor {
+    func lighter(_ amount : CGFloat = 0.25) -> UIColor {
         return hueColorWithBrightnessAmount(1 + amount)
     }
     
-    func darker(amount : CGFloat = 0.25) -> UIColor {
+    func darker(_ amount : CGFloat = 0.25) -> UIColor {
         return hueColorWithBrightnessAmount(1 - amount)
     }
     
-    private func hueColorWithBrightnessAmount(amount: CGFloat) -> UIColor {
+    fileprivate func hueColorWithBrightnessAmount(_ amount: CGFloat) -> UIColor {
         var hue         : CGFloat = 0
         var saturation  : CGFloat = 0
         var brightness  : CGFloat = 0
@@ -172,21 +172,21 @@ extension UIColor {
 
 extension UIImage {
     
-    class func imageWithColor(color: UIColor) -> UIImage {
+    class func imageWithColor(_ color: UIColor) -> UIImage {
         return UIImage.imageWithColor(color, circular: false)
     }
     
-    class func imageWithColor(color: UIColor, circular : Bool) -> UIImage {
+    class func imageWithColor(_ color: UIColor, circular : Bool) -> UIImage {
         let size : CGFloat = circular ? 100 : 1;
-        let rect = CGRectMake(0.0, 0.0, size, size)
+        let rect = CGRect(x: 0.0, y: 0.0, width: size, height: size)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetFillColorWithColor(context!, color.CGColor)
+        context!.setFillColor(color.cgColor)
         if(circular) {
-            CGContextFillEllipseInRect(context!, rect)
+            context!.fillEllipse(in: rect)
         }
         else {
-            CGContextFillRect(context!, rect)
+            context!.fill(rect)
         }
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -197,46 +197,46 @@ extension UIImage {
     // this is similar to Photoshop's "Color" layer blend mode
     // this is perfect for non-greyscale source images, and images that have both highlights and shadows that should be preserved
     // white will stay white and black will stay black as the lightness of the image is preserved
-    func tint(tintColor: UIColor) -> UIImage {
+    func tint(_ tintColor: UIColor) -> UIImage {
         
         return modifiedImage { context, rect in
             // draw black background - workaround to preserve color of partially transparent pixels
-            CGContextSetBlendMode(context, .Normal)
-            UIColor.blackColor().setFill()
-            CGContextFillRect(context, rect)
+            context.setBlendMode(.normal)
+            UIColor.black.setFill()
+            context.fill(rect)
             
             // draw original image
-            CGContextSetBlendMode(context, .Normal)
-            CGContextDrawImage(context, rect, self.CGImage!)
+            context.setBlendMode(.normal)
+            context.draw(self.cgImage!, in: rect)
             
             // tint image (loosing alpha) - the luminosity of the original image is preserved
-            CGContextSetBlendMode(context, .Color)
+            context.setBlendMode(.color)
             tintColor.setFill()
-            CGContextFillRect(context, rect)
+            context.fill(rect)
             
             // mask by alpha values of original image
-            CGContextSetBlendMode(context, .DestinationIn)
-            CGContextDrawImage(context, rect, self.CGImage!)
+            context.setBlendMode(.destinationIn)
+            context.draw(self.cgImage!, in: rect)
         }
     }
     
     // fills the alpha channel of the source image with the given color
     // any color information except to the alpha channel will be ignored
-    func fillAlpha(fillColor: UIColor) -> UIImage {
+    func fillAlpha(_ fillColor: UIColor) -> UIImage {
         
         return modifiedImage { context, rect in
             // draw tint color
-            CGContextSetBlendMode(context, .Normal)
+            context.setBlendMode(.normal)
             fillColor.setFill()
-            CGContextFillRect(context, rect)
+            context.fill(rect)
             
             // mask by alpha values of original image
-            CGContextSetBlendMode(context, .DestinationIn)
-            CGContextDrawImage(context, rect, self.CGImage!)
+            context.setBlendMode(.destinationIn)
+            context.draw(self.cgImage!, in: rect)
         }
     }
     
-    private func modifiedImage(@noescape draw: (CGContext, CGRect) -> ()) -> UIImage {
+    fileprivate func modifiedImage(_ draw: (CGContext, CGRect) -> ()) -> UIImage {
         
         // using scale correctly preserves retina images
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
@@ -244,10 +244,10 @@ extension UIImage {
         assert(context != nil)
         
         // correctly rotate image
-        CGContextTranslateCTM(context, 0, size.height);
-        CGContextScaleCTM(context, 1.0, -1.0);
+        context.translateBy(x: 0, y: size.height);
+        context.scaleBy(x: 1.0, y: -1.0);
         
-        let rect = CGRectMake(0.0, 0.0, size.width, size.height)
+        let rect = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height)
         
         draw(context, rect)
         
@@ -262,14 +262,9 @@ extension UIImage {
 extension String {
     
     var length: Int { return self.characters.count }
-    
-    func substringWithRange(start start: Int, end: Int) -> String {
-        let index = self.startIndex
-        return self.substringWithRange(Range<String.Index>(index.advancedBy(start) ..< index.advancedBy(start + end)))
-    }
-    
+        
     mutating func replace(targetString target: String, withString replacingString: String) {
-        self = self.stringByReplacingOccurrencesOfString(target, withString: replacingString)
+        self = self.replacingOccurrences(of: target, with: replacingString)
     }
 }
 
@@ -279,16 +274,16 @@ extension String {
 public extension UITableViewCell {
     func removeMargins() {
         
-        if self.respondsToSelector(Selector("setSeparatorInset:")) {
-            self.separatorInset = UIEdgeInsetsZero
+        if self.responds(to: #selector(setter: UITableViewCell.separatorInset)) {
+            self.separatorInset = UIEdgeInsets.zero
         }
         
-        if self.respondsToSelector(Selector("setPreservesSuperviewLayoutMargins:")) {
+        if self.responds(to: #selector(setter: UIView.preservesSuperviewLayoutMargins)) {
             self.preservesSuperviewLayoutMargins = false
         }
         
-        if self.respondsToSelector(Selector("setLayoutMargins:")) {
-            self.layoutMargins = UIEdgeInsetsZero
+        if self.responds(to: #selector(setter: UIView.layoutMargins)) {
+            self.layoutMargins = UIEdgeInsets.zero
         }
     }
 }
@@ -305,8 +300,8 @@ public extension UIDevice {
         var identifier = ""
         
         for child in mirror.children {
-            if let value = child.value as? Int8 where value != 0 {
-                identifier.append(UnicodeScalar(UInt8(value)))
+            if let value = child.value as? Int8, value != 0 {
+                identifier.append(String(UnicodeScalar(UInt8(value))))
             }
         }
         return DeviceList[identifier] ?? identifier
@@ -329,7 +324,7 @@ public extension UIDevice {
     }
     
     static var isIpad: Bool {
-        if (UIDevice.currentDevice().model.rangeOfString("iPad") != nil) {
+        if (UIDevice.current.model.range(of: "iPad") != nil) {
             return true
         }
         return false
@@ -359,21 +354,11 @@ public extension UIDevice {
         return UIDevice.isSimulatorWithScreenHeight(736)
     }
     
-    private static func isSimulatorWithScreenHeight(heigth: CGFloat) -> Bool {
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
+    fileprivate static func isSimulatorWithScreenHeight(_ heigth: CGFloat) -> Bool {
+        let screenSize: CGRect = UIScreen.main.bounds
         return modelName == "Simulator" && screenSize.height == heigth
     }
     
-}
-
-// MARK: NSRange
-
-public extension NSRange {
-    func stringRangeForText(string: String) -> Range<String.Index> {
-        let start = string.startIndex.advancedBy(self.location)
-        let end = start.advancedBy(self.length)
-        return Range<String.Index>(start ..< end)
-    }
 }
 
 // MARK: UIView
@@ -394,90 +379,90 @@ extension UIView {
      - parameter color:      Border color
      - parameter width:      Border width
      */
-    func addBorder(viewBorder: ViewBorder, color: UIColor, width: CGFloat) {
+    func addBorder(_ viewBorder: ViewBorder, color: UIColor, width: CGFloat) {
         let border = CALayer()
-        border.backgroundColor = color.CGColor
+        border.backgroundColor = color.cgColor
         border.name = viewBorder.rawValue
         switch viewBorder {
         case .Left:
-            border.frame = CGRectMake(0, 0, width, self.frame.size.height)
+            border.frame = CGRect(x: 0, y: 0, width: width, height: self.frame.size.height)
         case .Right:
-            border.frame = CGRectMake(self.frame.size.width - width, 0, width, self.frame.size.height)
+            border.frame = CGRect(x: self.frame.size.width - width, y: 0, width: width, height: self.frame.size.height)
         case .Top:
-            border.frame = CGRectMake(0, 0, self.frame.size.width, width)
+            border.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: width)
         case .Bottom:
-            border.frame = CGRectMake(0, self.frame.size.height - width, self.frame.size.width, width)
+            border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: self.frame.size.width, height: width)
         }
         self.layer.addSublayer(border)
     }
     
-    func roundCorners(corners:UIRectCorner, radius: CGFloat, borderColor : UIColor?) {
+    func roundCorners(_ corners:UIRectCorner, radius: CGFloat, borderColor : UIColor?) {
         let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         
         let mask = CAShapeLayer()
-        mask.path = path.CGPath
+        mask.path = path.cgPath
         
         self.layer.mask = mask
         
-        if let color = borderColor?.CGColor {
+        if let color = borderColor?.cgColor {
             let layer = CAShapeLayer()
-            layer.path = path.CGPath
+            layer.path = path.cgPath
             layer.strokeColor = color
-            layer.fillColor = UIColor.clearColor().CGColor
+            layer.fillColor = UIColor.clear.cgColor
             layer.lineWidth = 1.0
             self.layer.addSublayer(layer)
         }
     }
     
-    class func loadFromNibNamed(nibNamed: String, bundle : NSBundle? = nil) -> UIView? {
+    class func loadFromNibNamed(_ nibNamed: String, bundle : Bundle? = nil) -> UIView? {
         return UINib(
             nibName: nibNamed,
             bundle: bundle
-            ).instantiateWithOwner(nil, options: nil)[0] as? UIView
+            ).instantiate(withOwner: nil, options: nil)[0] as? UIView
     }
     
     // MARK: Constraints
     
-    func addGenericConstraint(innerView: UIView, attribute: NSLayoutAttribute, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint  {
-        let constraint = NSLayoutConstraint(item: self, attribute: attribute, relatedBy: NSLayoutRelation.Equal, toItem: innerView, attribute: attribute, multiplier: multiplier, constant: constant)
+    func addGenericConstraint(_ innerView: UIView, attribute: NSLayoutAttribute, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint  {
+        let constraint = NSLayoutConstraint(item: self, attribute: attribute, relatedBy: NSLayoutRelation.equal, toItem: innerView, attribute: attribute, multiplier: multiplier, constant: constant)
         self.addConstraint(constraint)
         return constraint
     }
     
-    func addConstraintTop(innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint  {
-        return self.addGenericConstraint(innerView, attribute: NSLayoutAttribute.Top, multiplier: multiplier, constant: constant)
+    func addConstraintTop(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint  {
+        return self.addGenericConstraint(innerView, attribute: NSLayoutAttribute.top, multiplier: multiplier, constant: constant)
     }
     
-    func addConstraintBottom(innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint  {
-        return self.addGenericConstraint(innerView, attribute: NSLayoutAttribute.Bottom, multiplier: multiplier, constant: constant)
+    func addConstraintBottom(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint  {
+        return self.addGenericConstraint(innerView, attribute: NSLayoutAttribute.bottom, multiplier: multiplier, constant: constant)
     }
     
-    func addConstraintCenterX(innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint  {
-        return self.addGenericConstraint(innerView, attribute: NSLayoutAttribute.CenterX, multiplier: multiplier, constant: constant)
+    func addConstraintCenterX(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint  {
+        return self.addGenericConstraint(innerView, attribute: NSLayoutAttribute.centerX, multiplier: multiplier, constant: constant)
     }
     
-    func addConstraintCenterY(innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint  {
-        return self.addGenericConstraint(innerView, attribute: NSLayoutAttribute.CenterY, multiplier: multiplier, constant: constant)
+    func addConstraintCenterY(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint  {
+        return self.addGenericConstraint(innerView, attribute: NSLayoutAttribute.centerY, multiplier: multiplier, constant: constant)
     }
     
-    func addConstraintLeading(innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint  {
-        return self.addGenericConstraint(innerView, attribute: NSLayoutAttribute.Leading, multiplier: multiplier, constant: constant)
+    func addConstraintLeading(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint  {
+        return self.addGenericConstraint(innerView, attribute: NSLayoutAttribute.leading, multiplier: multiplier, constant: constant)
     }
     
-    func addConstraintTrailing(innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
-        return self.addGenericConstraint(innerView, attribute: NSLayoutAttribute.Trailing, multiplier: multiplier, constant: constant)
+    func addConstraintTrailing(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
+        return self.addGenericConstraint(innerView, attribute: NSLayoutAttribute.trailing, multiplier: multiplier, constant: constant)
     }
     
-    func addConstraintWidth(innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
-        let attribute = NSLayoutAttribute.Width
-        let constraint = NSLayoutConstraint(item: innerView, attribute: attribute, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: attribute, multiplier: multiplier, constant: constant)
+    func addConstraintWidth(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
+        let attribute = NSLayoutAttribute.width
+        let constraint = NSLayoutConstraint(item: innerView, attribute: attribute, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: attribute, multiplier: multiplier, constant: constant)
         self.addConstraint(constraint)
         return constraint
     }
     
-    func addConstraintHeight(innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
-        let attribute = NSLayoutAttribute.Height
-        let constraint = NSLayoutConstraint(item: innerView, attribute: attribute, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: attribute, multiplier: multiplier, constant: constant)
+    func addConstraintHeight(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
+        let attribute = NSLayoutAttribute.height
+        let constraint = NSLayoutConstraint(item: innerView, attribute: attribute, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: attribute, multiplier: multiplier, constant: constant)
         self.addConstraint(constraint)
         return constraint
     }
@@ -485,7 +470,7 @@ extension UIView {
 
 // MARK: NSDate
 
-public extension NSDate {
+public extension Date {
     
     /**
      Get string date with date formate "d MMMMM yyyy"
@@ -496,12 +481,12 @@ public extension NSDate {
         let interval = -self.timeIntervalSinceNow
         if interval < 2 * 60 * 60 * 1000 {
             let formatter = TTTTimeIntervalFormatter()
-            return formatter.stringForTimeInterval(interval)
+            return formatter.string(forTimeInterval: interval)
         }
         else {
-            let formatter = NSDateFormatter()
+            let formatter = DateFormatter()
             formatter.dateFormat = "d MMMMM yyyy"
-            return formatter.stringFromDate(self)
+            return formatter.string(from: self)
         }
     }
     
@@ -519,49 +504,49 @@ public extension NSDate {
     :param: years number of years to add
     :returns: the NSDate computed
     */
-    public func add(seconds: Int = 0, minutes: Int = 0, hours: Int = 0, days: Int = 0, weeks: Int = 0, months: Int = 0, years: Int = 0) -> NSDate {
-        let calendar = NSCalendar.currentCalendar()
+    public func add(_ seconds: Int = 0, minutes: Int = 0, hours: Int = 0, days: Int = 0, weeks: Int = 0, months: Int = 0, years: Int = 0) -> Date {
+        let calendar = Calendar.current
         
         let version = floor(NSFoundationVersionNumber)
         
         if version <= NSFoundationVersionNumber10_9_2 {
-            var component = NSDateComponents()
-            component.setValue(seconds, forComponent: .Second)
+            var component = DateComponents()
+            (component as NSDateComponents).setValue(seconds, forComponent: .second)
             
-            var date : NSDate! = calendar.dateByAddingComponents(component, toDate: self, options: NSCalendarOptions.WrapComponents)!
-            component = NSDateComponents()
-            component.setValue(minutes, forComponent: .Minute)
-            date = calendar.dateByAddingComponents(component, toDate: date, options: NSCalendarOptions.WrapComponents)!
+            var date : Date! = (calendar as NSCalendar).date(byAdding: component, to: self, options: NSCalendar.Options.wrapComponents)!
+            component = DateComponents()
+            (component as NSDateComponents).setValue(minutes, forComponent: .minute)
+            date = (calendar as NSCalendar).date(byAdding: component, to: date, options: NSCalendar.Options.wrapComponents)!
             
-            component = NSDateComponents()
-            component.setValue(hours, forComponent: .Hour)
-            date = calendar.dateByAddingComponents(component, toDate: date, options: NSCalendarOptions.WrapComponents)!
+            component = DateComponents()
+            (component as NSDateComponents).setValue(hours, forComponent: .hour)
+            date = (calendar as NSCalendar).date(byAdding: component, to: date, options: NSCalendar.Options.wrapComponents)!
             
-            component = NSDateComponents()
-            component.setValue(days, forComponent: .Day)
-            date = calendar.dateByAddingComponents(component, toDate: date, options: NSCalendarOptions.WrapComponents)!
+            component = DateComponents()
+            (component as NSDateComponents).setValue(days, forComponent: .day)
+            date = (calendar as NSCalendar).date(byAdding: component, to: date, options: NSCalendar.Options.wrapComponents)!
             
-            component = NSDateComponents()
-            component.setValue(weeks, forComponent: .WeekOfMonth)
-            date = calendar.dateByAddingComponents(component, toDate: date, options: NSCalendarOptions.WrapComponents)!
+            component = DateComponents()
+            (component as NSDateComponents).setValue(weeks, forComponent: .weekOfMonth)
+            date = (calendar as NSCalendar).date(byAdding: component, to: date, options: NSCalendar.Options.wrapComponents)!
             
-            component = NSDateComponents()
-            component.setValue(months, forComponent: .Month)
-            date = calendar.dateByAddingComponents(component, toDate: date, options: NSCalendarOptions.WrapComponents)!
+            component = DateComponents()
+            (component as NSDateComponents).setValue(months, forComponent: .month)
+            date = (calendar as NSCalendar).date(byAdding: component, to: date, options: NSCalendar.Options.wrapComponents)!
             
-            component = NSDateComponents()
-            component.setValue(years, forComponent: .Year)
-            date = calendar.dateByAddingComponents(component, toDate: date, options: NSCalendarOptions.WrapComponents)!
+            component = DateComponents()
+            (component as NSDateComponents).setValue(years, forComponent: .year)
+            date = (calendar as NSCalendar).date(byAdding: component, to: date, options: NSCalendar.Options.wrapComponents)!
             return date
         }
         
-        var date : NSDate! = calendar.dateByAddingUnit(.Second, value: seconds, toDate: self, options: NSCalendarOptions.WrapComponents)
-        date = calendar.dateByAddingUnit(.Minute, value: minutes, toDate: date, options: NSCalendarOptions.WrapComponents)
-        date = calendar.dateByAddingUnit(.Day, value: days, toDate: date, options: NSCalendarOptions.WrapComponents)
-        date = calendar.dateByAddingUnit(.Hour, value: hours, toDate: date, options: NSCalendarOptions.WrapComponents)
-        date = calendar.dateByAddingUnit(.WeekOfMonth, value: weeks, toDate: date, options: NSCalendarOptions.WrapComponents)
-        date = calendar.dateByAddingUnit(.Month, value: months, toDate: date, options: NSCalendarOptions.WrapComponents)
-        date = calendar.dateByAddingUnit(.Year, value: years, toDate: date, options: NSCalendarOptions.WrapComponents)
+        var date : Date! = (calendar as NSCalendar).date(byAdding: .second, value: seconds, to: self, options: NSCalendar.Options.wrapComponents)
+        date = (calendar as NSCalendar).date(byAdding: .minute, value: minutes, to: date, options: NSCalendar.Options.wrapComponents)
+        date = (calendar as NSCalendar).date(byAdding: .day, value: days, to: date, options: NSCalendar.Options.wrapComponents)
+        date = (calendar as NSCalendar).date(byAdding: .hour, value: hours, to: date, options: NSCalendar.Options.wrapComponents)
+        date = (calendar as NSCalendar).date(byAdding: .weekOfMonth, value: weeks, to: date, options: NSCalendar.Options.wrapComponents)
+        date = (calendar as NSCalendar).date(byAdding: .month, value: months, to: date, options: NSCalendar.Options.wrapComponents)
+        date = (calendar as NSCalendar).date(byAdding: .year, value: years, to: date, options: NSCalendar.Options.wrapComponents)
         return date
     }
     
@@ -571,7 +556,7 @@ public extension NSDate {
      :param: seconds number of seconds to add
      :returns: the NSDate computed
      */
-    public func addSeconds (seconds: Int) -> NSDate {
+    public func addSeconds (_ seconds: Int) -> Date {
         return add(seconds)
     }
     
@@ -581,7 +566,7 @@ public extension NSDate {
      :param: minutes number of minutes to add
      :returns: the NSDate computed
      */
-    public func addMinutes (minutes: Int) -> NSDate {
+    public func addMinutes (_ minutes: Int) -> Date {
         return add(minutes: minutes)
     }
     
@@ -591,7 +576,7 @@ public extension NSDate {
      :param: hours number of hours to add
      :returns: the NSDate computed
      */
-    public func addHours(hours: Int) -> NSDate {
+    public func addHours(_ hours: Int) -> Date {
         return add(hours: hours)
     }
     
@@ -601,7 +586,7 @@ public extension NSDate {
      :param: days number of days to add
      :returns: the NSDate computed
      */
-    public func addDays(days: Int) -> NSDate {
+    public func addDays(_ days: Int) -> Date {
         return add(days: days)
     }
     
@@ -611,7 +596,7 @@ public extension NSDate {
      :param: weeks number of weeks to add
      :returns: the NSDate computed
      */
-    public func addWeeks(weeks: Int) -> NSDate {
+    public func addWeeks(_ weeks: Int) -> Date {
         return add(weeks: weeks)
     }
     
@@ -623,7 +608,7 @@ public extension NSDate {
      :returns: the NSDate computed
      */
     
-    public func addMonths(months: Int) -> NSDate {
+    public func addMonths(_ months: Int) -> Date {
         return add(months: months)
     }
     
@@ -633,7 +618,7 @@ public extension NSDate {
      :param: years number of year to add
      :returns: the NSDate computed
      */
-    public func addYears(years: Int) -> NSDate {
+    public func addYears(_ years: Int) -> Date {
         return add(years: years)
     }
     
@@ -645,8 +630,8 @@ public extension NSDate {
     :param: date NSDate to compare
     :returns: True if self is after the input NSDate, false otherwise
     */
-    public func isAfter(date: NSDate) -> Bool{
-        return (self.compare(date) == NSComparisonResult.OrderedDescending)
+    public func isAfter(_ date: Date) -> Bool{
+        return (self.compare(date) == ComparisonResult.orderedDescending)
     }
     
     /**
@@ -655,8 +640,8 @@ public extension NSDate {
      :param: date NSDate to compare
      :returns: True if self is before the input NSDate, false otherwise
      */
-    public func isBefore(date: NSDate) -> Bool{
-        return (self.compare(date) == NSComparisonResult.OrderedAscending)
+    public func isBefore(_ date: Date) -> Bool{
+        return (self.compare(date) == ComparisonResult.orderedAscending)
     }
     
     
@@ -667,7 +652,7 @@ public extension NSDate {
     */
     public var year : Int {
         get {
-            return getComponent(.Year)
+            return getComponent(.year)
         }
     }
     
@@ -676,7 +661,7 @@ public extension NSDate {
      */
     public var month : Int {
         get {
-            return getComponent(.Month)
+            return getComponent(.month)
         }
     }
     
@@ -685,7 +670,7 @@ public extension NSDate {
      */
     public var weekday : Int {
         get {
-            return getComponent(.Weekday)
+            return getComponent(.weekday)
         }
     }
     
@@ -694,7 +679,7 @@ public extension NSDate {
      */
     public var weekMonth : Int {
         get {
-            return getComponent(.WeekOfMonth)
+            return getComponent(.weekOfMonth)
         }
     }
     
@@ -704,7 +689,7 @@ public extension NSDate {
      */
     public var days : Int {
         get {
-            return getComponent(.Day)
+            return getComponent(.day)
         }
     }
     
@@ -714,7 +699,7 @@ public extension NSDate {
     public var hours : Int {
         
         get {
-            return getComponent(.Hour)
+            return getComponent(.hour)
         }
     }
     
@@ -723,7 +708,7 @@ public extension NSDate {
      */
     public var minutes : Int {
         get {
-            return getComponent(.Minute)
+            return getComponent(.minute)
         }
     }
     
@@ -732,7 +717,7 @@ public extension NSDate {
      */
     public var seconds : Int {
         get {
-            return getComponent(.Second)
+            return getComponent(.second)
         }
     }
     
@@ -743,11 +728,9 @@ public extension NSDate {
      :returns: the value of the component
      */
     
-    public func getComponent (component : NSCalendarUnit) -> Int {
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(component, fromDate: self)
-        
-        return components.valueForComponent(component)
+    public func getComponent (_ component : NSCalendar.Unit) -> Int {
+        let calendar = Calendar.current
+        return calendar.component(component, from: self)
     }
 }
 
@@ -757,7 +740,7 @@ extension CGRect {
     
     /// The CGRect center
     var center : CGPoint {
-        return CGPointMake(self.midX, self.midY)
+        return CGPoint(x: self.midX, y: self.midY)
     }
 }
 
@@ -773,8 +756,8 @@ extension CGSize {
      
      - returns: The new CGSize
      */
-    func sizeByDelta(dw dw:CGFloat, dh:CGFloat) -> CGSize {
-        return CGSizeMake(self.width + dw, self.height + dh)
+    func sizeByDelta(dw:CGFloat, dh:CGFloat) -> CGSize {
+        return CGSize(width: self.width + dw, height: self.height + dh)
     }
 }
 
@@ -782,26 +765,26 @@ extension CGSize {
 
 extension NSLayoutConstraint {
     
-    class func reportAmbiguity (aView : UIView?) {
+    class func reportAmbiguity (_ aView : UIView?) {
         var v = aView
         if v == nil {
-            v = UIApplication.sharedApplication().keyWindow
+            v = UIApplication.shared.keyWindow
         }
         for vv in v!.subviews {
-            print("\(vv) \(vv.hasAmbiguousLayout())")
+            print("\(vv) \(vv.hasAmbiguousLayout)")
             if vv.subviews.count > 0 {
                 self.reportAmbiguity(vv)
             }
         }
     }
-    class func listConstraints (aView : UIView?) {
+    class func listConstraints (_ aView : UIView?) {
         var v = aView
         if v == nil {
-            v = UIApplication.sharedApplication().keyWindow
+            v = UIApplication.shared.keyWindow
         }
         for vv in v!.subviews {
-            let arr1 = vv.constraintsAffectingLayoutForAxis(.Horizontal)
-            let arr2 = vv.constraintsAffectingLayoutForAxis(.Vertical)
+            let arr1 = vv.constraintsAffectingLayout(for: .horizontal)
+            let arr2 = vv.constraintsAffectingLayout(for: .vertical)
             NSLog("\n\n%@\nH: %@\nV:%@", vv, arr1, arr2)
             if vv.subviews.count > 0 {
                 self.listConstraints(vv)
@@ -819,9 +802,9 @@ extension Array {
      
      - parameter ixs: The indexes for the objects to remove
      */
-    mutating func removeAtIndexes (ixs:[Int]) -> () {
-        for i in ixs.sort(>) {
-            self.removeAtIndex(i)
+    mutating func removeAtIndexes (_ ixs:[Int]) -> () {
+        for i in ixs.sorted(by: >) {
+            self.remove(at: i)
         }
     }
 }
@@ -835,19 +818,19 @@ extension UICollectionView {
      
      - returns: The indexPath
      */
-    func getVisibleIndexPath() -> NSIndexPath? {
-        let visibleRect = CGRectMake(self.contentOffset.x,
-            self.contentOffset.y,
-            self.bounds.size.width,
-            self.bounds.size.height)
+    func getVisibleIndexPath() -> IndexPath? {
+        let visibleRect = CGRect(x: self.contentOffset.x,
+            y: self.contentOffset.y,
+            width: self.bounds.size.width,
+            height: self.bounds.size.height)
         
-        let visiblePoint = CGPointMake(CGRectGetMidX(visibleRect), CGRectGetMidY(visibleRect))
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
         
-        var visibleIndexPath = self.indexPathForItemAtPoint(visiblePoint)
+        var visibleIndexPath = self.indexPathForItem(at: visiblePoint)
         if visibleIndexPath == nil {
-            let cells = self.visibleCells()
+            let cells = self.visibleCells
             if cells.count > 0 {
-                visibleIndexPath = self.indexPathForCell(cells[0])! as NSIndexPath
+                visibleIndexPath = self.indexPath(for: cells[0])! as IndexPath
             }
         }
         return visibleIndexPath
@@ -856,9 +839,9 @@ extension UICollectionView {
 
 extension UIBarButtonItem {
     
-    static func negativeSpacer(width : CGFloat) -> UIBarButtonItem {
+    static func negativeSpacer(_ width : CGFloat) -> UIBarButtonItem {
         
-        let spacer = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
+        let spacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         spacer.width = width >= 0 ? -width : width
         return spacer
     }

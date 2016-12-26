@@ -14,7 +14,7 @@ class HomeViewController: BaseViewController, PagingMenuControllerDelegate {
     //MARK: Property
         
     /// The array with the view controllers for the paging menu
-    private var menuControllers : [ActivitiesViewController] = []
+    fileprivate var menuControllers : [ActivitiesViewController] = []
     
     //MARK: View Management
     
@@ -35,16 +35,16 @@ class HomeViewController: BaseViewController, PagingMenuControllerDelegate {
         setupPagedMenu(menuControllers)
     }
     
-    private func setupPagedMenu(controllers : [UIViewController]) {
+    fileprivate func setupPagedMenu(_ controllers : [UIViewController]) {
         let options = PagingMenuOptions()
         options.menuHeight = 50
-        options.font = Style.Fonts.get(.Regular, size: .Normal)
+        options.font = Style.Fonts.get(.Regular, size: .normal)
         options.textColor = Style.Colors.lightColor
-        options.selectedFont = Style.Fonts.get(.Regular, size: .Normal)
+        options.selectedFont = Style.Fonts.get(.Regular, size: .normal)
         options.selectedTextColor = Style.Colors.lightColor
         options.backgroundColor = Style.Colors.courtClay
-        options.menuItemMode = PagingMenuOptions.MenuItemMode.RoundRect(radius: 10, horizontalPadding: 10, verticalPadding: 10, selectedColor: Style.Colors.courtClay.darker())
-        options.menuDisplayMode = PagingMenuOptions.MenuDisplayMode.SegmentedControl
+        options.menuItemMode = PagingMenuOptions.MenuItemMode.roundRect(radius: 10, horizontalPadding: 10, verticalPadding: 10, selectedColor: Style.Colors.courtClay.darker())
+        options.menuDisplayMode = PagingMenuOptions.MenuDisplayMode.segmentedControl
         
         let pagingMenuController = self.childViewControllers.first as! PagingMenuController
         pagingMenuController.delegate = self
@@ -54,10 +54,10 @@ class HomeViewController: BaseViewController, PagingMenuControllerDelegate {
     
     // MARK: PagingMenuControllerDelegate
     
-    func willMoveToMenuPage(page: Int) {
+    func willMoveToMenuPage(_ page: Int) {
     }
     
-    func didMoveToMenuPage(page: Int) {
+    func didMoveToMenuPage(_ page: Int) {
     }
     
     override func didReceiveMemoryWarning() {

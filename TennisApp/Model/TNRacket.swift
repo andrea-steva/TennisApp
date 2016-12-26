@@ -18,8 +18,8 @@ class TNRacket: Object {
     dynamic var model : String!
     dynamic var weight : String!
     dynamic var gripSize : String!  //from 0 to 4
-    dynamic var image : NSData?
-    dynamic var purchaseDate : NSDate?
+    dynamic var image : Data?
+    dynamic var purchaseDate : Date?
     
     //MARK: Relationship
     
@@ -42,12 +42,12 @@ class TNRacket: Object {
         super.init(realm: realm, schema: schema)
     }
     
-    required init(value: AnyObject, schema: RLMSchema) {
-        fatalError("init(value:schema:) has not been implemented")
-    }
-    
     convenience init(_ dictionary: Dictionary<String, AnyObject>) {
         self.init()
+    }
+    
+    required init(value: Any, schema: RLMSchema) {
+        fatalError("init(value:schema:) has not been implemented")
     }
     
     //MARK: Class Methods

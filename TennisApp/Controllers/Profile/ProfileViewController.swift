@@ -23,7 +23,7 @@ class ProfileViewController: BaseViewController {
         super.viewDidLoad()
 
         
-        let headerView = NSBundle.mainBundle().loadNibNamed("ProfileHeaderView", owner: self, options: nil)!.first as! ProfileHeaderView
+        let headerView = Bundle.main.loadNibNamed("ProfileHeaderView", owner: self, options: nil)!.first as! ProfileHeaderView
         self.tableView.addSubview(headerView)
         
         //self.stretchyHeaderView = nibViews.firstObject;

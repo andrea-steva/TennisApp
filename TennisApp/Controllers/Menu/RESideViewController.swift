@@ -20,9 +20,9 @@ class RESideViewController: RESideMenu, RESideMenuDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.menuPreferredStatusBarStyle = .LightContent;
+        self.menuPreferredStatusBarStyle = .lightContent;
         self.contentViewShadowColor = Style.Colors.darkColor
-        self.contentViewShadowOffset = CGSizeMake(0, 0);
+        self.contentViewShadowOffset = CGSize(width: 0, height: 0);
         self.contentViewShadowOpacity = 0.6;
         self.contentViewShadowRadius = 12;
         self.contentViewShadowEnabled = true;
@@ -35,19 +35,19 @@ class RESideViewController: RESideMenu, RESideMenuDelegate {
     
     //MARK: RESideMenu Delegate
     
-    func sideMenu(sideMenu: RESideMenu!, willShowMenuViewController menuViewController: UIViewController!) {
+    func sideMenu(_ sideMenu: RESideMenu!, willShowMenuViewController menuViewController: UIViewController!) {
         //DDLogDebug(@"willShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
     }
     
-    func sideMenu(sideMenu: RESideMenu!, didHideMenuViewController menuViewController: UIViewController!) {
+    func sideMenu(_ sideMenu: RESideMenu!, didHideMenuViewController menuViewController: UIViewController!) {
         //DDLogDebug(@"didHideMenuViewController: %@", NSStringFromClass([menuViewController class]));
     }
     
-    func sideMenu(sideMenu: RESideMenu!, didShowMenuViewController menuViewController: UIViewController!) {
+    func sideMenu(_ sideMenu: RESideMenu!, didShowMenuViewController menuViewController: UIViewController!) {
         //DDLogDebug(@"didShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
     }
     
-    func sideMenu(sideMenu: RESideMenu!, willHideMenuViewController menuViewController: UIViewController!) {
+    func sideMenu(_ sideMenu: RESideMenu!, willHideMenuViewController menuViewController: UIViewController!) {
         //DDLogDebug(@"willHideMenuViewController: %@", NSStringFromClass([menuViewController class]));
     }
     

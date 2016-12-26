@@ -25,7 +25,7 @@ enum FontType: String {
     case Light = "Lato-Light"
     case Thin = "Lato-Thin"
     
-    static func fromIndex(index: Int) -> FontType? {
+    static func fromIndex(_ index: Int) -> FontType? {
         switch index {
         case 0:
             return .Bold
@@ -70,12 +70,12 @@ enum FontType: String {
 //MARK: FontSize
 
 enum FontSize {
-    case ExtraSmall
-    case Small
-    case Normal
-    case Large
-    case ExtraLarge
-    case NavigationBar
+    case extraSmall
+    case small
+    case normal
+    case large
+    case extraLarge
+    case navigationBar
     
     /**
      Get font size value based on FontSize and DeviceType
@@ -99,17 +99,17 @@ enum FontSize {
         var standardSize : CGFloat = normalSize
         
         switch self {
-        case .ExtraSmall:
+        case .extraSmall:
             standardSize = extraSmallSize
-        case .Small:
+        case .small:
             standardSize = smallSize
-        case .Normal:
+        case .normal:
             standardSize = normalSize
-        case .Large:
+        case .large:
             standardSize = largeSize
-        case .ExtraLarge:
+        case .extraLarge:
             standardSize = extraLargeSize
-        case .NavigationBar:
+        case .navigationBar:
             standardSize = navigationBarSize
         }
 
@@ -134,23 +134,23 @@ struct Style {
     static func setupNavigationBarStyle() {
         let appearance = UINavigationBar.appearance()
         appearance.tintColor = Style.Colors.lightColor
-        appearance.titleTextAttributes = [NSForegroundColorAttributeName : Style.Colors.lightColor, NSFontAttributeName : Style.Fonts.get(.Light, size: .NavigationBar)]
+        appearance.titleTextAttributes = [NSForegroundColorAttributeName : Style.Colors.lightColor, NSFontAttributeName : Style.Fonts.get(.Light, size: .navigationBar)]
         //appearance.barTintColor = Style.Colors.navigationBarColor
-        appearance.shadowImage = UIImage.imageWithColor(UIColor.clearColor())
+        appearance.shadowImage = UIImage.imageWithColor(UIColor.clear)
         //appearance.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        appearance.translucent = false
+        appearance.isTranslucent = false
     }
     
     static func setupTextFieldStyle() {
-        UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).backgroundColor = Style.Colors.primaryColor
-        UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = Style.Colors.lightColor
-        UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).textColor = Style.Colors.lightColor
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = Style.Colors.primaryColor
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = Style.Colors.lightColor
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).textColor = Style.Colors.lightColor
     }
     
     static func setupSearchBarStyle() {
-        UISearchBar.appearance().setBackgroundImage(UIImage(), forBarPosition: UIBarPosition.Any, barMetrics: UIBarMetrics.Default)
-        UISearchBar.appearance().setImage(UIImage.fontAwesomeIconWithName(FontAwesome.Search, textColor: Style.Colors.lightColor, size: CGSizeMake(32, 32)), forSearchBarIcon: UISearchBarIcon.Search, state: .Normal)
-        UISearchBar.appearance().setImage(UIImage.fontAwesomeIconWithName(FontAwesome.TimesCircle, textColor: Style.Colors.lightColor, size: CGSizeMake(20, 20)), forSearchBarIcon: UISearchBarIcon.Clear, state: .Normal)
+        UISearchBar.appearance().setBackgroundImage(UIImage(), for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
+        UISearchBar.appearance().setImage(UIImage.fontAwesomeIcon(name: FontAwesome.search, textColor: Style.Colors.lightColor, size: CGSize(width: 32, height: 32)), for: UISearchBarIcon.search, state: UIControlState())
+        UISearchBar.appearance().setImage(UIImage.fontAwesomeIcon(name: FontAwesome.timesCircle, textColor: Style.Colors.lightColor, size: CGSize(width: 20, height: 20)), for: UISearchBarIcon.clear, state: UIControlState())
     }
     
     static func setup() {
@@ -165,16 +165,16 @@ struct Style {
     struct Colors {
         
         static var primaryColor = UIColor(hexRgba: "7FA311FF")
-        static let primaryPressedColor = primaryColor.colorWithAlphaComponent(0.8)
+        static let primaryPressedColor = primaryColor.withAlphaComponent(0.8)
         static var primaryDarkColor = UIColor(hexRgba: "60800AFF")
-        static let primaryDarkPressedColor = primaryDarkColor.colorWithAlphaComponent(0.8)
+        static let primaryDarkPressedColor = primaryDarkColor.withAlphaComponent(0.8)
         
         static var courtClay = UIColor(hexRgba: "EB7116FF")
         static var courtHardB = UIColor(hexRgba: "2867A5FF")
         static var courtHardG = UIColor(hexRgba: "6B8468FF")
         static var courtGrass = UIColor(hexRgba: "#8EA525FF")
         
-        static let lightColor = UIColor.whiteColor()
+        static let lightColor = UIColor.white
         static let darkColor = UIColor(hexRgba: "111111FF")
         static let grayColor = UIColor(hexRgba: "a7a7aaff")
         static let lightGrayColor = UIColor(hexRgba: "F3F3F3ff")
@@ -202,7 +202,7 @@ struct Style {
          
          - returns: The Font
          */
-        static func get(type: FontType, size: FontSize) -> UIFont {
+        static func get(_ type: FontType, size: FontSize) -> UIFont {
             return UIFont(name: type.rawValue, size: CGFloat(size.get()))!
         }
         
@@ -214,11 +214,11 @@ struct Style {
          
          - returns: The font
          */
-        static func get(type: FontType, size: CGFloat) -> UIFont {
+        static func get(_ type: FontType, size: CGFloat) -> UIFont {
             return UIFont(name: type.rawValue, size: scaleSize(size))!
         }
         
-        static private func scaleSize(size : CGFloat) -> CGFloat {
+        static fileprivate func scaleSize(_ size : CGFloat) -> CGFloat {
             
             if UIDevice.isIphone6Plus {
                 return size + 3

@@ -26,61 +26,61 @@ class RESideLeftViewController: UIViewController, UITableViewDataSource, UITable
     //MARK: UITableViewDataSource
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let menuItem = MenuItem(rawValue: indexPath.row)!
-        let cell = tableView.dequeueReusableCellWithIdentifier("menu_cell", forIndexPath: indexPath)
-        cell.textLabel?.font = Style.Fonts.get(.Light, size: .Large);
-        cell.textLabel?.textColor = Style.Colors.lightColor.colorWithAlphaComponent(0.7)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "menu_cell", for: indexPath)
+        cell.textLabel?.font = Style.Fonts.get(.Light, size: .large);
+        cell.textLabel?.textColor = Style.Colors.lightColor.withAlphaComponent(0.7)
         cell.imageView?.image = menuItem.menuIcon()
         cell.textLabel?.text = menuItem.localizedName()
         
         let bgColorView = UIView()
-        bgColorView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
+        bgColorView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         cell.selectedBackgroundView = bgColorView
         
         return cell;
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let menuItem = MenuItem(rawValue: indexPath.row)!
         let contentViewController = Utils.getControllerFromStoryboard(menuItem.storyboardName())
         self.sideMenuViewController.setContentViewController(contentViewController, animated: true)
-        self.sideMenuViewController.hideMenuViewController()
+        self.sideMenuViewController.hideViewController()
     }
     
     //MARK: UITableViewDelegate
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return MenuItem.count
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return (tableView.frame.size.height - CGFloat(200))/CGFloat(MenuItem.count)
     }
     
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 100
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 100
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = UIColor.clearColor()
+        view.backgroundColor = UIColor.clear
         return view
     }
     
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = UIColor.clearColor()
+        view.backgroundColor = UIColor.clear
         return view
     }
 }

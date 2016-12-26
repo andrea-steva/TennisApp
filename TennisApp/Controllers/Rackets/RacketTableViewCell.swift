@@ -19,16 +19,16 @@ class RacketTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        racketNameLabel.font = Style.Fonts.get(.Regular, size: .Normal)
+        racketNameLabel.font = Style.Fonts.get(.Regular, size: .normal)
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
-    func setRacket(racket : TNRacket) {
+    func setRacket(_ racket : TNRacket) {
         
     }
 

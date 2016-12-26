@@ -36,59 +36,59 @@ enum FitnessType : Int {
 
 enum MenuItem : Int {
     
-    case Home = 0
-    case Rackets = 1
-    case Stats = 2
-    case Profile = 3
-    case Settings = 4
+    case home = 0
+    case rackets = 1
+    case stats = 2
+    case profile = 3
+    case settings = 4
     
-    static var count: Int { return MenuItem.Settings.rawValue + 1}
+    static var count: Int { return MenuItem.settings.rawValue + 1}
     
     func storyboardName() -> String {
         switch self {
-        case .Home:
+        case .home:
             return "Main"
-        case .Rackets:
+        case .rackets:
             return "Rackets"
-        case .Stats:
+        case .stats:
             return "Stats"
-        case .Profile:
+        case .profile:
             return "Profile"
-        case .Settings:
+        case .settings:
             return "Settings"
         }
     }
     
     func localizedName() -> String {
         switch self {
-        case .Home:
+        case .home:
             return localizer.get(LocalizerKey.menu_home)
-        case .Rackets:
+        case .rackets:
             return localizer.get(LocalizerKey.menu_rackets)
-        case .Stats:
+        case .stats:
             return localizer.get(LocalizerKey.menu_stats)
-        case .Profile:
+        case .profile:
             return localizer.get(LocalizerKey.menu_profile)
-        case .Settings:
+        case .settings:
             return localizer.get(LocalizerKey.menu_settings)
         }
     }
     
     func menuIcon() -> UIImage {
         
-        let size = CGSizeMake(35, 35)
-        let color  = Style.Colors.lightColor.colorWithAlphaComponent(0.8)
+        let size = CGSize(width: 35, height: 35)
+        let color  = Style.Colors.lightColor.withAlphaComponent(0.8)
         
         switch self {
-        case .Home:
+        case .home:
             return UIImage.fontAwesomeIconWithName(.Home, textColor: color, size: size)
-        case .Rackets:
+        case .rackets:
             return UIImage.fontAwesomeIconWithName(.Rocket, textColor: color, size: size)
-        case .Stats:
+        case .stats:
             return UIImage.fontAwesomeIconWithName(.BarChartO, textColor: color, size: size)
-        case .Profile:
+        case .profile:
             return UIImage.fontAwesomeIconWithName(.User, textColor: color, size: size)
-        case .Settings:
+        case .settings:
             return UIImage.fontAwesomeIconWithName(.Cogs, textColor: color, size: size)
         }
         

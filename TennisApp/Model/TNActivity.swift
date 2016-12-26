@@ -16,7 +16,7 @@ class TNActivity: Object {
     dynamic var activityId : String!
     dynamic var title : String!
     dynamic var notes : String = ""
-    dynamic var date : NSDate!
+    dynamic var date : Date!
     dynamic var place : String = ""
     dynamic var timeSpent : Float = 0
     
@@ -40,14 +40,10 @@ class TNActivity: Object {
         super.init(realm: realm, schema: schema)
     }
     
-    required init(value: AnyObject, schema: RLMSchema) {
+    required init(value: Any, schema: RLMSchema) {
         fatalError("init(value:schema:) has not been implemented")
     }
-    
-    convenience init(_ dictionary: Dictionary<String, AnyObject>) {
-        self.init()
-    }
-    
+
     //MARK: Class Methods
     
 }

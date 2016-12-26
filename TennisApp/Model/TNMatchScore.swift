@@ -30,10 +30,6 @@ class TNMatchScore: Object {
         super.init(realm: realm, schema: schema)
     }
     
-    required init(value: AnyObject, schema: RLMSchema) {
-        fatalError("init(value:schema:) has not been implemented")
-    }
-    
     convenience init(_ dictionary: Dictionary<String, AnyObject>) {
         self.init()
     }
@@ -43,6 +39,10 @@ class TNMatchScore: Object {
         self.gamePlayerA = gamePlayerA;
         self.gamePlayerB = gamePlayerB;
         
+    }
+    
+    required init(value: Any, schema: RLMSchema) {
+        fatalError("init(value:schema:) has not been implemented")
     }
     
     //MARK: Class Methods

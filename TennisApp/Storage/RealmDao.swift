@@ -11,7 +11,7 @@ import RealmSwift
 class RealmDao {
     
     /** The Realm object. */
-    private var realm : Realm!
+    fileprivate var realm : Realm!
     
     // MARK: Init
     
@@ -19,7 +19,7 @@ class RealmDao {
         self.setupRealm()
     }
     
-    private func setupRealm() {
+    fileprivate func setupRealm() {
         
         //Set the realm database file with name "tennis_db.realm"
         let realmConfiguration = Realm.Configuration()
@@ -27,10 +27,9 @@ class RealmDao {
             return
         }
     
-        let realmPath = NSURL.fileURLWithPath(path)
-            .URLByDeletingLastPathComponent?
-            .URLByAppendingPathComponent("tennis_db")!
-            .URLByAppendingPathExtension("realm")
+        let realmPath = NSURL.fileURLWithPath(path).deletingLastPathComponent()?
+            .appendingPathComponent("tennis_db")!
+            .appendingPathExtension("realm")
         
         //When you change Realm objects you need to increase the schemaVersion to perform the migration.
         //Increase this number when you change the schema of your database
@@ -60,7 +59,7 @@ class RealmDao {
     
     - parameter object: The object to save, if nil it will be created.
     */
-    func saveObject<O : Object>(object : O, saveBlock : ((object : O) -> Void)?) {
+    func saveObject<O : Object>(_ object : O, saveBlock : ((_ object : O) -> Void)?) {
         self.saveObjects([object], saveBlock: saveBlock)
     }
     
@@ -69,11 +68,11 @@ class RealmDao {
      
      - parameter objects: The list of objects to save.
      */
-    func saveObjects<O : Object>(objects : [O], saveBlock : ((object : O) -> Void)?) {
+    func saveObjects<O : Object>(_ objects : [O], saveBlock : ((_ object : O) -> Void)?) {
         write { () -> Void in
             for object in objects {
                 if let saveBlock  = saveBlock {
-                    saveBlock(object: object)
+                    saveBlock(object)
                 }
                 self.realm.create(O.self, value: object, update: true)
             }
@@ -89,7 +88,7 @@ class RealmDao {
     - parameter id: The object's id.
     - return: The object if exists.
     */
-    func getObjectByPrimaryKey<O : Object>(primaryKeyValue : String) -> O? {
+    func getObjectByPrimaryKey<O : Object>(_ primaryKeyValue : String) -> O? {
         let primaryKey = O.primaryKey()!
         return self.getObject("\(primaryKey) == '\(primaryKeyValue)'")
     }
@@ -100,7 +99,7 @@ class RealmDao {
      - parameter predicate: The predicate used to filter.
      - return: The object if exists.
      */
-    func getObject<O : Object>(predicate : NSPredicate) -> O? {
+    func getObject<O : Object>(_ predicate : NSPredicate) -> O? {
         return self.realm.objects(O.self).filter(predicate).first
     }
     
@@ -110,7 +109,7 @@ class RealmDao {
      - parameter predicate: The predicate used to filter.
      - return: The object if exists.
      */
-    func getObject<O : Object>(predicate : String) -> O? {
+    func getObject<O : Object>(_ predicate : String) -> O? {
         return self.realm.objects(O.self).filter(predicate).first
     }
     
@@ -120,7 +119,7 @@ class RealmDao {
      - parameter predicate: The predicate used to filter.
      - return: The objects list.
      */
-    func getObjects<O : Object>(predicate : NSPredicate) -> [O] {
+    func getObjects<O : Object>(_ predicate : NSPredicate) -> [O] {
         return self.realm.objects(O.self).filter(predicate).toArray(O.self)
     }
     
@@ -130,7 +129,7 @@ class RealmDao {
      - parameter predicate: The predicate used to filter.
      - return: The objects list.
      */
-    func getObjects<O : Object>(predicate : String) -> [O] {
+    func getObjects<O : Object>(_ predicate : String) -> [O] {
         return self.realm.objects(O.self).filter(predicate).toArray(O.self)
     }
     
@@ -140,7 +139,7 @@ class RealmDao {
      - parameter predicate: The predicate used to filter.
      - return: The objects list.
      */
-    func getObjects<O : Object>(predicate : String, sortBy : String) -> [O] {
+    func getObjects<O : Object>(_ predicate : String, sortBy : String) -> [O] {
         return self.realm.objects(O.self).filter(predicate).sorted(sortBy).toArray(O.self)
     }
     
@@ -154,7 +153,7 @@ class RealmDao {
      
      - returns: The objects list.
      */
-    func getObjects<O : Object>(predicate : String, sortedBy : String, page : Int, pageSize : Int) -> [O] {
+    func getObjects<O : Object>(_ predicate : String, sortedBy : String, page : Int, pageSize : Int) -> [O] {
         return self.realm.objects(O.self).filter(predicate).sorted(sortedBy).toArray(O.self, page : page, pageSize : pageSize)
     }
     
@@ -172,7 +171,7 @@ class RealmDao {
      
      - return: The objects list.
      */
-    func getAllObjects<O : Object>(sortedBy sortedBy : String) -> [O] {
+    func getAllObjects<O : Object>(sortedBy : String) -> [O] {
         return self.realm.objects(O.self).sorted(sortedBy, ascending: false).toArray(O.self)
     }
     
@@ -183,7 +182,7 @@ class RealmDao {
     
     - parameter object: The object to delete.
     */
-    func deleteObject<O : Object>(object: O, deleteBlock : ((object : O) -> Void)?) {
+    func deleteObject<O : Object>(_ object: O, deleteBlock : ((_ object : O) -> Void)?) {
         self.deleteObjects([object], deleteBlock: deleteBlock)
     }
     
@@ -192,11 +191,11 @@ class RealmDao {
      
      - parameter object: The list of objects to delete.
      */
-    func deleteObjects<O : Object>(objects: [O], deleteBlock : ((object : O) -> Void)?) {
+    func deleteObjects<O : Object>(_ objects: [O], deleteBlock : ((_ object : O) -> Void)?) {
         write { () -> Void in
             for object in objects {
                 if let deleteBlock  = deleteBlock {
-                    deleteBlock(object: object)
+                    deleteBlock(object)
                 }
                 self.realm.delete(object)
             }
@@ -209,7 +208,7 @@ class RealmDao {
      
      - parameter block: The block containing the changes to apply.
      */
-    func write(block : () -> Void) {
+    func write(_ block : () -> Void) {
         do {
             try self.realm.write(block)
         } catch {
@@ -221,11 +220,11 @@ class RealmDao {
 
 extension Results {
     
-    func toArray<T>(ofType: T.Type) -> [T] {
+    func toArray<T>(_ ofType: T.Type) -> [T] {
         return toArray(T.self, page : 1, pageSize : self.count)
     }
     
-    func toArray<T>(ofType: T.Type, page : Int, pageSize : Int) -> [T] {
+    func toArray<T>(_ ofType: T.Type, page : Int, pageSize : Int) -> [T] {
         var array = [T]()
         var i = (page - 1) * pageSize
         if i >= self.count {

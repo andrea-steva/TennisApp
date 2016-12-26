@@ -47,33 +47,33 @@ let localizer = Localizer()
 /// The localizer class used to get the localized string
 class Localizer {
     
-    private var resources = [String : String]()
+    fileprivate var resources = [String : String]()
     
     init() {
     }
     
-    func setResources(resources : [String : String]?) {
+    func setResources(_ resources : [String : String]?) {
         if let resources = resources {
             self.resources = resources
         }
     }
     
-    func get(key : LocalizerKey) -> String {
+    func get(_ key : LocalizerKey) -> String {
         return self.get(key.rawValue)
     }
     
-    func get(key : String) -> String {
+    func get(_ key : String) -> String {
         if let value = resources[key] as String? {
             return value
         }
-        var value = NSLocalizedString(key, tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: "")
+        var value = NSLocalizedString(key, tableName: nil, bundle: Bundle.main, value: "", comment: "")
         
-        value = value.stringByReplacingOccurrencesOfString("%s", withString: "%@")
+        value = value.replacingOccurrences(of: "%s", with: "%@")
         for i in 0...10 {
             let pattern = String(format: "%i$s", i)
-            value = value.stringByReplacingOccurrencesOfString(pattern, withString: "%@")
+            value = value.replacingOccurrences(of: pattern, with: "%@")
         }
-        value = value.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        value = value.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         return value
     }
 }
