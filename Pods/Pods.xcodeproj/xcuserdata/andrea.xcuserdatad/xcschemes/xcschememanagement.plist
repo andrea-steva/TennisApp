@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Bolts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Charts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -30,6 +35,16 @@
 			<false/>
 		</dict>
 		<key>Eureka.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBSDKCoreKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBSDKLoginKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -104,6 +119,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SCLAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyBeaver.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -117,12 +137,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>41EA8F4EA9B587173BA9B35006AE7ABC</key>
+		<key>24735F88DC98B2C4F6987D1EE15B315D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>311D7E7EDAF13A87FE6509A82769898E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>41FA54D12162DAD51D02FC58A2CD5034</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>44CAD6CE523055ED339E87154473A254</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -133,11 +163,6 @@
 			<true/>
 		</dict>
 		<key>6ADB3656BDFD85FB77E0CAB44BFF61E6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>72929D110C1873D0A63E8E1DE9D8DA1B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -157,7 +182,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8FC027AFF3F006BD92915D2A442710FF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9EFE4C70245EE2857D336B8B9FA4E825</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A0865D1F9AAFAE020A7C83146A557ABA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BC5000D645EEAF961C85907CDC796FE1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BEF7E6E85DB5CDE5D7A18F4F2EB8494B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -167,7 +212,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C73FF352FDCB78C619C820B1B96498A9</key>
+		<key>C2D69347BA3E968BBE910E5756D1F07A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -192,17 +237,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D83CA8B1739C665E5D63AC81BA93D8F4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>EE774F234E810C0DD8263855D7A1A166</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F078BAE6FADF4E287D74816B565E361C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -213,6 +248,11 @@
 			<true/>
 		</dict>
 		<key>F307B842FF76B2DE6C55DB67C0885325</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F8F169AF32FD773EE4C1B0974F835D69</key>
 		<dict>
 			<key>primary</key>
 			<true/>

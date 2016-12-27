@@ -8,7 +8,7 @@
 
 class RacketsViewModel: BaseViewModel {
 
-    fileprivate let dataAccess = TNDao()
+    fileprivate let dataAccess = LocalStorage()
 
     func getRacket(forIndex index: Int) -> Racket {
         let rackets = dataAccess.getRackets()
