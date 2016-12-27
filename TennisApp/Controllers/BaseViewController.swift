@@ -10,6 +10,7 @@ import UIKit
 import DZNEmptyDataSet
 import FontAwesome_swift
 import INSPullToRefresh
+import SCLAlertView
 
 private extension Selector {
     static let didTapOnButtonMenu = #selector(BaseViewController.didTapOnButtonMenu(_:))
@@ -112,6 +113,13 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
             //scrollView.ins_endInfinityScrollWithStoppingContentOffset(true)
         }
         scrollView.ins_infiniteScrollBackgroundView.preserveContentInset = false
+    }
+    
+    // MARK: Alert View
+    
+    func showAlert(title: String, message: String) {
+        let alertView = SCLAlertView()
+        alertView.showWarning(title, subTitle: message, closeButtonTitle: "OK")
     }
 
     // MARK: View Controller Utils

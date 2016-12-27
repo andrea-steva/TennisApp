@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Style.setupTextFieldStyle()
         Style.setupSearchBarStyle()
 
-        if TNDao().getUser().isEmpty {
+        if LocalStorage().getUser().isEmpty {
             //Load Home
             let rootViewController = Utils.getControllerFromStoryboard("Login")
             self.setRootViewController(rootViewController)
@@ -60,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-
+        FBSDKAppEvents.activateApp()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

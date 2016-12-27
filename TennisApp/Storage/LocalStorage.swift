@@ -1,12 +1,12 @@
 //
-//  TNDao.swift
+//  LocalStorage.swift
 //  TennisApp
 //
 //  Created by Andrea Stevanato on 12/03/16.
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-class TNDao: RealmDao {
+class LocalStorage: RealmProxy {
 
     func getUser() -> [User] {
         return self.getAllObjects()

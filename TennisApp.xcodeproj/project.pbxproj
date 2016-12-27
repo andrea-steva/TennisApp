@@ -15,6 +15,7 @@
 		6507CA6F1C6D118000B7AD5C /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA6E1C6D118000B7AD5C /* BaseViewModel.swift */; };
 		6507CA711C6D119E00B7AD5C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA701C6D119E00B7AD5C /* BaseViewController.swift */; };
 		6521CBA51C6F5E63006D007C /* RacketFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6521CBA41C6F5E63006D007C /* RacketFormViewController.swift */; };
+		65341D1D1E11BCAB00617207 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65341D1C1E11BCAB00617207 /* Constants.swift */; };
 		657234881E114DD40050F319 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657234871E114DD40050F319 /* Logger.swift */; };
 		6572348A1E11726B0050F319 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 657234891E11726B0050F319 /* GoogleService-Info.plist */; };
 		659B53041C9D93C200829BF3 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659B53031C9D93C200829BF3 /* Enum.swift */; };
@@ -52,8 +53,8 @@
 		65B04E211C6CBDC200011439 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E201C6CBDC200011439 /* Settings.swift */; };
 		65B04E231C6CBEEF00011439 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E221C6CBEEF00011439 /* Utils.swift */; };
 		65B04E251C6CC01000011439 /* Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E241C6CC01000011439 /* Localizer.swift */; };
-		65B04E2B1C6CC69400011439 /* RealmDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E2A1C6CC69400011439 /* RealmDao.swift */; };
-		65B04E2D1C6CC95F00011439 /* TNUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E2C1C6CC95F00011439 /* TNUser.swift */; };
+		65B04E2B1C6CC69400011439 /* RealmProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E2A1C6CC69400011439 /* RealmProxy.swift */; };
+		65B04E2D1C6CC95F00011439 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E2C1C6CC95F00011439 /* User.swift */; };
 		65B04E2F1C6CCD4D00011439 /* Racket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E2E1C6CCD4D00011439 /* Racket.swift */; };
 		65B04E311C6CCD5C00011439 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E301C6CCD5C00011439 /* Activity.swift */; };
 		65B04E351C6CCE1100011439 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E341C6CCE1100011439 /* Strings.swift */; };
@@ -63,7 +64,7 @@
 		65B04E3F1C6CD06600011439 /* MatchScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E3E1C6CD06600011439 /* MatchScore.swift */; };
 		65C511E81C938C740051D645 /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C511E71C938C740051D645 /* ProfileHeaderView.xib */; };
 		65C511EA1C938DCA0051D645 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C511E91C938DCA0051D645 /* ProfileHeaderView.swift */; };
-		65C511EC1C9460940051D645 /* TNDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C511EB1C9460940051D645 /* TNDao.swift */; };
+		65C511EC1C9460940051D645 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C511EB1C9460940051D645 /* LocalStorage.swift */; };
 		65C511EE1C948C450051D645 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65C511ED1C948C450051D645 /* Login.storyboard */; };
 		65C511F11C948ED50051D645 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C511F01C948ED50051D645 /* LoginViewController.swift */; };
 		65C511F41C948F0A0051D645 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C511F31C948F0A0051D645 /* LoginViewModel.swift */; };
@@ -113,6 +114,7 @@
 		6507CA6E1C6D118000B7AD5C /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		6507CA701C6D119E00B7AD5C /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		6521CBA41C6F5E63006D007C /* RacketFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketFormViewController.swift; sourceTree = "<group>"; };
+		65341D1C1E11BCAB00617207 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		657234871E114DD40050F319 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		657234891E11726B0050F319 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		659B53031C9D93C200829BF3 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
@@ -157,8 +159,8 @@
 		65B04E201C6CBDC200011439 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		65B04E221C6CBEEF00011439 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		65B04E241C6CC01000011439 /* Localizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizer.swift; sourceTree = "<group>"; };
-		65B04E2A1C6CC69400011439 /* RealmDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmDao.swift; path = Storage/RealmDao.swift; sourceTree = "<group>"; };
-		65B04E2C1C6CC95F00011439 /* TNUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TNUser.swift; sourceTree = "<group>"; };
+		65B04E2A1C6CC69400011439 /* RealmProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmProxy.swift; path = Storage/RealmProxy.swift; sourceTree = "<group>"; };
+		65B04E2C1C6CC95F00011439 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		65B04E2E1C6CCD4D00011439 /* Racket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Racket.swift; sourceTree = "<group>"; };
 		65B04E301C6CCD5C00011439 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		65B04E341C6CCE1100011439 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -168,7 +170,7 @@
 		65B04E3E1C6CD06600011439 /* MatchScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchScore.swift; sourceTree = "<group>"; };
 		65C511E71C938C740051D645 /* ProfileHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileHeaderView.xib; sourceTree = "<group>"; };
 		65C511E91C938DCA0051D645 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
-		65C511EB1C9460940051D645 /* TNDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TNDao.swift; path = Storage/TNDao.swift; sourceTree = "<group>"; };
+		65C511EB1C9460940051D645 /* LocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalStorage.swift; path = Storage/LocalStorage.swift; sourceTree = "<group>"; };
 		65C511ED1C948C450051D645 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		65C511F01C948ED50051D645 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		65C511F31C948F0A0051D645 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -350,7 +352,7 @@
 		65B04DE41C6CA74400011439 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				65B04E2C1C6CC95F00011439 /* TNUser.swift */,
+				65B04E2C1C6CC95F00011439 /* User.swift */,
 				65B04E321C6CCDC600011439 /* Equipment */,
 				65B04E331C6CCDE000011439 /* Activity */,
 			);
@@ -360,6 +362,7 @@
 		65B04DE51C6CA74400011439 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				65341D1C1E11BCAB00617207 /* Constants.swift */,
 				65B04E191C6CA8BD00011439 /* Extension.swift */,
 				659B53031C9D93C200829BF3 /* Enum.swift */,
 				65B04E1B1C6CBAF700011439 /* Style.swift */,
@@ -431,8 +434,8 @@
 		65B04E291C6CC67300011439 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				65B04E2A1C6CC69400011439 /* RealmDao.swift */,
-				65C511EB1C9460940051D645 /* TNDao.swift */,
+				65B04E2A1C6CC69400011439 /* RealmProxy.swift */,
+				65C511EB1C9460940051D645 /* LocalStorage.swift */,
 			);
 			name = Storage;
 			sourceTree = "<group>";
@@ -719,7 +722,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    echo \"\" >/dev/null;\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\n    echo \"\" >/dev/null;\n    #swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		7579BFFBD2CD76E70E46DDEF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -759,7 +762,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6507CA6F1C6D118000B7AD5C /* BaseViewModel.swift in Sources */,
-				65C511EC1C9460940051D645 /* TNDao.swift in Sources */,
+				65341D1D1E11BCAB00617207 /* Constants.swift in Sources */,
+				65C511EC1C9460940051D645 /* LocalStorage.swift in Sources */,
 				65B04E311C6CCD5C00011439 /* Activity.swift in Sources */,
 				6507CA711C6D119E00B7AD5C /* BaseViewController.swift in Sources */,
 				65B04E391C6CCFCE00011439 /* Fitness.swift in Sources */,
@@ -767,7 +771,7 @@
 				65B04E211C6CBDC200011439 /* Settings.swift in Sources */,
 				65C511F41C948F0A0051D645 /* LoginViewModel.swift in Sources */,
 				65B04E3F1C6CD06600011439 /* MatchScore.swift in Sources */,
-				65B04E2B1C6CC69400011439 /* RealmDao.swift in Sources */,
+				65B04E2B1C6CC69400011439 /* RealmProxy.swift in Sources */,
 				65B04E351C6CCE1100011439 /* Strings.swift in Sources */,
 				65ECE30D1C708CC6004EE2C9 /* RacketsViewModel.swift in Sources */,
 				65FB52C71C6DF009003A6DAE /* Services.swift in Sources */,
@@ -779,7 +783,7 @@
 				65FB52C51C6DEC0B003A6DAE /* HomeViewController.swift in Sources */,
 				65B04E3B1C6CD03500011439 /* Match.swift in Sources */,
 				65FB52D81C6DF252003A6DAE /* RacketsViewController.swift in Sources */,
-				65B04E2D1C6CC95F00011439 /* TNUser.swift in Sources */,
+				65B04E2D1C6CC95F00011439 /* User.swift in Sources */,
 				6507CA681C6D065A00B7AD5C /* SwiftUIImageEffects.swift in Sources */,
 				65D824A21C6E6C6E00E2918C /* StatsViewController.swift in Sources */,
 				65D8249D1C6E38BE00E2918C /* ActivitiesViewController.swift in Sources */,

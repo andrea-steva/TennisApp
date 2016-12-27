@@ -14,6 +14,9 @@ def shared_pods
     #Firebase
     pod 'Firebase/Core'
     pod 'Firebase/Auth'
+    
+    #Facebook
+    pod 'FBSDKLoginKit', '~> 4.18'
 
 	#Mobile Database
 	pod 'RealmSwift', '~> 2.0'
@@ -38,6 +41,7 @@ def shared_pods
 	pod 'MBProgressHUD', '~> 1.0'
 	pod 'IQKeyboardManagerSwift'
 	pod 'GSKStretchyHeaderView'
+    pod 'SCLAlertView'
 
 	#Charts
 	pod 'Charts'

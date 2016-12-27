@@ -23,12 +23,12 @@ class Services {
     }
 
     // MARK: Properties
-    let realm: RealmDao
+    let realm: RealmProxy
 
     // MARK: Init
 
     init() {
-        self.realm = RealmDao()
+        self.realm = RealmProxy()
     }
 
 }

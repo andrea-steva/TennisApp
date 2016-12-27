@@ -1,5 +1,5 @@
 //
-//  RealmDao.swift
+//  RealmProxy.swift
 //  TennisApp
 //
 //  Created by Andrea Stevanato on 11/02/16.
@@ -8,7 +8,7 @@
 
 import RealmSwift
 
-class RealmDao {
+class RealmProxy {
 
     /** The Realm object. */
     fileprivate var realm: Realm!
