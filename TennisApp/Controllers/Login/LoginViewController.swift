@@ -15,9 +15,6 @@ class LoginViewController: BaseViewController {
     
     // MARK: IBOutlets
     @IBOutlet var userImageView: UIImageView!
-    
-    @IBOutlet var firstNameTextField: UITextField!
-    @IBOutlet var lastNameTextField: UITextField!
 
     @IBOutlet var cameraButton: UIButton!
     
@@ -76,8 +73,8 @@ class LoginViewController: BaseViewController {
         guard let email = emailField.text, let password = passwordField.text else { return }
         FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
             if let error = error {
-                self.showAlert(title: "Avviso", message: error.localizedDescription)
-                print(error.localizedDescription)
+                AlertView.showWarning(localizer.get(.generic_alertTitle), message: error.localizedDescription, controller: self)
+                Log.error(error.localizedDescription)
                 return
             }
             self.signedIn(user!)
@@ -87,7 +84,8 @@ class LoginViewController: BaseViewController {
         guard let email = emailField.text, let password = passwordField.text else { return }
         FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
             if let error = error {
-                print(error.localizedDescription)
+                AlertView.showWarning(localizer.get(.generic_alertTitle), message: error.localizedDescription, controller: self)
+                Log.error(error.localizedDescription)
                 return
             }
             self.setDisplayName(user!)
@@ -99,7 +97,7 @@ class LoginViewController: BaseViewController {
         changeRequest.displayName = user.email!.components(separatedBy: "@")[0]
         changeRequest.commitChanges(){ (error) in
             if let error = error {
-                print(error.localizedDescription)
+                Log.error(error.localizedDescription)
                 return
             }
             self.signedIn(FIRAuth.auth()?.currentUser)

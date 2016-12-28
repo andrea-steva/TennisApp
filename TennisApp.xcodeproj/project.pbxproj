@@ -16,6 +16,8 @@
 		6507CA711C6D119E00B7AD5C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA701C6D119E00B7AD5C /* BaseViewController.swift */; };
 		6521CBA51C6F5E63006D007C /* RacketFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6521CBA41C6F5E63006D007C /* RacketFormViewController.swift */; };
 		65341D1D1E11BCAB00617207 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65341D1C1E11BCAB00617207 /* Constants.swift */; };
+		656A4BB51E143659009E97EB /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A4BB41E143659009E97EB /* AlertView.swift */; };
+		656A4BB71E1439A4009E97EB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A4BB61E1439A4009E97EB /* SignUpViewController.swift */; };
 		657234881E114DD40050F319 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657234871E114DD40050F319 /* Logger.swift */; };
 		6572348A1E11726B0050F319 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 657234891E11726B0050F319 /* GoogleService-Info.plist */; };
 		659B53041C9D93C200829BF3 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659B53031C9D93C200829BF3 /* Enum.swift */; };
@@ -115,6 +117,8 @@
 		6507CA701C6D119E00B7AD5C /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		6521CBA41C6F5E63006D007C /* RacketFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketFormViewController.swift; sourceTree = "<group>"; };
 		65341D1C1E11BCAB00617207 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		656A4BB41E143659009E97EB /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		656A4BB61E1439A4009E97EB /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		657234871E114DD40050F319 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		657234891E11726B0050F319 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		659B53031C9D93C200829BF3 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
@@ -362,15 +366,16 @@
 		65B04DE51C6CA74400011439 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				656A4BB41E143659009E97EB /* AlertView.swift */,
 				65341D1C1E11BCAB00617207 /* Constants.swift */,
-				65B04E191C6CA8BD00011439 /* Extension.swift */,
 				659B53031C9D93C200829BF3 /* Enum.swift */,
+				65B04E191C6CA8BD00011439 /* Extension.swift */,
+				65B04E241C6CC01000011439 /* Localizer.swift */,
+				657234871E114DD40050F319 /* Logger.swift */,
 				65B04E1B1C6CBAF700011439 /* Style.swift */,
+				65FB52C61C6DF009003A6DAE /* Services.swift */,
 				65B04E201C6CBDC200011439 /* Settings.swift */,
 				65B04E221C6CBEEF00011439 /* Utils.swift */,
-				65B04E241C6CC01000011439 /* Localizer.swift */,
-				65FB52C61C6DF009003A6DAE /* Services.swift */,
-				657234871E114DD40050F319 /* Logger.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -466,6 +471,7 @@
 			children = (
 				65C511F01C948ED50051D645 /* LoginViewController.swift */,
 				65C511F31C948F0A0051D645 /* LoginViewModel.swift */,
+				656A4BB61E1439A4009E97EB /* SignUpViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -769,6 +775,7 @@
 				65B04E391C6CCFCE00011439 /* Fitness.swift in Sources */,
 				6507CA661C6D023C00B7AD5C /* RESideLeftViewController.swift in Sources */,
 				65B04E211C6CBDC200011439 /* Settings.swift in Sources */,
+				656A4BB51E143659009E97EB /* AlertView.swift in Sources */,
 				65C511F41C948F0A0051D645 /* LoginViewModel.swift in Sources */,
 				65B04E3F1C6CD06600011439 /* MatchScore.swift in Sources */,
 				65B04E2B1C6CC69400011439 /* RealmProxy.swift in Sources */,
@@ -794,6 +801,7 @@
 				65C511F11C948ED50051D645 /* LoginViewController.swift in Sources */,
 				65B04E1F1C6CBCD000011439 /* LocationManager.swift in Sources */,
 				659B53041C9D93C200829BF3 /* Enum.swift in Sources */,
+				656A4BB71E1439A4009E97EB /* SignUpViewController.swift in Sources */,
 				6507CA641C6CFE6400B7AD5C /* RESideViewController.swift in Sources */,
 				65B04DA31C6CA02300011439 /* AppDelegate.swift in Sources */,
 				65B04E1C1C6CBAF700011439 /* Style.swift in Sources */,
