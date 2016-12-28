@@ -114,13 +114,6 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
         }
         scrollView.ins_infiniteScrollBackgroundView.preserveContentInset = false
     }
-    
-    // MARK: Alert View
-    
-    func showAlert(title: String, message: String) {
-        let alertView = SCLAlertView()
-        alertView.showWarning(title, subTitle: message, closeButtonTitle: "OK")
-    }
 
     // MARK: View Controller Utils
 
