@@ -20,11 +20,36 @@ class SignUpViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        self.backgroundView?.image = self.backgroundView?.image?.applyMenuEffect()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }    
+    // MARK: Actions
+    
+    @IBAction func dismissController(_ sender: AnyObject) {
+            self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func didTapSignUp(_ sender: AnyObject) {
+        guard let email = emailField.text, let password = passwordField.text else { return }
+        FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
+            if let error = error {
+                AlertView.showWarning(localizer.get(.generic_alertTitle), message: error.localizedDescription, controller: self)
+                Log.error(error.localizedDescription)
+                return
+            }
+            self.setDisplayName(user!)
+        }
+    }
+    
+    func setDisplayName(_ user: FIRUser) {
+        let changeRequest = user.profileChangeRequest()
+        changeRequest.displayName = user.email!.components(separatedBy: "@")[0]
+        changeRequest.commitChanges(){ (error) in
+            if let error = error {
+                Log.error(error.localizedDescription)
+                return
+            }
+            FirebaseProxy.sharedInstance.signedIn(FIRAuth.auth()?.currentUser)
+        }
+    }
 }

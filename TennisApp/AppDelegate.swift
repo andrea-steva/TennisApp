@@ -23,23 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let _ = Logger()
         Services.initialize()
-        FIRApp.configure()
 
         Style.setupNavigationBarStyle()
         Style.setupTextFieldStyle()
         Style.setupSearchBarStyle()
-
-        if LocalStorage().getUser().isEmpty {
-            //Load Home
-            let rootViewController = Utils.getControllerFromStoryboard("Login")
-            self.setRootViewController(rootViewController)
-
+        
+        if let user = FirebaseProxy.sharedInstance.currentUser {
+            FirebaseProxy.sharedInstance.signedIn(user)
         } else {
-            //Load login            
-            let rootViewController = Utils.getControllerFromStoryboard("Main")
-            self.setRootViewController(rootViewController)
+            self.setRootViewController(Utils.getControllerFromStoryboard("Login"))
         }
-
         return true
     }
 

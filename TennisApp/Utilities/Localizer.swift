@@ -17,7 +17,8 @@ enum LocalizerKey: String {
     case menu_stats = "menu.stats"
     case menu_profile = "menu.profile"
     case menu_settings = "menu.settings"
-
+    case menu_logout = "menu.logout"
+    
     case generic_done = "generic.done"
     case generic_cancel = "generic.cancel"
     case generic_error = "generic.error"
@@ -68,7 +69,7 @@ class Localizer {
         var value = NSLocalizedString(key, tableName: nil, bundle: Bundle.main, value: "", comment: "")
 
         value = value.replacingOccurrences(of: "%s", with: "%@")
-        for i in 0...10 {
+        for i in 0...3 {
             let pattern = String(format: "%i$s", i)
             value = value.replacingOccurrences(of: pattern, with: "%@")
         }

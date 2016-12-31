@@ -104,21 +104,7 @@ class HomeViewController: BaseViewController {
         let paginMenuOptions = PagingMenuOptions(controllers: menuControllers)
         pagingMenuController.setup(paginMenuOptions)
 
-        pagingMenuController.onMove = { state in
-            switch state {
-            case let .willMoveController(menuController, previousMenuController):
-                Log.debug(previousMenuController)
-                Log.debug(menuController)
-            case let .didMoveController(menuController, previousMenuController):
-                Log.debug(previousMenuController)
-                Log.debug(menuController)
-            case let .willMoveItem(menuItemView, previousMenuItemView):
-                Log.debug(previousMenuItemView)
-                Log.debug(menuItemView)
-            case let .didMoveItem(menuItemView, previousMenuItemView):
-                Log.debug(previousMenuItemView)
-                Log.debug(menuItemView)
-            }
+        pagingMenuController.onMove = { _ in
         }
     }
 
