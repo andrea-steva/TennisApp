@@ -15,7 +15,7 @@ class LoginViewController: BaseViewController {
     
     // MARK: IBOutlets
     @IBOutlet var userImageView: UIImageView!
-
+    
     @IBOutlet var cameraButton: UIButton!
     
     @IBOutlet var emailLoginButton: UIButton!
@@ -23,41 +23,36 @@ class LoginViewController: BaseViewController {
     
     @IBOutlet var emailField: UITextField!
     @IBOutlet var passwordField: UITextField!
-
+    
     // MARK: ViewModel
     var viewModel = LoginViewModel()
-
+    
     // MARK: View Management
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.userImageView.layer.cornerRadius = 20.0
         self.userImageView.layer.borderColor = Style.Colors.lightColor.cgColor
         self.userImageView.layer.borderWidth = 5.0
-
+        self.userImageView.layer.masksToBounds = true
+        
         self.backgroundView?.image = self.backgroundView?.image?.applyMenuEffect()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if let user = FIRAuth.auth()?.currentUser {
-            self.signedIn(user)
-        }
+        
     }
-
+    
     // MARK: IBAction
-
-    @IBAction func didTapStartButton(_ sender: UIButton) {
-        AppDelegate.instance().setRootViewController(Utils.getControllerFromStoryboard("Main"))
-    }
-
+    
     @IBAction func didTapOnCameraButton(_ sender: AnyObject) {
-
+        
         let cameraViewController = CameraViewController(croppingEnabled: true) { (image, asset) in
             // Do something with your image here.
             // If cropping is enabled this image will be the cropped version
@@ -65,7 +60,7 @@ class LoginViewController: BaseViewController {
         }
         present(cameraViewController, animated: true, completion: nil)
     }
-
+    
     // MARK: Firebase Auth
     
     @IBAction func didTapSignIn(_ sender: AnyObject) {
@@ -77,30 +72,7 @@ class LoginViewController: BaseViewController {
                 Log.error(error.localizedDescription)
                 return
             }
-            self.signedIn(user!)
-        }
-    }
-    @IBAction func didTapSignUp(_ sender: AnyObject) {
-        guard let email = emailField.text, let password = passwordField.text else { return }
-        FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
-            if let error = error {
-                AlertView.showWarning(localizer.get(.generic_alertTitle), message: error.localizedDescription, controller: self)
-                Log.error(error.localizedDescription)
-                return
-            }
-            self.setDisplayName(user!)
-        }
-    }
-    
-    func setDisplayName(_ user: FIRUser) {
-        let changeRequest = user.profileChangeRequest()
-        changeRequest.displayName = user.email!.components(separatedBy: "@")[0]
-        changeRequest.commitChanges(){ (error) in
-            if let error = error {
-                Log.error(error.localizedDescription)
-                return
-            }
-            self.signedIn(FIRAuth.auth()?.currentUser)
+            FirebaseProxy.sharedInstance.signedIn(user!)
         }
     }
     
@@ -123,13 +95,6 @@ class LoginViewController: BaseViewController {
         present(prompt, animated: true, completion: nil);
     }
     
-
-    func signedIn(_ user: FIRUser?) {
-        let notificationName = Notification.Name(rawValue: Constants.NotificationKeys.signedIn)
-        NotificationCenter.default.post(name: notificationName, object: nil, userInfo: nil)
-        AppDelegate.instance().setRootViewController(Utils.getControllerFromStoryboard("Main"))
-    }
-    
     // MARK: Facebook login
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError?) {
@@ -141,21 +106,9 @@ class LoginViewController: BaseViewController {
         FIRAuth.auth()?.signIn(with: credential) { (user, error) in
             // ...
             if let error = error {
-                // ...
+                print(error.localizedDescription)
                 return
             }
-        }
-    }
-    
-    // MARK: Sign out
-    
-    @IBAction func signOut(_ sender: UIButton) {
-        let firebaseAuth = FIRAuth.auth()
-        do {
-            try firebaseAuth?.signOut()
-            dismiss(animated: true, completion: nil)
-        } catch let signOutError as NSError {
-            print ("Error signing out: \(signOutError.localizedDescription)")
         }
     }
 }

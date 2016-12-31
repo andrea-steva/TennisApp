@@ -41,8 +41,9 @@ enum MenuItem: Int {
     case stats = 2
     case profile = 3
     case settings = 4
+    case logout = 5
 
-    static var count: Int { return MenuItem.settings.rawValue + 1}
+    static var count: Int { return MenuItem.logout.rawValue + 1}
 
     func storyboardName() -> String {
         switch self {
@@ -56,6 +57,8 @@ enum MenuItem: Int {
             return "Profile"
         case .settings:
             return "Settings"
+        default:
+            return ""
         }
     }
 
@@ -71,6 +74,8 @@ enum MenuItem: Int {
             return localizer.get(LocalizerKey.menu_profile)
         case .settings:
             return localizer.get(LocalizerKey.menu_settings)
+        case .logout:
+            return localizer.get(LocalizerKey.menu_logout)
         }
     }
 
@@ -90,6 +95,8 @@ enum MenuItem: Int {
             return UIImage.fontAwesomeIcon(name: .user, textColor: color, size: size)
         case .settings:
             return UIImage.fontAwesomeIcon(name: .cogs, textColor: color, size: size)
+        case .logout:
+            return UIImage.fontAwesomeIcon(name: .signOut, textColor: color, size: size)
         }
 
     }

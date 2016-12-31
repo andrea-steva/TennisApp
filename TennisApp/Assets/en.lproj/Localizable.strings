@@ -13,6 +13,7 @@
 "menu.stats" = "Stats";
 "menu.profile" = "Profile";
 "menu.settings" = "Settings";
+"menu.logout" = "Esci";
 
 "generic.done" = "Done";
 "generic.cancel" = "Cancel";

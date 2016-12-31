@@ -18,6 +18,7 @@
 		65341D1D1E11BCAB00617207 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65341D1C1E11BCAB00617207 /* Constants.swift */; };
 		656A4BB51E143659009E97EB /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A4BB41E143659009E97EB /* AlertView.swift */; };
 		656A4BB71E1439A4009E97EB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A4BB61E1439A4009E97EB /* SignUpViewController.swift */; };
+		656A4BB91E17FD43009E97EB /* FirebaseProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A4BB81E17FD43009E97EB /* FirebaseProxy.swift */; };
 		657234881E114DD40050F319 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657234871E114DD40050F319 /* Logger.swift */; };
 		6572348A1E11726B0050F319 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 657234891E11726B0050F319 /* GoogleService-Info.plist */; };
 		659B53041C9D93C200829BF3 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659B53031C9D93C200829BF3 /* Enum.swift */; };
@@ -119,6 +120,7 @@
 		65341D1C1E11BCAB00617207 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		656A4BB41E143659009E97EB /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		656A4BB61E1439A4009E97EB /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		656A4BB81E17FD43009E97EB /* FirebaseProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseProxy.swift; path = TennisApp/Utilities/FirebaseProxy.swift; sourceTree = SOURCE_ROOT; };
 		657234871E114DD40050F319 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		657234891E11726B0050F319 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		659B53031C9D93C200829BF3 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 				65341D1C1E11BCAB00617207 /* Constants.swift */,
 				659B53031C9D93C200829BF3 /* Enum.swift */,
 				65B04E191C6CA8BD00011439 /* Extension.swift */,
+				656A4BB81E17FD43009E97EB /* FirebaseProxy.swift */,
 				65B04E241C6CC01000011439 /* Localizer.swift */,
 				657234871E114DD40050F319 /* Logger.swift */,
 				65B04E1B1C6CBAF700011439 /* Style.swift */,
@@ -776,6 +779,7 @@
 				6507CA661C6D023C00B7AD5C /* RESideLeftViewController.swift in Sources */,
 				65B04E211C6CBDC200011439 /* Settings.swift in Sources */,
 				656A4BB51E143659009E97EB /* AlertView.swift in Sources */,
+				656A4BB91E17FD43009E97EB /* FirebaseProxy.swift in Sources */,
 				65C511F41C948F0A0051D645 /* LoginViewModel.swift in Sources */,
 				65B04E3F1C6CD06600011439 /* MatchScore.swift in Sources */,
 				65B04E2B1C6CC69400011439 /* RealmProxy.swift in Sources */,
