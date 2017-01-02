@@ -21,8 +21,8 @@ class RacketsViewController: BaseViewController, UITableViewDataSource, UITableV
 
     // MARK: View Management
 
-    override func controllerTitleKey() -> LocalizerKey {
-        return .menu_rackets
+    override func localizedTitleString() -> String {
+        return LocalizedString.menu_rackets
     }
 
     override func viewDidLoad() {

@@ -21,6 +21,6 @@ class AlertView {
         }
         
         let alertView = SCLAlertView()
-        alertView.showWarning(alertTitle, subTitle: message, closeButtonTitle: localizer.get(.generic_ok))
+        alertView.showWarning(alertTitle, subTitle: message, closeButtonTitle: localizer.get(LocalizedString.generic_ok))
     }
 }

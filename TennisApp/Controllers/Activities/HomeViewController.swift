@@ -81,8 +81,8 @@ class HomeViewController: BaseViewController {
 
     // MARK: View Management
 
-    override func controllerTitleKey() -> LocalizerKey {
-        return .menu_home
+    override func localizedTitleString() -> String {
+        return LocalizedString.menu_home
     }
 
     override func viewDidLoad() {

@@ -357,12 +357,12 @@ class Utils {
 
         let alertController = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
 
-        let actionConfirm = UIAlertAction(title: localizer.get(.generic_ok), style: .default) { (alertAction) -> Void in
+        let actionConfirm = UIAlertAction(title: localizer.get(LocalizedString.generic_ok), style: .default) { (alertAction) -> Void in
             controller.dismiss(animated: true, completion: nil)
             completionBlock(false)
         }
 
-        let actionCancel = UIAlertAction(title: localizer.get(.generic_cancel), style: .cancel ) { (alertAction) -> Void in
+        let actionCancel = UIAlertAction(title: localizer.get(LocalizedString.generic_cancel), style: .cancel ) { (alertAction) -> Void in
             controller.dismiss(animated: true, completion: nil)
             completionBlock(true)
         }
@@ -381,7 +381,7 @@ class Utils {
 
         let alertController = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
 
-        let actionConfirm = UIAlertAction(title: localizer.get(.generic_ok), style: .default) { (alertAction) -> Void in
+        let actionConfirm = UIAlertAction(title: localizer.get(LocalizedString.generic_ok), style: .default) { (alertAction) -> Void in
             controller.dismiss(animated: true, completion: nil)
         }
         alertController.addAction(actionConfirm)

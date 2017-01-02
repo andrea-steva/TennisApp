@@ -15,8 +15,8 @@ class ProfileViewController: BaseViewController {
 
     // MARK: View Management
 
-    override func controllerTitleKey() -> LocalizerKey {
-        return .menu_profile
+    override func localizedTitleString() -> String {
+        return LocalizedString.menu_profile
     }
 
     override func viewDidLoad() {

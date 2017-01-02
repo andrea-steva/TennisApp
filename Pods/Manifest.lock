@@ -42,36 +42,6 @@ PODS:
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseInstanceID (1.0.8)
   - FontAwesome.swift (1.0.0)
-  - FormatterKit (1.8.1):
-    - FormatterKit/AddressFormatter (= 1.8.1)
-    - FormatterKit/ArrayFormatter (= 1.8.1)
-    - FormatterKit/ColorFormatter (= 1.8.1)
-    - FormatterKit/LocationFormatter (= 1.8.1)
-    - FormatterKit/NameFormatter (= 1.8.1)
-    - FormatterKit/OrdinalNumberFormatter (= 1.8.1)
-    - FormatterKit/Resources (= 1.8.1)
-    - FormatterKit/TimeIntervalFormatter (= 1.8.1)
-    - FormatterKit/UnitOfInformationFormatter (= 1.8.1)
-    - FormatterKit/URLRequestFormatter (= 1.8.1)
-  - FormatterKit/AddressFormatter (1.8.1):
-    - FormatterKit/Resources
-  - FormatterKit/ArrayFormatter (1.8.1):
-    - FormatterKit/Resources
-  - FormatterKit/ColorFormatter (1.8.1):
-    - FormatterKit/Resources
-  - FormatterKit/LocationFormatter (1.8.1):
-    - FormatterKit/Resources
-  - FormatterKit/NameFormatter (1.8.1):
-    - FormatterKit/Resources
-  - FormatterKit/OrdinalNumberFormatter (1.8.1):
-    - FormatterKit/Resources
-  - FormatterKit/Resources (1.8.1)
-  - FormatterKit/TimeIntervalFormatter (1.8.1):
-    - FormatterKit/Resources
-  - FormatterKit/UnitOfInformationFormatter (1.8.1):
-    - FormatterKit/Resources
-  - FormatterKit/URLRequestFormatter (1.8.1):
-    - FormatterKit/Resources
   - GoogleInterchangeUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
   - GoogleSymbolUtilities (1.1.2)
@@ -113,7 +83,6 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - FontAwesome.swift (~> 1.0)
-  - FormatterKit
   - GSKStretchyHeaderView
   - INSPullToRefresh (~> 1.0)
   - IQKeyboardManagerSwift
@@ -142,7 +111,6 @@ SPEC CHECKSUMS:
   FirebaseCore: 03da1cb32615569bbc2830a22f9ad753d9a02ef5
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   FontAwesome.swift: 2d32a3d62195343c2004b7c9043294ed2948553a
-  FormatterKit: 11ad17b983200629246a5a466f6f1bfa2df823cb
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
@@ -158,6 +126,6 @@ SPEC CHECKSUMS:
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SwiftyBeaver: 2b68694df862381235e32bcfc4ec991e26bf131d
 
-PODFILE CHECKSUM: 38643bb71a85d7c8baacd464ac9780f9ca60ef46
+PODFILE CHECKSUM: 31dcf0c792022259dc5adcab3ca1572218ae7abe
 
 COCOAPODS: 1.1.1
