@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FormatterKit
+//import FormatterKit
 
 // MARK: - Extension
 
@@ -487,23 +487,6 @@ extension UIView {
 // MARK: NSDate
 
 public extension Date {
-
-    /**
-     Get string date with date formate "d MMMMM yyyy"
-     
-     - returns: The date in string format
-     */
-    func toLabel() -> String {
-        let interval = -self.timeIntervalSinceNow
-        if interval < 2 * 60 * 60 * 1000 {
-            let formatter = TTTTimeIntervalFormatter()
-            return formatter.string(forTimeInterval: interval)
-        } else {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "d MMMMM yyyy"
-            return formatter.string(from: self)
-        }
-    }
 
     // MARK: NSDate Manipulation
 

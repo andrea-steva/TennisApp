@@ -33,7 +33,7 @@ class SignUpViewController: BaseViewController {
         guard let email = emailField.text, let password = passwordField.text else { return }
         FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
             if let error = error {
-                AlertView.showWarning(localizer.get(.generic_alertTitle), message: error.localizedDescription, controller: self)
+                AlertView.showWarning(localizer.get(LocalizedString.generic_alertTitle), message: error.localizedDescription, controller: self)
                 Log.error(error.localizedDescription)
                 return
             }

@@ -14,8 +14,8 @@ class SettingsViewController: BaseViewController {
 
     // MARK: View Management
 
-    override func controllerTitleKey() -> LocalizerKey {
-        return .menu_settings
+    override func localizedTitleString() -> String {
+        return LocalizedString.menu_settings
     }
 
     override func viewDidLoad() {

@@ -14,8 +14,8 @@ class StatsViewController: BaseViewController {
 
     // MARK: View Management
 
-    override func controllerTitleKey() -> LocalizerKey {
-        return .menu_stats
+    override func localizedTitleString() -> String {
+        return LocalizedString.menu_stats
     }
 
     override func viewDidLoad() {

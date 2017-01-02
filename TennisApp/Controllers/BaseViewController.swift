@@ -30,7 +30,7 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
             backgroundView.image =  backgroundView.image?.applyMenuEffect()
         }
 
-        self.title = localizer.get(controllerTitleKey())
+        self.title = localizer.get(localizedTitleString())
 
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         if hasMenuButton() {
@@ -48,8 +48,8 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
     
     - returns: The localized key for the view controller title
     */
-    func controllerTitleKey() -> LocalizerKey {
-        return LocalizerKey.appName
+    func localizedTitleString() -> String {
+        return LocalizedString.appName
     }
 
     // MARK: Menu Management
@@ -65,7 +65,7 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
     // MARK: DZNEmptyDataSetSource
 
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString(string: localizer.get( .generic_emptyDataSetTitle))
+        return NSAttributedString(string: localizer.get(LocalizedString.generic_emptyDataSetTitle))
     }
 
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {

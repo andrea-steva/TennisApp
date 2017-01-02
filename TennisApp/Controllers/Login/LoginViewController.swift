@@ -11,7 +11,7 @@ import Firebase
 import ALCameraViewController
 import FBSDKLoginKit
 
-class LoginViewController: BaseViewController {
+class LoginViewController: BaseViewController, FBSDKLoginButtonDelegate {
     
     // MARK: IBOutlets
     @IBOutlet var userImageView: UIImageView!
@@ -43,6 +43,9 @@ class LoginViewController: BaseViewController {
         self.userImageView.layer.masksToBounds = true
         
         self.backgroundView?.image = self.backgroundView?.image?.applyMenuEffect()
+        
+        self.facebookLoginButton.delegate = self
+        self.facebookLoginButton.readPermissions = ["public_profile", "email", "user_friends"]
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -68,9 +71,13 @@ class LoginViewController: BaseViewController {
         guard let email = emailField.text, let password = passwordField.text else { return }
         FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
             if let error = error {
-                AlertView.showWarning(localizer.get(.generic_alertTitle), message: error.localizedDescription, controller: self)
+                AlertView.showWarning(localizer.get(LocalizedString.generic_alertTitle), message: error.localizedDescription, controller: self)
                 Log.error(error.localizedDescription)
                 return
+            }
+            
+            if let profileImageURL = user?.photoURL {
+                self.userImageView.af_setImage(withURL: profileImageURL)
             }
             FirebaseProxy.sharedInstance.signedIn(user!)
         }
@@ -95,20 +102,26 @@ class LoginViewController: BaseViewController {
         present(prompt, animated: true, completion: nil);
     }
     
-    // MARK: Facebook login
+    // MARK: FBSDKLoginButtonDelegate
     
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError?) {
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if let error = error {
-            print(error.localizedDescription)
+            Log.error(error.localizedDescription)
             return
         }
         let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
         FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-            // ...
             if let error = error {
-                print(error.localizedDescription)
+                Log.error(error.localizedDescription)
                 return
             }
+            if let profileImageURL = user?.photoURL {
+                self.userImageView.af_setImage(withURL: profileImageURL)
+            }
         }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+
     }
 }

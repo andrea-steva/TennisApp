@@ -47,7 +47,7 @@ class RESideLeftViewController: UIViewController, UITableViewDataSource, UITable
         if menuItem == .logout {
             FirebaseProxy.sharedInstance.signOut { (success, error) in
                 if let errorMessage = error {
-                    AlertView.showWarning(localizer.get(LocalizerKey.generic_alertTitle),
+                    AlertView.showWarning(localizer.get(LocalizedString.generic_alertTitle),
                                           message: errorMessage,
                                           controller: self)
                 } else {

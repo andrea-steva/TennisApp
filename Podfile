@@ -36,18 +36,17 @@ def shared_pods
 
 	#UI
 	pod 'FontAwesome.swift', '~> 1.0'
-	pod 'DZNEmptyDataSet'
-	pod 'FormatterKit'
 	pod 'MBProgressHUD', '~> 1.0'
+	pod 'DZNEmptyDataSet'
 	pod 'IQKeyboardManagerSwift'
 	pod 'GSKStretchyHeaderView'
     pod 'SCLAlertView'
-
-	#Charts
-	pod 'Charts'
     
 	#PagedView
 	pod 'PagingMenuController'
+    
+    #Charts
+    pod 'Charts'
     
 	#Pull to refresh for tablew view and collection view
 	pod 'INSPullToRefresh', '~> 1.0'

@@ -65,17 +65,17 @@ enum MenuItem: Int {
     func localizedName() -> String {
         switch self {
         case .home:
-            return localizer.get(LocalizerKey.menu_home)
+            return localizer.get(LocalizedString.menu_home)
         case .rackets:
-            return localizer.get(LocalizerKey.menu_rackets)
+            return localizer.get(LocalizedString.menu_rackets)
         case .stats:
-            return localizer.get(LocalizerKey.menu_stats)
+            return localizer.get(LocalizedString.menu_stats)
         case .profile:
-            return localizer.get(LocalizerKey.menu_profile)
+            return localizer.get(LocalizedString.menu_profile)
         case .settings:
-            return localizer.get(LocalizerKey.menu_settings)
+            return localizer.get(LocalizedString.menu_settings)
         case .logout:
-            return localizer.get(LocalizerKey.menu_logout)
+            return localizer.get(LocalizedString.menu_logout)
         }
     }
 
