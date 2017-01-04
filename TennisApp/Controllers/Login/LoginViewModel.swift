@@ -6,8 +6,63 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-import UIKit
+import Bond
+import Firebase
+import FBSDKLoginKit
 
 class LoginViewModel: BaseViewModel {
-
+    
+    //MARK: Observable
+    
+    let email = Observable<String?>("")
+    let password = Observable<String?>("")
+    let profileImageURL = Observable<URL?>(nil)
+    
+    //MARK: Methods
+    
+    func signIn() {
+        guard let email = email.value, let password = password.value else {
+            return
+        }
+        
+        self.isLoading.value = true
+        FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
+            self.isLoading.value = false
+            if let error = error {
+                self.errorMessage.value = error.localizedDescription
+                Log.error(error.localizedDescription)
+                return
+            }
+            if let profileImageURL = user?.photoURL {
+                self.profileImageURL.value = profileImageURL
+            }
+            FirebaseProxy.sharedInstance.signedIn(user!)
+        }
+    }
+    
+    func signInFacebook(result: FBSDKLoginManagerLoginResult, error: Error!) {
+        if let error = error {
+            Log.error(error.localizedDescription)
+            return
+        }
+        if result.isCancelled {
+            Log.warning("User cancelled login")
+            return
+        }
+        
+        self.isLoading.value = true
+        let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+        FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+            self.isLoading.value = false
+            if let error = error {
+                self.errorMessage.value = error.localizedDescription
+                Log.error(error.localizedDescription)
+                return
+            }
+            if let profileImageURL = user?.photoURL {
+                self.profileImageURL.value = profileImageURL
+            }
+            FirebaseProxy.sharedInstance.signedIn(user!)
+        }
+    }
 }

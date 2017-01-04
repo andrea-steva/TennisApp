@@ -31,6 +31,9 @@ struct LocalizedString {
     static let dialog_unableToLocalize = "dialog.unableToLocalize"
     static let dialog_checkConnection = "dialog.checkConnection"
     
+    static let login_button = "login.button.title"
+    static let signup_button = "signup.button.title"
+    
     static let rackets_addRacket = "rackets.addRacket"
     
     static let settings_section1 = "settings.section1"

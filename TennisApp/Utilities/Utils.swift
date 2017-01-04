@@ -11,6 +11,7 @@ import EventKit
 import PassKit
 import Alamofire
 import AlamofireImage
+import MBProgressHUD
 
 fileprivate func < <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
@@ -57,6 +58,28 @@ class Utils {
 
     // MARK: HUD - Network activity indicator
 
+    /**
+     Show HUD on view
+     
+     - parameter view: The view where to show the HUD
+     */
+    static func showHUD(view : UIView) {
+        DispatchQueue.main.async {
+            MBProgressHUD.showAdded(to: view, animated: true)
+        }
+    }
+    
+    /**
+     Hide HUD on view
+     
+     - parameter view: The view where to hide the HUD
+     */
+    static func hideHUD(view : UIView) {
+        DispatchQueue.main.async {
+            MBProgressHUD.hide(for: view, animated: true)
+        }
+    }
+    
     static func setNetworkActivityIndicator(_ active: Bool) {
         DispatchQueue.main.async(execute: {
             UIApplication.shared.isNetworkActivityIndicatorVisible = active

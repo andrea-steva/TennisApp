@@ -8,13 +8,35 @@
 
 import UIKit
 import Firebase
+import Bond
+import ReactiveKit
 
 class SignUpViewController: BaseViewController {
     
     // MARK: IBOutlets
+    @IBOutlet var displayNameField: UITextField!
     @IBOutlet var emailField: UITextField!
     @IBOutlet var passwordField: UITextField!
-    @IBOutlet var signUpButton: UIButton!
+    
+    @IBOutlet var signUpButton: UIButton! {
+        didSet {
+            signUpButton.layer.cornerRadius = 5.0
+            signUpButton.layer.masksToBounds = true
+            
+            signUpButton.backgroundColor = UIColor.clear
+            signUpButton.setBackgroundImage(UIImage.imageWithColor(Style.Colors.primaryColor), for: .normal)
+            signUpButton.setBackgroundImage(UIImage.imageWithColor(Style.Colors.primaryPressedColor), for: .highlighted)
+            signUpButton.setBackgroundImage(UIImage.imageWithColor(Style.Colors.primaryPressedColor), for: .disabled)
+            signUpButton.setTitle(localizer.get(LocalizedString.signup_button), for: .normal)
+        }
+    }
+    
+    // MARK: ViewModel
+    var viewModel = SignUpViewModel()
+    
+    override func getViewModel() -> BaseViewModel? {
+        return viewModel
+    }
     
     // MARK: View Management
     override func viewDidLoad() {
@@ -23,33 +45,26 @@ class SignUpViewController: BaseViewController {
         self.backgroundView?.image = self.backgroundView?.image?.applyMenuEffect()
     }
     
+    override func bindViewModel() {
+        super.bindViewModel()
+        
+        viewModel.displayName.bidirectionalBind(to: displayNameField.bnd_text)
+        viewModel.email.bidirectionalBind(to: emailField.bnd_text)
+        viewModel.password.bidirectionalBind(to: passwordField.bnd_text)
+        
+        combineLatest(emailField.bnd_text, passwordField.bnd_text, displayNameField.bnd_text) { (email, pass, name) -> Bool in
+            return email!.length > 0 && pass!.length > 0 && name!.length > 0
+            }
+            .bind(to: signUpButton.bnd_isEnabled)
+    }
+    
     // MARK: Actions
     
     @IBAction func dismissController(_ sender: AnyObject) {
-            self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func didTapSignUp(_ sender: AnyObject) {
-        guard let email = emailField.text, let password = passwordField.text else { return }
-        FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
-            if let error = error {
-                AlertView.showWarning(localizer.get(LocalizedString.generic_alertTitle), message: error.localizedDescription, controller: self)
-                Log.error(error.localizedDescription)
-                return
-            }
-            self.setDisplayName(user!)
-        }
-    }
-    
-    func setDisplayName(_ user: FIRUser) {
-        let changeRequest = user.profileChangeRequest()
-        changeRequest.displayName = user.email!.components(separatedBy: "@")[0]
-        changeRequest.commitChanges(){ (error) in
-            if let error = error {
-                Log.error(error.localizedDescription)
-                return
-            }
-            FirebaseProxy.sharedInstance.signedIn(FIRAuth.auth()?.currentUser)
-        }
+        self.viewModel.signUp()
     }
 }

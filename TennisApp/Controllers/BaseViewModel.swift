@@ -6,6 +6,10 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-class BaseViewModel {
+import Bond
 
+class BaseViewModel {
+    
+    let isLoading = Observable<Bool>(false)
+    let errorMessage = Observable<String?>(nil)
 }

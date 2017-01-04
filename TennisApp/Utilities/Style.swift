@@ -168,10 +168,10 @@ struct Style {
      */
     struct Colors {
 
-        static var primaryColor = UIColor(hexRgba: "7FA311FF")
-        static let primaryPressedColor = primaryColor.withAlphaComponent(0.8)
+        static var primaryColor = UIColor(hexRgba: "EB7116FF")
+        static let primaryPressedColor = UIColor(hexRgba: "EB7116FF").withAlphaComponent(0.6)
         static var primaryDarkColor = UIColor(hexRgba: "60800AFF")
-        static let primaryDarkPressedColor = primaryDarkColor.withAlphaComponent(0.8)
+        static let primaryDarkPressedColor = primaryDarkColor.withAlphaComponent(0.6)
 
         static var courtClay = UIColor(hexRgba: "EB7116FF")
         static var courtHardB = UIColor(hexRgba: "2867A5FF")
