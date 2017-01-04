@@ -20,6 +20,9 @@ def shared_pods
 
 	#Mobile Database
 	pod 'RealmSwift', '~> 2.0'
+    
+    #Reactive
+    pod 'Bond', '~> 5.3'
 
 	#Menu
 	pod 'RESideMenu', '~> 4.0.7'

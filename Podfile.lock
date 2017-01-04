@@ -9,11 +9,15 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
+  - Bond (5.4.0):
+    - Diff (~> 0.4)
+    - ReactiveKit (~> 3.1.2)
   - Charts (3.0.1):
     - Charts/Core (= 3.0.1)
   - Charts/Core (3.0.1)
   - Crashlytics (3.8.3):
     - Fabric (~> 1.6.3)
+  - Diff (0.4.2)
   - DZNEmptyDataSet (1.8.1)
   - Eureka (2.0.0-beta.1)
   - Fabric (1.6.11)
@@ -61,6 +65,7 @@ PODS:
   - IQKeyboardManagerSwift (4.0.8)
   - MBProgressHUD (1.0.0)
   - PagingMenuController (2.1.1)
+  - ReactiveKit (3.1.2)
   - Realm (2.1.2):
     - Realm/Headers (= 2.1.2)
   - Realm/Headers (2.1.2)
@@ -74,6 +79,7 @@ DEPENDENCIES:
   - Alamofire (~> 4.0)
   - AlamofireImage (~> 3.0)
   - ALCameraViewController
+  - Bond (~> 5.3)
   - Charts
   - Crashlytics
   - DZNEmptyDataSet
@@ -98,8 +104,10 @@ SPEC CHECKSUMS:
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   ALCameraViewController: 4a513b8d5ecfdb3f34c50b1d469c373aae1ec7b4
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Bond: fa3800ee800198efe09dd63a9f94a339cee9dc85
   Charts: 0e84f4418e87dad6a9edde221fba37ebb51d3ba7
   Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
+  Diff: bc8ae23ada72a869f0e25eda55eb04cec1fa22e1
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
@@ -120,12 +128,13 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   PagingMenuController: 394af0edd93ae6d574e138df0bb458f81b355646
+  ReactiveKit: fcd80a87ac9548f11dc33ace1042022c9eb7d01c
   Realm: efe855f4d977c8ce5a82d3116d9f1ff155a6550c
   RealmSwift: 17d6ee30b6f9df86364408c2197492e33bfea567
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SwiftyBeaver: 2b68694df862381235e32bcfc4ec991e26bf131d
 
-PODFILE CHECKSUM: 31dcf0c792022259dc5adcab3ca1572218ae7abe
+PODFILE CHECKSUM: 6cc98eea55de358f208db89a757b877668576a33
 
 COCOAPODS: 1.1.1

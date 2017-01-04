@@ -26,6 +26,7 @@ final class FirebaseProxy {
     }
     
     func signedIn(_ user: FIRUser?) {
+        self.currentUser = user
         let notificationName = Notification.Name(rawValue: Constants.NotificationKeys.signedIn)
         NotificationCenter.default.post(name: notificationName, object: nil, userInfo: nil)
         AppDelegate.instance().setRootViewController(Utils.getControllerFromStoryboard("Main"))
@@ -36,6 +37,7 @@ final class FirebaseProxy {
         do {
             try firebaseAuth?.signOut()
             completion(true, nil)
+            self.currentUser = nil
         } catch let signOutError as NSError {
             completion(false, signOutError.localizedDescription)
             Log.error("Error signing out: \(signOutError.localizedDescription)")

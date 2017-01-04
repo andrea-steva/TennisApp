@@ -10,15 +10,36 @@ import UIKit
 import Firebase
 import ALCameraViewController
 import FBSDKLoginKit
+import Bond
+import ReactiveKit
 
 class LoginViewController: BaseViewController, FBSDKLoginButtonDelegate {
     
     // MARK: IBOutlets
-    @IBOutlet var userImageView: UIImageView!
+    @IBOutlet var userImageView: UIImageView! {
+        didSet {
+            userImageView.layer.cornerRadius = 20.0
+            userImageView.layer.borderColor = Style.Colors.lightColor.cgColor
+            userImageView.layer.borderWidth = 5.0
+            userImageView.layer.masksToBounds = true
+        }
+    }
     
     @IBOutlet var cameraButton: UIButton!
     
-    @IBOutlet var emailLoginButton: UIButton!
+    @IBOutlet var emailLoginButton: UIButton! {
+        didSet {
+            emailLoginButton.layer.cornerRadius = 5.0
+            emailLoginButton.layer.masksToBounds = true
+            
+            emailLoginButton.backgroundColor = UIColor.clear
+            emailLoginButton.setBackgroundImage(UIImage.imageWithColor(Style.Colors.primaryColor), for: .normal)
+            emailLoginButton.setBackgroundImage(UIImage.imageWithColor(Style.Colors.primaryPressedColor), for: .highlighted)
+            emailLoginButton.setBackgroundImage(UIImage.imageWithColor(Style.Colors.primaryPressedColor), for: .disabled)
+            emailLoginButton.setTitle(localizer.get(LocalizedString.login_button), for: .normal)
+        }
+    }
+    
     @IBOutlet var facebookLoginButton: FBSDKLoginButton!
     
     @IBOutlet var emailField: UITextField!
@@ -26,6 +47,10 @@ class LoginViewController: BaseViewController, FBSDKLoginButtonDelegate {
     
     // MARK: ViewModel
     var viewModel = LoginViewModel()
+    
+    override func getViewModel() -> BaseViewModel? {
+        return viewModel
+    }
     
     // MARK: View Management
     
@@ -37,28 +62,34 @@ class LoginViewController: BaseViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.userImageView.layer.cornerRadius = 20.0
-        self.userImageView.layer.borderColor = Style.Colors.lightColor.cgColor
-        self.userImageView.layer.borderWidth = 5.0
-        self.userImageView.layer.masksToBounds = true
-        
         self.backgroundView?.image = self.backgroundView?.image?.applyMenuEffect()
         
         self.facebookLoginButton.delegate = self
         self.facebookLoginButton.readPermissions = ["public_profile", "email", "user_friends"]
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func bindViewModel() {
+        super.bindViewModel()
         
+        viewModel.email.bidirectionalBind(to: emailField.bnd_text)
+        viewModel.password.bidirectionalBind(to: passwordField.bnd_text)
+        
+        combineLatest(emailField.bnd_text, passwordField.bnd_text) { email, pass in
+            return email!.length > 0 && pass!.length > 0
+            }
+            .bind(to: emailLoginButton.bnd_isEnabled)
+        
+        let _ = viewModel.profileImageURL.observeNext { (URL) in
+            if let profileImageURL = URL {
+                self.userImageView.af_setImage(withURL: profileImageURL)
+            }
+        }
     }
     
     // MARK: IBAction
     
     @IBAction func didTapOnCameraButton(_ sender: AnyObject) {
-        
         let cameraViewController = CameraViewController(croppingEnabled: true) { (image, asset) in
-            // Do something with your image here.
-            // If cropping is enabled this image will be the cropped version
             self.userImageView.image = image
         }
         present(cameraViewController, animated: true, completion: nil)
@@ -67,24 +98,11 @@ class LoginViewController: BaseViewController, FBSDKLoginButtonDelegate {
     // MARK: Firebase Auth
     
     @IBAction func didTapSignIn(_ sender: AnyObject) {
-        // Sign In with credentials.
-        guard let email = emailField.text, let password = passwordField.text else { return }
-        FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
-            if let error = error {
-                AlertView.showWarning(localizer.get(LocalizedString.generic_alertTitle), message: error.localizedDescription, controller: self)
-                Log.error(error.localizedDescription)
-                return
-            }
-            
-            if let profileImageURL = user?.photoURL {
-                self.userImageView.af_setImage(withURL: profileImageURL)
-            }
-            FirebaseProxy.sharedInstance.signedIn(user!)
-        }
+        self.viewModel.signIn()
     }
     
     @IBAction func didRequestPasswordReset(_ sender: AnyObject) {
-        let prompt = UIAlertController.init(title: nil, message: "Email:", preferredStyle: .alert)
+        let prompt = UIAlertController.init(title: "Please insert your email", message: "Email:", preferredStyle: .alert)
         let okAction = UIAlertAction.init(title: "OK", style: .default) { (action) in
             let userInput = prompt.textFields![0].text
             if (userInput!.isEmpty) {
@@ -105,23 +123,10 @@ class LoginViewController: BaseViewController, FBSDKLoginButtonDelegate {
     // MARK: FBSDKLoginButtonDelegate
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        if let error = error {
-            Log.error(error.localizedDescription)
-            return
-        }
-        let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-        FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-            if let error = error {
-                Log.error(error.localizedDescription)
-                return
-            }
-            if let profileImageURL = user?.photoURL {
-                self.userImageView.af_setImage(withURL: profileImageURL)
-            }
-        }
+        self.viewModel.signInFacebook(result: result, error: error)
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-
+        
     }
 }
