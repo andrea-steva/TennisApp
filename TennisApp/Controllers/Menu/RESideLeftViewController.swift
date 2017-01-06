@@ -29,7 +29,7 @@ class RESideLeftViewController: UIViewController, UITableViewDataSource, UITable
         
         let menuItem = MenuItem(rawValue: indexPath.row)!
         let cell = tableView.dequeueReusableCell(withIdentifier: "menu_cell", for: indexPath)
-        cell.textLabel?.font = Style.Fonts.get(.Light, size: .large)
+        cell.textLabel?.font = Style.Fonts.get(.light, size: .large)
         cell.textLabel?.textColor = Style.Colors.lightColor.withAlphaComponent(0.7)
         cell.imageView?.image = menuItem.menuIcon()
         cell.textLabel?.text = menuItem.localizedName()
