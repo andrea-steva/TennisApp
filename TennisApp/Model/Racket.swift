@@ -51,5 +51,13 @@ class Racket: Object {
     }
 
     // MARK: Class Methods
+    
+    func updateFrom(dict: [String: Any?]) {
+        self.manufacter = dict["manufacter"] as! String!
+        self.model = dict["model"] as! String!
+        self.weight = dict["weight"] as! String!
+        self.gripSize = dict["gripSize"] as! String!
+        self.purchaseDate = dict["purchaseDate"] as! Date!
+    }
 
 }

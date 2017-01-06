@@ -41,9 +41,6 @@ class RealmProxy {
                 Log.debug("---- Perform Migration block ----")
                 Log.debug("Old schema version: \(oldSchemaVersion)")
                 Log.debug("Current schema version: \(schemaVersion)")
-                // Nothing to do!
-                // Realm will automatically detect new properties and removed properties
-                // And will update the schema on disk automatically
             }
         })
 
@@ -119,8 +116,8 @@ class RealmProxy {
      - parameter predicate: The predicate used to filter.
      - return: The objects list.
      */
-    func getObjects<O: Object>(_ predicate: NSPredicate) -> [O] {
-        return self.realm.objects(O.self).filter(predicate).toArray(O.self)
+    func getObjects<O: Object>(_ predicate: NSPredicate) -> Results<O> {
+        return self.realm.objects(O.self).filter(predicate)
     }
 
     /**
@@ -129,8 +126,8 @@ class RealmProxy {
      - parameter predicate: The predicate used to filter.
      - return: The objects list.
      */
-    func getObjects<O: Object>(_ predicate: String) -> [O] {
-        return self.realm.objects(O.self).filter(predicate).toArray(O.self)
+    func getObjects<O: Object>(_ predicate: String) -> Results<O> {
+        return self.realm.objects(O.self).filter(predicate)
     }
 
     /**
@@ -139,22 +136,8 @@ class RealmProxy {
      - parameter predicate: The predicate used to filter.
      - return: The objects list.
      */
-    func getObjects<O: Object>(_ predicate: String, sortBy: String) -> [O] {
-        return self.realm.objects(O.self).filter(predicate).sorted(byProperty: sortBy).toArray(O.self)
-    }
-
-    /**
-     Get a list of objects paginated from the storage, sorted by a given property
-     
-     - parameter sortedBy:  The property name to sort by.
-     - parameter ascending: The direction to sort by.
-     - parameter page:      The page.
-     - parameter pageSize:  The pageSize.
-     
-     - returns: The objects list.
-     */
-    func getObjects<O: Object>(_ predicate: String, sortedBy: String, page: Int, pageSize: Int) -> [O] {
-        return self.realm.objects(O.self).filter(predicate).sorted(byProperty: sortedBy).toArray(O.self, page : page, pageSize : pageSize)
+    func getObjects<O: Object>(_ predicate: String, sortBy: String) -> Results<O> {
+        return self.realm.objects(O.self).filter(predicate).sorted(byProperty: sortBy)
     }
 
     /**
@@ -162,8 +145,8 @@ class RealmProxy {
      
      - return: The objects list.
      */
-    func getAllObjects<O: Object>() -> [O] {
-        return self.realm.objects(O.self).toArray(O.self)
+    func getAllObjects<O: Object>() -> Results<O> {
+        return self.realm.objects(O.self)
     }
 
     /**
@@ -171,8 +154,8 @@ class RealmProxy {
      
      - return: The objects list.
      */
-    func getAllObjects<O: Object>(sortedBy: String) -> [O] {
-        return self.realm.objects(O.self).sorted(byProperty: sortedBy, ascending: false).toArray(O.self)
+    func getAllObjects<O: Object>(sortedBy: String) -> Results<O> {
+        return self.realm.objects(O.self).sorted(byProperty: sortedBy, ascending: false)
     }
 
     // MARK: Delete
@@ -214,29 +197,4 @@ class RealmProxy {
             Log.debug("Error writing on storage.")
         }
     }
-
-}
-
-extension Results {
-
-    func toArray<T>(_ ofType: T.Type) -> [T] {
-        return toArray(T.self, page : 1, pageSize : self.count)
-    }
-
-    func toArray<T>(_ ofType: T.Type, page: Int, pageSize: Int) -> [T] {
-        var array = [T]()
-        var i = (page - 1) * pageSize
-        if i >= self.count {
-            return []
-        }
-
-        while i < page * pageSize && i < self.count {
-            if let result = self[i] as? T {
-                array.append(result)
-            }
-            i += 1
-        }
-        return array
-    }
-
 }

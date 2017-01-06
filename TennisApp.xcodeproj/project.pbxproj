@@ -22,6 +22,9 @@
 		656A4BBB1E1C1DDA009E97EB /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A4BBA1E1C1DDA009E97EB /* SignUpViewModel.swift */; };
 		657234881E114DD40050F319 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657234871E114DD40050F319 /* Logger.swift */; };
 		6572348A1E11726B0050F319 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 657234891E11726B0050F319 /* GoogleService-Info.plist */; };
+		6589FC891E1EFF0E00C25F31 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589FC871E1EFF0E00C25F31 /* ImagePickerController.swift */; };
+		6589FC8A1E1EFF0E00C25F31 /* ImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589FC881E1EFF0E00C25F31 /* ImageRow.swift */; };
+		6589FC8C1E20515400C25F31 /* RacketFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589FC8B1E20515400C25F31 /* RacketFormViewModel.swift */; };
 		659B53041C9D93C200829BF3 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659B53031C9D93C200829BF3 /* Enum.swift */; };
 		65B04DA31C6CA02300011439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04DA21C6CA02300011439 /* AppDelegate.swift */; };
 		65B04DA81C6CA02300011439 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B04DA61C6CA02300011439 /* Main.storyboard */; };
@@ -125,6 +128,9 @@
 		656A4BBA1E1C1DDA009E97EB /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		657234871E114DD40050F319 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		657234891E11726B0050F319 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6589FC871E1EFF0E00C25F31 /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
+		6589FC881E1EFF0E00C25F31 /* ImageRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRow.swift; sourceTree = "<group>"; };
+		6589FC8B1E20515400C25F31 /* RacketFormViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketFormViewModel.swift; sourceTree = "<group>"; };
 		659B53031C9D93C200829BF3 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		65B04D9F1C6CA02300011439 /* TennisApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TennisApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B04DA21C6CA02300011439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -246,6 +252,23 @@
 				6507CA651C6D023C00B7AD5C /* RESideLeftViewController.swift */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		6589FC851E1EFF0E00C25F31 /* CustomRows */ = {
+			isa = PBXGroup;
+			children = (
+				6589FC861E1EFF0E00C25F31 /* ImageRow */,
+			);
+			path = CustomRows;
+			sourceTree = "<group>";
+		};
+		6589FC861E1EFF0E00C25F31 /* ImageRow */ = {
+			isa = PBXGroup;
+			children = (
+				6589FC871E1EFF0E00C25F31 /* ImagePickerController.swift */,
+				6589FC881E1EFF0E00C25F31 /* ImageRow.swift */,
+			);
+			path = ImageRow;
 			sourceTree = "<group>";
 		};
 		65B04D961C6CA02300011439 = {
@@ -370,6 +393,7 @@
 		65B04DE51C6CA74400011439 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				6589FC851E1EFF0E00C25F31 /* CustomRows */,
 				656A4BB41E143659009E97EB /* AlertView.swift */,
 				65341D1C1E11BCAB00617207 /* Constants.swift */,
 				659B53031C9D93C200829BF3 /* Enum.swift */,
@@ -499,6 +523,7 @@
 				65ECE30C1C708CC6004EE2C9 /* RacketsViewModel.swift */,
 				65D8249E1C6E652000E2918C /* RacketTableViewCell.swift */,
 				6521CBA41C6F5E63006D007C /* RacketFormViewController.swift */,
+				6589FC8B1E20515400C25F31 /* RacketFormViewModel.swift */,
 			);
 			path = Rackets;
 			sourceTree = "<group>";
@@ -804,12 +829,15 @@
 				65B04E2F1C6CCD4D00011439 /* Racket.swift in Sources */,
 				657234881E114DD40050F319 /* Logger.swift in Sources */,
 				65B04E231C6CBEEF00011439 /* Utils.swift in Sources */,
+				6589FC891E1EFF0E00C25F31 /* ImagePickerController.swift in Sources */,
 				65D824AA1C6F589B00E2918C /* SettingsViewController.swift in Sources */,
 				65C511F11C948ED50051D645 /* LoginViewController.swift in Sources */,
 				65B04E1F1C6CBCD000011439 /* LocationManager.swift in Sources */,
 				656A4BBB1E1C1DDA009E97EB /* SignUpViewModel.swift in Sources */,
+				6589FC8A1E1EFF0E00C25F31 /* ImageRow.swift in Sources */,
 				659B53041C9D93C200829BF3 /* Enum.swift in Sources */,
 				656A4BB71E1439A4009E97EB /* SignUpViewController.swift in Sources */,
+				6589FC8C1E20515400C25F31 /* RacketFormViewModel.swift in Sources */,
 				6507CA641C6CFE6400B7AD5C /* RESideViewController.swift in Sources */,
 				65B04DA31C6CA02300011439 /* AppDelegate.swift in Sources */,
 				65B04E1C1C6CBAF700011439 /* Style.swift in Sources */,

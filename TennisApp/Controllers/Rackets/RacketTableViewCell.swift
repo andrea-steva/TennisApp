@@ -19,7 +19,7 @@ class RacketTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        racketNameLabel.font = Style.Fonts.get(.Regular, size: .normal)
+        racketNameLabel.font = Style.Fonts.get(.regular, size: .normal)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -29,7 +29,11 @@ class RacketTableViewCell: UITableViewCell {
     }
 
     func setRacket(_ racket: Racket) {
-
+        
+        if let manufacter = racket.manufacter, let model = racket.model {
+            racketNameLabel.text = "\(manufacter) - \(model)"
+        }
+        
     }
 
 }

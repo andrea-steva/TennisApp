@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import FormatterKit
+import RealmSwift
 
 // MARK: - Extension
 
@@ -40,22 +40,22 @@ private let deviceList = [
 
 extension UIFont {
     func bold() -> UIFont {
-        let descriptor = UIFontDescriptor(fontAttributes: [NSFontAttributeName : FontType.Bold.rawValue])
+        let descriptor = UIFontDescriptor(fontAttributes: [NSFontAttributeName : FontType.bold.rawValue])
         return UIFont(descriptor: descriptor, size: self.pointSize)
     }
 
     func semibold() -> UIFont {
-        let descriptor = UIFontDescriptor(fontAttributes: [NSFontAttributeName : FontType.Semibold.rawValue])
+        let descriptor = UIFontDescriptor(fontAttributes: [NSFontAttributeName : FontType.semibold.rawValue])
         return UIFont(descriptor: descriptor, size: self.pointSize)
     }
 
     func regular() -> UIFont {
-        let descriptor = UIFontDescriptor(fontAttributes: [NSFontAttributeName : FontType.Regular.rawValue])
+        let descriptor = UIFontDescriptor(fontAttributes: [NSFontAttributeName : FontType.regular.rawValue])
         return UIFont(descriptor: descriptor, size: self.pointSize)
     }
 
     func light() -> UIFont {
-        let descriptor = UIFontDescriptor(fontAttributes: [NSFontAttributeName : FontType.Light.rawValue])
+        let descriptor = UIFontDescriptor(fontAttributes: [NSFontAttributeName : FontType.light.rawValue])
         return UIFont(descriptor: descriptor, size: self.pointSize)
     }
 }
@@ -752,5 +752,23 @@ extension UIBarButtonItem {
         let spacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         spacer.width = width >= 0 ? -width : width
         return spacer
+    }
+}
+
+extension UITableView {
+    func applyChanges<T>(changes: RealmCollectionChange<T>) {
+        switch changes {
+        case .initial: reloadData()
+        case .update(_, let deletions, let insertions, let updates):
+            let fromRow = {(row: Int) in
+                return IndexPath(row: row, section: 0)}
+            
+            beginUpdates()
+            deleteRows(at: deletions.map(fromRow), with: .automatic)
+            insertRows(at: insertions.map(fromRow), with: .automatic)
+            reloadRows(at: updates.map(fromRow), with: .none)
+            endUpdates()
+        default: break
+        }
     }
 }

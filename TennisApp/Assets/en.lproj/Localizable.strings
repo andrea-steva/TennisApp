@@ -13,7 +13,7 @@
 "menu.stats" = "Stats";
 "menu.profile" = "Profile";
 "menu.settings" = "Settings";
-"menu.logout" = "Esci";
+"menu.logout" = "Logout";
 
 "generic.done" = "Done";
 "generic.cancel" = "Cancel";
@@ -30,7 +30,7 @@
 "login.button.title" = "Sign in";
 "signup.button.title" = "Sign up";
 
-"rackets.addRacket" = "Add Racket";
+"rackets.addRacket" = "Racket";
 
 "settings.section1" = "Name section 1";
 "settings.section2" = "Name section 2";

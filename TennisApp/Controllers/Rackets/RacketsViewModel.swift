@@ -6,17 +6,51 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
+import RealmSwift
+
 class RacketsViewModel: BaseViewModel {
-
-    fileprivate let dataAccess = LocalStorage()
-
-    func getRacket(forIndex index: Int) -> Racket {
-        let rackets = dataAccess.getRackets()
-        return rackets[index]
+    
+    // MARK: Properties
+    
+    fileprivate let localStorage = LocalStorage()
+    
+    var rackets: Results<Racket>?
+    
+    // MARK: Methods
+    
+    override init() {
+        rackets = localStorage.getRackets()
     }
-
-    func getRacketsCount() -> Int {
-        return dataAccess.getRackets().count
+    
+    func numberOfRackets() -> Int {
+        guard let racketsCount = rackets?.count else {
+            return 0
+        }
+        return racketsCount
     }
-
+    
+    func racket(forIndex index: Int) -> Racket {
+        guard let racket = rackets?[index] else {
+            return Racket()
+        }
+        return racket
+    }
+    
+    func deleteRacket(forIndex index: Int) {
+        guard let racket = rackets?[index] else {
+            return
+        }
+        localStorage.deleteRacket(racket: racket)
+    }
+    
+    func addTestRacket() {
+        let racket = Racket()
+        racket.racketId = UUID().uuidString
+        racket.manufacter = "Wilson"
+        racket.model = "Blade"
+        racket.gripSize = "2"
+        racket.weight = "300"
+        racket.purchaseDate = Date()
+        localStorage.saveRacket(racket: racket, saveBlock: nil)
+    }
 }

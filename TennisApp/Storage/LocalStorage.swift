@@ -6,14 +6,30 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-class LocalStorage: RealmProxy {
+import RealmSwift
 
-    func getUser() -> [User] {
+class LocalStorage: RealmProxy {
+    
+    // MARK: User
+    
+    func getUser() -> Results<User> {
         return self.getAllObjects()
     }
-
-    func getRackets() -> [Racket] {
-        return self.getAllObjects(sortedBy: "purchasedDate")
+    
+    // MARK: Rackets
+    
+    func getRackets() -> Results<Racket> {
+        return self.getAllObjects(sortedBy: "purchaseDate")
     }
-
+    
+    func saveRacket(racket: Racket, saveBlock: ((_ racket: Racket) -> Void)?) {
+        self.saveObject(racket) { (racket) in
+            saveBlock?(racket)
+        }
+    }
+    
+    func deleteRacket(racket: Racket) {
+        self.deleteObject(racket) { (racket) in
+        }
+    }
 }

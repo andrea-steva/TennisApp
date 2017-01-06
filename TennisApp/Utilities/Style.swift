@@ -12,31 +12,31 @@ import FontAwesome_swift
 // MARK: FontType
 
 enum Theme: String {
-    case Default = "default"
-    case Clay = "clay"
-    case Hard = "hard"
-    case Grass = "grass"
+    case normal = "default"
+    case clay = "clay"
+    case hard = "hard"
+    case grass = "grass"
 }
 
 enum FontType: String {
-    case Bold = "Lato-Bold"
-    case Semibold = "Lato-Semibold"
-    case Regular = "Lato-Regular"
-    case Light = "Lato-Light"
-    case Thin = "Lato-Thin"
+    case bold = "Lato-Bold"
+    case semibold = "Lato-Semibold"
+    case regular = "Lato-Regular"
+    case light = "Lato-Light"
+    case thin = "Lato-Thin"
 
     static func fromIndex(_ index: Int) -> FontType? {
         switch index {
         case 0:
-            return .Bold
+            return .bold
         case 1:
-            return .Semibold
+            return .semibold
         case 2:
-            return .Regular
+            return .regular
         case 3:
-            return .Light
+            return .light
         case 4:
-            return .Thin
+            return .thin
         default:
             return nil
         }
@@ -44,15 +44,15 @@ enum FontType: String {
 
     func toIndex() -> Int {
         switch self {
-        case .Bold:
+        case .bold:
             return 0
-        case .Semibold:
+        case .semibold:
             return 1
-        case .Regular:
+        case .regular:
             return 2
-        case .Light:
+        case .light:
             return 3
-        case .Thin:
+        case .thin:
             return 4
         }
     }
@@ -133,7 +133,7 @@ struct Style {
     static func setupNavigationBarStyle() {
         let appearance = UINavigationBar.appearance()
         appearance.tintColor = Style.Colors.lightColor
-        appearance.titleTextAttributes = [NSForegroundColorAttributeName : Style.Colors.lightColor, NSFontAttributeName : Style.Fonts.get(.Light, size: .navigationBar)]
+        appearance.titleTextAttributes = [NSForegroundColorAttributeName : Style.Colors.lightColor, NSFontAttributeName : Style.Fonts.get(.light, size: .navigationBar)]
         //appearance.barTintColor = Style.Colors.navigationBarColor
         appearance.shadowImage = UIImage.imageWithColor(UIColor.clear)
         //appearance.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)

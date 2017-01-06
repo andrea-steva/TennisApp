@@ -43,8 +43,8 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
                 let title = MenuItemText(text: self.title,
                                          color: Style.Colors.lightColor,
                                          selectedColor: Style.Colors.lightColor,
-                                         font: Style.Fonts.get(.Regular, size: .normal),
-                                         selectedFont: Style.Fonts.get(.Regular, size: .normal))
+                                         font: Style.Fonts.get(.regular, size: .normal),
+                                         selectedFont: Style.Fonts.get(.regular, size: .normal))
 
                 return .text(title: title)
             }
