@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import Tamamushi
 
 class RacketsViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -34,6 +35,8 @@ class RacketsViewController: BaseViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        TMGradientNavigationBar().setGradientColorOnNavigationBar(bar: self.navigationController!.navigationBar, direction: .vertical, startColor: Style.Colors.courtHardB, endColor: Style.Colors.courtHardB.lighter())
+        
         self.notificationToken = viewModel.rackets?.addNotificationBlock({ [unowned self] (results) in
             self.tableView.applyChanges(changes: results)
         })

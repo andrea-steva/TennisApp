@@ -11,6 +11,7 @@ import DZNEmptyDataSet
 import FontAwesome_swift
 import INSPullToRefresh
 import SCLAlertView
+import Tamamushi
 
 private extension Selector {
     static let didTapOnButtonMenu = #selector(BaseViewController.didTapOnButtonMenu(_:))
@@ -39,7 +40,7 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
         if let backgroundView = self.backgroundView {
             backgroundView.image =  backgroundView.image?.applyMenuEffect()
         }
-        
+                
         self.title = localizer.get(localizedTitleString())
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)

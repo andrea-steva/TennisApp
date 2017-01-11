@@ -45,13 +45,17 @@ class RESideLeftViewController: UIViewController, UITableViewDataSource, UITable
         
         let menuItem = MenuItem(rawValue: indexPath.row)!
         if menuItem == .logout {
-            FirebaseProxy.sharedInstance.signOut { (success, error) in
-                if let errorMessage = error {
-                    AlertView.showWarning(localizer.get(LocalizedString.generic_alertTitle),
-                                          message: errorMessage,
-                                          controller: self)
-                } else {
-                    AppDelegate.instance().setRootViewController(Utils.getControllerFromStoryboard("Login"))
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+            AlertView.showConfirm(localizer.get(LocalizedString.generic_alertTitle), message: "Are you sure to want to logout?") {  (userCancelAction) in
+                
+                if !userCancelAction {
+                    FirebaseProxy.sharedInstance.signOut { (success, error) in
+                        if let errorMessage = error {
+                            Log.error(errorMessage)
+                        }
+                        AppDelegate.instance().setRootViewController(Utils.getControllerFromStoryboard("Login"))
+                    }
                 }
             }
             return

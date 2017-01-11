@@ -176,7 +176,8 @@ struct Style {
         static var courtClay = UIColor(hexRgba: "EB7116FF")
         static var courtHardB = UIColor(hexRgba: "2867A5FF")
         static var courtHardG = UIColor(hexRgba: "6B8468FF")
-        static var courtGrass = UIColor(hexRgba: "#8EA525FF")
+        static var courtHardP = UIColor(hexRgba: "713972FF")
+        static var courtGrass = UIColor(hexRgba: "8EA525FF")
 
         static let lightColor = UIColor.white
         static let darkColor = UIColor(hexRgba: "111111FF")
@@ -244,5 +245,6 @@ struct Style {
         static let courtGrass =  UIImage(named: "court_grass")
         static let courtHardB =  UIImage(named: "court_hard_b")
         static let courtHardG =  UIImage(named: "court_hard_g")
+        static let courtHardP =  UIImage(named: "court_hard_p")
     }
 }

@@ -39,13 +39,13 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRt-Jw-3vW">
                     <rect key="frame" x="12" y="373.5" width="351" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePj-xy-EI5">
                     <rect key="frame" x="135" y="333" width="105" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -70,6 +70,9 @@
                 <userDefinedRuntimeAttribute type="number" keyPath="minimumContentHeight">
                     <real key="value" value="64"/>
                 </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="expansionMode">
+                    <integer key="value" value="0"/>
+                </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="backgroundImageView" destination="aMv-3S-oxx" id="PYT-58-Obu"/>
@@ -77,7 +80,7 @@
                 <outlet property="userImageView" destination="IDV-kH-KIc" id="gFS-Za-Wo7"/>
                 <outlet property="userNameLabel" destination="QRt-Jw-3vW" id="O20-AZ-exF"/>
             </connections>
-            <point key="canvasLocation" x="277" y="514"/>
+            <point key="canvasLocation" x="237" y="379"/>
         </view>
     </objects>
     <resources>

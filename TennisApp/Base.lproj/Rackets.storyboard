@@ -114,7 +114,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="EUn-V1-k8w">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.15686274510000001" green="0.4039215686" blue="0.64705882349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.15686274510000001" green="0.4039215686" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="Nfb-NL-XuQ" kind="relationship" relationship="rootViewController" id="bIB-qK-Z7P"/>

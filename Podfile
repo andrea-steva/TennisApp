@@ -44,6 +44,7 @@ def shared_pods
 	pod 'IQKeyboardManagerSwift'
 	pod 'GSKStretchyHeaderView'
     pod 'SCLAlertView'
+    pod 'Tamamushi'
     
 	#PagedView
 	pod 'PagingMenuController'
