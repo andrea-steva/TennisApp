@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Tamamushi
 
 class SettingsViewController: BaseViewController {
 
@@ -21,7 +22,8 @@ class SettingsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        TMGradientNavigationBar().setGradientColorOnNavigationBar(bar: self.navigationController!.navigationBar, direction: .vertical, startColor: Style.Colors.courtHardP, endColor: Style.Colors.courtHardP.lighter())
+
     }
 
     override func didReceiveMemoryWarning() {

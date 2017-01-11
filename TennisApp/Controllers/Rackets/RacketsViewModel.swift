@@ -8,7 +8,7 @@
 
 import RealmSwift
 
-class RacketsViewModel: BaseViewModel {
+final class RacketsViewModel: BaseViewModel {
     
     // MARK: Properties
     

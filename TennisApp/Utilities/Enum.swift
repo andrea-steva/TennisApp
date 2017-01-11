@@ -88,13 +88,13 @@ enum MenuItem: Int {
         case .home:
             return UIImage.fontAwesomeIcon(name: .home, textColor: color, size: size)
         case .rackets:
-            return UIImage.fontAwesomeIcon(name: .rocket, textColor: color, size: size)
+            return UIImage.fontAwesomeIcon(name: .wrench, textColor: color, size: size)
         case .stats:
             return UIImage.fontAwesomeIcon(name: .barChartO, textColor: color, size: size)
         case .profile:
             return UIImage.fontAwesomeIcon(name: .user, textColor: color, size: size)
         case .settings:
-            return UIImage.fontAwesomeIcon(name: .cogs, textColor: color, size: size)
+            return UIImage.fontAwesomeIcon(name: .sliders, textColor: color, size: size)
         case .logout:
             return UIImage.fontAwesomeIcon(name: .signOut, textColor: color, size: size)
         }

@@ -25,6 +25,8 @@ class ProfileHeaderView: GSKStretchyHeaderView {
     @IBOutlet var userNameLabel: UILabel!
     @IBOutlet var navigationTitleLabel: UILabel!
     
+    // MARK: Methods
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

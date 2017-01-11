@@ -9,7 +9,7 @@
 import Bond
 import Firebase
 
-class SignUpViewModel: BaseViewModel {
+final class SignUpViewModel: BaseViewModel {
     
     //MARK: Observable
     

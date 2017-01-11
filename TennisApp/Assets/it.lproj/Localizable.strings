@@ -1,0 +1,42 @@
+/* 
+  Localizable.strings
+  TennisApp
+
+  Created by Andrea Stevanato on 11/02/16.
+  Copyright © 2016 Andrea Stevanato. All rights reserved.
+*/
+
+"appName" = "Tennis Diary";
+
+"menu.home" = "Home";
+"menu.rackets" = "Racchette";
+"menu.stats" = "Statistiche";
+"menu.profile" = "Profilo";
+"menu.settings" = "Impostazioni";
+"menu.logout" = "Esci";
+
+"generic.done" = "Ok";
+"generic.cancel" = "Annulla";
+"generic.error" = "Errore";
+"generic.ok" = "Ok";
+"generic.yes" = "Si";
+"generic.emptyDataSetTitle" = "Nessun elemento";
+"generic.notAvailable" = "Non disponibile";
+"generic.alertTitle" = "Avviso";
+
+"dialog.unableToLocalize" = "Localizzazione non riuscita";
+"dialog.checkConnection" = "Controlla la tua connessione di rete o di non essere in modalità Aereo";
+
+"login.button.title" = "Accedi";
+"signup.button.title" = "Registrati";
+
+"rackets.addRacket" = "Racchetta";
+
+"settings.section1" = "Name section 1";
+"settings.section2" = "Name section 2";
+"settings.currency" = "Valuta";
+"settings.tour" = "Tour";
+"settings.support" = "Supporto";
+"settings.website" = "Website";
+"settings.version" = "Versione";
+

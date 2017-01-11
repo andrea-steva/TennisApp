@@ -10,7 +10,7 @@ import Bond
 import Firebase
 import FBSDKLoginKit
 
-class LoginViewModel: BaseViewModel {
+final class LoginViewModel: BaseViewModel {
     
     //MARK: Observable
     

@@ -8,63 +8,65 @@
 
 import UIKit
 import PagingMenuController
+import Tamamushi
 
 // MARK: PagingMenuOptions
 private struct PagingMenuOptions: PagingMenuControllerCustomizable {
-
+    
     init(controllers: [ActivitiesViewController]) {
         self.pagingControllers = controllers
     }
-
+    
     private var pagingControllers: [ActivitiesViewController]
-
+    
     fileprivate var componentType: ComponentType {
         return .all(menuOptions: MenuOptions(pagingControllers: self.pagingControllers), pagingControllers: pagingControllers)
     }
-
+    
     private struct MenuOptions: MenuViewCustomizable {
-
+        
         init(pagingControllers: [ActivitiesViewController]) {
-
+            
             self.itemsOptions = []
             for controller in pagingControllers {
                 let menuItemViewOptions = MenuItemViewOptions(title: controller.title!)
                 self.itemsOptions.append(menuItemViewOptions)
             }
         }
-
+        
         // MARK: Menu items options
         var itemsOptions: [MenuItemViewCustomizable]
-
+        
         struct MenuItemViewOptions: MenuItemViewCustomizable {
             private let title: String
-
+            
             var displayMode: MenuItemDisplayMode {
                 let title = MenuItemText(text: self.title,
                                          color: Style.Colors.lightColor,
                                          selectedColor: Style.Colors.lightColor,
                                          font: Style.Fonts.get(.regular, size: .normal),
                                          selectedFont: Style.Fonts.get(.regular, size: .normal))
-
+                
                 return .text(title: title)
             }
-
+            
             init(title: String) {
                 self.title = title
             }
         }
-
+        
         // MARK: Custom menu options
-
+        
         var backgroundColor: UIColor {
             return Style.Colors.grayColor
         }
         var selectedBackgroundColor: UIColor {
             return Style.Colors.darkColor
         }
-
-        var mode: MenuDisplayMode {
+        
+        var displayMode: MenuDisplayMode {
             return .segmentedControl
+            //return .infinite(widthMode: .flexible, scrollingMode: .scrollEnabledAndBouces)
         }
         var focusMode: MenuFocusMode {
             return .roundRect(radius: 10, horizontalPadding: 10, verticalPadding: 10, selectedColor: Style.Colors.primaryColor)
@@ -73,42 +75,53 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
 }
 
 class HomeViewController: BaseViewController {
-
+    
     // MARK: Property
-
+    
     /// The array with the view controllers for the paging menu
     fileprivate var menuControllers: [ActivitiesViewController] = []
-
+    
     // MARK: View Management
-
+    
     override func localizedTitleString() -> String {
         return LocalizedString.menu_home
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        for index in 0...2 {
-            let activityController =  Utils.getControllerFromStoryboard("Main", controllerId: "ActivitiesViewController") as! ActivitiesViewController
-            activityController.title = "Activity \(index+1)"
-            menuControllers.append(activityController)
-        }
-
+        
+        TMGradientNavigationBar().setGradientColorOnNavigationBar(bar: self.navigationController!.navigationBar, direction: .vertical, startColor: Style.Colors.courtClay, endColor: Style.Colors.courtClay.lighter())
+        
         setupPagedMenu(menuControllers)
     }
-
+    
     fileprivate func setupPagedMenu(_ controllers: [UIViewController]) {
-
+        
+        for index in 0...2 {
+            let activityController =  Utils.getControllerFromStoryboard("Main", controllerId: "ActivitiesViewController") as! ActivitiesViewController
+            
+            if index == 0 {
+                activityController.title = "Matchs"
+            }
+            if index == 1 {
+                activityController.title = "Practice"
+            }
+            if index == 2 {
+                activityController.title = "Fitness"
+            }
+            menuControllers.append(activityController)
+        }
+        
         let pagingMenuController = self.childViewControllers.first as! PagingMenuController
-
-        let paginMenuOptions = PagingMenuOptions(controllers: menuControllers)
-        pagingMenuController.setup(paginMenuOptions)
-
+        
+        let pagingMenuOptions = PagingMenuOptions(controllers: menuControllers)
+        pagingMenuController.setup(pagingMenuOptions)
+        
         pagingMenuController.onMove = { _ in
             
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

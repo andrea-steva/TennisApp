@@ -25,6 +25,10 @@ final class FirebaseProxy {
         self.currentUser = FIRAuth.auth()?.currentUser
     }
     
+    
+    /// Set the user, send a notification and redirect to Main storyboard
+    ///
+    /// - Parameter user: The logged user
     func signedIn(_ user: FIRUser?) {
         self.currentUser = user
         let notificationName = Notification.Name(rawValue: Constants.NotificationKeys.signedIn)

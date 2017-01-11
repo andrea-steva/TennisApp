@@ -74,6 +74,7 @@ PODS:
   - RESideMenu (4.0.7)
   - SCLAlertView (0.7.0)
   - SwiftyBeaver (1.1.1)
+  - Tamamushi (0.1.3)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
@@ -98,6 +99,7 @@ DEPENDENCIES:
   - RESideMenu (~> 4.0.7)
   - SCLAlertView
   - SwiftyBeaver
+  - Tamamushi
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
@@ -134,7 +136,8 @@ SPEC CHECKSUMS:
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SwiftyBeaver: 2b68694df862381235e32bcfc4ec991e26bf131d
+  Tamamushi: 4c07eb1e0f612f0bd9e67d7c5f0f3edd3a238680
 
-PODFILE CHECKSUM: 6cc98eea55de358f208db89a757b877668576a33
+PODFILE CHECKSUM: ad0bdf4c3398194abb31eb9fb00eabb6ceeba260
 
 COCOAPODS: 1.1.1
