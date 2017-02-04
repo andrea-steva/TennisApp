@@ -4,6 +4,8 @@ disabled_rules: # rule identifiers to exclude from running
     - missing_docs
     - force_cast
     - force_try
+    - variable_name
+    - type_name
 
 opt_in_rules: # some rules are only opt-in
     - empty_count

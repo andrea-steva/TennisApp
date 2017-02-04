@@ -10,20 +10,20 @@ import Bond
 import Firebase
 
 final class SignUpViewModel: BaseViewModel {
-    
-    //MARK: Observable
-    
+
+    // MARK: Observable
+
     let displayName = Observable<String?>("")
     let email = Observable<String?>("")
     let password = Observable<String?>("")
-    
-    //MARK: Methods
-    
+
+    // MARK: Methods
+
     func signUp() {
         guard let email = email.value, let password = password.value else {
             return
         }
-        
+
         self.isLoading.value = true
         FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
             self.isLoading.value = false
@@ -35,9 +35,9 @@ final class SignUpViewModel: BaseViewModel {
             self.setDisplayName(user!)
         }
     }
-    
+
     private func setDisplayName(_ user: FIRUser) {
-        
+
         var displayName = user.email!.components(separatedBy: "@")[0]
         if let name = self.displayName.value {
             displayName = name

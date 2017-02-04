@@ -22,7 +22,9 @@ class StatsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        TMGradientNavigationBar().setGradientColorOnNavigationBar(bar: self.navigationController!.navigationBar, direction: .vertical, startColor: Style.Colors.courtGrass, endColor: Style.Colors.courtGrass.lighter())
+        TMGradientNavigationBar().setGradientColorOnNavigationBar(bar: self.navigationController!.navigationBar,
+                                                                  direction: .vertical, startColor: Style.Colors.courtGrass,
+                                                                  endColor: Style.Colors.courtGrass.lighter())
     }
 
     /*

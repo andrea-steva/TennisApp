@@ -72,6 +72,7 @@
 		65B04E3B1C6CD03500011439 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E3A1C6CD03500011439 /* Match.swift */; };
 		65B04E3D1C6CD05900011439 /* Practice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E3C1C6CD05900011439 /* Practice.swift */; };
 		65B04E3F1C6CD06600011439 /* MatchScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E3E1C6CD06600011439 /* MatchScore.swift */; };
+		65C4D71F1E462A5700242DEB /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 65C4D71E1E462A5700242DEB /* .swiftlint.yml */; };
 		65C511E81C938C740051D645 /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C511E71C938C740051D645 /* ProfileHeaderView.xib */; };
 		65C511EA1C938DCA0051D645 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C511E91C938DCA0051D645 /* ProfileHeaderView.swift */; };
 		65C511EC1C9460940051D645 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C511EB1C9460940051D645 /* LocalStorage.swift */; };
@@ -188,6 +189,7 @@
 		65B04E3A1C6CD03500011439 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		65B04E3C1C6CD05900011439 /* Practice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Practice.swift; sourceTree = "<group>"; };
 		65B04E3E1C6CD06600011439 /* MatchScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchScore.swift; sourceTree = "<group>"; };
+		65C4D71E1E462A5700242DEB /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		65C511E71C938C740051D645 /* ProfileHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileHeaderView.xib; sourceTree = "<group>"; };
 		65C511E91C938DCA0051D645 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		65C511EB1C9460940051D645 /* LocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalStorage.swift; path = Storage/LocalStorage.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 		65B04DA11C6CA02300011439 /* TennisApp */ = {
 			isa = PBXGroup;
 			children = (
+				65C4D71E1E462A5700242DEB /* .swiftlint.yml */,
 				657234891E11726B0050F319 /* GoogleService-Info.plist */,
 				65B04DA21C6CA02300011439 /* AppDelegate.swift */,
 				65B04E1D1C6CBCB700011439 /* Managers */,
@@ -705,6 +708,7 @@
 				65D824A41C6F4A1600E2918C /* court_hard_g.jpg in Resources */,
 				65B04E0C1C6CA86400011439 /* Lato-HeavyItalic.ttf in Resources */,
 				65B04E111C6CA86400011439 /* Lato-MediumItalic.ttf in Resources */,
+				65C4D71F1E462A5700242DEB /* .swiftlint.yml in Resources */,
 				65B04E0D1C6CA86400011439 /* Lato-Italic.ttf in Resources */,
 				65EE6A3A1C8B9EAA001AF3F2 /* court_hard_p.jpg in Resources */,
 				65B04E181C6CA86400011439 /* README.txt in Resources */,
@@ -769,7 +773,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    echo \"\" >/dev/null;\n    #swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\n    echo \"\" >/dev/null;\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		7579BFFBD2CD76E70E46DDEF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

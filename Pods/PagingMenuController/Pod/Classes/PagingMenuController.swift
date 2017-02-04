@@ -16,6 +16,8 @@ public enum MenuMoveState {
     case didMoveController(to: UIViewController, from: UIViewController)
     case willMoveItem(to: MenuItemView, from: MenuItemView)
     case didMoveItem(to: MenuItemView, from: MenuItemView)
+    case didScrollStart
+    case didScrollEnd
 }
 
 internal let MinimumSupportedViewCount = 1
@@ -310,6 +312,8 @@ open class PagingMenuController: UIViewController {
 
 extension PagingMenuController: UIScrollViewDelegate {
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        onMove?(.didScrollEnd)
+        
         let nextPage: Int
         switch (scrollView, pagingViewController, menuView) {
         case let (scrollView, pagingViewController?, _) where scrollView.isEqual(pagingViewController.contentScrollView):
@@ -320,6 +324,10 @@ extension PagingMenuController: UIScrollViewDelegate {
         }
         
         move(toPage: nextPage)
+    }
+
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        onMove?(.didScrollStart)
     }
     
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {

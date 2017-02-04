@@ -762,7 +762,7 @@ extension UITableView {
         case .update(_, let deletions, let insertions, let updates):
             let fromRow = {(row: Int) in
                 return IndexPath(row: row, section: 0)}
-            
+
             beginUpdates()
             deleteRows(at: deletions.map(fromRow), with: .automatic)
             insertRows(at: insertions.map(fromRow), with: .automatic)
