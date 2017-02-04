@@ -71,13 +71,13 @@ class LoginViewController: BaseViewController, FBSDKLoginButtonDelegate {
     override func bindViewModel() {
         super.bindViewModel()
 
-        viewModel.email.bidirectionalBind(to: emailField.bnd_text)
-        viewModel.password.bidirectionalBind(to: passwordField.bnd_text)
+        viewModel.email.bidirectionalBind(to: emailField.reactive.text)
+        viewModel.password.bidirectionalBind(to: passwordField.reactive.text)
 
-        combineLatest(emailField.bnd_text, passwordField.bnd_text) { email, pass in
+        combineLatest(emailField.reactive.text, passwordField.reactive.text) { email, pass in
             return email!.length > 0 && pass!.length > 0
             }
-            .bind(to: emailLoginButton.bnd_isEnabled)
+            .bind(to: emailLoginButton.reactive.isEnabled)
 
         let _ = viewModel.profileImageURL.observeNext { (URL) in
             if let profileImageURL = URL {

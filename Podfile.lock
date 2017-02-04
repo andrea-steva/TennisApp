@@ -9,9 +9,9 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
-  - Bond (5.4.6):
+  - Bond (6.0.0):
     - Diff (~> 0.4)
-    - ReactiveKit (~> 3.2)
+    - ReactiveKit (~> 3.3)
   - Charts (3.0.1):
     - Charts/Core (= 3.0.1)
   - Charts/Core (3.0.1)
@@ -81,7 +81,7 @@ DEPENDENCIES:
   - Alamofire (~> 4.0)
   - AlamofireImage (~> 3.0)
   - ALCameraViewController
-  - Bond (~> 5.3)
+  - Bond (~> 6.0)
   - Charts
   - Crashlytics
   - DZNEmptyDataSet
@@ -107,7 +107,7 @@ SPEC CHECKSUMS:
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   ALCameraViewController: 4a513b8d5ecfdb3f34c50b1d469c373aae1ec7b4
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  Bond: 7cc794569520e611e46d7d77c35d568a6b5ded00
+  Bond: d34e0c37e829c991d3ef80aa860f647d677e7801
   Charts: 0e84f4418e87dad6a9edde221fba37ebb51d3ba7
   Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
   Diff: eceb93a3adf508574ba9b8560da185ace83de055
@@ -139,6 +139,6 @@ SPEC CHECKSUMS:
   SwiftyBeaver: 2b68694df862381235e32bcfc4ec991e26bf131d
   Tamamushi: 4c07eb1e0f612f0bd9e67d7c5f0f3edd3a238680
 
-PODFILE CHECKSUM: 2a1c68745615dc18e96d7aeb49de66c17d77547a
+PODFILE CHECKSUM: e2a6a054fafd4a938e09c0d8a71b0deaa69499fe
 
 COCOAPODS: 1.1.1

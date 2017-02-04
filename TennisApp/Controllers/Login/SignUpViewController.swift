@@ -48,14 +48,14 @@ class SignUpViewController: BaseViewController {
     override func bindViewModel() {
         super.bindViewModel()
 
-        viewModel.displayName.bidirectionalBind(to: displayNameField.bnd_text)
-        viewModel.email.bidirectionalBind(to: emailField.bnd_text)
-        viewModel.password.bidirectionalBind(to: passwordField.bnd_text)
+        viewModel.displayName.bidirectionalBind(to: displayNameField.reactive.text)
+        viewModel.email.bidirectionalBind(to: emailField.reactive.text)
+        viewModel.password.bidirectionalBind(to: passwordField.reactive.text)
 
-        combineLatest(emailField.bnd_text, passwordField.bnd_text, displayNameField.bnd_text) { (email, pass, name) -> Bool in
+        combineLatest(emailField.reactive.text, passwordField.reactive.text, displayNameField.reactive.text) { (email, pass, name) -> Bool in
             return email!.length > 0 && pass!.length > 0 && name!.length > 0
             }
-            .bind(to: signUpButton.bnd_isEnabled)
+            .bind(to: signUpButton.reactive.isEnabled)
     }
 
     // MARK: Actions
