@@ -44,6 +44,16 @@ public protocol ObservableArrayEventProtocol {
 public struct ObservableArrayEvent<Item>: ObservableArrayEventProtocol {
   public let change: ObservableArrayChange
   public let source: ObservableArray<Item>
+
+  public init(change: ObservableArrayChange, source: ObservableArray<Item>) {
+    self.change = change
+    self.source = source
+  }
+
+  public init(change: ObservableArrayChange, source: [Item]) {
+    self.change = change
+    self.source = ObservableArray(source)
+  }
 }
 
 public class ObservableArray<Item>: Collection, SignalProtocol {
@@ -98,7 +108,7 @@ public class ObservableArray<Item>: Collection, SignalProtocol {
 
 extension ObservableArray: Deallocatable {
 
-  public var bnd_deallocated: Signal<Void, NoError> {
+  public var deallocated: Signal<Void, NoError> {
     return subject.disposeBag.deallocated
   }
 }
@@ -219,7 +229,7 @@ extension MutableObservableArray: BindableProtocol {
 
   public func bind(signal: Signal<ObservableArrayEvent<Item>, NoError>) -> Disposable {
     return signal
-      .take(until: bnd_deallocated)
+      .take(until: deallocated)
       .observeNext { [weak self] event in
         guard let s = self else { return }
         s.array = event.source.array
@@ -264,6 +274,13 @@ extension ObservableArray: DataSourceProtocol {
   
   public func numberOfItems(inSection section: Int) -> Int {
     return count
+  }
+}
+
+extension ObservableArray: QueryableDataSourceProtocol {
+
+  public func item(at index: Int) -> Item {
+    return self[index]
   }
 }
 
