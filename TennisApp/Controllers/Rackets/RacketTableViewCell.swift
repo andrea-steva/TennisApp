@@ -29,11 +29,11 @@ class RacketTableViewCell: UITableViewCell {
     }
 
     func setRacket(_ racket: Racket) {
-        
+
         if let manufacter = racket.manufacter, let model = racket.model {
             racketNameLabel.text = "\(manufacter) - \(model)"
         }
-        
+
     }
 
 }

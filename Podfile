@@ -22,7 +22,7 @@ def shared_pods
 	pod 'RealmSwift', '~> 2.0'
     
     #Reactive
-    pod 'Bond', '~> 5.3'
+    pod 'Bond', '~> 6.0.0'
 
 	#Menu
 	pod 'RESideMenu', '~> 4.0.7'

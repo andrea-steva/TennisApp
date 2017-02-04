@@ -137,7 +137,7 @@ class RealmProxy {
      - return: The objects list.
      */
     func getObjects<O: Object>(_ predicate: String, sortBy: String) -> Results<O> {
-        return self.realm.objects(O.self).filter(predicate).sorted(byProperty: sortBy)
+        return self.realm.objects(O.self).filter(predicate).sorted(byKeyPath: sortBy)
     }
 
     /**
@@ -155,7 +155,7 @@ class RealmProxy {
      - return: The objects list.
      */
     func getAllObjects<O: Object>(sortedBy: String) -> Results<O> {
-        return self.realm.objects(O.self).sorted(byProperty: sortedBy, ascending: false)
+        return self.realm.objects(O.self).sorted(byKeyPath: sortedBy, ascending: false)
     }
 
     // MARK: Delete

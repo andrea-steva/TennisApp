@@ -228,6 +228,10 @@ pagingMenuController.onMove = { state in
     case let .didMoveItem(menuItemView, previousMenuItemView):
         print(previousMenuItemView)
         print(menuItemView)
+    case .didScrollStart:
+        print("Scroll start")
+    case .didScrollEnd:
+        print("Scroll end")
     }
 }
 ```
@@ -270,6 +274,8 @@ public enum MenuMoveState {
     case didMoveController(to: UIViewController, from: UIViewController)
     case willMoveItem(to: MenuItemView, from: MenuItemView)
     case didMoveItem(to: MenuItemView, from: MenuItemView)
+    case didScrollStart
+    case didScrollEnd
 }
 
 pagingMenuController.onMove = { state in
@@ -286,6 +292,10 @@ pagingMenuController.onMove = { state in
     case let .didMoveItem(menuItemView, previousMenuItemView):
         print(previousMenuItemView)
         print(menuItemView)
+    case .didScrollStart:
+        print("Scroll start")
+    case .didScrollEnd:
+        print("Scroll end")
     }
 }
 ```

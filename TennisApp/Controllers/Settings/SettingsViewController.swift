@@ -22,7 +22,9 @@ class SettingsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        TMGradientNavigationBar().setGradientColorOnNavigationBar(bar: self.navigationController!.navigationBar, direction: .vertical, startColor: Style.Colors.courtHardP, endColor: Style.Colors.courtHardP.lighter())
+        TMGradientNavigationBar().setGradientColorOnNavigationBar(bar: self.navigationController!.navigationBar, direction: .vertical,
+                                                                  startColor: Style.Colors.courtHardP,
+                                                                  endColor: Style.Colors.courtHardP.lighter())
 
     }
 

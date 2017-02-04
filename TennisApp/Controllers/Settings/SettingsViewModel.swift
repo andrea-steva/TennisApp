@@ -9,5 +9,5 @@
 import RealmSwift
 
 final class SettingsViewModel: BaseViewModel {
-    
+
 }
