@@ -459,19 +459,19 @@ Copyright 2017 Google
 
 ## FirebaseAnalytics
 
-Copyright 2016 Google
+Copyright 2017 Google
 
 ## FirebaseAuth
 
-Copyright 2016 Google
+Copyright 2017 Google
 
 ## FirebaseCore
 
-Copyright 2016 Google
+Copyright 2017 Google
 
 ## FirebaseInstanceID
 
-Copyright 2016 Google
+Copyright 2017 Google
 
 ## FontAwesome.swift
 
@@ -724,14 +724,6 @@ THE SOFTWARE.
    See the License for the specific language governing permissions and
    limitations under the License.
 
-
-## GoogleInterchangeUtilities
-
-Copyright 2016 Google
-
-## GoogleSymbolUtilities
-
-Copyright 2016 Google
 
 ## GoogleToolboxForMac
 
