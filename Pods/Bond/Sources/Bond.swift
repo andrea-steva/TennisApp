@@ -28,16 +28,24 @@ public struct Bond<Element>: BindableProtocol {
 
   private weak var target: Deallocatable?
   private let setter: (AnyObject, Element) -> Void
+  private let context: ExecutionContext
 
-  public init<Target: Deallocatable>(target: Target, setter: @escaping (Target, Element) -> Void) {
+  public init<Target: Deallocatable>(target: Target, context: ExecutionContext, setter: @escaping (Target, Element) -> Void) {
     self.target = target
+    self.context = context
+    self.setter =  { setter($0 as! Target, $1) }
+  }
+
+  public init<Target: Deallocatable>(target: Target, setter: @escaping (Target, Element) -> Void) where Target: BindingExecutionContextProvider {
+    self.target = target
+    self.context = target.bindingExecutionContext
     self.setter =  { setter($0 as! Target, $1) }
   }
 
   public func bind(signal: Signal<Element, NoError>) -> Disposable {
     if let target = target {
       return signal.take(until: target.deallocated).observeNext { element in
-        ImmediateOnMainExecutionContext {
+        self.context.execute {
           if let target = self.target {
             self.setter(target, element)
           }
@@ -52,19 +60,15 @@ public struct Bond<Element>: BindableProtocol {
 extension ReactiveExtensions where Base: Deallocatable {
 
   /// Creates a bond on the receiver.
-  public func bond<Element>(setter: @escaping (Base, Element) -> Void) -> Bond<Element> {
-    return Bond(target: base, setter: setter)
+  public func bond<Element>(context: ExecutionContext, setter: @escaping (Base, Element) -> Void) -> Bond<Element> {
+    return Bond(target: base, context: context, setter: setter)
   }
 }
 
+extension ReactiveExtensions where Base: Deallocatable, Base: BindingExecutionContextProvider {
 
-extension SignalProtocol where Error == NoError {
-
-  /// Bind signal to the target using the given setter closure.
-  /// Closure is called whenever the signal emits an event.
-  /// Binding will live until either signal completes or target is deallocated.
-  @discardableResult
-  public func bind<Target: Deallocatable>(to target: Target, setter: @escaping (Target, Element) -> Void) -> Disposable {
-    return bind(to: Bond(target: target, setter: setter))
+  /// Creates a bond on the receiver.
+  public func bond<Element>(setter: @escaping (Base, Element) -> Void) -> Bond<Element> {
+    return Bond(target: base, setter: setter)
   }
 }

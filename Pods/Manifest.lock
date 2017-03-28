@@ -9,9 +9,9 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
-  - Bond (6.0.4):
+  - Bond (6.2.1):
     - Diff (~> 0.4)
-    - ReactiveKit (~> 3.3)
+    - ReactiveKit (~> 3.5.1)
   - Charts (3.0.1):
     - Charts/Core (= 3.0.1)
   - Charts/Core (3.0.1)
@@ -59,7 +59,7 @@ PODS:
   - IQKeyboardManagerSwift (4.0.8)
   - MBProgressHUD (1.0.0)
   - PagingMenuController (2.2.0)
-  - ReactiveKit (3.3.1)
+  - ReactiveKit (3.5.1)
   - Realm (2.4.4):
     - Realm/Headers (= 2.4.4)
   - Realm/Headers (2.4.4)
@@ -67,7 +67,7 @@ PODS:
     - Realm (= 2.4.4)
   - RESideMenu (4.0.7)
   - SCLAlertView (0.7.0)
-  - SwiftyBeaver (1.1.3)
+  - SwiftyBeaver (1.1.4)
   - Tamamushi (0.1.3)
 
 DEPENDENCIES:
@@ -100,7 +100,7 @@ SPEC CHECKSUMS:
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   ALCameraViewController: 4a513b8d5ecfdb3f34c50b1d469c373aae1ec7b4
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  Bond: bc982d559e9c7fe30f50c29bbb5396ded9529699
+  Bond: 02cf94a3ea73f77aaa0be0633f413f470c868e3c
   Charts: 0e84f4418e87dad6a9edde221fba37ebb51d3ba7
   Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
   Diff: befa1d19c32726b2b36ce915d98793e2fbde8dcc
@@ -122,12 +122,12 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   PagingMenuController: 6176618987bb170096664f2da097313e45ed9c31
-  ReactiveKit: 27df79c2e2f0771aef1061551fcd7e82b92066e9
+  ReactiveKit: aa0faf668053e7fddd6a07829ba3696741cbff37
   Realm: 5a280a1f5a9a3c267bebf4f41ee47911137703d7
   RealmSwift: 0c02b9f2d4be4301c497ed10e53a0580584eb1dd
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
-  SwiftyBeaver: 949aa1439b8fa3667f68555cfef65de46a70ccde
+  SwiftyBeaver: 9216b6e163c145628ccc7c0126df4287880d6e1e
   Tamamushi: 4c07eb1e0f612f0bd9e67d7c5f0f3edd3a238680
 
 PODFILE CHECKSUM: e2a6a054fafd4a938e09c0d8a71b0deaa69499fe
