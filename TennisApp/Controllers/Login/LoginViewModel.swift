@@ -37,6 +37,7 @@ final class LoginViewModel: BaseViewModel {
                 self.profileImageURL.value = profileImageURL
             }
             FirebaseProxy.sharedInstance.signedIn(user!)
+            AppDelegate.instance.setRootViewController(Utils.getControllerFromStoryboard("Main"))
         }
     }
 
@@ -63,6 +64,7 @@ final class LoginViewModel: BaseViewModel {
                 self.profileImageURL.value = profileImageURL
             }
             FirebaseProxy.sharedInstance.signedIn(user!)
+            AppDelegate.instance.setRootViewController(Utils.getControllerFromStoryboard("Main"))
         }
     }
 }
