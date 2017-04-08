@@ -50,6 +50,7 @@ final class SignUpViewModel: BaseViewModel {
                 return
             }
             FirebaseProxy.sharedInstance.signedIn(FIRAuth.auth()?.currentUser)
+            AppDelegate.instance.setRootViewController(Utils.getControllerFromStoryboard("Main"))
         }
     }
 }

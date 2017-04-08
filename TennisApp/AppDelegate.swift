@@ -14,8 +14,9 @@ import FBSDKCoreKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-    static func instance() -> AppDelegate {
+    var appCoordinator: AppCoordinator!
+    
+    static var instance: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
 
@@ -29,12 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Style.setupSearchBarStyle()
 
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-
-        if let user = FirebaseProxy.sharedInstance.currentUser {
-            FirebaseProxy.sharedInstance.signedIn(user)
-        } else {
-            self.setRootViewController(Utils.getControllerFromStoryboard("Login"))
-        }
+        
+        window = UIWindow()
+        appCoordinator = AppCoordinator(window: window!)
+        appCoordinator.start()
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
@@ -48,11 +49,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -60,7 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {

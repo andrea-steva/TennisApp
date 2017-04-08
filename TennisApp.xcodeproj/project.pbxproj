@@ -14,6 +14,8 @@
 		6507CA6B1C6D111700B7AD5C /* Rackets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6507CA6D1C6D111700B7AD5C /* Rackets.storyboard */; };
 		6507CA6F1C6D118000B7AD5C /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA6E1C6D118000B7AD5C /* BaseViewModel.swift */; };
 		6507CA711C6D119E00B7AD5C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA701C6D119E00B7AD5C /* BaseViewController.swift */; };
+		651829FF1E8B1C150027E42B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651829FE1E8B1C150027E42B /* Coordinator.swift */; };
+		65182A011E8B20DD0027E42B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65182A001E8B20DD0027E42B /* AppCoordinator.swift */; };
 		6521CBA51C6F5E63006D007C /* RacketFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6521CBA41C6F5E63006D007C /* RacketFormViewController.swift */; };
 		65341D1D1E11BCAB00617207 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65341D1C1E11BCAB00617207 /* Constants.swift */; };
 		656A4BB51E143659009E97EB /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A4BB41E143659009E97EB /* AlertView.swift */; };
@@ -124,6 +126,8 @@
 		6507CA6C1C6D111700B7AD5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Rackets.storyboard; sourceTree = "<group>"; };
 		6507CA6E1C6D118000B7AD5C /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		6507CA701C6D119E00B7AD5C /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		651829FE1E8B1C150027E42B /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		65182A001E8B20DD0027E42B /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		6521CBA41C6F5E63006D007C /* RacketFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketFormViewController.swift; sourceTree = "<group>"; };
 		65341D1C1E11BCAB00617207 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		656A4BB41E143659009E97EB /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
@@ -262,6 +266,14 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
+		651829FD1E8B1C080027E42B /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				651829FE1E8B1C150027E42B /* Coordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 		6589FC851E1EFF0E00C25F31 /* CustomRows */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +319,8 @@
 				65C4D71E1E462A5700242DEB /* .swiftlint.yml */,
 				657234891E11726B0050F319 /* GoogleService-Info.plist */,
 				65B04DA21C6CA02300011439 /* AppDelegate.swift */,
+				65182A001E8B20DD0027E42B /* AppCoordinator.swift */,
+				651829FD1E8B1C080027E42B /* Coordinators */,
 				65B04E1D1C6CBCB700011439 /* Managers */,
 				65B04DE21C6CA74400011439 /* Assets */,
 				65B04E291C6CC67300011439 /* Storage */,
@@ -773,7 +787,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    echo \"\" >/dev/null;\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\n    echo \"\" >/dev/null;\n    #swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		7579BFFBD2CD76E70E46DDEF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -814,6 +828,7 @@
 			files = (
 				6589FC981E26F6A600C25F31 /* StatsViewModel.swift in Sources */,
 				6507CA6F1C6D118000B7AD5C /* BaseViewModel.swift in Sources */,
+				65182A011E8B20DD0027E42B /* AppCoordinator.swift in Sources */,
 				65341D1D1E11BCAB00617207 /* Constants.swift in Sources */,
 				65C511EC1C9460940051D645 /* LocalStorage.swift in Sources */,
 				65B04E311C6CCD5C00011439 /* Activity.swift in Sources */,
@@ -846,6 +861,7 @@
 				65B04E231C6CBEEF00011439 /* Utils.swift in Sources */,
 				6589FC891E1EFF0E00C25F31 /* ImagePickerController.swift in Sources */,
 				65D824AA1C6F589B00E2918C /* SettingsViewController.swift in Sources */,
+				651829FF1E8B1C150027E42B /* Coordinator.swift in Sources */,
 				65C511F11C948ED50051D645 /* LoginViewController.swift in Sources */,
 				65B04E1F1C6CBCD000011439 /* LocationManager.swift in Sources */,
 				656A4BBB1E1C1DDA009E97EB /* SignUpViewModel.swift in Sources */,

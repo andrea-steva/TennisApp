@@ -54,7 +54,7 @@ class RESideLeftViewController: UIViewController, UITableViewDataSource, UITable
                         if let errorMessage = error {
                             Log.error(errorMessage)
                         }
-                        AppDelegate.instance().setRootViewController(Utils.getControllerFromStoryboard("Login"))
+                        AppDelegate.instance.setRootViewController(Utils.getControllerFromStoryboard("Login"))
                     }
                 }
             }
