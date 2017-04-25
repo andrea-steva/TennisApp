@@ -11,7 +11,7 @@ import Firebase
 import Bond
 import ReactiveKit
 
-class SignUpViewController: BaseViewController {
+class SignUpViewController: BaseViewController, Bindable {
 
     // MARK: IBOutlets
     @IBOutlet var displayNameField: UITextField!
@@ -34,7 +34,7 @@ class SignUpViewController: BaseViewController {
     // MARK: ViewModel
     var viewModel = SignUpViewModel()
 
-    override func getViewModel() -> BaseViewModel? {
+    func getViewModel() -> BaseViewModel? {
         return viewModel
     }
 
@@ -45,8 +45,7 @@ class SignUpViewController: BaseViewController {
         self.backgroundView?.image = self.backgroundView?.image?.applyMenuEffect()
     }
 
-    override func bindViewModel() {
-        super.bindViewModel()
+    func bindViewModel() {
 
         viewModel.displayName.bidirectionalBind(to: displayNameField.reactive.text)
         viewModel.email.bidirectionalBind(to: emailField.reactive.text)
@@ -61,7 +60,7 @@ class SignUpViewController: BaseViewController {
     // MARK: Actions
 
     @IBAction func dismissController(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
+        self.viewModel.backLogin()
     }
 
     @IBAction func didTapSignUp(_ sender: AnyObject) {

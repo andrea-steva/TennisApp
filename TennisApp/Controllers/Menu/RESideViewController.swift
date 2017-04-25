@@ -9,12 +9,21 @@
 import UIKit
 import RESideMenu
 
+protocol RESideViewModelCoordinatorDelegate: class {
+    func resideViewModelDidLogout(viewModel: RESideViewModel)
+}
+
+final class RESideViewModel: BaseViewModel {
+    
+    // MARK: Coordinator
+    weak var coordinatorDelegate: RESideViewModelCoordinatorDelegate?
+}
+
 class RESideViewController: RESideMenu, RESideMenuDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
 
     override func awakeFromNib() {
@@ -27,8 +36,8 @@ class RESideViewController: RESideMenu, RESideMenuDelegate {
         self.contentViewShadowRadius = 12
         self.contentViewShadowEnabled = true
 
-        self.contentViewController = Utils.getControllerFromStoryboard("Main", controllerId: "ContentViewController")
-        self.leftMenuViewController = Utils.getControllerFromStoryboard("Main", controllerId: "MenuViewController")
+        self.contentViewController = Utils.getControllerFromStoryboard("Activities", controllerId: "ContentViewController")
+        self.leftMenuViewController = Utils.getControllerFromStoryboard("Activities", controllerId: "MenuViewController")
         self.backgroundImage = UIImage(named: "Stars")
         self.delegate = self
     }

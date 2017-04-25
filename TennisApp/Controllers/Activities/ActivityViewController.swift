@@ -1,5 +1,5 @@
 //
-//  ActivitiesViewController.swift
+//  ActivityViewController.swift
 //  TennisApp
 //
 //  Created by Andrea Stevanato on 12/02/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ActivitiesViewController: UIViewController {
+class ActivityViewController: UIViewController {
 
     static let ActivityCellReuseId = "activity_cell"
 
@@ -16,6 +16,8 @@ class ActivitiesViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
 
+    // MARK: View Management
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

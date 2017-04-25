@@ -2,14 +2,14 @@ PODS:
   - Alamofire (4.4.0)
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
-  - ALCameraViewController (1.2.7)
+  - ALCameraViewController (1.3.1)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
-  - Bond (6.2.4):
+  - Bond (6.2.5):
     - Diff (~> 0.4)
     - ReactiveKit (~> 3.5.1)
   - Charts (3.0.2):
@@ -21,27 +21,28 @@ PODS:
   - DZNEmptyDataSet (1.8.1)
   - Eureka (2.0.1)
   - Fabric (1.6.11)
-  - FBSDKCoreKit (4.21.0):
+  - FBSDKCoreKit (4.22.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.21.0):
+  - FBSDKLoginKit (4.22.0):
     - FBSDKCoreKit
-  - Firebase/Auth (3.15.0):
+  - Firebase/Auth (3.16.0):
     - Firebase/Core
     - FirebaseAuth (= 3.1.1)
-  - Firebase/Core (3.15.0):
-    - FirebaseAnalytics (= 3.7.0)
-    - FirebaseCore (= 3.5.2)
-  - FirebaseAnalytics (3.7.0):
-    - FirebaseCore (~> 3.5)
+  - Firebase/Core (3.16.0):
+    - FirebaseAnalytics (= 3.8.0)
+    - FirebaseCore (= 3.6.0)
+  - FirebaseAnalytics (3.8.0):
+    - FirebaseCore (~> 3.6)
     - FirebaseInstanceID (~> 1.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseAuth (3.1.1):
     - FirebaseAnalytics (~> 3.7)
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseCore (3.5.2):
+  - FirebaseCore (3.6.0):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseInstanceID (1.0.9)
+  - FirebaseInstanceID (1.0.10):
+    - FirebaseCore (~> 3.6)
   - FontAwesome.swift (1.1.1)
   - GoogleToolboxForMac/DebugUtils (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
@@ -60,14 +61,14 @@ PODS:
   - MBProgressHUD (1.0.0)
   - PagingMenuController (2.2.0)
   - ReactiveKit (3.5.1)
-  - Realm (2.5.1):
-    - Realm/Headers (= 2.5.1)
-  - Realm/Headers (2.5.1)
-  - RealmSwift (2.5.1):
-    - Realm (= 2.5.1)
+  - Realm (2.6.2):
+    - Realm/Headers (= 2.6.2)
+  - Realm/Headers (2.6.2)
+  - RealmSwift (2.6.2):
+    - Realm (= 2.6.2)
   - RESideMenu (4.0.7)
   - SCLAlertView (0.7.0)
-  - SwiftyBeaver (1.1.4)
+  - SwiftyBeaver (1.2.0)
   - Tamamushi (0.1.3)
 
 DEPENDENCIES:
@@ -98,22 +99,22 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
-  ALCameraViewController: 4a513b8d5ecfdb3f34c50b1d469c373aae1ec7b4
+  ALCameraViewController: 29a34772007b98e23150bfe1772475a4a80a33ff
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  Bond: c54dc8e6ad4f2d4e3d60c680c25637a7824161df
+  Bond: 30598a79d741c8d55cb414e1b538ef4b3110c1a0
   Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
   Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
   Diff: befa1d19c32726b2b36ce915d98793e2fbde8dcc
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
-  FBSDKCoreKit: 8a372ab194b5c7c26355c1920ef52dbeb44bc222
-  FBSDKLoginKit: a1a5f4b4ac445823a020fbeeaf5f03714a67ff9c
-  Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
-  FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
+  FBSDKCoreKit: c693bad19feb225469eeff14452ba364522ee48b
+  FBSDKLoginKit: 1fa529fc622d7b32ebeaffbecd377180833c6d30
+  Firebase: 21bf4a89d3f01bfbe11adc3a5d934a4a3d3a5fd6
+  FirebaseAnalytics: 920e46455f27b0a52a80907a6d9b73ee4bd1c635
   FirebaseAuth: cc8a1824170adbd351edb7f994490a3fb5c18be6
-  FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
-  FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
+  FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
+  FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
   FontAwesome.swift: f4ff5a9199dc3b510eba5bb377e834f159aef358
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GSKStretchyHeaderView: daba8f035eaade6326d05ee2a382be714bb019c0
@@ -123,13 +124,13 @@ SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   PagingMenuController: 6176618987bb170096664f2da097313e45ed9c31
   ReactiveKit: aa0faf668053e7fddd6a07829ba3696741cbff37
-  Realm: 32f86104d37c8521f864d4274050b38ba6190733
-  RealmSwift: f719e7511c902b8908593e8f143f59e47931bdb6
+  Realm: 29222766425b9f831228f81b63f0e38a97a4d700
+  RealmSwift: d161a80f96cb91ae88391a7d5a9cf08024a7bc8e
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
-  SwiftyBeaver: 9216b6e163c145628ccc7c0126df4287880d6e1e
+  SwiftyBeaver: ee865c50ec462ff142f232145057818491c2b344
   Tamamushi: 4c07eb1e0f612f0bd9e67d7c5f0f3edd3a238680
 
 PODFILE CHECKSUM: e2a6a054fafd4a938e09c0d8a71b0deaa69499fe
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1
