@@ -16,11 +16,11 @@ final public class Logger: NSObject {
         //Change default color
         xCodeConsole.levelColor.info = "fg28,87,215;"
         xCodeConsole.levelColor.warning = "fg253,147,50;"
-        xCodeConsole.levelString.verbose = "🔶 VERBOSE"
-        xCodeConsole.levelString.debug = "⚪️ DEBUG"
-        xCodeConsole.levelString.info = "🔵 INFO"
-        xCodeConsole.levelString.warning = "⚠️ WARNING"
-        xCodeConsole.levelString.error = "🔴 ERROR"
+        xCodeConsole.levelString.verbose = "🔶:"
+        xCodeConsole.levelString.debug = "⚪️:"
+        xCodeConsole.levelString.info = "🔵:"
+        xCodeConsole.levelString.warning = "⚠️:"
+        xCodeConsole.levelString.error = "🔴:"
         xCodeConsole.format = "$DHH:mm:ss$d $L $M"
 
         Log.addDestination(xCodeConsole)

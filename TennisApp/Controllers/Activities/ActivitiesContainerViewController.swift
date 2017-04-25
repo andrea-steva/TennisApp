@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  ActivitiesContainerViewController.swift
 //  TennisApp
 //
 //  Created by Andrea Stevanato on 12/02/16.
@@ -13,11 +13,11 @@ import Tamamushi
 // MARK: PagingMenuOptions
 private struct PagingMenuOptions: PagingMenuControllerCustomizable {
 
-    init(controllers: [ActivitiesViewController]) {
+    init(controllers: [ActivityViewController]) {
         self.pagingControllers = controllers
     }
 
-    private var pagingControllers: [ActivitiesViewController]
+    private var pagingControllers: [ActivityViewController]
 
     fileprivate var componentType: ComponentType {
         return .all(menuOptions: MenuOptions(pagingControllers: self.pagingControllers), pagingControllers: pagingControllers)
@@ -25,7 +25,7 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
 
     private struct MenuOptions: MenuViewCustomizable {
 
-        init(pagingControllers: [ActivitiesViewController]) {
+        init(pagingControllers: [ActivityViewController]) {
 
             self.itemsOptions = []
             for controller in pagingControllers {
@@ -74,12 +74,12 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
     }
 }
 
-class HomeViewController: BaseViewController {
+class ActivitiesContainerViewController: BaseViewController {
 
     // MARK: Property
 
     /// The array with the view controllers for the paging menu
-    fileprivate var menuControllers: [ActivitiesViewController] = []
+    fileprivate var menuControllers: [ActivityViewController] = []
 
     // MARK: View Management
 
@@ -100,7 +100,7 @@ class HomeViewController: BaseViewController {
     fileprivate func setupPagedMenu(_ controllers: [UIViewController]) {
 
         for index in 0...2 {
-            let activityController =  Utils.getControllerFromStoryboard("Main", controllerId: "ActivitiesViewController") as! ActivitiesViewController
+            let activityController =  Utils.getControllerFromStoryboard("Activities", controllerId: "ActivityViewController") as! ActivityViewController
 
             if index == 0 {
                 activityController.title = "Matchs"

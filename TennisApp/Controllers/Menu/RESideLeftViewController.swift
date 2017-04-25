@@ -63,6 +63,7 @@ class RESideLeftViewController: UIViewController, UITableViewDataSource, UITable
         let contentViewController = Utils.getControllerFromStoryboard(menuItem.storyboardName())
         self.sideMenuViewController.setContentViewController(contentViewController, animated: true)
         self.sideMenuViewController.hideViewController()
+
     }
 
     // MARK: UITableViewDelegate

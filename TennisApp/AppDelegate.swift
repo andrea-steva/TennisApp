@@ -13,14 +13,22 @@ import FBSDKCoreKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-    var appCoordinator: AppCoordinator!
-    
     static var instance: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
-
+    
+    var window: UIWindow?
+        
+    private var mainCoordinator: Coordinator?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+        window = UIWindow()
+        let coordinator = AppCoordinator(window: window!)
+        coordinator.start()
+        window?.makeKeyAndVisible()
+        
+        mainCoordinator = coordinator
 
         let _ = Logger()
         Services.initialize()
@@ -30,11 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Style.setupSearchBarStyle()
 
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        
-        window = UIWindow()
-        appCoordinator = AppCoordinator(window: window!)
-        appCoordinator.start()
-        window?.makeKeyAndVisible()
         
         return true
     }

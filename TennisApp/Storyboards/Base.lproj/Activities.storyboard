@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Side View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="RESideViewController" customModule="TennisApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RESide" id="BYZ-38-t0r" customClass="RESideViewController" customModule="TennisApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -51,7 +51,7 @@
                                         <rect key="frame" x="0.0" y="22" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nlI-H3-8x6" id="mSu-Jd-jA7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
@@ -102,10 +102,10 @@
             </objects>
             <point key="canvasLocation" x="664" y="182"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Activities Container View Controller-->
         <scene sceneID="Yj5-lD-QqG">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="VAR-NB-opc" customClass="HomeViewController" customModule="TennisApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ActivitiesContainerViewController" id="VAR-NB-opc" customClass="ActivitiesContainerViewController" customModule="TennisApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Fj2-Mg-XvZ"/>
                         <viewControllerLayoutGuide type="bottom" id="u7O-D0-X65"/>
@@ -145,10 +145,10 @@
             </objects>
             <point key="canvasLocation" x="1402" y="182"/>
         </scene>
-        <!--Activities View Controller-->
+        <!--Activity View Controller-->
         <scene sceneID="Ks8-oN-7Ru">
             <objects>
-                <viewController storyboardIdentifier="ActivitiesViewController" id="0CF-r7-oW5" customClass="ActivitiesViewController" customModule="TennisApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ActivityViewController" id="0CF-r7-oW5" customClass="ActivityViewController" customModule="TennisApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dvB-Om-C96"/>
                         <viewControllerLayoutGuide type="bottom" id="zlh-ou-vvl"/>

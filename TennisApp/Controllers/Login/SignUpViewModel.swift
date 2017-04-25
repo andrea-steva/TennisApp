@@ -9,8 +9,17 @@
 import Bond
 import Firebase
 
+protocol SignUpViewModelCoordinatorDelegate: class {
+    func signUpViewModelRegisterUser(viewModel: SignUpViewModel)
+    func signUpViewModelDidEnd(_ viewModel: SignUpViewModel)
+}
+
 final class SignUpViewModel: BaseViewModel {
 
+    // MARK: Coordinator
+    
+    weak var coordinatorDelegate: SignUpViewModelCoordinatorDelegate?
+    
     // MARK: Observable
 
     let displayName = Observable<String?>("")
@@ -18,6 +27,10 @@ final class SignUpViewModel: BaseViewModel {
     let password = Observable<String?>("")
 
     // MARK: Methods
+    
+    func backLogin() {
+        self.coordinatorDelegate?.signUpViewModelDidEnd(self)
+    }
 
     func signUp() {
         guard let email = email.value, let password = password.value else {
@@ -50,7 +63,8 @@ final class SignUpViewModel: BaseViewModel {
                 return
             }
             FirebaseProxy.sharedInstance.signedIn(FIRAuth.auth()?.currentUser)
-            AppDelegate.instance.setRootViewController(Utils.getControllerFromStoryboard("Main"))
+            
+            self.coordinatorDelegate?.signUpViewModelRegisterUser(viewModel: self)
         }
     }
 }
