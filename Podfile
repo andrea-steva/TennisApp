@@ -32,7 +32,7 @@ def shared_pods
 	pod 'Alamofire', '~> 4.0'
 
 	#Form
-	pod 'Eureka', '~> 2.0.0-beta.1'
+	pod 'Eureka'
 	
     # Camera View Controller https://github.com/AlexLittlejohn/ALCameraViewController∫
     pod 'ALCameraViewController'
