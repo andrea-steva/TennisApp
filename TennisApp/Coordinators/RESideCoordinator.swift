@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol RESideCoordinatorDelegate: class  {
+protocol RESideCoordinatorDelegate: class {
     func resideCoordinatorDidFinish(resideCoordinator: RESideCoordinator)
 }
 
-class RESideCoordinator: Coordinator {
+class RESideCoordinator: Coordinator, RESideViewModelCoordinatorDelegate {
     
     // MARK: Properties
     
@@ -32,12 +32,21 @@ class RESideCoordinator: Coordinator {
         guard let vc = storyboard.instantiateViewController(withIdentifier: "RESide") as? RESideViewController else {
             return
         }
+        
+        vc.viewModel = RESideViewModel()
+        vc.viewModel.coordinatorDelegate = self
+        
         resideViewController = vc
         window?.rootViewController = resideViewController
     }
-
+    
+    // MARK: RESideViewModelCoordinatorDelegate
+    
+    func resideViewModelDidLogout(viewModel: RESideViewModel) {
+        self.delegate?.resideCoordinatorDidFinish(resideCoordinator: self)
+    }
+    
     deinit {
         Log.verbose("Deinit \(self)")
     }
 }
-

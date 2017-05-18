@@ -12,8 +12,7 @@ import Firebase
 final class FirebaseProxy {
 
     static let sharedInstance: FirebaseProxy = {
-        let instance = FirebaseProxy()
-        return instance
+        return FirebaseProxy()
     }()
 
     var currentUser: FIRUser?

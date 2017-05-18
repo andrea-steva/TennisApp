@@ -61,6 +61,6 @@ class AppCoordinator: Coordinator, LoginCoordinatorDelegate, RESideCoordinatorDe
     // MARK: RESideCoordinatorDelegate
     
     func resideCoordinatorDidFinish(resideCoordinator: RESideCoordinator) {
-        
+        showLogin()
     }
 }

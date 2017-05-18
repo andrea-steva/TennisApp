@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol Bindable  {
+protocol Bindable {
     func getViewModel() -> BaseViewModel?
     func bindViewModel()
     func bindLoader()
