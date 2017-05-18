@@ -111,7 +111,7 @@ class LoginViewController: BaseViewController, Bindable, FBSDKLoginButtonDelegat
             if (userInput!.isEmpty) {
                 return
             }
-            FIRAuth.auth()?.sendPasswordReset(withEmail: userInput!) { (error) in
+            Auth.auth().sendPasswordReset(withEmail: userInput!) { (error) in
                 if let error = error {
                     print(error.localizedDescription)
                     return

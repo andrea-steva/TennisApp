@@ -26,7 +26,7 @@ class Match: Object, ActivityProtocol, MatchProtocol {
 
     // MARK: Relationship
 
-    let user = LinkingObjects(fromType: User.self, property: "matches")
+    let user = LinkingObjects(fromType: TUser.self, property: "matches")
     var scores = List<MatchScore>()
 
     // MARK: Primary Key

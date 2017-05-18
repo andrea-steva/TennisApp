@@ -38,7 +38,7 @@ final class SignUpViewModel: BaseViewModel {
         }
 
         self.isLoading.value = true
-        FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
+        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             self.isLoading.value = false
             if let error = error {
                 self.errorMessage.value = error.localizedDescription
@@ -49,20 +49,20 @@ final class SignUpViewModel: BaseViewModel {
         }
     }
 
-    private func setDisplayName(_ user: FIRUser) {
+    private func setDisplayName(_ user: User) {
 
         var displayName = user.email!.components(separatedBy: "@")[0]
         if let name = self.displayName.value {
             displayName = name
         }
-        let changeRequest = user.profileChangeRequest()
+        let changeRequest = user.createProfileChangeRequest()
         changeRequest.displayName = displayName
         changeRequest.commitChanges() { (error) in
             if let error = error {
                 Log.error(error.localizedDescription)
                 return
             }
-            FirebaseProxy.sharedInstance.signedIn(FIRAuth.auth()?.currentUser)
+            FirebaseProxy.sharedInstance.signedIn(Auth.auth().currentUser)
             
             self.coordinatorDelegate?.signUpViewModelRegisterUser(viewModel: self)
         }

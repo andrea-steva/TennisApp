@@ -15,25 +15,25 @@ final class FirebaseProxy {
         return FirebaseProxy()
     }()
 
-    var currentUser: FIRUser?
+    var currentUser: User?
 
     // MARK: Methods
 
     init() {
-        FIRApp.configure()
-        self.currentUser = FIRAuth.auth()?.currentUser
+        FirebaseApp.configure()
+        self.currentUser = Auth.auth().currentUser
     }
 
-    func signedIn(_ user: FIRUser?) {
+    func signedIn(_ user: User?) {
         self.currentUser = user
         let notificationName = Notification.Name(rawValue: Constants.NotificationKeys.signedIn)
         NotificationCenter.default.post(name: notificationName, object: nil, userInfo: nil)
     }
 
     func signOut(completion: (_ success: Bool, _ error: String?) -> Void) {
-        let firebaseAuth = FIRAuth.auth()
+        let firebaseAuth = Auth.auth()
         do {
-            try firebaseAuth?.signOut()
+            try firebaseAuth.signOut()
             completion(true, nil)
             self.currentUser = nil
         } catch let signOutError as NSError {

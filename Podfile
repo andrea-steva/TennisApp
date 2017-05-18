@@ -14,7 +14,7 @@ def shared_pods
 	pod 'Crashlytics'
     
     #Firebase
-    pod 'Firebase/Core' , '3.15.0'
+    pod 'Firebase/Core'
     pod 'Firebase/Auth'
     
     #Facebook

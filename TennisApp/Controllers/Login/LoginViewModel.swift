@@ -39,7 +39,7 @@ final class LoginViewModel: BaseViewModel {
         }
         
         self.isLoading.value = true
-        FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             self.isLoading.value = false
             if let error = error {
                 self.errorMessage.value = error.localizedDescription
@@ -49,7 +49,7 @@ final class LoginViewModel: BaseViewModel {
             if let profileImageURL = user?.photoURL {
                 self.profileImageURL.value = profileImageURL
             }
-            FirebaseProxy.sharedInstance.signedIn(user!)
+            FirebaseProxy.sharedInstance.signedIn(user)
             self.coordinatorDelegate?.loginViewModelDidLogin(viewModel: self)
         }
     }
@@ -65,8 +65,8 @@ final class LoginViewModel: BaseViewModel {
         }
         
         self.isLoading.value = true
-        let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-        FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+        let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+        Auth.auth().signIn(with: credential) { (user, error) in
             self.isLoading.value = false
             if let error = error {
                 self.errorMessage.value = error.localizedDescription
