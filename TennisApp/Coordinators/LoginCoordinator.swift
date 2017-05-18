@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol LoginCoordinatorDelegate: class  {
+protocol LoginCoordinatorDelegate: class {
     func loginCoordinatorDidFinish(loginCoordinator: LoginCoordinator)
 }
 
@@ -70,5 +70,9 @@ class LoginCoordinator: Coordinator, LoginViewModelCoordinatorDelegate, SignUpCo
         //Pop sign up view
         _ = navigationController.popViewController(animated: true)
         self.signUpCoordinator = nil
+    }
+    
+    deinit {
+        Log.verbose("Deinit \(self)")
     }
 }

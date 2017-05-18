@@ -12,7 +12,7 @@ final class RacketFormViewModel: BaseViewModel {
 
     // MARK: Properties
 
-    fileprivate let localStorage = LocalStorage()
+    fileprivate let racketsRepo = RacketsRepo(racketsService: RacketsService())
 
     var newRacket: Bool = true
     var racket: Racket?
@@ -32,7 +32,7 @@ final class RacketFormViewModel: BaseViewModel {
 
         //Update racket
         if let racket = self.racket {
-            self.localStorage.saveRacket(racket: racket, saveBlock: { (racket) in
+            self.racketsRepo.saveRacket(racket: racket, saveBlock: { (racket) in
                 racket.updateFrom(dict: formValues)
             })
         }

@@ -10,6 +10,25 @@ import UIKit
 import PagingMenuController
 import Tamamushi
 
+// MARK: MenuItemViewOptions
+private struct MenuItemViewOptions: MenuItemViewCustomizable {
+    private let title: String
+    
+    var displayMode: MenuItemDisplayMode {
+        let title = MenuItemText(text: self.title,
+                                 color: Style.Colors.lightColor,
+                                 selectedColor: Style.Colors.lightColor,
+                                 font: Style.Fonts.get(.regular, size: .normal),
+                                 selectedFont: Style.Fonts.get(.regular, size: .normal))
+        
+        return .text(title: title)
+    }
+    
+    init(title: String) {
+        self.title = title
+    }
+}
+
 // MARK: PagingMenuOptions
 private struct PagingMenuOptions: PagingMenuControllerCustomizable {
 
@@ -36,24 +55,6 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
 
         // MARK: Menu items options
         var itemsOptions: [MenuItemViewCustomizable]
-
-        struct MenuItemViewOptions: MenuItemViewCustomizable {
-            private let title: String
-
-            var displayMode: MenuItemDisplayMode {
-                let title = MenuItemText(text: self.title,
-                                         color: Style.Colors.lightColor,
-                                         selectedColor: Style.Colors.lightColor,
-                                         font: Style.Fonts.get(.regular, size: .normal),
-                                         selectedFont: Style.Fonts.get(.regular, size: .normal))
-
-                return .text(title: title)
-            }
-
-            init(title: String) {
-                self.title = title
-            }
-        }
 
         // MARK: Custom menu options
 
@@ -122,10 +123,5 @@ class ActivitiesContainerViewController: BaseViewController {
         pagingMenuController.onMove = { _ in
 
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }

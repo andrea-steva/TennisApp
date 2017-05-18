@@ -16,6 +16,8 @@
 		651829FF1E8B1C150027E42B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651829FE1E8B1C150027E42B /* Coordinator.swift */; };
 		65182A011E8B20DD0027E42B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65182A001E8B20DD0027E42B /* AppCoordinator.swift */; };
 		6521CBA51C6F5E63006D007C /* RacketFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6521CBA41C6F5E63006D007C /* RacketFormViewController.swift */; };
+		6524FDA11EAF966C00936B09 /* RacketsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6524FDA01EAF966C00936B09 /* RacketsService.swift */; };
+		6524FDA31EAF9DC800936B09 /* RacketsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6524FDA21EAF9DC800936B09 /* RacketsTests.swift */; };
 		65341D1D1E11BCAB00617207 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65341D1C1E11BCAB00617207 /* Constants.swift */; };
 		6569A3E01E990A3A00A444BB /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6569A3DF1E990A3A00A444BB /* Bindable.swift */; };
 		6569A3F31E990BAF00A444BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6569A3E51E990BAF00A444BB /* LaunchScreen.storyboard */; };
@@ -38,6 +40,10 @@
 		656A4BBB1E1C1DDA009E97EB /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A4BBA1E1C1DDA009E97EB /* SignUpViewModel.swift */; };
 		657234881E114DD40050F319 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657234871E114DD40050F319 /* Logger.swift */; };
 		6572348A1E11726B0050F319 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 657234891E11726B0050F319 /* GoogleService-Info.plist */; };
+		657AD2631EAFA65A00E3157F /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657AD2621EAFA65A00E3157F /* UsersService.swift */; };
+		657AD2651EAFAE9B00E3157F /* RESideViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657AD2641EAFAE9B00E3157F /* RESideViewModel.swift */; };
+		657AD2671EB270B500E3157F /* RESideLeftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657AD2661EB270B500E3157F /* RESideLeftViewModel.swift */; };
+		657AD2691EB4B58F00E3157F /* RealmProxyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657AD2681EB4B58F00E3157F /* RealmProxyTests.swift */; };
 		6589FC891E1EFF0E00C25F31 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589FC871E1EFF0E00C25F31 /* ImagePickerController.swift */; };
 		6589FC8A1E1EFF0E00C25F31 /* ImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589FC881E1EFF0E00C25F31 /* ImageRow.swift */; };
 		6589FC8C1E20515400C25F31 /* RacketFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589FC8B1E20515400C25F31 /* RacketFormViewModel.swift */; };
@@ -88,7 +94,6 @@
 		65C4D71F1E462A5700242DEB /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 65C4D71E1E462A5700242DEB /* .swiftlint.yml */; };
 		65C511E81C938C740051D645 /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C511E71C938C740051D645 /* ProfileHeaderView.xib */; };
 		65C511EA1C938DCA0051D645 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C511E91C938DCA0051D645 /* ProfileHeaderView.swift */; };
-		65C511EC1C9460940051D645 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C511EB1C9460940051D645 /* LocalStorage.swift */; };
 		65C511F11C948ED50051D645 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C511F01C948ED50051D645 /* LoginViewController.swift */; };
 		65C511F41C948F0A0051D645 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C511F31C948F0A0051D645 /* LoginViewModel.swift */; };
 		65D8249D1C6E38BE00E2918C /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8249C1C6E38BE00E2918C /* ActivityViewController.swift */; };
@@ -103,8 +108,8 @@
 		65FB52C21C6DE60C003A6DAE /* court_grass.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65FB52BF1C6DE60C003A6DAE /* court_grass.jpg */; };
 		65FB52C31C6DE60C003A6DAE /* court_hard_b.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65FB52C01C6DE60C003A6DAE /* court_hard_b.jpg */; };
 		65FB52C51C6DEC0B003A6DAE /* ActivitiesContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB52C41C6DEC0B003A6DAE /* ActivitiesContainerViewController.swift */; };
-		65FB52C71C6DF009003A6DAE /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB52C61C6DF009003A6DAE /* Services.swift */; };
 		65FB52D81C6DF252003A6DAE /* RacketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB52D71C6DF252003A6DAE /* RacketsViewController.swift */; };
+		7BFA3483FF9EBB75834AD60E /* Pods_TennisAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D70E6022E2EA16F5BB6726CF /* Pods_TennisAppTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +132,7 @@
 /* Begin PBXFileReference section */
 		17D1AE1094934F1BDA5C2436 /* Pods_TennisApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TennisApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C33F3D6C7F65404097A424 /* Pods-TennisApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TennisApp/Pods-TennisApp.debug.xcconfig"; sourceTree = "<group>"; };
+		484A4B75F1A567AF0F9C3F4C /* Pods-TennisAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TennisAppTests/Pods-TennisAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6507CA631C6CFE6400B7AD5C /* RESideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESideViewController.swift; sourceTree = "<group>"; };
 		6507CA651C6D023C00B7AD5C /* RESideLeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESideLeftViewController.swift; sourceTree = "<group>"; };
 		6507CA671C6D065A00B7AD5C /* SwiftUIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftUIImageEffects.swift; path = Vendor/SwiftUIImageEffects.swift; sourceTree = "<group>"; };
@@ -135,6 +141,8 @@
 		651829FE1E8B1C150027E42B /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		65182A001E8B20DD0027E42B /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		6521CBA41C6F5E63006D007C /* RacketFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketFormViewController.swift; sourceTree = "<group>"; };
+		6524FDA01EAF966C00936B09 /* RacketsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketsService.swift; sourceTree = "<group>"; };
+		6524FDA21EAF9DC800936B09 /* RacketsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketsTests.swift; sourceTree = "<group>"; };
 		65341D1C1E11BCAB00617207 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6569A3DF1E990A3A00A444BB /* Bindable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		6569A3E61E990BAF00A444BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -157,6 +165,10 @@
 		656A4BBA1E1C1DDA009E97EB /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		657234871E114DD40050F319 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		657234891E11726B0050F319 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		657AD2621EAFA65A00E3157F /* UsersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
+		657AD2641EAFAE9B00E3157F /* RESideViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESideViewModel.swift; sourceTree = "<group>"; };
+		657AD2661EB270B500E3157F /* RESideLeftViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESideLeftViewModel.swift; sourceTree = "<group>"; };
+		657AD2681EB4B58F00E3157F /* RealmProxyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmProxyTests.swift; sourceTree = "<group>"; };
 		6589FC871E1EFF0E00C25F31 /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
 		6589FC881E1EFF0E00C25F31 /* ImageRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRow.swift; sourceTree = "<group>"; };
 		6589FC8B1E20515400C25F31 /* RacketFormViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketFormViewModel.swift; sourceTree = "<group>"; };
@@ -214,7 +226,6 @@
 		65C4D71E1E462A5700242DEB /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		65C511E71C938C740051D645 /* ProfileHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileHeaderView.xib; sourceTree = "<group>"; };
 		65C511E91C938DCA0051D645 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
-		65C511EB1C9460940051D645 /* LocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalStorage.swift; path = Storage/LocalStorage.swift; sourceTree = "<group>"; };
 		65C511F01C948ED50051D645 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LoginViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		65C511F31C948F0A0051D645 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		65D8249C1C6E38BE00E2918C /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
@@ -229,11 +240,12 @@
 		65FB52BF1C6DE60C003A6DAE /* court_grass.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = court_grass.jpg; sourceTree = "<group>"; };
 		65FB52C01C6DE60C003A6DAE /* court_hard_b.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = court_hard_b.jpg; sourceTree = "<group>"; };
 		65FB52C41C6DEC0B003A6DAE /* ActivitiesContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesContainerViewController.swift; sourceTree = "<group>"; };
-		65FB52C61C6DF009003A6DAE /* Services.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		65FB52D71C6DF252003A6DAE /* RacketsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketsViewController.swift; sourceTree = "<group>"; };
 		65FB52D91C6DF7EE003A6DAE /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "TennisApp/Bridging-Header.h"; sourceTree = "<group>"; };
 		887DC7EA41CD5C29A829E5C7 /* Pods-TennisApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TennisApp/Pods-TennisApp.release.xcconfig"; sourceTree = "<group>"; };
 		9246E445FB094E36A048BFB1 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4917D93343A4A2925621DB1 /* Pods-TennisAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TennisAppTests/Pods-TennisAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		D70E6022E2EA16F5BB6726CF /* Pods_TennisAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TennisAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +261,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BFA3483FF9EBB75834AD60E /* Pods_TennisAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +280,7 @@
 			children = (
 				9246E445FB094E36A048BFB1 /* Pods.framework */,
 				17D1AE1094934F1BDA5C2436 /* Pods_TennisApp.framework */,
+				D70E6022E2EA16F5BB6726CF /* Pods_TennisAppTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -275,7 +289,9 @@
 			isa = PBXGroup;
 			children = (
 				6507CA631C6CFE6400B7AD5C /* RESideViewController.swift */,
+				657AD2641EAFAE9B00E3157F /* RESideViewModel.swift */,
 				6507CA651C6D023C00B7AD5C /* RESideLeftViewController.swift */,
+				657AD2661EB270B500E3157F /* RESideLeftViewModel.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -290,6 +306,15 @@
 				6569A4071E9AD11B00A444BB /* RESideCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		6524FD9F1EAF966C00936B09 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				6524FDA01EAF966C00936B09 /* RacketsService.swift */,
+				657AD2621EAFA65A00E3157F /* UsersService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		6569A3DE1E990A3A00A444BB /* Protocols */ = {
@@ -368,10 +393,11 @@
 				65C4D71E1E462A5700242DEB /* .swiftlint.yml */,
 				657234891E11726B0050F319 /* GoogleService-Info.plist */,
 				65B04DA21C6CA02300011439 /* AppDelegate.swift */,
-				6569A4021E9A288A00A444BB /* Extension */,
-				6569A3DE1E990A3A00A444BB /* Protocols */,
-				65B04E1D1C6CBCB700011439 /* Managers */,
 				65B04DE21C6CA74400011439 /* Assets */,
+				6569A4021E9A288A00A444BB /* Extension */,
+				65B04E1D1C6CBCB700011439 /* Managers */,
+				6569A3DE1E990A3A00A444BB /* Protocols */,
+				6524FD9F1EAF966C00936B09 /* Service */,
 				65B04E291C6CC67300011439 /* Storage */,
 				65B04DE41C6CA74400011439 /* Model */,
 				651829FD1E8B1C080027E42B /* Coordinators */,
@@ -388,6 +414,8 @@
 			isa = PBXGroup;
 			children = (
 				65B04DB71C6CA02300011439 /* TennisAppTests.swift */,
+				6524FDA21EAF9DC800936B09 /* RacketsTests.swift */,
+				657AD2681EB4B58F00E3157F /* RealmProxyTests.swift */,
 				65B04DB91C6CA02300011439 /* Info.plist */,
 			);
 			path = TennisAppTests;
@@ -469,7 +497,6 @@
 				65B04E241C6CC01000011439 /* Localizer.swift */,
 				657234871E114DD40050F319 /* Logger.swift */,
 				65B04E1B1C6CBAF700011439 /* Style.swift */,
-				65FB52C61C6DF009003A6DAE /* Services.swift */,
 				65B04E201C6CBDC200011439 /* Settings.swift */,
 				65B04E221C6CBEEF00011439 /* Utils.swift */,
 			);
@@ -536,7 +563,6 @@
 			isa = PBXGroup;
 			children = (
 				65B04E2A1C6CC69400011439 /* RealmProxy.swift */,
-				65C511EB1C9460940051D645 /* LocalStorage.swift */,
 			);
 			name = Storage;
 			sourceTree = "<group>";
@@ -632,6 +658,8 @@
 			children = (
 				26C33F3D6C7F65404097A424 /* Pods-TennisApp.debug.xcconfig */,
 				887DC7EA41CD5C29A829E5C7 /* Pods-TennisApp.release.xcconfig */,
+				484A4B75F1A567AF0F9C3F4C /* Pods-TennisAppTests.debug.xcconfig */,
+				C4917D93343A4A2925621DB1 /* Pods-TennisAppTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -664,9 +692,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65B04DCA1C6CA02300011439 /* Build configuration list for PBXNativeTarget "TennisAppTests" */;
 			buildPhases = (
+				7655A69CC6970E9B0647D3FE /* [CP] Check Pods Manifest.lock */,
 				65B04DAF1C6CA02300011439 /* Sources */,
 				65B04DB01C6CA02300011439 /* Frameworks */,
 				65B04DB11C6CA02300011439 /* Resources */,
+				E307FEB725C47C2FE1AEAAD4 /* [CP] Embed Pods Frameworks */,
+				7D2C6D2A688194DCA38802F5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -833,7 +864,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    echo \"\" >/dev/null;\n    #swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\n    echo \"\" >/dev/null;\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		7579BFFBD2CD76E70E46DDEF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -848,6 +879,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TennisApp/Pods-TennisApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7655A69CC6970E9B0647D3FE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7D2C6D2A688194DCA38802F5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TennisAppTests/Pods-TennisAppTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A7F71F2E6927FCBFF195194B /* [CP] Copy Pods Resources */ = {
@@ -865,6 +926,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TennisApp/Pods-TennisApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E307FEB725C47C2FE1AEAAD4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TennisAppTests/Pods-TennisAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -877,7 +953,6 @@
 				65182A011E8B20DD0027E42B /* AppCoordinator.swift in Sources */,
 				6569A3FF1E99390B00A444BB /* ActivityViewModel.swift in Sources */,
 				65341D1D1E11BCAB00617207 /* Constants.swift in Sources */,
-				65C511EC1C9460940051D645 /* LocalStorage.swift in Sources */,
 				65B04E311C6CCD5C00011439 /* Activity.swift in Sources */,
 				6507CA711C6D119E00B7AD5C /* BaseViewController.swift in Sources */,
 				65B04E391C6CCFCE00011439 /* Fitness.swift in Sources */,
@@ -888,9 +963,9 @@
 				65C511F41C948F0A0051D645 /* LoginViewModel.swift in Sources */,
 				65B04E3F1C6CD06600011439 /* MatchScore.swift in Sources */,
 				65B04E2B1C6CC69400011439 /* RealmProxy.swift in Sources */,
+				657AD2671EB270B500E3157F /* RESideLeftViewModel.swift in Sources */,
 				65B04E351C6CCE1100011439 /* Strings.swift in Sources */,
 				65ECE30D1C708CC6004EE2C9 /* RacketsViewModel.swift in Sources */,
-				65FB52C71C6DF009003A6DAE /* Services.swift in Sources */,
 				6521CBA51C6F5E63006D007C /* RacketFormViewController.swift in Sources */,
 				65C511EA1C938DCA0051D645 /* ProfileHeaderView.swift in Sources */,
 				6569A3FD1E9937AB00A444BB /* SignUpCoordinator.swift in Sources */,
@@ -898,6 +973,7 @@
 				6569A4061E9A28E400A444BB /* Extension.swift in Sources */,
 				6569A4011E99393300A444BB /* ActivitiesContainerViewModel.swift in Sources */,
 				65D8249F1C6E652000E2918C /* RacketTableViewCell.swift in Sources */,
+				657AD2651EAFAE9B00E3157F /* RESideViewModel.swift in Sources */,
 				6569A4081E9AD11B00A444BB /* RESideCoordinator.swift in Sources */,
 				65D824A81C6F589100E2918C /* ProfileViewController.swift in Sources */,
 				6569A3E01E990A3A00A444BB /* Bindable.swift in Sources */,
@@ -917,7 +993,9 @@
 				651829FF1E8B1C150027E42B /* Coordinator.swift in Sources */,
 				65C511F11C948ED50051D645 /* LoginViewController.swift in Sources */,
 				65B04E1F1C6CBCD000011439 /* LocationManager.swift in Sources */,
+				6524FDA11EAF966C00936B09 /* RacketsService.swift in Sources */,
 				656A4BBB1E1C1DDA009E97EB /* SignUpViewModel.swift in Sources */,
+				657AD2631EAFA65A00E3157F /* UsersService.swift in Sources */,
 				6589FC8A1E1EFF0E00C25F31 /* ImageRow.swift in Sources */,
 				659B53041C9D93C200829BF3 /* Enum.swift in Sources */,
 				6589FC961E26F69000C25F31 /* ProfileViewModel.swift in Sources */,
@@ -937,6 +1015,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				65B04DB81C6CA02300011439 /* TennisAppTests.swift in Sources */,
+				657AD2691EB4B58F00E3157F /* RealmProxyTests.swift in Sources */,
+				6524FDA31EAF9DC800936B09 /* RacketsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1131,6 +1211,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TennisApp/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 			};
 			name = Debug;
 		};
@@ -1145,11 +1226,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TennisApp/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = NO;
 			};
 			name = Release;
 		};
 		65B04DCB1C6CA02300011439 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 484A4B75F1A567AF0F9C3F4C /* Pods-TennisAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = TennisAppTests/Info.plist;
@@ -1163,6 +1246,7 @@
 		};
 		65B04DCC1C6CA02300011439 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4917D93343A4A2925621DB1 /* Pods-TennisAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = TennisAppTests/Info.plist;

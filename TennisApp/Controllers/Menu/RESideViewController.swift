@@ -9,21 +9,19 @@
 import UIKit
 import RESideMenu
 
-protocol RESideViewModelCoordinatorDelegate: class {
-    func resideViewModelDidLogout(viewModel: RESideViewModel)
+protocol TNSideMenuDelegate: class {
+    func sideMenuUserLogout()
 }
 
-final class RESideViewModel: BaseViewModel {
+final class RESideViewController: RESideMenu, RESideMenuDelegate, TNSideMenuDelegate {
+
+    // MARK: ViewModel
+    var viewModel: RESideViewModel!
     
-    // MARK: Coordinator
-    weak var coordinatorDelegate: RESideViewModelCoordinatorDelegate?
-}
-
-class RESideViewController: RESideMenu, RESideMenuDelegate {
-
+    // MARK: Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
     override func awakeFromNib() {
@@ -37,27 +35,31 @@ class RESideViewController: RESideMenu, RESideMenuDelegate {
         self.contentViewShadowEnabled = true
 
         self.contentViewController = Utils.getControllerFromStoryboard("Activities", controllerId: "ContentViewController")
-        self.leftMenuViewController = Utils.getControllerFromStoryboard("Activities", controllerId: "MenuViewController")
+        let leftViewController = Utils.getControllerFromStoryboard("Activities", controllerId: "MenuViewController") as! RESideLeftViewController
+        leftViewController.resideDelegate = self
+        self.leftMenuViewController = leftViewController
+        
         self.backgroundImage = UIImage(named: "Stars")
         self.delegate = self
     }
 
-    // MARK: RESideMenu Delegate
+    // MARK: RESideMenuDelegate
 
     func sideMenu(_ sideMenu: RESideMenu!, willShowMenuViewController menuViewController: UIViewController!) {
-        //DDLogDebug(@"willShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
     }
 
     func sideMenu(_ sideMenu: RESideMenu!, didHideMenuViewController menuViewController: UIViewController!) {
-        //DDLogDebug(@"didHideMenuViewController: %@", NSStringFromClass([menuViewController class]));
     }
 
     func sideMenu(_ sideMenu: RESideMenu!, didShowMenuViewController menuViewController: UIViewController!) {
-        //DDLogDebug(@"didShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
     }
 
     func sideMenu(_ sideMenu: RESideMenu!, willHideMenuViewController menuViewController: UIViewController!) {
-        //DDLogDebug(@"willHideMenuViewController: %@", NSStringFromClass([menuViewController class]));
     }
-
+    
+    // MARK: TNSideMenuDelegate
+    
+    func sideMenuUserLogout() {
+        self.viewModel.logout()
+    }
 }

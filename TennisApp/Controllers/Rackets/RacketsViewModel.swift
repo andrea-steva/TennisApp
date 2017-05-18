@@ -12,14 +12,14 @@ final class RacketsViewModel: BaseViewModel {
 
     // MARK: Properties
 
-    fileprivate let localStorage = LocalStorage()
+    fileprivate let racketsRepo = RacketsRepo(racketsService: RacketsService())
 
     var rackets: Results<Racket>?
 
     // MARK: Methods
 
     override init() {
-        rackets = localStorage.getRackets()
+        rackets = racketsRepo.getRackets()
     }
 
     func numberOfRackets() -> Int {
@@ -40,7 +40,7 @@ final class RacketsViewModel: BaseViewModel {
         guard let racket = rackets?[index] else {
             return
         }
-        localStorage.deleteRacket(racket: racket)
+        racketsRepo.deleteRacket(racket: racket)
     }
 
     func addTestRacket() {
@@ -51,6 +51,6 @@ final class RacketsViewModel: BaseViewModel {
         racket.gripSize = "2"
         racket.weight = "300"
         racket.purchaseDate = Date()
-        localStorage.saveRacket(racket: racket, saveBlock: nil)
+        racketsRepo.saveRacket(racket: racket)
     }
 }

@@ -8,34 +8,41 @@
 
 import RealmSwift
 
-class RealmProxy {
-
+final class RealmProxy {
+    
     /** The Realm object. */
     fileprivate var realm: Realm!
-
+    
+    fileprivate let databaseName: String = "tennis_db"
+    
     // MARK: Init
-
-    init() {
-        self.setupRealm()
+    
+    init(injectedRealm: Realm? = nil) {
+        if let injectedRealm = injectedRealm {
+            self.realm = injectedRealm
+        } else {
+            self.realm = setupRealm()
+        }
+        if self.realm == nil {
+            fatalError("Cannot initialize Realm")
+        }
     }
-
-    fileprivate func setupRealm() {
-
+    
+    fileprivate func setupRealm() -> Realm! {
+        
         //Set the realm database file with name "tennis_db.realm"
         let realmConfiguration = Realm.Configuration()
         guard let path = realmConfiguration.fileURL?.absoluteString else {
-            return
+            return nil
         }
-
+        
         let realmPath = NSURL.fileURL(withPath: path)
             .deletingLastPathComponent()
-            .appendingPathComponent("tennis_db")
+            .appendingPathComponent(databaseName)
             .appendingPathExtension("realm")
-
-        //When you change Realm objects you need to increase the schemaVersion to perform the migration.
-        //Increase this number when you change the schema of your database
+        
         let schemaVersion: UInt64 = 0
-
+        
         let config = Realm.Configuration(fileURL: realmPath, schemaVersion: schemaVersion, migrationBlock: { migration, oldSchemaVersion in
             if (oldSchemaVersion < schemaVersion) {
                 Log.debug("---- Perform Migration block ----")
@@ -43,30 +50,32 @@ class RealmProxy {
                 Log.debug("Current schema version: \(schemaVersion)")
             }
         })
-
-        realm = try! Realm(configuration: config)
-
-        Log.debug("Realm DB path: \(realm.configuration.fileURL?.absoluteString)")
+        
+        let realm = try! Realm(configuration: config)
+        
+        Log.debug("Realm DB path: \(realm.configuration.fileURL?.absoluteString ?? "")")
         Log.debug("Current schema version: \(realm.configuration.schemaVersion)")
+        
+        return realm
     }
-
-    // MARK: Save
-
-    /**
-    Save an object in the storage.
     
-    - parameter object: The object to save, if nil it will be created.
-    */
-    func saveObject<O: Object>(_ object: O, saveBlock : ((_ object: O) -> Void)?) {
+    // MARK: Save
+    
+    /**
+     Save an object in the storage.
+     
+     - parameter object: The object to save, if nil it will be created.
+     */
+    internal func saveObject<O: Object>(_ object: O, saveBlock : ((_ object: O) -> Void)?) {
         self.saveObjects([object], saveBlock: saveBlock)
     }
-
+    
     /**
      Save a list of objects in the storage.
      
      - parameter objects: The list of objects to save.
      */
-    func saveObjects<O: Object>(_ objects: [O], saveBlock : ((_ object: O) -> Void)?) {
+    internal func saveObjects<O: Object>(_ objects: [O], saveBlock : ((_ object: O) -> Void)?) {
         write { () -> Void in
             for object in objects {
                 if let saveBlock  = saveBlock {
@@ -76,105 +85,84 @@ class RealmProxy {
             }
         }
     }
-
-    // MARK: Get
-
-    /**
-    Get an object from the storage given its id.
     
-    - parameter id: The object's id.
-    - return: The object if exists.
-    */
-    func getObjectByPrimaryKey<O: Object>(_ primaryKeyValue: String) -> O? {
-        let primaryKey = O.primaryKey()!
-        return self.getObject("\(primaryKey) == '\(primaryKeyValue)'")
+    // MARK: Get
+    
+    /**
+     Get an object from the storage given its id.
+     
+     - parameter id: The object's id.
+     - return: The object if exists.
+     */
+    internal func getObjectByPrimaryKey<O: Object>(key: String) -> O? {
+        return self.realm.object(ofType: O.self, forPrimaryKey: key)
     }
-
+        
     /**
      Get an object from the storage given a predicate.
      
      - parameter predicate: The predicate used to filter.
      - return: The object if exists.
      */
-    func getObject<O: Object>(_ predicate: NSPredicate) -> O? {
+    internal func getObject<O: Object>(_ predicate: String) -> O? {
         return self.realm.objects(O.self).filter(predicate).first
     }
-
-    /**
-     Get an object from the storage given a predicate.
-     
-     - parameter predicate: The predicate used to filter.
-     - return: The object if exists.
-     */
-    func getObject<O: Object>(_ predicate: String) -> O? {
-        return self.realm.objects(O.self).filter(predicate).first
-    }
-
+    
     /**
      Get a list of objects from the storage given a predicate.
      
      - parameter predicate: The predicate used to filter.
      - return: The objects list.
      */
-    func getObjects<O: Object>(_ predicate: NSPredicate) -> Results<O> {
+    internal func getObjects<O: Object>(_ predicate: String) -> Results<O> {
         return self.realm.objects(O.self).filter(predicate)
     }
-
+    
     /**
      Get a list of objects from the storage given a predicate.
      
      - parameter predicate: The predicate used to filter.
      - return: The objects list.
      */
-    func getObjects<O: Object>(_ predicate: String) -> Results<O> {
-        return self.realm.objects(O.self).filter(predicate)
-    }
-
-    /**
-     Get a list of objects from the storage given a predicate.
-     
-     - parameter predicate: The predicate used to filter.
-     - return: The objects list.
-     */
-    func getObjects<O: Object>(_ predicate: String, sortBy: String) -> Results<O> {
+    internal func getObjects<O: Object>(_ predicate: String, sortBy: String) -> Results<O> {
         return self.realm.objects(O.self).filter(predicate).sorted(byKeyPath: sortBy)
     }
-
+    
     /**
      Get all the objects from the storage.
      
      - return: The objects list.
      */
-    func getAllObjects<O: Object>() -> Results<O> {
+    internal func getAllObjects<O: Object>() -> Results<O> {
         return self.realm.objects(O.self)
     }
-
+    
     /**
      Get all the objects from the storage.
      
      - return: The objects list.
      */
-    func getAllObjects<O: Object>(sortedBy: String) -> Results<O> {
+    internal func getAllObjects<O: Object>(sortedBy: String) -> Results<O> {
         return self.realm.objects(O.self).sorted(byKeyPath: sortedBy, ascending: false)
     }
-
-    // MARK: Delete
-
-    /**
-    Delete an object from the storage.
     
-    - parameter object: The object to delete.
-    */
-    func deleteObject<O: Object>(_ object: O, deleteBlock : ((_ object: O) -> Void)?) {
+    // MARK: Delete
+    
+    /**
+     Delete an object from the storage.
+     
+     - parameter object: The object to delete.
+     */
+    internal func deleteObject<O: Object>(_ object: O, deleteBlock : ((_ object: O) -> Void)?) {
         self.deleteObjects([object], deleteBlock: deleteBlock)
     }
-
+    
     /**
      Delete a list of objects from the storage.
      
      - parameter object: The list of objects to delete.
      */
-    func deleteObjects<O: Object>(_ objects: [O], deleteBlock : ((_ object: O) -> Void)?) {
+    internal func deleteObjects<O: Object>(_ objects: [O], deleteBlock : ((_ object: O) -> Void)?) {
         write { () -> Void in
             for object in objects {
                 if let deleteBlock  = deleteBlock {
@@ -184,13 +172,13 @@ class RealmProxy {
             }
         }
     }
-
+    
     /**
      Writes changes on the storage.
      
      - parameter block: The block containing the changes to apply.
      */
-    func write(_ block : () -> Void) {
+    fileprivate func write(_ block : () -> Void) {
         do {
             try self.realm.write(block)
         } catch {

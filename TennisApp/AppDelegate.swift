@@ -31,7 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mainCoordinator = coordinator
 
         let _ = Logger()
-        Services.initialize()
 
         Style.setupNavigationBarStyle()
         Style.setupTextFieldStyle()
@@ -40,12 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         return true
-    }
-
-    func setRootViewController(_ rootViewController: UIViewController) {
-        if window?.rootViewController != rootViewController {
-            window?.rootViewController = rootViewController
-        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

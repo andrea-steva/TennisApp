@@ -5,6 +5,8 @@ platform :ios, "9.0"
 # ignore all warnings from all pods
 #inhibit_all_warnings!
 
+use_frameworks!
+
 def shared_pods
     
 	#Crashlytics
@@ -12,7 +14,7 @@ def shared_pods
 	pod 'Crashlytics'
     
     #Firebase
-    pod 'Firebase/Core'
+    pod 'Firebase/Core' , '3.15.0'
     pod 'Firebase/Auth'
     
     #Facebook
@@ -59,10 +61,14 @@ def shared_pods
     pod 'SwiftyBeaver'
 end
 
-use_frameworks!
-
 target "TennisApp" do
 
 	shared_pods
 
+end
+
+target "TennisAppTests" do
+    
+    shared_pods
+    
 end
