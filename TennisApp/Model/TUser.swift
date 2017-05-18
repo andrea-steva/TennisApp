@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  TUser.swift
 //  TennisApp
 //
 //  Created by Andrea Stevanato on 11/02/16.
@@ -9,7 +9,7 @@
 import Realm
 import RealmSwift
 
-class User: Object {
+class TUser: Object {
 
     // MARK: Stored Attributes
 

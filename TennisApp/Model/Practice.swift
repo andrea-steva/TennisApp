@@ -24,7 +24,7 @@ class Practice: Object, PracticeProtocol {
 
     // MARK: Relationship
 
-    let user = LinkingObjects(fromType: User.self, property: "practices")
+    let user = LinkingObjects(fromType: TUser.self, property: "practices")
 
     // MARK: Primary Key
 

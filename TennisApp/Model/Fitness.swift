@@ -24,7 +24,7 @@ class Fitness: Object, FitnessProtocol {
 
     // MARK: Relationship
 
-    let user = LinkingObjects(fromType: User.self, property: "fitness")
+    let user = LinkingObjects(fromType: TUser.self, property: "fitness")
 
     // MARK: Primary Key
 

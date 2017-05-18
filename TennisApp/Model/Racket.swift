@@ -23,7 +23,7 @@ class Racket: Object {
 
     // MARK: Relationship
 
-    let user = LinkingObjects(fromType: User.self, property: "rackets")
+    let user = LinkingObjects(fromType: TUser.self, property: "rackets")
     var strings = List<Strings>()
 
     // MARK: Primary Key
