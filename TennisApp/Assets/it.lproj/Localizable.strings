@@ -10,6 +10,7 @@
 
 "menu.home" = "Attività";
 "menu.rackets" = "Racchette";
+"menu.strings" = "Corde";
 "menu.stats" = "Statistiche";
 "menu.profile" = "Profilo";
 "menu.settings" = "Impostazioni";
@@ -31,6 +32,8 @@
 "signup.button.title" = "Registrati";
 
 "rackets.addRacket" = "Racchetta";
+
+"strings.addString" = "Corda";
 
 "settings.section1" = "Name section 1";
 "settings.section2" = "Name section 2";

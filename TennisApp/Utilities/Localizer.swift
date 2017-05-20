@@ -14,6 +14,7 @@ struct LocalizedString {
 
     static let menu_home = "menu.home"
     static let menu_rackets = "menu.rackets"
+    static let menu_strings = "menu.strings"
     static let menu_stats = "menu.stats"
     static let menu_profile = "menu.profile"
     static let menu_settings = "menu.settings"
@@ -35,6 +36,8 @@ struct LocalizedString {
     static let signup_button = "signup.button.title"
 
     static let rackets_addRacket = "rackets.addRacket"
+    
+    static let strings_addString = "strings.addString"
 
     static let settings_section1 = "settings.section1"
     static let settings_section2 = "settings.section2"

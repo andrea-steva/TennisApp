@@ -17,6 +17,7 @@ class Strings: Object {
     dynamic var manufacter: String!
     dynamic var model: String!
     dynamic var price: String = ""
+    dynamic var gauge: String = ""
     dynamic var duration: Float = 0
     dynamic var tension: Float = 0
 
@@ -49,5 +50,13 @@ class Strings: Object {
     }
 
     // MARK: Class Methods
-
+    
+    func updateFrom(dict: [String: Any?]) {
+        self.manufacter = dict["manufacter"] as! String
+        self.model = dict["model"] as! String
+        self.price = dict["price"] as! String
+        self.gauge = dict["gauge"] as! String
+        self.duration = dict["duration"] as! Float
+        self.tension = dict["tension"] as! Float
+    }
 }

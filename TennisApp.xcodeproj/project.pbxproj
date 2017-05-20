@@ -21,6 +21,13 @@
 		65653D221ED07AC400A9DBBB /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65653D211ED07AC400A9DBBB /* UIDevice.swift */; };
 		65653D241ED081D000A9DBBB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65653D231ED081D000A9DBBB /* Date.swift */; };
 		65653D261ED0820800A9DBBB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65653D251ED0820800A9DBBB /* UIView.swift */; };
+		65653D2D1ED0A7FD00A9DBBB /* StringFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65653D281ED0A7FD00A9DBBB /* StringFormViewController.swift */; };
+		65653D2E1ED0A7FD00A9DBBB /* StringFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65653D291ED0A7FD00A9DBBB /* StringFormViewModel.swift */; };
+		65653D2F1ED0A7FD00A9DBBB /* StringsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65653D2A1ED0A7FD00A9DBBB /* StringsViewController.swift */; };
+		65653D301ED0A7FD00A9DBBB /* StringsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65653D2B1ED0A7FD00A9DBBB /* StringsViewModel.swift */; };
+		65653D311ED0A7FD00A9DBBB /* StringTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65653D2C1ED0A7FD00A9DBBB /* StringTableViewCell.swift */; };
+		65653D331ED0AA7F00A9DBBB /* StringsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65653D321ED0AA7F00A9DBBB /* StringsService.swift */; };
+		65653D361ED0AF7D00A9DBBB /* Strings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65653D341ED0AF7D00A9DBBB /* Strings.storyboard */; };
 		6569A3E01E990A3A00A444BB /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6569A3DF1E990A3A00A444BB /* Bindable.swift */; };
 		6569A3F31E990BAF00A444BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6569A3E51E990BAF00A444BB /* LaunchScreen.storyboard */; };
 		6569A3F41E990BAF00A444BB /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6569A3E71E990BAF00A444BB /* Login.storyboard */; };
@@ -150,6 +157,13 @@
 		65653D211ED07AC400A9DBBB /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		65653D231ED081D000A9DBBB /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		65653D251ED0820800A9DBBB /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		65653D281ED0A7FD00A9DBBB /* StringFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringFormViewController.swift; sourceTree = "<group>"; };
+		65653D291ED0A7FD00A9DBBB /* StringFormViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringFormViewModel.swift; sourceTree = "<group>"; };
+		65653D2A1ED0A7FD00A9DBBB /* StringsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringsViewController.swift; sourceTree = "<group>"; };
+		65653D2B1ED0A7FD00A9DBBB /* StringsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringsViewModel.swift; sourceTree = "<group>"; };
+		65653D2C1ED0A7FD00A9DBBB /* StringTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTableViewCell.swift; sourceTree = "<group>"; };
+		65653D321ED0AA7F00A9DBBB /* StringsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringsService.swift; sourceTree = "<group>"; };
+		65653D351ED0AF7D00A9DBBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Strings.storyboard; sourceTree = "<group>"; };
 		6569A3DF1E990A3A00A444BB /* Bindable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		6569A3E61E990BAF00A444BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6569A3E81E990BAF00A444BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Login.storyboard; sourceTree = "<group>"; };
@@ -310,8 +324,21 @@
 			children = (
 				6524FDA01EAF966C00936B09 /* RacketsService.swift */,
 				657AD2621EAFA65A00E3157F /* UsersService.swift */,
+				65653D321ED0AA7F00A9DBBB /* StringsService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		65653D271ED0A7FD00A9DBBB /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				65653D2A1ED0A7FD00A9DBBB /* StringsViewController.swift */,
+				65653D2B1ED0A7FD00A9DBBB /* StringsViewModel.swift */,
+				65653D2C1ED0A7FD00A9DBBB /* StringTableViewCell.swift */,
+				65653D281ED0A7FD00A9DBBB /* StringFormViewController.swift */,
+				65653D291ED0A7FD00A9DBBB /* StringFormViewModel.swift */,
+			);
+			path = Strings;
 			sourceTree = "<group>";
 		};
 		6569A3DE1E990A3A00A444BB /* Protocols */ = {
@@ -332,6 +359,7 @@
 				6569A3E91E990BAF00A444BB /* Activities.storyboard */,
 				6569A3EB1E990BAF00A444BB /* Profile.storyboard */,
 				6569A3ED1E990BAF00A444BB /* Rackets.storyboard */,
+				65653D341ED0AF7D00A9DBBB /* Strings.storyboard */,
 				6569A3EF1E990BAF00A444BB /* Settings.storyboard */,
 				6569A3F11E990BAF00A444BB /* Stats.storyboard */,
 			);
@@ -621,6 +649,7 @@
 				65D8249E1C6E652000E2918C /* RacketTableViewCell.swift */,
 				6521CBA41C6F5E63006D007C /* RacketFormViewController.swift */,
 				6589FC8B1E20515400C25F31 /* RacketFormViewModel.swift */,
+				65653D271ED0A7FD00A9DBBB /* Strings */,
 			);
 			path = Rackets;
 			sourceTree = "<group>";
@@ -814,6 +843,7 @@
 				65B04E111C6CA86400011439 /* Lato-MediumItalic.ttf in Resources */,
 				65C4D71F1E462A5700242DEB /* .swiftlint.yml in Resources */,
 				65B04E0D1C6CA86400011439 /* Lato-Italic.ttf in Resources */,
+				65653D361ED0AF7D00A9DBBB /* Strings.storyboard in Resources */,
 				65EE6A3A1C8B9EAA001AF3F2 /* court_hard_p.jpg in Resources */,
 				6569A3F51E990BAF00A444BB /* Activities.storyboard in Resources */,
 				65B04E181C6CA86400011439 /* README.txt in Resources */,
@@ -964,6 +994,7 @@
 				6589FC981E26F6A600C25F31 /* StatsViewModel.swift in Sources */,
 				6507CA6F1C6D118000B7AD5C /* BaseViewModel.swift in Sources */,
 				6569A3FF1E99390B00A444BB /* ActivityViewModel.swift in Sources */,
+				65653D2D1ED0A7FD00A9DBBB /* StringFormViewController.swift in Sources */,
 				65341D1D1E11BCAB00617207 /* Constants.swift in Sources */,
 				65B04E311C6CCD5C00011439 /* Activity.swift in Sources */,
 				6507CA711C6D119E00B7AD5C /* BaseViewController.swift in Sources */,
@@ -975,6 +1006,7 @@
 				65F05AB51ECE334800EFA322 /* AppCoordinator.swift in Sources */,
 				65C511F41C948F0A0051D645 /* LoginViewModel.swift in Sources */,
 				65B04E3F1C6CD06600011439 /* MatchScore.swift in Sources */,
+				65653D331ED0AA7F00A9DBBB /* StringsService.swift in Sources */,
 				65F05AB11ECE329000EFA322 /* SignUpViewModel.swift in Sources */,
 				65B04E2B1C6CC69400011439 /* RealmProxy.swift in Sources */,
 				657AD2671EB270B500E3157F /* RESideLeftViewModel.swift in Sources */,
@@ -1003,6 +1035,7 @@
 				65D824A21C6E6C6E00E2918C /* StatsViewController.swift in Sources */,
 				65D8249D1C6E38BE00E2918C /* ActivityViewController.swift in Sources */,
 				65B04E2F1C6CCD4D00011439 /* Racket.swift in Sources */,
+				65653D301ED0A7FD00A9DBBB /* StringsViewModel.swift in Sources */,
 				657234881E114DD40050F319 /* Logger.swift in Sources */,
 				65B04E231C6CBEEF00011439 /* Utils.swift in Sources */,
 				6589FC891E1EFF0E00C25F31 /* ImagePickerController.swift in Sources */,
@@ -1010,6 +1043,8 @@
 				65C511F11C948ED50051D645 /* LoginViewController.swift in Sources */,
 				65653D221ED07AC400A9DBBB /* UIDevice.swift in Sources */,
 				65B04E1F1C6CBCD000011439 /* LocationManager.swift in Sources */,
+				65653D2E1ED0A7FD00A9DBBB /* StringFormViewModel.swift in Sources */,
+				65653D2F1ED0A7FD00A9DBBB /* StringsViewController.swift in Sources */,
 				6524FDA11EAF966C00936B09 /* RacketsService.swift in Sources */,
 				657AD2631EAFA65A00E3157F /* UsersService.swift in Sources */,
 				6589FC8A1E1EFF0E00C25F31 /* ImageRow.swift in Sources */,
@@ -1019,6 +1054,7 @@
 				6589FC8C1E20515400C25F31 /* RacketFormViewModel.swift in Sources */,
 				6507CA641C6CFE6400B7AD5C /* RESideViewController.swift in Sources */,
 				65B04DA31C6CA02300011439 /* AppDelegate.swift in Sources */,
+				65653D311ED0A7FD00A9DBBB /* StringTableViewCell.swift in Sources */,
 				65B04E1C1C6CBAF700011439 /* Style.swift in Sources */,
 				65B04E3D1C6CD05900011439 /* Practice.swift in Sources */,
 				65B04E251C6CC01000011439 /* Localizer.swift in Sources */,
@@ -1061,6 +1097,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		65653D341ED0AF7D00A9DBBB /* Strings.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65653D351ED0AF7D00A9DBBB /* Base */,
+			);
+			name = Strings.storyboard;
+			sourceTree = "<group>";
+		};
 		6569A3E51E990BAF00A444BB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
