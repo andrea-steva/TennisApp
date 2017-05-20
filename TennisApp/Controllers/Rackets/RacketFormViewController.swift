@@ -36,7 +36,7 @@ class RacketFormViewController: FormViewController {
             <<< PickerInlineRow<String>("manufacter") {
                 $0.add(rule: RuleRequired())
                 $0.title = "Manufacter"
-                $0.options = ["Wilson","Babolat","Yonex"]
+                $0.options = ["Wilson", "Babolat", "Yonex"]
                 $0.value = racket != nil ? racket!.manufacter : "Wilson"
             }
             <<< TextRow("model") {
@@ -47,7 +47,7 @@ class RacketFormViewController: FormViewController {
             }
             <<< PickerInlineRow<String>("gripSize") {
                 $0.title = "Grip Size"
-                $0.options = ["1","2","3","4","5"]
+                $0.options = ["1", "2", "3", "4", "5"]
                 $0.value = racket != nil ? racket!.gripSize : "1"
             }
             <<< TextRow("weight") {

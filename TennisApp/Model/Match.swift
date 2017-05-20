@@ -59,7 +59,7 @@ class Match: Object, ActivityProtocol, MatchProtocol {
             countGamePlayerA += score.gamePlayerA
             countGamePlayerB += score.gamePlayerB
         }
-        if(countGamePlayerA > countGamePlayerB) {
+        if countGamePlayerA > countGamePlayerB {
             return true
         }
         return false
