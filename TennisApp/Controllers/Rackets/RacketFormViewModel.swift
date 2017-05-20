@@ -25,9 +25,9 @@ final class RacketFormViewModel: BaseViewModel {
 
     func creareOrUpdateRacket(formValues: [String: Any?]) {
         //Create the new racket if necessary
-        if self.newRacket {
-            self.racket = Racket()
-            self.racket!.racketId = UUID().uuidString
+        if newRacket {
+            racket = Racket()
+            racket!.racketId = UUID().uuidString
         }
 
         //Update racket

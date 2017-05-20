@@ -9,7 +9,6 @@
 import Bond
 
 class BaseViewModel {
-
     let isLoading = Observable<Bool>(false)
     let errorMessage = Observable<String?>(nil)
 }

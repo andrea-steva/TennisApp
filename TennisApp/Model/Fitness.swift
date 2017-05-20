@@ -20,7 +20,7 @@ class Fitness: Object, FitnessProtocol {
     var place: String = ""
     var timeSpent: Float = 0
 
-    var fitnessType: FitnessType = .kRunning
+    var fitnessType: FitnessType = .running
 
     // MARK: Relationship
 

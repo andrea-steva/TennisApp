@@ -20,7 +20,7 @@ class Practice: Object, PracticeProtocol {
     var place: String = ""
     var timeSpent: Float = 0
 
-    var practiceType: PracticeType = .kForehand
+    var practiceType: PracticeType = .forehand
 
     // MARK: Relationship
 

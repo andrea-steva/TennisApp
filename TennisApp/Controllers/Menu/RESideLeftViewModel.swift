@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FBSDKLoginKit
 
 final class RESideLeftViewModel {
     
@@ -19,6 +20,9 @@ final class RESideLeftViewModel {
             if let errorMessage = error {
                 Log.error(errorMessage)
             }
+            
+            FBSDKAccessToken.setCurrent(nil)
+            FBSDKProfile.setCurrent(nil)
             completion(success, error)
         }
         

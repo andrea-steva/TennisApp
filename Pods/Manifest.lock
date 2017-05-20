@@ -55,7 +55,7 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GSKStretchyHeaderView (1.0.0)
-  - GTMSessionFetcher/Core (1.1.9)
+  - GTMSessionFetcher/Core (1.1.10)
   - INSPullToRefresh (1.1.5)
   - IQKeyboardManagerSwift (4.0.9)
   - MBProgressHUD (1.0.0)
@@ -118,7 +118,7 @@ SPEC CHECKSUMS:
   FontAwesome.swift: f4ff5a9199dc3b510eba5bb377e834f159aef358
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GSKStretchyHeaderView: daba8f035eaade6326d05ee2a382be714bb019c0
-  GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
+  GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
   INSPullToRefresh: 112ae2c295d2b3a76daa9dff86e7ef40ed002c47
   IQKeyboardManagerSwift: 2eefe6c429b86aa08bfbc1b5c891164d754adf91
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a

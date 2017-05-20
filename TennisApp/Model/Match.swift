@@ -22,7 +22,7 @@ class Match: Object, ActivityProtocol, MatchProtocol {
 
     var playerNameA: String!
     var playerNameAB: String!
-    var matchType: MatchType = .kSingle
+    var matchType: MatchType = .single
 
     // MARK: Relationship
 

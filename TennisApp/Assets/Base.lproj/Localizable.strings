@@ -8,7 +8,7 @@
 
 "appName" = "Tennis Diary";
 
-"menu.home" = "Home";
+"menu.home" = "Activities";
 "menu.rackets" = "Rackets";
 "menu.stats" = "Stats";
 "menu.profile" = "Profile";

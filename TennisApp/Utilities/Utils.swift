@@ -371,14 +371,9 @@ class Utils {
     - parameter controller:      The view controller in which present the alert
     - parameter completionBlock: The user completion block
     */
-    static func alertController(_ title: String?, message: String?, controller: UIViewController, completionBlock :@escaping (_ userCancelAction: Bool) -> () ) {
+    static func alertController(_ title: String, message: String?, controller: UIViewController, completionBlock :@escaping (_ userCancelAction: Bool) -> () ) {
 
-        var alertTitle = ""
-        if title?.characters.count > 0 {
-            alertTitle = title!
-        }
-
-        let alertController = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
         let actionConfirm = UIAlertAction(title: localizer.get(LocalizedString.generic_ok), style: .default) { (alertAction) -> Void in
             controller.dismiss(animated: true, completion: nil)
@@ -395,14 +390,9 @@ class Utils {
         controller.present(alertController, animated: true, completion: nil)
     }
 
-    static func alertController(_ title: String?, message: String?, controller: UIViewController) {
+    static func alertController(_ title: String, message: String?, controller: UIViewController) {
 
-        var alertTitle = ""
-        if title?.characters.count > 0 {
-            alertTitle = title!
-        }
-
-        let alertController = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
         let actionConfirm = UIAlertAction(title: localizer.get(LocalizedString.generic_ok), style: .default) { (alertAction) -> Void in
             controller.dismiss(animated: true, completion: nil)
