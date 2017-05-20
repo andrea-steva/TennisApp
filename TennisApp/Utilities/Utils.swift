@@ -50,7 +50,7 @@ class Utils {
     static func getScreenBounds() -> CGRect {
 
         var bounds = UIScreen.main.bounds
-        if (UIInterfaceOrientationIsLandscape(UIApplication.shared.statusBarOrientation)) {
+        if UIInterfaceOrientationIsLandscape(UIApplication.shared.statusBarOrientation) {
             bounds.size = CGSize(width: bounds.size.height, height: bounds.size.width)
         }
         return bounds
@@ -143,7 +143,7 @@ class Utils {
         horizontalMotionEffect.maximumRelativeValue = Int(value)
 
         let motionGroup = UIMotionEffectGroup()
-        motionGroup.motionEffects = [verticalMotionEffect,horizontalMotionEffect]
+        motionGroup.motionEffects = [verticalMotionEffect, horizontalMotionEffect]
         return motionGroup
     }
 
@@ -262,7 +262,7 @@ class Utils {
         let filePath = documentsPath + relativePath
 
         NSLog("filePath: \(filePath)")
-        if (fileManager.isWritableFile(atPath: filePath)) {
+        if fileManager.isWritableFile(atPath: filePath) {
             NSLog("Writable")
         } else {
             NSLog("Not Writable")

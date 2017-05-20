@@ -85,7 +85,7 @@ extension UIColor {
      :returns: UIColor instance
      */
     convenience init(rgba: UInt) {
-        let sRgba = min(rgba,0xFFFFFFFF)
+        let sRgba = min(rgba, 0xFFFFFFFF)
         let red: CGFloat = CGFloat((sRgba & 0xFF000000) >> 24) / 255.0
         let green: CGFloat = CGFloat((sRgba & 0x00FF0000) >> 16) / 255.0
         let blue: CGFloat = CGFloat((sRgba & 0x0000FF00) >> 8) / 255.0
@@ -113,7 +113,7 @@ extension UIColor {
         let scanner = Scanner(string: hex)
         var hexValue: CUnsignedLongLong = 0
         if scanner.scanHexInt64(&hexValue) {
-            switch (hex.characters.count) {
+            switch hex.characters.count {
             case 3:
                 red   = CGFloat((hexValue & 0xF00) >> 8)       / 15.0
                 green = CGFloat((hexValue & 0x0F0) >> 4)       / 15.0
@@ -182,7 +182,7 @@ extension UIImage {
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
         context!.setFillColor(color.cgColor)
-        if(circular) {
+        if circular {
             context!.fillEllipse(in: rect)
         } else {
             context!.fill(rect)
@@ -322,7 +322,7 @@ public extension UIDevice {
     }
 
     static var isIpad: Bool {
-        if (UIDevice.current.model.range(of: "iPad") != nil) {
+        if UIDevice.current.model.range(of: "iPad") != nil {
             return true
         }
         return false

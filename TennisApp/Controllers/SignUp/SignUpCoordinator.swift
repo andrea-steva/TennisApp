@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SignUpCoordinatorDelegate: class  {
+protocol SignUpCoordinatorDelegate: class {
     func signUpCoordinatorDidFinish(signUpCoordinator: SignUpCoordinator)
 }
 

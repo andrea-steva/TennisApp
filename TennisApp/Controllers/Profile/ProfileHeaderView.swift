@@ -53,7 +53,7 @@ class ProfileHeaderView: GSKStretchyHeaderView {
 
         let navTitleFactor: CGFloat = 0.4
         var navTitleAlpha: CGFloat = 0
-        if (stretchFactor < navTitleFactor) {
+        if stretchFactor < navTitleFactor {
             navTitleAlpha = CGFloatTranslateRange(stretchFactor, 0, navTitleFactor, 2, 0)
         }
         self.navigationTitleLabel.alpha = navTitleAlpha

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6bp-Lk-5hh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6bp-Lk-5hh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -65,7 +65,7 @@
                                     <action selector="didTapOnCameraButton:" destination="6bp-Lk-5hh" eventType="touchUpInside" id="ul6-0w-9jN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUy-cX-mbg" customClass="FBSDKLoginButton">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUy-cX-mbg" customClass="FBSDKLoginButton">
                                 <rect key="frame" x="50" y="465" width="275" height="50"/>
                                 <color key="backgroundColor" red="0.050980392839999999" green="0.1764705926" blue="0.31764706970000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -89,7 +89,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Vln-o2-9Ox"/>
                                 </constraints>
-                                <state key="normal" title="Not registered? Sign Up!"/>
+                                <state key="normal" title="Don't have an account? Sign Up!"/>
                                 <connections>
                                     <action selector="didTapOnSignUpButton:" destination="6bp-Lk-5hh" eventType="touchUpInside" id="qz8-P5-dq4"/>
                                 </connections>
@@ -215,7 +215,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Iaa-Qm-K0Y"/>
                                 </constraints>
-                                <state key="normal" title="Back to Sign In"/>
+                                <state key="normal" title="Already have an account? Sign in"/>
                                 <connections>
                                     <action selector="dismissController:" destination="92o-BZ-GZy" eventType="touchUpInside" id="Oxd-N5-nd8"/>
                                 </connections>

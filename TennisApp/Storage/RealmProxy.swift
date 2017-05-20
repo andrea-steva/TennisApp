@@ -44,7 +44,7 @@ final class RealmProxy {
         let schemaVersion: UInt64 = 0
         
         let config = Realm.Configuration(fileURL: realmPath, schemaVersion: schemaVersion, migrationBlock: { migration, oldSchemaVersion in
-            if (oldSchemaVersion < schemaVersion) {
+            if oldSchemaVersion < schemaVersion {
                 Log.debug("---- Perform Migration block ----")
                 Log.debug("Old schema version: \(oldSchemaVersion)")
                 Log.debug("Current schema version: \(schemaVersion)")

@@ -1,6 +1,4 @@
-disabled_rules: # rule identifiers to exclude from running
-    - comma
-    - control_statement
+disabled_rules:
     - missing_docs
     - force_cast
     - force_try

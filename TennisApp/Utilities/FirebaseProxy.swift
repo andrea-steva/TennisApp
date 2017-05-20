@@ -21,11 +21,11 @@ final class FirebaseProxy {
 
     init() {
         FirebaseApp.configure()
-        self.currentUser = Auth.auth().currentUser
+        currentUser = Auth.auth().currentUser
     }
 
     func signedIn(_ user: User?) {
-        self.currentUser = user
+        currentUser = user
         let notificationName = Notification.Name(rawValue: Constants.NotificationKeys.signedIn)
         NotificationCenter.default.post(name: notificationName, object: nil, userInfo: nil)
     }
