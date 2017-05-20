@@ -20,6 +20,7 @@ class RacketTableViewCell: UITableViewCell {
         super.awakeFromNib()
 
         racketNameLabel.font = Style.Fonts.get(.regular, size: .normal)
+        racketNameLabel.textColor = Style.Colors.lightColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

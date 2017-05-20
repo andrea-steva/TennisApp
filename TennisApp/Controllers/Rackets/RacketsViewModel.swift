@@ -23,10 +23,10 @@ final class RacketsViewModel: BaseViewModel {
     }
 
     func numberOfRackets() -> Int {
-        guard let racketsCount = rackets?.count else {
+        guard let count = rackets?.count else {
             return 0
         }
-        return racketsCount
+        return count
     }
 
     func racket(forIndex index: Int) -> Racket {

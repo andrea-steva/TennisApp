@@ -10,6 +10,7 @@
 
 "menu.home" = "Activities";
 "menu.rackets" = "Rackets";
+"menu.strings" = "Strings";
 "menu.stats" = "Stats";
 "menu.profile" = "Profile";
 "menu.settings" = "Settings";
@@ -31,6 +32,8 @@
 "signup.button.title" = "Sign Up";
 
 "rackets.addRacket" = "Racket";
+
+"strings.addString" = "String";
 
 "settings.section1" = "Name section 1";
 "settings.section2" = "Name section 2";

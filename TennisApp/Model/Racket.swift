@@ -59,5 +59,4 @@ class Racket: Object {
         self.gripSize = dict["gripSize"] as! String!
         self.purchaseDate = dict["purchaseDate"] as! Date!
     }
-
 }

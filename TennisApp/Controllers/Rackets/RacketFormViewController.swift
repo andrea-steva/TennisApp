@@ -70,7 +70,7 @@ class RacketFormViewController: FormViewController {
         let formValues = form.values()
         Log.debug(formValues)
 
-        AlertView.showConfirm(localizer.get(LocalizedString.generic_alertTitle), message: "Are you sure to complete the operation?") { [unowned self] (userCancelAction) in
+        AlertView.showConfirm(localizer.get(LocalizedString.generic_alertTitle), message: "Update racket's information") { [unowned self] (userCancelAction) in
 
             if !userCancelAction {
                 self.viewModel.creareOrUpdateRacket(formValues: formValues)
