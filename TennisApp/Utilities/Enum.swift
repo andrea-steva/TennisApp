@@ -9,42 +9,74 @@
 import Foundation
 import UIKit
 
-//MARK - TN Enum
+enum RacketBrand: String {
+    case babolat = "Babolat"
+    case dunlop = "Dunlop"
+    case head = "Head"
+    case yonex = "Yonex"
+    case prince = "Prince"
+    case prokennex = "ProKennex"
+    case tecnifibre = "Tecnifibre"
+    case wilson = "Wilson"
+    
+    static let allValues = [babolat.rawValue,
+                            dunlop.rawValue,
+                            head.rawValue,
+                            yonex.rawValue,
+                            prince.rawValue,
+                            prokennex.rawValue,
+                            tecnifibre.rawValue,
+                            wilson.rawValue]
+}
+
+enum GripSize: String {
+    case one = "1"
+    case two = "2"
+    case three = "3"
+    case four = "4"
+    case five = "5"
+    
+    static let allValues = [one.rawValue,
+                            two.rawValue,
+                            three.rawValue,
+                            four.rawValue,
+                            five.rawValue]
+}
 
 enum MatchType: Int {
-    case kSingle
-    case kDouble
-    case kMixed
-    case kOther
+    case single
+    case double
+    case mixed
+    case other
 }
 
 enum PracticeType: Int {
-    case kForehand
-    case kBackhand
-    case kService
-    case kVolley
+    case forehand
+    case backhand
+    case service
+    case volley
 }
 
 enum FitnessType: Int {
-    case kRunning
-    case kUpperBody
-    case kDownBody
-    case kOther
+    case running
+    case uppperBody
+    case downBody
+    case other
 }
 
 // MARK: - Menu Item
 
 enum MenuItem: Int {
-
+    
     case activies = 0
     case rackets = 1
     case stats = 2
     case profile = 3
     case settings = 4
     case logout = 5
-
+    
     static var count: Int { return MenuItem.logout.rawValue + 1}
-
+    
     func storyboardName() -> String {
         switch self {
         case .activies:
@@ -61,7 +93,7 @@ enum MenuItem: Int {
             return ""
         }
     }
-
+    
     func localizedName() -> String {
         switch self {
         case .activies:
@@ -78,12 +110,12 @@ enum MenuItem: Int {
             return localizer.get(LocalizedString.menu_logout)
         }
     }
-
+    
     func menuIcon() -> UIImage {
-
+        
         let size = CGSize(width: 35, height: 35)
         let color  = Style.Colors.lightColor.withAlphaComponent(0.8)
-
+        
         switch self {
         case .activies:
             return UIImage.fontAwesomeIcon(name: .home, textColor: color, size: size)
@@ -98,6 +130,6 @@ enum MenuItem: Int {
         case .logout:
             return UIImage.fontAwesomeIcon(name: .signOut, textColor: color, size: size)
         }
-
+        
     }
 }

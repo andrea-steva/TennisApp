@@ -16,17 +16,7 @@ import ReactiveKit
 class LoginViewController: BaseViewController, Bindable, FBSDKLoginButtonDelegate {
     
     // MARK: IBOutlets
-    @IBOutlet var userImageView: UIImageView! {
-        didSet {
-            userImageView.layer.cornerRadius = 20.0
-            userImageView.layer.borderColor = Style.Colors.lightColor.cgColor
-            userImageView.layer.borderWidth = 5.0
-            userImageView.layer.masksToBounds = true
-        }
-    }
-    
-    @IBOutlet var cameraButton: UIButton!
-    
+
     @IBOutlet var emailLoginButton: UIButton! {
         didSet {
             emailLoginButton.layer.cornerRadius = 5.0
@@ -64,6 +54,15 @@ class LoginViewController: BaseViewController, Bindable, FBSDKLoginButtonDelegat
         
         self.facebookLoginButton.delegate = self
         self.facebookLoginButton.readPermissions = ["public_profile", "email", "user_friends"]
+        self.facebookLoginButton.titleLabel?.font = Style.Fonts.get(.regular, size: .large)
+        let layoutConstraintsArr = self.facebookLoginButton.constraints
+        // Remove constraint height for facebook login button
+        for lc in layoutConstraintsArr where lc.constant == 28 {
+                lc.isActive = false
+                break
+        }
+        
+        self.backgroundView?.image = self.backgroundView?.image?.applyMenuEffect()
     }
     
     func bindViewModel() {
@@ -75,12 +74,6 @@ class LoginViewController: BaseViewController, Bindable, FBSDKLoginButtonDelegat
             return email!.length > 0 && pass!.length > 0
             }
             .bind(to: emailLoginButton.reactive.isEnabled)
-        
-        let _ = viewModel.profileImageURL.observeNext { (URL) in
-            if let profileImageURL = URL {
-                self.userImageView.af_setImage(withURL: profileImageURL)
-            }
-        }
     }
     
     // MARK: IBAction
@@ -88,14 +81,7 @@ class LoginViewController: BaseViewController, Bindable, FBSDKLoginButtonDelegat
     @IBAction func didTapOnSignUpButton(_ sender: AnyObject) {
         self.viewModel.toSignUp()
     }
-    
-    @IBAction func didTapOnCameraButton(_ sender: AnyObject) {
-        let cameraViewController = CameraViewController(croppingEnabled: true) { (image, asset) in
-            self.userImageView.image = image
-        }
-        present(cameraViewController, animated: true, completion: nil)
-    }
-    
+        
     // MARK: Firebase Auth
     
     @IBAction func didTapSignIn(_ sender: AnyObject) {

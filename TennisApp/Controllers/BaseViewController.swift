@@ -38,7 +38,7 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
             if self.navigationItem.leftBarButtonItems == nil {
                 self.navigationItem.leftBarButtonItems = [UIBarButtonItem]()
             }
-            self.navigationItem.leftBarButtonItems?.insert(self.getBarButtonItem(FontAwesome.bars, selector: .didTapOnButtonMenu), at: 0)
+            self.navigationItem.leftBarButtonItems?.insert(UIBarButtonItem(icon: .bars, selector: .didTapOnButtonMenu, target: self), at: 0)
         }
     }
     
@@ -115,49 +115,7 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
         }
         scrollView.ins_infiniteScrollBackgroundView.preserveContentInset = false
     }
-    
-    // MARK: View Controller Utils
-    
-    /**
-     Get margin from top considering status bar and navigation bar.
-     
-     - returns: top margin
-     */
-    func getMarginFromTop() -> CGFloat {
-        var margin = UIApplication.shared.statusBarFrame.size.height
-        if let navigationBarHeight = navigationController?.navigationBar.frame.height {
-            margin += navigationBarHeight
-        }
-        return margin
-    }
-    
-    func getBarButtonItem(_ icon: FontAwesome, selector: Selector) -> UIBarButtonItem {
-        return UIBarButtonItem(image: UIImage.fontAwesomeIcon(name: icon, textColor: Style.Colors.primaryColor, size : CGSize(width: 32, height: 32)),
-                               style: UIBarButtonItemStyle.plain,
-                               target: self, action: selector)
-    }
-    
-    // MARK: Navigation Bar Utils
-    
-    /**
-     Show back button
-     */
-    func showBackButton() {
-        self.navigationItem.setHidesBackButton(false, animated: false)
-    }
-    
-    /**
-     Hide back button
-     */
-    func hideBackButton() {
-        self.navigationItem.setHidesBackButton(true, animated: false)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+        
     // MARK: Status Bar
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
