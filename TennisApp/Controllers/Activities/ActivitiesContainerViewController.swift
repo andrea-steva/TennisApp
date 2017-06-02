@@ -101,7 +101,7 @@ class ActivitiesContainerViewController: BaseViewController {
     fileprivate func setupPagedMenu(_ controllers: [UIViewController]) {
 
         for index in 0...2 {
-            let activityController =  Utils.getControllerFromStoryboard("Activities", controllerId: "ActivityViewController") as! ActivityViewController
+            let activityController: ActivityViewController = ActivityViewController.instantiateFromStoryboard("Activities")
 
             if index == 0 {
                 activityController.title = "Matchs"

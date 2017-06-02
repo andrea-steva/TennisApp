@@ -10,24 +10,24 @@ import Foundation
 import RealmSwift
 
 protocol UsersServiceProtocol {
-    func fetchUsers() -> Results<TUser>
-    func saveUser(user: TUser, saveBlock: ((_ user: TUser) -> Void)?)
-    func deleteUser(user: TUser)
+    func fetchUsers() -> Results<User>
+    func saveUser(user: User, saveBlock: ((_ user: User) -> Void)?)
+    func deleteUser(user: User)
 }
 
 final class UsersService: UsersServiceProtocol {
     
-    func fetchUsers() -> Results<TUser> {
-        let users = RealmProxy().getAllObjects() as Results<TUser>
+    func fetchUsers() -> Results<User> {
+        let users = RealmProxy().getAllObjects() as Results<User>
         return users
     }
     
-    func deleteUser(user: TUser) {
+    func deleteUser(user: User) {
         RealmProxy().deleteObject(user) { (user) in
         }
     }
     
-    func saveUser(user: TUser, saveBlock: ((_ user: TUser) -> Void)?) {
+    func saveUser(user: User, saveBlock: ((_ user: User) -> Void)?) {
         RealmProxy().saveObject(user) { (user) in
             saveBlock?(user)
         }
@@ -36,7 +36,7 @@ final class UsersService: UsersServiceProtocol {
 
 final class UsersRepo {
     
-    private let users: Results<TUser>
+    private let users: Results<User>
     private let service: UsersServiceProtocol
     
     init(usersService: UsersServiceProtocol) {
@@ -44,15 +44,15 @@ final class UsersRepo {
         self.users = usersService.fetchUsers()
     }
     
-    func getUsers() -> Results<TUser> {
+    func getUsers() -> Results<User> {
         return users
     }
     
-    func deleteUser(user: TUser) {
+    func deleteUser(user: User) {
         self.service.deleteUser(user: user)
     }
     
-    func saveUser(user: TUser, saveBlock: ((_ user: TUser) -> Void)? = nil) {
+    func saveUser(user: User, saveBlock: ((_ user: User) -> Void)? = nil) {
         self.service.saveUser(user: user, saveBlock: saveBlock)
     }
 }

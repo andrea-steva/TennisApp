@@ -8,8 +8,16 @@
 
 import RealmSwift
 
+protocol RacketsViewModelCoordinatorDelegate: class {
+    func racketsViewModelToStrings(viewModel: RacketsViewModel)
+}
+
 final class RacketsViewModel: BaseViewModel {
 
+    // MARK: Coordinator
+    
+    weak var coordinatorDelegate: RacketsViewModelCoordinatorDelegate?
+    
     // MARK: Properties
 
     fileprivate let racketsRepo = RacketsRepo(racketsService: RacketsService())
@@ -41,6 +49,10 @@ final class RacketsViewModel: BaseViewModel {
             return
         }
         racketsRepo.deleteRacket(racket: racket)
+    }
+    
+    func toStrings() {
+        self.coordinatorDelegate?.racketsViewModelToStrings(viewModel: self)
     }
 
     func addTestRacket() {

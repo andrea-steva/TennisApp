@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import Tamamushi
 
-class RacketsViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
+final class RacketsViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
 
     static let RacketCellReuseId = "racket_cell"
 
@@ -24,7 +24,7 @@ class RacketsViewController: BaseViewController, UITableViewDataSource, UITableV
 
     // MARK: ViewModel
 
-    var viewModel = RacketsViewModel()
+    var viewModel: RacketsViewModel!
 
     // MARK: View Management
 
@@ -81,7 +81,7 @@ class RacketsViewController: BaseViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
         let editAction  = UITableViewRowAction(style: .normal, title: "Edit") { [unowned self] (rowAction, indexPath) in
-            let formVC = Utils.getControllerFromStoryboard("Rackets", controllerId: "RacketForm") as! RacketFormViewController
+            let formVC: RacketFormViewController = RacketFormViewController.instantiateFromStoryboard("Rackets")
             formVC.viewModel.racket = self.viewModel.racket(forIndex: indexPath.row)
             formVC.viewModel.newRacket = false
             self.navigationController?.pushViewController(formVC, animated: true)
@@ -100,6 +100,12 @@ class RacketsViewController: BaseViewController, UITableViewDataSource, UITableV
 
         }
         return [editAction, deleteAction]
+    }
+    
+    // MARK: IBActions
+    
+    @IBAction func didTapOnStringsButton(_ sender: AnyObject) {
+        self.viewModel.toStrings()
     }
 
     // MARK: Others

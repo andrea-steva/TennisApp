@@ -64,9 +64,9 @@ class Settings: NSObject {
     }
 
     fileprivate func getArray(_ key: String) -> [AnyObject]? {
-        if let watchlistData: AnyObject = userDefaults.object(forKey: key) as AnyObject? {
-            if let watchlist: AnyObject = NSKeyedUnarchiver.unarchiveObject(with: watchlistData as! Data) as AnyObject? {
-                return watchlist as? [AnyObject]
+        if let data: AnyObject = userDefaults.object(forKey: key) as AnyObject? {
+            if let data: AnyObject = NSKeyedUnarchiver.unarchiveObject(with: data as! Data) as AnyObject? {
+                return data as? [AnyObject]
             }
         }
         return []
@@ -79,8 +79,8 @@ class Settings: NSObject {
         } else {
             arrayToSave = [AnyObject]()
         }
-        let watchlistData = NSKeyedArchiver.archivedData(withRootObject: arrayToSave)
-        userDefaults.set(watchlistData, forKey: key)
+        let data = NSKeyedArchiver.archivedData(withRootObject: arrayToSave)
+        userDefaults.set(data, forKey: key)
         userDefaults.synchronize()
     }
 

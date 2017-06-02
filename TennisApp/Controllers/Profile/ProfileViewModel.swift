@@ -8,6 +8,13 @@
 
 import RealmSwift
 
+protocol ProfileViewModelCoordinatorDelegate: class {
+    
+}
+
 final class ProfileViewModel: BaseViewModel {
 
+    // MARK: Coordinator
+    
+    weak var coordinatorDelegate: ProfileViewModelCoordinatorDelegate?
 }

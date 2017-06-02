@@ -7,19 +7,37 @@
 //
 
 import Foundation
+import FBSDKLoginKit
 
 protocol RESideViewModelCoordinatorDelegate: class {
     func resideViewModelDidLogout(viewModel: RESideViewModel)
+    func resideViewModelPresent(menuItem: MenuItem)
 }
 
 final class RESideViewModel {
     
     // MARK: Coordinator
+    
     weak var coordinatorDelegate: RESideViewModelCoordinatorDelegate?
     
     // MARK: Methods
     
-    func logout() {
-        self.coordinatorDelegate?.resideViewModelDidLogout(viewModel: self)
+    func performLogout(completion: (_ success: Bool, _ error: String?) -> Void) {
+        FirebaseProxy.sharedInstance.signOut { (success, error) in
+            if let errorMessage = error {
+                Log.error(errorMessage)
+            }
+            FBSDKAccessToken.setCurrent(nil)
+            FBSDKProfile.setCurrent(nil)
+            completion(success, error)
+        }
+    }
+    
+    func userDidlogout() {
+        coordinatorDelegate?.resideViewModelDidLogout(viewModel: self)
+    }
+    
+    func userSelect(menuItem: MenuItem) {
+        coordinatorDelegate?.resideViewModelPresent(menuItem: menuItem)
     }
 }

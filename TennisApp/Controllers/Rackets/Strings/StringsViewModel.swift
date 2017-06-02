@@ -8,8 +8,16 @@
 
 import RealmSwift
 
+protocol StringsViewModelCoordinatorDelegate: class {
+    func stringViewModelDidEnd(_ viewModel: StringsViewModel)
+}
+
 final class StringsViewModel: BaseViewModel {
 
+    // MARK: Coordinator
+    
+    weak var coordinatorDelegate: StringsViewModelCoordinatorDelegate?
+    
     // MARK: Properties
 
     fileprivate let stringsRepo = StringsRepo(stringsService: StringsService())
@@ -41,6 +49,10 @@ final class StringsViewModel: BaseViewModel {
             return
         }
         stringsRepo.deleteString(string: string)
+    }
+    
+    func backToRackets() {
+        self.coordinatorDelegate?.stringViewModelDidEnd(self)
     }
 
     func addTestString() {

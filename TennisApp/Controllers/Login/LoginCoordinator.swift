@@ -18,7 +18,7 @@ class LoginCoordinator: Coordinator, LoginViewModelCoordinatorDelegate, SignUpCo
     
     weak var delegate: LoginCoordinatorDelegate?
     
-    fileprivate weak var window: UIWindow?
+    fileprivate weak var window: UIWindow!
     
     fileprivate let navigationController: UINavigationControllerType = {
         let navigationController = UINavigationController()
@@ -42,7 +42,7 @@ class LoginCoordinator: Coordinator, LoginViewModelCoordinatorDelegate, SignUpCo
             return
         }
         
-        window?.rootViewController = navigationController as? UIViewController
+        window.rootViewController = navigationController as? UIViewController
         
         vc.viewModel = LoginViewModel()
         vc.viewModel.coordinatorDelegate = self
@@ -58,7 +58,6 @@ class LoginCoordinator: Coordinator, LoginViewModelCoordinatorDelegate, SignUpCo
     }
     
     func loginViewModelToSignUp(viewModel: LoginViewModel) {
-        
         signUpCoordinator = SignUpCoordinator(navigationController: navigationController)
         signUpCoordinator?.delegate = self
         signUpCoordinator?.start()
@@ -67,12 +66,11 @@ class LoginCoordinator: Coordinator, LoginViewModelCoordinatorDelegate, SignUpCo
     // MARK: SignUpCoordinatorDelegate
     
     func signUpCoordinatorDidFinish(signUpCoordinator: SignUpCoordinator) {
-        //Pop sign up view
         _ = navigationController.popViewController(animated: true)
         self.signUpCoordinator = nil
     }
     
     deinit {
-        Log.verbose("Deinit \(self)")
+        Log.verbose("+++ Deinit \(self) +++")
     }
 }

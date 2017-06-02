@@ -10,27 +10,14 @@ import UIKit
 import RealmSwift
 import FontAwesome_swift
 
-// MARK: - UIFont
+// MARK: - UIViewController
 
-extension UIFont {
-    func bold() -> UIFont {
-        let descriptor = UIFontDescriptor(fontAttributes: [NSFontAttributeName : FontType.bold.rawValue])
-        return UIFont(descriptor: descriptor, size: self.pointSize)
-    }
+extension UIViewController {
     
-    func semibold() -> UIFont {
-        let descriptor = UIFontDescriptor(fontAttributes: [NSFontAttributeName : FontType.semibold.rawValue])
-        return UIFont(descriptor: descriptor, size: self.pointSize)
-    }
-    
-    func regular() -> UIFont {
-        let descriptor = UIFontDescriptor(fontAttributes: [NSFontAttributeName : FontType.regular.rawValue])
-        return UIFont(descriptor: descriptor, size: self.pointSize)
-    }
-    
-    func light() -> UIFont {
-        let descriptor = UIFontDescriptor(fontAttributes: [NSFontAttributeName : FontType.light.rawValue])
-        return UIFont(descriptor: descriptor, size: self.pointSize)
+    class func instantiateFromStoryboard<T: UIViewController>(_ storyboardName: String) -> T {
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: String(describing: self)) as! T
+        return controller
     }
 }
 
@@ -241,7 +228,7 @@ extension String {
     }
 }
 
-// MARK: UIDevice
+// MARK: UITableViewCell
 
 public extension UITableViewCell {
     func removeMargins() {

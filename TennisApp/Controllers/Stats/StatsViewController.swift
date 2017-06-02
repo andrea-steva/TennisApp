@@ -13,6 +13,10 @@ class StatsViewController: BaseViewController {
 
     // MARK: IBOutlets
 
+    // MARK: ViewModel
+    
+    var viewModel: StatsViewModel!
+    
     // MARK: View Management
 
     override func localizedTitleString() -> String {

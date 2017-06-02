@@ -15,7 +15,7 @@ final class FirebaseProxy {
         return FirebaseProxy()
     }()
 
-    var currentUser: User?
+    var currentUser: Firebase.User?
 
     // MARK: Methods
 
@@ -24,7 +24,7 @@ final class FirebaseProxy {
         currentUser = Auth.auth().currentUser
     }
 
-    func signedIn(_ user: User?) {
+    func signedIn(_ user: Firebase.User?) {
         currentUser = user
         let notificationName = Notification.Name(rawValue: Constants.NotificationKeys.signedIn)
         NotificationCenter.default.post(name: notificationName, object: nil, userInfo: nil)

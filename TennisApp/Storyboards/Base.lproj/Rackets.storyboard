@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bZb-M6-dAb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bZb-M6-dAb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -92,11 +93,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9Hd-21-E2g">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xuu-Zu-9jw">
-                            <connections>
-                                <segue destination="xis-Bn-ZW8" kind="show" identifier="toForm" id="4GR-bZ-rDh"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="Xuu-Zu-9jw">
+                                <connections>
+                                    <segue destination="xis-Bn-ZW8" kind="show" identifier="toForm" id="4GR-bZ-rDh"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Strings" id="Vod-1f-DVM">
+                                <connections>
+                                    <action selector="didTapOnStringsButton:" destination="Nfb-NL-XuQ" id="39I-VD-EcV"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="backgroundView" destination="OWV-jg-3W4" id="YfP-0D-WzU"/>
@@ -111,7 +119,7 @@
         <scene sceneID="0te-Xv-oH8">
             <objects>
                 <navigationController id="bZb-M6-dAb" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="EUn-V1-k8w">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EUn-V1-k8w">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.15686274510000001" green="0.4039215686" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -127,7 +135,7 @@
         <!--Racket Form View Controller-->
         <scene sceneID="S5r-yd-j2P">
             <objects>
-                <viewController storyboardIdentifier="RacketForm" id="xis-Bn-ZW8" customClass="RacketFormViewController" customModule="TennisApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RacketFormViewController" id="xis-Bn-ZW8" customClass="RacketFormViewController" customModule="TennisApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3ti-Oa-cMf"/>
                         <viewControllerLayoutGuide type="bottom" id="CxT-sK-x3N"/>

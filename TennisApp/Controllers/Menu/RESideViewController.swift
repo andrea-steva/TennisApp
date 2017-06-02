@@ -11,10 +11,11 @@ import RESideMenu
 
 protocol TNSideMenuDelegate: class {
     func sideMenuUserLogout()
+    func sideMenuSelect(menuItem: MenuItem)
 }
 
 final class RESideViewController: RESideMenu, RESideMenuDelegate, TNSideMenuDelegate {
-
+    
     // MARK: ViewModel
     var viewModel: RESideViewModel!
     
@@ -23,43 +24,44 @@ final class RESideViewController: RESideMenu, RESideMenuDelegate, TNSideMenuDele
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        
         self.menuPreferredStatusBarStyle = .lightContent
         self.contentViewShadowColor = Style.Colors.darkColor
         self.contentViewShadowOffset = CGSize(width: 0, height: 0)
         self.contentViewShadowOpacity = 0.6
         self.contentViewShadowRadius = 12
         self.contentViewShadowEnabled = true
-
+        
         self.contentViewController = Utils.getControllerFromStoryboard("Activities", controllerId: "ContentViewController")
-        let leftViewController = Utils.getControllerFromStoryboard("Activities", controllerId: "MenuViewController") as! RESideLeftViewController
+        
+        
+        let leftViewController: RESideLeftViewController = RESideLeftViewController.instantiateFromStoryboard("RESide")
         leftViewController.resideDelegate = self
         self.leftMenuViewController = leftViewController
         
         self.backgroundImage = UIImage(named: "Stars")
         self.delegate = self
     }
-
-    // MARK: RESideMenuDelegate
-
-    func sideMenu(_ sideMenu: RESideMenu!, willShowMenuViewController menuViewController: UIViewController!) {
-    }
-
-    func sideMenu(_ sideMenu: RESideMenu!, didHideMenuViewController menuViewController: UIViewController!) {
-    }
-
-    func sideMenu(_ sideMenu: RESideMenu!, didShowMenuViewController menuViewController: UIViewController!) {
-    }
-
-    func sideMenu(_ sideMenu: RESideMenu!, willHideMenuViewController menuViewController: UIViewController!) {
-    }
-    
+        
     // MARK: TNSideMenuDelegate
     
+    func sideMenuSelect(menuItem: MenuItem) {
+        viewModel.userSelect(menuItem: menuItem)
+    }
+    
     func sideMenuUserLogout() {
-        self.viewModel.logout()
+        AlertView.showConfirm(localizer.get(LocalizedString.generic_alertTitle), message: "Are you sure to want to logout?") { [unowned self] (userCancelAction) in
+            if !userCancelAction {
+                self.viewModel.performLogout(completion: { (success, error) in
+                    self.viewModel.userDidlogout()
+                })
+            } else {
+                self.hideViewController()
+            }
+        }
+        
     }
 }

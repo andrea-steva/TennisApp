@@ -17,6 +17,10 @@ class ProfileViewController: BaseViewController, UITableViewDataSource, UITabBar
 
     @IBOutlet var tableView: UITableView!
 
+    // MARK: ViewModel
+    
+    var viewModel: ProfileViewModel!
+    
     // MARK: View Management
 
     override func localizedTitleString() -> String {
