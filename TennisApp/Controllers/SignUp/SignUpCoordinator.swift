@@ -17,7 +17,7 @@ class SignUpCoordinator: Coordinator, SignUpViewModelCoordinatorDelegate {
     // MARK: Properties
     
     weak var delegate: SignUpCoordinatorDelegate?
-    fileprivate weak var navigationController: UINavigationControllerType?
+    fileprivate weak var navigationController: UINavigationControllerType!
     
     var signUpViewController: SignUpViewController?
     
@@ -36,7 +36,7 @@ class SignUpCoordinator: Coordinator, SignUpViewModelCoordinatorDelegate {
         let viewModel = SignUpViewModel()
         viewModel.coordinatorDelegate = self
         signUpViewController!.viewModel = viewModel
-        navigationController?.pushViewController(signUpViewController!, animated: true)
+        navigationController.pushViewController(signUpViewController!, animated: true)
     }
     
     // MARK: SignUpViewModelCoordinatorDelegate
@@ -50,6 +50,6 @@ class SignUpCoordinator: Coordinator, SignUpViewModelCoordinatorDelegate {
     }
     
     deinit {
-        Log.verbose("Deinit \(self)")
+        Log.verbose("+++ Deinit \(self) +++")
     }
 }

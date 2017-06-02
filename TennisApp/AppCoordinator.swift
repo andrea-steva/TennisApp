@@ -35,8 +35,6 @@ class AppCoordinator: Coordinator, LoginCoordinatorDelegate, RESideCoordinatorDe
     }
     
     private func showLogin() {
-        coordinators["login"] = nil
-        
         let loginCoordinator = LoginCoordinator(window: window)
         loginCoordinator.delegate = self
         loginCoordinator.start()
@@ -44,8 +42,6 @@ class AppCoordinator: Coordinator, LoginCoordinatorDelegate, RESideCoordinatorDe
     }
     
     private func showActivities() {
-        coordinators["login"] = nil
-        
         let resideCoordinator = RESideCoordinator(window: window)
         resideCoordinator.delegate = self
         resideCoordinator.start()
@@ -55,12 +51,14 @@ class AppCoordinator: Coordinator, LoginCoordinatorDelegate, RESideCoordinatorDe
     // MARK: LoginCoordinatorDelegate
     
     func loginCoordinatorDidFinish(loginCoordinator: LoginCoordinator) {
+        coordinators["login"] = nil
         showActivities()
     }
     
     // MARK: RESideCoordinatorDelegate
     
     func resideCoordinatorDidFinish(resideCoordinator: RESideCoordinator) {
+        coordinators["reside"] = nil
         showLogin()
     }
 }

@@ -1,90 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="doM-eJ-igx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Side View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController storyboardIdentifier="RESide" id="BYZ-38-t0r" customClass="RESideViewController" customModule="TennisApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-120" y="188"/>
-        </scene>
-        <!--Side Left View Controller-->
-        <scene sceneID="NMy-VS-bXC">
-            <objects>
-                <viewController storyboardIdentifier="MenuViewController" id="rQq-g2-x8M" customClass="RESideLeftViewController" customModule="TennisApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="lIc-Zz-Hfx"/>
-                        <viewControllerLayoutGuide type="bottom" id="lWz-Us-AC6"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uBJ-IH-god">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_background_2" translatesAutoresizingMaskIntoConstraints="NO" id="Yso-Hm-o0P">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WqI-KW-exX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <inset key="separatorInset" minX="15" minY="0.0" maxX="80" maxY="0.0"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="menu_cell" id="nlI-H3-8x6">
-                                        <rect key="frame" x="0.0" y="22" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nlI-H3-8x6" id="mSu-Jd-jA7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="rQq-g2-x8M" id="39F-3a-y5t"/>
-                                    <outlet property="delegate" destination="rQq-g2-x8M" id="bCI-5v-LSH"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Yso-Hm-o0P" firstAttribute="leading" secondItem="uBJ-IH-god" secondAttribute="leading" id="0V5-aj-3pO"/>
-                            <constraint firstItem="WqI-KW-exX" firstAttribute="leading" secondItem="uBJ-IH-god" secondAttribute="leading" id="2Zo-hQ-AVX"/>
-                            <constraint firstItem="WqI-KW-exX" firstAttribute="top" secondItem="uBJ-IH-god" secondAttribute="top" id="9SX-MO-dCd"/>
-                            <constraint firstAttribute="trailing" secondItem="WqI-KW-exX" secondAttribute="trailing" id="Nbb-Ya-kMH"/>
-                            <constraint firstItem="Yso-Hm-o0P" firstAttribute="top" secondItem="uBJ-IH-god" secondAttribute="top" id="arx-Yl-ZBJ"/>
-                            <constraint firstItem="lWz-Us-AC6" firstAttribute="top" secondItem="WqI-KW-exX" secondAttribute="bottom" id="bWz-vz-ieG"/>
-                            <constraint firstItem="lWz-Us-AC6" firstAttribute="top" secondItem="Yso-Hm-o0P" secondAttribute="bottom" id="quB-8G-efz"/>
-                            <constraint firstAttribute="trailing" secondItem="Yso-Hm-o0P" secondAttribute="trailing" id="sIT-KI-OWm"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="backgroundView" destination="Yso-Hm-o0P" id="JcM-6O-Ud7"/>
-                        <outlet property="tableView" destination="WqI-KW-exX" id="VA1-2z-JUh"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YRG-GA-ooI" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-120" y="856"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="p8z-Ex-SQ7">
             <objects>
@@ -201,6 +125,5 @@
     </scenes>
     <resources>
         <image name="court_clay" width="833" height="556"/>
-        <image name="menu_background_2" width="274" height="487"/>
     </resources>
 </document>

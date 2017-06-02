@@ -8,6 +8,13 @@
 
 import RealmSwift
 
+protocol SettingsViewModelCoordinatorDelegate: class {
+    
+}
+
 final class SettingsViewModel: BaseViewModel {
 
+    // MARK: Coordinator
+    
+    weak var coordinatorDelegate: SettingsViewModelCoordinatorDelegate?
 }

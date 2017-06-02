@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import Tamamushi
 
-class StringsViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
+final class StringsViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
 
     static let StringsCellReuseId = "string_cell"
 
@@ -24,10 +24,14 @@ class StringsViewController: BaseViewController, UITableViewDataSource, UITableV
 
     // MARK: ViewModel
 
-    var viewModel = StringsViewModel()
+    var viewModel: StringsViewModel!
 
     // MARK: View Management
 
+    override func hasMenuButton() -> Bool {
+        return false
+    }
+    
     override func localizedTitleString() -> String {
         return LocalizedString.menu_strings
     }
@@ -81,7 +85,7 @@ class StringsViewController: BaseViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
         let editAction  = UITableViewRowAction(style: .normal, title: "Edit") { [unowned self] (rowAction, indexPath) in
-            let formVC = Utils.getControllerFromStoryboard("Strings", controllerId: "StringForm") as! StringFormViewController
+            let formVC: StringFormViewController = StringFormViewController.instantiateFromStoryboard("Strings")
             formVC.viewModel.string = self.viewModel.string(forIndex: indexPath.row)
             formVC.viewModel.newStrings = false
             self.navigationController?.pushViewController(formVC, animated: true)

@@ -41,7 +41,7 @@ final class RealmProxy {
             .appendingPathComponent(databaseName)
             .appendingPathExtension("realm")
         
-        let schemaVersion: UInt64 = 0
+        let schemaVersion: UInt64 = 1
         
         let config = Realm.Configuration(fileURL: realmPath, schemaVersion: schemaVersion, migrationBlock: { migration, oldSchemaVersion in
             if oldSchemaVersion < schemaVersion {
@@ -53,8 +53,8 @@ final class RealmProxy {
         
         let realm = try! Realm(configuration: config)
         
-        Log.debug("Realm DB path: \(realm.configuration.fileURL?.absoluteString ?? "")")
-        Log.debug("Current schema version: \(realm.configuration.schemaVersion)")
+        //Log.debug("Realm DB path: \(realm.configuration.fileURL?.absoluteString ?? "")")
+        //Log.debug("Current schema version: \(realm.configuration.schemaVersion)")
         
         return realm
     }

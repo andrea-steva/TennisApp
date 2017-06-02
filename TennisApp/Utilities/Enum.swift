@@ -68,7 +68,7 @@ enum FitnessType: Int {
 
 enum MenuItem: Int {
     
-    case activies = 0
+    case activities = 0
     case rackets = 1
     case stats = 2
     case profile = 3
@@ -79,7 +79,7 @@ enum MenuItem: Int {
     
     func storyboardName() -> String {
         switch self {
-        case .activies:
+        case .activities:
             return "Activities"
         case .rackets:
             return "Rackets"
@@ -96,7 +96,7 @@ enum MenuItem: Int {
     
     func localizedName() -> String {
         switch self {
-        case .activies:
+        case .activities:
             return localizer.get(LocalizedString.menu_home)
         case .rackets:
             return localizer.get(LocalizedString.menu_rackets)
@@ -117,7 +117,7 @@ enum MenuItem: Int {
         let color  = Style.Colors.lightColor.withAlphaComponent(0.8)
         
         switch self {
-        case .activies:
+        case .activities:
             return UIImage.fontAwesomeIcon(name: .home, textColor: color, size: size)
         case .rackets:
             return UIImage.fontAwesomeIcon(name: .wrench, textColor: color, size: size)

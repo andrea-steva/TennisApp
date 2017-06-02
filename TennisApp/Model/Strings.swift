@@ -54,9 +54,9 @@ class Strings: Object {
     func updateFrom(dict: [String: Any?]) {
         self.manufacter = dict["manufacter"] as! String
         self.model = dict["model"] as! String
-        self.price = dict["price"] as! String
-        self.gauge = dict["gauge"] as! String
-        self.duration = dict["duration"] as! Float
-        self.tension = dict["tension"] as! Float
+        //self.price = dict["price"] as! String
+        //self.gauge = dict["gauge"] as! String
+        //self.duration = dict["duration"] as! Float
+        //self.tension = dict["tension"] as! Float
     }
 }

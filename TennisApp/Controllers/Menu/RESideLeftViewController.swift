@@ -30,7 +30,7 @@ UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.backgroundView.image = self.backgroundView.image?.applyMenuEffect()
+        backgroundView.image = self.backgroundView.image?.applyMenuEffect()
     }
     
     // MARK: UITableViewDataSource
@@ -52,25 +52,14 @@ UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
+        
         let menuItem = MenuItem(rawValue: indexPath.row)!
         if menuItem == .logout {
             tableView.deselectRow(at: indexPath, animated: true)
-            
-            AlertView.showConfirm(localizer.get(LocalizedString.generic_alertTitle), message: "Are you sure to want to logout?") { [unowned self] (userCancelAction) in
-                
-                if !userCancelAction {
-                    self.viewModel.performLogout(completion: { (success, error) in
-                        self.resideDelegate?.sideMenuUserLogout()
-                    })
-                }
-            }
-            return
+            resideDelegate?.sideMenuUserLogout()
+        } else {
+            resideDelegate?.sideMenuSelect(menuItem: menuItem)
         }
-        let contentViewController = Utils.getControllerFromStoryboard(menuItem.storyboardName())
-        self.sideMenuViewController.setContentViewController(contentViewController, animated: true)
-        self.sideMenuViewController.hideViewController()
-        
     }
     
     // MARK: UITableViewDelegate

@@ -49,7 +49,7 @@ final class SignUpViewModel: BaseViewModel {
         }
     }
 
-    private func setDisplayName(_ user: User) {
+    private func setDisplayName(_ user: Firebase.User) {
 
         var displayName = user.email!.components(separatedBy: "@")[0]
         if let name = self.displayName.value {
