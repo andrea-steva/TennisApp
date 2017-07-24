@@ -13,7 +13,7 @@ class StringFormViewController: FormViewController {
     
     // MARK: ViewModel
     
-    var viewModel = StringFormViewModel()
+    var viewModel: StringFormViewModel!
     
     // MARK: Methods
     
@@ -22,10 +22,12 @@ class StringFormViewController: FormViewController {
         
         self.title = localizer.get(LocalizedString.strings_addString)
         
-        createForm(string: viewModel.string)
+        createForm()
     }
     
-    func createForm(string: Strings?) {
+    func createForm() {
+        
+        let string = viewModel.getString()
         
         ImageRow.defaultCellUpdate = { cell, row in
             cell.accessoryView?.layer.cornerRadius = 17
@@ -52,12 +54,7 @@ class StringFormViewController: FormViewController {
         let formValues = form.values()
         Log.debug(formValues)
         
-        AlertView.showConfirm(localizer.get(LocalizedString.generic_alertTitle), message: "Update string's information") { [unowned self] (userCancelAction) in
-            
-            if !userCancelAction {
-                self.viewModel.creareOrUpdateString(formValues: formValues)
-                _ = self.navigationController?.popViewController(animated: true)
-            }
-        }
+        self.viewModel.creareOrUpdateString(formValues: formValues)
+        _ = self.navigationController?.popViewController(animated: true)
     }
 }

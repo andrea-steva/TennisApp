@@ -10,9 +10,9 @@ import Realm
 import RealmSwift
 
 class Racket: Object {
-
+    
     // MARK: Stored Attributes
-
+    
     dynamic var racketId: String!
     dynamic var manufacter: String!
     dynamic var model: String!
@@ -20,39 +20,48 @@ class Racket: Object {
     dynamic var gripSize: String!  //from 0 to 4
     dynamic var image: Data?
     dynamic var purchaseDate: Date?
-
+    
     // MARK: Relationship
-
+    
     let user = LinkingObjects(fromType: User.self, property: "rackets")
     var strings = List<Strings>()
-
+    
     // MARK: Primary Key
-
+    
     override static func primaryKey() -> String? {
         return "racketId"
     }
-
+    
     // MARK: Init
-
+    
     required init() {
         super.init()
     }
-
+    
     required init(realm: RLMRealm, schema: RLMObjectSchema) {
         super.init(realm: realm, schema: schema)
     }
-
+    
     convenience init(_ dictionary: [String: AnyObject]) {
         self.init()
     }
-
+    
     required init(value: Any, schema: RLMSchema) {
         fatalError("init(value:schema:) has not been implemented")
     }
-
+    
     // MARK: Class Methods
-
+    
+    func createFrom(dict: [String: Any?]) {
+        self.racketId = UUID().uuidString
+        self.mapping(dict)
+    }
+    
     func updateFrom(dict: [String: Any?]) {
+        self.mapping(dict)
+    }
+    
+    fileprivate func mapping(_ dict: [String: Any?]) {
         self.manufacter = dict["manufacter"] as! String!
         self.model = dict["model"] as! String!
         self.weight = dict["weight"] as! String!

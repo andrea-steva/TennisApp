@@ -97,7 +97,7 @@ final class RealmProxy {
     internal func getObjectByPrimaryKey<O: Object>(key: String) -> O? {
         return self.realm.object(ofType: O.self, forPrimaryKey: key)
     }
-        
+    
     /**
      Get an object from the storage given a predicate.
      
@@ -107,25 +107,23 @@ final class RealmProxy {
     internal func getObject<O: Object>(_ predicate: String) -> O? {
         return self.realm.objects(O.self).filter(predicate).first
     }
-    
+        
     /**
      Get a list of objects from the storage given a predicate.
      
      - parameter predicate: The predicate used to filter.
      - return: The objects list.
      */
-    internal func getObjects<O: Object>(_ predicate: String) -> Results<O> {
-        return self.realm.objects(O.self).filter(predicate)
-    }
-    
-    /**
-     Get a list of objects from the storage given a predicate.
-     
-     - parameter predicate: The predicate used to filter.
-     - return: The objects list.
-     */
-    internal func getObjects<O: Object>(_ predicate: String, sortBy: String) -> Results<O> {
-        return self.realm.objects(O.self).filter(predicate).sorted(byKeyPath: sortBy)
+    internal func getObjects<O: Object>(_ predicate: String?, sortBy: String?) -> Results<O> {
+        var objects =  self.realm.objects(O.self)
+        
+        if let predicate = predicate {
+            objects = objects.filter(predicate)
+        }
+        if let sortBy = sortBy {
+            objects = objects.sorted(byKeyPath: sortBy)
+        }
+        return objects
     }
     
     /**

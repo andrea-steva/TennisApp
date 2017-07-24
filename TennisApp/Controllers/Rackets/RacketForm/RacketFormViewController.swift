@@ -13,7 +13,7 @@ class RacketFormViewController: FormViewController {
 
     // MARK: ViewModel
 
-    var viewModel = RacketFormViewModel()
+    var viewModel: RacketFormViewModel!
 
     // MARK: Methods
 
@@ -22,10 +22,12 @@ class RacketFormViewController: FormViewController {
 
         self.title = localizer.get(LocalizedString.rackets_addRacket)
 
-        createForm(racket: viewModel.racket)
+        createForm()
     }
 
-    func createForm(racket: Racket?) {
+    func createForm() {
+        
+        let racket = viewModel.getRacket()
 
         ImageRow.defaultCellUpdate = { cell, row in
             cell.accessoryView?.layer.cornerRadius = 17
@@ -68,14 +70,7 @@ class RacketFormViewController: FormViewController {
 
     @IBAction func didTapOnSaveButton(_ sender: AnyObject) {
         let formValues = form.values()
-        Log.debug(formValues)
-
-        AlertView.showConfirm(localizer.get(LocalizedString.generic_alertTitle), message: "Update racket's information") { [unowned self] (userCancelAction) in
-
-            if !userCancelAction {
-                self.viewModel.creareOrUpdateRacket(formValues: formValues)
-                _ = self.navigationController?.popViewController(animated: true)
-            }
-        }
+        self.viewModel.creareOrUpdateRacket(formValues: formValues)
+        self.viewModel.toRackets()
     }
 }

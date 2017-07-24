@@ -6,35 +6,45 @@
 //  Copyright © 2017 Andrea Stevanato. All rights reserved.
 //
 
-import RealmSwift
+protocol RacketFormViewModelCoordinatorDelegate: class {
+    func racketFormViewModelSaveRacket()
+}
 
 final class RacketFormViewModel: BaseViewModel {
-
+    
+    // MARK: Coordinator
+    
+    weak var coordinatorDelegate: RacketFormViewModelCoordinatorDelegate?
+    
     // MARK: Properties
-
-    fileprivate let racketsRepo = RacketsRepo(racketsService: RacketsService())
-
-    var newRacket: Bool = true
-    var racket: Racket?
-
+    
+    fileprivate let racketsService = RacketsService()
+    fileprivate var racket: Racket?
+    
     // MARK: Methods
-
-    override init() {
-
+    
+    init(racket: Racket?) {
+        super.init()
+        self.racket = racket
     }
-
+    
+    func getRacket() -> Racket? {
+        return racket
+    }
+    
     func creareOrUpdateRacket(formValues: [String: Any?]) {
-        //Create the new racket if necessary
-        if newRacket {
-            racket = Racket()
-            racket!.racketId = UUID().uuidString
-        }
-
-        //Update racket
         if let racket = self.racket {
-            self.racketsRepo.saveRacket(racket: racket, saveBlock: { (racket) in
+            self.racketsService.updateRacket(block: {
                 racket.updateFrom(dict: formValues)
             })
+        } else {
+            racket = Racket()
+            racket!.createFrom(dict: formValues)
+            self.racketsService.createRacket(racket: racket!)
         }
+    }
+    
+    func toRackets() {
+        self.coordinatorDelegate?.racketFormViewModelSaveRacket()
     }
 }

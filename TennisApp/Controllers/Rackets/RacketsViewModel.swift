@@ -6,10 +6,11 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-import RealmSwift
+import Bond
 
 protocol RacketsViewModelCoordinatorDelegate: class {
     func racketsViewModelToStrings(viewModel: RacketsViewModel)
+    func racketsViewModelToRacketForm(racket: Racket?)
 }
 
 final class RacketsViewModel: BaseViewModel {
@@ -19,15 +20,20 @@ final class RacketsViewModel: BaseViewModel {
     weak var coordinatorDelegate: RacketsViewModelCoordinatorDelegate?
     
     // MARK: Properties
+    
+    var reloadView = Observable(false)
 
-    fileprivate let racketsRepo = RacketsRepo(racketsService: RacketsService())
+    fileprivate let racketsService = RacketsService()
 
-    var rackets: Results<Racket>?
+    var rackets: [Racket]?
 
     // MARK: Methods
 
-    override init() {
-        rackets = racketsRepo.getRackets()
+    func fetchRackets() {
+        racketsService.fetchRackets { (rackets) in
+            self.rackets = rackets
+            self.reloadView.value = true
+        }
     }
 
     func numberOfRackets() -> Int {
@@ -48,21 +54,19 @@ final class RacketsViewModel: BaseViewModel {
         guard let racket = rackets?[index] else {
             return
         }
-        racketsRepo.deleteRacket(racket: racket)
+        racketsService.deleteRacket(racket: racket)
+        self.fetchRackets()
     }
     
     func toStrings() {
         self.coordinatorDelegate?.racketsViewModelToStrings(viewModel: self)
     }
-
-    func addTestRacket() {
-        let racket = Racket()
-        racket.racketId = UUID().uuidString
-        racket.manufacter = "Wilson"
-        racket.model = "Blade"
-        racket.gripSize = "2"
-        racket.weight = "300"
-        racket.purchaseDate = Date()
-        racketsRepo.saveRacket(racket: racket)
+    
+    func toRacketForm(index: Int) {
+        self.coordinatorDelegate?.racketsViewModelToRacketForm(racket: rackets![index])
+    }
+    
+    func toEmptyRacketForm() {
+        self.coordinatorDelegate?.racketsViewModelToRacketForm(racket: nil)
     }
 }

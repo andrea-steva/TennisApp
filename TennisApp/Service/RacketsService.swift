@@ -7,52 +7,50 @@
 //
 
 import Foundation
-import RealmSwift
 
 protocol RacketsServiceProtocol {
-    func fetchRackets() -> Results<Racket>
-    func saveRacket(racket: Racket, saveBlock: ((_ racket: Racket) -> Void)?)
+    func fetchRackets(block: @escaping (_ rackets: [Racket]) -> Void)
+    func createRacket(racket: Racket)
+    func updateRacket(block: @escaping () -> Void)
     func deleteRacket(racket: Racket)
 }
 
 final class RacketsService: RacketsServiceProtocol {
     
-    func fetchRackets() -> Results<Racket> {
-        let rackets = RealmProxy().getAllObjects(sortedBy: "purchaseDate") as Results<Racket>
-        return rackets
+    fileprivate var storage: StorageContext?
+    
+    init() {
+        self.storage = try! RealmStorageContext(configuration: ConfigurationType.basic(identifier: "tennis_db"))
+    }
+    
+    func fetchRackets(block: @escaping (_ rackets: [Racket]) -> Void) {
+        let sort = Sorted(key: "purchaseDate", ascending: false)
+        self.storage?.fetch(Racket.self, predicate: nil, sorted: sort, completion: { (rackets) in
+            block(rackets)
+        })
     }
     
     func deleteRacket(racket: Racket) {
-        RealmProxy().deleteObject(racket) { (racket) in
+        do {
+            try self.storage?.delete(object: racket)
+        } catch _ as NSError {
         }
     }
     
-    func saveRacket(racket: Racket, saveBlock: ((_ racket: Racket) -> Void)?) {
-        RealmProxy().saveObject(racket) { (racket) in
-            saveBlock?(racket)
+    func createRacket(racket: Racket) {
+        do {
+            try self.storage?.create(object: racket, completion: { (racket) in
+            })
+        } catch _ as NSError {
         }
     }
-}
-
-final class RacketsRepo {
     
-    private let rackets: Results<Racket>
-    private let service: RacketsServiceProtocol
-    
-    init(racketsService: RacketsServiceProtocol) {
-        self.service = racketsService
-        self.rackets = racketsService.fetchRackets()
-    }
-    
-    func getRackets() -> Results<Racket> {
-        return rackets
-    }
-    
-    func deleteRacket(racket: Racket) {
-        self.service.deleteRacket(racket: racket)
-    }
-    
-    func saveRacket(racket: Racket, saveBlock: ((_ racket: Racket) -> Void)? = nil) {
-        self.service.saveRacket(racket: racket, saveBlock: saveBlock)
+    func updateRacket(block: @escaping () -> Void) {
+        do {
+            try self.storage?.update(block: { 
+                block()
+            })
+        } catch _ as NSError {
+        }
     }
 }

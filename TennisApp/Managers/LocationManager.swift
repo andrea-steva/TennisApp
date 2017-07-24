@@ -10,87 +10,52 @@ import CoreLocation
 
 protocol LocationManagerDelegate: class {
 
-    func locationManagerDidUpdateLocation(_ localizationManager: LocationManager)
+    func locationManagerDidUpdateLocation(_ location: CLLocation)
 }
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
 
+    // MARK: Shared Instance
+    
+    class var sharedInstance : LocationManager {
+        struct Static {
+            static let instance : LocationManager = LocationManager()
+        }
+        return Static.instance
+    }
+    
     // MARK: Property
 
-    fileprivate let manager = CLLocationManager()
-    fileprivate static let geocoder = CLGeocoder()
-
+    fileprivate let locationManager = CLLocationManager()
     fileprivate var isMonitoring = false
-
     fileprivate var lastLocation: CLLocation?
-    fileprivate var placemark: CLPlacemark?
-
     fileprivate weak var delegate: LocationManagerDelegate?
 
-    // MARK: Istance
+    // MARK: Instance
 
-    init(delegate: LocationManagerDelegate?) {
-        self.delegate = delegate
+    override init() {
         super.init()
-        manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
-        manager.distanceFilter = 5000
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
+        locationManager.distanceFilter = 1000
     }
 
     func start() {
-        objc_sync_enter(manager)
-        if !isMonitoring {
-            isMonitoring = true
-            self.updateLocation(manager.location)
-            manager.requestAlwaysAuthorization()
-            manager.startUpdatingLocation()
-        }
-        objc_sync_exit(manager)
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
 
     func stop() {
-        objc_sync_enter(manager)
-        if isMonitoring {
-            isMonitoring = false
-            manager.stopUpdatingLocation()
-        }
-        objc_sync_exit(manager)
+        locationManager.stopUpdatingLocation()
     }
 
-    func getCurrentLocation() -> (location: CLLocation?, name: String?) {
-        return (location : lastLocation, name : placemark?.locality)
-    }
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else {
-            return
-        }
-        self.updateLocation(location)
-    }
-
-    func updateLocation(_ location: CLLocation?) {
+    func locationManager(_ locationManager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
         lastLocation = location
-        placemark = nil
-        if let location = lastLocation {
-            LocationManager.getPlacemark(location, completion: { (placemark) -> Void in
-                self.placemark = placemark
-                self.delegate?.locationManagerDidUpdateLocation(self)
-            })
-        } else {
-            self.delegate?.locationManagerDidUpdateLocation(self)
-        }
+        self.delegate?.locationManagerDidUpdateLocation(location)
     }
-
-    // MARK: Static
-
-    static func getPlacemark(_ location: CLLocation, completion : @escaping (_ placemark: CLPlacemark?) -> Void) {
-        geocoder.reverseGeocodeLocation(location) { (placemarks, error) -> Void in
-            if error == nil {
-                completion(placemarks?.first)
-            } else {
-                completion(nil)
-            }
-        }
-
+    
+    func getCurrentLocation() -> CLLocation? {
+        return lastLocation
     }
 }

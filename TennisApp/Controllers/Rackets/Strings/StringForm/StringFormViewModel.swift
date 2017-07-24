@@ -8,32 +8,41 @@
 
 import RealmSwift
 
+protocol StringFormViewModelCoordinatorDelegate: class {
+    func stringFormViewModelSaveString()
+}
+
 final class StringFormViewModel: BaseViewModel {
-
+    
+    // MARK: Coordinator
+    
+    weak var coordinatorDelegate: StringFormViewModelCoordinatorDelegate?
+    
     // MARK: Properties
-
+    
     fileprivate let stringsRepo = StringsRepo(stringsService: StringsService())
-
-    var newStrings: Bool = true
-    var string: Strings?
-
+    fileprivate var string: Strings?
+    
     // MARK: Methods
-
-    override init() {
-
+    
+    init(string: Strings?) {
+        super.init()
+        self.string = string
     }
-
+    
+    func getString() -> Strings? {
+        return string
+    }
+    
     func creareOrUpdateString(formValues: [String: Any?]) {
-        //Create the new string if necessary
-        if newStrings {
-            string = Strings()
-            string!.stringId = UUID().uuidString
-        }
-
-        //Update string
         if let string = self.string {
             self.stringsRepo.saveString(string: string, saveBlock: { (string) in
                 string.updateFrom(dict: formValues)
+            })
+        } else {
+            string = Strings()
+            string!.createFrom(dict: formValues)
+            self.stringsRepo.saveString(string: string!, saveBlock: { (string) in
             })
         }
     }
