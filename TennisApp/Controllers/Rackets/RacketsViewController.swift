@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import RealmSwift
+
 import Tamamushi
 
 final class RacketsViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
@@ -19,8 +19,6 @@ final class RacketsViewController: BaseViewController, UITableViewDataSource, UI
     @IBOutlet var tableView: UITableView!
 
     // MARK: Properties
-
-    var notificationToken: NotificationToken? = nil
 
     // MARK: ViewModel
 
@@ -38,9 +36,18 @@ final class RacketsViewController: BaseViewController, UITableViewDataSource, UI
         TMGradientNavigationBar().setGradientColorOnNavigationBar(bar: self.navigationController!.navigationBar, direction: .vertical,
                                                                   startColor: Style.Colors.courtHardB,
                                                                   endColor: Style.Colors.courtHardB.lighter())
+        self.setupObservers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-        self.notificationToken = viewModel.rackets?.addNotificationBlock({ [unowned self] (results) in
-            self.tableView.applyChanges(changes: results)
+        self.viewModel.fetchRackets()
+    }
+    
+    func setupObservers() {
+        _ = viewModel.reloadView.observeNext(with: { [weak self] (value) in
+            self?.tableView.reloadData()
         })
     }
 
@@ -81,10 +88,8 @@ final class RacketsViewController: BaseViewController, UITableViewDataSource, UI
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
         let editAction  = UITableViewRowAction(style: .normal, title: "Edit") { [unowned self] (rowAction, indexPath) in
-            let formVC: RacketFormViewController = RacketFormViewController.instantiateFromStoryboard("Rackets")
-            formVC.viewModel.racket = self.viewModel.racket(forIndex: indexPath.row)
-            formVC.viewModel.newRacket = false
-            self.navigationController?.pushViewController(formVC, animated: true)
+            
+            self.viewModel.toRacketForm(index: indexPath.row)
             self.tableView.setEditing(false, animated: true)
         }
         editAction.backgroundColor = UIColor.orange
@@ -107,10 +112,8 @@ final class RacketsViewController: BaseViewController, UITableViewDataSource, UI
     @IBAction func didTapOnStringsButton(_ sender: AnyObject) {
         self.viewModel.toStrings()
     }
-
-    // MARK: Others
-
-    deinit {
-        notificationToken?.stop()
+    
+    @IBAction func didTapOnAddRacketButton(_ sender: AnyObject) {
+        self.viewModel.toEmptyRacketForm()
     }
 }

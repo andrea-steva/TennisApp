@@ -51,12 +51,17 @@ class Strings: Object {
 
     // MARK: Class Methods
     
+    func createFrom(dict: [String: Any?]) {
+        self.stringId = UUID().uuidString
+        self.mapping(dict)
+    }
+    
     func updateFrom(dict: [String: Any?]) {
+        self.mapping(dict)
+    }
+    
+    fileprivate func mapping(_ dict: [String: Any?]) {
         self.manufacter = dict["manufacter"] as! String
         self.model = dict["model"] as! String
-        //self.price = dict["price"] as! String
-        //self.gauge = dict["gauge"] as! String
-        //self.duration = dict["duration"] as! Float
-        //self.tension = dict["tension"] as! Float
     }
 }

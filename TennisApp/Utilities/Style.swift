@@ -160,8 +160,6 @@ struct Style {
         Colors.setupStyle()
     }
     
-    static let MARGIN: CGFloat = 20
-    
     /**
      *  This struct defines the colors used by the application
      */
@@ -196,7 +194,6 @@ struct Style {
     }
     
     struct Fonts {
-        static let baseName = "OpenSans"
         
         /**
          Get font with font weight and font size

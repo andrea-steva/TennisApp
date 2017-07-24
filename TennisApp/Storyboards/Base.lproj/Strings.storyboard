@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Strings View Controller-->
         <scene sceneID="vYo-6S-LIh">
             <objects>
-                <viewController storyboardIdentifier="StringsView" id="mPO-Aa-exN" customClass="StringsViewController" customModule="TennisApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StringsViewController" id="mPO-Aa-exN" customClass="StringsViewController" customModule="TennisApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eL6-ue-onO"/>
                         <viewControllerLayoutGuide type="bottom" id="v6V-gv-iwZ"/>
@@ -94,9 +94,7 @@
                     <navigationItem key="navigationItem" id="FRg-uK-8cJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="5yQ-d0-Ucq">
                             <connections>
-                                <segue destination="qQi-Fu-Xhp" kind="show" identifier="toForm" id="jMm-zt-dgy">
-                                    <nil key="action"/>
-                                </segue>
+                                <action selector="didTapOnAddStringButton:" destination="mPO-Aa-exN" id="wEC-3s-ADU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -135,7 +133,7 @@
                         <viewControllerLayoutGuide type="bottom" id="rlG-q7-bvc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eDS-Xh-wPz">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>

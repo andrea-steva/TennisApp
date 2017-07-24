@@ -7,27 +7,40 @@
 //
 
 import XCTest
-@testable import RealmSwift
 @testable import TennisApp
 
 class FakeRacketsService: RacketsServiceProtocol {
     
-    let realm = try! Realm(configuration: Realm.Configuration(inMemoryIdentifier: "test"))
+    let storage = try! RealmStorageContext(configuration: ConfigurationType.inMemory(identifier: "test"))
     
-    func fetchRackets() -> Results<Racket> {
-        let realmProxy = RealmProxy(injectedRealm: realm)
-        return realmProxy.getAllObjects()
+    func fetchRackets(block: @escaping ([Racket]) -> Void) {
+        let sort = Sorted(key: "purchaseDate", ascending: false)
+        storage.fetch(Racket.self, predicate: nil, sorted: sort, completion: { (rackets) in
+            block(rackets)
+        })
     }
     
     func deleteRacket(racket: Racket) {
-        let realmProxy = RealmProxy(injectedRealm: realm)
-        realmProxy.deleteObject(racket) { (racket) in
+        do {
+            try storage.delete(object: racket)
+        } catch {
         }
     }
     
-    func saveRacket(racket: Racket, saveBlock: ((_ racket: Racket) -> Void)?) {
-        let realmProxy = RealmProxy(injectedRealm: realm)
-        realmProxy.saveObject(racket) { (racket) in
+    func createRacket(racket: Racket) {
+        do {
+            try storage.create(object: racket, completion: { (racket) in
+            })
+        } catch {
+        }
+    }
+    
+    func updateRacket(block: @escaping () -> Void) {
+        do {
+            try storage.update(block: {
+                block()
+            })
+        } catch _ as NSError {
         }
     }
 }
@@ -36,23 +49,54 @@ class RacketsTests: XCTestCase {
     
     let fakeRacketsService = FakeRacketsService()
     
+    var racket: Racket!
+    
     func test_1_fetchRackets() {
-        let sut = RacketsRepo(racketsService: fakeRacketsService)
-        XCTAssertTrue(sut.getRackets().count == 0, "Number of rackets should be: 0")
+        let exp = self.expectation(description: "waiting for fetch object")
+        
+        let sut = fakeRacketsService
+        sut.fetchRackets { (rackets) in
+            XCTAssertTrue(rackets.count == 0, "Number of rackets should be: 0")
+            
+            exp.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: 2)
     }
     
-    func test_2_saveRacket() {
-        let sut = RacketsRepo(racketsService: fakeRacketsService)
+    func test_2_createRacket() {
+        let exp = self.expectation(description: "waiting for fetch object")
         
-        sut.saveRacket(racket: Racket())
-        XCTAssertTrue(sut.getRackets().count == 1, "Number of rackets should be: 1")
+        let sut = fakeRacketsService
+        
+        let racket = Racket()
+        racket.racketId = UUID().uuidString
+        racket.manufacter = "Wilson"
+        racket.model = "Prostaff 97LS"
+        
+        sut.createRacket(racket: racket)
+        sut.fetchRackets { (rackets) in
+            self.racket = rackets.first!
+            XCTAssertTrue(rackets.count == 1, "Number of rackets should be: 1")
+            
+            exp.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: 2)
     }
     
     func test_3_deleteRacket() {
-        let sut = RacketsRepo(racketsService: fakeRacketsService)
+        let exp = self.expectation(description: "waiting for fetch object")
         
-        let rackets = sut.getRackets()
-        sut.deleteRacket(racket: rackets.first!)
-        XCTAssertTrue(sut.getRackets().count == 0, "Number of rackets should be: 0")
+        let sut = fakeRacketsService
+        
+        sut.deleteRacket(racket: self.racket)
+        sut.fetchRackets { (rackets) in
+            XCTAssertTrue(rackets.count == 0, "Number of rackets should be: 0")
+            
+            exp.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: 2)
     }
 }

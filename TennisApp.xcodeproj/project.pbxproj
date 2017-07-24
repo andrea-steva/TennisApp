@@ -41,6 +41,10 @@
 		656A4BB91E17FD43009E97EB /* FirebaseProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A4BB81E17FD43009E97EB /* FirebaseProxy.swift */; };
 		657234881E114DD40050F319 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657234871E114DD40050F319 /* Logger.swift */; };
 		6572348A1E11726B0050F319 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 657234891E11726B0050F319 /* GoogleService-Info.plist */; };
+		65784FF11F215801001BFBEF /* StorageContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65784FF01F215801001BFBEF /* StorageContext.swift */; };
+		65784FF31F215865001BFBEF /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65784FF21F215865001BFBEF /* Storable.swift */; };
+		65784FF51F215A73001BFBEF /* RealmStorageContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65784FF41F215A73001BFBEF /* RealmStorageContext.swift */; };
+		65784FF71F23779A001BFBEF /* StorageContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65784FF61F23779A001BFBEF /* StorageContextTests.swift */; };
 		657AD2631EAFA65A00E3157F /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657AD2621EAFA65A00E3157F /* UsersService.swift */; };
 		657AD2651EAFAE9B00E3157F /* RESideViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657AD2641EAFAE9B00E3157F /* RESideViewModel.swift */; };
 		657AD2671EB270B500E3157F /* RESideLeftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657AD2661EB270B500E3157F /* RESideLeftViewModel.swift */; };
@@ -93,6 +97,8 @@
 		65B04E3B1C6CD03500011439 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E3A1C6CD03500011439 /* Match.swift */; };
 		65B04E3D1C6CD05900011439 /* Practice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E3C1C6CD05900011439 /* Practice.swift */; };
 		65B04E3F1C6CD06600011439 /* MatchScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E3E1C6CD06600011439 /* MatchScore.swift */; };
+		65C2CB121F255B500095D954 /* RacketFormCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C2CB111F255B500095D954 /* RacketFormCoordinator.swift */; };
+		65C2CB141F26A1550095D954 /* StringFormCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C2CB131F26A1550095D954 /* StringFormCoordinator.swift */; };
 		65C4D71F1E462A5700242DEB /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 65C4D71E1E462A5700242DEB /* .swiftlint.yml */; };
 		65C511E81C938C740051D645 /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C511E71C938C740051D645 /* ProfileHeaderView.xib */; };
 		65C511EA1C938DCA0051D645 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C511E91C938DCA0051D645 /* ProfileHeaderView.swift */; };
@@ -184,6 +190,10 @@
 		656A4BB81E17FD43009E97EB /* FirebaseProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseProxy.swift; path = TennisApp/Utilities/FirebaseProxy.swift; sourceTree = SOURCE_ROOT; };
 		657234871E114DD40050F319 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		657234891E11726B0050F319 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		65784FF01F215801001BFBEF /* StorageContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageContext.swift; path = Storage/StorageContext.swift; sourceTree = "<group>"; };
+		65784FF21F215865001BFBEF /* Storable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Storable.swift; path = Storage/Storable.swift; sourceTree = "<group>"; };
+		65784FF41F215A73001BFBEF /* RealmStorageContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmStorageContext.swift; path = Storage/RealmStorageContext.swift; sourceTree = "<group>"; };
+		65784FF61F23779A001BFBEF /* StorageContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageContextTests.swift; sourceTree = "<group>"; };
 		657AD2621EAFA65A00E3157F /* UsersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UsersService.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		657AD2641EAFAE9B00E3157F /* RESideViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESideViewModel.swift; sourceTree = "<group>"; };
 		657AD2661EB270B500E3157F /* RESideLeftViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESideLeftViewModel.swift; sourceTree = "<group>"; };
@@ -243,6 +253,8 @@
 		65B04E3A1C6CD03500011439 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Match.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		65B04E3C1C6CD05900011439 /* Practice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Practice.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		65B04E3E1C6CD06600011439 /* MatchScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchScore.swift; sourceTree = "<group>"; };
+		65C2CB111F255B500095D954 /* RacketFormCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketFormCoordinator.swift; sourceTree = "<group>"; };
+		65C2CB131F26A1550095D954 /* StringFormCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringFormCoordinator.swift; sourceTree = "<group>"; };
 		65C4D71E1E462A5700242DEB /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		65C511E71C938C740051D645 /* ProfileHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileHeaderView.xib; sourceTree = "<group>"; };
 		65C511E91C938DCA0051D645 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -337,8 +349,8 @@
 			isa = PBXGroup;
 			children = (
 				6524FDA01EAF966C00936B09 /* RacketsService.swift */,
-				657AD2621EAFA65A00E3157F /* UsersService.swift */,
 				65653D321ED0AA7F00A9DBBB /* StringsService.swift */,
+				657AD2621EAFA65A00E3157F /* UsersService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -459,6 +471,7 @@
 			isa = PBXGroup;
 			children = (
 				65B04DB71C6CA02300011439 /* TennisAppTests.swift */,
+				65784FF61F23779A001BFBEF /* StorageContextTests.swift */,
 				6524FDA21EAF9DC800936B09 /* RacketsTests.swift */,
 				657AD2681EB4B58F00E3157F /* RealmProxyTests.swift */,
 				65B04DB91C6CA02300011439 /* Info.plist */,
@@ -608,6 +621,9 @@
 		65B04E291C6CC67300011439 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				65784FF21F215865001BFBEF /* Storable.swift */,
+				65784FF01F215801001BFBEF /* StorageContext.swift */,
+				65784FF41F215A73001BFBEF /* RealmStorageContext.swift */,
 				65B04E2A1C6CC69400011439 /* RealmProxy.swift */,
 			);
 			name = Storage;
@@ -647,6 +663,7 @@
 		65D2068A1EE1980F004A8150 /* StringForm */ = {
 			isa = PBXGroup;
 			children = (
+				65C2CB131F26A1550095D954 /* StringFormCoordinator.swift */,
 				65D2068B1EE1980F004A8150 /* StringFormViewController.swift */,
 				65D2068C1EE1980F004A8150 /* StringFormViewModel.swift */,
 			);
@@ -656,6 +673,7 @@
 		65D2068F1EE19820004A8150 /* RacketForm */ = {
 			isa = PBXGroup;
 			children = (
+				65C2CB111F255B500095D954 /* RacketFormCoordinator.swift */,
 				65D206901EE19820004A8150 /* RacketFormViewController.swift */,
 				65D206911EE19820004A8150 /* RacketFormViewModel.swift */,
 			);
@@ -1046,6 +1064,7 @@
 				65F05AB51ECE334800EFA322 /* AppCoordinator.swift in Sources */,
 				65C511F41C948F0A0051D645 /* LoginViewModel.swift in Sources */,
 				65B04E3F1C6CD06600011439 /* MatchScore.swift in Sources */,
+				65784FF11F215801001BFBEF /* StorageContext.swift in Sources */,
 				65653D331ED0AA7F00A9DBBB /* StringsService.swift in Sources */,
 				65F05AB11ECE329000EFA322 /* SignUpViewModel.swift in Sources */,
 				65B04E2B1C6CC69400011439 /* RealmProxy.swift in Sources */,
@@ -1064,7 +1083,10 @@
 				65653D241ED081D000A9DBBB /* Date.swift in Sources */,
 				65F05AA81ECE327700EFA322 /* RESideCoordinator.swift in Sources */,
 				657AD2651EAFAE9B00E3157F /* RESideViewModel.swift in Sources */,
+				65784FF31F215865001BFBEF /* Storable.swift in Sources */,
+				65C2CB141F26A1550095D954 /* StringFormCoordinator.swift in Sources */,
 				65D824A81C6F589100E2918C /* ProfileViewController.swift in Sources */,
+				65C2CB121F255B500095D954 /* RacketFormCoordinator.swift in Sources */,
 				6569A3E01E990A3A00A444BB /* Bindable.swift in Sources */,
 				65FB52C51C6DEC0B003A6DAE /* ActivitiesContainerViewController.swift in Sources */,
 				65B04E3B1C6CD03500011439 /* Match.swift in Sources */,
@@ -1096,6 +1118,7 @@
 				659B53041C9D93C200829BF3 /* Enum.swift in Sources */,
 				6589FC961E26F69000C25F31 /* ProfileViewModel.swift in Sources */,
 				6507CA641C6CFE6400B7AD5C /* RESideViewController.swift in Sources */,
+				65784FF51F215A73001BFBEF /* RealmStorageContext.swift in Sources */,
 				65D206921EE19820004A8150 /* RacketFormViewController.swift in Sources */,
 				65B04DA31C6CA02300011439 /* AppDelegate.swift in Sources */,
 				65653D311ED0A7FD00A9DBBB /* StringTableViewCell.swift in Sources */,
@@ -1112,6 +1135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65B04DB81C6CA02300011439 /* TennisAppTests.swift in Sources */,
+				65784FF71F23779A001BFBEF /* StorageContextTests.swift in Sources */,
 				657AD2691EB4B58F00E3157F /* RealmProxyTests.swift in Sources */,
 				6524FDA31EAF9DC800936B09 /* RacketsTests.swift in Sources */,
 			);

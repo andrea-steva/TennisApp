@@ -10,6 +10,7 @@ import RealmSwift
 
 protocol StringsViewModelCoordinatorDelegate: class {
     func stringViewModelDidEnd(_ viewModel: StringsViewModel)
+    func stringViewModelToStringForm(string: Strings?)
 }
 
 final class StringsViewModel: BaseViewModel {
@@ -55,11 +56,11 @@ final class StringsViewModel: BaseViewModel {
         self.coordinatorDelegate?.stringViewModelDidEnd(self)
     }
 
-    func addTestString() {
-        let string = Strings()
-        string.stringId = UUID().uuidString
-        string.manufacter = "Wilson"
-        string.model = "Revolve"
-        stringsRepo.saveString(string: string)
+    func toStringForm(index: Int) {
+        self.coordinatorDelegate?.stringViewModelToStringForm(string: strings![index])
+    }
+
+    func toEmptyStringForm() {
+        self.coordinatorDelegate?.stringViewModelToStringForm(string: nil)
     }
 }

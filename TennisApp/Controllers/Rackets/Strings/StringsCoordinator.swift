@@ -12,14 +12,16 @@ protocol StringsCoordinatorDelegate: class {
     func stringsCoordinatorDidFinish(racketsCoordinator: StringsCoordinator)
 }
 
-class StringsCoordinator: Coordinator, StringsViewModelCoordinatorDelegate {
+class StringsCoordinator: Coordinator, StringsViewModelCoordinatorDelegate, StringFormCoordinatorDelegate {
     
     // MARK: Properties
     
     weak var delegate: StringsCoordinatorDelegate?
-    fileprivate weak var navigationController: UINavigationControllerType?
+    fileprivate weak var navigationController: UINavigationControllerType!
     
-    var stringsViewController: StringsViewController?
+    var stringsViewController: StringsViewController!
+    
+    fileprivate var stringFormCoordinator: StringFormCoordinator?
     
     // MARK: Coordinator
     
@@ -28,21 +30,31 @@ class StringsCoordinator: Coordinator, StringsViewModelCoordinatorDelegate {
     }
     
     func start() {
-        let storyboard = UIStoryboard(name: "Strings", bundle: nil)
-        guard let vc = storyboard.instantiateViewController(withIdentifier: "StringsView") as? StringsViewController else {
-            return
-        }
-        stringsViewController = vc
+        stringsViewController = StringsViewController.instantiateFromStoryboard("Strings") as! StringsViewController
+        
         let viewModel = StringsViewModel()
         viewModel.coordinatorDelegate = self
-        stringsViewController!.viewModel = viewModel
-        navigationController?.pushViewController(stringsViewController!, animated: true)
+        stringsViewController.viewModel = viewModel
+        navigationController?.pushViewController(stringsViewController, animated: true)
     }
     
     // MARK: StringsViewModelCoordinatorDelegate
     
     func stringViewModelDidEnd(_ viewModel: StringsViewModel) {
         delegate?.stringsCoordinatorDidFinish(racketsCoordinator: self)
+    }
+    
+    func stringViewModelToStringForm(string: Strings?) {
+        stringFormCoordinator = StringFormCoordinator(navigationController: navigationController, string: string)
+        stringFormCoordinator?.delegate = self
+        stringFormCoordinator?.start()
+    }
+    
+    // MARK: StringFormViewModelCoordinatorDelegate
+    
+    func stringFormCoordinatorDidFinish(stringFormCoordinator: StringFormCoordinator) {
+        _ = navigationController.popViewController(animated: true)
+        self.stringFormCoordinator = nil
     }
     
     deinit {

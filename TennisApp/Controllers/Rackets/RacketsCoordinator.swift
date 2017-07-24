@@ -13,17 +13,20 @@ protocol RacketsCoordinatorDelegate: class {
     func racketsCoordinatorDidFinish(racketsCoordinator: RacketsCoordinator)
 }
 
-class RacketsCoordinator: Coordinator, RacketsViewModelCoordinatorDelegate, StringsCoordinatorDelegate {
+class RacketsCoordinator: Coordinator, RacketsViewModelCoordinatorDelegate, StringsCoordinatorDelegate, RacketFormCoordinatorDelegate {
     
     // MARK: Properties
-    
     weak var delegate: RacketsCoordinatorDelegate?
     
+    // MARK: Controllers
     fileprivate var resideViewController: RESideViewController!
     fileprivate var navigationController: UINavigationControllerType = UIStoryboard(name: "Rackets", bundle: nil).instantiateInitialViewController() as! UINavigationControllerType
     
     fileprivate var racketsViewController: RacketsViewController?
+    
+    // MARK: Coordinators
     fileprivate var stringsCoordinator: StringsCoordinator?
+    fileprivate var racketFormCoordinator: RacketFormCoordinator?
     
     // MARK: Coordinator
     
@@ -49,11 +52,24 @@ class RacketsCoordinator: Coordinator, RacketsViewModelCoordinatorDelegate, Stri
         stringsCoordinator?.start()
     }
     
+    func racketsViewModelToRacketForm(racket: Racket?) {
+        racketFormCoordinator = RacketFormCoordinator(navigationController: navigationController, racket: racket)
+        racketFormCoordinator?.delegate = self
+        racketFormCoordinator?.start()
+    }
+    
     // MARK: StringsCoordinatorDelegate
     
     func stringsCoordinatorDidFinish(racketsCoordinator: StringsCoordinator) {
         _ = navigationController.popViewController(animated: true)
         self.stringsCoordinator = nil
+    }
+    
+    // MARK: RacketFormCoordinatorDelegate
+    
+    func racketFormCoordinatorDidFinish(racketFormCoordinator: RacketFormCoordinator) {
+        _ = navigationController.popViewController(animated: true)
+        self.racketFormCoordinator = nil
     }
     
     deinit {

@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.4.0)
+  - Alamofire (4.5.0)
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
   - ALCameraViewController (1.3.1)
@@ -21,17 +21,17 @@ PODS:
   - DZNEmptyDataSet (1.8.1)
   - Eureka (3.0.0)
   - Fabric (1.6.11)
-  - FBSDKCoreKit (4.23.0):
+  - FBSDKCoreKit (4.24.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.23.0):
+  - FBSDKLoginKit (4.24.0):
     - FBSDKCoreKit
-  - Firebase/Auth (4.0.0):
+  - Firebase/Auth (4.0.2):
     - Firebase/Core
     - FirebaseAuth (= 4.0.0)
-  - Firebase/Core (4.0.0):
-    - FirebaseAnalytics (= 4.0.0)
-    - FirebaseCore (= 4.0.0)
-  - FirebaseAnalytics (4.0.0):
+  - Firebase/Core (4.0.2):
+    - FirebaseAnalytics (= 4.0.1)
+    - FirebaseCore (= 4.0.2)
+  - FirebaseAnalytics (4.0.1):
     - FirebaseCore (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
@@ -39,7 +39,7 @@ PODS:
     - FirebaseAnalytics (~> 4.0)
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseCore (4.0.0):
+  - FirebaseCore (4.0.2):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseInstanceID (2.0.0):
     - FirebaseCore (~> 4.0)
@@ -54,21 +54,21 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.1)
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
-  - GSKStretchyHeaderView (1.0.0)
+  - GSKStretchyHeaderView (1.0.1)
   - GTMSessionFetcher/Core (1.1.10)
   - INSPullToRefresh (1.1.5)
-  - IQKeyboardManagerSwift (4.0.9)
+  - IQKeyboardManagerSwift (4.0.10)
   - MBProgressHUD (1.0.0)
   - PagingMenuController (2.2.0)
-  - ReactiveKit (3.5.3)
-  - Realm (2.7.0):
-    - Realm/Headers (= 2.7.0)
-  - Realm/Headers (2.7.0)
-  - RealmSwift (2.7.0):
-    - Realm (= 2.7.0)
+  - ReactiveKit (3.5.5)
+  - Realm (2.8.3):
+    - Realm/Headers (= 2.8.3)
+  - Realm/Headers (2.8.3)
+  - RealmSwift (2.8.3):
+    - Realm (= 2.8.3)
   - RESideMenu (4.0.7)
   - SCLAlertView (0.7.0)
-  - SwiftyBeaver (1.2.2)
+  - SwiftyBeaver (1.3.0)
   - Tamamushi (0.1.3)
 
 DEPENDENCIES:
@@ -97,7 +97,7 @@ DEPENDENCIES:
   - Tamamushi
 
 SPEC CHECKSUMS:
-  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   ALCameraViewController: 29a34772007b98e23150bfe1772475a4a80a33ff
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -108,27 +108,27 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Eureka: f36fd440c3ebb7bfea0a4fbe6f16a05f1cb35906
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
-  FBSDKCoreKit: d7829f5a69901cd7296105328e4c3c3fc7da6518
-  FBSDKLoginKit: 6b92bd65f319d669d2b0730e49db495ef1660566
-  Firebase: 284eea779b73fdff309791817da7c68bff8dd572
-  FirebaseAnalytics: 6f08e746f7d66f5452931bc2e822b5df9c66b64a
+  FBSDKCoreKit: f8c9eb0dd34a9cd277c7b60da4b32226d142502d
+  FBSDKLoginKit: 1214c6d5a1c4995b694d8db8a9ba6910c6028acf
+  Firebase: c7ad0731eab26d18a3fc547dd048b0f7cd9c63ae
+  FirebaseAnalytics: 4d7040fefc3cd8b291cde35f12cf063d7963f15d
   FirebaseAuth: ebb6abcbabae00fc47446d690c19ce68d8484fde
-  FirebaseCore: 85ad466044c2f013cdb167f85d426d15b128114a
+  FirebaseCore: 1a8bf6c795ad07d2918278657954ffd2552e9c17
   FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
   FontAwesome.swift: 60063e3f19ba4801155d4b0f2334ab7585763ab3
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
-  GSKStretchyHeaderView: daba8f035eaade6326d05ee2a382be714bb019c0
+  GSKStretchyHeaderView: c7e7fddd73396764c9bd7aea81cf934af7f8afd2
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
   INSPullToRefresh: 112ae2c295d2b3a76daa9dff86e7ef40ed002c47
-  IQKeyboardManagerSwift: 2eefe6c429b86aa08bfbc1b5c891164d754adf91
+  IQKeyboardManagerSwift: 75ba21a23794a1e6b6fe6d9a267ea17f80e06771
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   PagingMenuController: 6176618987bb170096664f2da097313e45ed9c31
-  ReactiveKit: 39a0723167d04107140cf540f04526deecd18891
-  Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
-  RealmSwift: 6d06425d3900c86473c4f323bf6949b43fca22bc
+  ReactiveKit: ced30f9647912f74510bd8179790cf2dfc9454c8
+  Realm: 3601ef091c8c499a31101d8563b991e75546cdce
+  RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
-  SwiftyBeaver: 90a39e3dc5136b7285f2e4c870b107e3933b8b84
+  SwiftyBeaver: d4b551ba34b4206c52cc4684ae90444b8aaa5afd
   Tamamushi: 4c07eb1e0f612f0bd9e67d7c5f0f3edd3a238680
 
 PODFILE CHECKSUM: 1a0cb03721c0741341492b7dc4b1f05c504bf337
