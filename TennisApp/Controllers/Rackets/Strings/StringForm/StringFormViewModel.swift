@@ -6,8 +6,6 @@
 //  Copyright © 2017 Andrea Stevanato. All rights reserved.
 //
 
-import RealmSwift
-
 protocol StringFormViewModelCoordinatorDelegate: class {
     func stringFormViewModelSaveString()
 }
@@ -20,7 +18,7 @@ final class StringFormViewModel: BaseViewModel {
     
     // MARK: Properties
     
-    fileprivate let stringsRepo = StringsRepo(stringsService: StringsService())
+    fileprivate let stringsService = StringsService()
     fileprivate var string: Strings?
     
     // MARK: Methods
@@ -36,14 +34,12 @@ final class StringFormViewModel: BaseViewModel {
     
     func creareOrUpdateString(formValues: [String: Any?]) {
         if let string = self.string {
-            self.stringsRepo.saveString(string: string, saveBlock: { (string) in
-                string.updateFrom(dict: formValues)
+            self.stringsService.updateString(block: { 
+                string.updateFrom(dictionary: formValues)
             })
         } else {
-            string = Strings()
-            string!.createFrom(dict: formValues)
-            self.stringsRepo.saveString(string: string!, saveBlock: { (string) in
-            })
+            string = Strings(formValues)
+            self.stringsService.createString(string: string!)
         }
     }
 }

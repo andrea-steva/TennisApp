@@ -6,8 +6,6 @@
 //  Copyright © 2017 Andrea Stevanato. All rights reserved.
 //
 
-import RealmSwift
-
 protocol StatsViewModelCoordinatorDelegate: class {
     
 }

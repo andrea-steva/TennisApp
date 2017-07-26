@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 import Tamamushi
 
 final class StringsViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
@@ -19,8 +18,6 @@ final class StringsViewController: BaseViewController, UITableViewDataSource, UI
     @IBOutlet var tableView: UITableView!
     
     // MARK: Properties
-    
-    var notificationToken: NotificationToken? = nil
     
     // MARK: ViewModel
     
@@ -42,9 +39,18 @@ final class StringsViewController: BaseViewController, UITableViewDataSource, UI
         TMGradientNavigationBar().setGradientColorOnNavigationBar(bar: self.navigationController!.navigationBar, direction: .vertical,
                                                                   startColor: Style.Colors.courtHardB,
                                                                   endColor: Style.Colors.courtHardB.lighter())
+        self.setupObservers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        self.notificationToken = viewModel.strings?.addNotificationBlock({ [unowned self] (results) in
-            self.tableView.applyChanges(changes: results)
+        self.viewModel.fetchStrings()
+    }
+    
+    func setupObservers() {
+        _ = viewModel.reloadView.observeNext(with: { [weak self] (value) in
+            self?.tableView.reloadData()
         })
     }
     
@@ -108,11 +114,5 @@ final class StringsViewController: BaseViewController, UITableViewDataSource, UI
     
     @IBAction func didTapOnAddStringButton(_ sender: AnyObject) {
         self.viewModel.toEmptyStringForm()
-    }
-    
-    // MARK: Others
-    
-    deinit {
-        notificationToken?.stop()
     }
 }

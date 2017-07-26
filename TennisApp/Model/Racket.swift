@@ -42,8 +42,10 @@ class Racket: Object {
         super.init(realm: realm, schema: schema)
     }
     
-    convenience init(_ dictionary: [String: AnyObject]) {
-        self.init()
+    required init(_ dictionary: [String: Any?]) {
+        super.init()
+        self.racketId = UUID().uuidString
+        self.mapping(dictionary)
     }
     
     required init(value: Any, schema: RLMSchema) {
@@ -52,20 +54,15 @@ class Racket: Object {
     
     // MARK: Class Methods
     
-    func createFrom(dict: [String: Any?]) {
-        self.racketId = UUID().uuidString
-        self.mapping(dict)
+    func updateFrom(dictionary: [String: Any?]) {
+        self.mapping(dictionary)
     }
     
-    func updateFrom(dict: [String: Any?]) {
-        self.mapping(dict)
-    }
-    
-    fileprivate func mapping(_ dict: [String: Any?]) {
-        self.manufacter = dict["manufacter"] as! String!
-        self.model = dict["model"] as! String!
-        self.weight = dict["weight"] as! String!
-        self.gripSize = dict["gripSize"] as! String!
-        self.purchaseDate = dict["purchaseDate"] as! Date!
+    fileprivate func mapping(_ dictionary: [String: Any?]) {
+        self.manufacter = dictionary["manufacter"] as! String!
+        self.model = dictionary["model"] as! String!
+        self.weight = dictionary["weight"] as! String!
+        self.gripSize = dictionary["gripSize"] as! String!
+        self.purchaseDate = dictionary["purchaseDate"] as! Date!
     }
 }

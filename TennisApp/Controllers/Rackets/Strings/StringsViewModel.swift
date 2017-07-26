@@ -6,7 +6,7 @@
 //  Copyright © 2017 Andrea Stevanato. All rights reserved.
 //
 
-import RealmSwift
+import Bond
 
 protocol StringsViewModelCoordinatorDelegate: class {
     func stringViewModelDidEnd(_ viewModel: StringsViewModel)
@@ -20,15 +20,20 @@ final class StringsViewModel: BaseViewModel {
     weak var coordinatorDelegate: StringsViewModelCoordinatorDelegate?
     
     // MARK: Properties
+    
+    let reloadView = Observable(false)
 
-    fileprivate let stringsRepo = StringsRepo(stringsService: StringsService())
+    fileprivate let stringsService = StringsService()
 
-    var strings: Results<Strings>?
+    var strings: [Strings]?
 
     // MARK: Methods
-
-    override init() {
-        strings = stringsRepo.getStrings()
+    
+    func fetchStrings() {
+        stringsService.fetchStrings { (strings) in
+            self.strings = strings
+            self.reloadView.value = true
+        }
     }
 
     func numberOfStrings() -> Int {
@@ -49,8 +54,11 @@ final class StringsViewModel: BaseViewModel {
         guard let string = strings?[index] else {
             return
         }
-        stringsRepo.deleteString(string: string)
+        stringsService.deleteString(string: string)
+        self.fetchStrings()
     }
+    
+    // MARK: Coordinator Flow
     
     func backToRackets() {
         self.coordinatorDelegate?.stringViewModelDidEnd(self)

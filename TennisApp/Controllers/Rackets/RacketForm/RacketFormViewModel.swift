@@ -35,11 +35,10 @@ final class RacketFormViewModel: BaseViewModel {
     func creareOrUpdateRacket(formValues: [String: Any?]) {
         if let racket = self.racket {
             self.racketsService.updateRacket(block: {
-                racket.updateFrom(dict: formValues)
+                racket.updateFrom(dictionary: formValues)
             })
         } else {
-            racket = Racket()
-            racket!.createFrom(dict: formValues)
+            racket = Racket(formValues)
             self.racketsService.createRacket(racket: racket!)
         }
     }
