@@ -10,7 +10,6 @@ import RealmSwift
 
 final class RealmProxy {
     
-    /** The Realm object. */
     fileprivate var realm: Realm!
     
     fileprivate let databaseName: String = "tennis_db"
@@ -30,7 +29,6 @@ final class RealmProxy {
     
     fileprivate func setupRealm() -> Realm! {
         
-        //Set the realm database file with name "tennis_db.realm"
         let realmConfiguration = Realm.Configuration()
         guard let path = realmConfiguration.fileURL?.absoluteString else {
             return nil
@@ -52,10 +50,6 @@ final class RealmProxy {
         })
         
         let realm = try! Realm(configuration: config)
-        
-        //Log.debug("Realm DB path: \(realm.configuration.fileURL?.absoluteString ?? "")")
-        //Log.debug("Current schema version: \(realm.configuration.schemaVersion)")
-        
         return realm
     }
     

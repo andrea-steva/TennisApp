@@ -30,13 +30,6 @@ final class RacketsService: RacketsServiceProtocol {
         })
     }
     
-    func deleteRacket(racket: Racket) {
-        do {
-            try self.storage?.delete(object: racket)
-        } catch _ as NSError {
-        }
-    }
-    
     func createRacket(racket: Racket) {
         do {
             try self.storage?.create(object: racket, completion: { (racket) in
@@ -47,9 +40,16 @@ final class RacketsService: RacketsServiceProtocol {
     
     func updateRacket(block: @escaping () -> Void) {
         do {
-            try self.storage?.update(block: { 
+            try self.storage?.update(block: {
                 block()
             })
+        } catch _ as NSError {
+        }
+    }
+    
+    func deleteRacket(racket: Racket) {
+        do {
+            try self.storage?.delete(object: racket)
         } catch _ as NSError {
         }
     }

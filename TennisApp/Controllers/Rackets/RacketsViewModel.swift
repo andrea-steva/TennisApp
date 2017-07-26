@@ -21,7 +21,7 @@ final class RacketsViewModel: BaseViewModel {
     
     // MARK: Properties
     
-    var reloadView = Observable(false)
+    let reloadView = Observable(false)
 
     fileprivate let racketsService = RacketsService()
 
@@ -57,6 +57,8 @@ final class RacketsViewModel: BaseViewModel {
         racketsService.deleteRacket(racket: racket)
         self.fetchRackets()
     }
+    
+    // MARK: Coordinator Flow
     
     func toStrings() {
         self.coordinatorDelegate?.racketsViewModelToStrings(viewModel: self)

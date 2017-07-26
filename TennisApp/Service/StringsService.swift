@@ -7,52 +7,50 @@
 //
 
 import Foundation
-import RealmSwift
 
 protocol StringsServiceProtocol {
-    func fetchStrings() -> Results<Strings>
-    func saveString(string: Strings, saveBlock: ((_ string: Strings) -> Void)?)
+    func fetchStrings(block: @escaping (_ strings: [Strings]) -> Void)
+    func createString(string: Strings)
+    func updateString(block: @escaping () -> Void)
     func deleteString(string: Strings)
 }
 
 final class StringsService: StringsServiceProtocol {
     
-    func fetchStrings() -> Results<Strings> {
-        let string = RealmProxy().getAllObjects(sortedBy: "manufacter") as Results<Strings>
-        return string
+    fileprivate var storage: StorageContext?
+    
+    init() {
+        self.storage = try! RealmStorageContext(configuration: ConfigurationType.basic(identifier: "tennis_db"))
     }
     
-    func deleteString(string: Strings) {
-        RealmProxy().deleteObject(string) { (string) in
+    func fetchStrings(block: @escaping (_ strings: [Strings]) -> Void) {
+        let sort = Sorted(key: "manufacter", ascending: false)
+        self.storage?.fetch(Strings.self, predicate: nil, sorted: sort, completion: { (strings) in
+            block(strings)
+        })
+    }
+    
+    func createString(string: Strings) {
+        do {
+            try self.storage?.create(object: string, completion: { (string) in
+            })
+        } catch _ as NSError {
         }
     }
     
-    func saveString(string: Strings, saveBlock: ((_ string: Strings) -> Void)?) {
-        RealmProxy().saveObject(string) { (string) in
-            saveBlock?(string)
+    func updateString(block: @escaping () -> Void) {
+        do {
+            try self.storage?.update(block: {
+                block()
+            })
+        } catch _ as NSError {
         }
-    }
-}
-
-final class StringsRepo {
-    
-    private let strings: Results<Strings>
-    private let service: StringsServiceProtocol
-    
-    init(stringsService: StringsServiceProtocol) {
-        self.service = stringsService
-        self.strings = stringsService.fetchStrings()
-    }
-    
-    func getStrings() -> Results<Strings> {
-        return strings
     }
     
     func deleteString(string: Strings) {
-        self.service.deleteString(string: string)
-    }
-    
-    func saveString(string: Strings, saveBlock: ((_ string: Strings) -> Void)? = nil) {
-        self.service.saveString(string: string, saveBlock: saveBlock)
+        do {
+            try self.storage?.delete(object: string)
+        } catch _ as NSError {
+        }
     }
 }

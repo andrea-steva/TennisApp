@@ -41,8 +41,10 @@ class Strings: Object {
         super.init(realm: realm, schema: schema)
     }
 
-    convenience init(_ dictionary: [String: AnyObject]) {
-        self.init()
+    required init(_ dictionary: [String: Any?]) {
+        super.init()
+        self.stringId = UUID().uuidString
+        self.mapping(dictionary)
     }
 
     required init(value: Any, schema: RLMSchema) {
@@ -51,17 +53,17 @@ class Strings: Object {
 
     // MARK: Class Methods
     
-    func createFrom(dict: [String: Any?]) {
-        self.stringId = UUID().uuidString
-        self.mapping(dict)
+//    func createFrom(dictionary: [String: Any?]) {
+//        self.stringId = UUID().uuidString
+//        self.mapping(dictionary)
+//    }
+    
+    func updateFrom(dictionary: [String: Any?]) {
+        self.mapping(dictionary)
     }
     
-    func updateFrom(dict: [String: Any?]) {
-        self.mapping(dict)
-    }
-    
-    fileprivate func mapping(_ dict: [String: Any?]) {
-        self.manufacter = dict["manufacter"] as! String
-        self.model = dict["model"] as! String
+    fileprivate func mapping(_ dictionary: [String: Any?]) {
+        self.manufacter = dictionary["manufacter"] as! String
+        self.model = dictionary["model"] as! String
     }
 }
