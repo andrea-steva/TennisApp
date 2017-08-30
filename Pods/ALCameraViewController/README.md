@@ -1,5 +1,5 @@
 # ALCameraViewController
-A camera view controller with custom image picker and image cropping. Written in Swift.
+A camera view controller with custom image picker and image cropping.
 
 ![camera](https://cloud.githubusercontent.com/assets/932822/8455694/c61de812-2006-11e5-85c0-a57e3d980561.jpg)
 ![cropper](https://cloud.githubusercontent.com/assets/932822/8455697/c627ac44-2006-11e5-82be-7f96e73d9b1f.jpg)
@@ -22,6 +22,16 @@ ALCameraViewController is available on CocoaPods. Add the following to your Podf
 
 ```ruby
 pod 'ALCameraViewController'
+```
+
+### Privacy (iOS 10) ###
+If you are building your app with iOS 10 or newer, you need to add two privacy keys to your app to allow the usage of the camera and photo library, or your app will crash.
+
+Add the keys below to your `Info.plist`, adding strings with the description you want to provide when prompting the user.
+
+```
+    NSPhotoLibraryUsageDescription
+    NSCameraUsageDescription
 ```
 
 ### Usage

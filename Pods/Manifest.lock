@@ -2,16 +2,16 @@ PODS:
   - Alamofire (4.5.0)
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
-  - ALCameraViewController (1.4.0)
+  - ALCameraViewController (1.4.1)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
-  - Bond (6.2.9):
+  - Bond (6.2.10):
     - Diff (~> 0.4)
-    - ReactiveKit (~> 3.5.3)
+    - ReactiveKit (~> 3.6.0)
   - Charts (3.0.2):
     - Charts/Core (= 3.0.2)
   - Charts/Core (3.0.2)
@@ -21,28 +21,29 @@ PODS:
   - DZNEmptyDataSet (1.8.1)
   - Eureka (3.1.0)
   - Fabric (1.6.12)
-  - FBSDKCoreKit (4.25.0):
+  - FBSDKCoreKit (4.26.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.25.0):
+  - FBSDKLoginKit (4.26.0):
     - FBSDKCoreKit
-  - Firebase/Auth (4.0.4):
+  - Firebase/Auth (4.1.1):
     - Firebase/Core
-    - FirebaseAuth (= 4.0.0)
-  - Firebase/Core (4.0.4):
-    - FirebaseAnalytics (= 4.0.2)
-    - FirebaseCore (= 4.0.4)
-  - FirebaseAnalytics (4.0.2):
+    - FirebaseAuth (= 4.1.1)
+  - Firebase/Core (4.1.1):
+    - FirebaseAnalytics (= 4.0.3)
+    - FirebaseCore (= 4.0.6)
+  - FirebaseAnalytics (4.0.3):
     - FirebaseCore (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseAuth (4.0.0):
+    - nanopb (~> 0.3)
+  - FirebaseAuth (4.1.1):
     - FirebaseAnalytics (~> 4.0)
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseCore (4.0.4):
+  - FirebaseCore (4.0.6):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
     - nanopb (~> 0.3)
-  - FirebaseInstanceID (2.0.0):
+  - FirebaseInstanceID (2.0.2):
     - FirebaseCore (~> 4.0)
   - FontAwesome.swift (1.2.0)
   - GoogleToolboxForMac/DebugUtils (2.1.1):
@@ -58,7 +59,7 @@ PODS:
   - GSKStretchyHeaderView (1.0.1)
   - GTMSessionFetcher/Core (1.1.11)
   - INSPullToRefresh (1.1.5)
-  - IQKeyboardManagerSwift (4.0.11)
+  - IQKeyboardManagerSwift (4.0.13)
   - MBProgressHUD (1.0.0)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -66,15 +67,15 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - PagingMenuController (2.2.0)
-  - ReactiveKit (3.5.5)
-  - Realm (2.9.1):
-    - Realm/Headers (= 2.9.1)
-  - Realm/Headers (2.9.1)
-  - RealmSwift (2.9.1):
-    - Realm (= 2.9.1)
+  - ReactiveKit (3.6.0)
+  - Realm (2.10.0):
+    - Realm/Headers (= 2.10.0)
+  - Realm/Headers (2.10.0)
+  - RealmSwift (2.10.0):
+    - Realm (= 2.10.0)
   - RESideMenu (4.0.7)
   - SCLAlertView (0.7.0)
-  - SwiftyBeaver (1.3.0)
+  - SwiftyBeaver (1.4.0)
   - Tamamushi (0.1.3)
 
 DEPENDENCIES:
@@ -105,37 +106,37 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
-  ALCameraViewController: 8311f17d3dc2c24ab7d81a3a3b288dcdf210c5cf
+  ALCameraViewController: a69f2133e93e480f76139d2571bb17dd266fa007
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  Bond: 46ad5c2df564f35e7a317e63d383be7f38b2d74c
+  Bond: 8bafdefda68c4f525c9a751b60ef827b0548ef3c
   Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
   Crashlytics: dfbae35ef22ca189240d230ad501feea4ee85d2d
   Diff: befa1d19c32726b2b36ce915d98793e2fbde8dcc
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Eureka: d6725c38d0dcdceaa331d1468f75e76315715ae0
   Fabric: f050464eac45a2ce5a8e6e6a07e977c0df32fe28
-  FBSDKCoreKit: 53e3f4bfb64e80c5f229dd30ae33ff57fbbbd2d1
-  FBSDKLoginKit: f628c09684dae9c17f071cf90b014e886f5093ea
-  Firebase: 1492bf04e1b73a7353b4fb2cf5a20bac9692f341
-  FirebaseAnalytics: ad41720e3e67fc63fbe3d2948d3e26932a8de311
-  FirebaseAuth: ebb6abcbabae00fc47446d690c19ce68d8484fde
-  FirebaseCore: cfc042628ef9f20debe09c0eb683135fcd404cb4
-  FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
+  FBSDKCoreKit: c8b8582311ec11b145451d8b9717dc6cc2ae5a76
+  FBSDKLoginKit: f3f03b94c21eb834af243c0a881d48641f47ca60
+  Firebase: 052c0de688fc87b414996eea13e223dd9fee3fa2
+  FirebaseAnalytics: 76f754d37ca5b04f36856729b6af3ca0152d1069
+  FirebaseAuth: f8b07aa83de60d606b4eadd81484b3ac2097ea3e
+  FirebaseCore: 28def3c643989c97ea5a69ea5000f5fa9902b9fd
+  FirebaseInstanceID: c4c7fca62c7b7330caee5da04f19a37ea37bb1c1
   FontAwesome.swift: 60063e3f19ba4801155d4b0f2334ab7585763ab3
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GSKStretchyHeaderView: c7e7fddd73396764c9bd7aea81cf934af7f8afd2
   GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
   INSPullToRefresh: 112ae2c295d2b3a76daa9dff86e7ef40ed002c47
-  IQKeyboardManagerSwift: 10f0a6b8ea2904c8943c0e1a116c99f5b8ad83af
+  IQKeyboardManagerSwift: fb399c4cddcd8d9bbcd2d0c7c81ed290b61c088e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   PagingMenuController: 6176618987bb170096664f2da097313e45ed9c31
-  ReactiveKit: ced30f9647912f74510bd8179790cf2dfc9454c8
-  Realm: f91fb43bd474c4f731a116ebf7392c75dd015920
-  RealmSwift: 207f12a4a36b696c5183c60a1c06d70234a23e56
+  ReactiveKit: b3037cb797aa79b58964d309cd724611bea033e6
+  Realm: 98b3a25643cf6b3e07d2b99fb43fe0eb9c801dec
+  RealmSwift: 34073ad3a31232bbaf7c0db898c037940284cba2
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
-  SwiftyBeaver: d4b551ba34b4206c52cc4684ae90444b8aaa5afd
+  SwiftyBeaver: 78d9186ce7595b4400ce01e5fd750d263e72dd7b
   Tamamushi: 4c07eb1e0f612f0bd9e67d7c5f0f3edd3a238680
 
 PODFILE CHECKSUM: 1a0cb03721c0741341492b7dc4b1f05c504bf337
