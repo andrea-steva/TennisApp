@@ -2,9 +2,6 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, "9.0"
 
-# ignore all warnings from all pods
-#inhibit_all_warnings!
-
 use_frameworks!
 
 def shared_pods
@@ -35,7 +32,6 @@ def shared_pods
 
 	#Form
     pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', :branch => 'feature/Xcode9-Swift4'
-    #pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :branch => 'dev'
 	
     # Camera View Controller https://github.com/AlexLittlejohn/ALCameraViewController∫
     pod 'ALCameraViewController'
