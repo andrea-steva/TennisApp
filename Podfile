@@ -34,7 +34,8 @@ def shared_pods
 	pod 'Alamofire', '~> 4.0'
 
 	#Form
-	pod 'Eureka'
+    pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', :branch => 'feature/Xcode9-Swift4'
+    #pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :branch => 'dev'
 	
     # Camera View Controller https://github.com/AlexLittlejohn/ALCameraViewController∫
     pod 'ALCameraViewController'

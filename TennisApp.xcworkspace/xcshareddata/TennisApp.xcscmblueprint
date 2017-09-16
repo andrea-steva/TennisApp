@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F20B67327D49492C0D6AB4EAE5D465FA05A310D3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "C0F9CB86CE32148A2CDB6A2F30C5F295828B0E1E" : 9223372036854775807,
+    "F20B67327D49492C0D6AB4EAE5D465FA05A310D3" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5CA9E403-A2B5-420B-B135-708DD0B4A18F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "C0F9CB86CE32148A2CDB6A2F30C5F295828B0E1E" : "TryNetworkLayer\/",
+    "F20B67327D49492C0D6AB4EAE5D465FA05A310D3" : "tennis_app_swift\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TennisApp",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TennisApp.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/andr3a88\/TryNetworkLayer.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C0F9CB86CE32148A2CDB6A2F30C5F295828B0E1E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/andr3a88\/tennisapp-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F20B67327D49492C0D6AB4EAE5D465FA05A310D3"
+    }
+  ]
+}
