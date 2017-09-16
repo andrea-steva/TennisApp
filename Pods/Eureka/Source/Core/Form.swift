@@ -70,7 +70,7 @@ public final class Form {
     /**
      Returns the row whose tag is passed as parameter. Uses a dictionary to get the row faster
      */
-    public func rowBy<T: Equatable>(tag: String) -> RowOf<T>? {
+    public func rowBy<T>(tag: String) -> RowOf<T>? where T: Equatable{
         let row: BaseRow? = rowBy(tag: tag)
         return row as? RowOf<T>
     }
@@ -78,7 +78,7 @@ public final class Form {
     /**
      Returns the row whose tag is passed as parameter. Uses a dictionary to get the row faster
      */
-    public func rowBy<Row: RowType>(tag: String) -> Row? {
+    public func rowBy<Row>(tag: String) -> Row? where Row: RowType{
         let row: BaseRow? = rowBy(tag: tag)
         return row as? Row
     }
@@ -263,7 +263,7 @@ extension Form {
     // MARK: Private Helpers
 
     class KVOWrapper: NSObject {
-        dynamic private var _sections = NSMutableArray()
+        @objc dynamic private var _sections = NSMutableArray()
         var sections: NSMutableArray { return mutableArrayValue(forKey: "_sections") }
         var _allSections = [Section]()
         private weak var form: Form?
