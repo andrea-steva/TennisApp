@@ -13,13 +13,13 @@ class Strings: Object {
 
     // MARK: Stored Attributes
 
-    dynamic var stringId: String!
-    dynamic var manufacter: String!
-    dynamic var model: String!
-    dynamic var price: String = ""
-    dynamic var gauge: String = ""
-    dynamic var duration: Float = 0
-    dynamic var tension: Float = 0
+    @objc dynamic var stringId: String!
+    @objc dynamic var manufacter: String!
+    @objc dynamic var model: String!
+    @objc dynamic var price: String = ""
+    @objc dynamic var gauge: String = ""
+    @objc dynamic var duration: Float = 0
+    @objc dynamic var tension: Float = 0
 
     // MARK: Relationship
 

@@ -13,8 +13,8 @@ class MatchScore: Object {
 
     // MARK: Stored Attributes
 
-    dynamic var gamePlayerA: Int = 0
-    dynamic var gamePlayerB: Int = 0
+    @objc dynamic var gamePlayerA: Int = 0
+    @objc dynamic var gamePlayerB: Int = 0
 
     // MARK: Relationship
 

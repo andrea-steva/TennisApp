@@ -30,8 +30,10 @@ class RealmStorageContext: StorageContext {
     static fileprivate let schemaVersion: UInt64 = 1
     
     required init(configuration: ConfigurationType = .basic(identifier: nil)) throws {
+        
         var rmConfig = Realm.Configuration()
         rmConfig.readOnly = false
+        
         switch configuration {
         case .basic:
             rmConfig = Realm.Configuration.defaultConfiguration
@@ -55,6 +57,8 @@ class RealmStorageContext: StorageContext {
                 throw NSError()
             }
         }
+        rmConfig.encryptionKey = Settings().realmKey
+        Log.info("\(rmConfig.fileURL!)")
         try self.realm = Realm(configuration: rmConfig)
     }
     

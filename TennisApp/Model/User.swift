@@ -13,18 +13,18 @@ class User: Object {
     
     // MARK: Stored Attributes
     
-    dynamic var userId: String!
-    dynamic var firstName: String!
-    dynamic var lastName: String!
-    dynamic var age: Int = 0
-    dynamic var email: String!
-    dynamic var phoneNumber: String!
-    dynamic var profileImage: Data!
+    @objc dynamic var userId: String!
+    @objc dynamic var firstName: String!
+    @objc dynamic var lastName: String!
+    @objc dynamic var age: Int = 0
+    @objc dynamic var email: String!
+    @objc dynamic var phoneNumber: String!
+    @objc dynamic var profileImage: Data!
     
-    dynamic var handType: String!
-    dynamic var backhandType: String!
+    @objc dynamic var handType: String!
+    @objc dynamic var backhandType: String!
     
-    dynamic var ranking: String!
+    @objc dynamic var ranking: String!
     
     // MARK: Relationship
     

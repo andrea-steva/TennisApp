@@ -18,7 +18,7 @@ def shared_pods
     pod 'FBSDKLoginKit', '~> 4.18'
 
 	#Mobile Database
-	pod 'RealmSwift', '~> 2.0'
+    # pod 'RealmSwift', '~> 3.0'
     
     #Reactive
     pod 'Bond', '~> 6.0'
@@ -31,7 +31,7 @@ def shared_pods
 	pod 'Alamofire', '~> 4.0'
 
 	#Form
-    pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', :branch => 'feature/Xcode9-Swift4'
+    pod 'Eureka'
 	
     # Camera View Controller https://github.com/AlexLittlejohn/ALCameraViewController∫
     pod 'ALCameraViewController'
@@ -42,7 +42,7 @@ def shared_pods
 	pod 'DZNEmptyDataSet'
 	pod 'IQKeyboardManagerSwift'
 	pod 'GSKStretchyHeaderView'
-    pod 'SCLAlertView'
+    pod 'SCLAlertView',:git => 'https://github.com/vikmeup/SCLAlertView-Swift.git'
     pod 'Tamamushi'
     
 	#PagedView
@@ -51,7 +51,7 @@ def shared_pods
     #Charts
     pod 'Charts'
     
-	#Pull to refresh for tablew view and collection view
+	#Pull to refresh for table view and collection view
 	pod 'INSPullToRefresh', '~> 1.0'
     
     #Logger
