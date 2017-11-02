@@ -39,7 +39,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Diff.xcscheme</key>
+		<key>Differ.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -120,16 +120,6 @@
 			<false/>
 		</dict>
 		<key>ReactiveKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Realm.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>RealmSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

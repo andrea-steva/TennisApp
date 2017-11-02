@@ -11,30 +11,30 @@ import Firebase
 import FBSDKCoreKit
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     static var instance: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
-    
-    var window: UIWindow?
         
+    var window: UIWindow?
+    
     private var mainCoordinator: Coordinator?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
+        
         window = UIWindow()
         let coordinator = AppCoordinator(window: window!)
         coordinator.start()
         window?.makeKeyAndVisible()
         
         mainCoordinator = coordinator
-
+        
         let _ = Logger()
-
+        
         Style.setupNavigationBarStyle()
         Style.setupTextFieldStyle()
         Style.setupSearchBarStyle()
-
+        
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         return true
@@ -43,9 +43,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         FBSDKAppEvents.activateApp()
     }
-
+    
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-
+        
         let handledFacebookLogin = FBSDKApplicationDelegate.sharedInstance().application(
             app,
             open: url,

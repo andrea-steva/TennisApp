@@ -13,12 +13,12 @@ class Practice: Object, PracticeProtocol {
 
     // MARK: Stored Attributes
 
-    var activityId: String!
-    var title: String!
-    var notes: String = ""
-    var date: Date!
-    var place: String = ""
-    var timeSpent: Float = 0
+    @objc var activityId: String!
+    @objc var title: String!
+    @objc var notes: String = ""
+    @objc var date: Date!
+    @objc var place: String = ""
+    @objc var timeSpent: Float = 0
 
     var practiceType: PracticeType = .forehand
 

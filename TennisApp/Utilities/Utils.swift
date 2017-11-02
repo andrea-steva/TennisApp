@@ -40,7 +40,7 @@ class Utils {
     static let AppName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName")
     static let AppBuildVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion")
     static let AppVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString")
-
+    
     /**
      Get screen bounds for the device. I needed this helper function that kept the same Screen Bounds for both iOS7 under iOS8.
      On iOS8 [UIScreen mainScreen].bounds  is interface-oriented while on iOS7 isn't

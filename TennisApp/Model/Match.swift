@@ -13,15 +13,15 @@ class Match: Object, ActivityProtocol, MatchProtocol {
 
     // MARK: Stored Attributes
 
-    var activityId: String!
-    var title: String!
-    var notes: String = ""
-    var date: Date!
-    var place: String = ""
-    var timeSpent: Float = 0
+    @objc var activityId: String!
+    @objc var title: String!
+    @objc var notes: String = ""
+    @objc var date: Date!
+    @objc var place: String = ""
+    @objc var timeSpent: Float = 0
 
-    var playerNameA: String!
-    var playerNameAB: String!
+    @objc var playerNameA: String!
+    @objc var playerNameAB: String!
     var matchType: MatchType = .single
 
     // MARK: Relationship

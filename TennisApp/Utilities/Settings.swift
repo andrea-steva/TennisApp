@@ -16,7 +16,18 @@ class Settings: NSObject {
         let settings = Settings()
         settings.firstLaunch = nil
     }
-
+    
+    var realmKey: Data {
+        if let key = Settings().get("RealmKey") {
+            return key as! Data
+        }
+        // No pre-existing key from this application, so generate a new one
+        let keyData = NSMutableData(length: 64)!
+        let result = SecRandomCopyBytes(kSecRandomDefault, 64, keyData.mutableBytes.bindMemory(to: UInt8.self, capacity: 64))
+        assert(result == 0, "Failed to get random bytes")
+        self.set("RealmKey", value: keyData)
+        return keyData as Data
+    }
     // MARK: User Settings
 
     var exampleSettings: Int? {

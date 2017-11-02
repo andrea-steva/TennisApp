@@ -13,13 +13,13 @@ class Racket: Object {
     
     // MARK: Stored Attributes
     
-    dynamic var racketId: String!
-    dynamic var manufacter: String!
-    dynamic var model: String!
-    dynamic var weight: String!
-    dynamic var gripSize: String!  //from 0 to 4
-    dynamic var image: Data?
-    dynamic var purchaseDate: Date?
+    @objc dynamic var racketId: String!
+    @objc dynamic var manufacter: String!
+    @objc dynamic var model: String!
+    @objc dynamic var weight: String!
+    @objc dynamic var gripSize: String!  //from 0 to 4
+    @objc dynamic var image: Data?
+    @objc dynamic var purchaseDate: Date?
     
     // MARK: Relationship
     
