@@ -9,7 +9,8 @@
 import UIKit
 
 protocol UINavigationControllerType: class {
-    var viewControllers: [UIViewController] {get}
+    var viewControllers: [UIViewController] { get }
+
     func pushViewController(_ viewController: UIViewController, animated: Bool)
     func popViewController(animated: Bool) -> UIViewController?
 }

@@ -24,7 +24,7 @@ public extension Date {
      :param: years number of years to add
      :returns: the NSDate computed
      */
-    public func add(_ seconds: Int = 0, minutes: Int = 0, hours: Int = 0, days: Int = 0, weeks: Int = 0, months: Int = 0, years: Int = 0) -> Date {
+     func add(_ seconds: Int = 0, minutes: Int = 0, hours: Int = 0, days: Int = 0, weeks: Int = 0, months: Int = 0, years: Int = 0) -> Date {
         let calendar = Calendar.current
         
         let version = floor(NSFoundationVersionNumber)
@@ -76,7 +76,7 @@ public extension Date {
      :param: seconds number of seconds to add
      :returns: the NSDate computed
      */
-    public func addSeconds (_ seconds: Int) -> Date {
+    func addSeconds (_ seconds: Int) -> Date {
         return add(seconds)
     }
     
@@ -86,7 +86,7 @@ public extension Date {
      :param: minutes number of minutes to add
      :returns: the NSDate computed
      */
-    public func addMinutes (_ minutes: Int) -> Date {
+    func addMinutes (_ minutes: Int) -> Date {
         return add(minutes: minutes)
     }
     
@@ -96,7 +96,7 @@ public extension Date {
      :param: hours number of hours to add
      :returns: the NSDate computed
      */
-    public func addHours(_ hours: Int) -> Date {
+    func addHours(_ hours: Int) -> Date {
         return add(hours: hours)
     }
     
@@ -106,7 +106,7 @@ public extension Date {
      :param: days number of days to add
      :returns: the NSDate computed
      */
-    public func addDays(_ days: Int) -> Date {
+    func addDays(_ days: Int) -> Date {
         return add(days: days)
     }
     
@@ -116,7 +116,7 @@ public extension Date {
      :param: weeks number of weeks to add
      :returns: the NSDate computed
      */
-    public func addWeeks(_ weeks: Int) -> Date {
+    func addWeeks(_ weeks: Int) -> Date {
         return add(weeks: weeks)
     }
     
@@ -127,7 +127,7 @@ public extension Date {
      :returns: the NSDate computed
      */
     
-    public func addMonths(_ months: Int) -> Date {
+    func addMonths(_ months: Int) -> Date {
         return add(months: months)
     }
     
@@ -137,7 +137,7 @@ public extension Date {
      :param: years number of year to add
      :returns: the NSDate computed
      */
-    public func addYears(_ years: Int) -> Date {
+    func addYears(_ years: Int) -> Date {
         return add(years: years)
     }
     
@@ -149,7 +149,7 @@ public extension Date {
      :param: date NSDate to compare
      :returns: True if self is after the input NSDate, false otherwise
      */
-    public func isAfter(_ date: Date) -> Bool {
+    func isAfter(_ date: Date) -> Bool {
         return (self.compare(date) == ComparisonResult.orderedDescending)
     }
     
@@ -159,7 +159,7 @@ public extension Date {
      :param: date NSDate to compare
      :returns: True if self is before the input NSDate, false otherwise
      */
-    public func isBefore(_ date: Date) -> Bool {
+    func isBefore(_ date: Date) -> Bool {
         return (self.compare(date) == ComparisonResult.orderedAscending)
     }
 }

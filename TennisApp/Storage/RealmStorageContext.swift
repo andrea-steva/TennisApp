@@ -15,11 +15,9 @@ public enum ConfigurationType {
     case inMemory(identifier: String?)
     
     var associated: String? {
-        get {
-            switch self {
-            case .basic(let identifier): return identifier
-            case .inMemory(let identifier): return identifier
-            }
+        switch self {
+        case .basic(let identifier): return identifier
+        case .inMemory(let identifier): return identifier
         }
     }
 }
@@ -110,8 +108,8 @@ class RealmStorageContext: StorageContext {
             realm.delete(object as! Object)
         }
     }
-    
-    func deleteAll<T : Storable>(_ model: T.Type) throws {
+
+    func deleteAll<T: Storable>(_ model: T.Type) throws {
         guard let realm = self.realm else {
             throw NSError()
         }
@@ -135,7 +133,7 @@ class RealmStorageContext: StorageContext {
         }
     }
     
-    func fetch<T: Storable>(_ model: T.Type, predicate: NSPredicate? = nil, sorted: Sorted? = nil, completion: (([T]) -> ())) {
+    func fetch<T: Storable>(_ model: T.Type, predicate: NSPredicate? = nil, sorted: Sorted? = nil, completion: (([T]) -> Void)) {
         var objects = self.realm?.objects(model as! Object.Type)
         
         if let predicate = predicate {

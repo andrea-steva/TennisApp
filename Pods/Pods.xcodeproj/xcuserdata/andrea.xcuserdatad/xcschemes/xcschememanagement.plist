@@ -94,6 +94,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>LifetimeTracker-LifetimeTracker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>LifetimeTracker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>

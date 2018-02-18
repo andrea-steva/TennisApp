@@ -90,14 +90,14 @@ final class StringsViewController: BaseViewController, UITableViewDataSource, UI
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        let editAction  = UITableViewRowAction(style: .normal, title: "Edit") { [unowned self] (rowAction, indexPath) in
+        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { [unowned self] (rowAction, indexPath) in
             
             self.viewModel.toStringForm(index: indexPath.row)
             self.tableView.setEditing(false, animated: true)
         }
         editAction.backgroundColor = UIColor.orange
         
-        let deleteAction  = UITableViewRowAction(style: .default, title: "Delete") { [unowned self] (rowAction, indexPath) in
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { [unowned self] (rowAction, indexPath) in
             
             AlertView.showConfirm(localizer.get(LocalizedString.generic_alertTitle), message: "Are you sure to delete the string?", completionBlock: { (userCancelAction) in
                 if !userCancelAction {

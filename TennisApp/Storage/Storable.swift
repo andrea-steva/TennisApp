@@ -9,7 +9,6 @@
 import Foundation
 import RealmSwift
 
-
 /// Storable object
 public protocol Storable {
 }

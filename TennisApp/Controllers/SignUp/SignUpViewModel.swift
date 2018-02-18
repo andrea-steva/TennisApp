@@ -57,7 +57,7 @@ final class SignUpViewModel: BaseViewModel {
         }
         let changeRequest = user.createProfileChangeRequest()
         changeRequest.displayName = displayName
-        changeRequest.commitChanges() { (error) in
+        changeRequest.commitChanges { error in
             if let error = error {
                 Log.error(error.localizedDescription)
                 return

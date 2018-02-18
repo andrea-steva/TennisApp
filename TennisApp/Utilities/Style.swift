@@ -6,8 +6,8 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-import UIKit
 import FontAwesome_swift
+import UIKit
 
 // MARK: FontType
 
@@ -59,7 +59,7 @@ enum FontType: String {
     
     static var count: Int {
         var max: Int = 0
-        while let _ =  FontType.fromIndex(max) {
+        while let _ = FontType.fromIndex(max) {
             max += 1
         }
         return max
@@ -132,7 +132,7 @@ struct Style {
     static func setupNavigationBarStyle() {
         let appearance = UINavigationBar.appearance()
         appearance.tintColor = Style.Colors.lightColor
-        appearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor : Style.Colors.lightColor, NSAttributedStringKey.font : Style.Fonts.get(.light, size: .navigationBar)]
+        appearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: Style.Colors.lightColor, NSAttributedStringKey.font: Style.Fonts.get(.light, size: .navigationBar)]
         //appearance.barTintColor = Style.Colors.navigationBarColor
         appearance.shadowImage = UIImage.imageWithColor(UIColor.clear)
         //appearance.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
@@ -231,16 +231,16 @@ struct Style {
     }
     
     struct Images {
-        static let notAvailable =  UIImage(named: "not_available")
+        static let notAvailable = UIImage(named: "not_available")
         
         static let menuBackground1 = UIImage(named: "menu_background_1")
         static let menuBackground2 = UIImage(named: "menu_background_2")
         static let menuBackground3 = UIImage(named: "menu_background_3")
         
-        static let courtClay =  UIImage(named: "court_clay")
-        static let courtGrass =  UIImage(named: "court_grass")
-        static let courtHardB =  UIImage(named: "court_hard_b")
-        static let courtHardG =  UIImage(named: "court_hard_g")
-        static let courtHardP =  UIImage(named: "court_hard_p")
+        static let courtClay = UIImage(named: "court_clay")
+        static let courtGrass = UIImage(named: "court_grass")
+        static let courtHardB = UIImage(named: "court_hard_b")
+        static let courtHardG = UIImage(named: "court_hard_g")
+        static let courtHardP = UIImage(named: "court_hard_p")
     }
 }

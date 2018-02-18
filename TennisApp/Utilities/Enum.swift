@@ -18,7 +18,7 @@ enum RacketBrand: String {
     case prokennex = "ProKennex"
     case tecnifibre = "Tecnifibre"
     case wilson = "Wilson"
-    
+
     static let allValues = [babolat.rawValue,
                             dunlop.rawValue,
                             head.rawValue,
@@ -35,7 +35,7 @@ enum GripSize: String {
     case three = "3"
     case four = "4"
     case five = "5"
-    
+
     static let allValues = [one.rawValue,
                             two.rawValue,
                             three.rawValue,
@@ -67,16 +67,16 @@ enum FitnessType: Int {
 // MARK: - Menu Item
 
 enum MenuItem: Int {
-    
+
     case activities = 0
     case rackets = 1
     case stats = 2
     case profile = 3
     case settings = 4
     case logout = 5
-    
-    static var count: Int { return MenuItem.logout.rawValue + 1}
-    
+
+    static var count: Int { return MenuItem.logout.rawValue + 1 }
+
     func storyboardName() -> String {
         switch self {
         case .activities:
@@ -93,7 +93,7 @@ enum MenuItem: Int {
             return ""
         }
     }
-    
+
     func localizedName() -> String {
         switch self {
         case .activities:
@@ -110,12 +110,12 @@ enum MenuItem: Int {
             return localizer.get(LocalizedString.menu_logout)
         }
     }
-    
+
     func menuIcon() -> UIImage {
-        
+
         let size = CGSize(width: 35, height: 35)
-        let color  = Style.Colors.lightColor.withAlphaComponent(0.8)
-        
+        let color = Style.Colors.lightColor.withAlphaComponent(0.8)
+
         switch self {
         case .activities:
             return UIImage.fontAwesomeIcon(name: .home, textColor: color, size: size)
@@ -130,6 +130,6 @@ enum MenuItem: Int {
         case .logout:
             return UIImage.fontAwesomeIcon(name: .signOut, textColor: color, size: size)
         }
-        
+
     }
 }

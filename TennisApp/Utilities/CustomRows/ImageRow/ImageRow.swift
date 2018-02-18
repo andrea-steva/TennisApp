@@ -62,7 +62,7 @@ protocol ImageRowProtocol {
     var placeholderImage: UIImage? { get }
 }
 
-//MARK: Row
+// MARK: Row
 
 open class _ImageRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType, ImageRowProtocol where Cell: BaseCell, Cell.Value == UIImage {
   public typealias PresenterRow = ImagePickerController
@@ -84,7 +84,7 @@ open class _ImageRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType, ImageR
     sourceTypes = .All
     super.init(tag: tag)
 
-    presentationMode = .presentModally(controllerProvider: ControllerProvider.callback { return ImagePickerController() }, onDismiss: { [weak self] vc in
+    presentationMode = .presentModally(controllerProvider: ControllerProvider.callback { ImagePickerController() }, onDismiss: { [weak self] vc in
       self?.select()
       vc.dismiss(animated: true)
     })
@@ -95,7 +95,7 @@ open class _ImageRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType, ImageR
   // copy over the existing logic from the SelectorRow
   func displayImagePickerController(_ sourceType: UIImagePickerControllerSourceType) {
     if let presentationMode = presentationMode, !isDisabled {
-      if let controller = presentationMode.makeController(){
+      if let controller = presentationMode.makeController() {
         controller.row = self
         controller.sourceType = sourceType
         onPresentCallback?(cell.formViewController()!, controller)
