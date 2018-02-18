@@ -10,6 +10,7 @@ import UIKit
 import DZNEmptyDataSet
 import FontAwesome_swift
 import INSPullToRefresh
+import LifetimeTracker
 import SCLAlertView
 import Tamamushi
 
@@ -17,7 +18,9 @@ private extension Selector {
     static let didTapOnButtonMenu = #selector(BaseViewController.didTapOnButtonMenu(_:))
 }
 
-class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
+class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource, LifetimeTrackable {
+
+    static var lifetimeConfiguration = LifetimeConfiguration(maxCount: 1, groupName: "VC_\(self)")
     
     // MARK: IBOutlet
     @IBOutlet var backgroundView: UIImageView?
@@ -28,7 +31,7 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
         super.viewDidLoad()
         
         if let backgroundView = self.backgroundView {
-            backgroundView.image =  backgroundView.image?.applyMenuEffect()
+            backgroundView.image = backgroundView.image?.applyMenuEffect()
         }
         
         self.title = localizer.get(localizedTitleString())
@@ -40,6 +43,8 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
             }
             self.navigationItem.leftBarButtonItems?.insert(UIBarButtonItem(icon: .bars, selector: .didTapOnButtonMenu, target: self), at: 0)
         }
+
+        trackLifetime()
     }
     
     // MARK: Controller title

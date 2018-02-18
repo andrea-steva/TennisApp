@@ -12,7 +12,7 @@ class AppCoordinator: Coordinator, LoginCoordinatorDelegate, RESideCoordinatorDe
     
     // MARK: Properties
     
-    var coordinators = [String:Coordinator]()
+    var coordinators = [String: Coordinator]()
         
     fileprivate weak var window: UIWindow!
     

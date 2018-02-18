@@ -32,7 +32,7 @@ protocol StorageContext {
     /// Update an object
     ///
     /// - Parameter block: The update block
-    func update(block: @escaping () -> ()) throws
+    func update(block: @escaping () -> Void) throws
     
     /// Delete an object
     ///

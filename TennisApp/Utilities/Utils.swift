@@ -6,14 +6,14 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-import UIKit
-import EventKit
-import PassKit
 import Alamofire
 import AlamofireImage
+import EventKit
 import MBProgressHUD
+import PassKit
+import UIKit
 
-fileprivate func < <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
+private func < <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
     return l < r
@@ -24,7 +24,7 @@ fileprivate func < <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
   }
 }
 
-fileprivate func > <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
+private func > <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
     return l > r
@@ -95,7 +95,7 @@ class Utils {
     - parameter imageView: Image view
     */
     static func setAvatarImage(_ imageUrl: String?, imageView: UIImageView) {
-        Utils.setImage(imageUrl, placeholder: "user_placeholder", cornerRadius: imageView.frame.size.width/2, imageView: imageView)
+        Utils.setImage(imageUrl, placeholder: "user_placeholder", cornerRadius: imageView.frame.size.width / 2, imageView: imageView)
     }
 
     /**
@@ -220,7 +220,7 @@ class Utils {
 
     // MARK: EventStore Utils
 
-    static func addEvent(_ eventDate: Date, title: String, notes: String, completion : @escaping (Bool) -> ()) {
+    static func addEvent(_ eventDate: Date, title: String, notes: String, completion : @escaping (Bool) -> Void) {
         let eventStore = EKEventStore()
 
         eventStore.requestAccess(to: .event) { (granted, error) -> Void in
@@ -230,7 +230,7 @@ class Utils {
                 event.title = title
                 event.notes = notes
                 event.startDate = eventDate
-                event.endDate = eventDate.addingTimeInterval(30*60)
+                event.endDate = eventDate.addingTimeInterval(30 * 60)
                 event.calendar = eventStore.defaultCalendarForNewEvents
 
                 do {
@@ -371,7 +371,7 @@ class Utils {
     - parameter controller:      The view controller in which present the alert
     - parameter completionBlock: The user completion block
     */
-    static func alertController(_ title: String, message: String?, controller: UIViewController, completionBlock :@escaping (_ userCancelAction: Bool) -> () ) {
+    static func alertController(_ title: String, message: String?, controller: UIViewController, completionBlock: @escaping (_ userCancelAction: Bool) -> Void ) {
 
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
@@ -403,7 +403,7 @@ class Utils {
 
     // MARK: Dispatch After
 
-    static func dispatchAfter(_ delay: Double, closure:@escaping ()->()) {
+    static func dispatchAfter(_ delay: Double, closure: @escaping () -> Void) {
         DispatchQueue.main.asyncAfter(
             deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
     }

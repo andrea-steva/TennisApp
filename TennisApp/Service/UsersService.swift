@@ -21,7 +21,7 @@ final class UsersService: UsersServiceProtocol {
     fileprivate var storage: StorageContext?
     
     init() {
-        self.storage = try! RealmStorageContext(configuration: ConfigurationType.basic(identifier: "tennis_db"))
+        self.storage = try? RealmStorageContext(configuration: ConfigurationType.basic(identifier: "tennis_db"))
     }
     
     func fetchUsers(block: @escaping (_ users: [User]) -> Void) {

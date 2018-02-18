@@ -29,7 +29,7 @@ extension Bindable where Self: UIViewController {
         guard let viewModel = self.getViewModel() else {
             return
         }
-        let _ = viewModel.isLoading.observeNext(with: { value in
+        _ = viewModel.isLoading.observeNext(with: { value in
             if value {
                 Utils.showHUD(view: self.view)
             } else {
@@ -37,7 +37,7 @@ extension Bindable where Self: UIViewController {
             }
         })
         
-        let _ = viewModel.errorMessage.observeNext { (message) in
+        _ = viewModel.errorMessage.observeNext { (message) in
             if let message = message {
                 AlertView.showWarning(localizer.get(LocalizedString.generic_alertTitle),
                                       message: message,
@@ -50,7 +50,7 @@ extension Bindable where Self: UIViewController {
         guard let viewModel = self.getViewModel() else {
             return
         }
-        let _ = viewModel.errorMessage.observeNext { (message) in
+        _ = viewModel.errorMessage.observeNext { (message) in
             if let message = message {
                 AlertView.showWarning(localizer.get(LocalizedString.generic_alertTitle),
                                       message: message,

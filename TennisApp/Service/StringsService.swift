@@ -20,7 +20,7 @@ final class StringsService: StringsServiceProtocol {
     fileprivate var storage: StorageContext?
     
     init() {
-        self.storage = try! RealmStorageContext(configuration: ConfigurationType.basic(identifier: "tennis_db"))
+        self.storage = try? RealmStorageContext(configuration: ConfigurationType.basic(identifier: "tennis_db"))
     }
     
     func fetchStrings(block: @escaping (_ strings: [Strings]) -> Void) {

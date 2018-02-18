@@ -71,7 +71,7 @@ class LoginViewController: BaseViewController, Bindable, FBSDKLoginButtonDelegat
         viewModel.password.bidirectionalBind(to: passwordField.reactive.text)
         
         combineLatest(emailField.reactive.text, passwordField.reactive.text) { email, pass in
-            return email!.length > 0 && pass!.length > 0
+            return email!.count > 0 && pass!.count > 0
             }
             .bind(to: emailLoginButton.reactive.isEnabled)
     }

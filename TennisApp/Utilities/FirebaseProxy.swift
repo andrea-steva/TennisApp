@@ -6,14 +6,12 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-import Foundation
 import Firebase
+import Foundation
 
 final class FirebaseProxy {
 
-    static let sharedInstance: FirebaseProxy = {
-        return FirebaseProxy()
-    }()
+    static let sharedInstance: FirebaseProxy = { FirebaseProxy() }()
 
     var currentUser: Firebase.User?
 

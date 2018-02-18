@@ -6,9 +6,9 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-import UIKit
-import RealmSwift
 import FontAwesome_swift
+import RealmSwift
+import UIKit
 
 // MARK: - UIViewController
 
@@ -52,7 +52,7 @@ extension UIColor {
         let blue: CGFloat = CGFloat((sRgba & 0x0000FF00) >> 8) / 255.0
         let alpha: CGFloat = CGFloat(sRgba & 0x000000FF) / 255.0
         
-        self.init(red: red, green: green, blue:blue, alpha:alpha)
+        self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
     
     /**
@@ -100,7 +100,7 @@ extension UIColor {
             print("Scan hex error")
         }
         
-        self.init(red:red, green:green, blue:blue, alpha:alpha)
+        self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
     
     func lighter(_ amount: CGFloat = 0.25) -> UIColor {
@@ -196,7 +196,7 @@ extension UIImage {
         }
     }
     
-    fileprivate func modifiedImage(_ draw: (CGContext, CGRect) -> ()) -> UIImage {
+    fileprivate func modifiedImage(_ draw: (CGContext, CGRect) -> Void) -> UIImage {
         
         // using scale correctly preserves retina images
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
@@ -220,8 +220,6 @@ extension UIImage {
 // MARK: String
 
 extension String {
-    
-    var length: Int { return self.characters.count }
     
     mutating func replace(targetString target: String, withString replacingString: String) {
         self = self.replacingOccurrences(of: target, with: replacingString)
@@ -315,7 +313,7 @@ extension Array {
      
      - parameter ixs: The indexes for the objects to remove
      */
-    mutating func removeAtIndexes (_ ixs: [Int]) -> () {
+    mutating func removeAtIndexes (_ ixs: [Int]) -> Void {
         for i in ixs.sorted(by: >) {
             self.remove(at: i)
         }
@@ -353,7 +351,7 @@ extension UICollectionView {
 extension UIBarButtonItem {
     
     convenience init(icon: FontAwesome, selector: Selector, target: Any) {
-        self.init(image: UIImage.fontAwesomeIcon(name: icon, textColor: Style.Colors.primaryColor, size : CGSize(width: 32, height: 32)),
+        self.init(image: UIImage.fontAwesomeIcon(name: icon, textColor: Style.Colors.primaryColor, size: CGSize(width: 32, height: 32)),
                   style: UIBarButtonItemStyle.plain,
                   target: target, action: selector)
     }

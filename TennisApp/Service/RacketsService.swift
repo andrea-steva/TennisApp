@@ -20,7 +20,7 @@ final class RacketsService: RacketsServiceProtocol {
     fileprivate var storage: StorageContext?
     
     init() {
-        self.storage = try! RealmStorageContext(configuration: ConfigurationType.basic(identifier: "tennis_db"))
+        self.storage = try? RealmStorageContext(configuration: ConfigurationType.basic(identifier: "tennis_db"))
     }
     
     func fetchRackets(block: @escaping (_ rackets: [Racket]) -> Void) {

@@ -17,9 +17,9 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
 
     // MARK: Shared Instance
     
-    class var sharedInstance : LocationManager {
+    class var sharedInstance: LocationManager {
         struct Static {
-            static let instance : LocationManager = LocationManager()
+            static let instance: LocationManager = LocationManager()
         }
         return Static.instance
     }

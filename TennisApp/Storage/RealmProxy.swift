@@ -6,8 +6,8 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-import RealmSwift
 import Foundation
+import RealmSwift
 
 final class RealmProxy {
     
@@ -28,7 +28,7 @@ final class RealmProxy {
         }
     }
     
-    fileprivate func setupRealm() -> Realm! {
+    fileprivate func setupRealm() -> Realm? {
         
         let realmConfiguration = Realm.Configuration()
         guard let path = realmConfiguration.fileURL?.absoluteString else {
@@ -49,9 +49,12 @@ final class RealmProxy {
                 Log.debug("Current schema version: \(schemaVersion)")
             }
         })
-        
-        let realm = try! Realm(configuration: config)
-        return realm
+
+        do {
+            return try Realm(configuration: config)
+        } catch {
+            return nil
+        }
     }
     
     // MARK: Save
@@ -73,7 +76,7 @@ final class RealmProxy {
     internal func saveObjects<O: Object>(_ objects: [O], saveBlock : ((_ object: O) -> Void)?) {
         write { () -> Void in
             for object in objects {
-                if let saveBlock  = saveBlock {
+                if let saveBlock = saveBlock {
                     saveBlock(object)
                 }
                 self.realm.create(O.self, value: object, update: true)
@@ -110,7 +113,7 @@ final class RealmProxy {
      - return: The objects list.
      */
     internal func getObjects<O: Object>(_ predicate: String?, sortBy: String?) -> Results<O> {
-        var objects =  self.realm.objects(O.self)
+        var objects = self.realm.objects(O.self)
         
         if let predicate = predicate {
             objects = objects.filter(predicate)

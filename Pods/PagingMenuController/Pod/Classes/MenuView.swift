@@ -47,6 +47,12 @@ open class MenuView: UIScrollView {
         switch menuOptions.displayMode {
         case .standard(_, let centerItem, _) where centerItem:
             return centerOfScreenWidth
+        case .standard(_, let centerItem, _) where !centerItem:
+            if self.contentView.frame.width < self.frame.width {
+                return contentOffset.x
+            } else {
+                return contentOffsetXForCurrentPage
+            }
         case .segmentedControl:
             return contentOffset.x
         case .infinite:
@@ -74,6 +80,10 @@ open class MenuView: UIScrollView {
     // MARK: - Lifecycle
     internal init(menuOptions: MenuViewCustomizable) {
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: menuOptions.height))
+        
+        if #available(iOS 10.0, *) {
+            self.accessibilityTraits = UIAccessibilityTraitTabBar
+        }
         
         self.menuOptions = menuOptions
         
@@ -115,8 +125,11 @@ open class MenuView: UIScrollView {
         
         if let previousMenuItemView = previousMenuItemView,
             page != previousPage {
+            previousMenuItemView.titleLabel.accessibilityTraits = UIAccessibilityTraitStaticText
             onMove?(.willMoveItem(to: menuItemView, from: previousMenuItemView))
         }
+        
+        menuItemView.titleLabel.accessibilityTraits = UIAccessibilityTraitSelected
         
         update(currentPage: page)
         

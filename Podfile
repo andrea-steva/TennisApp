@@ -5,6 +5,8 @@ platform :ios, "9.0"
 use_frameworks!
 
 def shared_pods
+
+    pod 'LifetimeTracker'
     
 	#Crashlytics
 	pod 'Fabric', '1.7.3'
@@ -16,9 +18,6 @@ def shared_pods
     
     #Facebook
     pod 'FBSDKLoginKit', '4.30.0'
-
-	#Mobile Database
-    # pod 'RealmSwift', '~> 3.0'
     
     #Reactive
     pod 'Bond', '6.6.0'
@@ -42,11 +41,11 @@ def shared_pods
 	pod 'DZNEmptyDataSet', '1.8.1'
 	pod 'IQKeyboardManagerSwift', '5.0.7'
 	pod 'GSKStretchyHeaderView', '1.0.4'
-    pod 'SCLAlertView'
+    pod 'SCLAlertView', :git => 'https://github.com/vikmeup/SCLAlertView-Swift.git'
     pod 'Tamamushi', '0.1.3'
     
 	#PagedView
-	pod 'PagingMenuController', '2.2.0'
+	pod 'PagingMenuController', :git => 'https://github.com/andr3a88/PagingMenuController.git'
     
     #Charts
     pod 'Charts', '3.0.5'

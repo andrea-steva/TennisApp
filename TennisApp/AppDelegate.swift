@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FBSDKCoreKit
+import LifetimeTracker
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -34,7 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Style.setupNavigationBarStyle()
         Style.setupTextFieldStyle()
         Style.setupSearchBarStyle()
-        
+
+        #if DEBUG
+            LifetimeTracker.setup(onUpdate: LifetimeTrackerDashboardIntegration.alwaysVisible().refreshUI)
+        #endif
+
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         return true
@@ -44,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKAppEvents.activateApp()
     }
     
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
         
         let handledFacebookLogin = FBSDKApplicationDelegate.sharedInstance().application(
             app,

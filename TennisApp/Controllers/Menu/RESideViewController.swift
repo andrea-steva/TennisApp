@@ -37,7 +37,6 @@ final class RESideViewController: RESideMenu, RESideMenuDelegate, TNSideMenuDele
         
         self.contentViewController = Utils.getControllerFromStoryboard("Activities", controllerId: "ContentViewController")
         
-        
         let leftViewController: RESideLeftViewController = RESideLeftViewController.instantiateFromStoryboard("RESide")
         leftViewController.resideDelegate = self
         self.leftMenuViewController = leftViewController

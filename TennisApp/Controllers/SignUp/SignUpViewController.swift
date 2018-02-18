@@ -52,7 +52,7 @@ class SignUpViewController: BaseViewController, Bindable {
         viewModel.password.bidirectionalBind(to: passwordField.reactive.text)
 
         combineLatest(emailField.reactive.text, passwordField.reactive.text, displayNameField.reactive.text) { (email, pass, name) -> Bool in
-            return email!.length > 0 && pass!.length > 0 && name!.length > 0
+            return email!.count > 0 && pass!.count > 0 && name!.count > 0
             }
             .bind(to: signUpButton.reactive.isEnabled)
     }
