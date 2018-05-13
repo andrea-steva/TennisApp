@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '3D2A4B46F397881ABAD7F2D773BB90A0'
-               BlueprintName = 'Tamamushi'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Tamamushi.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8C0C6F3BB3B2941D5401E339712BA56C"
+               BlueprintName = "Tamamushi"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "Tamamushi.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

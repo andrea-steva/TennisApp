@@ -803,7 +803,6 @@
 				65B04D9C1C6CA02300011439 /* Frameworks */,
 				65B04D9D1C6CA02300011439 /* Resources */,
 				7579BFFBD2CD76E70E46DDEF /* [CP] Embed Pods Frameworks */,
-				A7F71F2E6927FCBFF195194B /* [CP] Copy Pods Resources */,
 				6572348B1E1173E00050F319 /* Swift Lint */,
 				6564660D1FABE23700FB0875 /* Embed Frameworks */,
 			);
@@ -825,7 +824,6 @@
 				65B04DB01C6CA02300011439 /* Frameworks */,
 				65B04DB11C6CA02300011439 /* Resources */,
 				E307FEB725C47C2FE1AEAAD4 /* [CP] Embed Pods Frameworks */,
-				7D2C6D2A688194DCA38802F5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -999,7 +997,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    echo \"\" >/dev/null;\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\n    echo \"\" >/dev/null;\n# swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		7579BFFBD2CD76E70E46DDEF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1085,36 +1083,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7D2C6D2A688194DCA38802F5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TennisAppTests/Pods-TennisAppTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A7F71F2E6927FCBFF195194B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TennisApp/Pods-TennisApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E307FEB725C47C2FE1AEAAD4 /* [CP] Embed Pods Frameworks */ = {
