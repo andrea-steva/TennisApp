@@ -38,14 +38,14 @@ final class SignUpViewModel: BaseViewModel {
         }
 
         self.isLoading.value = true
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+        Auth.auth().createUser(withEmail: email, password: password) { (response, error) in
             self.isLoading.value = false
             if let error = error {
                 self.errorMessage.value = error.localizedDescription
                 Log.error(error.localizedDescription)
                 return
             }
-            self.setDisplayName(user!)
+            self.setDisplayName(response!.user)
         }
     }
 

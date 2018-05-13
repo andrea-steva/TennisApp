@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '246A234B1B18610A40F36E29334FDCC5'
-               BlueprintName = 'RESideMenu'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'RESideMenu.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9DB46C8516D284D4D3144272563AB15D"
+               BlueprintName = "RESideMenu"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "RESideMenu.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -19,11 +19,11 @@ internal extension BNDInvocation {
         let size = Int(methodSignature.getArgumentSize(at: UInt(index)))
         let alignment = Int(methodSignature.getArgumentAlignment(at: UInt(index)))
 
-        let pointer = UnsafeMutableRawPointer.allocate(bytes: size, alignedTo: alignment)
+        let pointer = UnsafeMutableRawPointer.allocate(byteCount: size, alignment: alignment)
         getArgument(pointer, at: index)
 
         defer {
-            pointer.deallocate(bytes: size, alignedTo: alignment)
+            pointer.deallocate()
         }
 
         let type = methodSignature.getArgumentType(at: UInt(index))
@@ -57,7 +57,7 @@ internal extension BNDInvocation {
         case NSObjCSelectorType:
             return pointer.assumingMemoryBound(to: Optional<Selector>.self).pointee as! T
         case NSObjCObjectType:
-            return pointer.assumingMemoryBound(to: Optional<AnyObject>.self).pointee as! T
+            return pointer.downcastPointee(to: T.self, assuming: Optional<AnyObject>.self)
         default:
             return pointer.assumingMemoryBound(to: T.self).pointee
         }
@@ -72,10 +72,10 @@ internal extension BNDInvocation {
 
         func write<U, V>(_ value: V, as type: U.Type) {
             let pointer = UnsafeMutablePointer<U>.allocate(capacity: 1)
-            pointer.initialize(to: value as! U, count: 1)
+            pointer.initialize(repeating: value as! U, count: 1)
             setReturnValue(pointer)
-            pointer.deinitialize()
-            pointer.deallocate(capacity: 1)
+            pointer.deinitialize(count: 1)
+            pointer.deallocate()
         }
 
         switch type {
@@ -111,6 +111,32 @@ internal extension BNDInvocation {
             write(value, as: Optional<AnyObject>.self)
         default:
             write(value, as: T.self)
+        }
+    }
+}
+
+private extension UnsafeMutableRawPointer {
+
+    func downcastPointee<T, U>(to: T.Type, assuming: U.Type) -> T {
+        if let OptionalT = T.self as? OptionalFromAny.Type {
+            return OptionalT.init(from: assumingMemoryBound(to: U.self).pointee) as! T
+        } else {
+            return assumingMemoryBound(to: U.self).pointee as! T
+        }
+    }
+}
+
+private protocol OptionalFromAny {
+    init(from unsafeValue: Any?)
+}
+
+extension Optional: OptionalFromAny {
+
+    init(from unsafeValue: Any?) {
+        if let unsafeValue = unsafeValue {
+            self = unsafeValue as? Wrapped
+        } else {
+            self = nil
         }
     }
 }

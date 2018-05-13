@@ -46,10 +46,10 @@ final class LoginViewModel: BaseViewModel {
                 Log.error(error.localizedDescription)
                 return
             }
-            if let profileImageURL = user?.photoURL {
+            if let profileImageURL = user?.user.photoURL {
                 self.profileImageURL.value = profileImageURL
             }
-            FirebaseProxy.sharedInstance.signedIn(user)
+            FirebaseProxy.sharedInstance.signedIn(user?.user)
             self.coordinatorDelegate?.loginViewModelDidLogin(viewModel: self)
         }
     }
