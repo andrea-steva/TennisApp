@@ -351,8 +351,8 @@ extension UICollectionView {
 extension UIBarButtonItem {
     
     convenience init(icon: FontAwesome, selector: Selector, target: Any) {
-        self.init(image: UIImage.fontAwesomeIcon(name: icon, textColor: TennisApp.Style.Colors.primaryColor, size: CGSize(width: 32, height: 32)),
-                  style: UIBarButtonItemStyle.plain,
+        self.init(image: UIImage.fontAwesomeIcon(name: icon, style: .regular, textColor: TennisApp.Style.Colors.primaryColor, size: CGSize(width: 32, height: 32)),
+                  style: UIBarButtonItem.Style.plain,
                   target: target, action: selector)
     }
     

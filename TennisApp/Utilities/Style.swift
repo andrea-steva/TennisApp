@@ -132,7 +132,7 @@ struct Style {
     static func setupNavigationBarStyle() {
         let appearance = UINavigationBar.appearance()
         appearance.tintColor = Style.Colors.lightColor
-        appearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: Style.Colors.lightColor, NSAttributedStringKey.font: Style.Fonts.get(.light, size: .navigationBar)]
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Style.Colors.lightColor, NSAttributedString.Key.font: Style.Fonts.get(.light, size: .navigationBar)]
         //appearance.barTintColor = Style.Colors.navigationBarColor
         appearance.shadowImage = UIImage.imageWithColor(UIColor.clear)
         //appearance.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
@@ -147,13 +147,13 @@ struct Style {
     
     static func setupSearchBarStyle() {
         UISearchBar.appearance().setBackgroundImage(UIImage(), for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
-        UISearchBar.appearance().setImage(UIImage.fontAwesomeIcon(name: FontAwesome.search, textColor: Style.Colors.lightColor, size: CGSize(width: 32, height: 32)),
-                                          for: UISearchBarIcon.search,
-                                          state: UIControlState())
+        UISearchBar.appearance().setImage(UIImage.fontAwesomeIcon(name: FontAwesome.search, style: .regular, textColor: Style.Colors.lightColor, size: CGSize(width: 32, height: 32)),
+                                          for: UISearchBar.Icon.search,
+                                          state: UIControl.State())
         
-        UISearchBar.appearance().setImage(UIImage.fontAwesomeIcon(name: FontAwesome.timesCircle, textColor: Style.Colors.lightColor, size: CGSize(width: 20, height: 20)),
-                                          for: UISearchBarIcon.clear,
-                                          state: UIControlState())
+        UISearchBar.appearance().setImage(UIImage.fontAwesomeIcon(name: FontAwesome.timesCircle, style: .regular, textColor: Style.Colors.lightColor, size: CGSize(width: 20, height: 20)),
+                                          for: UISearchBar.Icon.clear,
+                                          state: UIControl.State())
     }
     
     static func setup() {

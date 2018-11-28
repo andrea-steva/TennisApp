@@ -17,7 +17,7 @@ PODS:
   - Charts/Core (3.2.1)
   - Differ (1.3.0)
   - DZNEmptyDataSet (1.8.1)
-  - Eureka (4.2.0)
+  - Eureka (4.3.0)
   - FBSDKCoreKit (4.38.1):
     - Bolts (~> 1.9)
   - FBSDKLoginKit (4.38.1):
@@ -51,7 +51,7 @@ PODS:
     - FirebaseCore (~> 5.1)
     - GoogleUtilities/Environment (~> 5.3)
     - GoogleUtilities/UserDefaults (~> 5.3)
-  - FontAwesome.swift (1.3.2)
+  - FontAwesome.swift (1.4.6)
   - GoogleAppMeasurement (5.3.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
@@ -101,11 +101,11 @@ DEPENDENCIES:
   - Bond (~> 6.0)
   - Charts (~> 3.0)
   - DZNEmptyDataSet (= 1.8.1)
-  - Eureka (~> 4.2.0)
+  - Eureka (~> 4.0)
   - FBSDKLoginKit
   - Firebase/Auth
   - Firebase/Core
-  - FontAwesome.swift (= 1.3.2)
+  - FontAwesome.swift
   - GSKStretchyHeaderView (= 1.0.4)
   - INSPullToRefresh (= 1.2.0)
   - IQKeyboardManagerSwift
@@ -113,7 +113,7 @@ DEPENDENCIES:
   - MBProgressHUD (= 1.1.0)
   - PagingMenuController (from `https://github.com/andr3a88/PagingMenuController.git`)
   - RESideMenu (= 4.0.7)
-  - SCLAlertView (from `https://github.com/vikmeup/SCLAlertView-Swift.git`)
+  - SCLAlertView (from `https://github.com/vikmeup/SCLAlertView-Swift.git`, branch `master`)
   - SwiftyBeaver (~> 1.0)
   - Tamamushi (= 0.1.3)
 
@@ -155,11 +155,12 @@ EXTERNAL SOURCES:
   PagingMenuController:
     :git: https://github.com/andr3a88/PagingMenuController.git
   SCLAlertView:
+    :branch: master
     :git: https://github.com/vikmeup/SCLAlertView-Swift.git
 
 CHECKOUT OPTIONS:
   PagingMenuController:
-    :commit: b74dc9963122514b6929846c3e97566fe8da06bb
+    :commit: 64466fef5af69b605e141137b6a0dd87f53e6b2b
     :git: https://github.com/andr3a88/PagingMenuController.git
   SCLAlertView:
     :commit: 86ea7613c99cd4896765fabfa773b39b40bc8590
@@ -174,7 +175,7 @@ SPEC CHECKSUMS:
   Charts: f122fb70b19847fa5817d018b77d6c5a2296ab25
   Differ: 9fcee7602542d7c6484ce05a0faec1c11258ed63
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
+  Eureka: 6d711cb30ca333b4bc893110285a722ae3840114
   FBSDKCoreKit: 8d47857400e2f5bdea697a80daff882e91c84ef6
   FBSDKLoginKit: 4621c690d9dd8628031a4791497062183ea34b0d
   Firebase: 6df9a6114bc9f106a98fe83d5438d4d9833c2019
@@ -183,7 +184,7 @@ SPEC CHECKSUMS:
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
   FirebaseCore: fba2bfaa691c49028309b92e4dd37cc4b5512fbe
   FirebaseInstanceID: e2fa4cb35ef5558c200f7f0ad8a53e212215f93e
-  FontAwesome.swift: b4e4c8ccbbecb12f9b592bc533ff237af3706667
+  FontAwesome.swift: 18fb500c0decc2bbfadf2ae16a936704ec2c49bd
   GoogleAppMeasurement: 5029d78f2b438bd30ffb44e6c558b57c21622727
   GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
   GSKStretchyHeaderView: 9743704c12bdc9cf7c7947bad3af8bf24f7061e3
@@ -200,6 +201,6 @@ SPEC CHECKSUMS:
   SwiftyBeaver: ccfcdf85a04d429f1633f668650b0ce8020bda3a
   Tamamushi: 4c07eb1e0f612f0bd9e67d7c5f0f3edd3a238680
 
-PODFILE CHECKSUM: db4051e252b23582d5e6b4de0648df47d7ddd33c
+PODFILE CHECKSUM: 8bbf57ab8e90c9c82d2d5cf09a1746ab31b155a5
 
 COCOAPODS: 1.5.3
