@@ -71,7 +71,7 @@ class CircularDashboardViewController: UIViewController, LifetimeTrackerViewable
 
     var originalOffset = CGSize.zero
 
-    func toolbarPanned(_ gestureRecognizer: UIPanGestureRecognizer) {
+    @objc func toolbarPanned(_ gestureRecognizer: UIPanGestureRecognizer) {
         switch gestureRecognizer.state {
         case .began:
             originalOffset = dragOffset
@@ -144,21 +144,21 @@ class CircularDashboardViewController: UIViewController, LifetimeTrackerViewable
 
     private lazy var popoverWindow: UIWindow = {
         let popoverWindow = UIWindow(frame: .zero)
-        popoverWindow.windowLevel = UIWindowLevelNormal
+        popoverWindow.windowLevel = UIWindow.Level.normal
         popoverWindow.frame =  UIScreen.main.bounds
 
         let navigationController = UIStoryboard(name: Constants.Storyboard.circularDashboard.name, bundle: Bundle(for: CircularDashboardViewController.self)).instantiateInitialViewController()
         popoverWindow.rootViewController = navigationController
         popoverWindow.rootViewController?.view.backgroundColor = UIColor.yellow
 
-        self.lifetimeTrackerListViewController = navigationController?.childViewControllers.first as? LifetimeTrackerListViewController
+        self.lifetimeTrackerListViewController = navigationController?.children.first as? LifetimeTrackerListViewController
         self.lifetimeTrackerListViewController?.delegate = self
         self.lifetimeTrackerListViewController?.update(dashboardViewModel: self.dashboardViewModel)
 
         return popoverWindow
     }()
 
-    func showPopover() {
+    @objc func showPopover() {
         formerStatusBarStyle = UIApplication.shared.statusBarStyle
         UIApplication.shared.statusBarStyle = .default
         updatePopoverVisibility(to: .open)

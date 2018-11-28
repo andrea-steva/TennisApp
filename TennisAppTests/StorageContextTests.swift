@@ -17,7 +17,7 @@ class StorageContextTests: XCTestCase {
         super.setUp()
         
         do {
-            try self.storage = RealmStorageContext(configuration: ConfigurationType.inMemory(identifier: self.name!))
+            try self.storage = RealmStorageContext(configuration: ConfigurationType.inMemory(identifier: self.name))
         } catch {
             XCTFail()
         }
