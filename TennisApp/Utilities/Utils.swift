@@ -50,7 +50,7 @@ class Utils {
     static func getScreenBounds() -> CGRect {
 
         var bounds = UIScreen.main.bounds
-        if UIInterfaceOrientationIsLandscape(UIApplication.shared.statusBarOrientation) {
+        if UIApplication.shared.statusBarOrientation.isLandscape {
             bounds.size = CGSize(width: bounds.size.height, height: bounds.size.width)
         }
         return bounds
@@ -175,7 +175,7 @@ class Utils {
         return overlay
     }
 
-    static func applyBlur(_ view: UIView, style: UIBlurEffectStyle) {
+    static func applyBlur(_ view: UIView, style: UIBlurEffect.Style) {
         let blurStyle = UIBlurEffect(style: style)
         let blurView = UIVisualEffectView(effect: blurStyle)
         blurView.frame = view.bounds
@@ -421,6 +421,6 @@ class INSLabel: UILabel {
 
     override func drawText(in rect: CGRect) {
         let insets: UIEdgeInsets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
-        super.drawText(in: UIEdgeInsetsInsetRect(rect, insets))
+        super.drawText(in: rect.inset(by: insets))
     }
 }

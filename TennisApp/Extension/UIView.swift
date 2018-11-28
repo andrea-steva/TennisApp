@@ -68,10 +68,10 @@ extension UIView {
     
     // MARK: Constraints
     
-    func addGenericConstraint(_ innerView: UIView, attribute: NSLayoutAttribute, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
+    func addGenericConstraint(_ innerView: UIView, attribute: NSLayoutConstraint.Attribute, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
         let constraint = NSLayoutConstraint(item: self,
                                             attribute: attribute,
-                                            relatedBy: NSLayoutRelation.equal,
+                                            relatedBy: NSLayoutConstraint.Relation.equal,
                                             toItem: innerView,
                                             attribute: attribute,
                                             multiplier: multiplier,
@@ -81,34 +81,34 @@ extension UIView {
     }
     
     func addConstraintTop(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
-        return self.addGenericConstraint(innerView, attribute: NSLayoutAttribute.top, multiplier: multiplier, constant: constant)
+        return self.addGenericConstraint(innerView, attribute: NSLayoutConstraint.Attribute.top, multiplier: multiplier, constant: constant)
     }
     
     func addConstraintBottom(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
-        return self.addGenericConstraint(innerView, attribute: NSLayoutAttribute.bottom, multiplier: multiplier, constant: constant)
+        return self.addGenericConstraint(innerView, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: multiplier, constant: constant)
     }
     
     func addConstraintCenterX(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
-        return self.addGenericConstraint(innerView, attribute: NSLayoutAttribute.centerX, multiplier: multiplier, constant: constant)
+        return self.addGenericConstraint(innerView, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: multiplier, constant: constant)
     }
     
     func addConstraintCenterY(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
-        return self.addGenericConstraint(innerView, attribute: NSLayoutAttribute.centerY, multiplier: multiplier, constant: constant)
+        return self.addGenericConstraint(innerView, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: multiplier, constant: constant)
     }
     
     func addConstraintLeading(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
-        return self.addGenericConstraint(innerView, attribute: NSLayoutAttribute.leading, multiplier: multiplier, constant: constant)
+        return self.addGenericConstraint(innerView, attribute: NSLayoutConstraint.Attribute.leading, multiplier: multiplier, constant: constant)
     }
     
     func addConstraintTrailing(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
-        return self.addGenericConstraint(innerView, attribute: NSLayoutAttribute.trailing, multiplier: multiplier, constant: constant)
+        return self.addGenericConstraint(innerView, attribute: NSLayoutConstraint.Attribute.trailing, multiplier: multiplier, constant: constant)
     }
     
     func addConstraintWidth(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
-        let attribute = NSLayoutAttribute.width
+        let attribute = NSLayoutConstraint.Attribute.width
         let constraint = NSLayoutConstraint(item: innerView,
                                             attribute: attribute,
-                                            relatedBy: NSLayoutRelation.equal,
+                                            relatedBy: NSLayoutConstraint.Relation.equal,
                                             toItem: nil,
                                             attribute: attribute,
                                             multiplier: multiplier,
@@ -118,10 +118,10 @@ extension UIView {
     }
     
     func addConstraintHeight(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
-        let attribute = NSLayoutAttribute.height
+        let attribute = NSLayoutConstraint.Attribute.height
         let constraint = NSLayoutConstraint(item: innerView,
                                             attribute: attribute,
-                                            relatedBy: NSLayoutRelation.equal,
+                                            relatedBy: NSLayoutConstraint.Relation.equal,
                                             toItem: nil,
                                             attribute: attribute,
                                             multiplier: multiplier,

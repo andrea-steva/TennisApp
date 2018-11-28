@@ -118,17 +118,17 @@ enum MenuItem: Int {
 
         switch self {
         case .activities:
-            return UIImage.fontAwesomeIcon(name: .home, textColor: color, size: size)
+            return UIImage.fontAwesomeIcon(name: .home, style: .regular, textColor: color, size: size)
         case .rackets:
-            return UIImage.fontAwesomeIcon(name: .wrench, textColor: color, size: size)
+            return UIImage.fontAwesomeIcon(name: .wrench, style: .regular, textColor: color, size: size)
         case .stats:
-            return UIImage.fontAwesomeIcon(name: .barChartO, textColor: color, size: size)
+            return UIImage.fontAwesomeIcon(name: .chartBar, style: .regular, textColor: color, size: size)
         case .profile:
-            return UIImage.fontAwesomeIcon(name: .user, textColor: color, size: size)
+            return UIImage.fontAwesomeIcon(name: .user, style: .regular, textColor: color, size: size)
         case .settings:
-            return UIImage.fontAwesomeIcon(name: .sliders, textColor: color, size: size)
+            return UIImage.fontAwesomeIcon(name: .slidersH, style: .regular, textColor: color, size: size)
         case .logout:
-            return UIImage.fontAwesomeIcon(name: .signOut, textColor: color, size: size)
+            return UIImage.fontAwesomeIcon(name: .signOutAlt, style: .regular, textColor: color, size: size)
         }
 
     }

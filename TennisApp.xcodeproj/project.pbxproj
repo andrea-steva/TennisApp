@@ -52,7 +52,6 @@
 		657AD2631EAFA65A00E3157F /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657AD2621EAFA65A00E3157F /* UsersService.swift */; };
 		657AD2651EAFAE9B00E3157F /* RESideViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657AD2641EAFAE9B00E3157F /* RESideViewModel.swift */; };
 		657AD2671EB270B500E3157F /* RESideLeftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657AD2661EB270B500E3157F /* RESideLeftViewModel.swift */; };
-		657AD2691EB4B58F00E3157F /* RealmProxyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657AD2681EB4B58F00E3157F /* RealmProxyTests.swift */; };
 		658753F91F9E971B0032732D /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658753F81F9E971B0032732D /* ImageCell.swift */; };
 		6589FC891E1EFF0E00C25F31 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589FC871E1EFF0E00C25F31 /* ImagePickerController.swift */; };
 		6589FC8A1E1EFF0E00C25F31 /* ImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589FC881E1EFF0E00C25F31 /* ImageRow.swift */; };
@@ -219,7 +218,6 @@
 		657AD2621EAFA65A00E3157F /* UsersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UsersService.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		657AD2641EAFAE9B00E3157F /* RESideViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESideViewModel.swift; sourceTree = "<group>"; };
 		657AD2661EB270B500E3157F /* RESideLeftViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESideLeftViewModel.swift; sourceTree = "<group>"; };
-		657AD2681EB4B58F00E3157F /* RealmProxyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmProxyTests.swift; sourceTree = "<group>"; };
 		658753F81F9E971B0032732D /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		6589FC871E1EFF0E00C25F31 /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
 		6589FC881E1EFF0E00C25F31 /* ImageRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRow.swift; sourceTree = "<group>"; };
@@ -504,7 +502,6 @@
 				65B04DB71C6CA02300011439 /* TennisAppTests.swift */,
 				65784FF61F23779A001BFBEF /* StorageContextTests.swift */,
 				6524FDA21EAF9DC800936B09 /* RacketsTests.swift */,
-				657AD2681EB4B58F00E3157F /* RealmProxyTests.swift */,
 				65B04DB91C6CA02300011439 /* Info.plist */,
 			);
 			path = TennisAppTests;
@@ -860,24 +857,24 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Andrea Stevanato";
 				TargetAttributes = {
 					65B04D9E1C6CA02300011439 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = A2VGE7F94S;
-						LastSwiftMigration = 0910;
+						LastSwiftMigration = 1000;
 					};
 					65B04DB21C6CA02300011439 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = A2VGE7F94S;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 1000;
 						TestTargetID = 65B04D9E1C6CA02300011439;
 					};
 					65B04DBD1C6CA02300011439 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = A2VGE7F94S;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 1000;
 						TestTargetID = 65B04D9E1C6CA02300011439;
 					};
 				};
@@ -1252,7 +1249,6 @@
 			files = (
 				65B04DB81C6CA02300011439 /* TennisAppTests.swift in Sources */,
 				65784FF71F23779A001BFBEF /* StorageContextTests.swift in Sources */,
-				657AD2691EB4B58F00E3157F /* RealmProxyTests.swift in Sources */,
 				6524FDA31EAF9DC800936B09 /* RacketsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1378,12 +1374,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1431,12 +1429,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1449,6 +1449,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1481,8 +1482,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TennisApp/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1502,8 +1502,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.as.TennisApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TennisApp/Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1517,7 +1516,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.as..TennisAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TennisApp.app/TennisApp";
 			};
 			name = Debug;
@@ -1528,11 +1527,12 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = A2VGE7F94S;
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = TennisAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.as..TennisAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TennisApp.app/TennisApp";
 			};
 			name = Release;
@@ -1545,7 +1545,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.as..TennisAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = TennisApp;
 				USES_XCTRUNNER = YES;
 			};
@@ -1559,7 +1559,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.as..TennisAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = TennisApp;
 				USES_XCTRUNNER = YES;
 			};

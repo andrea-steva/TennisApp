@@ -115,7 +115,7 @@ class ActivitiesContainerViewController: BaseViewController {
             menuControllers.append(activityController)
         }
 
-        let pagingMenuController = self.childViewControllers.first as! PagingMenuController
+        let pagingMenuController = self.children.first as! PagingMenuController
 
         let pagingMenuOptions = PagingMenuOptions(controllers: menuControllers)
         pagingMenuController.setup(pagingMenuOptions)
