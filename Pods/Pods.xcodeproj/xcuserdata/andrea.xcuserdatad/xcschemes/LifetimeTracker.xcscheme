@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8CE5E1A589C1687EDE2C77A9841A1C82"
+               BlueprintIdentifier = "6C0C9B2B798D8B4BA7CA061D0D91F35E"
                BlueprintName = "LifetimeTracker"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "LifetimeTracker.framework">

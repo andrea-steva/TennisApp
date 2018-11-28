@@ -7,11 +7,7 @@ use_frameworks!
 def shared_pods
 
     pod 'LifetimeTracker'
-    
-	#Crashlytics
-	pod 'Fabric'
-	pod 'Crashlytics'
-    
+
     #Firebase
     pod 'Firebase/Core'
     pod 'Firebase/Auth'
@@ -30,7 +26,7 @@ def shared_pods
 	pod 'Alamofire', '~> 4.0'
 
 	#Form
-    pod 'Eureka', '~> 4.0'
+    pod 'Eureka', '~> 4.2.0'
 	
     # Camera View Controller https://github.com/AlexLittlejohn/ALCameraViewController∫
     pod 'ALCameraViewController', '3.0.3'

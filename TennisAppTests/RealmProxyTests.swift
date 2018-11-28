@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import RealmSwift
+import RealmSwift
 @testable import TennisApp
 
 class RealmProxyTests: XCTestCase {
