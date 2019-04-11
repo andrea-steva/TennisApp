@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import ALCameraViewController
 import FBSDKLoginKit
 import Bond
 import ReactiveKit
