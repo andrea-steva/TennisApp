@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "07FB27F1E7AD763F644F6E2E7F2287F0"
+               BlueprintIdentifier = "AA6A9F482F97428402ACEE3DC4FDAA41"
+               BuildableName = "Tamamushi.framework"
                BlueprintName = "Tamamushi"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Tamamushi.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -59,10 +59,10 @@ class Racket: Object {
     }
     
     fileprivate func mapping(_ dictionary: [String: Any?]) {
-        self.manufacter = dictionary["manufacter"] as! String!
-        self.model = dictionary["model"] as! String!
-        self.weight = dictionary["weight"] as! String!
-        self.gripSize = dictionary["gripSize"] as! String!
-        self.purchaseDate = dictionary["purchaseDate"] as! Date!
+        self.manufacter = dictionary["manufacter"] as! String?
+        self.model = dictionary["model"] as! String?
+        self.weight = dictionary["weight"] as! String?
+        self.gripSize = dictionary["gripSize"] as! String?
+        self.purchaseDate = dictionary["purchaseDate"] as! Date?
     }
 }

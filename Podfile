@@ -6,8 +6,6 @@ use_frameworks!
 
 def shared_pods
 
-    pod 'LifetimeTracker'
-
     #Firebase
     pod 'Firebase/Core'
     pod 'Firebase/Auth'
@@ -16,7 +14,7 @@ def shared_pods
     pod 'FBSDKLoginKit'
     
     #Reactive
-    pod 'Bond', '~> 6.0'
+    pod 'Bond'
 
 	#Menu
 	pod 'RESideMenu', '4.0.7'
@@ -28,9 +26,6 @@ def shared_pods
 	#Form
     pod 'Eureka', '~> 4.0'
 	
-    # Camera View Controller https://github.com/AlexLittlejohn/ALCameraViewController∫
-    pod 'ALCameraViewController', '3.0.3'
-
 	#UI
 	pod 'FontAwesome.swift'
 	pod 'MBProgressHUD', '1.1.0'
