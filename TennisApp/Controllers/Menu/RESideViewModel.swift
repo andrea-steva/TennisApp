@@ -27,8 +27,8 @@ final class RESideViewModel {
             if let errorMessage = error {
                 Log.error(errorMessage)
             }
-            FBSDKAccessToken.setCurrent(nil)
-            FBSDKProfile.setCurrent(nil)
+            AccessToken.current = nil
+            Profile.current = nil
             completion(success, error)
         }
     }

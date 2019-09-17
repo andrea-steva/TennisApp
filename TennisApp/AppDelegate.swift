@@ -35,18 +35,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Style.setupTextFieldStyle()
         Style.setupSearchBarStyle()
 
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         return true
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        FBSDKAppEvents.activateApp()
+        AppEvents.activateApp()
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         
-        let handledFacebookLogin = FBSDKApplicationDelegate.sharedInstance().application(
+        let handledFacebookLogin = ApplicationDelegate.shared.application(
             app,
             open: url,
             sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String?,

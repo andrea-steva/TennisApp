@@ -12,7 +12,7 @@ import FBSDKLoginKit
 import Bond
 import ReactiveKit
 
-class LoginViewController: BaseViewController, Bindable, FBSDKLoginButtonDelegate {
+class LoginViewController: BaseViewController, Bindable, LoginButtonDelegate {
     
     // MARK: IBOutlets
 
@@ -29,7 +29,7 @@ class LoginViewController: BaseViewController, Bindable, FBSDKLoginButtonDelegat
         }
     }
     
-    @IBOutlet var facebookLoginButton: FBSDKLoginButton!
+    @IBOutlet var facebookLoginButton: FBLoginButton!
     
     @IBOutlet var emailField: UITextField!
     @IBOutlet var passwordField: UITextField!
@@ -52,7 +52,7 @@ class LoginViewController: BaseViewController, Bindable, FBSDKLoginButtonDelegat
         super.viewDidLoad()
         
         self.facebookLoginButton.delegate = self
-        self.facebookLoginButton.readPermissions = ["public_profile", "email", "user_friends"]
+        self.facebookLoginButton.permissions = ["public_profile", "email", "user_friends"]
         self.facebookLoginButton.titleLabel?.font = Style.Fonts.get(.regular, size: .large)
         let layoutConstraintsArr = self.facebookLoginButton.constraints
         // Remove constraint height for facebook login button
@@ -108,10 +108,10 @@ class LoginViewController: BaseViewController, Bindable, FBSDKLoginButtonDelegat
     
     // MARK: FBSDKLoginButtonDelegate
     
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+    func loginButton(_ loginButton: FBLoginButton!, didCompleteWith result: LoginManagerLoginResult!, error: Error!) {
         self.viewModel.signInFacebook(result: result, error: error)
     }
     
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton!) {
     }
 }
