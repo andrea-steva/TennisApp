@@ -54,7 +54,7 @@ final class LoginViewModel: BaseViewModel {
         }
     }
     
-    func signInFacebook(result: FBSDKLoginManagerLoginResult, error: Error!) {
+    func signInFacebook(result: LoginManagerLoginResult, error: Error!) {
         if let error = error {
             Log.error(error.localizedDescription)
             return
@@ -65,18 +65,21 @@ final class LoginViewModel: BaseViewModel {
         }
         
         self.isLoading.value = true
-        let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-        Auth.auth().signIn(with: credential) { (user, error) in
+        guard let tokenString = AccessToken.current?.tokenString else {
+            return
+        }
+        let credential = FacebookAuthProvider.credential(withAccessToken: tokenString)
+        Auth.auth().signIn(with: credential) { (response, error) in
             self.isLoading.value = false
             if let error = error {
                 self.errorMessage.value = error.localizedDescription
                 Log.error(error.localizedDescription)
                 return
             }
-            if let profileImageURL = user?.photoURL {
+            if let profileImageURL = response?.user.photoURL {
                 self.profileImageURL.value = profileImageURL
             }
-            FirebaseProxy.sharedInstance.signedIn(user!)
+            FirebaseProxy.sharedInstance.signedIn(response!.user)
             self.coordinatorDelegate?.loginViewModelDidLogin(viewModel: self)
         }
     }
