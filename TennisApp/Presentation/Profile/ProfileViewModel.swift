@@ -8,7 +8,7 @@
 
 import RealmSwift
 
-protocol ProfileViewModelCoordinatorDelegate: class {
+protocol ProfileViewModelCoordinatorDelegate: AnyObject {
     
 }
 

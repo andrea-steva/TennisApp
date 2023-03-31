@@ -38,7 +38,7 @@ class StringFormViewController: FormViewController {
             <<< PickerInlineRow<String>("manufacter") {
                 $0.add(rule: RuleRequired())
                 $0.title = "Manufacter"
-                $0.options = RacketBrand.allValues
+                $0.options = RacketBrand.allCases.map { $0.rawValue}
                 $0.value = string != nil ? string!.manufacter : "Wilson"
             }
             <<< TextRow("model") {
@@ -52,7 +52,7 @@ class StringFormViewController: FormViewController {
     
     @IBAction func didTapOnSaveButton(_ sender: AnyObject) {
         let formValues = form.values()
-        Log.debug(formValues)
+        Log.debug(formValues.description)
         
         self.viewModel.creareOrUpdateString(formValues: formValues)
         _ = self.navigationController?.popViewController(animated: true)

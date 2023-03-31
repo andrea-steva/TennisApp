@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol StringFormCoordinatorDelegate: class {
+protocol StringFormCoordinatorDelegate: AnyObject {
     func stringFormCoordinatorDidFinish(stringFormCoordinator: StringFormCoordinator)
 }
 
@@ -44,6 +44,6 @@ class StringFormCoordinator: Coordinator, StringFormViewModelCoordinatorDelegate
     }
     
     deinit {
-        Log.verbose("+++ Deinit \(self) +++")
+        Log.debug("+++ Deinit \(self) +++")
     }
 }

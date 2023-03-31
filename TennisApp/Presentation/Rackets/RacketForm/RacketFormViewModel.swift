@@ -6,7 +6,7 @@
 //  Copyright © 2017 Andrea Stevanato. All rights reserved.
 //
 
-protocol RacketFormViewModelCoordinatorDelegate: class {
+protocol RacketFormViewModelCoordinatorDelegate: AnyObject {
     func racketFormViewModelSaveRacket()
 }
 
@@ -18,7 +18,7 @@ final class RacketFormViewModel: BaseViewModel {
     
     // MARK: Properties
     
-    fileprivate let racketsService = RacketsService()
+    fileprivate let racketsService = RacketRealmStorage()
     private var racket: Racket?
     
     // MARK: Methods

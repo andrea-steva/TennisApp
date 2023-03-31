@@ -6,7 +6,7 @@
 //  Copyright © 2017 Andrea Stevanato. All rights reserved.
 //
 
-protocol StatsViewModelCoordinatorDelegate: class {
+protocol StatsViewModelCoordinatorDelegate: AnyObject {
     
 }
 

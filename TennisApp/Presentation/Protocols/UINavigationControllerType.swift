@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol UINavigationControllerType: class {
+protocol UINavigationControllerType: AnyObject {
     var viewControllers: [UIViewController] { get }
 
     func pushViewController(_ viewController: UIViewController, animated: Bool)

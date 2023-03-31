@@ -51,7 +51,7 @@ final class LoginViewModel: BaseViewModel {
             if let profileImageURL = user?.user.photoURL {
                 self.profileImageURL.value = profileImageURL
             }
-            FirebaseProxy.sharedInstance.signedIn(user?.user)
+            FirebaseService.sharedInstance.signedIn(user?.user)
             self.coordinatorDelegate?.loginViewModelDidLogin(viewModel: self)
         }
     }

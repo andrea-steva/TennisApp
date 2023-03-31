@@ -6,7 +6,7 @@
 //  Copyright © 2017 Andrea Stevanato. All rights reserved.
 //
 
-protocol StringFormViewModelCoordinatorDelegate: class {
+protocol StringFormViewModelCoordinatorDelegate: AnyObject {
     func stringFormViewModelSaveString()
 }
 

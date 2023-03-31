@@ -32,10 +32,10 @@ final class ProfileHeaderView: GSKStretchyHeaderView {
 
         self.minimumContentHeight = 64.0
 
-        if let profileImageURL = FirebaseProxy.sharedInstance.currentUser?.photoURL {
-            self.userImageView.af_setImage(withURL: profileImageURL)
+        if let profileImageURL = FirebaseService.sharedInstance.currentUser?.photoURL {
+            // self.userImageView.af_setImage(withURL: profileImageURL)
         }
-        if let displayName = FirebaseProxy.sharedInstance.currentUser?.displayName {
+        if let displayName = FirebaseService.sharedInstance.currentUser?.displayName {
             self.userNameLabel.text = displayName
             self.navigationTitleLabel.text = displayName
         }

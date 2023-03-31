@@ -62,7 +62,7 @@ final class SignUpViewModel: BaseViewModel {
                 Log.error(error.localizedDescription)
                 return
             }
-            FirebaseProxy.sharedInstance.signedIn(Auth.auth().currentUser)
+            FirebaseService.sharedInstance.signedIn(Auth.auth().currentUser)
             
             self.coordinatorDelegate?.signUpViewModelRegisterUser(viewModel: self)
         }

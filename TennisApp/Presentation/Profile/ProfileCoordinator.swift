@@ -41,6 +41,6 @@ final class ProfileCoordinator: Coordinator, ProfileViewModelCoordinatorDelegate
     }
     
     deinit {
-        Log.verbose("+++ Deinit \(self) +++")
+        Log.debug("+++ Deinit \(self) +++")
     }
 }

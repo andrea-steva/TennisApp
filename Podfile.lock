@@ -1,7 +1,4 @@
 PODS:
-  - Alamofire (5.6.4)
-  - AlamofireImage (4.2.0):
-    - Alamofire (~> 5.4)
   - Bond (7.8.1):
     - Differ (~> 1.4)
     - ReactiveKit (~> 3.14)
@@ -110,11 +107,8 @@ PODS:
   - RESideMenu (4.0.7)
   - SCLAlertView (0.8.1)
   - SwiftAlgorithms (1.0.0)
-  - SwiftyBeaver (1.9.5)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.0)
-  - AlamofireImage (~> 4.0)
   - Bond
   - Charts
   - DZNEmptyDataSet (= 1.8.1)
@@ -129,12 +123,9 @@ DEPENDENCIES:
   - PagingMenuController (from `https://github.com/andr3a88/PagingMenuController.git`)
   - RESideMenu (= 4.0.7)
   - SCLAlertView (from `https://github.com/vikmeup/SCLAlertView-Swift.git`, branch `master`)
-  - SwiftyBeaver
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - Alamofire
-    - AlamofireImage
     - Bond
     - Charts
     - Differ
@@ -159,7 +150,6 @@ SPEC REPOS:
     - ReactiveKit
     - RESideMenu
     - SwiftAlgorithms
-    - SwiftyBeaver
 
 EXTERNAL SOURCES:
   PagingMenuController:
@@ -177,8 +167,6 @@ CHECKOUT OPTIONS:
     :git: https://github.com/vikmeup/SCLAlertView-Swift.git
 
 SPEC CHECKSUMS:
-  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
-  AlamofireImage: 34a2d90b0e5fe6a5605f85ae4b7b01e784c60192
   Bond: 87075c7f20f37ea3e73dc7057fce839787bf46eb
   Charts: 354f86803d11d9c35de280587fef50d1af063978
   Differ: 3b6bd78e2b20cc795d9a86f7641d087524e4273e
@@ -205,8 +193,7 @@ SPEC CHECKSUMS:
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SCLAlertView: 776813fb1f62248965f37cb7edf4088ee6394460
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
-  SwiftyBeaver: 84069991dd5dca07d7069100985badaca7f0ce82
 
-PODFILE CHECKSUM: cb7af5955a9ebffd9a57ddaee8b84aeb7fb203f2
+PODFILE CHECKSUM: a0ac3adb5db1554199d885ec255c05a7950c36a9
 
 COCOAPODS: 1.12.0

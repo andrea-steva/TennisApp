@@ -17,7 +17,7 @@ class AppCoordinator: Coordinator, LoginCoordinatorDelegate, RESideCoordinatorDe
     fileprivate weak var window: UIWindow!
     
     var isLoggedIn: Bool {
-        return (FirebaseProxy.sharedInstance.currentUser != nil ? true : false)
+        return (FirebaseService.sharedInstance.currentUser != nil ? true : false)
     }
     
     // MARK: Coordinator

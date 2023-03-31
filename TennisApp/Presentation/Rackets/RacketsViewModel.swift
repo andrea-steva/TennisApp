@@ -23,7 +23,7 @@ final class RacketsViewModel: BaseViewModel {
     
     let reloadView = Observable(false)
 
-    fileprivate let racketsService = RacketsService()
+    fileprivate let racketsService = RacketRealmStorage()
 
     var rackets: [Racket]?
 

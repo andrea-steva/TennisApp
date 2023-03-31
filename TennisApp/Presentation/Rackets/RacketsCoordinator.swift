@@ -73,6 +73,6 @@ final class RacketsCoordinator: Coordinator, RacketsViewModelCoordinatorDelegate
     }
     
     deinit {
-        Log.verbose("+++ Deinit \(self) +++")
+        Log.debug("+++ Deinit \(self) +++")
     }
 }
