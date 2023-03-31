@@ -58,7 +58,6 @@
 		65B04DA31C6CA02300011439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04DA21C6CA02300011439 /* AppDelegate.swift */; };
 		65B04DAA1C6CA02300011439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65B04DA91C6CA02300011439 /* Assets.xcassets */; };
 		65B04DB81C6CA02300011439 /* TennisAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04DB71C6CA02300011439 /* TennisAppTests.swift */; };
-		65B04DC31C6CA02300011439 /* TennisAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04DC21C6CA02300011439 /* TennisAppUITests.swift */; };
 		65B04DE91C6CA7A300011439 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65B04DEB1C6CA7A300011439 /* Localizable.strings */; };
 		65B04DEF1C6CA83500011439 /* menu_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65B04DEE1C6CA83500011439 /* menu_background.jpg */; };
 		65B04E051C6CA86400011439 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65B04DF11C6CA86400011439 /* Lato-Black.ttf */; };
@@ -136,7 +135,6 @@
 		FCBDFA0F29D73111008A7FD6 /* Racket.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBDFA0729D73111008A7FD6 /* Racket.swift */; };
 		FCE0AAC229D7338100308EF3 /* UsersStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AAC129D7338100308EF3 /* UsersStorage.swift */; };
 		FCE0AAC429D733CC00308EF3 /* RacketsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AAC329D733CC00308EF3 /* RacketsStorage.swift */; };
-		FCE0AAC729D7344100308EF3 /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = FCE0AAC629D7344100308EF3 /* SwiftyBeaver */; };
 		FCE0AACA29D7365300308EF3 /* LoggerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AAC929D7365300308EF3 /* LoggerProfile.swift */; };
 		FCE0AACC29D7367800308EF3 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AACB29D7367800308EF3 /* Log.swift */; };
 		FCE0AACF29D7371000308EF3 /* LoggerConsole.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AACE29D7371000308EF3 /* LoggerConsole.swift */; };
@@ -146,17 +144,16 @@
 		FCE0AADA29D73AFB00308EF3 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AAD929D73AFB00308EF3 /* MenuItem.swift */; };
 		FCE0AADC29D73B4400308EF3 /* MatchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AADB29D73B4400308EF3 /* MatchType.swift */; };
 		FCE0AADE29D73B6600308EF3 /* FitnessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AADD29D73B6600308EF3 /* FitnessType.swift */; };
+		FCE0AAE129D73E8500308EF3 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = FCE0AAE029D73E8500308EF3 /* MBProgressHUD */; };
+		FCE0AAE429D73F2A00308EF3 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FCE0AAE329D73F2A00308EF3 /* IQKeyboardManagerSwift */; };
+		FCE0AAE729D73F7A00308EF3 /* DZNEmptyDataSet in Frameworks */ = {isa = PBXBuildFile; productRef = FCE0AAE629D73F7A00308EF3 /* DZNEmptyDataSet */; };
+		FCE0AAEA29D73FB900308EF3 /* Eureka in Frameworks */ = {isa = PBXBuildFile; productRef = FCE0AAE929D73FB900308EF3 /* Eureka */; };
+		FCE0AAED29D7403100308EF3 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = FCE0AAEC29D7403100308EF3 /* Charts */; };
+		FCE0AAF229D741AA00308EF3 /* Bond in Frameworks */ = {isa = PBXBuildFile; productRef = FCE0AAF129D741AA00308EF3 /* Bond */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		65B04DB41C6CA02300011439 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 65B04D971C6CA02300011439 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 65B04D9E1C6CA02300011439;
-			remoteInfo = TennisApp;
-		};
-		65B04DBF1C6CA02300011439 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 65B04D971C6CA02300011439 /* Project object */;
 			proxyType = 1;
@@ -237,9 +234,6 @@
 		65B04DB31C6CA02300011439 /* TennisAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TennisAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B04DB71C6CA02300011439 /* TennisAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisAppTests.swift; sourceTree = "<group>"; };
 		65B04DB91C6CA02300011439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		65B04DBE1C6CA02300011439 /* TennisAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TennisAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		65B04DC21C6CA02300011439 /* TennisAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisAppUITests.swift; sourceTree = "<group>"; };
-		65B04DC41C6CA02300011439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65B04DEA1C6CA7A300011439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		65B04DEE1C6CA83500011439 /* menu_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = menu_background.jpg; sourceTree = "<group>"; };
 		65B04DF11C6CA86400011439 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
@@ -336,10 +330,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCE0AAE429D73F2A00308EF3 /* IQKeyboardManagerSwift in Frameworks */,
 				FC62B14F29D720AD000B79D0 /* RealmSwift in Frameworks */,
+				FCE0AAE729D73F7A00308EF3 /* DZNEmptyDataSet in Frameworks */,
+				FCE0AAED29D7403100308EF3 /* Charts in Frameworks */,
 				FC62B14D29D720A7000B79D0 /* Realm in Frameworks */,
+				FCE0AAE129D73E8500308EF3 /* MBProgressHUD in Frameworks */,
+				FCE0AAEA29D73FB900308EF3 /* Eureka in Frameworks */,
+				FCE0AAF229D741AA00308EF3 /* Bond in Frameworks */,
 				09EC0178D4E79F7F6D639467 /* Pods_TennisApp.framework in Frameworks */,
-				FCE0AAC729D7344100308EF3 /* SwiftyBeaver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,13 +347,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BFA3483FF9EBB75834AD60E /* Pods_TennisAppTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		65B04DBB1C6CA02300011439 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,7 +438,6 @@
 				FCE0AAD429D739F900308EF3 /* README.md */,
 				65B04DA11C6CA02300011439 /* TennisApp */,
 				65B04DB61C6CA02300011439 /* TennisAppTests */,
-				65B04DC11C6CA02300011439 /* TennisAppUITests */,
 				65B04DA01C6CA02300011439 /* Products */,
 				0303B36F1A585C2AC46A506F /* Frameworks */,
 				D548C0B49C67EE2041E74F80 /* Pods */,
@@ -458,7 +449,6 @@
 			children = (
 				65B04D9F1C6CA02300011439 /* TennisApp.app */,
 				65B04DB31C6CA02300011439 /* TennisAppTests.xctest */,
-				65B04DBE1C6CA02300011439 /* TennisAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -488,15 +478,6 @@
 				65B04DB91C6CA02300011439 /* Info.plist */,
 			);
 			path = TennisAppTests;
-			sourceTree = "<group>";
-		};
-		65B04DC11C6CA02300011439 /* TennisAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				65B04DC21C6CA02300011439 /* TennisAppUITests.swift */,
-				65B04DC41C6CA02300011439 /* Info.plist */,
-			);
-			path = TennisAppUITests;
 			sourceTree = "<group>";
 		};
 		65B04DD61C6CA69200011439 /* Supporting Files */ = {
@@ -919,7 +900,12 @@
 			packageProductDependencies = (
 				FC62B14C29D720A7000B79D0 /* Realm */,
 				FC62B14E29D720AD000B79D0 /* RealmSwift */,
-				FCE0AAC629D7344100308EF3 /* SwiftyBeaver */,
+				FCE0AAE029D73E8500308EF3 /* MBProgressHUD */,
+				FCE0AAE329D73F2A00308EF3 /* IQKeyboardManagerSwift */,
+				FCE0AAE629D73F7A00308EF3 /* DZNEmptyDataSet */,
+				FCE0AAE929D73FB900308EF3 /* Eureka */,
+				FCE0AAEC29D7403100308EF3 /* Charts */,
+				FCE0AAF129D741AA00308EF3 /* Bond */,
 			);
 			productName = TennisApp;
 			productReference = 65B04D9F1C6CA02300011439 /* TennisApp.app */;
@@ -945,24 +931,6 @@
 			productReference = 65B04DB31C6CA02300011439 /* TennisAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		65B04DBD1C6CA02300011439 /* TennisAppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 65B04DCD1C6CA02300011439 /* Build configuration list for PBXNativeTarget "TennisAppUITests" */;
-			buildPhases = (
-				65B04DBA1C6CA02300011439 /* Sources */,
-				65B04DBB1C6CA02300011439 /* Frameworks */,
-				65B04DBC1C6CA02300011439 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				65B04DC01C6CA02300011439 /* PBXTargetDependency */,
-			);
-			name = TennisAppUITests;
-			productName = TennisAppUITests;
-			productReference = 65B04DBE1C6CA02300011439 /* TennisAppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -983,12 +951,6 @@
 						LastSwiftMigration = 1020;
 						TestTargetID = 65B04D9E1C6CA02300011439;
 					};
-					65B04DBD1C6CA02300011439 = {
-						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = A2VGE7F94S;
-						LastSwiftMigration = 1020;
-						TestTargetID = 65B04D9E1C6CA02300011439;
-					};
 				};
 			};
 			buildConfigurationList = 65B04D9A1C6CA02300011439 /* Build configuration list for PBXProject "TennisApp" */;
@@ -1003,8 +965,13 @@
 			);
 			mainGroup = 65B04D961C6CA02300011439;
 			packageReferences = (
-				FCF4388029D71C89008A500C /* XCRemoteSwiftPackageReference "realm-swift" */,
-				FCE0AAC529D7344100308EF3 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
+				FCF4388029D71C89008A500C /* XCRemoteSwiftPackageReference "realm-swift.git" */,
+				FCE0AADF29D73E8400308EF3 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
+				FCE0AAE229D73F2A00308EF3 /* XCRemoteSwiftPackageReference "IQKeyboardManager.git" */,
+				FCE0AAE529D73F7A00308EF3 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */,
+				FCE0AAE829D73FB900308EF3 /* XCRemoteSwiftPackageReference "Eureka" */,
+				FCE0AAEB29D7403100308EF3 /* XCRemoteSwiftPackageReference "Charts" */,
+				FCE0AAF029D741AA00308EF3 /* XCRemoteSwiftPackageReference "Bond" */,
 			);
 			productRefGroup = 65B04DA01C6CA02300011439 /* Products */;
 			projectDirPath = "";
@@ -1012,7 +979,6 @@
 			targets = (
 				65B04D9E1C6CA02300011439 /* TennisApp */,
 				65B04DB21C6CA02300011439 /* TennisAppTests */,
-				65B04DBD1C6CA02300011439 /* TennisAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1072,13 +1038,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		65B04DBC1C6CA02300011439 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1121,11 +1080,6 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TennisApp/Pods-TennisApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bond/Bond.framework",
-				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
-				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
-				"${BUILT_PRODUCTS_DIR}/Differ/Differ.framework",
-				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseAuth/FirebaseAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseCoreInternal/FirebaseCoreInternal.framework",
@@ -1135,23 +1089,14 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/INSPullToRefresh/INSPullToRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/PagingMenuController/PagingMenuController.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/RESideMenu/RESideMenu.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveKit/ReactiveKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftAlgorithms/Algorithms.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bond.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differ.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreInternal.framework",
@@ -1161,14 +1106,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/INSPullToRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PagingMenuController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RESideMenu.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Algorithms.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1201,11 +1142,6 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TennisAppTests/Pods-TennisAppTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bond/Bond.framework",
-				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
-				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
-				"${BUILT_PRODUCTS_DIR}/Differ/Differ.framework",
-				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseAuth/FirebaseAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseCoreInternal/FirebaseCoreInternal.framework",
@@ -1215,23 +1151,14 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/INSPullToRefresh/INSPullToRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/PagingMenuController/PagingMenuController.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/RESideMenu/RESideMenu.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveKit/ReactiveKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftAlgorithms/Algorithms.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bond.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differ.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreInternal.framework",
@@ -1241,14 +1168,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/INSPullToRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PagingMenuController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RESideMenu.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Algorithms.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1366,14 +1289,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		65B04DBA1C6CA02300011439 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				65B04DC31C6CA02300011439 /* TennisAppUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1381,11 +1296,6 @@
 			isa = PBXTargetDependency;
 			target = 65B04D9E1C6CA02300011439 /* TennisApp */;
 			targetProxy = 65B04DB41C6CA02300011439 /* PBXContainerItemProxy */;
-		};
-		65B04DC01C6CA02300011439 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 65B04D9E1C6CA02300011439 /* TennisApp */;
-			targetProxy = 65B04DBF1C6CA02300011439 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1670,44 +1580,6 @@
 			};
 			name = Release;
 		};
-		65B04DCE1C6CA02300011439 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEVELOPMENT_TEAM = A2VGE7F94S;
-				INFOPLIST_FILE = TennisAppUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.as..TennisAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = TennisApp;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		65B04DCF1C6CA02300011439 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEVELOPMENT_TEAM = A2VGE7F94S;
-				INFOPLIST_FILE = TennisAppUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.as..TennisAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = TennisApp;
-				USES_XCTRUNNER = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1738,27 +1610,58 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		65B04DCD1C6CA02300011439 /* Build configuration list for PBXNativeTarget "TennisAppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				65B04DCE1C6CA02300011439 /* Debug */,
-				65B04DCF1C6CA02300011439 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FCE0AAC529D7344100308EF3 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */ = {
+		FCE0AADF29D73E8400308EF3 /* XCRemoteSwiftPackageReference "MBProgressHUD" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftyBeaver/SwiftyBeaver.git";
+			repositoryURL = "https://github.com/jdg/MBProgressHUD";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				minimumVersion = 1.0.0;
 			};
 		};
-		FCF4388029D71C89008A500C /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		FCE0AAE229D73F2A00308EF3 /* XCRemoteSwiftPackageReference "IQKeyboardManager.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		FCE0AAE529D73F7A00308EF3 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dzenbot/DZNEmptyDataSet";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		FCE0AAE829D73FB900308EF3 /* XCRemoteSwiftPackageReference "Eureka" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/xmartlabs/Eureka";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		FCE0AAEB29D7403100308EF3 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		FCE0AAF029D741AA00308EF3 /* XCRemoteSwiftPackageReference "Bond" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DeclarativeHub/Bond";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		FCF4388029D71C89008A500C /* XCRemoteSwiftPackageReference "realm-swift.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
@@ -1771,18 +1674,43 @@
 /* Begin XCSwiftPackageProductDependency section */
 		FC62B14C29D720A7000B79D0 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FCF4388029D71C89008A500C /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = FCF4388029D71C89008A500C /* XCRemoteSwiftPackageReference "realm-swift.git" */;
 			productName = Realm;
 		};
 		FC62B14E29D720AD000B79D0 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FCF4388029D71C89008A500C /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = FCF4388029D71C89008A500C /* XCRemoteSwiftPackageReference "realm-swift.git" */;
 			productName = RealmSwift;
 		};
-		FCE0AAC629D7344100308EF3 /* SwiftyBeaver */ = {
+		FCE0AAE029D73E8500308EF3 /* MBProgressHUD */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FCE0AAC529D7344100308EF3 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
-			productName = SwiftyBeaver;
+			package = FCE0AADF29D73E8400308EF3 /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
+			productName = MBProgressHUD;
+		};
+		FCE0AAE329D73F2A00308EF3 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCE0AAE229D73F2A00308EF3 /* XCRemoteSwiftPackageReference "IQKeyboardManager.git" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		FCE0AAE629D73F7A00308EF3 /* DZNEmptyDataSet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCE0AAE529D73F7A00308EF3 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */;
+			productName = DZNEmptyDataSet;
+		};
+		FCE0AAE929D73FB900308EF3 /* Eureka */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCE0AAE829D73FB900308EF3 /* XCRemoteSwiftPackageReference "Eureka" */;
+			productName = Eureka;
+		};
+		FCE0AAEC29D7403100308EF3 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCE0AAEB29D7403100308EF3 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
+		FCE0AAF129D741AA00308EF3 /* Bond */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCE0AAF029D741AA00308EF3 /* XCRemoteSwiftPackageReference "Bond" */;
+			productName = Bond;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
