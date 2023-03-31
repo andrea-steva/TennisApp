@@ -1,6 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, "10.0"
+platform :ios, "13.0"
 
 use_frameworks!
 
@@ -9,10 +9,7 @@ def shared_pods
   #Firebase
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
-    
-  #Facebook
-  pod 'FBSDKLoginKit'
-    
+  
   #Reactive
   pod 'Bond'
 
@@ -20,20 +17,19 @@ def shared_pods
 	pod 'RESideMenu', '4.0.7'
 
 	#Networking
-	pod 'AlamofireImage', '~> 3.0'
-	pod 'Alamofire', '~> 4.0'
+	pod 'AlamofireImage', '~> 4.0'
+	pod 'Alamofire', '~> 5.0'
 
 	#Form
   pod 'Eureka'
 	
 	#UI
 	pod 'FontAwesome.swift'
-	pod 'MBProgressHUD', '1.1.0'
+	pod 'MBProgressHUD', '1.2.0'
 	pod 'DZNEmptyDataSet', '1.8.1'
 	pod 'IQKeyboardManagerSwift'
 	pod 'GSKStretchyHeaderView', '1.0.4'
   pod 'SCLAlertView', :git => 'https://github.com/vikmeup/SCLAlertView-Swift.git', :branch => 'master'
-  pod 'Tamamushi', '0.1.3'
     
 	#PagedView
 	pod 'PagingMenuController', :git => 'https://github.com/andr3a88/PagingMenuController.git'
@@ -59,3 +55,14 @@ target "TennisAppTests" do
     shared_pods
     
 end
+
+post_install do |installer|
+  installer.generated_projects.each do |project|
+    project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
+         end
+    end
+  end
+end
+

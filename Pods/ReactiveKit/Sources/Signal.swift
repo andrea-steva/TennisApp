@@ -39,10 +39,9 @@ public struct Signal<Element, Error: Swift.Error>: SignalProtocol {
     
     /// Register the observer that will receive events from the signal.
     public func observe(with observer: @escaping Observer<Element, Error>) -> Disposable {
-        let serialDisposable = SerialDisposable(otherDisposable: nil)
-        let observer = AtomicObserver(disposable: serialDisposable, observer: observer)
-        serialDisposable.otherDisposable = producer(observer)
-        return observer.disposable
+        let observer = AtomicObserver(observer)
+        observer.attach(producer)
+        return observer
     }
 }
 
@@ -168,7 +167,7 @@ extension Signal {
             var dispatch: (() -> Void)?
             let disposable = SimpleDisposable()
             dispatch = {
-                queue.after(when: interval) {
+                queue.asyncAfter(deadline: .now() + interval) {
                     guard !disposable.isDisposed else {
                         dispatch = nil
                         return
@@ -224,6 +223,8 @@ extension Signal where Error == Swift.Error {
     }
 }
 
+#if !XCFRAMEWORK
+
 extension Signal where Error == Never {
 
     /// Create a new signal and assign its next element observer to the given variable.
@@ -253,3 +254,5 @@ extension Signal where Element == Void, Error == Never {
         self = signal
     }
 }
+
+#endif

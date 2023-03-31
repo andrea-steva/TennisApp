@@ -60,7 +60,7 @@ public final class Property<Value>: PropertyProtocol, SubjectProtocol, BindableP
         self.subject = subject
     }
     
-    public func on(_ event: Event<Value, Never>) {
+    public func on(_ event: Signal<Value, Never>.Event) {
         lock.lock(); defer { lock.unlock() }
         if case .next(let element) = event {
             _value = element
@@ -68,9 +68,9 @@ public final class Property<Value>: PropertyProtocol, SubjectProtocol, BindableP
         subject.on(event)
     }
     
-    public func observe(with observer: @escaping (Event<Value, Never>) -> Void) -> Disposable {
+    public func observe(with observer: @escaping (Signal<Value, Never>.Event) -> Void) -> Disposable {
         lock.lock(); defer { lock.unlock() }
-        return subject.start(with: _value).observe(with: observer)
+        return subject.prepend(_value).observe(with: observer)
     }
     
     public var readOnlyView: AnyProperty<Value> {
@@ -85,8 +85,8 @@ public final class Property<Value>: PropertyProtocol, SubjectProtocol, BindableP
     
     public func bind(signal: Signal<Value, Never>) -> Disposable {
         return signal
-            .take(until: bag.deallocated)
-            .observeIn(.nonRecursive())
+            .prefix(untilOutputFrom: bag.deallocated)
+            .receive(on: ExecutionContext.nonRecursive())
             .observeNext { [weak self] element in
                 self?.on(.next(element))
             }
@@ -110,7 +110,7 @@ public final class AnyProperty<Value>: PropertyProtocol, SignalProtocol {
         self.property = property
     }
     
-    public func observe(with observer: @escaping (Event<Value, Never>) -> Void) -> Disposable {
+    public func observe(with observer: @escaping (Signal<Value, Never>.Event) -> Void) -> Disposable {
         return property.observe(with: observer)
     }
 }

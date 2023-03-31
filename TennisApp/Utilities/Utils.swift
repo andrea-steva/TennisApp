@@ -80,12 +80,6 @@ class Utils {
         }
     }
 
-    static func setNetworkActivityIndicator(_ active: Bool) {
-        DispatchQueue.main.async(execute: {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = active
-        })
-    }
-
     // MARK: UIImageView Setter
 
     /**

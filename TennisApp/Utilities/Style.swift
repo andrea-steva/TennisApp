@@ -90,10 +90,7 @@ enum FontSize {
         let largeSize: CGFloat = 18
         let extraLargeSize: CGFloat = 22
         let navigationBarSize: CGFloat = 26
-        
-        let additionIphone55Inch: CGFloat = 3
-        let additionIphone47Inch: CGFloat = 1
-        
+
         //Default value normaSize
         var standardSize: CGFloat = normalSize
         
@@ -112,13 +109,7 @@ enum FontSize {
             standardSize = navigationBarSize
         }
         
-        if UIDevice().screenType == .iPhone55Inch {
-            return standardSize + additionIphone55Inch
-        } else if UIDevice().screenType == .iPhone47Inch {
-            return standardSize + additionIphone47Inch
-        } else {
-            return standardSize
-        }
+        return standardSize
     }
     
 }
@@ -220,12 +211,6 @@ struct Style {
         }
         
         static fileprivate func scaleSize(_ size: CGFloat) -> CGFloat {
-            
-            if UIDevice.isIphone6Plus {
-                return size + 3
-            } else if UIDevice.isIphone6 {
-                return size + 1
-            }
             return size
         }
     }
