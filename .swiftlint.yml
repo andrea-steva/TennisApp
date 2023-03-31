@@ -1,112 +1,159 @@
-disabled_rules:
-    - conditional_binding_cascade
+disabled_rules: # rule identifiers turned on by default to exclude from running
     - force_cast
-    - legacy_constant
-    - legacy_constructor
-    - line_length
-    - nesting
-    - todo
-    - trailing_whitespace
-    - type_name
-    - variable_name
-    - cyclomatic_complexity
-    - unused_closure_parameter
-    - force_https
+    - inclusive_language
 
-opt_in_rules: # some rules are only opt-in
+opt_in_rules: # some rules are turned off by default, so you need to opt-in
+    - trailing_whitespace
     - array_init
     - closure_spacing
+    - closure_body_length
+    - collection_alignment
+    - contains_over_filter_is_empty
+    - contains_over_filter_count
     - contains_over_first_not_nil
+    - discouraged_object_literal
+    - duplicate_enum_cases
+    - empty_count
+    - empty_string
+    - empty_xctest_method
     - explicit_init
     - extension_access_modifier
     - fatal_error_message
+    - file_name_no_space
     - first_where
+    - flatmap_over_map_reduce
     - implicit_return
     - joined_default_parameter
+    - last_where
     - let_var_whitespace
     - literal_expression_end_indentation
-    - no_grouping_extension
+    - modifier_order
+    - multiline_function_chains
     - operator_usage_whitespace
     - overridden_super_call
+    - private_action # Keeps your UI code closed within the implementation class and it avoids leaking UIKit to higher layers.
+    - private_outlet # Keeps your UI code closed within the implementation class and it avoids leaking UIKit to higher layers.
     - prohibited_super_call
     - quick_discouraged_call
+    - redundant_optional_initialization
+    - required_enum_case
     - sorted_imports
+    - switch_case_on_newline
+    - todo
+    - toggle_bool
+    - unowned_variable_capture
     - vertical_parameter_alignment_on_call
+    - vertical_whitespace_closing_braces
+    - comment_spacing
+    - empty_collection_literal
+    - implicit_getter
+    - legacy_random
+    - prefer_zero_over_explicit_init
+    - redundant_nil_coalescing
+    - sorted_first_last
+    - yoda_condition
+    - force_unwrapping
+    - duplicated_key_in_dictionary_literal
+    - empty_parentheses_with_trailing_closure
+    - discouraged_none_name
 
-# Find all the available rules by running:
-# swiftlint rules
+analyzer_rules: # Rules run by `swiftlint analyze`
+    - unused_capture_list
+    - unused_declaration
+    - unused_import
+
 included: # paths to include during linting. `--path` is ignored if present.
-    - TennisApp
+    - ./TennisApp
 
 excluded: # paths to ignore during linting. Takes precedence over `included`.
     - Pods
 
-# configurable rules can be customized from this configuration file
-# binary rules can set their severity level
-force_cast: warning # implicitly
-force_try:
-severity: warning # explicitly
-empty_count: warning
+# These properties are marked as error by default.
+force_try: warning
 
-# rules that have both warning and error levels, can set just the warning level
-# implicitly
-line_length: 180
-
-# they can set both implicitly with an array
-type_body_length:
-    - 800 # warning
-    - 1000 # error
-# or they can set both explicitly
+closure_body_length:
+    warning: 30
+    error: 40
 
 file_length:
-    warning: 800
-    error: 1200
+    warning: 540
+    error: 550
+    ignore_comment_only_lines: true
 
-# naming rules can set warnings/errors for min_length and max_length
-# additionally they can set excluded names
+function_body_length:
+    warning: 100
+    error: 150
+
+type_body_length:
+    warning: 340
+    error: 380
+
+function_parameter_count:
+    warning: 10
+    error: 15
+
+line_length:
+    warning: 160
+    error: 180
+    ignores_comments: true
+    ignores_urls: true
+
 type_name:
-    min_length: 3 # only warning
-    max_length: # warning and error
-        warning: 40
-        error: 50
+    min_length: 4
+    max_length:
+        warning: 55
+        error: 60
+    allowed_symbols: ["_"]
 
-    excluded: iPhone # excluded via string
+identifier_name:
+    min_length: 3
+    max_length:
+        warning: 55
+        error: 60
+    excluded: ["os", "js", "id", "to"]
 
-variable_name:
-    min_length:  # only min_length
-        error: 2 # only error
 
-    excluded: # excluded via string array
-        - id
-        - URL
-        - GlobalAPIKey
-        - Log
+
 
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji)
 
-double_space: # From https://github.com/IBM-Swift/Package-Builder
-    include: "*.swift"
-    name: "Double space"
-    regex: "([a-z,A-Z] \\s+)"
-    message: "Double space between keywords"
-    match_kinds: keyword
-    severity: warning
+custom_rules:
+    double_space: # From https://github.com/IBM-Swift/Package-Builder
+        include: "*.swift"
+        name: "Double space"
+        regex: "([a-z,A-Z] \\s+)"
+        message: "Double space between keywords"
+        match_kinds: keyword
+        severity: warning
 
-mark_newline:
-    include: "*.swift"
-    name: "MARK new line"
-    regex: "(^ *\\/\\/ MARK:\ [ a-zA-Z0-9=?.\\(\\)\\{\\}:,><!-]*\n *(?!(?:\\}|return))\\S+)"
-    message: "// MARK: should have new line after"
-    severity: warning
+    mark_newline:
+        include: "*.swift"
+        name: "MARK new line"
+        regex: "(^ *\\/\\/ MARK:\ [ a-zA-Z0-9=?.\\(\\)\\{\\}:,><!-]*\n *(?!(?:\\}|return))\\S+)"
+        message: "// MARK: should have new line after"
+        severity: warning
 
-empty_line_after_super:
-    name: "Empty Line After Super"
-    regex: "(^ *super\\.[ a-zA-Z0-9=?.\\(\\)\\{\\}:,><!]*\n *(?!(?:\\}|return))\\S+)"
-    message: "There should be an empty line after super"
-    severity: warning
+    empty_line_after_super:
+        name: "Empty Line After Super"
+        regex: "(^ *super\\.[ a-zA-Z0-9=?.\\(\\)\\{\\}:,><!]*\n *(?!(?:\\}|return))\\S+)"
+        message: "There should be an empty line after super"
+        severity: warning
 
-new_line_between_import:
-    name: "New line between import"
-    regex: "import(.*?)\n\n+import"
-    message: "No new line between import"
-    severity: warning
+    new_line_between_import:
+        name: "New line between import"
+        regex: "import(.*?)\n\n+import"
+        message: "No new line between import"
+        severity: warning
+
+    if_let_shorthand:
+        name: "if_let_shorthand"
+        regex: 'if let (.*) = \1([,\s])(?!as)'
+        message: "Please use the if-let shorthand syntax"
+        severity: warning
+
+    guard_let_shorthand:
+        name: "guard_let_shorthand"
+        regex: 'guard let (.*) = \1([,\s])(?!as)'
+        message: "Please use the guard-let shorthand syntax"
+        severity: warning
+

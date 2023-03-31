@@ -263,7 +263,7 @@
 		65B04E2A1C6CC69400011439 /* RealmProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmProxy.swift; sourceTree = "<group>"; };
 		65C2CB111F255B500095D954 /* RacketFormCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketFormCoordinator.swift; sourceTree = "<group>"; };
 		65C2CB131F26A1550095D954 /* StringFormCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringFormCoordinator.swift; sourceTree = "<group>"; };
-		65C4D71E1E462A5700242DEB /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		65C4D71E1E462A5700242DEB /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		65C511E71C938C740051D645 /* ProfileHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileHeaderView.xib; sourceTree = "<group>"; };
 		65C511E91C938DCA0051D645 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		65C511F01C948ED50051D645 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LoginViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -323,6 +323,7 @@
 		FCE0AAD929D73AFB00308EF3 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		FCE0AADB29D73B4400308EF3 /* MatchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchType.swift; sourceTree = "<group>"; };
 		FCE0AADD29D73B6600308EF3 /* FitnessType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessType.swift; sourceTree = "<group>"; };
+		FCE0AAF329D7445E00308EF3 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -436,6 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				FCE0AAD429D739F900308EF3 /* README.md */,
+				FCE0AAF329D7445E00308EF3 /* .swiftlint.yml */,
 				65B04DA11C6CA02300011439 /* TennisApp */,
 				65B04DB61C6CA02300011439 /* TennisAppTests */,
 				65B04DA01C6CA02300011439 /* Products */,
@@ -965,9 +967,9 @@
 			);
 			mainGroup = 65B04D961C6CA02300011439;
 			packageReferences = (
-				FCF4388029D71C89008A500C /* XCRemoteSwiftPackageReference "realm-swift.git" */,
+				FCF4388029D71C89008A500C /* XCRemoteSwiftPackageReference "realm-swift" */,
 				FCE0AADF29D73E8400308EF3 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
-				FCE0AAE229D73F2A00308EF3 /* XCRemoteSwiftPackageReference "IQKeyboardManager.git" */,
+				FCE0AAE229D73F2A00308EF3 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				FCE0AAE529D73F7A00308EF3 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */,
 				FCE0AAE829D73FB900308EF3 /* XCRemoteSwiftPackageReference "Eureka" */,
 				FCE0AAEB29D7403100308EF3 /* XCRemoteSwiftPackageReference "Charts" */,
@@ -1621,7 +1623,7 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		FCE0AAE229D73F2A00308EF3 /* XCRemoteSwiftPackageReference "IQKeyboardManager.git" */ = {
+		FCE0AAE229D73F2A00308EF3 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
 			requirement = {
@@ -1661,7 +1663,7 @@
 				minimumVersion = 7.0.0;
 			};
 		};
-		FCF4388029D71C89008A500C /* XCRemoteSwiftPackageReference "realm-swift.git" */ = {
+		FCF4388029D71C89008A500C /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
@@ -1674,12 +1676,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		FC62B14C29D720A7000B79D0 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FCF4388029D71C89008A500C /* XCRemoteSwiftPackageReference "realm-swift.git" */;
+			package = FCF4388029D71C89008A500C /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = Realm;
 		};
 		FC62B14E29D720AD000B79D0 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FCF4388029D71C89008A500C /* XCRemoteSwiftPackageReference "realm-swift.git" */;
+			package = FCF4388029D71C89008A500C /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
 		FCE0AAE029D73E8500308EF3 /* MBProgressHUD */ = {
@@ -1689,7 +1691,7 @@
 		};
 		FCE0AAE329D73F2A00308EF3 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FCE0AAE229D73F2A00308EF3 /* XCRemoteSwiftPackageReference "IQKeyboardManager.git" */;
+			package = FCE0AAE229D73F2A00308EF3 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
 		};
 		FCE0AAE629D73F7A00308EF3 /* DZNEmptyDataSet */ = {
