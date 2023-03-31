@@ -16,10 +16,6 @@ def shared_pods
 	#Menu
 	pod 'RESideMenu', '4.0.7'
 
-	#Networking
-	pod 'AlamofireImage', '~> 4.0'
-	pod 'Alamofire', '~> 5.0'
-
 	#Form
   pod 'Eureka'
 	
@@ -39,9 +35,7 @@ def shared_pods
     
 	#Pull to refresh for table view and collection view
 	pod 'INSPullToRefresh', '1.2.0'
-    
-  #Logger
-  pod 'SwiftyBeaver'
+
 end
 
 target "TennisApp" do

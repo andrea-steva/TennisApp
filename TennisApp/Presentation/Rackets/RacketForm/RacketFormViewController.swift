@@ -38,7 +38,7 @@ class RacketFormViewController: FormViewController {
             <<< PickerInlineRow<String>("manufacter") {
                 $0.add(rule: RuleRequired())
                 $0.title = "Manufacter"
-                $0.options = RacketBrand.allValues
+                $0.options = RacketBrand.allCases.map { $0.rawValue}
                 $0.value = racket != nil ? racket!.manufacter : "Wilson"
             }
             <<< TextRow("model") {

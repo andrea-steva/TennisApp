@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol StringsCoordinatorDelegate: class {
+protocol StringsCoordinatorDelegate: AnyObject {
     func stringsCoordinatorDidFinish(racketsCoordinator: StringsCoordinator)
 }
 
@@ -58,6 +58,6 @@ class StringsCoordinator: Coordinator, StringsViewModelCoordinatorDelegate, Stri
     }
     
     deinit {
-        Log.verbose("+++ Deinit \(self) +++")
+        Log.debug("+++ Deinit \(self) +++")
     }
 }

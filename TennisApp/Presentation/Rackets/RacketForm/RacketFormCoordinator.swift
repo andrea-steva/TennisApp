@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol RacketFormCoordinatorDelegate: class {
+protocol RacketFormCoordinatorDelegate: AnyObject {
     func racketFormCoordinatorDidFinish(racketFormCoordinator: RacketFormCoordinator)
 }
 
@@ -42,6 +42,6 @@ class RacketFormCoordinator: Coordinator, RacketFormViewModelCoordinatorDelegate
     }
     
     deinit {
-        Log.verbose("+++ Deinit \(self) +++")
+        Log.debug("+++ Deinit \(self) +++")
     }
 }

@@ -122,6 +122,6 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
     }
     
     deinit {
-        Log.verbose("Deinit \(self)")
+        Log.debug("Deinit \(self)")
     }
 }

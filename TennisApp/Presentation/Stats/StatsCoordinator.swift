@@ -41,6 +41,6 @@ final class StatsCoordinator: Coordinator, StatsViewModelCoordinatorDelegate {
     }
     
     deinit {
-        Log.verbose("+++ Deinit \(self) +++")
+        Log.debug("+++ Deinit \(self) +++")
     }
 }

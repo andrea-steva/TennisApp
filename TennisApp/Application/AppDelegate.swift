@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         mainCoordinator = coordinator
         
-        let _ = Logger()
+        Log.initialize()
         
         Style.setupNavigationBarStyle()
         Style.setupTextFieldStyle()

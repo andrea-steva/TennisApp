@@ -8,7 +8,7 @@
 
 import Bond
 
-protocol StringsViewModelCoordinatorDelegate: class {
+protocol StringsViewModelCoordinatorDelegate: AnyObject {
     func stringViewModelDidEnd(_ viewModel: StringsViewModel)
     func stringViewModelToStringForm(string: Strings?)
 }

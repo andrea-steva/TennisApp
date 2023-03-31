@@ -71,6 +71,6 @@ final class LoginCoordinator: Coordinator, LoginViewModelCoordinatorDelegate, Si
     }
     
     deinit {
-        Log.verbose("+++ Deinit \(self) +++")
+        Log.debug("+++ Deinit \(self) +++")
     }
 }

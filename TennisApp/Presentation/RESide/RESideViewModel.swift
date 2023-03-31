@@ -22,7 +22,7 @@ final class RESideViewModel {
     // MARK: Methods
     
     func performLogout(completion: (_ success: Bool, _ error: String?) -> Void) {
-        FirebaseProxy.sharedInstance.signOut { (success, error) in
+        FirebaseService.sharedInstance.signOut { (success, error) in
             if let errorMessage = error {
                 Log.error(errorMessage)
             }

@@ -109,6 +109,6 @@ SettingsCoordinatorDelegate {
     
     
     deinit {
-        Log.verbose("+++ Deinit \(self) +++")
+        Log.debug("+++ Deinit \(self) +++")
     }
 }
