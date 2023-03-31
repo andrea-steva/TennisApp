@@ -1,14 +1,4 @@
 PODS:
-  - Bond (7.8.1):
-    - Differ (~> 1.4)
-    - ReactiveKit (~> 3.14)
-  - Charts (4.1.0):
-    - Charts/Core (= 4.1.0)
-  - Charts/Core (4.1.0):
-    - SwiftAlgorithms (~> 1.0)
-  - Differ (1.4.5)
-  - DZNEmptyDataSet (1.8.1)
-  - Eureka (5.4.0)
   - Firebase/Auth (10.7.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 10.7.0)
@@ -94,8 +84,6 @@ PODS:
   - GSKStretchyHeaderView (1.0.4)
   - GTMSessionFetcher/Core (3.1.0)
   - INSPullToRefresh (1.2.0)
-  - IQKeyboardManagerSwift (6.5.11)
-  - MBProgressHUD (1.2.0)
   - nanopb (2.30909.0):
     - nanopb/decode (= 2.30909.0)
     - nanopb/encode (= 2.30909.0)
@@ -103,34 +91,21 @@ PODS:
   - nanopb/encode (2.30909.0)
   - PagingMenuController (2.2.0)
   - PromisesObjC (2.2.0)
-  - ReactiveKit (3.19.1)
   - RESideMenu (4.0.7)
   - SCLAlertView (0.8.1)
-  - SwiftAlgorithms (1.0.0)
 
 DEPENDENCIES:
-  - Bond
-  - Charts
-  - DZNEmptyDataSet (= 1.8.1)
-  - Eureka
   - Firebase/Auth
   - Firebase/Core
   - FontAwesome.swift
   - GSKStretchyHeaderView (= 1.0.4)
   - INSPullToRefresh (= 1.2.0)
-  - IQKeyboardManagerSwift
-  - MBProgressHUD (= 1.2.0)
   - PagingMenuController (from `https://github.com/andr3a88/PagingMenuController.git`)
   - RESideMenu (= 4.0.7)
   - SCLAlertView (from `https://github.com/vikmeup/SCLAlertView-Swift.git`, branch `master`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - Bond
-    - Charts
-    - Differ
-    - DZNEmptyDataSet
-    - Eureka
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -143,13 +118,9 @@ SPEC REPOS:
     - GSKStretchyHeaderView
     - GTMSessionFetcher
     - INSPullToRefresh
-    - IQKeyboardManagerSwift
-    - MBProgressHUD
     - nanopb
     - PromisesObjC
-    - ReactiveKit
     - RESideMenu
-    - SwiftAlgorithms
 
 EXTERNAL SOURCES:
   PagingMenuController:
@@ -167,11 +138,6 @@ CHECKOUT OPTIONS:
     :git: https://github.com/vikmeup/SCLAlertView-Swift.git
 
 SPEC CHECKSUMS:
-  Bond: 87075c7f20f37ea3e73dc7057fce839787bf46eb
-  Charts: 354f86803d11d9c35de280587fef50d1af063978
-  Differ: 3b6bd78e2b20cc795d9a86f7641d087524e4273e
-  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  Eureka: fadaa9fa3d6e402d3c60f78f24edf3d7bafc9c29
   Firebase: 0219acf760880eeec8ce479895bd7767466d9f81
   FirebaseAnalytics: f8133442ee6f8512e28ff19e62ce15398bfaeace
   FirebaseAuth: dd64c01631df724b09f33e584625775c52f7d71f
@@ -184,16 +150,12 @@ SPEC CHECKSUMS:
   GSKStretchyHeaderView: 9743704c12bdc9cf7c7947bad3af8bf24f7061e3
   GTMSessionFetcher: c9e714f7eec91a55641e2bab9f45fd83a219b882
   INSPullToRefresh: d34f0046ccca6b32f6386f053d730ef41b3f35b7
-  IQKeyboardManagerSwift: c7955c0bdbf7b2eb29bb7daaa44e3d90f55a9a85
-  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PagingMenuController: acdb8e0ff7f977182b0586656d19ba1d992390a6
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
-  ReactiveKit: a36ebeb959fe6852dd674cc423163bfffb7e0541
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SCLAlertView: 776813fb1f62248965f37cb7edf4088ee6394460
-  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
 
-PODFILE CHECKSUM: a0ac3adb5db1554199d885ec255c05a7950c36a9
+PODFILE CHECKSUM: 1cca053ee495ddb6a559fc75d3ab1071e067ea78
 
 COCOAPODS: 1.12.0

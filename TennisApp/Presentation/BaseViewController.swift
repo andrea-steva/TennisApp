@@ -10,7 +10,6 @@ import UIKit
 import DZNEmptyDataSet
 import FontAwesome_swift
 import INSPullToRefresh
-import SCLAlertView
 
 private extension Selector {
     static let didTapOnButtonMenu = #selector(BaseViewController.didTapOnButtonMenu(_:))

@@ -1,6 +1,6 @@
 # Tennis app
   
-## 📱 RandomUsers App
+## 📱 TennisApp
 
 To run the project, clone the repo, open with Xcode and run from `TennisApp` target. To run unit tests type `CMD + U`
 
