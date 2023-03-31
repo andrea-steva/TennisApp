@@ -115,7 +115,7 @@ public class LoadingProperty<LoadingValue, LoadingError: Swift.Error>: PropertyP
         }
     }
     
-    public func observe(with observer: @escaping (Event<LoadingState<LoadingValue, LoadingError>, Never>) -> Void) -> Disposable {
+    public func observe(with observer: @escaping (Signal<LoadingState<LoadingValue, LoadingError>, Never>.Event) -> Void) -> Disposable {
         lock.lock(); defer { lock.unlock() }
         if case .loading = _loadingState, _loadingDisposable == nil {
             _loadingDisposable = load(silently: false).observeCompleted { [weak self] in
@@ -124,7 +124,7 @@ public class LoadingProperty<LoadingValue, LoadingError: Swift.Error>: PropertyP
                 self._loadingDisposable = nil
             }
         }
-        return subject.start(with: _loadingState).observe(with: observer)
+        return subject.prepend(_loadingState).observe(with: observer)
     }
 }
 
