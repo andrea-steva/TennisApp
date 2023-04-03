@@ -27,7 +27,7 @@ class StorageContextTests: XCTestCase {
         super.tearDown()
         
         do {
-            try self.storage?.deleteAll(Racket.self)
+            try self.storage?.deleteAll(RacketEntity.self)
         } catch {
             XCTFail()
         }
@@ -36,7 +36,7 @@ class StorageContextTests: XCTestCase {
     func testCreateEmptyRecord() {
         let exp = self.expectation(description: "waiting for object created")
         
-        let racket = Racket()
+        let racket = RacketEntity()
         racket.racketId = UUID().uuidString
         racket.manufacter = "Wilson"
         racket.model = "Prostaff 97LS"
@@ -52,7 +52,7 @@ class StorageContextTests: XCTestCase {
     }
     
     func testSaveRecord() {
-        let racket = Racket()
+        let racket = RacketEntity()
         racket.manufacter = "Wilson"
         racket.model = "Prostaff 97LS"
         
@@ -69,7 +69,7 @@ class StorageContextTests: XCTestCase {
         do {
             let exp = self.expectation(description: "wait for fetch")
             
-            self.storage?.fetch(Racket.self, predicate: nil, sorted: nil, completion: { (records) in
+            self.storage?.fetch(RacketEntity.self, predicate: nil, sorted: nil, completion: { (records) in
                 XCTAssertEqual(records.count, 1)
                 exp.fulfill()
             })

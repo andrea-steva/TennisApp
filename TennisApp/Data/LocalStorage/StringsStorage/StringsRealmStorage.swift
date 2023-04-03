@@ -16,14 +16,14 @@ final class StringsRealmStorage: StringsStorage {
         self.storage = try? RealmStorageContext(configuration: ConfigurationType.basic(identifier: "tennis_db"))
     }
     
-    func fetchStrings(block: @escaping (_ strings: [Strings]) -> Void) {
+    func fetchStrings(block: @escaping (_ strings: [StringsEntity]) -> Void) {
         let sort = Sorted(key: "manufacter", ascending: false)
-        self.storage?.fetch(Strings.self, predicate: nil, sorted: sort, completion: { (strings) in
+        self.storage?.fetch(StringsEntity.self, predicate: nil, sorted: sort, completion: { (strings) in
             block(strings)
         })
     }
     
-    func createString(string: Strings) {
+    func createString(string: StringsEntity) {
         do {
             try self.storage?.create(object: string, completion: { (string) in
             })
@@ -40,7 +40,7 @@ final class StringsRealmStorage: StringsStorage {
         }
     }
     
-    func deleteString(string: Strings) {
+    func deleteString(string: StringsEntity) {
         do {
             try self.storage?.delete(object: string)
         } catch _ as NSError {

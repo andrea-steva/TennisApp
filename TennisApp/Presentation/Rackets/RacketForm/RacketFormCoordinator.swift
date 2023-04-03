@@ -18,11 +18,11 @@ class RacketFormCoordinator: Coordinator, RacketFormViewModelCoordinatorDelegate
     
     weak var delegate: RacketFormCoordinatorDelegate?
     fileprivate weak var navigationController: UINavigationControllerType?
-    private var racket: Racket?
+    private var racket: RacketEntity?
     
     // MARK: Coordinator
     
-    init(navigationController: UINavigationControllerType, racket: Racket?) {
+    init(navigationController: UINavigationControllerType, racket: RacketEntity?) {
         self.navigationController = navigationController
         self.racket = racket
     }

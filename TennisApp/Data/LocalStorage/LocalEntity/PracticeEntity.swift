@@ -1,5 +1,5 @@
 //
-//  Practice.swift
+//  PracticeEntity.swift
 //  TennisApp
 //
 //  Created by Andrea Stevanato on 11/02/16.
@@ -9,7 +9,7 @@
 import Realm
 import RealmSwift
 
-class Practice: Object, PracticeProtocol {
+final class PracticeEntity: Object {
 
     // MARK: Stored Attributes
 
@@ -20,11 +20,11 @@ class Practice: Object, PracticeProtocol {
     @Persisted var place: String = ""
     @Persisted var timeSpent: Float = 0
 
-    var practiceType: PracticeType = .forehand
+    var practiceType: Practice.PracticeType = .forehand
 
     // MARK: Relationship
 
-    let user = LinkingObjects(fromType: User.self, property: "practices")
+    let user = LinkingObjects(fromType: UserEntity.self, property: "practices")
 
     // MARK: Init
 

@@ -9,8 +9,8 @@
 import Foundation
 
 protocol StringsStorage {
-    func fetchStrings(block: @escaping (_ strings: [Strings]) -> Void)
-    func createString(string: Strings)
+    func fetchStrings(block: @escaping (_ strings: [StringsEntity]) -> Void)
+    func createString(string: StringsEntity)
     func updateString(block: @escaping () -> Void)
-    func deleteString(string: Strings)
+    func deleteString(string: StringsEntity)
 }

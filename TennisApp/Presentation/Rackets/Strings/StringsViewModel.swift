@@ -10,7 +10,7 @@ import Bond
 
 protocol StringsViewModelCoordinatorDelegate: AnyObject {
     func stringViewModelDidEnd(_ viewModel: StringsViewModel)
-    func stringViewModelToStringForm(string: Strings?)
+    func stringViewModelToStringForm(string: StringsEntity?)
 }
 
 final class StringsViewModel: BaseViewModel {
@@ -25,7 +25,7 @@ final class StringsViewModel: BaseViewModel {
 
     fileprivate let stringsService = StringsRealmStorage()
 
-    var strings: [Strings]?
+    var strings: [StringsEntity]?
 
     // MARK: Methods
     
@@ -43,9 +43,9 @@ final class StringsViewModel: BaseViewModel {
         return count
     }
 
-    func string(forIndex index: Int) -> Strings {
+    func string(forIndex index: Int) -> StringsEntity {
         guard let string = strings?[index] else {
-            return Strings()
+            return StringsEntity()
         }
         return string
     }

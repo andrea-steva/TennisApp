@@ -29,7 +29,7 @@ final class RacketTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func setRacket(_ racket: Racket) {
+    func setRacket(_ racket: RacketEntity) {
 
         if let manufacter = racket.manufacter, let model = racket.model {
             racketNameLabel.text = "\(manufacter) - \(model)"

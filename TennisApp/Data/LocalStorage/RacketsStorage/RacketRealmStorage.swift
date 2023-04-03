@@ -16,14 +16,14 @@ final class RacketRealmStorage: RacketsStorage {
         self.storage = try? RealmStorageContext(configuration: ConfigurationType.basic(identifier: "tennis_db"))
     }
     
-    func fetchRackets(block: @escaping (_ rackets: [Racket]) -> Void) {
+    func fetchRackets(block: @escaping (_ rackets: [RacketEntity]) -> Void) {
         let sort = Sorted(key: "purchaseDate", ascending: false)
-        self.storage?.fetch(Racket.self, predicate: nil, sorted: sort, completion: { (rackets) in
+        self.storage?.fetch(RacketEntity.self, predicate: nil, sorted: sort, completion: { (rackets) in
             block(rackets)
         })
     }
     
-    func createRacket(racket: Racket) {
+    func createRacket(racket: RacketEntity) {
         do {
             try self.storage?.create(object: racket, completion: { (racket) in
             })
@@ -40,7 +40,7 @@ final class RacketRealmStorage: RacketsStorage {
         }
     }
     
-    func deleteRacket(racket: Racket) {
+    func deleteRacket(racket: RacketEntity) {
         do {
             try self.storage?.delete(object: racket)
         } catch _ as NSError {

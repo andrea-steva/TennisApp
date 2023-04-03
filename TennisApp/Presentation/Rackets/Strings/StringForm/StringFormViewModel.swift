@@ -19,16 +19,16 @@ final class StringFormViewModel: BaseViewModel {
     // MARK: Properties
     
     fileprivate let stringsService = StringsRealmStorage()
-    private var string: Strings?
+    private var string: StringsEntity?
     
     // MARK: Methods
     
-    init(string: Strings?) {
+    init(string: StringsEntity?) {
         super.init()
         self.string = string
     }
     
-    func getString() -> Strings? {
+    func getString() -> StringsEntity? {
         return string
     }
     
@@ -38,7 +38,7 @@ final class StringFormViewModel: BaseViewModel {
                 string.updateFrom(dictionary: formValues)
             })
         } else {
-            string = Strings(formValues)
+            string = StringsEntity(formValues)
             self.stringsService.createString(string: string!)
         }
     }

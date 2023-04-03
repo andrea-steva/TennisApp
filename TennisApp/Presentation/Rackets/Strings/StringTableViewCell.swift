@@ -29,7 +29,7 @@ class StringTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func setString(_ string: Strings) {
+    func setString(_ string: StringsEntity) {
 
         if let manufacter = string.manufacter, let model = string.model {
             stringNameLabel.text = "\(manufacter) - \(model)"

@@ -23,8 +23,9 @@ brew install swiftlint
 
 ## 🔨 TODO / Improvements
 
-+ [] Create domain model
-+ [] Create repository and rename RealmStorage protocols
++ [X] Create domain model
++ [] Create repository
++ [] Rename RealmStorage protocols
 + [] Check Utilities folder
 
 ## ✒️ Author

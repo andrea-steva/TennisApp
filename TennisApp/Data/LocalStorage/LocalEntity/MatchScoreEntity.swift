@@ -1,5 +1,5 @@
 //
-//  MatchScore.swift
+//  MatchScoreEntity.swift
 //  TennisApp
 //
 //  Created by Andrea Stevanato on 11/02/16.
@@ -9,7 +9,7 @@
 import Realm
 import RealmSwift
 
-class MatchScore: Object {
+final class MatchScoreEntity: Object {
 
     // MARK: Stored Attributes
 
@@ -18,7 +18,7 @@ class MatchScore: Object {
 
     // MARK: Relationship
 
-    let match = LinkingObjects(fromType: Match.self, property: "scores")
+    let match = LinkingObjects(fromType: MatchEntity.self, property: "scores")
 
     // MARK: Init
     

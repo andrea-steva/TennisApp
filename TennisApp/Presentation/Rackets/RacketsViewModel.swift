@@ -10,7 +10,7 @@ import Bond
 
 protocol RacketsViewModelCoordinatorDelegate: AnyObject {
     func racketsViewModelToStrings(viewModel: RacketsViewModel)
-    func racketsViewModelToRacketForm(racket: Racket?)
+    func racketsViewModelToRacketForm(racket: RacketEntity?)
 }
 
 final class RacketsViewModel: BaseViewModel {
@@ -25,7 +25,7 @@ final class RacketsViewModel: BaseViewModel {
 
     fileprivate let racketsService = RacketRealmStorage()
 
-    var rackets: [Racket]?
+    var rackets: [RacketEntity]?
 
     // MARK: Methods
 
@@ -43,9 +43,9 @@ final class RacketsViewModel: BaseViewModel {
         return count
     }
 
-    func racket(forIndex index: Int) -> Racket {
+    func racket(forIndex index: Int) -> RacketEntity {
         guard let racket = rackets?[index] else {
-            return Racket()
+            return RacketEntity()
         }
         return racket
     }
