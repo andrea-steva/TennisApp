@@ -9,25 +9,25 @@
 import XCTest
 @testable import TennisApp
 
-class FakeRacketsService: RacketsServiceProtocol {
+class MockRacketsStorage: RacketsStorage {
     
     let storage = try! RealmStorageContext(configuration: ConfigurationType.inMemory(identifier: "test"))
     
-    func fetchRackets(block: @escaping ([Racket]) -> Void) {
+    func fetchRackets(block: @escaping ([RacketEntity]) -> Void) {
         let sort = Sorted(key: "purchaseDate", ascending: false)
-        storage.fetch(Racket.self, predicate: nil, sorted: sort, completion: { (rackets) in
+        storage.fetch(RacketEntity.self, predicate: nil, sorted: sort, completion: { (rackets) in
             block(rackets)
         })
     }
     
-    func deleteRacket(racket: Racket) {
+    func deleteRacket(racket: RacketEntity) {
         do {
             try storage.delete(object: racket)
         } catch {
         }
     }
     
-    func createRacket(racket: Racket) {
+    func createRacket(racket: RacketEntity) {
         do {
             try storage.create(object: racket, completion: { (racket) in
             })
@@ -47,14 +47,14 @@ class FakeRacketsService: RacketsServiceProtocol {
 
 class RacketsTests: XCTestCase {
     
-    let fakeRacketsService = FakeRacketsService()
+    let racketsStorage = MockRacketsStorage()
     
-    var racket: Racket!
+    var racket: RacketEntity!
     
     func test_1_fetchRackets() {
         let exp = self.expectation(description: "waiting for fetch object")
         
-        let sut = fakeRacketsService
+        let sut = racketsStorage
         sut.fetchRackets { (rackets) in
             XCTAssertTrue(rackets.count == 0, "Number of rackets should be: 0")
             
@@ -67,9 +67,9 @@ class RacketsTests: XCTestCase {
     func test_2_createRacket() {
         let exp = self.expectation(description: "waiting for fetch object")
         
-        let sut = fakeRacketsService
+        let sut = racketsStorage
         
-        let racket = Racket()
+        let racket = RacketEntity()
         racket.racketId = UUID().uuidString
         racket.manufacter = "Wilson"
         racket.model = "Prostaff 97LS"
@@ -88,7 +88,7 @@ class RacketsTests: XCTestCase {
     func test_3_deleteRacket() {
         let exp = self.expectation(description: "waiting for fetch object")
         
-        let sut = fakeRacketsService
+        let sut = racketsStorage
         
         sut.deleteRacket(racket: self.racket)
         sut.fetchRackets { (rackets) in

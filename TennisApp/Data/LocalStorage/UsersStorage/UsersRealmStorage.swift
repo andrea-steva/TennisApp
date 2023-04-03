@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class UsersRealmStorage: UsersStorage {
+final class UsersRealmStorage: UsersLocalStorage {
     
     private var storage: StorageContext?
     
@@ -16,13 +16,13 @@ final class UsersRealmStorage: UsersStorage {
         self.storage = try? RealmStorageContext(configuration: ConfigurationType.basic(identifier: "tennis_db"))
     }
     
-    func fetchUsers(block: @escaping (_ users: [User]) -> Void) {
-        self.storage?.fetch(User.self, predicate: nil, sorted: nil, completion: { (users) in
+    func fetchUsers(block: @escaping (_ users: [UserEntity]) -> Void) {
+        self.storage?.fetch(UserEntity.self, predicate: nil, sorted: nil, completion: { (users) in
             block(users)
         })
     }
     
-    func createUser(user: User) {
+    func createUser(user: UserEntity) {
         do {
             try self.storage?.create(object: user, completion: { (user) in
             })
@@ -39,7 +39,7 @@ final class UsersRealmStorage: UsersStorage {
         }
     }
     
-    func deleteUser(user: User) {
+    func deleteUser(user: UserEntity) {
         do {
             try self.storage?.delete(object: user)
         } catch _ as NSError {

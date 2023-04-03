@@ -9,8 +9,8 @@
 import Foundation
 
 protocol RacketsStorage {
-    func fetchRackets(block: @escaping (_ rackets: [Racket]) -> Void)
-    func createRacket(racket: Racket)
+    func fetchRackets(block: @escaping (_ rackets: [RacketEntity]) -> Void)
+    func createRacket(racket: RacketEntity)
     func updateRacket(block: @escaping () -> Void)
-    func deleteRacket(racket: Racket)
+    func deleteRacket(racket: RacketEntity)
 }

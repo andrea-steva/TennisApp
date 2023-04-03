@@ -44,7 +44,7 @@ class StringsCoordinator: Coordinator, StringsViewModelCoordinatorDelegate, Stri
         delegate?.stringsCoordinatorDidFinish(racketsCoordinator: self)
     }
     
-    func stringViewModelToStringForm(string: Strings?) {
+    func stringViewModelToStringForm(string: StringsEntity?) {
         stringFormCoordinator = StringFormCoordinator(navigationController: navigationController, string: string)
         stringFormCoordinator?.delegate = self
         stringFormCoordinator?.start()

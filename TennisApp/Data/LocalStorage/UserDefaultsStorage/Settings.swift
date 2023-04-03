@@ -28,20 +28,6 @@ final class Settings: NSObject {
         self.set("RealmKey", value: keyData)
         return keyData as Data
     }
-    // MARK: User Settings
-
-    var exampleSettings: Int? {
-        get {
-            if let value = self.get("exampleSettings") as? Int {
-                return value
-            }
-            return 0
-        }
-
-        set {
-            self.set("exampleSettings", value: newValue as AnyObject?)
-        }
-    }
 
     // MARK: App Settings
 

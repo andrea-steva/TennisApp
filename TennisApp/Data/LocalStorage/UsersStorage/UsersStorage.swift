@@ -8,10 +8,10 @@
 
 import Foundation
 
-protocol UsersStorage {
-    func fetchUsers(block: @escaping (_ users: [User]) -> Void)
-    func createUser(user: User)
+protocol UsersLocalStorage {
+    func fetchUsers(block: @escaping (_ users: [UserEntity]) -> Void)
+    func createUser(user: UserEntity)
     func updateUser(block: @escaping () -> Void)
-    func deleteUser(user: User)
+    func deleteUser(user: UserEntity)
 
 }

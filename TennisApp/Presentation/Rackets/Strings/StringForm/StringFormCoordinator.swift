@@ -19,11 +19,11 @@ class StringFormCoordinator: Coordinator, StringFormViewModelCoordinatorDelegate
     weak var delegate: StringFormCoordinatorDelegate?
     fileprivate weak var navigationController: UINavigationControllerType?
     private var formVC: StringFormViewController!
-    private var string: Strings?
+    private var string: StringsEntity?
     
     // MARK: Coordinator
     
-    init(navigationController: UINavigationControllerType, string: Strings?) {
+    init(navigationController: UINavigationControllerType, string: StringsEntity?) {
         self.navigationController = navigationController
         self.string = string
     }

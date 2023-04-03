@@ -9,7 +9,7 @@
 import Realm
 import RealmSwift
 
-class Fitness: Object, FitnessProtocol {
+final class FitnessEntity: Object {
 
     // MARK: Stored Attributes
 
@@ -19,15 +19,9 @@ class Fitness: Object, FitnessProtocol {
     @Persisted var date: Date!
     @Persisted var place: String = ""
     @Persisted var timeSpent: Float = 0
-
-    var fitnessType: FitnessType = .running
+    @Persisted var fitnessType: String
 
     // MARK: Relationship
 
-    let user = LinkingObjects(fromType: User.self, property: "fitness")
-
-
-    // MARK: Init
-
-    // MARK: Class Methods
+    let user = LinkingObjects(fromType: UserEntity.self, property: "fitness")
 }

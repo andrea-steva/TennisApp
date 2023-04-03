@@ -19,16 +19,16 @@ final class RacketFormViewModel: BaseViewModel {
     // MARK: Properties
     
     fileprivate let racketsService = RacketRealmStorage()
-    private var racket: Racket?
+    private var racket: RacketEntity?
     
     // MARK: Methods
     
-    init(racket: Racket?) {
+    init(racket: RacketEntity?) {
         super.init()
         self.racket = racket
     }
     
-    func getRacket() -> Racket? {
+    func getRacket() -> RacketEntity? {
         return racket
     }
     
@@ -38,7 +38,7 @@ final class RacketFormViewModel: BaseViewModel {
                 racket.updateFrom(dictionary: formValues)
             })
         } else {
-            racket = Racket(formValues)
+            racket = RacketEntity(formValues)
             self.racketsService.createRacket(racket: racket!)
         }
     }

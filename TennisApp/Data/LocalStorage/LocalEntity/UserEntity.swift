@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  UserEntity.swift
 //  TennisApp
 //
 //  Created by Andrea Stevanato on 11/02/16.
@@ -9,7 +9,7 @@
 import Realm
 import RealmSwift
 
-class User: Object {
+final class UserEntity: Object {
     
     // MARK: Stored Attributes
     
@@ -28,10 +28,10 @@ class User: Object {
     
     // MARK: Relationship
 
-    @Persisted var rackets = List<Racket>()
-    @Persisted var matches = List<Match>()
-    @Persisted var fitness = List<Fitness>()
-    @Persisted var practices = List<Practice>()
+    @Persisted var rackets = List<RacketEntity>()
+    @Persisted var matches = List<MatchEntity>()
+    @Persisted var fitness = List<FitnessEntity>()
+    @Persisted var practices = List<PracticeEntity>()
         
     // MARK: Init
     
@@ -55,3 +55,17 @@ class User: Object {
         lastName = dictionary["lastName"] as? String
     }
 }
+
+// MARK: - Mappings to domain
+
+extension UserEntity {
+
+    func toDomain() -> User {
+        .init(firstName: self.firstName ?? "",
+              lastName: self.lastName ?? "",
+              age: self.age,
+              email: self.email,
+              phoneNumber: self.phoneNumber)
+    }
+}
+

@@ -1,5 +1,5 @@
 //
-//  Strings.swift
+//  StringsEntity.swift
 //  TennisApp
 //
 //  Created by Andrea Stevanato on 11/02/16.
@@ -9,7 +9,7 @@
 import Realm
 import RealmSwift
 
-class Strings: Object {
+final class StringsEntity: Object {
 
     // MARK: Stored Attributes
 
@@ -23,7 +23,7 @@ class Strings: Object {
 
     // MARK: Relationship
 
-    let racket = LinkingObjects(fromType: Racket.self, property: "strings")
+    let racket = LinkingObjects(fromType: RacketEntity.self, property: "strings")
 
     // MARK: Init
 
