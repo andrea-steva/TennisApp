@@ -10,7 +10,7 @@ import Bond
 
 protocol RacketsViewModelCoordinatorDelegate: AnyObject {
     func racketsViewModelToStrings(viewModel: RacketsViewModel)
-    func racketsViewModelToRacketForm(racket: RacketEntity?)
+    func racketsViewModelToRacketForm(racket: Racket?)
 }
 
 final class RacketsViewModel: BaseViewModel {
@@ -23,39 +23,41 @@ final class RacketsViewModel: BaseViewModel {
     
     let reloadView = Observable(false)
 
-    fileprivate let racketsService = RacketRealmStorage()
+    private let racketsFetchUseCase: RacketsFetchUseCase
 
-    var rackets: [RacketEntity]?
+    var rackets: [Racket] = []
 
     // MARK: Methods
 
+    override init() {
+        let repository = DefaultRacketsRepository()
+        racketsFetchUseCase = DefaultRacketsFetchUseCase(racketsRepository: repository)
+    }
+
     func fetchRackets() {
-        racketsService.fetchRackets { (rackets) in
-            self.rackets = rackets
-            self.reloadView.value = true
+        racketsFetchUseCase.execute(page: 0, pageSize: 0) { result in
+            switch result {
+            case .success(let rackets):
+                self.rackets = rackets
+                self.reloadView.value = true
+            case .failure(let error):
+                Log.error(error.localizedDescription)
+            }
         }
     }
 
     func numberOfRackets() -> Int {
-        guard let count = rackets?.count else {
-            return 0
-        }
-        return count
+        rackets.count
     }
 
-    func racket(forIndex index: Int) -> RacketEntity {
-        guard let racket = rackets?[index] else {
-            return RacketEntity()
-        }
-        return racket
+    func racket(forIndex index: Int) -> Racket {
+        rackets[index]
     }
 
     func deleteRacket(forIndex index: Int) {
-        guard let racket = rackets?[index] else {
-            return
-        }
-        racketsService.deleteRacket(racket: racket)
-        self.fetchRackets()
+        // TODO Implement delete use case
+        // let racketToDelete = rackets[index]
+        // Add delete racket use case and reload
     }
     
     // MARK: Coordinator Flow
@@ -65,7 +67,7 @@ final class RacketsViewModel: BaseViewModel {
     }
     
     func toRacketForm(index: Int) {
-        self.coordinatorDelegate?.racketsViewModelToRacketForm(racket: rackets![index])
+        self.coordinatorDelegate?.racketsViewModelToRacketForm(racket: rackets[index])
     }
     
     func toEmptyRacketForm() {

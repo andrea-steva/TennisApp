@@ -13,15 +13,12 @@
 		6507CA681C6D065A00B7AD5C /* SwiftUIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA671C6D065A00B7AD5C /* SwiftUIImageEffects.swift */; };
 		6507CA6F1C6D118000B7AD5C /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA6E1C6D118000B7AD5C /* BaseViewModel.swift */; };
 		6507CA711C6D119E00B7AD5C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA701C6D119E00B7AD5C /* BaseViewController.swift */; };
-		6524FDA11EAF966C00936B09 /* RacketRealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6524FDA01EAF966C00936B09 /* RacketRealmStorage.swift */; };
-		6524FDA31EAF9DC800936B09 /* RacketsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6524FDA21EAF9DC800936B09 /* RacketsTests.swift */; };
 		65653D201ED0747C00A9DBBB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65653D1F1ED0747C00A9DBBB /* main.swift */; };
 		65653D241ED081D000A9DBBB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65653D231ED081D000A9DBBB /* Date.swift */; };
 		65653D261ED0820800A9DBBB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65653D251ED0820800A9DBBB /* UIView.swift */; };
 		65653D2F1ED0A7FD00A9DBBB /* StringsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65653D2A1ED0A7FD00A9DBBB /* StringsViewController.swift */; };
 		65653D301ED0A7FD00A9DBBB /* StringsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65653D2B1ED0A7FD00A9DBBB /* StringsViewModel.swift */; };
 		65653D311ED0A7FD00A9DBBB /* StringTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65653D2C1ED0A7FD00A9DBBB /* StringTableViewCell.swift */; };
-		65653D331ED0AA7F00A9DBBB /* StringsRealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65653D321ED0AA7F00A9DBBB /* StringsRealmStorage.swift */; };
 		65653D361ED0AF7D00A9DBBB /* Strings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65653D341ED0AF7D00A9DBBB /* Strings.storyboard */; };
 		6569A3E01E990A3A00A444BB /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6569A3DF1E990A3A00A444BB /* Bindable.swift */; };
 		6569A3F31E990BAF00A444BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6569A3E51E990BAF00A444BB /* LaunchScreen.storyboard */; };
@@ -39,11 +36,6 @@
 		656A4BB91E17FD43009E97EB /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A4BB81E17FD43009E97EB /* FirebaseService.swift */; };
 		657234881E114DD40050F319 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657234871E114DD40050F319 /* Logger.swift */; };
 		6572348A1E11726B0050F319 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 657234891E11726B0050F319 /* GoogleService-Info.plist */; };
-		65784FF11F215801001BFBEF /* StorageContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65784FF01F215801001BFBEF /* StorageContext.swift */; };
-		65784FF31F215865001BFBEF /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65784FF21F215865001BFBEF /* Storable.swift */; };
-		65784FF51F215A73001BFBEF /* RealmStorageContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65784FF41F215A73001BFBEF /* RealmStorageContext.swift */; };
-		65784FF71F23779A001BFBEF /* StorageContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65784FF61F23779A001BFBEF /* StorageContextTests.swift */; };
-		657AD2631EAFA65A00E3157F /* UsersRealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657AD2621EAFA65A00E3157F /* UsersRealmStorage.swift */; };
 		657AD2651EAFAE9B00E3157F /* RESideViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657AD2641EAFAE9B00E3157F /* RESideViewModel.swift */; };
 		657AD2671EB270B500E3157F /* RESideLeftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657AD2661EB270B500E3157F /* RESideLeftViewModel.swift */; };
 		658753F91F9E971B0032732D /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658753F81F9E971B0032732D /* ImageCell.swift */; };
@@ -83,7 +75,6 @@
 		65B04E211C6CBDC200011439 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E201C6CBDC200011439 /* Settings.swift */; };
 		65B04E231C6CBEEF00011439 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E221C6CBEEF00011439 /* Utils.swift */; };
 		65B04E251C6CC01000011439 /* Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E241C6CC01000011439 /* Localizer.swift */; };
-		65B04E2B1C6CC69400011439 /* RealmProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E2A1C6CC69400011439 /* RealmProxy.swift */; };
 		65C2CB121F255B500095D954 /* RacketFormCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C2CB111F255B500095D954 /* RacketFormCoordinator.swift */; };
 		65C2CB141F26A1550095D954 /* StringFormCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C2CB131F26A1550095D954 /* StringFormCoordinator.swift */; };
 		65C4D71F1E462A5700242DEB /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 65C4D71E1E462A5700242DEB /* .swiftlint.yml */; };
@@ -121,8 +112,6 @@
 		65FB52C51C6DEC0B003A6DAE /* ActivitiesContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB52C41C6DEC0B003A6DAE /* ActivitiesContainerViewController.swift */; };
 		65FB52D81C6DF252003A6DAE /* RacketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB52D71C6DF252003A6DAE /* RacketsViewController.swift */; };
 		7BFA3483FF9EBB75834AD60E /* Pods_TennisAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D70E6022E2EA16F5BB6726CF /* Pods_TennisAppTests.framework */; };
-		FC62B14D29D720A7000B79D0 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = FC62B14C29D720A7000B79D0 /* Realm */; };
-		FC62B14F29D720AD000B79D0 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FC62B14E29D720AD000B79D0 /* RealmSwift */; };
 		FCBDF9FE29D72EB7008A7FD6 /* StringsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBDF9FD29D72EB7008A7FD6 /* StringsStorage.swift */; };
 		FCBDFA0829D73111008A7FD6 /* PracticeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBDFA0029D73111008A7FD6 /* PracticeEntity.swift */; };
 		FCBDFA0929D73111008A7FD6 /* FitnessEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBDFA0129D73111008A7FD6 /* FitnessEntity.swift */; };
@@ -155,6 +144,21 @@
 		FCF6D8B929DACAED00DBCD4B /* Fitness.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8B829DACAEC00DBCD4B /* Fitness.swift */; };
 		FCF6D8BB29DACDF500DBCD4B /* UsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8BA29DACDF500DBCD4B /* UsersRepository.swift */; };
 		FCF6D8BD29DACE3D00DBCD4B /* DefaultUsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8BC29DACE3D00DBCD4B /* DefaultUsersRepository.swift */; };
+		FCF6D8C029DAD27D00DBCD4B /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8BF29DAD27D00DBCD4B /* CoreDataStorage.swift */; };
+		FCF6D8C329DAD2DC00DBCD4B /* AppCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8C129DAD2DC00DBCD4B /* AppCoreDataModel.xcdatamodeld */; };
+		FCF6D8C529DAD34800DBCD4B /* UsersCoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8C429DAD34800DBCD4B /* UsersCoreDataStorage.swift */; };
+		FCF6D8C729DAD80C00DBCD4B /* RacketsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8C629DAD80C00DBCD4B /* RacketsRepository.swift */; };
+		FCF6D8C929DAFD7300DBCD4B /* RacketsCoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8C829DAFD7300DBCD4B /* RacketsCoreDataStorage.swift */; };
+		FCF6D8CB29DB001A00DBCD4B /* DefaultRacketsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8CA29DB001A00DBCD4B /* DefaultRacketsRepository.swift */; };
+		FCF6D8CD29DB012500DBCD4B /* RacketsFetchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8CC29DB012500DBCD4B /* RacketsFetchUseCase.swift */; };
+		FCF6D8CF29DB04B000DBCD4B /* RacketUpdateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8CE29DB04B000DBCD4B /* RacketUpdateUseCase.swift */; };
+		FCF6D8D229DB07F700DBCD4B /* RacketCreateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8D129DB07F700DBCD4B /* RacketCreateUseCase.swift */; };
+		FCF6D8D429DB133C00DBCD4B /* StringsCoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8D329DB133C00DBCD4B /* StringsCoreDataStorage.swift */; };
+		FCF6D8D729DB15C500DBCD4B /* StringsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8D629DB15C500DBCD4B /* StringsRepository.swift */; };
+		FCF6D8D929DB161000DBCD4B /* DefaultStringsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8D829DB161000DBCD4B /* DefaultStringsRepository.swift */; };
+		FCF6D8DB29DB173400DBCD4B /* StringsCreateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8DA29DB173400DBCD4B /* StringsCreateUseCase.swift */; };
+		FCF6D8DD29DB173F00DBCD4B /* StringsUpdateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8DC29DB173F00DBCD4B /* StringsUpdateUseCase.swift */; };
+		FCF6D8DF29DB17D000DBCD4B /* StringsFetchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8DE29DB17D000DBCD4B /* StringsFetchUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,15 +193,12 @@
 		6507CA671C6D065A00B7AD5C /* SwiftUIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIImageEffects.swift; sourceTree = "<group>"; };
 		6507CA6E1C6D118000B7AD5C /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		6507CA701C6D119E00B7AD5C /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		6524FDA01EAF966C00936B09 /* RacketRealmStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketRealmStorage.swift; sourceTree = "<group>"; };
-		6524FDA21EAF9DC800936B09 /* RacketsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketsTests.swift; sourceTree = "<group>"; };
 		65653D1F1ED0747C00A9DBBB /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		65653D231ED081D000A9DBBB /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		65653D251ED0820800A9DBBB /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		65653D2A1ED0A7FD00A9DBBB /* StringsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringsViewController.swift; sourceTree = "<group>"; };
 		65653D2B1ED0A7FD00A9DBBB /* StringsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringsViewModel.swift; sourceTree = "<group>"; };
 		65653D2C1ED0A7FD00A9DBBB /* StringTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTableViewCell.swift; sourceTree = "<group>"; };
-		65653D321ED0AA7F00A9DBBB /* StringsRealmStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringsRealmStorage.swift; sourceTree = "<group>"; };
 		65653D351ED0AF7D00A9DBBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Strings.storyboard; sourceTree = "<group>"; };
 		6569A3DF1E990A3A00A444BB /* Bindable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		6569A3E61E990BAF00A444BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -215,11 +216,6 @@
 		656A4BB81E17FD43009E97EB /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseService.swift; path = TennisApp/Infrastructure/FirebaseService.swift; sourceTree = SOURCE_ROOT; };
 		657234871E114DD40050F319 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		657234891E11726B0050F319 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		65784FF01F215801001BFBEF /* StorageContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageContext.swift; sourceTree = "<group>"; };
-		65784FF21F215865001BFBEF /* Storable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storable.swift; sourceTree = "<group>"; };
-		65784FF41F215A73001BFBEF /* RealmStorageContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmStorageContext.swift; sourceTree = "<group>"; };
-		65784FF61F23779A001BFBEF /* StorageContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageContextTests.swift; sourceTree = "<group>"; };
-		657AD2621EAFA65A00E3157F /* UsersRealmStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UsersRealmStorage.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		657AD2641EAFAE9B00E3157F /* RESideViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESideViewModel.swift; sourceTree = "<group>"; };
 		657AD2661EB270B500E3157F /* RESideLeftViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESideLeftViewModel.swift; sourceTree = "<group>"; };
 		658753F81F9E971B0032732D /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
@@ -264,7 +260,6 @@
 		65B04E201C6CBDC200011439 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		65B04E221C6CBEEF00011439 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		65B04E241C6CC01000011439 /* Localizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizer.swift; sourceTree = "<group>"; };
-		65B04E2A1C6CC69400011439 /* RealmProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmProxy.swift; sourceTree = "<group>"; };
 		65C2CB111F255B500095D954 /* RacketFormCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketFormCoordinator.swift; sourceTree = "<group>"; };
 		65C2CB131F26A1550095D954 /* StringFormCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringFormCoordinator.swift; sourceTree = "<group>"; };
 		65C4D71E1E462A5700242DEB /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
@@ -334,6 +329,21 @@
 		FCF6D8B829DACAEC00DBCD4B /* Fitness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fitness.swift; sourceTree = "<group>"; };
 		FCF6D8BA29DACDF500DBCD4B /* UsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRepository.swift; sourceTree = "<group>"; };
 		FCF6D8BC29DACE3D00DBCD4B /* DefaultUsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUsersRepository.swift; sourceTree = "<group>"; };
+		FCF6D8BF29DAD27D00DBCD4B /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
+		FCF6D8C229DAD2DC00DBCD4B /* AppCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		FCF6D8C429DAD34800DBCD4B /* UsersCoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersCoreDataStorage.swift; sourceTree = "<group>"; };
+		FCF6D8C629DAD80C00DBCD4B /* RacketsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacketsRepository.swift; sourceTree = "<group>"; };
+		FCF6D8C829DAFD7300DBCD4B /* RacketsCoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacketsCoreDataStorage.swift; sourceTree = "<group>"; };
+		FCF6D8CA29DB001A00DBCD4B /* DefaultRacketsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultRacketsRepository.swift; sourceTree = "<group>"; };
+		FCF6D8CC29DB012500DBCD4B /* RacketsFetchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacketsFetchUseCase.swift; sourceTree = "<group>"; };
+		FCF6D8CE29DB04B000DBCD4B /* RacketUpdateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacketUpdateUseCase.swift; sourceTree = "<group>"; };
+		FCF6D8D129DB07F700DBCD4B /* RacketCreateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacketCreateUseCase.swift; sourceTree = "<group>"; };
+		FCF6D8D329DB133C00DBCD4B /* StringsCoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsCoreDataStorage.swift; sourceTree = "<group>"; };
+		FCF6D8D629DB15C500DBCD4B /* StringsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsRepository.swift; sourceTree = "<group>"; };
+		FCF6D8D829DB161000DBCD4B /* DefaultStringsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStringsRepository.swift; sourceTree = "<group>"; };
+		FCF6D8DA29DB173400DBCD4B /* StringsCreateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsCreateUseCase.swift; sourceTree = "<group>"; };
+		FCF6D8DC29DB173F00DBCD4B /* StringsUpdateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsUpdateUseCase.swift; sourceTree = "<group>"; };
+		FCF6D8DE29DB17D000DBCD4B /* StringsFetchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsFetchUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,10 +352,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCE0AAE429D73F2A00308EF3 /* IQKeyboardManagerSwift in Frameworks */,
-				FC62B14F29D720AD000B79D0 /* RealmSwift in Frameworks */,
 				FCE0AAE729D73F7A00308EF3 /* DZNEmptyDataSet in Frameworks */,
 				FCE0AAED29D7403100308EF3 /* Charts in Frameworks */,
-				FC62B14D29D720A7000B79D0 /* Realm in Frameworks */,
 				FCE0AAE129D73E8500308EF3 /* MBProgressHUD in Frameworks */,
 				FCE0AAEA29D73FB900308EF3 /* Eureka in Frameworks */,
 				FCE0AAF229D741AA00308EF3 /* Bond in Frameworks */,
@@ -485,8 +493,9 @@
 			isa = PBXGroup;
 			children = (
 				65B04DB71C6CA02300011439 /* TennisAppTests.swift */,
-				65784FF61F23779A001BFBEF /* StorageContextTests.swift */,
-				6524FDA21EAF9DC800936B09 /* RacketsTests.swift */,
+				FCF6D8E029DB205500DBCD4B /* Presentation */,
+				FCF6D8E229DB206C00DBCD4B /* Domain */,
+				FCF6D8E129DB206400DBCD4B /* Data */,
 				65B04DB91C6CA02300011439 /* Info.plist */,
 			);
 			path = TennisAppTests;
@@ -733,6 +742,8 @@
 			isa = PBXGroup;
 			children = (
 				FCF6D8BA29DACDF500DBCD4B /* UsersRepository.swift */,
+				FCF6D8C629DAD80C00DBCD4B /* RacketsRepository.swift */,
+				FCF6D8D629DB15C500DBCD4B /* StringsRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -745,7 +756,7 @@
 				FCBDF9FC29D72E81008A7FD6 /* UsersStorage */,
 				FCBDF9FB29D72E72008A7FD6 /* StringsStorage */,
 				FCBDF9FA29D72E66008A7FD6 /* RacketsStorage */,
-				FCBDF9F929D72DF1008A7FD6 /* RealmStorage */,
+				FCF6D8BE29DAD25000DBCD4B /* CoreDataStorage */,
 			);
 			path = LocalStorage;
 			sourceTree = "<group>";
@@ -774,6 +785,8 @@
 		FCBDF9F629D72DB3008A7FD6 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				FCF6D8D529DB15A500DBCD4B /* Strings */,
+				FCF6D8D029DB04EF00DBCD4B /* Rackets */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -790,26 +803,17 @@
 			isa = PBXGroup;
 			children = (
 				FCF6D8BC29DACE3D00DBCD4B /* DefaultUsersRepository.swift */,
+				FCF6D8CA29DB001A00DBCD4B /* DefaultRacketsRepository.swift */,
+				FCF6D8D829DB161000DBCD4B /* DefaultStringsRepository.swift */,
 			);
 			path = Repositories;
-			sourceTree = "<group>";
-		};
-		FCBDF9F929D72DF1008A7FD6 /* RealmStorage */ = {
-			isa = PBXGroup;
-			children = (
-				65784FF21F215865001BFBEF /* Storable.swift */,
-				65784FF01F215801001BFBEF /* StorageContext.swift */,
-				65784FF41F215A73001BFBEF /* RealmStorageContext.swift */,
-				65B04E2A1C6CC69400011439 /* RealmProxy.swift */,
-			);
-			path = RealmStorage;
 			sourceTree = "<group>";
 		};
 		FCBDF9FA29D72E66008A7FD6 /* RacketsStorage */ = {
 			isa = PBXGroup;
 			children = (
 				FCE0AAC329D733CC00308EF3 /* RacketsStorage.swift */,
-				6524FDA01EAF966C00936B09 /* RacketRealmStorage.swift */,
+				FCF6D8C829DAFD7300DBCD4B /* RacketsCoreDataStorage.swift */,
 			);
 			path = RacketsStorage;
 			sourceTree = "<group>";
@@ -818,7 +822,7 @@
 			isa = PBXGroup;
 			children = (
 				FCBDF9FD29D72EB7008A7FD6 /* StringsStorage.swift */,
-				65653D321ED0AA7F00A9DBBB /* StringsRealmStorage.swift */,
+				FCF6D8D329DB133C00DBCD4B /* StringsCoreDataStorage.swift */,
 			);
 			path = StringsStorage;
 			sourceTree = "<group>";
@@ -827,7 +831,7 @@
 			isa = PBXGroup;
 			children = (
 				FCE0AAC129D7338100308EF3 /* UsersStorage.swift */,
-				657AD2621EAFA65A00E3157F /* UsersRealmStorage.swift */,
+				FCF6D8C429DAD34800DBCD4B /* UsersCoreDataStorage.swift */,
 			);
 			path = UsersStorage;
 			sourceTree = "<group>";
@@ -894,6 +898,56 @@
 			path = Infrastructure;
 			sourceTree = "<group>";
 		};
+		FCF6D8BE29DAD25000DBCD4B /* CoreDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				FCF6D8BF29DAD27D00DBCD4B /* CoreDataStorage.swift */,
+				FCF6D8C129DAD2DC00DBCD4B /* AppCoreDataModel.xcdatamodeld */,
+			);
+			path = CoreDataStorage;
+			sourceTree = "<group>";
+		};
+		FCF6D8D029DB04EF00DBCD4B /* Rackets */ = {
+			isa = PBXGroup;
+			children = (
+				FCF6D8CC29DB012500DBCD4B /* RacketsFetchUseCase.swift */,
+				FCF6D8D129DB07F700DBCD4B /* RacketCreateUseCase.swift */,
+				FCF6D8CE29DB04B000DBCD4B /* RacketUpdateUseCase.swift */,
+			);
+			path = Rackets;
+			sourceTree = "<group>";
+		};
+		FCF6D8D529DB15A500DBCD4B /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				FCF6D8DE29DB17D000DBCD4B /* StringsFetchUseCase.swift */,
+				FCF6D8DA29DB173400DBCD4B /* StringsCreateUseCase.swift */,
+				FCF6D8DC29DB173F00DBCD4B /* StringsUpdateUseCase.swift */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		FCF6D8E029DB205500DBCD4B /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		FCF6D8E129DB206400DBCD4B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		FCF6D8E229DB206C00DBCD4B /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -915,8 +969,6 @@
 			);
 			name = TennisApp;
 			packageProductDependencies = (
-				FC62B14C29D720A7000B79D0 /* Realm */,
-				FC62B14E29D720AD000B79D0 /* RealmSwift */,
 				FCE0AAE029D73E8500308EF3 /* MBProgressHUD */,
 				FCE0AAE329D73F2A00308EF3 /* IQKeyboardManagerSwift */,
 				FCE0AAE629D73F7A00308EF3 /* DZNEmptyDataSet */,
@@ -982,7 +1034,6 @@
 			);
 			mainGroup = 65B04D961C6CA02300011439;
 			packageReferences = (
-				FCF4388029D71C89008A500C /* XCRemoteSwiftPackageReference "realm-swift" */,
 				FCE0AADF29D73E8400308EF3 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
 				FCE0AAE229D73F2A00308EF3 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				FCE0AAE529D73F7A00308EF3 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */,
@@ -1206,6 +1257,7 @@
 				FCBDFA0929D73111008A7FD6 /* FitnessEntity.swift in Sources */,
 				659439491ED36949007DC407 /* RacketsCoordinator.swift in Sources */,
 				6589FC981E26F6A600C25F31 /* StatsViewModel.swift in Sources */,
+				FCF6D8C329DAD2DC00DBCD4B /* AppCoreDataModel.xcdatamodeld in Sources */,
 				FCE0AADA29D73AFB00308EF3 /* MenuItem.swift in Sources */,
 				6507CA6F1C6D118000B7AD5C /* BaseViewModel.swift in Sources */,
 				6569A3FF1E99390B00A444BB /* ActivityViewModel.swift in Sources */,
@@ -1218,6 +1270,8 @@
 				6507CA661C6D023C00B7AD5C /* RESideLeftViewController.swift in Sources */,
 				65B04E211C6CBDC200011439 /* Settings.swift in Sources */,
 				FCBDFA0A29D73111008A7FD6 /* StringsEntity.swift in Sources */,
+				FCF6D8CD29DB012500DBCD4B /* RacketsFetchUseCase.swift in Sources */,
+				FCF6D8DF29DB17D000DBCD4B /* StringsFetchUseCase.swift in Sources */,
 				FCE0AAD829D73ACF00308EF3 /* GripSize.swift in Sources */,
 				656A4BB51E143659009E97EB /* AlertView.swift in Sources */,
 				FCBDF9FE29D72EB7008A7FD6 /* StringsStorage.swift in Sources */,
@@ -1227,20 +1281,19 @@
 				FCF6D8AD29DAC56200DBCD4B /* Strings.swift in Sources */,
 				65F05AB51ECE334800EFA322 /* AppCoordinator.swift in Sources */,
 				65C511F41C948F0A0051D645 /* LoginViewModel.swift in Sources */,
-				65784FF11F215801001BFBEF /* StorageContext.swift in Sources */,
-				65653D331ED0AA7F00A9DBBB /* StringsRealmStorage.swift in Sources */,
 				65F05AB11ECE329000EFA322 /* SignUpViewModel.swift in Sources */,
-				65B04E2B1C6CC69400011439 /* RealmProxy.swift in Sources */,
 				FCE0AACA29D7365300308EF3 /* LoggerProfile.swift in Sources */,
 				657AD2671EB270B500E3157F /* RESideLeftViewModel.swift in Sources */,
 				65F05AB01ECE329000EFA322 /* SignUpViewController.swift in Sources */,
 				65ECE30D1C708CC6004EE2C9 /* RacketsViewModel.swift in Sources */,
+				FCF6D8DB29DB173400DBCD4B /* StringsCreateUseCase.swift in Sources */,
 				65D206931EE19820004A8150 /* RacketFormViewModel.swift in Sources */,
 				65D2068D1EE1980F004A8150 /* StringFormViewController.swift in Sources */,
 				65C511EA1C938DCA0051D645 /* ProfileHeaderView.swift in Sources */,
 				FCF6D8B929DACAED00DBCD4B /* Fitness.swift in Sources */,
 				6569A4041E9A28A600A444BB /* UINavigationControllerType.swift in Sources */,
 				6569A4061E9A28E400A444BB /* Extension.swift in Sources */,
+				FCF6D8D429DB133C00DBCD4B /* StringsCoreDataStorage.swift in Sources */,
 				FCE0AAC429D733CC00308EF3 /* RacketsStorage.swift in Sources */,
 				6569A4011E99393300A444BB /* ActivitiesContainerViewModel.swift in Sources */,
 				65D8249F1C6E652000E2918C /* RacketTableViewCell.swift in Sources */,
@@ -1248,8 +1301,8 @@
 				65653D241ED081D000A9DBBB /* Date.swift in Sources */,
 				65F05AA81ECE327700EFA322 /* RESideCoordinator.swift in Sources */,
 				657AD2651EAFAE9B00E3157F /* RESideViewModel.swift in Sources */,
-				65784FF31F215865001BFBEF /* Storable.swift in Sources */,
 				FCBDFA0829D73111008A7FD6 /* PracticeEntity.swift in Sources */,
+				FCF6D8D229DB07F700DBCD4B /* RacketCreateUseCase.swift in Sources */,
 				65C2CB141F26A1550095D954 /* StringFormCoordinator.swift in Sources */,
 				658753F91F9E971B0032732D /* ImageCell.swift in Sources */,
 				65D824A81C6F589100E2918C /* ProfileViewController.swift in Sources */,
@@ -1269,27 +1322,33 @@
 				65D206841EE0BBD4004A8150 /* SettingsCoordinator.swift in Sources */,
 				FCE0AAD629D73A9100308EF3 /* RacketBrand.swift in Sources */,
 				659439471ED36934007DC407 /* StringsCoordinator.swift in Sources */,
+				FCF6D8CF29DB04B000DBCD4B /* RacketUpdateUseCase.swift in Sources */,
 				65653D301ED0A7FD00A9DBBB /* StringsViewModel.swift in Sources */,
 				657234881E114DD40050F319 /* Logger.swift in Sources */,
 				FCF6D8BB29DACDF500DBCD4B /* UsersRepository.swift in Sources */,
+				FCF6D8CB29DB001A00DBCD4B /* DefaultRacketsRepository.swift in Sources */,
 				65D206821EE0BACF004A8150 /* ProfileCoordinator.swift in Sources */,
 				65B04E231C6CBEEF00011439 /* Utils.swift in Sources */,
 				6589FC891E1EFF0E00C25F31 /* ImagePickerController.swift in Sources */,
+				FCF6D8C029DAD27D00DBCD4B /* CoreDataStorage.swift in Sources */,
+				FCF6D8DD29DB173F00DBCD4B /* StringsUpdateUseCase.swift in Sources */,
 				FCF6D8AF29DAC78900DBCD4B /* User.swift in Sources */,
 				65D824AA1C6F589B00E2918C /* SettingsViewController.swift in Sources */,
 				65C511F11C948ED50051D645 /* LoginViewController.swift in Sources */,
+				FCF6D8C529DAD34800DBCD4B /* UsersCoreDataStorage.swift in Sources */,
 				65653D2F1ED0A7FD00A9DBBB /* StringsViewController.swift in Sources */,
 				FCF6D8B529DACA8300DBCD4B /* MatchScore.swift in Sources */,
-				6524FDA11EAF966C00936B09 /* RacketRealmStorage.swift in Sources */,
 				65D2068E1EE1980F004A8150 /* StringFormViewModel.swift in Sources */,
-				657AD2631EAFA65A00E3157F /* UsersRealmStorage.swift in Sources */,
+				FCF6D8D729DB15C500DBCD4B /* StringsRepository.swift in Sources */,
 				6589FC8A1E1EFF0E00C25F31 /* ImageRow.swift in Sources */,
 				65653D261ED0820800A9DBBB /* UIView.swift in Sources */,
+				FCF6D8D929DB161000DBCD4B /* DefaultStringsRepository.swift in Sources */,
 				6589FC961E26F69000C25F31 /* ProfileViewModel.swift in Sources */,
 				6507CA641C6CFE6400B7AD5C /* RESideViewController.swift in Sources */,
-				65784FF51F215A73001BFBEF /* RealmStorageContext.swift in Sources */,
+				FCF6D8C929DAFD7300DBCD4B /* RacketsCoreDataStorage.swift in Sources */,
 				65D206921EE19820004A8150 /* RacketFormViewController.swift in Sources */,
 				65B04DA31C6CA02300011439 /* AppDelegate.swift in Sources */,
+				FCF6D8C729DAD80C00DBCD4B /* RacketsRepository.swift in Sources */,
 				FCE0AAD129D7372000308EF3 /* LoggerNull.swift in Sources */,
 				FCF6D8BD29DACE3D00DBCD4B /* DefaultUsersRepository.swift in Sources */,
 				65653D311ED0A7FD00A9DBBB /* StringTableViewCell.swift in Sources */,
@@ -1306,8 +1365,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				65B04DB81C6CA02300011439 /* TennisAppTests.swift in Sources */,
-				65784FF71F23779A001BFBEF /* StorageContextTests.swift in Sources */,
-				6524FDA31EAF9DC800936B09 /* RacketsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1683,27 +1740,9 @@
 				minimumVersion = 7.0.0;
 			};
 		};
-		FCF4388029D71C89008A500C /* XCRemoteSwiftPackageReference "realm-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FC62B14C29D720A7000B79D0 /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FCF4388029D71C89008A500C /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
-		};
-		FC62B14E29D720AD000B79D0 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FCF4388029D71C89008A500C /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
-		};
 		FCE0AAE029D73E8500308EF3 /* MBProgressHUD */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FCE0AADF29D73E8400308EF3 /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
@@ -1735,6 +1774,19 @@
 			productName = Bond;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		FCF6D8C129DAD2DC00DBCD4B /* AppCoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FCF6D8C229DAD2DC00DBCD4B /* AppCoreDataModel.xcdatamodel */,
+			);
+			currentVersion = FCF6D8C229DAD2DC00DBCD4B /* AppCoreDataModel.xcdatamodel */;
+			path = AppCoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 65B04D971C6CA02300011439 /* Project object */;
 }

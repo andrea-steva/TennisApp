@@ -10,7 +10,7 @@ import Bond
 
 protocol StringsViewModelCoordinatorDelegate: AnyObject {
     func stringViewModelDidEnd(_ viewModel: StringsViewModel)
-    func stringViewModelToStringForm(string: StringsEntity?)
+    func stringViewModelToStringForm(string: Strings?)
 }
 
 final class StringsViewModel: BaseViewModel {
@@ -23,39 +23,42 @@ final class StringsViewModel: BaseViewModel {
     
     let reloadView = Observable(false)
 
-    fileprivate let stringsService = StringsRealmStorage()
+    private let stringsFetchUseCase: StringsFetchUseCase
 
-    var strings: [StringsEntity]?
+    var strings: [Strings] = []
 
     // MARK: Methods
+
+    override init() {
+        let repository = DefaultStringsRepository()
+        stringsFetchUseCase = DefaultStringsFetchUseCase(stringsRepository: repository)
+    }
     
     func fetchStrings() {
-        stringsService.fetchStrings { (strings) in
-            self.strings = strings
-            self.reloadView.value = true
+        stringsFetchUseCase.execute(page: 0, pageSize: 0) { result in
+            switch result {
+            case .success(let strings):
+                self.strings = strings
+                self.reloadView.value = true
+            case .failure(let error):
+                Log.error(error.localizedDescription)
+            }
         }
     }
 
     func numberOfStrings() -> Int {
-        guard let count = strings?.count else {
-            return 0
-        }
-        return count
+        strings.count
     }
 
-    func string(forIndex index: Int) -> StringsEntity {
-        guard let string = strings?[index] else {
-            return StringsEntity()
-        }
-        return string
+    func string(forIndex index: Int) -> Strings {
+        strings[index]
     }
 
     func deleteString(forIndex index: Int) {
-        guard let string = strings?[index] else {
-            return
-        }
-        stringsService.deleteString(string: string)
-        self.fetchStrings()
+        // TODO Implement delete use case
+//        let string = strings[index]
+//        stringsService.deleteString(string: string)
+//        self.fetchStrings()
     }
     
     // MARK: Coordinator Flow
@@ -65,7 +68,7 @@ final class StringsViewModel: BaseViewModel {
     }
 
     func toStringForm(index: Int) {
-        self.coordinatorDelegate?.stringViewModelToStringForm(string: strings![index])
+        self.coordinatorDelegate?.stringViewModelToStringForm(string: strings[index])
     }
 
     func toEmptyStringForm() {

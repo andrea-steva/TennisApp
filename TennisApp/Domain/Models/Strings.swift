@@ -10,7 +10,7 @@ import Foundation
 
 /// Strings domain model
 struct Strings {
-    var stringId: String
+    var identifier: String
     var manufacter: String
     var model: String
     var price: String = ""
@@ -19,4 +19,16 @@ struct Strings {
     var tension: Float = 0
 
     // Add relationships to rackets
+}
+
+extension Strings {
+    init(form: [String: Any?]) {
+        self.identifier = UUID().uuidString
+        self.manufacter = ""
+        self.model = ""
+        self.price = ""
+        self.gauge = ""
+        self.duration = 0.0
+        self.tension = 0.0
+    }
 }

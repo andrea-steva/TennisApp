@@ -18,31 +18,53 @@ final class RacketFormViewModel: BaseViewModel {
     
     // MARK: Properties
     
-    fileprivate let racketsService = RacketRealmStorage()
-    private var racket: RacketEntity?
+    private let racketCreateUseCase: RacketCreateUseCase
+    private let racketUpdateUseCase: RacketUpdateUseCase
+    private let racket: Racket?
+
+    var isUpdate: Bool {
+        racket != nil
+    }
     
     // MARK: Methods
-    
-    init(racket: RacketEntity?) {
-        super.init()
+
+    init(racket: Racket?) {
         self.racket = racket
+        let repository = DefaultRacketsRepository()
+        racketCreateUseCase = DefaultRacketCreateUseCase(racketsRepository: repository)
+        racketUpdateUseCase = DefaultRacketUpdateUseCase(racketsRepository: repository)
     }
-    
-    func getRacket() -> RacketEntity? {
-        return racket
+
+    func getRacket() -> Racket? {
+        racket
     }
-    
-    func creareOrUpdateRacket(formValues: [String: Any?]) {
-        if let racket = self.racket {
-            self.racketsService.updateRacket(block: {
-                racket.updateFrom(dictionary: formValues)
-            })
-        } else {
-            racket = RacketEntity(formValues)
-            self.racketsService.createRacket(racket: racket!)
+
+    func createRacket(formValues: [String: Any?]) {
+        // TODO Create racket from formValues (add helper on ´Rackets´)
+        racketCreateUseCase.execute(racket: Racket(form: formValues)) { result in
+            switch result {
+            case .success(let success):
+                Log.debug("Create racket \(success)")
+            case .failure(let error):
+                Log.debug(error.localizedDescription)
+            }
         }
     }
-    
+
+    func updateRacket(formValues: [String: Any?]) {
+        // TODO update racket properties from formValues (add helper on ´Rackets´)
+        racketUpdateUseCase.execute(racket: Racket(form: formValues)) { result in
+            switch result {
+            case .success(let success):
+                Log.debug("Update racket \(success)")
+            case .failure(let error):
+                Log.debug(error.localizedDescription)
+            }
+        }
+    }
+
+    // MARK: Coordinator
+
     func toRackets() {
         self.coordinatorDelegate?.racketFormViewModelSaveRacket()
     }

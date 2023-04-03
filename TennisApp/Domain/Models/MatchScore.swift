@@ -18,4 +18,10 @@ struct MatchScore {
     // MARK: Relationship
 
     let match: Match
+
+    // MARK: Methods
+
+    func matchScoreToString() -> String {
+        return "\(self.gamePlayerA)-\(self.gamePlayerB)"
+    }
 }
