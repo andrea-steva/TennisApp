@@ -10,12 +10,15 @@ import Foundation
 
 /// The user domain model
 struct User {
-    var firstName: String
-    var lastName: String
-    var age: Int
-    var email: String
-    var phoneNumber: String
-    var profileImage: Data?
+    let identifier: String
+    let firstName: String
+    let lastName: String
+    let age: Int
+    let email: String
+    let backhandType: String
+    let handType: String
+    let ranking: String
+    let profileImage: Data?
 
     // Add relationships
 }

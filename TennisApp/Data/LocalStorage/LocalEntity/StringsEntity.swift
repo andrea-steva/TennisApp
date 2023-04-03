@@ -6,44 +6,37 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-import Realm
-import RealmSwift
+import CoreData
 
-final class StringsEntity: Object {
+// MARK: Relationship
 
-    // MARK: Stored Attributes
+// let racket = LinkingObjects(fromType: RacketEntity.self, property: "strings")
 
-    @Persisted var stringId: String!
-    @Persisted var manufacter: String!
-    @Persisted var model: String!
-    @Persisted var price: String = ""
-    @Persisted var gauge: String = ""
-    @Persisted var duration: Float = 0
-    @Persisted var tension: Float = 0
 
-    // MARK: Relationship
+// MARK: - Mappings to domain
 
-    let racket = LinkingObjects(fromType: RacketEntity.self, property: "strings")
+extension StringsEntity {
 
-    // MARK: Init
-
-    required init(_ dictionary: [String: Any?]) {
-        super.init()
-        self.stringId = UUID().uuidString
-        self.mapping(dictionary)
+    func toDomain() -> Strings {
+        Strings(identifier: self.identifier ?? "",
+                manufacter: self.manufacter ?? "",
+                model: self.model ?? "",
+                price: self.price ?? "",
+                gauge: self.gauge ?? "",
+                duration: self.duration,
+                tension: self.tension)
     }
+}
 
-    required init(value: Any, schema: RLMSchema) {
-        fatalError("init(value:schema:) has not been implemented")
-    }
-
-
-    func updateFrom(dictionary: [String: Any?]) {
-        self.mapping(dictionary)
-    }
-    
-    private func mapping(_ dictionary: [String: Any?]) {
-        self.manufacter = dictionary["manufacter"] as? String
-        self.model = dictionary["model"] as? String
+extension StringsEntity {
+    convenience init(strings: Strings, insertInto context: NSManagedObjectContext) {
+        self.init(context: context)
+        identifier = strings.identifier
+        model = strings.model
+        manufacter = strings.manufacter
+        price = strings.price
+        gauge = strings.gauge
+        duration = strings.duration
+        tension = strings.tension
     }
 }

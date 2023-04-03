@@ -6,66 +6,44 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-import Realm
-import RealmSwift
+import CoreData
 
-final class UserEntity: Object {
-    
-    // MARK: Stored Attributes
-    
-    @Persisted(primaryKey: true) var userId: ObjectId
-    @Persisted var firstName: String?
-    @Persisted var lastName: String?
-    @Persisted var age: Int
-    @Persisted var email: String = ""
-    @Persisted var phoneNumber: String = ""
-    @Persisted var profileImage: Data!
-
-    @Persisted var handType: String = ""
-    @Persisted var backhandType: String = ""
-
-    @Persisted var ranking: String = ""
-    
-    // MARK: Relationship
-
-    @Persisted var rackets = List<RacketEntity>()
-    @Persisted var matches = List<MatchEntity>()
-    @Persisted var fitness = List<FitnessEntity>()
-    @Persisted var practices = List<PracticeEntity>()
-        
-    // MARK: Init
-    
-    required init(_ dictionary: [String: Any?]) {
-        super.init()
-        self.mapping(dictionary)
-    }
-    
-    required init(value: Any, schema: RLMSchema) {
-        fatalError("init(value:schema:) has not been implemented")
-    }
-    
-    // MARK: Class Methods
-    
-    func updateFrom(dictionary: [String: Any?]) {
-        self.mapping(dictionary)
-    }
-    
-    fileprivate func mapping(_ dictionary: [String: Any?]) {
-        firstName = dictionary["firstName"] as? String
-        lastName = dictionary["lastName"] as? String
-    }
-}
+//    // MARK: Relationship
+//
+//    @Persisted var rackets = List<RacketEntity>()
+//    @Persisted var matches = List<MatchEntity>()
+//    @Persisted var fitness = List<FitnessEntity>()
+//    @Persisted var practices = List<PracticeEntity>()
+//        
 
 // MARK: - Mappings to domain
 
 extension UserEntity {
 
     func toDomain() -> User {
-        .init(firstName: self.firstName ?? "",
+        User(identifier: self.identifier ?? "",
+              firstName: self.firstName ?? "",
               lastName: self.lastName ?? "",
-              age: self.age,
-              email: self.email,
-              phoneNumber: self.phoneNumber)
+              age: Int(self.age),
+              email: self.email ?? "",
+              backhandType: self.backhandType ?? "",
+              handType: self.handType ?? "",
+              ranking: self.ranking ?? "",
+              profileImage: self.profileImage)
     }
 }
 
+extension UserEntity {
+    convenience init(user: User, insertInto context: NSManagedObjectContext) {
+        self.init(context: context)
+        identifier = user.identifier
+        firstName = user.firstName
+        lastName = user.lastName
+        age = Int32(user.age)
+        email = user.email
+        backhandType = user.backhandType
+        handType = user.handType
+        ranking = user.ranking
+        profileImage = user.profileImage
+    }
+}

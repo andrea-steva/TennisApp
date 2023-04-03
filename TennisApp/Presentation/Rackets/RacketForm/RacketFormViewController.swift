@@ -26,8 +26,9 @@ class RacketFormViewController: FormViewController {
     }
 
     func createForm() {
-        
-        let racket = viewModel.getRacket()
+        guard let racket = viewModel.getRacket() else {
+            return 
+        }
 
         ImageRow.defaultCellUpdate = { cell, row in
             cell.accessoryView?.layer.cornerRadius = 17
@@ -39,38 +40,41 @@ class RacketFormViewController: FormViewController {
                 $0.add(rule: RuleRequired())
                 $0.title = "Manufacter"
                 $0.options = RacketBrand.allCases.map { $0.rawValue}
-                $0.value = racket != nil ? racket!.manufacter : "Wilson"
+                $0.value = racket.manufacter
             }
             <<< TextRow("model") {
                 $0.add(rule: RuleRequired())
                 $0.title = "Model"
                 $0.placeholder = "ProStaff 97S"
-                $0.value = racket != nil ? racket!.model : ""
+                $0.value = racket.model
             }
             <<< PickerInlineRow<String>("gripSize") {
                 $0.title = "Grip Size"
                 $0.options = ["1", "2", "3", "4", "5"]
-                $0.value = racket != nil ? racket!.gripSize : "1"
+                $0.value = racket.gripSize.rawValue
             }
             <<< TextRow("weight") {
                 $0.title = "Weight"
                 $0.placeholder = "300"
-                $0.value = racket != nil ? racket!.weight : ""
+                $0.value = String(racket.weight)
             }
             <<< DateRow("purchaseDate") {
                 $0.add(rule: RuleRequired())
                 $0.title = "Purchase Date"
-                $0.value = racket != nil ? racket!.purchaseDate : Date()
+                $0.value = racket.purchaseDate
             }
             <<< ImageRow("image") {
                 $0.title = "Image"
         }
-
     }
 
     @IBAction func didTapOnSaveButton(_ sender: AnyObject) {
         let formValues = form.values()
-        self.viewModel.creareOrUpdateRacket(formValues: formValues)
+        if viewModel.isUpdate {
+            viewModel.updateRacket(formValues: formValues)
+        } else {
+            viewModel.createRacket(formValues: formValues)
+        }
         self.viewModel.toRackets()
     }
 }

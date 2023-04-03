@@ -22,23 +22,18 @@ final class DefaultUsersRepository: UsersRepository {
 
     // MARK: Methods
 
-    func fetchUsers(completion: @escaping (Result<[User], Error>) -> Void) {
-        usersLocalStorage.fetchUsers { users in
-            let users = users.map { $0.toDomain() }
-            completion(.success(users))
+    func fetch(completion: @escaping (Result<[User], Error>) -> Void) {
+        usersLocalStorage.fetch { result in
+            switch result {
+            case .success(let users):
+                completion(.success(users))
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
-//        usersLocalStorage.fetch { result in
-//            switch result {
-//            case .success(let users):
-//                let users = users.map { $0.toDomain() }
-//                completion(.success(users))
-//            case .failure(let error):
-//                completion(.failure(error))
-//            }
-//        }
     }
 
     func deleteUsers(completion: ((Result<Bool, Error>) -> Void)?) {
-        // usersLocalStorage.deleteAll(completion: completion)
+        usersLocalStorage.deleteAll(completion: completion)
     }
 }

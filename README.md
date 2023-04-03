@@ -24,10 +24,15 @@ brew install swiftlint
 ## 🔨 TODO / Improvements
 
 + [X] Create domain model
-+ [] Create repository
-+ [] Rename RealmStorage protocols
++ [X] Rename RealmStorage protocols
++ [X] Remove Realm and use CoreData
++ [~] Create repositories 
++ [~] Create UseCases
++ [~] CRUD operation for Racket
++ [~] CRUD operation for User
++ [] RacketFormViewModel refactor using Racket instead RacketEntity
++ [] Add DTO to decouple domain model from CoreDataStoreage
 + [] Check Utilities folder
-
 ## ✒️ Author
 
 Andrea Stevanato

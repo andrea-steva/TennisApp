@@ -18,17 +18,16 @@ class RacketFormCoordinator: Coordinator, RacketFormViewModelCoordinatorDelegate
     
     weak var delegate: RacketFormCoordinatorDelegate?
     fileprivate weak var navigationController: UINavigationControllerType?
-    private var racket: RacketEntity?
+    private var racket: Racket?
     
     // MARK: Coordinator
     
-    init(navigationController: UINavigationControllerType, racket: RacketEntity?) {
+    init(navigationController: UINavigationControllerType, racket: Racket?) {
         self.navigationController = navigationController
         self.racket = racket
     }
     
     func start() {
-        
         let formVC: RacketFormViewController = RacketFormViewController.instantiateFromStoryboard("Rackets")
         formVC.viewModel = RacketFormViewModel(racket: racket)
         formVC.viewModel.coordinatorDelegate = self

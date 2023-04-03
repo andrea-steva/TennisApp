@@ -52,7 +52,7 @@ final class RacketsCoordinator: Coordinator, RacketsViewModelCoordinatorDelegate
         stringsCoordinator?.start()
     }
     
-    func racketsViewModelToRacketForm(racket: RacketEntity?) {
+    func racketsViewModelToRacketForm(racket: Racket?) {
         racketFormCoordinator = RacketFormCoordinator(navigationController: navigationController, racket: racket)
         racketFormCoordinator?.delegate = self
         racketFormCoordinator?.start()

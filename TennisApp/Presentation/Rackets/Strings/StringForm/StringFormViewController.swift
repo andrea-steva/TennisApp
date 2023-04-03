@@ -53,8 +53,12 @@ class StringFormViewController: FormViewController {
     @IBAction func didTapOnSaveButton(_ sender: AnyObject) {
         let formValues = form.values()
         Log.debug(formValues.description)
-        
-        self.viewModel.creareOrUpdateString(formValues: formValues)
+
+        if viewModel.isUpdate {
+            viewModel.updateStrings(formValues: formValues)
+        } else {
+            viewModel.createStrings(formValues: formValues)
+        }
         _ = self.navigationController?.popViewController(animated: true)
     }
 }
