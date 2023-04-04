@@ -9,7 +9,7 @@
 import UIKit
 import Eureka
 
-class RacketFormViewController: FormViewController {
+class RacketFormViewController: FormViewController, StoryboardInstantiable {
 
     // MARK: ViewModel
 

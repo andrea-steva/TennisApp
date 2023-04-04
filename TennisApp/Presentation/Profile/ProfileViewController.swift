@@ -9,7 +9,7 @@
 import UIKit
 
 
-final class ProfileViewController: BaseViewController, UITableViewDataSource, UITabBarDelegate {
+final class ProfileViewController: BaseViewController, UITableViewDataSource, UITabBarDelegate, StoryboardInstantiable {
 
     static let ProfileCellReuseId = "profile_cell"
 

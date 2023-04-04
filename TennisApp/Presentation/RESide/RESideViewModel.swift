@@ -10,7 +10,7 @@ import Foundation
 
 protocol RESideViewModelCoordinatorDelegate: AnyObject {
     func resideViewModelDidLogout(viewModel: RESideViewModel)
-    func resideViewModelPresent(menuItem: MenuItem)
+    func resideViewModelPresent(menuItem: RESideMenuItem)
 }
 
 final class RESideViewModel {
@@ -34,7 +34,7 @@ final class RESideViewModel {
         coordinatorDelegate?.resideViewModelDidLogout(viewModel: self)
     }
     
-    func userSelect(menuItem: MenuItem) {
+    func userSelect(menuItem: RESideMenuItem) {
         coordinatorDelegate?.resideViewModelPresent(menuItem: menuItem)
     }
 }

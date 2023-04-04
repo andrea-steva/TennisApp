@@ -15,7 +15,8 @@ protocol RacketFormCoordinatorDelegate: AnyObject {
 class RacketFormCoordinator: Coordinator, RacketFormViewModelCoordinatorDelegate {
     
     // MARK: Properties
-    
+
+    private let container = RacketsDIContainer()
     weak var delegate: RacketFormCoordinatorDelegate?
     fileprivate weak var navigationController: UINavigationControllerType?
     private var racket: Racket?
@@ -28,8 +29,10 @@ class RacketFormCoordinator: Coordinator, RacketFormViewModelCoordinatorDelegate
     }
     
     func start() {
-        let formVC: RacketFormViewController = RacketFormViewController.instantiateFromStoryboard("Rackets")
-        formVC.viewModel = RacketFormViewModel(racket: racket)
+        let formVC = RacketFormViewController.instantiateViewController()
+        formVC.viewModel = RacketFormViewModel(racketCreateUseCase: container.makeRacketCreateUseCase(),
+                                               racketUpdateUseCase: container.makeRacketUpdateUseCase(),
+                                               racket: racket)
         formVC.viewModel.coordinatorDelegate = self
         self.navigationController?.pushViewController(formVC, animated: true)
     }

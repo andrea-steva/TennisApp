@@ -9,7 +9,7 @@
 import UIKit
 
 
-final class SettingsViewController: BaseViewController {
+final class SettingsViewController: BaseViewController, StoryboardInstantiable {
 
     // MARK: IBAction
 

@@ -19,22 +19,21 @@ final class ProfileCoordinator: Coordinator, ProfileViewModelCoordinatorDelegate
     
     weak var delegate: ProfileCoordinatorDelegate?
     
-    private var resideViewController: RESideViewController!
-    private var navigationController: UINavigationControllerType = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! UINavigationControllerType
-    
-    private var profileViewController: ProfileViewController?
+    private var resideViewController: RESideViewController
+    private var navigationController: UINavigationControllerType
+    private var profileViewController: ProfileViewController
     
     // MARK: Coordinator
     
     init(resideViewController: RESideViewController) {
         self.resideViewController = resideViewController
+        self.profileViewController = ProfileViewController.instantiateViewController()
+        self.navigationController = UINavigationController(rootViewController: profileViewController)
     }
     
     func start() {
-        profileViewController = navigationController.viewControllers.first as? ProfileViewController
-        
-        profileViewController?.viewModel = ProfileViewModel()
-        profileViewController?.viewModel.coordinatorDelegate = self
+        profileViewController.viewModel = ProfileViewModel()
+        profileViewController.viewModel.coordinatorDelegate = self
         
         resideViewController.contentViewController = navigationController as! UIViewController
         resideViewController.hideViewController()

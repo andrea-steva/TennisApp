@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ActivityViewController: UIViewController {
+final class ActivityViewController: UIViewController, StoryboardInstantiable {
 
     static let ActivityCellReuseId = "activity_cell"
 

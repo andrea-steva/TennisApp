@@ -29,9 +29,8 @@ final class RacketsViewModel: BaseViewModel {
 
     // MARK: Methods
 
-    override init() {
-        let repository = DefaultRacketsRepository()
-        racketsFetchUseCase = DefaultRacketsFetchUseCase(racketsRepository: repository)
+    init(racketsFetchUseCase: RacketsFetchUseCase) {
+        self.racketsFetchUseCase = racketsFetchUseCase
     }
 
     func fetchRackets() {

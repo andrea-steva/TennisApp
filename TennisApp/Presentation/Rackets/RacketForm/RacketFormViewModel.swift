@@ -28,11 +28,12 @@ final class RacketFormViewModel: BaseViewModel {
     
     // MARK: Methods
 
-    init(racket: Racket?) {
+    init(racketCreateUseCase: RacketCreateUseCase,
+         racketUpdateUseCase: RacketUpdateUseCase,
+         racket: Racket?) {
+        self.racketCreateUseCase = racketCreateUseCase
+        self.racketUpdateUseCase = racketUpdateUseCase
         self.racket = racket
-        let repository = DefaultRacketsRepository()
-        racketCreateUseCase = DefaultRacketCreateUseCase(racketsRepository: repository)
-        racketUpdateUseCase = DefaultRacketUpdateUseCase(racketsRepository: repository)
     }
 
     func getRacket() -> Racket? {

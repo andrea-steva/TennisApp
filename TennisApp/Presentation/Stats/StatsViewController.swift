@@ -9,7 +9,7 @@
 import UIKit
 
 
-class StatsViewController: BaseViewController {
+class StatsViewController: BaseViewController, StoryboardInstantiable {
 
     // MARK: IBOutlets
 

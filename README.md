@@ -26,13 +26,19 @@ brew install swiftlint
 + [X] Create domain model
 + [X] Rename RealmStorage protocols
 + [X] Remove Realm and use CoreData
-+ [~] Create repositories 
++ [X] Split Storyboard (use one storyboard for each controller)
++ [X] RacketFormViewModel refactor using Racket instead RacketEntity
++ [X] Remove FontAwesome
++ [~] Add DI containers
++ [~] Create repositories
 + [~] Create UseCases
 + [~] CRUD operation for Racket
 + [~] CRUD operation for User
-+ [] RacketFormViewModel refactor using Racket instead RacketEntity
+
 + [] Add DTO to decouple domain model from CoreDataStoreage
-+ [] Check Utilities folder
++ [~] Check Utilities folder
+
++ [] Use TabBarController instead of RESideMenu
 ## ✒️ Author
 
 Andrea Stevanato

@@ -17,26 +17,21 @@ final class SignUpCoordinator: Coordinator, SignUpViewModelCoordinatorDelegate {
     // MARK: Properties
     
     weak var delegate: SignUpCoordinatorDelegate?
-    fileprivate weak var navigationController: UINavigationControllerType!
-    
-    var signUpViewController: SignUpViewController?
+    private let navigationController: UINavigationControllerType
+    private let signUpViewController: SignUpViewController
     
     // MARK: Coordinator
     
     init(navigationController: UINavigationControllerType) {
         self.navigationController = navigationController
+        self.signUpViewController = SignUpViewController.instantiateViewController()
     }
     
     func start() {
-        let storyboard = UIStoryboard(name: "Login", bundle: nil)
-        guard let vc = storyboard.instantiateViewController(withIdentifier: "SignUp") as? SignUpViewController else {
-            return
-        }
-        signUpViewController = vc
         let viewModel = SignUpViewModel()
         viewModel.coordinatorDelegate = self
-        signUpViewController!.viewModel = viewModel
-        navigationController.pushViewController(signUpViewController!, animated: true)
+        signUpViewController.viewModel = viewModel
+        navigationController.pushViewController(signUpViewController, animated: true)
     }
     
     // MARK: SignUpViewModelCoordinatorDelegate

@@ -8,7 +8,6 @@
 
 import UIKit
 import DZNEmptyDataSet
-import FontAwesome_swift
 import INSPullToRefresh
 
 private extension Selector {
@@ -36,7 +35,7 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
             if self.navigationItem.leftBarButtonItems == nil {
                 self.navigationItem.leftBarButtonItems = [UIBarButtonItem]()
             }
-            self.navigationItem.leftBarButtonItems?.insert(UIBarButtonItem(icon: .bars, selector: .didTapOnButtonMenu, target: self), at: 0)
+            self.navigationItem.leftBarButtonItems?.insert(UIBarButtonItem(iconName: "line.horizontal.3", selector: .didTapOnButtonMenu, target: self), at: 0)
         }
     }
     
@@ -63,21 +62,21 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
     
     // MARK: DZNEmptyDataSetSource
     
-    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         return NSAttributedString(string: localizer.get(LocalizedString.generic_emptyDataSetTitle))
     }
     
-    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+    func image(forEmptyDataSet scrollView: UIScrollView) -> UIImage? {
         return Style.Images.notAvailable
     }
     
-    func offset(forEmptyDataSet scrollView: UIScrollView!) -> CGPoint {
+    func offset(forEmptyDataSet scrollView: UIScrollView) -> CGPoint {
         return CGPoint(x: 0, y: -64)
     }
     
     // MARK: DZNEmptyDataSetDelegate
     
-    func emptyDataSetShouldAllowTouch(_ scrollView: UIScrollView!) -> Bool {
+    func emptyDataSetShouldAllowTouch(_ scrollView: UIScrollView) -> Bool {
         return true
     }
     
@@ -85,7 +84,7 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
         return true
     }
     
-    func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {
+    func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView) -> Bool {
         return false
     }
     

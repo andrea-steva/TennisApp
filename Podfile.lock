@@ -41,7 +41,6 @@ PODS:
     - GoogleUtilities/Environment (~> 7.8)
     - GoogleUtilities/UserDefaults (~> 7.8)
     - PromisesObjC (~> 2.1)
-  - FontAwesome.swift (1.9.1)
   - GoogleAppMeasurement (10.7.0):
     - GoogleAppMeasurement/AdIdSupport (= 10.7.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
@@ -97,7 +96,6 @@ PODS:
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
-  - FontAwesome.swift
   - GSKStretchyHeaderView (= 1.0.4)
   - INSPullToRefresh (= 1.2.0)
   - PagingMenuController (from `https://github.com/andr3a88/PagingMenuController.git`)
@@ -112,7 +110,6 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCoreInternal
     - FirebaseInstallations
-    - FontAwesome.swift
     - GoogleAppMeasurement
     - GoogleUtilities
     - GSKStretchyHeaderView
@@ -144,7 +141,6 @@ SPEC CHECKSUMS:
   FirebaseCore: e317665b9d744727a97e623edbbed009320afdd7
   FirebaseCoreInternal: 8845798510aae74703467480f71ac613788d0696
   FirebaseInstallations: 59c0e4c7a816a0f76710d83f77e5369b3e45eb96
-  FontAwesome.swift: 6b52cb7be66eacd28cbfaa0ca7ffd0de4a186a1d
   GoogleAppMeasurement: fe17c92a32207dd5cdd4e8d742767f2da74857f6
   GoogleUtilities: c2bdc4cf2ce786c4d2e6b3bcfd599a25ca78f06f
   GSKStretchyHeaderView: 9743704c12bdc9cf7c7947bad3af8bf24f7061e3
@@ -156,6 +152,6 @@ SPEC CHECKSUMS:
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SCLAlertView: 776813fb1f62248965f37cb7edf4088ee6394460
 
-PODFILE CHECKSUM: 1cca053ee495ddb6a559fc75d3ab1071e067ea78
+PODFILE CHECKSUM: 0351a661e526a1ba648c46b1af4a36321bc3bef7
 
 COCOAPODS: 1.12.0

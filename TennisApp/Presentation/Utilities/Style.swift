@@ -6,7 +6,6 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-import FontAwesome_swift
 import UIKit
 
 // MARK: FontType
@@ -137,12 +136,18 @@ struct Style {
     }
     
     static func setupSearchBarStyle() {
+        let configuration = UIImage.SymbolConfiguration(scale: .medium)
+
+        var serchImage = UIImage(systemName: "magnifyingglass", withConfiguration: configuration)!
+        serchImage = serchImage.withTintColor(Style.Colors.lightColor, renderingMode: .alwaysOriginal)
         UISearchBar.appearance().setBackgroundImage(UIImage(), for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
-        UISearchBar.appearance().setImage(UIImage.fontAwesomeIcon(name: FontAwesome.search, style: .regular, textColor: Style.Colors.lightColor, size: CGSize(width: 32, height: 32)),
+        UISearchBar.appearance().setImage(serchImage,
                                           for: UISearchBar.Icon.search,
                                           state: UIControl.State())
-        
-        UISearchBar.appearance().setImage(UIImage.fontAwesomeIcon(name: FontAwesome.timesCircle, style: .regular, textColor: Style.Colors.lightColor, size: CGSize(width: 20, height: 20)),
+        var crossCircle = UIImage(systemName: "multiply.circle", withConfiguration: configuration)!
+        serchImage = serchImage.withTintColor(Style.Colors.lightColor, renderingMode: .alwaysOriginal)
+
+        UISearchBar.appearance().setImage(crossCircle,
                                           for: UISearchBar.Icon.clear,
                                           state: UIControl.State())
     }

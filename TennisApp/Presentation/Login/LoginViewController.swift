@@ -11,7 +11,7 @@ import Firebase
 import Bond
 import ReactiveKit
 
-final class LoginViewController: BaseViewController, Bindable {
+final class LoginViewController: BaseViewController, Bindable, StoryboardInstantiable {
     
     // MARK: IBOutlets
 

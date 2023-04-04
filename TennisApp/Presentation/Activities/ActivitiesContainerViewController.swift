@@ -75,7 +75,7 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
     }
 }
 
-final class ActivitiesContainerViewController: BaseViewController {
+final class ActivitiesContainerViewController: BaseViewController, StoryboardInstantiable {
 
     // MARK: Property
 
@@ -97,7 +97,7 @@ final class ActivitiesContainerViewController: BaseViewController {
     fileprivate func setupPagedMenu(_ controllers: [UIViewController]) {
 
         for index in 0...2 {
-            let activityController: ActivityViewController = ActivityViewController.instantiateFromStoryboard("Activities")
+            let activityController: ActivityViewController = ActivityViewController.instantiateViewController()
 
             if index == 0 {
                 activityController.title = "Matchs"

@@ -25,7 +25,7 @@ SettingsCoordinatorDelegate {
     weak var delegate: RESideCoordinatorDelegate?
     fileprivate weak var window: UIWindow!
     
-    var resideViewController: RESideViewController = RESideViewController.instantiateFromStoryboard("RESide")
+    private let resideViewController: RESideViewController
     
     var activitiesCoordinator: ActivitiesCoordinator?
     var racketsCoordinator: RacketsCoordinator?
@@ -37,6 +37,8 @@ SettingsCoordinatorDelegate {
     
     init(window: UIWindow) {
         self.window = window
+        resideViewController = RESideViewController.instantiateViewController()
+
     }
     
     func start() {
@@ -51,7 +53,7 @@ SettingsCoordinatorDelegate {
         self.delegate?.resideCoordinatorDidFinish(resideCoordinator: self)
     }
     
-    func resideViewModelPresent(menuItem: MenuItem) {
+    func resideViewModelPresent(menuItem: RESideMenuItem) {
         
         self.activitiesCoordinator = nil
         self.racketsCoordinator = nil
