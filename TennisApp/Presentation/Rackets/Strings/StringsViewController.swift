@@ -9,7 +9,7 @@
 import UIKit
 
 
-final class StringsViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
+final class StringsViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, StoryboardInstantiable {
     
     static let StringsCellReuseId = "string_cell"
     

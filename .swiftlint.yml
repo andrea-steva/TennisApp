@@ -112,9 +112,6 @@ identifier_name:
         error: 60
     excluded: ["os", "js", "id", "to"]
 
-
-
-
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji)
 
 custom_rules:

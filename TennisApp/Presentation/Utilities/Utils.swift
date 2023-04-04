@@ -53,25 +53,6 @@ class Utils {
         }
     }
 
-    // MARK: Parallax Effect
-
-    static func parallaxEffect(_ value: Int) -> UIMotionEffectGroup {
-
-        // Set vertical effect
-        let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
-        verticalMotionEffect.minimumRelativeValue = Int(-value)
-        verticalMotionEffect.maximumRelativeValue = Int(value)
-
-        // Set horizontal effect
-        let horizontalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
-        horizontalMotionEffect.minimumRelativeValue = Int(-value)
-        horizontalMotionEffect.maximumRelativeValue = Int(value)
-
-        let motionGroup = UIMotionEffectGroup()
-        motionGroup.motionEffects = [verticalMotionEffect, horizontalMotionEffect]
-        return motionGroup
-    }
-
     static func roundCorners(_ corners: UIRectCorner, radius: CGFloat, view: UIView) {
 
         let bounds = view.bounds
@@ -131,18 +112,6 @@ class Utils {
         app.presentLocalNotificationNow(localNotification)
     }
 
-    // MARK: Storyboard
-
-    static func getControllerFromStoryboard(_ storyboard: String, controllerId: String? = nil) -> UIViewController {
-
-        let storyboard = UIStoryboard(name: storyboard, bundle: nil)
-
-        if let controllerId = controllerId {
-            return storyboard.instantiateViewController(withIdentifier: controllerId)
-        }
-        return storyboard.instantiateInitialViewController()!
-    }
-
     // MARK: EventStore Utils
 
     static func addEvent(_ eventDate: Date, title: String, notes: String, completion : @escaping (Bool) -> Void) {
@@ -169,122 +138,6 @@ class Utils {
         }
     }
 
-    // MARK: FileManager Utils
-
-    static let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-    static let fileManager = FileManager.default
-
-    /**
-     Save file on Documents folder
-     
-     - parameter filename: File name with extension
-     - parameter folder:   Folder ex folder1/folder2 or folder1
-     - parameter data:     Data to save
-     */
-    static func saveFile(_ filename: String, folder: String, data: Data) -> Bool {
-
-        let relativePath = "/\(folder)/\(filename)"
-        let filePath = documentsPath + relativePath
-
-        NSLog("filePath: \(filePath)")
-        if fileManager.isWritableFile(atPath: filePath) {
-            NSLog("Writable")
-        } else {
-            NSLog("Not Writable")
-        }
-        return ((try? data.write(to: URL(fileURLWithPath: filePath), options: [.atomic])) != nil)
-    }
-
-    /**
-     Determinates if a file exists at the given path
-     
-     - parameter filename: File name with extensions or path (eg: file.txt or folder/file.txt)
-     - parameter folder:   Folder ex folder1/folder2 or folder1
-     
-     - returns: Boolean value indicating if the file exists
-     */
-    static func existsFile(_ filename: String, folder: String) -> Bool {
-
-        let relativePath = "/\(folder)/\(filename)"
-        let filePath = documentsPath + relativePath
-        return fileManager.fileExists(atPath: filePath)
-    }
-
-    /**
-     Delete file with name
-     
-     - parameter filename: File name with extensions or path (eg: file.txt or folder/file.txt)
-     - parameter folder:   Folder ex folder1/folder2 or folder1
-     
-     - returns: The result for the operation
-     */
-    static func deleteFile(_ filename: String, folder: String) -> Bool {
-
-        let relativePath = "/\(folder)/\(filename)"
-        let filePath = documentsPath + relativePath
-
-        do {
-            try fileManager.removeItem(atPath: filePath)
-            return true
-        } catch {
-            return false
-        }
-    }
-
-    /**
-     Get file from file manager
-     
-     - parameter filename:   File name plus extension
-     - parameter folder: Relative path from Documents directory "folder1/folder2/folderN"
-     */
-    static func getFile(_ filename: String, folder: String) -> Data? {
-
-        let relativePath = "/\(folder)/\(filename)"
-        let data = try? Data(contentsOf: URL(fileURLWithPath: documentsPath + relativePath))
-        return data
-
-    }
-
-    /**
-     List file on a folder
-     
-     - parameter folderName: Folder name
-     
-     
-     - returns: The array of string with the filename of the files on the folder
-     */
-    static func listFile(_ folderName: String) -> [String]? {
-
-        let folderPath = "/\(documentsPath)/\(folderName)"
-
-        do {
-            let fileArray = try fileManager.contentsOfDirectory(atPath: folderPath)
-            return fileArray
-        } catch {
-            return nil
-        }
-
-    }
-
-    /**
-     Create folder in documents directory (http://nshipster.com/nsfilemanager/)
-     
-     - parameter folderName: Folder name
-     */
-    static func createDocumentsFolderWithName(_ folderName: String) -> Bool {
-
-        let folderPath = (documentsPath as NSString).appendingPathComponent(folderName)
-        if !fileManager.fileExists(atPath: folderPath) {
-            do {
-                try fileManager.createDirectory(atPath: folderPath, withIntermediateDirectories: false, attributes: nil)
-                return true
-            } catch {
-                return false
-            }
-
-        }
-        return true
-    }
 
     // MARK: Alert Controller
 
@@ -331,21 +184,5 @@ class Utils {
     static func dispatchAfter(_ delay: Double, closure: @escaping () -> Void) {
         DispatchQueue.main.asyncAfter(
             deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
-    }
-}
-
-// MARK: - Generic UIKit subclass
-
-/// Label with custom edge insets, default value 10.0 for left and right, 0 for top and bottom
-class INSLabel: UILabel {
-
-    var leftInset: CGFloat = 10.0
-    var topInset: CGFloat = 0.0
-    var rightInset: CGFloat = 10.0
-    var bottomInset: CGFloat = 0.0
-
-    override func drawText(in rect: CGRect) {
-        let insets: UIEdgeInsets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
-        super.drawText(in: rect.inset(by: insets))
     }
 }

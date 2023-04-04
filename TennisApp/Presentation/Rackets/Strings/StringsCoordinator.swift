@@ -15,7 +15,8 @@ protocol StringsCoordinatorDelegate: AnyObject {
 class StringsCoordinator: Coordinator, StringsViewModelCoordinatorDelegate, StringFormCoordinatorDelegate {
     
     // MARK: Properties
-    
+
+    private let container = StringsDIContainer()
     weak var delegate: StringsCoordinatorDelegate?
     fileprivate weak var navigationController: UINavigationControllerType!
     
@@ -30,9 +31,9 @@ class StringsCoordinator: Coordinator, StringsViewModelCoordinatorDelegate, Stri
     }
     
     func start() {
-        stringsViewController = StringsViewController.instantiateFromStoryboard("Strings") as! StringsViewController
+        stringsViewController = StringsViewController.instantiateViewController()
         
-        let viewModel = StringsViewModel()
+        let viewModel = StringsViewModel(stringsFetchUseCase: container.makeStringsFetchUseCase())
         viewModel.coordinatorDelegate = self
         stringsViewController.viewModel = viewModel
         navigationController?.pushViewController(stringsViewController, animated: true)

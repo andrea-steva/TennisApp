@@ -18,37 +18,31 @@ final class LoginCoordinator: Coordinator, LoginViewModelCoordinatorDelegate, Si
     
     weak var delegate: LoginCoordinatorDelegate?
     
-    fileprivate weak var window: UIWindow!
+    private weak var window: UIWindow!
     
-    fileprivate let navigationController: UINavigationControllerType = {
+    private let navigationController: UINavigationControllerType = {
         let navigationController = UINavigationController()
         navigationController.navigationBar.isTranslucent = true
         navigationController.setNavigationBarHidden(true, animated: false)
         return navigationController
     }()
     
-    var loginViewController: LoginViewController?
+    let loginViewController: LoginViewController
     var signUpCoordinator: SignUpCoordinator?
     
     // MARK: Coordinator
     
     init(window: UIWindow) {
         self.window = window
+        self.loginViewController = LoginViewController.instantiateViewController()
     }
     
     func start() {
-        let storyboard = UIStoryboard(name: "Login", bundle: nil)
-        guard let vc = storyboard.instantiateViewController(withIdentifier: "Login") as? LoginViewController else {
-            return
-        }
-        
         window.rootViewController = navigationController as? UIViewController
         
-        vc.viewModel = LoginViewModel()
-        vc.viewModel.coordinatorDelegate = self
-        navigationController.pushViewController(vc, animated: true)
-        
-        loginViewController = vc
+        loginViewController.viewModel = LoginViewModel()
+        loginViewController.viewModel.coordinatorDelegate = self
+        navigationController.pushViewController(self.loginViewController, animated: true)
     }
     
     // MARK: LoginViewModelCoordinatorDelegate

@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>LSApplicationCategoryType</key>
-	<string>https://developers.facebook.com/apps/1328551527218709/settings/advanced/</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -20,10 +18,32 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1328551527218709</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera Usage</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>PhotoLibrary Usage</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Lato-Black.ttf</string>
@@ -46,40 +66,14 @@
 		<string>Lato-ThinItalic.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Activities</string>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
+	<string>LaunchScreen.storyboard</string>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>Camera Usage</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>PhotoLibrary Usage</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>fb1328551527218709</string>
-			</array>
-		</dict>
-	</array>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>fbapi</string>
-		<string>fb-messenger-api</string>
-		<string>fbauth2</string>
-		<string>fbshareextension</string>
-	</array>
 </dict>
 </plist>

@@ -29,9 +29,8 @@ final class StringsViewModel: BaseViewModel {
 
     // MARK: Methods
 
-    override init() {
-        let repository = DefaultStringsRepository()
-        stringsFetchUseCase = DefaultStringsFetchUseCase(stringsRepository: repository)
+    init(stringsFetchUseCase: StringsFetchUseCase) {
+        self.stringsFetchUseCase = stringsFetchUseCase
     }
     
     func fetchStrings() {

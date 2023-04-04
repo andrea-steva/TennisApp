@@ -19,20 +19,21 @@ final class ActivitiesCoordinator: Coordinator {
     
     weak var delegate: ActivitiesCoordinatorDelegate?
     
-    private var resideViewController: RESideViewController!
-    private var navigationController: UINavigationControllerType = UIStoryboard(name: "Activities", bundle: nil).instantiateViewController(withIdentifier: "ContentViewController") as! UINavigationControllerType
-    
-    private var activitiesContainerViewController: ActivitiesContainerViewController?
+    private var resideViewController: RESideViewController
+    private var navigationController: UINavigationControllerType
+    private var activitiesContainerViewController: ActivitiesContainerViewController
     
     // MARK: Coordinator
     
     init(resideViewController: RESideViewController) {
         self.resideViewController = resideViewController
+        self.activitiesContainerViewController = ActivitiesContainerViewController.instantiateViewController()
+        self.navigationController = UINavigationController(rootViewController: activitiesContainerViewController)
     }
     
     func start() {
-        activitiesContainerViewController = navigationController.viewControllers.first as? ActivitiesContainerViewController
-        
+
+    
         resideViewController.contentViewController = navigationController as! UIViewController
         resideViewController.hideViewController()
     }

@@ -19,22 +19,21 @@ final class StatsCoordinator: Coordinator, StatsViewModelCoordinatorDelegate {
     
     weak var delegate: StatsCoordinatorDelegate?
     
-    private var resideViewController: RESideViewController!
-    private var navigationController: UINavigationControllerType = UIStoryboard(name: "Stats", bundle: nil).instantiateInitialViewController() as! UINavigationControllerType
-    
-    private var statsViewController: StatsViewController?
+    private var resideViewController: RESideViewController
+    private var navigationController: UINavigationControllerType
+    private var statsViewController: StatsViewController
     
     // MARK: Coordinator
     
     init(resideViewController: RESideViewController) {
         self.resideViewController = resideViewController
+        self.statsViewController = StatsViewController.instantiateViewController()
+        self.navigationController = UINavigationController(rootViewController: statsViewController)
     }
     
     func start() {
-        statsViewController = navigationController.viewControllers.first as? StatsViewController
-        
-        statsViewController?.viewModel = StatsViewModel()
-        statsViewController?.viewModel.coordinatorDelegate = self
+        statsViewController.viewModel = StatsViewModel()
+        statsViewController.viewModel.coordinatorDelegate = self
         
         resideViewController.contentViewController = navigationController as! UIViewController
         resideViewController.hideViewController()

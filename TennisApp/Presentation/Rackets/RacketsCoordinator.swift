@@ -16,15 +16,18 @@ protocol RacketsCoordinatorDelegate: AnyObject {
 final class RacketsCoordinator: Coordinator, RacketsViewModelCoordinatorDelegate, StringsCoordinatorDelegate, RacketFormCoordinatorDelegate {
     
     // MARK: Properties
+
+    private let container = RacketsDIContainer()
     weak var delegate: RacketsCoordinatorDelegate?
     
     // MARK: Controllers
-    private var resideViewController: RESideViewController!
-    private var navigationController: UINavigationControllerType = UIStoryboard(name: "Rackets", bundle: nil).instantiateInitialViewController() as! UINavigationControllerType
-    
-    private var racketsViewController: RacketsViewController?
+
+    private var resideViewController: RESideViewController
+    private var navigationController: UINavigationControllerType
+    private var racketsViewController: RacketsViewController
     
     // MARK: Coordinators
+
     private var stringsCoordinator: StringsCoordinator?
     private var racketFormCoordinator: RacketFormCoordinator?
     
@@ -32,13 +35,13 @@ final class RacketsCoordinator: Coordinator, RacketsViewModelCoordinatorDelegate
     
     init(resideViewController: RESideViewController) {
         self.resideViewController = resideViewController
+        self.racketsViewController = RacketsViewController.instantiateViewController()
+        self.navigationController = UINavigationController(rootViewController: racketsViewController)
     }
     
     func start() {
-        racketsViewController = navigationController.viewControllers.first as? RacketsViewController
-        
-        racketsViewController?.viewModel = RacketsViewModel()
-        racketsViewController?.viewModel.coordinatorDelegate = self
+        racketsViewController.viewModel = RacketsViewModel(racketsFetchUseCase: container.makeRacketsFetchUseCase())
+        racketsViewController.viewModel.coordinatorDelegate = self
 
         resideViewController.contentViewController = navigationController as! UIViewController
         resideViewController.hideViewController()

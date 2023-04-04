@@ -11,10 +11,10 @@ import RESideMenu
 
 protocol TNSideMenuDelegate: AnyObject {
     func sideMenuUserLogout()
-    func sideMenuSelect(menuItem: MenuItem)
+    func sideMenuSelect(menuItem: RESideMenuItem)
 }
 
-final class RESideViewController: RESideMenu, RESideMenuDelegate, TNSideMenuDelegate {
+final class RESideViewController: RESideMenu, RESideMenuDelegate, TNSideMenuDelegate, StoryboardInstantiable {
     
     // MARK: ViewModel
     var viewModel: RESideViewModel!
@@ -34,10 +34,10 @@ final class RESideViewController: RESideMenu, RESideMenuDelegate, TNSideMenuDele
         self.contentViewShadowOpacity = 0.6
         self.contentViewShadowRadius = 12
         self.contentViewShadowEnabled = true
-        
-        self.contentViewController = Utils.getControllerFromStoryboard("Activities", controllerId: "ContentViewController")
-        
-        let leftViewController: RESideLeftViewController = RESideLeftViewController.instantiateFromStoryboard("RESide")
+
+        self.contentViewController = UINavigationController(rootViewController: ActivitiesContainerViewController.instantiateViewController())
+
+        let leftViewController = RESideLeftViewController.instantiateViewController()
         leftViewController.resideDelegate = self
         self.leftMenuViewController = leftViewController
         
@@ -47,7 +47,7 @@ final class RESideViewController: RESideMenu, RESideMenuDelegate, TNSideMenuDele
         
     // MARK: TNSideMenuDelegate
     
-    func sideMenuSelect(menuItem: MenuItem) {
+    func sideMenuSelect(menuItem: RESideMenuItem) {
         viewModel.userSelect(menuItem: menuItem)
     }
     

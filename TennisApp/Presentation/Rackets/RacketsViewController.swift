@@ -9,7 +9,7 @@
 import UIKit
 
 
-final class RacketsViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
+final class RacketsViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, StoryboardInstantiable {
 
     static let RacketCellReuseId = "racket_cell"
 
@@ -90,7 +90,7 @@ final class RacketsViewController: BaseViewController, UITableViewDataSource, UI
         }
         editAction.backgroundColor = UIColor.orange
 
-        let deleteAction  = UITableViewRowAction(style: .default, title: "Delete") { [unowned self] (rowAction, indexPath) in
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { [unowned self] (rowAction, indexPath) in
 
             AlertView.showConfirm(localizer.get(LocalizedString.generic_alertTitle), message: "Are you sure to delete the racket?", completionBlock: { (userCancelAction) in
                 if !userCancelAction {

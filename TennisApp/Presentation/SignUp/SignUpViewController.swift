@@ -11,7 +11,7 @@ import Firebase
 import Bond
 import ReactiveKit
 
-final class SignUpViewController: BaseViewController, Bindable {
+final class SignUpViewController: BaseViewController, Bindable, StoryboardInstantiable {
 
     // MARK: IBOutlets
     @IBOutlet var displayNameField: UITextField!

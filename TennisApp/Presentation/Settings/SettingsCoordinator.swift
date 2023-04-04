@@ -19,22 +19,21 @@ final class SettingsCoordinator: Coordinator, SettingsViewModelCoordinatorDelega
     
     weak var delegate: SettingsCoordinatorDelegate?
     
-    private var resideViewController: RESideViewController!
-    private var navigationController: UINavigationControllerType = UIStoryboard(name: "Settings", bundle: nil).instantiateInitialViewController() as! UINavigationControllerType
-    
-    private var settingsViewController: SettingsViewController?
+    private var resideViewController: RESideViewController
+    private var navigationController: UINavigationControllerType
+    private var settingsViewController: SettingsViewController
     
     // MARK: Coordinator
     
     init(resideViewController: RESideViewController) {
         self.resideViewController = resideViewController
+        self.settingsViewController = SettingsViewController.instantiateViewController()
+        self.navigationController = UINavigationController(rootViewController: settingsViewController)
     }
     
     func start() {
-        settingsViewController = navigationController.viewControllers.first as? SettingsViewController
-        
-        settingsViewController?.viewModel = SettingsViewModel()
-        settingsViewController?.viewModel.coordinatorDelegate = self
+        settingsViewController.viewModel = SettingsViewModel()
+        settingsViewController.viewModel.coordinatorDelegate = self
         
         resideViewController.contentViewController = navigationController as! UIViewController
         resideViewController.hideViewController()
