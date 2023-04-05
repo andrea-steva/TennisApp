@@ -7,35 +7,29 @@
 //
 
 import UIKit
-import RESideMenu
 
 protocol ActivitiesCoordinatorDelegate: AnyObject {
     func activitiesCoordinatorDidFinish(activitiesCoordinator: ActivitiesCoordinator)
 }
 
-final class ActivitiesCoordinator: Coordinator {
+final class ActivitiesCoordinator: TabBarItemCoordinator {
     
     // MARK: Properties
     
     weak var delegate: ActivitiesCoordinatorDelegate?
-    
-    private var resideViewController: RESideViewController
-    private var navigationController: UINavigationControllerType
-    private var activitiesContainerViewController: ActivitiesContainerViewController
+
+    private let activitiesContainerViewController: ActivitiesContainerViewController
+    private let navigationController: UINavigationControllerType
     
     // MARK: Coordinator
     
-    init(resideViewController: RESideViewController) {
-        self.resideViewController = resideViewController
+    init() {
         self.activitiesContainerViewController = ActivitiesContainerViewController.instantiateViewController()
         self.navigationController = UINavigationController(rootViewController: activitiesContainerViewController)
     }
     
-    func start() {
-
-    
-        resideViewController.contentViewController = navigationController as! UIViewController
-        resideViewController.hideViewController()
+    func start() -> UIViewController {
+        navigationController as! UIViewController
     }
 
     deinit {

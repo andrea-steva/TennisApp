@@ -11,6 +11,10 @@ import Eureka
 
 class RacketFormViewController: FormViewController, StoryboardInstantiable {
 
+    // MARK: Properties
+
+    let localizer = Localizer()
+    
     // MARK: ViewModel
 
     var viewModel: RacketFormViewModel!

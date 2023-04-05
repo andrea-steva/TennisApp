@@ -10,7 +10,6 @@ def shared_pods
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
 
-	pod 'RESideMenu', '4.0.7'
 	pod 'GSKStretchyHeaderView', '1.0.4'
 	pod 'PagingMenuController', :git => 'https://github.com/andr3a88/PagingMenuController.git'
 	pod 'INSPullToRefresh', '1.2.0'

@@ -11,8 +11,12 @@ import Eureka
 
 class StringFormViewController: FormViewController, StoryboardInstantiable {
     
+    // MARK: Properties
+
+    let localizer = Localizer()
+
     // MARK: ViewModel
-    
+
     var viewModel: StringFormViewModel!
     
     // MARK: Methods

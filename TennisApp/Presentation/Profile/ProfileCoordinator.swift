@@ -7,36 +7,32 @@
 //
 
 import UIKit
-import RESideMenu
 
 protocol ProfileCoordinatorDelegate: AnyObject {
     func profileCoordinatorDidFinish(profileCoordinator: ProfileCoordinator)
 }
 
-final class ProfileCoordinator: Coordinator, ProfileViewModelCoordinatorDelegate {
+final class ProfileCoordinator: TabBarItemCoordinator,
+                                ProfileViewModelCoordinatorDelegate {
     
     // MARK: Properties
     
     weak var delegate: ProfileCoordinatorDelegate?
-    
-    private var resideViewController: RESideViewController
+
     private var navigationController: UINavigationControllerType
     private var profileViewController: ProfileViewController
     
     // MARK: Coordinator
     
-    init(resideViewController: RESideViewController) {
-        self.resideViewController = resideViewController
+    init() {
         self.profileViewController = ProfileViewController.instantiateViewController()
         self.navigationController = UINavigationController(rootViewController: profileViewController)
     }
     
-    func start() {
+    func start() -> UIViewController {
         profileViewController.viewModel = ProfileViewModel()
         profileViewController.viewModel.coordinatorDelegate = self
-        
-        resideViewController.contentViewController = navigationController as! UIViewController
-        resideViewController.hideViewController()
+        return navigationController as! UIViewController
     }
     
     deinit {

@@ -10,10 +10,6 @@ import UIKit
 import Firebase
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    static var instance: AppDelegate {
-        return UIApplication.shared.delegate as! AppDelegate
-    }
         
     var window: UIWindow?
     

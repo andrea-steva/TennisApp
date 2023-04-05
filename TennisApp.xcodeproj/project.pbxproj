@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		09EC0178D4E79F7F6D639467 /* Pods_TennisApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D1AE1094934F1BDA5C2436 /* Pods_TennisApp.framework */; };
-		6507CA641C6CFE6400B7AD5C /* RESideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA631C6CFE6400B7AD5C /* RESideViewController.swift */; };
-		6507CA661C6D023C00B7AD5C /* RESideLeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA651C6D023C00B7AD5C /* RESideLeftViewController.swift */; };
 		6507CA681C6D065A00B7AD5C /* SwiftUIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA671C6D065A00B7AD5C /* SwiftUIImageEffects.swift */; };
 		6507CA6F1C6D118000B7AD5C /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA6E1C6D118000B7AD5C /* BaseViewModel.swift */; };
 		6507CA711C6D119E00B7AD5C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA701C6D119E00B7AD5C /* BaseViewController.swift */; };
@@ -22,14 +20,11 @@
 		6569A3E01E990A3A00A444BB /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6569A3DF1E990A3A00A444BB /* Bindable.swift */; };
 		6569A3FF1E99390B00A444BB /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6569A3FE1E99390B00A444BB /* ActivityViewModel.swift */; };
 		6569A4011E99393300A444BB /* ActivitiesContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6569A4001E99393300A444BB /* ActivitiesContainerViewModel.swift */; };
-		6569A4041E9A28A600A444BB /* UINavigationControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6569A4031E9A28A600A444BB /* UINavigationControllerType.swift */; };
 		6569A4061E9A28E400A444BB /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6569A4051E9A28E400A444BB /* Extension.swift */; };
 		656A4BB51E143659009E97EB /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A4BB41E143659009E97EB /* AlertView.swift */; };
 		656A4BB91E17FD43009E97EB /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A4BB81E17FD43009E97EB /* FirebaseService.swift */; };
 		657234881E114DD40050F319 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657234871E114DD40050F319 /* Logger.swift */; };
 		6572348A1E11726B0050F319 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 657234891E11726B0050F319 /* GoogleService-Info.plist */; };
-		657AD2651EAFAE9B00E3157F /* RESideViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657AD2641EAFAE9B00E3157F /* RESideViewModel.swift */; };
-		657AD2671EB270B500E3157F /* RESideLeftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657AD2661EB270B500E3157F /* RESideLeftViewModel.swift */; };
 		658753F91F9E971B0032732D /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658753F81F9E971B0032732D /* ImageCell.swift */; };
 		6589FC891E1EFF0E00C25F31 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589FC871E1EFF0E00C25F31 /* ImagePickerController.swift */; };
 		6589FC8A1E1EFF0E00C25F31 /* ImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589FC881E1EFF0E00C25F31 /* ImageRow.swift */; };
@@ -65,7 +60,7 @@
 		65B04E181C6CA86400011439 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 65B04E041C6CA86400011439 /* README.txt */; };
 		65B04E1C1C6CBAF700011439 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E1B1C6CBAF700011439 /* Style.swift */; };
 		65B04E211C6CBDC200011439 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E201C6CBDC200011439 /* UserDefaultsStorage.swift */; };
-		65B04E231C6CBEEF00011439 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E221C6CBEEF00011439 /* Utils.swift */; };
+		65B04E231C6CBEEF00011439 /* CalendarEventsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E221C6CBEEF00011439 /* CalendarEventsBuilder.swift */; };
 		65B04E251C6CC01000011439 /* Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B04E241C6CC01000011439 /* Localizer.swift */; };
 		65C2CB121F255B500095D954 /* RacketFormCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C2CB111F255B500095D954 /* RacketFormCoordinator.swift */; };
 		65C2CB141F26A1550095D954 /* StringFormCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C2CB131F26A1550095D954 /* StringFormCoordinator.swift */; };
@@ -90,7 +85,6 @@
 		65D824AA1C6F589B00E2918C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D824A91C6F589B00E2918C /* SettingsViewController.swift */; };
 		65ECE30D1C708CC6004EE2C9 /* RacketsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ECE30C1C708CC6004EE2C9 /* RacketsViewModel.swift */; };
 		65EE6A3A1C8B9EAA001AF3F2 /* court_hard_p.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65EE6A391C8B9EAA001AF3F2 /* court_hard_p.jpg */; };
-		65F05AA81ECE327700EFA322 /* RESideCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F05AA71ECE327700EFA322 /* RESideCoordinator.swift */; };
 		65F05AAA1ECE328200EFA322 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F05AA91ECE328200EFA322 /* LoginCoordinator.swift */; };
 		65F05AAF1ECE329000EFA322 /* SignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F05AAC1ECE329000EFA322 /* SignUpCoordinator.swift */; };
 		65F05AB01ECE329000EFA322 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F05AAD1ECE329000EFA322 /* SignUpViewController.swift */; };
@@ -105,7 +99,6 @@
 		7BFA3483FF9EBB75834AD60E /* Pods_TennisAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D70E6022E2EA16F5BB6726CF /* Pods_TennisAppTests.framework */; };
 		FC1F3D1929DC7C7A006FAD8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6569A3E61E990BAF00A444BB /* LaunchScreen.storyboard */; };
 		FC1F3D1A29DC7C7A006FAD8B /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6569A3E81E990BAF00A444BB /* LoginViewController.storyboard */; };
-		FC1F3D1B29DC7C7A006FAD8B /* RESideViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D206881EE192FB004A8150 /* RESideViewController.storyboard */; };
 		FC1F3D1C29DC7C7A006FAD8B /* ActivitiesContainerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6569A3EA1E990BAF00A444BB /* ActivitiesContainerViewController.storyboard */; };
 		FC1F3D1D29DC7C7A006FAD8B /* RacketsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6569A3EE1E990BAF00A444BB /* RacketsViewController.storyboard */; };
 		FC1F3D1E29DC7C7A006FAD8B /* StringsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65653D351ED0AF7D00A9DBBB /* StringsViewController.storyboard */; };
@@ -114,6 +107,9 @@
 		FC1F3D2129DC7C7A006FAD8B /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6569A3F01E990BAF00A444BB /* SettingsViewController.storyboard */; };
 		FC1F3D2329DC8894006FAD8B /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F3D2229DC8894006FAD8B /* UIColor+.swift */; };
 		FC1F3D2529DC88BC006FAD8B /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F3D2429DC88BC006FAD8B /* UIImage+.swift */; };
+		FC1F3D2A29DDC664006FAD8B /* UINavigationControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F3D2929DDC664006FAD8B /* UINavigationControllerType.swift */; };
+		FC1F3D2C29DDD354006FAD8B /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F3D2B29DDD354006FAD8B /* LoadingIndicator.swift */; };
+		FC1F3D2E29DDD667006FAD8B /* TabBarItemCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F3D2D29DDD667006FAD8B /* TabBarItemCoordinator.swift */; };
 		FCBDF9FE29D72EB7008A7FD6 /* StringsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBDF9FD29D72EB7008A7FD6 /* StringsStorage.swift */; };
 		FCBDFA0829D73111008A7FD6 /* PracticeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBDFA0029D73111008A7FD6 /* PracticeEntity.swift */; };
 		FCBDFA0929D73111008A7FD6 /* FitnessEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBDFA0129D73111008A7FD6 /* FitnessEntity.swift */; };
@@ -130,8 +126,7 @@
 		FCE0AAD129D7372000308EF3 /* LoggerNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AAD029D7372000308EF3 /* LoggerNull.swift */; };
 		FCE0AAD629D73A9100308EF3 /* RacketBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AAD529D73A9100308EF3 /* RacketBrand.swift */; };
 		FCE0AAD829D73ACF00308EF3 /* GripSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AAD729D73ACF00308EF3 /* GripSize.swift */; };
-		FCE0AADA29D73AFB00308EF3 /* RESideMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AAD929D73AFB00308EF3 /* RESideMenuItem.swift */; };
-		FCE0AAE129D73E8500308EF3 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = FCE0AAE029D73E8500308EF3 /* MBProgressHUD */; };
+		FCE0AADA29D73AFB00308EF3 /* TabBarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AAD929D73AFB00308EF3 /* TabBarItems.swift */; };
 		FCE0AAE429D73F2A00308EF3 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FCE0AAE329D73F2A00308EF3 /* IQKeyboardManagerSwift */; };
 		FCE0AAE729D73F7A00308EF3 /* DZNEmptyDataSet in Frameworks */ = {isa = PBXBuildFile; productRef = FCE0AAE629D73F7A00308EF3 /* DZNEmptyDataSet */; };
 		FCE0AAEA29D73FB900308EF3 /* Eureka in Frameworks */ = {isa = PBXBuildFile; productRef = FCE0AAE929D73FB900308EF3 /* Eureka */; };
@@ -168,7 +163,6 @@
 		FCF6D8ED29DC6D8800DBCD4B /* RacketFormViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCF6D8EC29DC6D8800DBCD4B /* RacketFormViewController.storyboard */; };
 		FCF6D8EF29DC6F1E00DBCD4B /* SignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCF6D8EE29DC6F1E00DBCD4B /* SignUpViewController.storyboard */; };
 		FCF6D8F329DC732B00DBCD4B /* ActivityViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCF6D8F229DC732B00DBCD4B /* ActivityViewController.storyboard */; };
-		FCF6D8F629DC772400DBCD4B /* RESideLeftViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCF6D8F529DC772400DBCD4B /* RESideLeftViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -198,8 +192,6 @@
 		17D1AE1094934F1BDA5C2436 /* Pods_TennisApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TennisApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26C33F3D6C7F65404097A424 /* Pods-TennisApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TennisApp/Pods-TennisApp.debug.xcconfig"; sourceTree = "<group>"; };
 		484A4B75F1A567AF0F9C3F4C /* Pods-TennisAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TennisAppTests/Pods-TennisAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		6507CA631C6CFE6400B7AD5C /* RESideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESideViewController.swift; sourceTree = "<group>"; };
-		6507CA651C6D023C00B7AD5C /* RESideLeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESideLeftViewController.swift; sourceTree = "<group>"; };
 		6507CA671C6D065A00B7AD5C /* SwiftUIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIImageEffects.swift; sourceTree = "<group>"; };
 		6507CA6E1C6D118000B7AD5C /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		6507CA701C6D119E00B7AD5C /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -220,14 +212,11 @@
 		6569A3F21E990BAF00A444BB /* StatsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StatsViewController.storyboard; sourceTree = "<group>"; };
 		6569A3FE1E99390B00A444BB /* ActivityViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		6569A4001E99393300A444BB /* ActivitiesContainerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesContainerViewModel.swift; sourceTree = "<group>"; };
-		6569A4031E9A28A600A444BB /* UINavigationControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerType.swift; sourceTree = "<group>"; };
 		6569A4051E9A28E400A444BB /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		656A4BB41E143659009E97EB /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		656A4BB81E17FD43009E97EB /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseService.swift; path = TennisApp/Infrastructure/FirebaseService.swift; sourceTree = SOURCE_ROOT; };
 		657234871E114DD40050F319 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		657234891E11726B0050F319 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		657AD2641EAFAE9B00E3157F /* RESideViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESideViewModel.swift; sourceTree = "<group>"; };
-		657AD2661EB270B500E3157F /* RESideLeftViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESideLeftViewModel.swift; sourceTree = "<group>"; };
 		658753F81F9E971B0032732D /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		6589FC871E1EFF0E00C25F31 /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
 		6589FC881E1EFF0E00C25F31 /* ImageRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRow.swift; sourceTree = "<group>"; };
@@ -268,7 +257,7 @@
 		65B04E041C6CA86400011439 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		65B04E1B1C6CBAF700011439 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		65B04E201C6CBDC200011439 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
-		65B04E221C6CBEEF00011439 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		65B04E221C6CBEEF00011439 /* CalendarEventsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEventsBuilder.swift; sourceTree = "<group>"; };
 		65B04E241C6CC01000011439 /* Localizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizer.swift; sourceTree = "<group>"; };
 		65C2CB111F255B500095D954 /* RacketFormCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketFormCoordinator.swift; sourceTree = "<group>"; };
 		65C2CB131F26A1550095D954 /* StringFormCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringFormCoordinator.swift; sourceTree = "<group>"; };
@@ -281,7 +270,6 @@
 		65D206811EE0BACF004A8150 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		65D206831EE0BBD4004A8150 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		65D206851EE162A3004A8150 /* ActivitiesCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesCoordinator.swift; sourceTree = "<group>"; };
-		65D206881EE192FB004A8150 /* RESideViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RESideViewController.storyboard; sourceTree = "<group>"; };
 		65D2068B1EE1980F004A8150 /* StringFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringFormViewController.swift; sourceTree = "<group>"; };
 		65D2068C1EE1980F004A8150 /* StringFormViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringFormViewModel.swift; sourceTree = "<group>"; };
 		65D206901EE19820004A8150 /* RacketFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketFormViewController.swift; sourceTree = "<group>"; };
@@ -294,7 +282,6 @@
 		65D824A91C6F589B00E2918C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		65ECE30C1C708CC6004EE2C9 /* RacketsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketsViewModel.swift; sourceTree = "<group>"; };
 		65EE6A391C8B9EAA001AF3F2 /* court_hard_p.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = court_hard_p.jpg; sourceTree = "<group>"; };
-		65F05AA71ECE327700EFA322 /* RESideCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESideCoordinator.swift; sourceTree = "<group>"; };
 		65F05AA91ECE328200EFA322 /* LoginCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		65F05AAC1ECE329000EFA322 /* SignUpCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpCoordinator.swift; sourceTree = "<group>"; };
 		65F05AAD1ECE329000EFA322 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -313,6 +300,9 @@
 		D70E6022E2EA16F5BB6726CF /* Pods_TennisAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TennisAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC1F3D2229DC8894006FAD8B /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		FC1F3D2429DC88BC006FAD8B /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		FC1F3D2929DDC664006FAD8B /* UINavigationControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerType.swift; sourceTree = "<group>"; };
+		FC1F3D2B29DDD354006FAD8B /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		FC1F3D2D29DDD667006FAD8B /* TabBarItemCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemCoordinator.swift; sourceTree = "<group>"; };
 		FCBDF9FD29D72EB7008A7FD6 /* StringsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsStorage.swift; sourceTree = "<group>"; };
 		FCBDFA0029D73111008A7FD6 /* PracticeEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeEntity.swift; sourceTree = "<group>"; };
 		FCBDFA0129D73111008A7FD6 /* FitnessEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitnessEntity.swift; sourceTree = "<group>"; };
@@ -330,7 +320,7 @@
 		FCE0AAD429D739F900308EF3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FCE0AAD529D73A9100308EF3 /* RacketBrand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacketBrand.swift; sourceTree = "<group>"; };
 		FCE0AAD729D73ACF00308EF3 /* GripSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GripSize.swift; sourceTree = "<group>"; };
-		FCE0AAD929D73AFB00308EF3 /* RESideMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESideMenuItem.swift; sourceTree = "<group>"; };
+		FCE0AAD929D73AFB00308EF3 /* TabBarItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItems.swift; sourceTree = "<group>"; };
 		FCE0AAF329D7445E00308EF3 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		FCF6D8AC29DAC56200DBCD4B /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		FCF6D8AE29DAC78900DBCD4B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -363,7 +353,6 @@
 		FCF6D8EC29DC6D8800DBCD4B /* RacketFormViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RacketFormViewController.storyboard; sourceTree = "<group>"; };
 		FCF6D8EE29DC6F1E00DBCD4B /* SignUpViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpViewController.storyboard; sourceTree = "<group>"; };
 		FCF6D8F229DC732B00DBCD4B /* ActivityViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ActivityViewController.storyboard; sourceTree = "<group>"; };
-		FCF6D8F529DC772400DBCD4B /* RESideLeftViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RESideLeftViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -374,7 +363,6 @@
 				FCE0AAE429D73F2A00308EF3 /* IQKeyboardManagerSwift in Frameworks */,
 				FCE0AAE729D73F7A00308EF3 /* DZNEmptyDataSet in Frameworks */,
 				FCE0AAED29D7403100308EF3 /* Charts in Frameworks */,
-				FCE0AAE129D73E8500308EF3 /* MBProgressHUD in Frameworks */,
 				FCE0AAEA29D73FB900308EF3 /* Eureka in Frameworks */,
 				FCE0AAF229D741AA00308EF3 /* Bond in Frameworks */,
 				09EC0178D4E79F7F6D639467 /* Pods_TennisApp.framework in Frameworks */,
@@ -402,19 +390,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6507CA621C6CFE3D00B7AD5C /* RESide */ = {
-			isa = PBXGroup;
-			children = (
-				65D206881EE192FB004A8150 /* RESideViewController.storyboard */,
-				65F05AA71ECE327700EFA322 /* RESideCoordinator.swift */,
-				6507CA631C6CFE6400B7AD5C /* RESideViewController.swift */,
-				657AD2641EAFAE9B00E3157F /* RESideViewModel.swift */,
-				FCE0AAD929D73AFB00308EF3 /* RESideMenuItem.swift */,
-				FCF6D8F429DC76FE00DBCD4B /* RESideLeft */,
-			);
-			path = RESide;
-			sourceTree = "<group>";
-		};
 		65653D271ED0A7FD00A9DBBB /* Strings */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,7 +407,9 @@
 			children = (
 				6569A3DF1E990A3A00A444BB /* Bindable.swift */,
 				65F05AB21ECE332100EFA322 /* Coordinator.swift */,
-				6569A4031E9A28A600A444BB /* UINavigationControllerType.swift */,
+				FC1F3D2D29DDD667006FAD8B /* TabBarItemCoordinator.swift */,
+				FC1F3D2B29DDD354006FAD8B /* LoadingIndicator.swift */,
+				FC1F3D2929DDC664006FAD8B /* UINavigationControllerType.swift */,
 				FCF6D8E829DC5EB100DBCD4B /* StoryBoardInstantiable.swift */,
 			);
 			path = Protocols;
@@ -523,7 +500,7 @@
 				656A4BB41E143659009E97EB /* AlertView.swift */,
 				65B04E241C6CC01000011439 /* Localizer.swift */,
 				65B04E1B1C6CBAF700011439 /* Style.swift */,
-				65B04E221C6CBEEF00011439 /* Utils.swift */,
+				65B04E221C6CBEEF00011439 /* CalendarEventsBuilder.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -691,19 +668,19 @@
 		FC62B15029D724F9000B79D0 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				65B04DE51C6CA74400011439 /* Utilities */,
-				6569A3DE1E990A3A00A444BB /* Protocols */,
-				FCBDFA1029D73143008A7FD6 /* Extension */,
+				FCE0AAD929D73AFB00308EF3 /* TabBarItems.swift */,
 				6507CA701C6D119E00B7AD5C /* BaseViewController.swift */,
 				6507CA6E1C6D118000B7AD5C /* BaseViewModel.swift */,
 				65C511EF1C948EBC0051D645 /* Login */,
 				65F05AAB1ECE329000EFA322 /* SignUp */,
-				6507CA621C6CFE3D00B7AD5C /* RESide */,
 				65D824981C6E37D200E2918C /* Activitites */,
 				65D824991C6E37DA00E2918C /* Rackets */,
 				65D824A01C6E6C4200E2918C /* Stats */,
 				65D824A51C6F587D00E2918C /* Profile */,
 				65D824A61C6F587D00E2918C /* Settings */,
+				FCBDFA1029D73143008A7FD6 /* Extension */,
+				6569A3DE1E990A3A00A444BB /* Protocols */,
+				65B04DE51C6CA74400011439 /* Utilities */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -975,16 +952,6 @@
 			path = ProfileHeader;
 			sourceTree = "<group>";
 		};
-		FCF6D8F429DC76FE00DBCD4B /* RESideLeft */ = {
-			isa = PBXGroup;
-			children = (
-				FCF6D8F529DC772400DBCD4B /* RESideLeftViewController.storyboard */,
-				6507CA651C6D023C00B7AD5C /* RESideLeftViewController.swift */,
-				657AD2661EB270B500E3157F /* RESideLeftViewModel.swift */,
-			);
-			path = RESideLeft;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1006,7 +973,6 @@
 			);
 			name = TennisApp;
 			packageProductDependencies = (
-				FCE0AAE029D73E8500308EF3 /* MBProgressHUD */,
 				FCE0AAE329D73F2A00308EF3 /* IQKeyboardManagerSwift */,
 				FCE0AAE629D73F7A00308EF3 /* DZNEmptyDataSet */,
 				FCE0AAE929D73FB900308EF3 /* Eureka */,
@@ -1071,7 +1037,6 @@
 			);
 			mainGroup = 65B04D961C6CA02300011439;
 			packageReferences = (
-				FCE0AADF29D73E8400308EF3 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
 				FCE0AAE229D73F2A00308EF3 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				FCE0AAE529D73F7A00308EF3 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */,
 				FCE0AAE829D73FB900308EF3 /* XCRemoteSwiftPackageReference "Eureka" */,
@@ -1098,7 +1063,6 @@
 				65B04E0B1C6CA86400011439 /* Lato-Heavy.ttf in Resources */,
 				FC1F3D1F29DC7C7A006FAD8B /* StatsViewController.storyboard in Resources */,
 				65B04E121C6CA86400011439 /* Lato-Regular.ttf in Resources */,
-				FCF6D8F629DC772400DBCD4B /* RESideLeftViewController.storyboard in Resources */,
 				6572348A1E11726B0050F319 /* GoogleService-Info.plist in Resources */,
 				65B04DE91C6CA7A300011439 /* Localizable.strings in Resources */,
 				FC1F3D2029DC7C7A006FAD8B /* ProfileViewController.storyboard in Resources */,
@@ -1116,7 +1080,6 @@
 				65B04E0C1C6CA86400011439 /* Lato-HeavyItalic.ttf in Resources */,
 				FCF6D8F329DC732B00DBCD4B /* ActivityViewController.storyboard in Resources */,
 				65B04E111C6CA86400011439 /* Lato-MediumItalic.ttf in Resources */,
-				FC1F3D1B29DC7C7A006FAD8B /* RESideViewController.storyboard in Resources */,
 				65C4D71F1E462A5700242DEB /* .swiftlint.yml in Resources */,
 				65B04E0D1C6CA86400011439 /* Lato-Italic.ttf in Resources */,
 				FCF6D8ED29DC6D8800DBCD4B /* RacketFormViewController.storyboard in Resources */,
@@ -1200,7 +1163,6 @@
 				"${BUILT_PRODUCTS_DIR}/INSPullToRefresh/INSPullToRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/PagingMenuController/PagingMenuController.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/RESideMenu/RESideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -1216,7 +1178,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/INSPullToRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PagingMenuController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RESideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -1260,7 +1221,6 @@
 				"${BUILT_PRODUCTS_DIR}/INSPullToRefresh/INSPullToRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/PagingMenuController/PagingMenuController.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/RESideMenu/RESideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -1276,7 +1236,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/INSPullToRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PagingMenuController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RESideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -1296,7 +1255,7 @@
 				659439491ED36949007DC407 /* RacketsCoordinator.swift in Sources */,
 				6589FC981E26F6A600C25F31 /* StatsViewModel.swift in Sources */,
 				FCF6D8C329DAD2DC00DBCD4B /* AppCoreDataModel.xcdatamodeld in Sources */,
-				FCE0AADA29D73AFB00308EF3 /* RESideMenuItem.swift in Sources */,
+				FCE0AADA29D73AFB00308EF3 /* TabBarItems.swift in Sources */,
 				6507CA6F1C6D118000B7AD5C /* BaseViewModel.swift in Sources */,
 				6569A3FF1E99390B00A444BB /* ActivityViewModel.swift in Sources */,
 				65D206861EE162A3004A8150 /* ActivitiesCoordinator.swift in Sources */,
@@ -1306,7 +1265,6 @@
 				FCBDFA0F29D73111008A7FD6 /* RacketEntity.swift in Sources */,
 				6507CA711C6D119E00B7AD5C /* BaseViewController.swift in Sources */,
 				FCE0AAC229D7338100308EF3 /* UsersStorage.swift in Sources */,
-				6507CA661C6D023C00B7AD5C /* RESideLeftViewController.swift in Sources */,
 				65B04E211C6CBDC200011439 /* UserDefaultsStorage.swift in Sources */,
 				FCBDFA0A29D73111008A7FD6 /* StringsEntity.swift in Sources */,
 				FCF6D8CD29DB012500DBCD4B /* RacketsFetchUseCase.swift in Sources */,
@@ -1322,7 +1280,6 @@
 				65C511F41C948F0A0051D645 /* LoginViewModel.swift in Sources */,
 				65F05AB11ECE329000EFA322 /* SignUpViewModel.swift in Sources */,
 				FCE0AACA29D7365300308EF3 /* LoggerProfile.swift in Sources */,
-				657AD2671EB270B500E3157F /* RESideLeftViewModel.swift in Sources */,
 				65F05AB01ECE329000EFA322 /* SignUpViewController.swift in Sources */,
 				65ECE30D1C708CC6004EE2C9 /* RacketsViewModel.swift in Sources */,
 				FC1F3D2529DC88BC006FAD8B /* UIImage+.swift in Sources */,
@@ -1331,21 +1288,21 @@
 				65D2068D1EE1980F004A8150 /* StringFormViewController.swift in Sources */,
 				65C511EA1C938DCA0051D645 /* ProfileHeaderView.swift in Sources */,
 				FCF6D8B929DACAED00DBCD4B /* Fitness.swift in Sources */,
-				6569A4041E9A28A600A444BB /* UINavigationControllerType.swift in Sources */,
 				6569A4061E9A28E400A444BB /* Extension.swift in Sources */,
+				FC1F3D2E29DDD667006FAD8B /* TabBarItemCoordinator.swift in Sources */,
 				FCF6D8D429DB133C00DBCD4B /* StringsCoreDataStorage.swift in Sources */,
 				FCE0AAC429D733CC00308EF3 /* RacketsStorage.swift in Sources */,
 				6569A4011E99393300A444BB /* ActivitiesContainerViewModel.swift in Sources */,
 				65D8249F1C6E652000E2918C /* RacketTableViewCell.swift in Sources */,
 				65653D201ED0747C00A9DBBB /* main.swift in Sources */,
 				65653D241ED081D000A9DBBB /* Date+.swift in Sources */,
-				65F05AA81ECE327700EFA322 /* RESideCoordinator.swift in Sources */,
-				657AD2651EAFAE9B00E3157F /* RESideViewModel.swift in Sources */,
+				FC1F3D2C29DDD354006FAD8B /* LoadingIndicator.swift in Sources */,
 				FCBDFA0829D73111008A7FD6 /* PracticeEntity.swift in Sources */,
 				FCF6D8D229DB07F700DBCD4B /* RacketCreateUseCase.swift in Sources */,
 				65C2CB141F26A1550095D954 /* StringFormCoordinator.swift in Sources */,
 				658753F91F9E971B0032732D /* ImageCell.swift in Sources */,
 				65D824A81C6F589100E2918C /* ProfileViewController.swift in Sources */,
+				FC1F3D2A29DDC664006FAD8B /* UINavigationControllerType.swift in Sources */,
 				65C2CB121F255B500095D954 /* RacketFormCoordinator.swift in Sources */,
 				FCE0AACF29D7371000308EF3 /* LoggerConsole.swift in Sources */,
 				6569A3E01E990A3A00A444BB /* Bindable.swift in Sources */,
@@ -1369,7 +1326,7 @@
 				FCF6D8CB29DB001A00DBCD4B /* DefaultRacketsRepository.swift in Sources */,
 				65D206821EE0BACF004A8150 /* ProfileCoordinator.swift in Sources */,
 				FCF6D8E929DC5EB100DBCD4B /* StoryBoardInstantiable.swift in Sources */,
-				65B04E231C6CBEEF00011439 /* Utils.swift in Sources */,
+				65B04E231C6CBEEF00011439 /* CalendarEventsBuilder.swift in Sources */,
 				6589FC891E1EFF0E00C25F31 /* ImagePickerController.swift in Sources */,
 				FCF6D8C029DAD27D00DBCD4B /* CoreDataStorage.swift in Sources */,
 				FCF6D8DD29DB173F00DBCD4B /* StringsUpdateUseCase.swift in Sources */,
@@ -1387,7 +1344,6 @@
 				65653D261ED0820800A9DBBB /* UIView+.swift in Sources */,
 				FCF6D8D929DB161000DBCD4B /* DefaultStringsRepository.swift in Sources */,
 				6589FC961E26F69000C25F31 /* ProfileViewModel.swift in Sources */,
-				6507CA641C6CFE6400B7AD5C /* RESideViewController.swift in Sources */,
 				FCF6D8C929DAFD7300DBCD4B /* RacketsCoreDataStorage.swift in Sources */,
 				65D206921EE19820004A8150 /* RacketFormViewController.swift in Sources */,
 				65B04DA31C6CA02300011439 /* AppDelegate.swift in Sources */,
@@ -1663,14 +1619,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FCE0AADF29D73E8400308EF3 /* XCRemoteSwiftPackageReference "MBProgressHUD" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jdg/MBProgressHUD";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		FCE0AAE229D73F2A00308EF3 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
@@ -1714,11 +1662,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FCE0AAE029D73E8500308EF3 /* MBProgressHUD */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FCE0AADF29D73E8400308EF3 /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
-			productName = MBProgressHUD;
-		};
 		FCE0AAE329D73F2A00308EF3 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FCE0AAE229D73F2A00308EF3 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;

@@ -122,7 +122,8 @@ struct Style {
     static func setupNavigationBarStyle() {
         let appearance = UINavigationBar.appearance()
         appearance.tintColor = Style.Colors.lightColor
-        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Style.Colors.lightColor, NSAttributedString.Key.font: Style.Fonts.get(.light, size: .navigationBar)]
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Style.Colors.lightColor,
+                                          NSAttributedString.Key.font: Style.Fonts.get(.light, size: .navigationBar)]
         //appearance.barTintColor = Style.Colors.navigationBarColor
         appearance.shadowImage = UIImage.imageWithColor(UIColor.clear)
         //appearance.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
@@ -144,9 +145,9 @@ struct Style {
         UISearchBar.appearance().setImage(serchImage,
                                           for: UISearchBar.Icon.search,
                                           state: UIControl.State())
-        var crossCircle = UIImage(systemName: "multiply.circle", withConfiguration: configuration)!
-        serchImage = serchImage.withTintColor(Style.Colors.lightColor, renderingMode: .alwaysOriginal)
 
+        var crossCircle = UIImage(systemName: "multiply.circle", withConfiguration: configuration)!
+        crossCircle = crossCircle.withTintColor(Style.Colors.lightColor, renderingMode: .alwaysOriginal)
         UISearchBar.appearance().setImage(crossCircle,
                                           for: UISearchBar.Icon.clear,
                                           state: UIControl.State())
@@ -155,10 +156,7 @@ struct Style {
     static func setup() {
         Colors.setupStyle()
     }
-    
-    /**
-     *  This struct defines the colors used by the application
-     */
+
     struct Colors {
         
         static var primaryColor = UIColor(hexRgba: "EB7116FF")

@@ -16,9 +16,11 @@ class RacketFormCoordinator: Coordinator, RacketFormViewModelCoordinatorDelegate
     
     // MARK: Properties
 
+
     private let container = RacketsDIContainer()
     weak var delegate: RacketFormCoordinatorDelegate?
-    fileprivate weak var navigationController: UINavigationControllerType?
+
+    private let navigationController: UINavigationControllerType
     private var racket: Racket?
     
     // MARK: Coordinator
@@ -34,7 +36,7 @@ class RacketFormCoordinator: Coordinator, RacketFormViewModelCoordinatorDelegate
                                                racketUpdateUseCase: container.makeRacketUpdateUseCase(),
                                                racket: racket)
         formVC.viewModel.coordinatorDelegate = self
-        self.navigationController?.pushViewController(formVC, animated: true)
+        self.navigationController.pushViewController(formVC, animated: true)
     }
     
     // MARK: RacketFormViewModelCoordinatorDelegate

@@ -48,17 +48,8 @@ struct LocalizedString {
     static let settings_version = "settings.version"
 }
 
-let localizer = Localizer()
-
 /// The localizer class used to get the localized string
 final class Localizer {
-
-    init() {
-    }
-
-    func get(_ key: LocalizedString) -> String {
-        return self.get(key)
-    }
 
     func get(_ key: String) -> String {
         var value = NSLocalizedString(key, tableName: nil, bundle: Bundle.main, value: "", comment: "")

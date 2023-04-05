@@ -10,15 +10,17 @@ import UIKit
 import DZNEmptyDataSet
 import INSPullToRefresh
 
-private extension Selector {
-    static let didTapOnButtonMenu = #selector(BaseViewController.didTapOnButtonMenu(_:))
-}
+class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource, LoadingIndicator {
 
-class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
+    // MARK: IBOutlets
 
-    // MARK: IBOutlet
     @IBOutlet var backgroundView: UIImageView?
-    
+
+    // MARK: Properties
+
+    var loadingIndicator: UIActivityIndicatorView?
+    let localizer = Localizer()
+
     // MARK: View Management
     
     override func viewDidLoad() {
@@ -31,12 +33,6 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
         self.title = localizer.get(localizedTitleString())
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        if hasMenuButton() {
-            if self.navigationItem.leftBarButtonItems == nil {
-                self.navigationItem.leftBarButtonItems = [UIBarButtonItem]()
-            }
-            self.navigationItem.leftBarButtonItems?.insert(UIBarButtonItem(iconName: "line.horizontal.3", selector: .didTapOnButtonMenu, target: self), at: 0)
-        }
     }
     
     // MARK: Controller title
@@ -48,16 +44,6 @@ class BaseViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDat
      */
     func localizedTitleString() -> String {
         return LocalizedString.appName
-    }
-    
-    // MARK: Menu Management
-    
-    @IBAction func didTapOnButtonMenu(_ sender: UIBarButtonItem) {
-        self.presentLeftMenuViewController(sender)
-    }
-    
-    func hasMenuButton() -> Bool {
-        return true
     }
     
     // MARK: DZNEmptyDataSetSource

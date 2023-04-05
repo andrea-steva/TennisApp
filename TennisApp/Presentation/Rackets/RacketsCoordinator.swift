@@ -7,13 +7,15 @@
 //
 
 import UIKit
-import RESideMenu
 
 protocol RacketsCoordinatorDelegate: AnyObject {
     func racketsCoordinatorDidFinish(racketsCoordinator: RacketsCoordinator)
 }
 
-final class RacketsCoordinator: Coordinator, RacketsViewModelCoordinatorDelegate, StringsCoordinatorDelegate, RacketFormCoordinatorDelegate {
+final class RacketsCoordinator: TabBarItemCoordinator,
+                                RacketsViewModelCoordinatorDelegate,
+                                StringsCoordinatorDelegate,
+                                RacketFormCoordinatorDelegate {
     
     // MARK: Properties
 
@@ -22,9 +24,8 @@ final class RacketsCoordinator: Coordinator, RacketsViewModelCoordinatorDelegate
     
     // MARK: Controllers
 
-    private var resideViewController: RESideViewController
-    private var navigationController: UINavigationControllerType
-    private var racketsViewController: RacketsViewController
+    private let navigationController: UINavigationControllerType
+    private let racketsViewController: RacketsViewController
     
     // MARK: Coordinators
 
@@ -33,18 +34,15 @@ final class RacketsCoordinator: Coordinator, RacketsViewModelCoordinatorDelegate
     
     // MARK: Coordinator
     
-    init(resideViewController: RESideViewController) {
-        self.resideViewController = resideViewController
+    init() {
         self.racketsViewController = RacketsViewController.instantiateViewController()
         self.navigationController = UINavigationController(rootViewController: racketsViewController)
     }
     
-    func start() {
+    func start() -> UIViewController {
         racketsViewController.viewModel = RacketsViewModel(racketsFetchUseCase: container.makeRacketsFetchUseCase())
         racketsViewController.viewModel.coordinatorDelegate = self
-
-        resideViewController.contentViewController = navigationController as! UIViewController
-        resideViewController.hideViewController()
+        return navigationController as! UIViewController
     }
     
     // MARK: RacketsViewModelCoordinatorDelegate

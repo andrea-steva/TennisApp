@@ -90,7 +90,6 @@ PODS:
   - nanopb/encode (2.30909.0)
   - PagingMenuController (2.2.0)
   - PromisesObjC (2.2.0)
-  - RESideMenu (4.0.7)
   - SCLAlertView (0.8.1)
 
 DEPENDENCIES:
@@ -99,7 +98,6 @@ DEPENDENCIES:
   - GSKStretchyHeaderView (= 1.0.4)
   - INSPullToRefresh (= 1.2.0)
   - PagingMenuController (from `https://github.com/andr3a88/PagingMenuController.git`)
-  - RESideMenu (= 4.0.7)
   - SCLAlertView (from `https://github.com/vikmeup/SCLAlertView-Swift.git`, branch `master`)
 
 SPEC REPOS:
@@ -117,7 +115,6 @@ SPEC REPOS:
     - INSPullToRefresh
     - nanopb
     - PromisesObjC
-    - RESideMenu
 
 EXTERNAL SOURCES:
   PagingMenuController:
@@ -149,9 +146,8 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PagingMenuController: acdb8e0ff7f977182b0586656d19ba1d992390a6
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
-  RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SCLAlertView: 776813fb1f62248965f37cb7edf4088ee6394460
 
-PODFILE CHECKSUM: 0351a661e526a1ba648c46b1af4a36321bc3bef7
+PODFILE CHECKSUM: 6aaeebcc13d437e48650022b44d57d203ab505c2
 
 COCOAPODS: 1.12.0

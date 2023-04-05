@@ -12,7 +12,9 @@ protocol LoginCoordinatorDelegate: AnyObject {
     func loginCoordinatorDidFinish(loginCoordinator: LoginCoordinator)
 }
 
-final class LoginCoordinator: Coordinator, LoginViewModelCoordinatorDelegate, SignUpCoordinatorDelegate {
+final class LoginCoordinator: Coordinator,
+                              LoginViewModelCoordinatorDelegate,
+                              SignUpCoordinatorDelegate {
     
     // MARK: Properties
     
@@ -20,7 +22,7 @@ final class LoginCoordinator: Coordinator, LoginViewModelCoordinatorDelegate, Si
     
     private weak var window: UIWindow!
     
-    private let navigationController: UINavigationControllerType = {
+    private let navigationController: UINavigationController = {
         let navigationController = UINavigationController()
         navigationController.navigationBar.isTranslucent = true
         navigationController.setNavigationBarHidden(true, animated: false)
@@ -38,7 +40,7 @@ final class LoginCoordinator: Coordinator, LoginViewModelCoordinatorDelegate, Si
     }
     
     func start() {
-        window.rootViewController = navigationController as? UIViewController
+        window.rootViewController = navigationController
         
         loginViewController.viewModel = LoginViewModel()
         loginViewController.viewModel.coordinatorDelegate = self
