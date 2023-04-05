@@ -11,7 +11,11 @@ import SCLAlertView
 
 // MARK: - Utils Class
 
-class AlertView {
+final class AlertView {
+
+    // MARK: Properties
+
+    static let localizer = Localizer()
 
     static let appearance = SCLAlertView.SCLAppearance(
         kTitleFont: Style.Fonts.get(.regular, size: .extraLarge),

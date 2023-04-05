@@ -18,25 +18,23 @@ class StringsCoordinator: Coordinator, StringsViewModelCoordinatorDelegate, Stri
 
     private let container = StringsDIContainer()
     weak var delegate: StringsCoordinatorDelegate?
-    fileprivate weak var navigationController: UINavigationControllerType!
-    
-    var stringsViewController: StringsViewController!
-    
+    private let navigationController: UINavigationControllerType
+    private let stringsViewController: StringsViewController!
+
     private var stringFormCoordinator: StringFormCoordinator?
     
     // MARK: Coordinator
     
     init(navigationController: UINavigationControllerType) {
         self.navigationController = navigationController
+        self.stringsViewController = StringsViewController.instantiateViewController()
     }
     
     func start() {
-        stringsViewController = StringsViewController.instantiateViewController()
-        
         let viewModel = StringsViewModel(stringsFetchUseCase: container.makeStringsFetchUseCase())
         viewModel.coordinatorDelegate = self
         stringsViewController.viewModel = viewModel
-        navigationController?.pushViewController(stringsViewController, animated: true)
+        navigationController.pushViewController(stringsViewController, animated: true)
     }
     
     // MARK: StringsViewModelCoordinatorDelegate

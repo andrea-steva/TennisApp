@@ -7,36 +7,38 @@
 //
 
 import UIKit
-import RESideMenu
 
 protocol SettingsCoordinatorDelegate: AnyObject {
     func settingsCoordinatorDidFinish(settingsCoordinator: SettingsCoordinator)
 }
 
-final class SettingsCoordinator: Coordinator, SettingsViewModelCoordinatorDelegate {
-    
+final class SettingsCoordinator: TabBarItemCoordinator,
+                                 SettingsViewModelCoordinatorDelegate {
+
     // MARK: Properties
     
     weak var delegate: SettingsCoordinatorDelegate?
-    
-    private var resideViewController: RESideViewController
+
     private var navigationController: UINavigationControllerType
     private var settingsViewController: SettingsViewController
     
     // MARK: Coordinator
     
-    init(resideViewController: RESideViewController) {
-        self.resideViewController = resideViewController
+    init() {
         self.settingsViewController = SettingsViewController.instantiateViewController()
         self.navigationController = UINavigationController(rootViewController: settingsViewController)
     }
     
-    func start() {
+    func start() -> UIViewController {
         settingsViewController.viewModel = SettingsViewModel()
         settingsViewController.viewModel.coordinatorDelegate = self
-        
-        resideViewController.contentViewController = navigationController as! UIViewController
-        resideViewController.hideViewController()
+        return navigationController as! UIViewController
+    }
+
+    // MARK: SettingsViewModelCoordinatorDelegate
+
+    func viewModelDidLogout(viewModel: SettingsViewModel) {
+        self.delegate?.settingsCoordinatorDidFinish(settingsCoordinator: self)
     }
     
     deinit {

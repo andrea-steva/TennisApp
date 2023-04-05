@@ -15,7 +15,7 @@ protocol Bindable {
     func bindAlertError()
 }
 
-extension Bindable where Self: UIViewController {
+extension Bindable where Self: BaseViewController {
     
     func getViewModel() -> BaseViewModel? {
         return nil
@@ -31,15 +31,15 @@ extension Bindable where Self: UIViewController {
         }
         _ = viewModel.isLoading.observeNext(with: { value in
             if value {
-                Utils.showHUD(view: self.view)
+                self.showHUD()
             } else {
-                Utils.hideHUD(view: self.view)
+                self.hideHUD()
             }
         })
         
         _ = viewModel.errorMessage.observeNext { (message) in
             if let message = message {
-                AlertView.showWarning(localizer.get(LocalizedString.generic_alertTitle),
+                AlertView.showWarning(self.localizer.get(LocalizedString.generic_alertTitle),
                                       message: message,
                                       controller: self)
             }
@@ -52,7 +52,7 @@ extension Bindable where Self: UIViewController {
         }
         _ = viewModel.errorMessage.observeNext { (message) in
             if let message = message {
-                AlertView.showWarning(localizer.get(LocalizedString.generic_alertTitle),
+                AlertView.showWarning(self.localizer.get(LocalizedString.generic_alertTitle),
                                       message: message,
                                       controller: self)
             }

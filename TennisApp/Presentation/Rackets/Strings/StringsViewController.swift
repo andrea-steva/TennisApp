@@ -17,17 +17,11 @@ final class StringsViewController: BaseViewController, UITableViewDataSource, UI
     
     @IBOutlet var tableView: UITableView!
     
-    // MARK: Properties
-    
     // MARK: ViewModel
     
     var viewModel: StringsViewModel!
     
     // MARK: View Management
-    
-    override func hasMenuButton() -> Bool {
-        return false
-    }
     
     override func localizedTitleString() -> String {
         return LocalizedString.menu_strings

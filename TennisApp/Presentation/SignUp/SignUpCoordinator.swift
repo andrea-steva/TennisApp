@@ -12,17 +12,18 @@ protocol SignUpCoordinatorDelegate: AnyObject {
     func signUpCoordinatorDidFinish(signUpCoordinator: SignUpCoordinator)
 }
 
-final class SignUpCoordinator: Coordinator, SignUpViewModelCoordinatorDelegate {
+final class SignUpCoordinator: Coordinator,
+                               SignUpViewModelCoordinatorDelegate {
     
     // MARK: Properties
     
     weak var delegate: SignUpCoordinatorDelegate?
-    private let navigationController: UINavigationControllerType
+    private let navigationController: UINavigationController
     private let signUpViewController: SignUpViewController
     
     // MARK: Coordinator
     
-    init(navigationController: UINavigationControllerType) {
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         self.signUpViewController = SignUpViewController.instantiateViewController()
     }

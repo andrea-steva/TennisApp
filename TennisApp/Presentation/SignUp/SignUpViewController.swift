@@ -32,6 +32,7 @@ final class SignUpViewController: BaseViewController, Bindable, StoryboardInstan
     }
 
     // MARK: ViewModel
+
     var viewModel = SignUpViewModel()
 
     func getViewModel() -> BaseViewModel? {

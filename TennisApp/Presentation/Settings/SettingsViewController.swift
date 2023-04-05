@@ -31,4 +31,16 @@ final class SettingsViewController: BaseViewController, StoryboardInstantiable {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    // MARK: Logout
+
+    func sideMenuUserLogout() {
+        AlertView.showConfirm(localizer.get(LocalizedString.generic_alertTitle), message: "Are you sure to want to logout?") { [unowned self] (userCancelAction) in
+            if !userCancelAction {
+                self.viewModel.performLogout(completion: { (success, error) in
+                    self.viewModel.userDidlogout()
+                })
+            }
+        }
+    }
 }

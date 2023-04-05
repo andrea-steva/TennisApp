@@ -34,11 +34,11 @@ brew install swiftlint
 + [~] Create UseCases
 + [~] CRUD operation for Racket
 + [~] CRUD operation for User
-
-+ [] Add DTO to decouple domain model from CoreDataStoreage
 + [~] Check Utilities folder
++ [~] Use TabBarController instead of RESideMenu
++ [] Add DTO to decouple domain model from CoreDataStorage
++ [] Remove MBProgressHUD
 
-+ [] Use TabBarController instead of RESideMenu
 ## ✒️ Author
 
 Andrea Stevanato
