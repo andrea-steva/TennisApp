@@ -16,11 +16,11 @@ protocol RacketsViewModelCoordinatorDelegate: AnyObject {
 final class RacketsViewModel: BaseViewModel {
 
     // MARK: Coordinator
-    
+
     weak var coordinatorDelegate: RacketsViewModelCoordinatorDelegate?
-    
+
     // MARK: Properties
-    
+
     let reloadView = Observable(false)
 
     private let racketsFetchUseCase: RacketsFetchUseCase
@@ -66,21 +66,18 @@ final class RacketsViewModel: BaseViewModel {
                 Log.error(error.localizedDescription)
             }
         }
-        // TODO Implement delete use case
-        // let racketToDelete = rackets[index]
-        // Add delete racket use case and reload
     }
-    
+
     // MARK: Coordinator Flow
-    
+
     func toStrings() {
         self.coordinatorDelegate?.racketsViewModelToStrings(viewModel: self)
     }
-    
+
     func toRacketForm(index: Int) {
         self.coordinatorDelegate?.racketsViewModelToRacketForm(racket: rackets[index])
     }
-    
+
     func toEmptyRacketForm() {
         self.coordinatorDelegate?.racketsViewModelToRacketForm(racket: nil)
     }

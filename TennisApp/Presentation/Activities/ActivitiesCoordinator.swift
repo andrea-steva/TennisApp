@@ -13,23 +13,23 @@ protocol ActivitiesCoordinatorDelegate: AnyObject {
 }
 
 final class ActivitiesCoordinator: TabBarItemCoordinator {
-    
+
     // MARK: Properties
-    
+
     weak var delegate: ActivitiesCoordinatorDelegate?
 
     private let appDIContainer: AppDIContainer
     private let activitiesContainerViewController: ActivitiesContainerViewController
     private let navigationController: UINavigationControllerType
-    
+
     // MARK: Coordinator
-    
+
     init(appDIContainer: AppDIContainer) {
         self.appDIContainer = appDIContainer
         self.activitiesContainerViewController = ActivitiesContainerViewController.instantiateViewController()
         self.navigationController = UINavigationController(rootViewController: activitiesContainerViewController)
     }
-    
+
     func start() -> UIViewController {
         navigationController as! UIViewController
     }

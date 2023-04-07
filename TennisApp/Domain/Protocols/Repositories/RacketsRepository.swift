@@ -23,7 +23,13 @@ protocol RacketsRepository {
     /// - Parameter completion: The completion handler for the operation. Returns an array of `Racket` or a `Error`
     func update(racket: Racket, completion: @escaping (Result<Bool, Error>) -> Void)
 
+    /// Delete a single `Racket`
+    /// - Parameters:
+    ///   - racket: the `Racket` to delete
+    ///   - completion: The completion handler for the operation
+    func delete(racket: Racket, completion: ((Result<Bool, Error>) -> Void)?)
+
     /// Delete all the rackets from the local storage
     /// - Parameter completion: The completion handler for the operation
-    func deleteRackets(completion: ((Result<Bool, Error>) -> Void)?)
+    func deleteAll(completion: ((Result<Bool, Error>) -> Void)?)
 }

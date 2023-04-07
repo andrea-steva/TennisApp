@@ -28,6 +28,10 @@ final class StringsDIContainer {
         DefaultStringsUpdateUseCase(stringsRepository: makeStringsRepository())
     }
 
+    func makeStringsDeleteUseCase() -> StringsDeleteUseCase {
+        DefaultStringsDeleteUseCase(stringsRepository: makeStringsRepository())
+    }
+
     // MARK: Repositories
 
     private func makeStringsRepository() -> StringsRepository {

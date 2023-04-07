@@ -6,15 +6,16 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-import UIKit
 import Eureka
+import ImageRow
+import UIKit
 
-class RacketFormViewController: FormViewController, StoryboardInstantiable {
+final class RacketFormViewController: FormViewController, StoryboardInstantiable {
 
     // MARK: Properties
 
     let localizer = Localizer()
-    
+
     // MARK: ViewModel
 
     var viewModel: RacketFormViewModel!
@@ -24,7 +25,7 @@ class RacketFormViewController: FormViewController, StoryboardInstantiable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = localizer.get(LocalizedString.rackets_addRacket)
+        self.title = localizer.get(LocalizationKeys.racketsAddRacket)
 
         createForm()
     }
@@ -32,16 +33,16 @@ class RacketFormViewController: FormViewController, StoryboardInstantiable {
     func createForm() {
         let racket = viewModel.getRacket()
 
-        ImageRow.defaultCellUpdate = { cell, row in
+        ImageRow.defaultCellUpdate = { cell, _ in
             cell.accessoryView?.layer.cornerRadius = 17
             cell.accessoryView?.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         }
 
         form +++ Section("Your racket information")
-            <<< PickerInlineRow<String>("manufacter") {
+            <<< AlertRow<String>("manufacter") {
                 $0.add(rule: RuleRequired())
                 $0.title = "Manufacter"
-                $0.options = RacketBrand.allCases.map { $0.rawValue}
+                $0.options = RacketBrand.allCases.map { $0.rawValue }
                 $0.value = racket?.manufacter ?? ""
             }
             <<< TextRow("model") {
@@ -50,7 +51,7 @@ class RacketFormViewController: FormViewController, StoryboardInstantiable {
                 $0.placeholder = "ProStaff 97S"
                 $0.value = racket?.model ?? ""
             }
-            <<< PickerInlineRow<String>("gripSize") {
+            <<< AlertRow<String>("gripSize") {
                 $0.title = "Grip Size"
                 $0.options = ["1", "2", "3", "4", "5"]
                 $0.value = racket?.gripSize.rawValue ?? ""
@@ -70,7 +71,7 @@ class RacketFormViewController: FormViewController, StoryboardInstantiable {
         }
     }
 
-    @IBAction func didTapOnSaveButton(_ sender: AnyObject) {
+    @IBAction private func didTapOnSaveButton(_ sender: AnyObject) {
         let formValues = form.values()
         if let racket = viewModel.getRacket(), viewModel.isUpdate {
             viewModel.updateRacket(racket: racket, formValues: formValues)

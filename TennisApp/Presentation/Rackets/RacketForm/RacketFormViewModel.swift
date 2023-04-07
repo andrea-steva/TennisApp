@@ -11,13 +11,13 @@ protocol RacketFormViewModelCoordinatorDelegate: AnyObject {
 }
 
 final class RacketFormViewModel: BaseViewModel {
-    
+
     // MARK: Coordinator
-    
+
     weak var coordinatorDelegate: RacketFormViewModelCoordinatorDelegate?
-    
+
     // MARK: Properties
-    
+
     private let racketCreateUseCase: RacketCreateUseCase
     private let racketUpdateUseCase: RacketUpdateUseCase
     private let racket: Racket?
@@ -25,7 +25,7 @@ final class RacketFormViewModel: BaseViewModel {
     var isUpdate: Bool {
         racket != nil
     }
-    
+
     // MARK: Methods
 
     init(racketCreateUseCase: RacketCreateUseCase,
@@ -41,7 +41,6 @@ final class RacketFormViewModel: BaseViewModel {
     }
 
     func createRacket(formValues: [String: Any?]) {
-        // TODO Create racket from formValues (add helper on ´Rackets´)
         racketCreateUseCase.execute(racket: Racket(form: formValues)) { result in
             switch result {
             case .success(let success):
@@ -53,7 +52,6 @@ final class RacketFormViewModel: BaseViewModel {
     }
 
     func updateRacket(racket: Racket, formValues: [String: Any?]) {
-        // TODO update racket properties from formValues (add helper on ´Rackets´)
         racketUpdateUseCase.execute(racket: Racket(racket: racket, form: formValues)) { result in
             switch result {
             case .success(let success):

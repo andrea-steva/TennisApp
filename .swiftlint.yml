@@ -105,6 +105,7 @@ type_name:
         warning: 55
         error: 60
     allowed_symbols: ["_"]
+    excluded: ["Log", "T"]
 
 identifier_name:
     min_length: 3

@@ -8,36 +8,32 @@
 
 import UIKit
 
-
 final class SettingsViewController: BaseViewController, StoryboardInstantiable {
 
-    // MARK: IBAction
+    // MARK: IBActions
 
     // MARK: ViewModel
-    
+
     var viewModel: SettingsViewModel!
-    
+
     // MARK: View Management
 
     override func localizedTitleString() -> String {
-        return LocalizedString.menu_settings
+        LocalizationKeys.menuSettings
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: Logout
 
     func sideMenuUserLogout() {
-        AlertView.showConfirm(localizer.get(LocalizedString.generic_alertTitle), message: "Are you sure to want to logout?") { [unowned self] (userCancelAction) in
+        AlertView.showConfirm(localizer.get(LocalizationKeys.genericAlertTitle),
+                              message: "Are you sure to want to logout?") { [weak self] (userCancelAction) in
+            guard let self else { return }
             if !userCancelAction {
-                self.viewModel.performLogout(completion: { (success, error) in
+                self.viewModel.performLogout(completion: { (_, _) in
                     self.viewModel.userDidlogout()
                 })
             }

@@ -16,7 +16,7 @@ struct Match {
         case mixed
         case other
     }
-    
+
     // MARK: Stored Attributes
 
     var activityId: String!
@@ -51,4 +51,3 @@ struct Match {
         return false
     }
 }
-

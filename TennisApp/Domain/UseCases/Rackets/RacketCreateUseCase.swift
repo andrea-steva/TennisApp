@@ -32,4 +32,3 @@ final class DefaultRacketCreateUseCase: RacketCreateUseCase {
         racketsRepository.create(racket: racket, completion: completion)
     }
 }
-

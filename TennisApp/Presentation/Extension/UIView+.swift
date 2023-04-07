@@ -9,17 +9,17 @@
 import UIKit
 
 extension UIView {
-    
+
     enum ViewBorder: String {
-        case Left = "borderLeft"
-        case Right = "borderRight"
-        case Top = "borderTop"
-        case Bottom = "borderBottom"
+        case left = "borderLeft"
+        case right = "borderRight"
+        case top = "borderTop"
+        case bottom = "borderBottom"
     }
-    
+
     /**
      Add a border to the view
-     
+
      - parameter viewBorder: View border type
      - parameter color:      Border color
      - parameter width:      Border width
@@ -29,26 +29,26 @@ extension UIView {
         border.backgroundColor = color.cgColor
         border.name = viewBorder.rawValue
         switch viewBorder {
-        case .Left:
+        case .left:
             border.frame = CGRect(x: 0, y: 0, width: width, height: self.frame.size.height)
-        case .Right:
+        case .right:
             border.frame = CGRect(x: self.frame.size.width - width, y: 0, width: width, height: self.frame.size.height)
-        case .Top:
+        case .top:
             border.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: width)
-        case .Bottom:
+        case .bottom:
             border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: self.frame.size.width, height: width)
         }
         self.layer.addSublayer(border)
     }
-    
+
     func roundCorners(_ corners: UIRectCorner, radius: CGFloat, borderColor: UIColor?) {
         let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        
+
         let mask = CAShapeLayer()
         mask.path = path.cgPath
-        
+
         self.layer.mask = mask
-        
+
         if let color = borderColor?.cgColor {
             let layer = CAShapeLayer()
             layer.path = path.cgPath
@@ -58,16 +58,16 @@ extension UIView {
             self.layer.addSublayer(layer)
         }
     }
-    
+
     class func loadFromNibNamed(_ nibNamed: String, bundle: Bundle? = nil) -> UIView? {
-        return UINib(
+        UINib(
             nibName: nibNamed,
             bundle: bundle
-            ).instantiate(withOwner: nil, options: nil)[0] as? UIView
+        ).instantiate(withOwner: nil, options: nil)[0] as? UIView
     }
-    
+
     // MARK: Constraints
-    
+
     func addGenericConstraint(_ innerView: UIView, attribute: NSLayoutConstraint.Attribute, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
         let constraint = NSLayoutConstraint(item: self,
                                             attribute: attribute,
@@ -79,31 +79,31 @@ extension UIView {
         self.addConstraint(constraint)
         return constraint
     }
-    
+
     func addConstraintTop(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
-        return self.addGenericConstraint(innerView, attribute: NSLayoutConstraint.Attribute.top, multiplier: multiplier, constant: constant)
+        self.addGenericConstraint(innerView, attribute: NSLayoutConstraint.Attribute.top, multiplier: multiplier, constant: constant)
     }
-    
+
     func addConstraintBottom(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
-        return self.addGenericConstraint(innerView, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: multiplier, constant: constant)
+        self.addGenericConstraint(innerView, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: multiplier, constant: constant)
     }
-    
+
     func addConstraintCenterX(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
-        return self.addGenericConstraint(innerView, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: multiplier, constant: constant)
+        self.addGenericConstraint(innerView, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: multiplier, constant: constant)
     }
-    
+
     func addConstraintCenterY(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
-        return self.addGenericConstraint(innerView, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: multiplier, constant: constant)
+        self.addGenericConstraint(innerView, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: multiplier, constant: constant)
     }
-    
+
     func addConstraintLeading(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
-        return self.addGenericConstraint(innerView, attribute: NSLayoutConstraint.Attribute.leading, multiplier: multiplier, constant: constant)
+        self.addGenericConstraint(innerView, attribute: NSLayoutConstraint.Attribute.leading, multiplier: multiplier, constant: constant)
     }
-    
+
     func addConstraintTrailing(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
-        return self.addGenericConstraint(innerView, attribute: NSLayoutConstraint.Attribute.trailing, multiplier: multiplier, constant: constant)
+        self.addGenericConstraint(innerView, attribute: NSLayoutConstraint.Attribute.trailing, multiplier: multiplier, constant: constant)
     }
-    
+
     func addConstraintWidth(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
         let attribute = NSLayoutConstraint.Attribute.width
         let constraint = NSLayoutConstraint(item: innerView,
@@ -116,7 +116,7 @@ extension UIView {
         self.addConstraint(constraint)
         return constraint
     }
-    
+
     func addConstraintHeight(_ innerView: UIView, multiplier: CGFloat, constant: CGFloat) -> NSLayoutConstraint {
         let attribute = NSLayoutConstraint.Attribute.height
         let constraint = NSLayoutConstraint(item: innerView,

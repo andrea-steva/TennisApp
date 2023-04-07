@@ -14,7 +14,7 @@ protocol UsersRepository {
     /// Fetch from local storage
     /// - Parameter completion: The completion handler for the operation. Returns an array of `User` or a `Error`
     func fetch(completion: @escaping (Result<[User], Error>) -> Void)
-    
+
     /// Delete all the users from the local storage
     /// - Parameter completion: The completion handler for the operation
     func deleteUsers(completion: ((Result<Bool, Error>) -> Void)?)

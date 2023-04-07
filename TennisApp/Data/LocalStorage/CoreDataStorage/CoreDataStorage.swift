@@ -27,7 +27,7 @@ class CoreDataStorage {
         let container = NSPersistentContainer(name: modelName)
         container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         container.loadPersistentStores { _, error  in
-            if let error = error {
+            if let error {
                 assertionFailure("CoreDataStorage Error: \(error.localizedDescription)")
             }
         }

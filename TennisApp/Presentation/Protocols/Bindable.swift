@@ -16,15 +16,14 @@ protocol Bindable {
 }
 
 extension Bindable where Self: BaseViewController {
-    
+
     func getViewModel() -> BaseViewModel? {
-        return nil
+        nil
     }
-    
+
     func bindViewModel() {
-        
     }
-    
+
     func bindLoader() {
         guard let viewModel = self.getViewModel() else {
             return
@@ -36,23 +35,23 @@ extension Bindable where Self: BaseViewController {
                 self.hideHUD()
             }
         })
-        
+
         _ = viewModel.errorMessage.observeNext { (message) in
-            if let message = message {
-                AlertView.showWarning(self.localizer.get(LocalizedString.generic_alertTitle),
+            if let message {
+                AlertView.showWarning(self.localizer.get(LocalizationKeys.genericAlertTitle),
                                       message: message,
                                       controller: self)
             }
         }
     }
-    
+
     func bindAlertError() {
         guard let viewModel = self.getViewModel() else {
             return
         }
         _ = viewModel.errorMessage.observeNext { (message) in
-            if let message = message {
-                AlertView.showWarning(self.localizer.get(LocalizedString.generic_alertTitle),
+            if let message {
+                AlertView.showWarning(self.localizer.get(LocalizationKeys.genericAlertTitle),
                                       message: message,
                                       controller: self)
             }

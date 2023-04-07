@@ -11,4 +11,3 @@ import CoreData
     // MARK: Relationship
 
     // let user = LinkingObjects(fromType: UserEntity.self, property: "fitness")
-

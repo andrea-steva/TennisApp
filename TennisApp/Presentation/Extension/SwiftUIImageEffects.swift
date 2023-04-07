@@ -1,7 +1,7 @@
 /*
  File: UIImage+ImageEffects.m
  Abstract: This is a category of UIImage that adds methods to apply blur and tint effects to an image.
- This is the code you’ll want to look out to find out how to use vImage 
+ This is the code you’ll want to look out to find out how to use vImage
  to efficiently calculate a blur.
  Version: 1.0
 
@@ -103,25 +103,27 @@
 //  Copyright (c) 2014 Alexey Globchastyy. All rights reserved.
 //
 
+// swiftlint:disable identifier_name force_unwrapping cyclomatic_complexity comma double_space
+
 import Accelerate
 import UIKit
 
 public extension UIImage {
-    
+
     func applyMenuEffect() -> UIImage? {
-        return applyBlurWithRadius(8, tintColor: UIColor(white: 0.15, alpha: 0.50), saturationDeltaFactor: 1.8)
+        applyBlurWithRadius(8, tintColor: UIColor(white: 0.15, alpha: 0.50), saturationDeltaFactor: 1.8)
     }
 
     func applyLightEffect() -> UIImage? {
-        return applyBlurWithRadius(30, tintColor: UIColor(white: 1.0, alpha: 0.3), saturationDeltaFactor: 1.8)
+        applyBlurWithRadius(30, tintColor: UIColor(white: 1.0, alpha: 0.3), saturationDeltaFactor: 1.8)
     }
 
     func applyExtraLightEffect() -> UIImage? {
-        return applyBlurWithRadius(20, tintColor: UIColor(white: 0.97, alpha: 0.82), saturationDeltaFactor: 1.8)
+        applyBlurWithRadius(20, tintColor: UIColor(white: 0.97, alpha: 0.82), saturationDeltaFactor: 1.8)
     }
 
     func applyDarkEffect() -> UIImage? {
-        return applyBlurWithRadius(20, tintColor: UIColor(white: 0.11, alpha: 0.73), saturationDeltaFactor: 1.8)
+        applyBlurWithRadius(20, tintColor: UIColor(white: 0.11, alpha: 0.73), saturationDeltaFactor: 1.8)
     }
 
     func applyTintEffectWithColor(_ tintColor: UIColor) -> UIImage? {
@@ -162,7 +164,7 @@ public extension UIImage {
             return nil
         }
         if maskImage != nil && maskImage!.cgImage == nil {
-            print("*** error: maskImage must be backed by a CGImage: \(maskImage)")
+            print("*** error: maskImage must be backed by a CGImage: \(String(describing: maskImage))")
             return nil
         }
 
@@ -172,7 +174,7 @@ public extension UIImage {
         var effectImage = self
 
         let hasBlur = blurRadius > __FLT_EPSILON__
-        let hasSaturationChange = fabs(saturationDeltaFactor - 1.0) > __FLT_EPSILON__
+        let hasSaturationChange = abs(saturationDeltaFactor - 1.0) > __FLT_EPSILON__
 
         if hasBlur || hasSaturationChange {
             func createEffectBuffer(_ context: CGContext?) -> vImage_Buffer {
@@ -231,10 +233,10 @@ public extension UIImage {
             if hasSaturationChange {
                 let s: CGFloat = saturationDeltaFactor
                 let floatingPointSaturationMatrix: [CGFloat] = [
-                    0.0722 + 0.9278 * s,  0.0722 - 0.0722 * s,  0.0722 - 0.0722 * s,  0,
-                    0.7152 - 0.7152 * s,  0.7152 + 0.2848 * s,  0.7152 - 0.7152 * s,  0,
-                    0.2126 - 0.2126 * s,  0.2126 - 0.2126 * s,  0.2126 + 0.7873 * s,  0,
-                    0,                    0,                    0,  1
+                    0.0722 + 0.9278 * s, 0.0722 - 0.0722 * s, 0.0722 - 0.0722 * s, 0,
+                    0.7152 - 0.7152 * s, 0.7152 + 0.2848 * s, 0.7152 - 0.7152 * s, 0,
+                    0.2126 - 0.2126 * s, 0.2126 - 0.2126 * s, 0.2126 + 0.7873 * s, 0,
+                    0,                    0,                    0, 1
                 ]
 
                 let divisor: CGFloat = 256
@@ -300,3 +302,5 @@ public extension UIImage {
         return outputImage
     }
 }
+
+// swiftlint:enable identifier_name force_unwrapping cyclomatic_complexity comma double_space

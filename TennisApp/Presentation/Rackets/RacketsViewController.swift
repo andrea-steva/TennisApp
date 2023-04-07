@@ -8,14 +8,13 @@
 
 import UIKit
 
-
 final class RacketsViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, StoryboardInstantiable {
 
     static let RacketCellReuseId = "racket_cell"
 
     // MARK: IBOutlets
 
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet private var tableView: UITableView!
 
     // MARK: Properties
 
@@ -26,35 +25,55 @@ final class RacketsViewController: BaseViewController, UITableViewDataSource, UI
     // MARK: View Management
 
     override func localizedTitleString() -> String {
-        return LocalizedString.menu_rackets
+        LocalizationKeys.menuRackets
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.setupObservers()
+        self.addPullToRefresh()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         self.viewModel.fetchRackets()
     }
-    
-    func setupObservers() {
-        _ = viewModel.reloadView.observeNext(with: { [weak self] (value) in
+
+    private func setupObservers() {
+        _ = viewModel.reloadView.observeNext(with: { [weak self] _ in
             self?.tableView.reloadData()
+            self?.tableView.refreshControl?.endRefreshing()
         })
+    }
+
+    // MARK: Refresh Control
+
+    private func addPullToRefresh() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(pullToRefreshAction), for: .valueChanged)
+        self.tableView.refreshControl = refreshControl
+    }
+
+    @objc private func pullToRefreshAction(_ sender: AnyObject) {
+        self.viewModel.fetchRackets()
     }
 
     // MARK: UITableViewDataSource
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRackets()
+        let racketsCount = viewModel.numberOfRackets()
+        if racketsCount == 0 {
+            self.tableView.setEmptyMessage("No rackets saved")
+        } else {
+            self.tableView.restore()
+        }
+        return racketsCount
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,7 +89,7 @@ final class RacketsViewController: BaseViewController, UITableViewDataSource, UI
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.5
+        0.5
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -81,35 +100,34 @@ final class RacketsViewController: BaseViewController, UITableViewDataSource, UI
         return footerView
     }
 
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-
-        let editAction  = UITableViewRowAction(style: .normal, title: "Edit") { [unowned self] (rowAction, indexPath) in
-            
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { (_, _, _) in
             self.viewModel.toRacketForm(index: indexPath.row)
             self.tableView.setEditing(false, animated: true)
         }
-        editAction.backgroundColor = UIColor.orange
+        editAction.backgroundColor = Style.Colors.primaryColor
 
-        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { [unowned self] (rowAction, indexPath) in
-
-            AlertView.showConfirm(localizer.get(LocalizedString.generic_alertTitle), message: "Are you sure to delete the racket?", completionBlock: { (userCancelAction) in
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (_, _, _) in
+            AlertView.showConfirm(self.localizer.get(LocalizationKeys.genericAlertTitle),
+                                  message: "Are you sure to delete the racket?",
+                                  completionBlock: { (userCancelAction) in
                 if !userCancelAction {
                     self.viewModel.deleteRacket(forIndex: indexPath.row)
                     self.tableView.setEditing(false, animated: true)
                 }
             })
-
         }
-        return [editAction, deleteAction]
+
+        return UISwipeActionsConfiguration(actions: [editAction, deleteAction])
     }
-    
+
     // MARK: IBActions
-    
-    @IBAction func didTapOnStringsButton(_ sender: AnyObject) {
+
+    @IBAction private func didTapOnStringsButton(_ sender: AnyObject) {
         self.viewModel.toStrings()
     }
-    
-    @IBAction func didTapOnAddRacketButton(_ sender: AnyObject) {
+
+    @IBAction private func didTapOnAddRacketButton(_ sender: AnyObject) {
         self.viewModel.toEmptyRacketForm()
     }
 }

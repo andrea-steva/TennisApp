@@ -13,7 +13,7 @@ protocol StringsCoordinatorDelegate: AnyObject {
 }
 
 class StringsCoordinator: Coordinator, StringsViewModelCoordinatorDelegate, StringFormCoordinatorDelegate {
-    
+
     // MARK: Properties
 
     weak var delegate: StringsCoordinatorDelegate?
@@ -23,42 +23,43 @@ class StringsCoordinator: Coordinator, StringsViewModelCoordinatorDelegate, Stri
     private let stringsViewController: StringsViewController
 
     private var stringFormCoordinator: StringFormCoordinator?
-    
+
     // MARK: Coordinator
-    
+
     init(container: StringsDIContainer,
          navigationController: UINavigationControllerType) {
         self.container = container
         self.navigationController = navigationController
         self.stringsViewController = StringsViewController.instantiateViewController()
     }
-    
+
     func start() {
-        let viewModel = StringsViewModel(stringsFetchUseCase: container.makeStringsFetchUseCase())
+        let viewModel = StringsViewModel(stringsFetchUseCase: container.makeStringsFetchUseCase(),
+                                         stringDeleteUseCase: container.makeStringsDeleteUseCase())
         viewModel.coordinatorDelegate = self
         stringsViewController.viewModel = viewModel
         navigationController.pushViewController(stringsViewController, animated: true)
     }
-    
+
     // MARK: StringsViewModelCoordinatorDelegate
-    
+
     func stringViewModelDidEnd(_ viewModel: StringsViewModel) {
         delegate?.stringsCoordinatorDidFinish(racketsCoordinator: self)
     }
-    
+
     func stringViewModelToStringForm(string: Strings?) {
         stringFormCoordinator = StringFormCoordinator(navigationController: navigationController, string: string)
         stringFormCoordinator?.delegate = self
         stringFormCoordinator?.start()
     }
-    
+
     // MARK: StringFormViewModelCoordinatorDelegate
-    
+
     func stringFormCoordinatorDidFinish(stringFormCoordinator: StringFormCoordinator) {
         _ = navigationController.popViewController(animated: true)
         self.stringFormCoordinator = nil
     }
-    
+
     deinit {
         Log.debug("+++ Deinit \(self) +++")
     }

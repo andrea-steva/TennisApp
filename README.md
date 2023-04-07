@@ -34,10 +34,14 @@ brew install swiftlint
 + [~] Add DI containers
 + [~] Create repositories
 + [~] Create UseCases
-+ [~] CRUD operation for Racket
++ [X] CRUD operation for Racket
 + [~] CRUD operation for User
 + [~] Check Utilities folder
 + [] Add DTO to decouple domain model from CoreDataStorage
++ [] Entity relationships
++ [] Use Combine instead of Bond
++ [] Check forms (Eureka)
++ [] Add builder to convert form to Model (formValues -> ´Rackets´)
 
 
 ## ✒️ Author

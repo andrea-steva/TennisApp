@@ -22,9 +22,9 @@ protocol StringsLocalStorage {
 
     /// Delete strings from local storage
     /// - Parameters:
-    ///   - strings: The strings to delete
+    ///   - strings: The string to delete
     ///   - completion: The completion handler for the operation
-    func delete(strings: Strings, completion: ((Result<Bool, Error>) -> Void)?)
+    func delete(string: Strings, completion: ((Result<Bool, Error>) -> Void)?)
 
     /// Delete all the strings from the local storage
     /// - Parameter completion: The completion handler for the operation

@@ -6,9 +6,12 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-import XCTest
 @testable import TennisApp
+import XCTest
 
 class TennisAppTests: XCTestCase {
-    
+
+    // MARK: Constants
+
+    static let expectationStandardTimeout = 1.0
 }

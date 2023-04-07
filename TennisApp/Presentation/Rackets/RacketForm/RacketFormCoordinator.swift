@@ -13,23 +13,22 @@ protocol RacketFormCoordinatorDelegate: AnyObject {
 }
 
 class RacketFormCoordinator: Coordinator, RacketFormViewModelCoordinatorDelegate {
-    
-    // MARK: Properties
 
+    // MARK: Properties
 
     private let container = RacketsDIContainer()
     weak var delegate: RacketFormCoordinatorDelegate?
 
     private let navigationController: UINavigationControllerType
     private var racket: Racket?
-    
+
     // MARK: Coordinator
-    
+
     init(navigationController: UINavigationControllerType, racket: Racket?) {
         self.navigationController = navigationController
         self.racket = racket
     }
-    
+
     func start() {
         let formVC = RacketFormViewController.instantiateViewController()
         formVC.viewModel = RacketFormViewModel(racketCreateUseCase: container.makeRacketCreateUseCase(),
@@ -38,13 +37,13 @@ class RacketFormCoordinator: Coordinator, RacketFormViewModelCoordinatorDelegate
         formVC.viewModel.coordinatorDelegate = self
         self.navigationController.pushViewController(formVC, animated: true)
     }
-    
+
     // MARK: RacketFormViewModelCoordinatorDelegate
-    
+
     func racketFormViewModelSaveRacket() {
         delegate?.racketFormCoordinatorDidFinish(racketFormCoordinator: self)
     }
-    
+
     deinit {
         Log.debug("+++ Deinit \(self) +++")
     }

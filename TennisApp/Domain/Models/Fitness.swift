@@ -32,4 +32,3 @@ struct Fitness {
 
     let user: User
 }
-

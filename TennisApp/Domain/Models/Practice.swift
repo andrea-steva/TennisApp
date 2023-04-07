@@ -17,7 +17,7 @@ struct Practice {
         case service
         case volley
     }
-    
+
     // MARK: Stored Attributes
 
     var activityId: String

@@ -12,7 +12,6 @@ import CoreData
 
 // let racket = LinkingObjects(fromType: RacketEntity.self, property: "strings")
 
-
 // MARK: - Mappings to domain
 
 extension StringsEntity {

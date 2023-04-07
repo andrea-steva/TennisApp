@@ -15,7 +15,7 @@ final class AppCoordinator: Coordinator,
                             StatsCoordinatorDelegate,
                             ProfileCoordinatorDelegate,
                             SettingsCoordinatorDelegate {
-    
+
     // MARK: Properties
 
     let appDIContainer = AppDIContainer()
@@ -24,9 +24,9 @@ final class AppCoordinator: Coordinator,
 
     private let window: UIWindow
     private let tabBarController: UITabBarController
-    
+
     var isLoggedIn: Bool {
-        return (FirebaseService.sharedInstance.currentUser != nil ? true : false)
+        (FirebaseService.sharedInstance.currentUser != nil ? true : false)
     }
 
     // MARK: Tab bar item coordinators
@@ -36,61 +36,61 @@ final class AppCoordinator: Coordinator,
     lazy var statsCoordinator: StatsCoordinator = StatsCoordinator(appDIContainer: appDIContainer)
     lazy var profileCoordinator: ProfileCoordinator = ProfileCoordinator(appDIContainer: appDIContainer)
     lazy var settingsCoordinator: SettingsCoordinator = SettingsCoordinator(appDIContainer: appDIContainer)
-    
+
     // MARK: Coordinator
-    
+
     init(window: UIWindow) {
         self.window = window
         self.tabBarController = UITabBarController()
     }
-    
+
     func start() {
-        // FIXME : Force login
         showActivities()
         return
-        if isLoggedIn {
-            showActivities()
-        } else {
-            showLogin()
-        }
+
+//        if isLoggedIn {
+//            showActivities()
+//        } else {
+//            showLogin()
+//        }
     }
-    
+
     private func showLogin() {
         let loginCoordinator = LoginCoordinator(window: window)
         loginCoordinator.delegate = self
         loginCoordinator.start()
         coordinators["login"] = loginCoordinator
     }
-    
+
     private func showActivities() {
         window.rootViewController = tabBarController
-        configureTabBarController()
+        configureTabBarControllers()
     }
 
-    private func configureTabBarController() {
+    private func configureTabBarControllers() {
         let activitiesViewController = activitiesCoordinator.start()
         activitiesCoordinator.delegate = self
-        activitiesViewController.tabBarItem = UITabBarItem(title: localizer.get(LocalizedString.menu_home),
+        activitiesViewController.tabBarItem = UITabBarItem(title: localizer.get(LocalizationKeys.menuHome),
                                                            image: UIImage(systemName: "house"), tag: 0)
 
         let racketsViewController = racketsCoordinator.start()
         racketsCoordinator.delegate = self
-        racketsViewController.tabBarItem = UITabBarItem(title: localizer.get(LocalizedString.menu_rackets),
+        racketsViewController.tabBarItem = UITabBarItem(title: localizer.get(LocalizationKeys.menuRackets),
                                                         image: UIImage(systemName: "gear"), tag: 1)
 
         let statsViewController = statsCoordinator.start()
         statsCoordinator.delegate = self
-        statsViewController.tabBarItem = UITabBarItem(title: localizer.get(LocalizedString.menu_stats),
+        statsViewController.tabBarItem = UITabBarItem(title: localizer.get(LocalizationKeys.menuStats),
                                                       image: UIImage(systemName: "chart.bar.fill"), tag: 2)
 
         let profileViewController = profileCoordinator.start()
         profileCoordinator.delegate = self
-        profileViewController.tabBarItem = UITabBarItem(title: localizer.get(LocalizedString.menu_profile),
+        profileViewController.tabBarItem = UITabBarItem(title: localizer.get(LocalizationKeys.menuProfile),
                                                         image: UIImage(systemName: "person"), tag: 3)
 
         let settingsViewController = settingsCoordinator.start()
         settingsCoordinator.delegate = self
-        settingsViewController.tabBarItem = UITabBarItem(title: localizer.get(LocalizedString.menu_settings),
+        settingsViewController.tabBarItem = UITabBarItem(title: localizer.get(LocalizationKeys.menuSettings),
                                                          image: UIImage(systemName: "slider.horizontal.3"), tag: 3)
 
         tabBarController.tabBar.tintColor = Style.Colors.primaryColor
@@ -102,7 +102,7 @@ final class AppCoordinator: Coordinator,
     }
 
     // MARK: LoginCoordinatorDelegate
-    
+
     func loginCoordinatorDidFinish(loginCoordinator: LoginCoordinator) {
         coordinators["login"] = nil
         showActivities()
@@ -124,7 +124,6 @@ final class AppCoordinator: Coordinator,
 
     func settingsCoordinatorDidFinish(settingsCoordinator: SettingsCoordinator) {
     }
-
 
     deinit {
         Log.debug("+++ Deinit \(self) +++")

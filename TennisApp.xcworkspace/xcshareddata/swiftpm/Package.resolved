@@ -28,21 +28,21 @@
       }
     },
     {
-      "identity" : "dznemptydataset",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/dzenbot/DZNEmptyDataSet",
-      "state" : {
-        "branch" : "master",
-        "revision" : "9bffa69a83a9fa58a14b3cf43cb6dd8a63774179"
-      }
-    },
-    {
       "identity" : "eureka",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/xmartlabs/Eureka",
       "state" : {
         "revision" : "b6e35acf77a5551070afa6248935ec68e71f22af",
         "version" : "5.4.0"
+      }
+    },
+    {
+      "identity" : "imagerow",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/EurekaCommunity/ImageRow",
+      "state" : {
+        "revision" : "5682215c037bc5ff9b9b9ddb219f906f078e4c25",
+        "version" : "4.1.0"
       }
     },
     {

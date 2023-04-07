@@ -14,7 +14,7 @@ import CoreData
 //    @Persisted var matches = List<MatchEntity>()
 //    @Persisted var fitness = List<FitnessEntity>()
 //    @Persisted var practices = List<PracticeEntity>()
-//        
+//
 
 // MARK: - Mappings to domain
 
@@ -22,14 +22,14 @@ extension UserEntity {
 
     func toDomain() -> User {
         User(identifier: self.identifier ?? "",
-              firstName: self.firstName ?? "",
-              lastName: self.lastName ?? "",
-              age: Int(self.age),
-              email: self.email ?? "",
-              backhandType: self.backhandType ?? "",
-              handType: self.handType ?? "",
-              ranking: self.ranking ?? "",
-              profileImage: self.profileImage)
+             firstName: self.firstName ?? "",
+             lastName: self.lastName ?? "",
+             age: Int(self.age),
+             email: self.email ?? "",
+             backhandType: self.backhandType ?? "",
+             handType: self.handType ?? "",
+             ranking: self.ranking ?? "",
+             profileImage: self.profileImage)
     }
 }
 

@@ -7,12 +7,11 @@
 //
 
 protocol ProfileViewModelCoordinatorDelegate: AnyObject {
-    
 }
 
 final class ProfileViewModel: BaseViewModel {
 
     // MARK: Coordinator
-    
+
     weak var coordinatorDelegate: ProfileViewModelCoordinatorDelegate?
 }

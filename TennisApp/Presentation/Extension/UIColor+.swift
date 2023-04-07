@@ -6,6 +6,8 @@
 //  Copyright © 2023 Andrea Stevanato. All rights reserved.
 //
 
+// swiftlint:disable operator_usage_whitespace
+
 import UIKit
 
 extension UIColor {
@@ -55,7 +57,7 @@ extension UIColor {
 
         let index   = hexRgba.hasPrefix("#") ? hexRgba.index(after: hexRgba.startIndex) : hexRgba.startIndex
 
-        let hex     = hexRgba.substring(from: index)
+        let hex     = String(hexRgba.suffix(from: index))
         let scanner = Scanner(string: hex)
         var hexValue: CUnsignedLongLong = 0
         if scanner.scanHexInt64(&hexValue) {
@@ -89,14 +91,14 @@ extension UIColor {
     }
 
     func lighter(_ amount: CGFloat = 0.25) -> UIColor {
-        return hueColorWithBrightnessAmount(1 + amount)
+        hueColorWithBrightnessAmount(1 + amount)
     }
 
     func darker(_ amount: CGFloat = 0.25) -> UIColor {
-        return hueColorWithBrightnessAmount(1 - amount)
+        hueColorWithBrightnessAmount(1 - amount)
     }
 
-    fileprivate func hueColorWithBrightnessAmount(_ amount: CGFloat) -> UIColor {
+    private func hueColorWithBrightnessAmount(_ amount: CGFloat) -> UIColor {
         var hue: CGFloat = 0
         var saturation: CGFloat = 0
         var brightness: CGFloat = 0
@@ -111,5 +113,6 @@ extension UIColor {
             return self
         }
     }
-
 }
+
+// swiftlint:enable operator_usage_whitespace
