@@ -9,7 +9,7 @@
 import Foundation
 
 protocol StringsUpdateUseCase {
-    func execute(strings: Strings,
+    func execute(string: Strings,
                  completion: @escaping (Result<Bool, Error>) -> Void)
 }
 
@@ -27,8 +27,8 @@ final class DefaultStringsUpdateUseCase: StringsUpdateUseCase {
 
     // MARK: Use case execution
 
-    func execute(strings: Strings,
+    func execute(string: Strings,
                  completion: @escaping (Result<Bool, Error>) -> Void) {
-        stringsRepository.update(strings: strings, completion: completion)
+        stringsRepository.update(string: string, completion: completion)
     }
 }

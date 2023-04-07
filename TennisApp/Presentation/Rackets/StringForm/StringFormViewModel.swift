@@ -11,11 +11,11 @@ protocol StringFormViewModelCoordinatorDelegate: AnyObject {
 }
 
 final class StringFormViewModel: BaseViewModel {
-    
+
     // MARK: Coordinator
-    
+
     weak var coordinatorDelegate: StringFormViewModelCoordinatorDelegate?
-    
+
     // MARK: Properties
 
     private let stringsCreateUseCase: StringsCreateUseCase
@@ -28,7 +28,6 @@ final class StringFormViewModel: BaseViewModel {
 
     // MARK: Methods
 
-
     init(stringsCreateUseCase: StringsCreateUseCase,
          stringsUpdateUseCase: StringsUpdateUseCase,
          string: Strings?) {
@@ -36,14 +35,13 @@ final class StringFormViewModel: BaseViewModel {
         self.stringsUpdateUseCase = stringsUpdateUseCase
         self.string = string
     }
-    
+
     func getString() -> Strings? {
-        return string
+        string
     }
 
     func createStrings(formValues: [String: Any?]) {
-        // TODO Create strings from formValues (add helper on ´Strings´)
-        stringsCreateUseCase.execute(strings: Strings(form: formValues)) { result in
+        stringsCreateUseCase.execute(string: Strings(form: formValues)) { result in
             switch result {
             case .success(let success):
                 Log.debug("Create strings \(success)")
@@ -53,9 +51,8 @@ final class StringFormViewModel: BaseViewModel {
         }
     }
 
-    func updateStrings(formValues: [String: Any?]) {
-        // TODO update strings properties from formValues (add helper on ´Strings´)
-        stringsUpdateUseCase.execute(strings: Strings(form: formValues)) { result in
+    func updateStrings(string: Strings, formValues: [String: Any?]) {
+        stringsUpdateUseCase.execute(string: Strings(string: string, form: formValues)) { result in
             switch result {
             case .success(let success):
                 Log.debug("Update strings \(success)")

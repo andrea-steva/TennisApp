@@ -45,22 +45,14 @@ final class DefaultRacketsRepository: RacketsRepository {
     }
 
     func update(racket: Racket, completion: @escaping (Result<Bool, Error>) -> Void) {
-        racketsLocalStorage.save(rackets: [racket]) { result in
-            switch result {
-            case .success(let result):
-                completion(.success(result))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+        racketsLocalStorage.save(rackets: [racket], completion: completion)
     }
 
-    func deleteRackets(completion: ((Result<Bool, Error>) -> Void)?) {
-        racketsLocalStorage.deleteAll(completion: completion)
+    func delete(racket: Racket, completion: ((Result<Bool, Error>) -> Void)?) {
+        racketsLocalStorage.delete(racket: racket, completion: completion)
     }
 
-    //TODO Create method to delete single racket
-    func deleteRacket(racket: Racket, completion: ((Result<Bool, Error>) -> Void)?) {
+    func deleteAll(completion: ((Result<Bool, Error>) -> Void)?) {
         racketsLocalStorage.deleteAll(completion: completion)
     }
 }

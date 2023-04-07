@@ -8,69 +8,74 @@
 
 import UIKit
 
-
 final class StringsViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, StoryboardInstantiable {
-    
+
     static let StringsCellReuseId = "string_cell"
-    
+
     // MARK: IBOutlets
-    
-    @IBOutlet var tableView: UITableView!
-    
+
+    @IBOutlet private var tableView: UITableView!
+
     // MARK: ViewModel
-    
+
     var viewModel: StringsViewModel!
-    
+
     // MARK: View Management
-    
+
     override func localizedTitleString() -> String {
-        return LocalizedString.menu_strings
+        LocalizationKeys.menuStrings
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.setupObservers()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         self.viewModel.fetchStrings()
     }
-    
+
     func setupObservers() {
-        _ = viewModel.reloadView.observeNext(with: { [weak self] (value) in
+        _ = viewModel.reloadView.observeNext(with: { [weak self] _ in
             self?.tableView.reloadData()
         })
     }
-    
+
     // MARK: UITableViewDataSource
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        1
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfStrings()
+        let stringsCount = viewModel.numberOfStrings()
+        if stringsCount == 0 {
+            self.tableView.setEmptyMessage("No strings saved")
+        } else {
+            self.tableView.restore()
+        }
+        return stringsCount
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StringsViewController.StringsCellReuseId, for: indexPath) as! StringTableViewCell
         cell.setString(viewModel.string(forIndex: indexPath.row))
         return cell
     }
-    
+
     // MARK: UITableViewDelegate
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
+
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.5
+        0.5
     }
-    
+
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = UIView()
         if section == 0 {
@@ -78,32 +83,31 @@ final class StringsViewController: BaseViewController, UITableViewDataSource, UI
         }
         return footerView
     }
-    
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
-        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { [unowned self] (rowAction, indexPath) in
-            
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editAction = UIContextualAction(style: .normal, title: "Edit") {  (_, _, _) in
             self.viewModel.toStringForm(index: indexPath.row)
             self.tableView.setEditing(false, animated: true)
         }
-        editAction.backgroundColor = UIColor.orange
-        
-        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { [unowned self] (rowAction, indexPath) in
-            
-            AlertView.showConfirm(localizer.get(LocalizedString.generic_alertTitle), message: "Are you sure to delete the string?", completionBlock: { (userCancelAction) in
+        editAction.backgroundColor = Style.Colors.primaryColor
+
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (_, _, _) in
+            AlertView.showConfirm(self.localizer.get(LocalizationKeys.genericAlertTitle),
+                                  message: "Are you sure to delete the string?",
+                                  completionBlock: { (userCancelAction) in
                 if !userCancelAction {
                     self.viewModel.deleteString(forIndex: indexPath.row)
                     self.tableView.setEditing(false, animated: true)
                 }
             })
-            
         }
-        return [editAction, deleteAction]
+
+        return UISwipeActionsConfiguration(actions: [editAction, deleteAction])
     }
-    
+
     // MARK: IBAction
-    
-    @IBAction func didTapOnAddStringButton(_ sender: AnyObject) {
+
+    @IBAction private func didTapOnAddStringButton(_ sender: AnyObject) {
         self.viewModel.toEmptyStringForm()
     }
 }

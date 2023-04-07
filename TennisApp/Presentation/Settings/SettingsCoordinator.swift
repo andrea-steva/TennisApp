@@ -16,21 +16,21 @@ final class SettingsCoordinator: TabBarItemCoordinator,
                                  SettingsViewModelCoordinatorDelegate {
 
     // MARK: Properties
-    
+
     weak var delegate: SettingsCoordinatorDelegate?
 
     private let appDIContainer: AppDIContainer
     private var navigationController: UINavigationControllerType
     private var settingsViewController: SettingsViewController
-    
+
     // MARK: Coordinator
-    
+
     init(appDIContainer: AppDIContainer) {
         self.appDIContainer = appDIContainer
         self.settingsViewController = SettingsViewController.instantiateViewController()
         self.navigationController = UINavigationController(rootViewController: settingsViewController)
     }
-    
+
     func start() -> UIViewController {
         settingsViewController.viewModel = SettingsViewModel()
         settingsViewController.viewModel.coordinatorDelegate = self
@@ -42,7 +42,7 @@ final class SettingsCoordinator: TabBarItemCoordinator,
     func viewModelDidLogout(viewModel: SettingsViewModel) {
         self.delegate?.settingsCoordinatorDidFinish(settingsCoordinator: self)
     }
-    
+
     deinit {
         Log.debug("+++ Deinit \(self) +++")
     }

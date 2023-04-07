@@ -6,11 +6,10 @@ use_frameworks!
 
 def shared_pods
 
-  #Firebase
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+
 	pod 'GSKStretchyHeaderView', '1.0.4'
-	pod 'INSPullToRefresh', '1.2.0'
   pod 'SCLAlertView', :git => 'https://github.com/vikmeup/SCLAlertView-Swift.git', :branch => 'master'
 
 end

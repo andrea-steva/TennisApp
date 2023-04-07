@@ -6,7 +6,6 @@
 //  Copyright © 2023 Andrea Stevanato. All rights reserved.
 //
 
-
 import UIKit
 
 protocol LoadingIndicator: AnyObject {
@@ -39,4 +38,3 @@ extension LoadingIndicator where Self: UIViewController {
         }
     }
 }
-

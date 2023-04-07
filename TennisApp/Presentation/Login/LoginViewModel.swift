@@ -15,35 +15,32 @@ protocol LoginViewModelCoordinatorDelegate: AnyObject {
 }
 
 final class LoginViewModel: BaseViewModel {
-    
+
     // MARK: Coordinator
-    
+
     weak var coordinatorDelegate: LoginViewModelCoordinatorDelegate?
-    
+
     // MARK: Observable
-    
+
     let email = Observable<String?>("")
     let password = Observable<String?>("")
     let profileImageURL = Observable<URL?>(nil)
-    
+
     // MARK: Methods
-    
+
     func toSignUp() {
         self.coordinatorDelegate?.loginViewModelToSignUp(viewModel: self)
     }
-    
-    func signIn() {
-        self.coordinatorDelegate?.loginViewModelDidLogin(viewModel: self)
-        return 
 
+    func signIn() {
         guard let email = email.value, let password = password.value else {
             return
         }
-        
+
         self.isLoading.value = true
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             self.isLoading.value = false
-            if let error = error {
+            if let error {
                 self.errorMessage.value = error.localizedDescription
                 Log.error(error.localizedDescription)
                 return

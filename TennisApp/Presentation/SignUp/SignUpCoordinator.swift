@@ -14,37 +14,37 @@ protocol SignUpCoordinatorDelegate: AnyObject {
 
 final class SignUpCoordinator: Coordinator,
                                SignUpViewModelCoordinatorDelegate {
-    
+
     // MARK: Properties
-    
+
     weak var delegate: SignUpCoordinatorDelegate?
     private let navigationController: UINavigationController
     private let signUpViewController: SignUpViewController
-    
+
     // MARK: Coordinator
-    
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         self.signUpViewController = SignUpViewController.instantiateViewController()
     }
-    
+
     func start() {
         let viewModel = SignUpViewModel()
         viewModel.coordinatorDelegate = self
         signUpViewController.viewModel = viewModel
         navigationController.pushViewController(signUpViewController, animated: true)
     }
-    
+
     // MARK: SignUpViewModelCoordinatorDelegate
-    
+
     func signUpViewModelRegisterUser(viewModel: SignUpViewModel) {
         delegate?.signUpCoordinatorDidFinish(signUpCoordinator: self)
     }
-    
+
     func signUpViewModelDidEnd(_ viewModel: SignUpViewModel) {
         delegate?.signUpCoordinatorDidFinish(signUpCoordinator: self)
     }
-    
+
     deinit {
         Log.debug("+++ Deinit \(self) +++")
     }

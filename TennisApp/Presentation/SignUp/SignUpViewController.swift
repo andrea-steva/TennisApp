@@ -6,19 +6,20 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-import UIKit
-import Firebase
 import Bond
+import Firebase
 import ReactiveKit
+import UIKit
 
 final class SignUpViewController: BaseViewController, Bindable, StoryboardInstantiable {
 
     // MARK: IBOutlets
-    @IBOutlet var displayNameField: UITextField!
-    @IBOutlet var emailField: UITextField!
-    @IBOutlet var passwordField: UITextField!
 
-    @IBOutlet var signUpButton: UIButton! {
+    @IBOutlet private var displayNameField: UITextField!
+    @IBOutlet private var emailField: UITextField!
+    @IBOutlet private var passwordField: UITextField!
+
+    @IBOutlet private var signUpButton: UIButton! {
         didSet {
             signUpButton.layer.cornerRadius = 5.0
             signUpButton.layer.masksToBounds = true
@@ -27,7 +28,7 @@ final class SignUpViewController: BaseViewController, Bindable, StoryboardInstan
             signUpButton.setBackgroundImage(UIImage.imageWithColor(Style.Colors.primaryColor), for: .normal)
             signUpButton.setBackgroundImage(UIImage.imageWithColor(Style.Colors.primaryPressedColor), for: .highlighted)
             signUpButton.setBackgroundImage(UIImage.imageWithColor(Style.Colors.primaryPressedColor), for: .disabled)
-            signUpButton.setTitle(localizer.get(LocalizedString.signup_button), for: .normal)
+            signUpButton.setTitle(localizer.get(LocalizationKeys.signupButton), for: .normal)
         }
     }
 
@@ -36,10 +37,11 @@ final class SignUpViewController: BaseViewController, Bindable, StoryboardInstan
     var viewModel = SignUpViewModel()
 
     func getViewModel() -> BaseViewModel? {
-        return viewModel
+        viewModel
     }
 
     // MARK: View Management
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,18 +55,21 @@ final class SignUpViewController: BaseViewController, Bindable, StoryboardInstan
         viewModel.password.bidirectionalBind(to: passwordField.reactive.text)
 
         combineLatest(emailField.reactive.text, passwordField.reactive.text, displayNameField.reactive.text) { (email, pass, name) -> Bool in
-            return email!.count > 0 && pass!.count > 0 && name!.count > 0
+            guard let email, let pass, let name else {
+                return false
             }
-            .bind(to: signUpButton.reactive.isEnabled)
+            return !email.isEmpty && !pass.isEmpty && !name.isEmpty
+        }
+        .bind(to: signUpButton.reactive.isEnabled)
     }
 
     // MARK: Actions
 
-    @IBAction func dismissController(_ sender: AnyObject) {
+    @IBAction private func dismissController(_ sender: AnyObject) {
         self.viewModel.backLogin()
     }
 
-    @IBAction func didTapSignUp(_ sender: AnyObject) {
+    @IBAction private func didTapSignUp(_ sender: AnyObject) {
         self.viewModel.signUp()
     }
 }

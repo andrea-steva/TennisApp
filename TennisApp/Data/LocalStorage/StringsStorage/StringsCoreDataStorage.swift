@@ -43,10 +43,10 @@ final class StringsCoreDataStorage: StringsLocalStorage {
         }
     }
 
-    func delete(strings: Strings, completion: ((Result<Bool, Error>) -> Void)?) {
+    func delete(string: Strings, completion: ((Result<Bool, Error>) -> Void)?) {
         do {
             let request: NSFetchRequest = StringsEntity.fetchRequest()
-            request.predicate = NSPredicate(format: "identifier == %@", strings.identifier)
+            request.predicate = NSPredicate(format: "identifier == %@", string.identifier)
 
             let result = try coreDataStorage.managedContext.fetch(request)
             result.forEach { singleStrings in

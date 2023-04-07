@@ -6,11 +6,12 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-import UIKit
 import Eureka
+import ImageRow
+import UIKit
 
-class StringFormViewController: FormViewController, StoryboardInstantiable {
-    
+final class StringFormViewController: FormViewController, StoryboardInstantiable {
+
     // MARK: Properties
 
     let localizer = Localizer()
@@ -18,48 +19,46 @@ class StringFormViewController: FormViewController, StoryboardInstantiable {
     // MARK: ViewModel
 
     var viewModel: StringFormViewModel!
-    
+
     // MARK: Methods
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = localizer.get(LocalizedString.strings_addString)
-        
+
+        self.title = localizer.get(LocalizationKeys.stringsAddString)
+
         createForm()
     }
-    
+
     func createForm() {
-        
         let string = viewModel.getString()
-        
-        ImageRow.defaultCellUpdate = { cell, row in
+
+        ImageRow.defaultCellUpdate = { cell, _ in
             cell.accessoryView?.layer.cornerRadius = 17
             cell.accessoryView?.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         }
-        
+
         form +++ Section("Your string information")
-            <<< PickerInlineRow<String>("manufacter") {
-                $0.add(rule: RuleRequired())
-                $0.title = "Manufacter"
-                $0.options = RacketBrand.allCases.map { $0.rawValue}
-                $0.value = string != nil ? string!.manufacter : "Wilson"
-            }
-            <<< TextRow("model") {
-                $0.add(rule: RuleRequired())
-                $0.title = "Model"
-                $0.placeholder = "ProStaff 97S"
-                $0.value = string != nil ? string!.model : ""
+        <<< AlertRow<String>("manufacter") {
+            $0.add(rule: RuleRequired())
+            $0.title = "Manufacter"
+            $0.options = RacketBrand.allCases.map { $0.rawValue }
+            $0.value = string?.manufacter ?? "Wilson"
         }
-        
+        <<< TextRow("model") {
+            $0.add(rule: RuleRequired())
+            $0.title = "Model"
+            $0.placeholder = "ProStaff 97S"
+            $0.value = string?.model ?? ""
+        }
     }
-    
-    @IBAction func didTapOnSaveButton(_ sender: AnyObject) {
+
+    @IBAction private func didTapOnSaveButton(_ sender: AnyObject) {
         let formValues = form.values()
         Log.debug(formValues.description)
 
-        if viewModel.isUpdate {
-            viewModel.updateStrings(formValues: formValues)
+        if let string = viewModel.getString(), viewModel.isUpdate {
+            viewModel.updateStrings(string: string, formValues: formValues)
         } else {
             viewModel.createStrings(formValues: formValues)
         }

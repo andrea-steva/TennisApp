@@ -6,12 +6,14 @@
 //  Copyright © 2023 Andrea Stevanato. All rights reserved.
 //
 
+// swiftlint:disable force_unwrapping
+
 import UIKit
 
 extension UIImage {
 
     class func imageWithColor(_ color: UIColor) -> UIImage {
-        return UIImage.imageWithColor(color, circular: false)
+        UIImage.imageWithColor(color, circular: false)
     }
 
     class func imageWithColor(_ color: UIColor, circular: Bool) -> UIImage {
@@ -35,8 +37,7 @@ extension UIImage {
     // this is perfect for non-greyscale source images, and images that have both highlights and shadows that should be preserved
     // white will stay white and black will stay black as the lightness of the image is preserved
     func tint(_ tintColor: UIColor) -> UIImage {
-
-        return modifiedImage { context, rect in
+        modifiedImage { context, rect in
             // draw black background - workaround to preserve color of partially transparent pixels
             context.setBlendMode(.normal)
             UIColor.black.setFill()
@@ -60,8 +61,7 @@ extension UIImage {
     // fills the alpha channel of the source image with the given color
     // any color information except to the alpha channel will be ignored
     func fillAlpha(_ fillColor: UIColor) -> UIImage {
-
-        return modifiedImage { context, rect in
+        modifiedImage { context, rect in
             // draw tint color
             context.setBlendMode(.normal)
             fillColor.setFill()
@@ -93,3 +93,5 @@ extension UIImage {
         return image!
     }
 }
+
+// swiftlint:enable force_unwrapping

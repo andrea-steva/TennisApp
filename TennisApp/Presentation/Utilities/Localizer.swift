@@ -8,46 +8,6 @@
 
 import UIKit
 
-struct LocalizedString {
-
-    static let appName = "appName"
-
-    static let menu_home = "menu.home"
-    static let menu_rackets = "menu.rackets"
-    static let menu_strings = "menu.strings"
-    static let menu_stats = "menu.stats"
-    static let menu_profile = "menu.profile"
-    static let menu_settings = "menu.settings"
-    static let menu_logout = "menu.logout"
-
-    static let generic_done = "generic.done"
-    static let generic_cancel = "generic.cancel"
-    static let generic_error = "generic.error"
-    static let generic_ok = "generic.ok"
-    static let generic_yes = "generic.yes"
-    static let generic_emptyDataSetTitle = "generic.emptyDataSetTitle"
-    static let generic_notAvailable = "generic.notAvailable"
-    static let generic_alertTitle = "generic.alertTitle"
-
-    static let dialog_unableToLocalize = "dialog.unableToLocalize"
-    static let dialog_checkConnection = "dialog.checkConnection"
-
-    static let login_button = "login.button.title"
-    static let signup_button = "signup.button.title"
-
-    static let rackets_addRacket = "rackets.addRacket"
-    
-    static let strings_addString = "strings.addString"
-
-    static let settings_section1 = "settings.section1"
-    static let settings_section2 = "settings.section2"
-    static let settings_currency = "settings.currency"
-    static let settings_tour = "settings.tour"
-    static let settings_support = "settings.support"
-    static let settings_website = "settings.website"
-    static let settings_version = "settings.version"
-}
-
 /// The localizer class used to get the localized string
 final class Localizer {
 
@@ -56,4 +16,35 @@ final class Localizer {
         value = value.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         return value
     }
+}
+
+/// The localization keys
+struct LocalizationKeys {
+
+    static let appName = "appName"
+
+    static let menuHome = "menu.home"
+    static let menuRackets = "menu.rackets"
+    static let menuStrings = "menu.strings"
+    static let menuStats = "menu.stats"
+    static let menuProfile = "menu.profile"
+    static let menuSettings = "menu.settings"
+    static let menuLogout = "menu.logout"
+
+    static let genericDone = "generic.done"
+    static let genericCancel = "generic.cancel"
+    static let genericError = "generic.error"
+    static let genericOk = "generic.ok"
+    static let genericYes = "generic.yes"
+    static let genericAlertTitle = "generic.alertTitle"
+
+    static let dialogUnableToLocalize = "dialog.unableToLocalize"
+    static let dialogCheckConnection = "dialog.checkConnection"
+
+    static let loginButton = "login.button.title"
+    static let signupButton = "signup.button.title"
+
+    static let racketsAddRacket = "rackets.addRacket"
+
+    static let stringsAddString = "strings.addString"
 }

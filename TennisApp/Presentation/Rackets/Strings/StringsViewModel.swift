@@ -16,23 +16,25 @@ protocol StringsViewModelCoordinatorDelegate: AnyObject {
 final class StringsViewModel: BaseViewModel {
 
     // MARK: Coordinator
-    
+
     weak var coordinatorDelegate: StringsViewModelCoordinatorDelegate?
-    
+
     // MARK: Properties
-    
+
     let reloadView = Observable(false)
 
     private let stringsFetchUseCase: StringsFetchUseCase
+    private let stringDeleteUseCase: StringsDeleteUseCase
 
     var strings: [Strings] = []
 
     // MARK: Methods
 
-    init(stringsFetchUseCase: StringsFetchUseCase) {
+    init(stringsFetchUseCase: StringsFetchUseCase, stringDeleteUseCase: StringsDeleteUseCase) {
         self.stringsFetchUseCase = stringsFetchUseCase
+        self.stringDeleteUseCase = stringDeleteUseCase
     }
-    
+
     func fetchStrings() {
         stringsFetchUseCase.execute(page: 0, pageSize: 0) { result in
             switch result {
@@ -54,14 +56,19 @@ final class StringsViewModel: BaseViewModel {
     }
 
     func deleteString(forIndex index: Int) {
-        // TODO Implement delete use case
-//        let string = strings[index]
-//        stringsService.deleteString(string: string)
-//        self.fetchStrings()
+        stringDeleteUseCase.execute(string: strings[index], completion: { result in
+            switch result {
+            case .success:
+                self.strings.remove(at: index)
+                self.reloadView.value = true
+            case .failure(let error):
+                Log.error(error.localizedDescription)
+            }
+        })
     }
-    
+
     // MARK: Coordinator Flow
-    
+
     func backToRackets() {
         self.coordinatorDelegate?.stringViewModelDidEnd(self)
     }

@@ -70,5 +70,4 @@ extension UserDefaultsStorage {
     func encodeArrayObject<T: Encodable>(value: [T]) -> Data? {
         try? JSONEncoder().encode(value)
     }
-
 }

@@ -33,8 +33,8 @@ final class DefaultStringsRepository: StringsRepository {
         }
     }
 
-    func create(strings: Strings, completion: @escaping (Result<Bool, Error>) -> Void) {
-        stringsLocalStorage.save(strings: [strings]) { result in
+    func create(string: Strings, completion: @escaping (Result<Bool, Error>) -> Void) {
+        stringsLocalStorage.save(strings: [string]) { result in
             switch result {
             case .success(let result):
                 completion(.success(result))
@@ -44,8 +44,8 @@ final class DefaultStringsRepository: StringsRepository {
         }
     }
 
-    func update(strings: Strings, completion: @escaping (Result<Bool, Error>) -> Void) {
-        stringsLocalStorage.save(strings: [strings]) { result in
+    func update(string: Strings, completion: @escaping (Result<Bool, Error>) -> Void) {
+        stringsLocalStorage.save(strings: [string]) { result in
             switch result {
             case .success(let result):
                 completion(.success(result))
@@ -55,7 +55,11 @@ final class DefaultStringsRepository: StringsRepository {
         }
     }
 
-    func deleteStrings(completion: ((Result<Bool, Error>) -> Void)?) {
+    func delete(string: Strings, completion: ((Result<Bool, Error>) -> Void)?) {
+        stringsLocalStorage.delete(string: string, completion: completion)
+    }
+
+    func deleteAll(completion: ((Result<Bool, Error>) -> Void)?) {
         stringsLocalStorage.deleteAll(completion: completion)
     }
 }

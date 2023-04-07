@@ -22,10 +22,21 @@ struct Strings {
 }
 
 extension Strings {
+
     init(form: [String: Any?]) {
         self.identifier = UUID().uuidString
-        self.manufacter = ""
-        self.model = ""
+        self.manufacter = form["manufacter"] as? String ?? ""
+        self.model = form["model"] as? String ?? ""
+        self.price = ""
+        self.gauge = ""
+        self.duration = 0.0
+        self.tension = 0.0
+    }
+
+    init(string: Strings, form: [String: Any?]) {
+        self.identifier = string.identifier
+        self.manufacter = form["manufacter"] as? String ?? ""
+        self.model = form["model"] as? String ?? ""
         self.price = ""
         self.gauge = ""
         self.duration = 0.0

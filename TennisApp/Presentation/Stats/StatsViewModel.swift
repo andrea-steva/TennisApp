@@ -7,12 +7,11 @@
 //
 
 protocol StatsViewModelCoordinatorDelegate: AnyObject {
-    
 }
 
 final class StatsViewModel: BaseViewModel {
 
     // MARK: Coordinator
-    
+
     weak var coordinatorDelegate: StatsViewModelCoordinatorDelegate?
 }

@@ -13,7 +13,7 @@ protocol StringFormCoordinatorDelegate: AnyObject {
 }
 
 class StringFormCoordinator: Coordinator, StringFormViewModelCoordinatorDelegate {
-    
+
     // MARK: Properties
 
     private let container = StringsDIContainer()
@@ -21,15 +21,15 @@ class StringFormCoordinator: Coordinator, StringFormViewModelCoordinatorDelegate
     private let navigationController: UINavigationControllerType
     private let formVC: StringFormViewController
     private var string: Strings?
-    
+
     // MARK: Coordinator
-    
+
     init(navigationController: UINavigationControllerType, string: Strings?) {
         self.navigationController = navigationController
         self.string = string
         self.formVC = StringFormViewController.instantiateViewController()
     }
-    
+
     func start() {
         formVC.viewModel = StringFormViewModel(stringsCreateUseCase: container.makeStringsCreateUseCase(),
                                                stringsUpdateUseCase: container.makeStringsUpdateUseCase(),
@@ -37,13 +37,13 @@ class StringFormCoordinator: Coordinator, StringFormViewModelCoordinatorDelegate
         formVC.viewModel.coordinatorDelegate = self
         self.navigationController.pushViewController(formVC, animated: true)
     }
-    
+
     // MARK: StringFormViewModelCoordinatorDelegate
-    
+
     func stringFormViewModelSaveString() {
         delegate?.stringFormCoordinatorDidFinish(stringFormCoordinator: self)
     }
-    
+
     deinit {
         Log.debug("+++ Deinit \(self) +++")
     }

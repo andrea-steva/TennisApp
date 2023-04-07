@@ -13,7 +13,7 @@ protocol SettingsViewModelCoordinatorDelegate: AnyObject {
 final class SettingsViewModel: BaseViewModel {
 
     // MARK: Coordinator
-    
+
     weak var coordinatorDelegate: SettingsViewModelCoordinatorDelegate?
 
     // MARK: Methods

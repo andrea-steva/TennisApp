@@ -25,29 +25,26 @@ final class AlertView {
     )
 
     static func showWarning(_ title: String?, message: String, controller: UIViewController) {
-
-        var alertTitle = localizer.get(LocalizedString.generic_alertTitle)
-        if title != nil {
-            alertTitle = title!
+        var alertTitle = localizer.get(LocalizationKeys.genericAlertTitle)
+        if let title {
+            alertTitle = title
         }
-
         let alertView = SCLAlertView(appearance: appearance)
-        alertView.showWarning(alertTitle, subTitle: message, closeButtonTitle: localizer.get(LocalizedString.generic_ok), animationStyle: .noAnimation)
+        alertView.showWarning(alertTitle, subTitle: message, closeButtonTitle: localizer.get(LocalizationKeys.genericOk), animationStyle: .noAnimation)
     }
 
-    static func showConfirm(_ title: String?, message: String, completionBlock :@escaping (_ userCancelAction: Bool) -> Void) {
-
-        var alertTitle = localizer.get(LocalizedString.generic_alertTitle)
-        if title != nil {
-            alertTitle = title!
+    static func showConfirm(_ title: String?, message: String, completionBlock: @escaping (_ userCancelAction: Bool) -> Void) {
+        var alertTitle = localizer.get(LocalizationKeys.genericAlertTitle)
+        if let title {
+            alertTitle = title
         }
 
         let alertView = SCLAlertView(appearance: appearance)
 
-        alertView.addButton(localizer.get(LocalizedString.generic_ok), backgroundColor: Style.Colors.courtHardB) {
+        alertView.addButton(localizer.get(LocalizationKeys.genericOk), backgroundColor: Style.Colors.courtHardB) {
             completionBlock(false)
         }
-        alertView.addButton(localizer.get(LocalizedString.generic_cancel), backgroundColor: Style.Colors.courtHardB) {
+        alertView.addButton(localizer.get(LocalizationKeys.genericCancel), backgroundColor: Style.Colors.courtHardB) {
             completionBlock(true)
         }
 

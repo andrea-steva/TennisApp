@@ -8,19 +8,18 @@
 
 import UIKit
 
-
 class StatsViewController: BaseViewController, StoryboardInstantiable {
 
     // MARK: IBOutlets
 
     // MARK: ViewModel
-    
+
     var viewModel: StatsViewModel!
-    
+
     // MARK: View Management
 
     override func localizedTitleString() -> String {
-        return LocalizedString.menu_stats
+        LocalizationKeys.menuStats
     }
 
     override func viewDidLoad() {

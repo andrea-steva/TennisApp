@@ -10,4 +10,3 @@ import CoreData
     // MARK: Relationship
 
     // let match = LinkingObjects(fromType: MatchEntity.self, property: "scores")
-

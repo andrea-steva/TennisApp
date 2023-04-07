@@ -6,24 +6,25 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-import UIKit
-import GSKStretchyHeaderView
 import Firebase
+import GSKStretchyHeaderView
+import UIKit
 
 final class ProfileHeaderView: GSKStretchyHeaderView {
 
     // MARK: IBOutlets
-    @IBOutlet var backgroundImageView: UIImageView!
 
-    @IBOutlet var userImageView: UIImageView! {
+    @IBOutlet private var backgroundImageView: UIImageView!
+
+    @IBOutlet private var userImageView: UIImageView! {
         didSet {
             userImageView.layer.cornerRadius = 20.0
             userImageView.layer.borderColor = Style.Colors.lightColor.cgColor
             userImageView.layer.borderWidth = 5.0        }
     }
 
-    @IBOutlet var userNameLabel: UILabel!
-    @IBOutlet var navigationTitleLabel: UILabel!
+    @IBOutlet private var userNameLabel: UILabel!
+    @IBOutlet private var navigationTitleLabel: UILabel!
 
     // MARK: Methods
 
@@ -32,9 +33,9 @@ final class ProfileHeaderView: GSKStretchyHeaderView {
 
         self.minimumContentHeight = 64.0
 
-        if let profileImageURL = FirebaseService.sharedInstance.currentUser?.photoURL {
-            // self.userImageView.af_setImage(withURL: profileImageURL)
-        }
+//        if let profileImageURL = FirebaseService.sharedInstance.currentUser?.photoURL {
+//            self.userImageView.af_setImage(withURL: profileImageURL)
+//        }
         if let displayName = FirebaseService.sharedInstance.currentUser?.displayName {
             self.userNameLabel.text = displayName
             self.navigationTitleLabel.text = displayName

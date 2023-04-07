@@ -47,7 +47,7 @@ final class UsersCoreDataStorage: UsersLocalStorage {
         do {
             let request: NSFetchRequest = UserEntity.fetchRequest()
             request.predicate = NSPredicate(format: "identifier == %@", user.identifier)
-            
+
             let result = try coreDataStorage.managedContext.fetch(request)
             result.forEach { user in
                 coreDataStorage.managedContext.delete(user)

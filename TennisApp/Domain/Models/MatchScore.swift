@@ -22,6 +22,6 @@ struct MatchScore {
     // MARK: Methods
 
     func matchScoreToString() -> String {
-        return "\(self.gamePlayerA)-\(self.gamePlayerB)"
+        "\(self.gamePlayerA)-\(self.gamePlayerB)"
     }
 }

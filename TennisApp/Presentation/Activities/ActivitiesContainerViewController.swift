@@ -6,8 +6,8 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-import UIKit
 import Parchment
+import UIKit
 
 final class ActivitiesContainerViewController: BaseViewController, StoryboardInstantiable {
 
@@ -15,11 +15,10 @@ final class ActivitiesContainerViewController: BaseViewController, StoryboardIns
 
     let pagingViewController = PagingViewController()
 
-
     // MARK: View Management
 
     override func localizedTitleString() -> String {
-        return LocalizedString.menu_home
+        LocalizationKeys.menuHome
     }
 
     override func viewDidLoad() {
@@ -38,7 +37,7 @@ final class ActivitiesContainerViewController: BaseViewController, StoryboardIns
         pagingViewController.indicatorOptions = .visible(height: 5,
                                                          zIndex: Int.max,
                                                          spacing: UIEdgeInsets.zero,
-                                                         insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+                                                         insets: UIEdgeInsets.zero)
 
         addChild(pagingViewController)
         view.addSubview(pagingViewController.view)
@@ -57,23 +56,33 @@ final class ActivitiesContainerViewController: BaseViewController, StoryboardIns
 extension ActivitiesContainerViewController: PagingViewControllerDataSource {
 
     func numberOfViewControllers(in pagingViewController: PagingViewController) -> Int {
-        return 3
+        Activities.allCases.count
     }
 
     func pagingViewController(_ pagingViewController: PagingViewController, viewControllerAt index: Int) -> UIViewController {
-        ActivityViewController.instantiateViewController()
+        switch Activities(rawValue: index) {
+        case .match:
+            return MatchesViewController.instantiateViewController()
+        case .practice:
+            return PracticeViewController.instantiateViewController()
+        case .fitness:
+            return FitnessViewController.instantiateViewController()
+        case .none:
+            return UIViewController()
+        }
     }
 
     func pagingViewController(_: PagingViewController, pagingItemAt index: Int) -> PagingItem {
         var title = ""
-        if index == 0 {
-            title = "Matchs"
-        }
-        if index == 1 {
+        switch Activities(rawValue: index) {
+        case .match:
+            title = "Matches"
+        case .practice:
             title = "Practice"
-        }
-        if index == 2 {
+        case .fitness:
             title = "Fitness"
+        case .none:
+            break
         }
         return PagingIndexItem(index: index, title: title)
     }

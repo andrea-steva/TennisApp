@@ -10,11 +10,10 @@ import EventKit
 
 final class CalendarEventsBuilder {
 
-
-    func addEvent(_ eventDate: Date, title: String, notes: String, completion : @escaping (Bool) -> Void) {
+    func addEvent(_ eventDate: Date, title: String, notes: String, completion: @escaping (Bool) -> Void) {
         let eventStore = EKEventStore()
 
-        eventStore.requestAccess(to: .event) { (granted, error) -> Void in
+        eventStore.requestAccess(to: .event) { (_, error) -> Void in
             if error == nil {
 
                 let event = EKEvent(eventStore: eventStore)

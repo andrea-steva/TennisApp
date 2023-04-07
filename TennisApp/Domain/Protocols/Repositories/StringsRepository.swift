@@ -11,19 +11,25 @@ import Foundation
 /// Represent the `strings` repository. Within this object you can fetch strings
 protocol StringsRepository {
 
-    /// Fetch from local storage
+    /// Fetch `Strings` from local storage
     /// - Parameter completion: The completion handler for the operation. Returns an array of `Strings` or a `Error`
     func fetch(completion: @escaping (Result<[Strings], Error>) -> Void)
 
-    /// Create
+    /// Create a single `Strings`
     /// - Parameter completion: The completion handler for the operation. Returns an array of `Strings` or a `Error`
-    func create(strings: Strings, completion: @escaping (Result<Bool, Error>) -> Void)
+    func create(string: Strings, completion: @escaping (Result<Bool, Error>) -> Void)
 
-    /// Update
+    /// Update a single `Strings`
     /// - Parameter completion: The completion handler for the operation. Returns an array of `Strings` or a `Error`
-    func update(strings: Strings, completion: @escaping (Result<Bool, Error>) -> Void)
+    func update(string: Strings, completion: @escaping (Result<Bool, Error>) -> Void)
+
+    /// Delete a single `Strings`
+    /// - Parameters:
+    ///   - string: the `Strings` to delete
+    ///   - completion: The completion handler for the operation
+    func delete(string: Strings, completion: ((Result<Bool, Error>) -> Void)?)
 
     /// Delete all the strings from the local storage
     /// - Parameter completion: The completion handler for the operation
-    func deleteStrings(completion: ((Result<Bool, Error>) -> Void)?)
+    func deleteAll(completion: ((Result<Bool, Error>) -> Void)?)
 }
