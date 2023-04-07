@@ -28,6 +28,10 @@ final class RacketsDIContainer {
         DefaultRacketUpdateUseCase(racketsRepository: makeRacketsRepository())
     }
 
+    func makeRacketDeleteUseCase() -> RacketDeleteUseCase {
+        DefaultRacketDeleteUseCase(racketsRepository: makeRacketsRepository())
+    }
+
     // MARK: Repositories
 
     private func makeRacketsRepository() -> RacketsRepository {

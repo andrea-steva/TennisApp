@@ -88,7 +88,6 @@ PODS:
     - nanopb/encode (= 2.30909.0)
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
-  - PagingMenuController (2.2.0)
   - PromisesObjC (2.2.0)
   - SCLAlertView (0.8.1)
 
@@ -97,7 +96,6 @@ DEPENDENCIES:
   - Firebase/Core
   - GSKStretchyHeaderView (= 1.0.4)
   - INSPullToRefresh (= 1.2.0)
-  - PagingMenuController (from `https://github.com/andr3a88/PagingMenuController.git`)
   - SCLAlertView (from `https://github.com/vikmeup/SCLAlertView-Swift.git`, branch `master`)
 
 SPEC REPOS:
@@ -117,16 +115,11 @@ SPEC REPOS:
     - PromisesObjC
 
 EXTERNAL SOURCES:
-  PagingMenuController:
-    :git: https://github.com/andr3a88/PagingMenuController.git
   SCLAlertView:
     :branch: master
     :git: https://github.com/vikmeup/SCLAlertView-Swift.git
 
 CHECKOUT OPTIONS:
-  PagingMenuController:
-    :commit: 64466fef5af69b605e141137b6a0dd87f53e6b2b
-    :git: https://github.com/andr3a88/PagingMenuController.git
   SCLAlertView:
     :commit: f08ec93c299a221210e59462c84c79410050e5b7
     :git: https://github.com/vikmeup/SCLAlertView-Swift.git
@@ -144,10 +137,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: c9e714f7eec91a55641e2bab9f45fd83a219b882
   INSPullToRefresh: d34f0046ccca6b32f6386f053d730ef41b3f35b7
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
-  PagingMenuController: acdb8e0ff7f977182b0586656d19ba1d992390a6
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
   SCLAlertView: 776813fb1f62248965f37cb7edf4088ee6394460
 
-PODFILE CHECKSUM: 6aaeebcc13d437e48650022b44d57d203ab505c2
+PODFILE CHECKSUM: 51a0f3b6500fad1e54b47f4ecf873fdb7593918d
 
 COCOAPODS: 1.12.0

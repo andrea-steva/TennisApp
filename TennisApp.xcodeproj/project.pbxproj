@@ -110,6 +110,7 @@
 		FC1F3D2A29DDC664006FAD8B /* UINavigationControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F3D2929DDC664006FAD8B /* UINavigationControllerType.swift */; };
 		FC1F3D2C29DDD354006FAD8B /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F3D2B29DDD354006FAD8B /* LoadingIndicator.swift */; };
 		FC1F3D2E29DDD667006FAD8B /* TabBarItemCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F3D2D29DDD667006FAD8B /* TabBarItemCoordinator.swift */; };
+		FCB8AABC29DF0A8D00148DB9 /* Parchment in Frameworks */ = {isa = PBXBuildFile; productRef = FCB8AABB29DF0A8D00148DB9 /* Parchment */; };
 		FCBDF9FE29D72EB7008A7FD6 /* StringsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBDF9FD29D72EB7008A7FD6 /* StringsStorage.swift */; };
 		FCBDFA0829D73111008A7FD6 /* PracticeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBDFA0029D73111008A7FD6 /* PracticeEntity.swift */; };
 		FCBDFA0929D73111008A7FD6 /* FitnessEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBDFA0129D73111008A7FD6 /* FitnessEntity.swift */; };
@@ -118,6 +119,11 @@
 		FCBDFA0C29D73111008A7FD6 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBDFA0429D73111008A7FD6 /* UserEntity.swift */; };
 		FCBDFA0E29D73111008A7FD6 /* MatchEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBDFA0629D73111008A7FD6 /* MatchEntity.swift */; };
 		FCBDFA0F29D73111008A7FD6 /* RacketEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBDFA0729D73111008A7FD6 /* RacketEntity.swift */; };
+		FCCBFF5029DF184000068479 /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBFF4F29DF184000068479 /* AppDIContainer.swift */; };
+		FCCBFF5229DF1E9B00068479 /* ProfileDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBFF5129DF1E9B00068479 /* ProfileDIContainer.swift */; };
+		FCCBFF5429DF1EBA00068479 /* StatsDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBFF5329DF1EBA00068479 /* StatsDIContainer.swift */; };
+		FCCBFF5629DF1ECE00068479 /* SettingsDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBFF5529DF1ECE00068479 /* SettingsDIContainer.swift */; };
+		FCCBFF5829DF227100068479 /* DeleteRacketUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBFF5729DF227000068479 /* DeleteRacketUseCase.swift */; };
 		FCE0AAC229D7338100308EF3 /* UsersStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AAC129D7338100308EF3 /* UsersStorage.swift */; };
 		FCE0AAC429D733CC00308EF3 /* RacketsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AAC329D733CC00308EF3 /* RacketsStorage.swift */; };
 		FCE0AACA29D7365300308EF3 /* LoggerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AAC929D7365300308EF3 /* LoggerProfile.swift */; };
@@ -311,6 +317,11 @@
 		FCBDFA0429D73111008A7FD6 /* UserEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		FCBDFA0629D73111008A7FD6 /* MatchEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchEntity.swift; sourceTree = "<group>"; };
 		FCBDFA0729D73111008A7FD6 /* RacketEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketEntity.swift; sourceTree = "<group>"; };
+		FCCBFF4F29DF184000068479 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
+		FCCBFF5129DF1E9B00068479 /* ProfileDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDIContainer.swift; sourceTree = "<group>"; };
+		FCCBFF5329DF1EBA00068479 /* StatsDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsDIContainer.swift; sourceTree = "<group>"; };
+		FCCBFF5529DF1ECE00068479 /* SettingsDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDIContainer.swift; sourceTree = "<group>"; };
+		FCCBFF5729DF227000068479 /* DeleteRacketUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRacketUseCase.swift; sourceTree = "<group>"; };
 		FCE0AAC129D7338100308EF3 /* UsersStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersStorage.swift; sourceTree = "<group>"; };
 		FCE0AAC329D733CC00308EF3 /* RacketsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacketsStorage.swift; sourceTree = "<group>"; };
 		FCE0AAC929D7365300308EF3 /* LoggerProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerProfile.swift; sourceTree = "<group>"; };
@@ -362,6 +373,7 @@
 			files = (
 				FCE0AAE429D73F2A00308EF3 /* IQKeyboardManagerSwift in Frameworks */,
 				FCE0AAE729D73F7A00308EF3 /* DZNEmptyDataSet in Frameworks */,
+				FCB8AABC29DF0A8D00148DB9 /* Parchment in Frameworks */,
 				FCE0AAED29D7403100308EF3 /* Charts in Frameworks */,
 				FCE0AAEA29D73FB900308EF3 /* Eureka in Frameworks */,
 				FCE0AAF229D741AA00308EF3 /* Bond in Frameworks */,
@@ -899,6 +911,7 @@
 				FCF6D8CC29DB012500DBCD4B /* RacketsFetchUseCase.swift */,
 				FCF6D8D129DB07F700DBCD4B /* RacketCreateUseCase.swift */,
 				FCF6D8CE29DB04B000DBCD4B /* RacketUpdateUseCase.swift */,
+				FCCBFF5729DF227000068479 /* DeleteRacketUseCase.swift */,
 			);
 			path = Rackets;
 			sourceTree = "<group>";
@@ -937,8 +950,12 @@
 		FCF6D8E529DC57DC00DBCD4B /* DIContainers */ = {
 			isa = PBXGroup;
 			children = (
+				FCCBFF4F29DF184000068479 /* AppDIContainer.swift */,
 				FCF6D8E329DC502100DBCD4B /* RacketsDIContainer.swift */,
 				FCF6D8E629DC590C00DBCD4B /* StringsDIContainer.swift */,
+				FCCBFF5129DF1E9B00068479 /* ProfileDIContainer.swift */,
+				FCCBFF5329DF1EBA00068479 /* StatsDIContainer.swift */,
+				FCCBFF5529DF1ECE00068479 /* SettingsDIContainer.swift */,
 			);
 			path = DIContainers;
 			sourceTree = "<group>";
@@ -978,6 +995,7 @@
 				FCE0AAE929D73FB900308EF3 /* Eureka */,
 				FCE0AAEC29D7403100308EF3 /* Charts */,
 				FCE0AAF129D741AA00308EF3 /* Bond */,
+				FCB8AABB29DF0A8D00148DB9 /* Parchment */,
 			);
 			productName = TennisApp;
 			productReference = 65B04D9F1C6CA02300011439 /* TennisApp.app */;
@@ -1042,6 +1060,7 @@
 				FCE0AAE829D73FB900308EF3 /* XCRemoteSwiftPackageReference "Eureka" */,
 				FCE0AAEB29D7403100308EF3 /* XCRemoteSwiftPackageReference "Charts" */,
 				FCE0AAF029D741AA00308EF3 /* XCRemoteSwiftPackageReference "Bond" */,
+				FCB8AABA29DF0A8D00148DB9 /* XCRemoteSwiftPackageReference "Parchment" */,
 			);
 			productRefGroup = 65B04DA01C6CA02300011439 /* Products */;
 			projectDirPath = "";
@@ -1161,7 +1180,6 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/INSPullToRefresh/INSPullToRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/PagingMenuController/PagingMenuController.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -1176,7 +1194,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/INSPullToRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PagingMenuController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -1219,7 +1236,6 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/INSPullToRefresh/INSPullToRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/PagingMenuController/PagingMenuController.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -1234,7 +1250,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/INSPullToRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PagingMenuController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -1258,6 +1273,7 @@
 				FCE0AADA29D73AFB00308EF3 /* TabBarItems.swift in Sources */,
 				6507CA6F1C6D118000B7AD5C /* BaseViewModel.swift in Sources */,
 				6569A3FF1E99390B00A444BB /* ActivityViewModel.swift in Sources */,
+				FCCBFF5229DF1E9B00068479 /* ProfileDIContainer.swift in Sources */,
 				65D206861EE162A3004A8150 /* ActivitiesCoordinator.swift in Sources */,
 				FCBDFA0C29D73111008A7FD6 /* UserEntity.swift in Sources */,
 				FCF6D8B729DACAE500DBCD4B /* Match.swift in Sources */,
@@ -1282,7 +1298,9 @@
 				FCE0AACA29D7365300308EF3 /* LoggerProfile.swift in Sources */,
 				65F05AB01ECE329000EFA322 /* SignUpViewController.swift in Sources */,
 				65ECE30D1C708CC6004EE2C9 /* RacketsViewModel.swift in Sources */,
+				FCCBFF5829DF227100068479 /* DeleteRacketUseCase.swift in Sources */,
 				FC1F3D2529DC88BC006FAD8B /* UIImage+.swift in Sources */,
+				FCCBFF5029DF184000068479 /* AppDIContainer.swift in Sources */,
 				FCF6D8DB29DB173400DBCD4B /* StringsCreateUseCase.swift in Sources */,
 				65D206931EE19820004A8150 /* RacketFormViewModel.swift in Sources */,
 				65D2068D1EE1980F004A8150 /* StringFormViewController.swift in Sources */,
@@ -1297,6 +1315,7 @@
 				65653D201ED0747C00A9DBBB /* main.swift in Sources */,
 				65653D241ED081D000A9DBBB /* Date+.swift in Sources */,
 				FC1F3D2C29DDD354006FAD8B /* LoadingIndicator.swift in Sources */,
+				FCCBFF5429DF1EBA00068479 /* StatsDIContainer.swift in Sources */,
 				FCBDFA0829D73111008A7FD6 /* PracticeEntity.swift in Sources */,
 				FCF6D8D229DB07F700DBCD4B /* RacketCreateUseCase.swift in Sources */,
 				65C2CB141F26A1550095D954 /* StringFormCoordinator.swift in Sources */,
@@ -1345,6 +1364,7 @@
 				FCF6D8D929DB161000DBCD4B /* DefaultStringsRepository.swift in Sources */,
 				6589FC961E26F69000C25F31 /* ProfileViewModel.swift in Sources */,
 				FCF6D8C929DAFD7300DBCD4B /* RacketsCoreDataStorage.swift in Sources */,
+				FCCBFF5629DF1ECE00068479 /* SettingsDIContainer.swift in Sources */,
 				65D206921EE19820004A8150 /* RacketFormViewController.swift in Sources */,
 				65B04DA31C6CA02300011439 /* AppDelegate.swift in Sources */,
 				FCF6D8C729DAD80C00DBCD4B /* RacketsRepository.swift in Sources */,
@@ -1619,6 +1639,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FCB8AABA29DF0A8D00148DB9 /* XCRemoteSwiftPackageReference "Parchment" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rechsteiner/Parchment";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		FCE0AAE229D73F2A00308EF3 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
@@ -1662,6 +1690,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FCB8AABB29DF0A8D00148DB9 /* Parchment */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCB8AABA29DF0A8D00148DB9 /* XCRemoteSwiftPackageReference "Parchment" */;
+			productName = Parchment;
+		};
 		FCE0AAE329D73F2A00308EF3 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FCE0AAE229D73F2A00308EF3 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;

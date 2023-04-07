@@ -19,12 +19,14 @@ final class ProfileCoordinator: TabBarItemCoordinator,
     
     weak var delegate: ProfileCoordinatorDelegate?
 
-    private var navigationController: UINavigationControllerType
-    private var profileViewController: ProfileViewController
+    private let appDIContainer: AppDIContainer
+    private let navigationController: UINavigationControllerType
+    private let profileViewController: ProfileViewController
     
     // MARK: Coordinator
     
-    init() {
+    init(appDIContainer: AppDIContainer) {
+        self.appDIContainer = appDIContainer
         self.profileViewController = ProfileViewController.instantiateViewController()
         self.navigationController = UINavigationController(rootViewController: profileViewController)
     }

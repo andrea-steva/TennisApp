@@ -40,7 +40,7 @@
         <attribute name="manufacter" optional="YES" attributeType="String"/>
         <attribute name="model" optional="YES" attributeType="String"/>
         <attribute name="purchaseDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="identifier"/>

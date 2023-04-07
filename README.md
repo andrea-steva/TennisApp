@@ -29,15 +29,16 @@ brew install swiftlint
 + [X] Split Storyboard (use one storyboard for each controller)
 + [X] RacketFormViewModel refactor using Racket instead RacketEntity
 + [X] Remove FontAwesome
++ [X] Remove MBProgressHUD
++ [X] Use TabBarController instead of RESideMenu
 + [~] Add DI containers
 + [~] Create repositories
 + [~] Create UseCases
 + [~] CRUD operation for Racket
 + [~] CRUD operation for User
 + [~] Check Utilities folder
-+ [~] Use TabBarController instead of RESideMenu
 + [] Add DTO to decouple domain model from CoreDataStorage
-+ [] Remove MBProgressHUD
+
 
 ## ✒️ Author
 

@@ -17,7 +17,8 @@ final class AppCoordinator: Coordinator,
                             SettingsCoordinatorDelegate {
     
     // MARK: Properties
-    
+
+    let appDIContainer = AppDIContainer()
     var coordinators = [String: Coordinator]()
     let localizer = Localizer()
 
@@ -30,11 +31,11 @@ final class AppCoordinator: Coordinator,
 
     // MARK: Tab bar item coordinators
 
-    lazy var activitiesCoordinator: ActivitiesCoordinator = ActivitiesCoordinator()
-    lazy var racketsCoordinator: RacketsCoordinator = RacketsCoordinator()
-    lazy var statsCoordinator: StatsCoordinator = StatsCoordinator()
-    lazy var profileCoordinator: ProfileCoordinator = ProfileCoordinator()
-    lazy var settingsCoordinator: SettingsCoordinator = SettingsCoordinator()
+    lazy var activitiesCoordinator: ActivitiesCoordinator = ActivitiesCoordinator(appDIContainer: appDIContainer)
+    lazy var racketsCoordinator: RacketsCoordinator = RacketsCoordinator(appDIContainer: appDIContainer)
+    lazy var statsCoordinator: StatsCoordinator = StatsCoordinator(appDIContainer: appDIContainer)
+    lazy var profileCoordinator: ProfileCoordinator = ProfileCoordinator(appDIContainer: appDIContainer)
+    lazy var settingsCoordinator: SettingsCoordinator = SettingsCoordinator(appDIContainer: appDIContainer)
     
     // MARK: Coordinator
     
@@ -44,6 +45,9 @@ final class AppCoordinator: Coordinator,
     }
     
     func start() {
+        // FIXME : Force login
+        showActivities()
+        return
         if isLoggedIn {
             showActivities()
         } else {

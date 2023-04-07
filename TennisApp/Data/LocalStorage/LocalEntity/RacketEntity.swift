@@ -34,6 +34,7 @@ extension RacketEntity {
     convenience init(racket: Racket, insertInto context: NSManagedObjectContext) {
         self.init(context: context)
         identifier = racket.identifier
+        manufacter = racket.manufacter
         model = racket.model
         weight = racket.weight
         gripSize = racket.gripSize.rawValue

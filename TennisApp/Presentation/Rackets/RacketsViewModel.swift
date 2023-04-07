@@ -24,13 +24,16 @@ final class RacketsViewModel: BaseViewModel {
     let reloadView = Observable(false)
 
     private let racketsFetchUseCase: RacketsFetchUseCase
+    private let racketDeleteUseCase: RacketDeleteUseCase
 
     var rackets: [Racket] = []
 
     // MARK: Methods
 
-    init(racketsFetchUseCase: RacketsFetchUseCase) {
+    init(racketsFetchUseCase: RacketsFetchUseCase,
+         racketDeleteUseCase: RacketDeleteUseCase) {
         self.racketsFetchUseCase = racketsFetchUseCase
+        self.racketDeleteUseCase = racketDeleteUseCase
     }
 
     func fetchRackets() {
@@ -54,6 +57,15 @@ final class RacketsViewModel: BaseViewModel {
     }
 
     func deleteRacket(forIndex index: Int) {
+        racketDeleteUseCase.execute(racket: rackets[index]) { result in
+            switch result {
+            case .success:
+                self.rackets.remove(at: index)
+                self.reloadView.value = true
+            case .failure(let error):
+                Log.error(error.localizedDescription)
+            }
+        }
         // TODO Implement delete use case
         // let racketToDelete = rackets[index]
         // Add delete racket use case and reload
