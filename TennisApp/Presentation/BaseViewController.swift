@@ -6,6 +6,7 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
+import Combine
 import UIKit
 
 class BaseViewController: UIViewController, LoadingIndicator {
@@ -16,6 +17,8 @@ class BaseViewController: UIViewController, LoadingIndicator {
     @IBOutlet var backgroundView: UIImageView?
 
     // MARK: Properties
+
+    var subscriptions = Set<AnyCancellable>()
 
     var loadingIndicator: UIActivityIndicatorView?
     let localizer = Localizer()

@@ -6,7 +6,7 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-import Bond
+import Combine
 
 protocol RacketsViewModelCoordinatorDelegate: AnyObject {
     func racketsViewModelToStrings(viewModel: RacketsViewModel)
@@ -19,14 +19,22 @@ final class RacketsViewModel: BaseViewModel {
 
     weak var coordinatorDelegate: RacketsViewModelCoordinatorDelegate?
 
-    // MARK: Properties
-
-    let reloadView = Observable(false)
+    // MARK: Use Cases
 
     private let racketsFetchUseCase: RacketsFetchUseCase
     private let racketDeleteUseCase: RacketDeleteUseCase
 
-    var rackets: [Racket] = []
+    // MARK: Data Source
+
+    private var rackets: [Racket] = []
+
+    // MARK: Output
+
+    var reloadViewData: AnyPublisher<Result<Void, Error>, Never> {
+        reloadRacketsSubject.eraseToAnyPublisher()
+    }
+
+    private let reloadRacketsSubject = PassthroughSubject<Result<Void, Error>, Never>()
 
     // MARK: Methods
 
@@ -37,11 +45,12 @@ final class RacketsViewModel: BaseViewModel {
     }
 
     func fetchRackets() {
-        racketsFetchUseCase.execute(page: 0, pageSize: 0) { result in
+        racketsFetchUseCase.execute(page: 0, pageSize: 0) { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let rackets):
                 self.rackets = rackets
-                self.reloadView.value = true
+                self.reloadRacketsSubject.send(.success(()))
             case .failure(let error):
                 Log.error(error.localizedDescription)
             }
@@ -52,16 +61,17 @@ final class RacketsViewModel: BaseViewModel {
         rackets.count
     }
 
-    func racket(forIndex index: Int) -> Racket {
-        rackets[index]
+    func getRacket(forIndex index: Int) -> RacketCellViewModelType {
+        RacketCellViewModel(racket: rackets[index])
     }
 
     func deleteRacket(forIndex index: Int) {
-        racketDeleteUseCase.execute(racket: rackets[index]) { result in
+        racketDeleteUseCase.execute(racket: rackets[index]) { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success:
                 self.rackets.remove(at: index)
-                self.reloadView.value = true
+                self.reloadRacketsSubject.send(.success(()))
             case .failure(let error):
                 Log.error(error.localizedDescription)
             }

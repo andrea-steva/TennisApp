@@ -6,7 +6,6 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-import Firebase
 import GSKStretchyHeaderView
 import UIKit
 
@@ -33,10 +32,10 @@ final class ProfileHeaderView: GSKStretchyHeaderView {
 
         self.minimumContentHeight = 64.0
 
-//        if let profileImageURL = FirebaseService.sharedInstance.currentUser?.photoURL {
+//        if let profileImageURL = FirebaseService.shared.userPhotoURL {
 //            self.userImageView.af_setImage(withURL: profileImageURL)
 //        }
-        if let displayName = FirebaseService.sharedInstance.currentUser?.displayName {
+        if let displayName = FirebaseService.shared.currentUser?.displayName {
             self.userNameLabel.text = displayName
             self.navigationTitleLabel.text = displayName
         }

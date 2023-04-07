@@ -7,7 +7,7 @@
 //
 
 import Bond
-import Firebase
+import Foundation
 
 protocol LoginViewModelCoordinatorDelegate: AnyObject {
     func loginViewModelDidLogin(viewModel: LoginViewModel)
@@ -36,20 +36,17 @@ final class LoginViewModel: BaseViewModel {
         guard let email = email.value, let password = password.value else {
             return
         }
-
-        self.isLoading.value = true
-        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-            self.isLoading.value = false
-            if let error {
-                self.errorMessage.value = error.localizedDescription
-                Log.error(error.localizedDescription)
-                return
-            }
-            if let profileImageURL = user?.user.photoURL {
+        self.isLoadingSubject.send(true)
+        FirebaseService.shared.signIn(withEmail: email, password: password) { result in
+            self.isLoadingSubject.send(false)
+            switch result {
+            case .success(let profileImageURL):
                 self.profileImageURL.value = profileImageURL
+                self.coordinatorDelegate?.loginViewModelDidLogin(viewModel: self)
+            case .failure(let error):
+                self.errorMessageSubject.send(error.localizedDescription)
+                Log.error(error.localizedDescription)
             }
-            FirebaseService.sharedInstance.signedIn(user?.user)
-            self.coordinatorDelegate?.loginViewModelDidLogin(viewModel: self)
         }
     }
 }

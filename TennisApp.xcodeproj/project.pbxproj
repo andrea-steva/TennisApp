@@ -137,6 +137,10 @@
 		FCCBFF8329E01EB500068479 /* UIBarButtonItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBFF8229E01EB500068479 /* UIBarButtonItem+.swift */; };
 		FCCBFF8629E024E000068479 /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBFF8529E024E000068479 /* FontSize.swift */; };
 		FCCBFF8829E0250E00068479 /* FontType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBFF8729E0250E00068479 /* FontType.swift */; };
+		FCCBFF8A29E0471200068479 /* RacketCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBFF8929E0471200068479 /* RacketCellViewModel.swift */; };
+		FCCBFF8C29E04E8B00068479 /* StringCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBFF8B29E04E8B00068479 /* StringCellViewModel.swift */; };
+		FCCBFF8F29E0709800068479 /* FirebaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBFF8E29E0709800068479 /* FirebaseError.swift */; };
+		FCCBFF9129E070B600068479 /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBFF9029E070B600068479 /* FirebaseUser.swift */; };
 		FCE0AAC229D7338100308EF3 /* UsersStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AAC129D7338100308EF3 /* UsersStorage.swift */; };
 		FCE0AAC429D733CC00308EF3 /* RacketsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AAC329D733CC00308EF3 /* RacketsStorage.swift */; };
 		FCE0AACA29D7365300308EF3 /* LoggerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AAC929D7365300308EF3 /* LoggerProfile.swift */; };
@@ -231,7 +235,7 @@
 		6569A3FE1E99390B00A444BB /* MatchesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesViewModel.swift; sourceTree = "<group>"; };
 		6569A4051E9A28E400A444BB /* CGSize+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGSize+.swift"; sourceTree = "<group>"; };
 		656A4BB41E143659009E97EB /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
-		656A4BB81E17FD43009E97EB /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseService.swift; path = TennisApp/Infrastructure/FirebaseService.swift; sourceTree = SOURCE_ROOT; };
+		656A4BB81E17FD43009E97EB /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseService.swift; path = TennisApp/Infrastructure/Firebase/FirebaseService.swift; sourceTree = SOURCE_ROOT; };
 		657234871E114DD40050F319 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		657234891E11726B0050F319 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6589FC941E2133C600C25F31 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -346,6 +350,10 @@
 		FCCBFF8229E01EB500068479 /* UIBarButtonItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+.swift"; sourceTree = "<group>"; };
 		FCCBFF8529E024E000068479 /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		FCCBFF8729E0250E00068479 /* FontType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontType.swift; sourceTree = "<group>"; };
+		FCCBFF8929E0471200068479 /* RacketCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacketCellViewModel.swift; sourceTree = "<group>"; };
+		FCCBFF8B29E04E8B00068479 /* StringCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCellViewModel.swift; sourceTree = "<group>"; };
+		FCCBFF8E29E0709800068479 /* FirebaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseError.swift; sourceTree = "<group>"; };
+		FCCBFF9029E070B600068479 /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
 		FCE0AAC129D7338100308EF3 /* UsersStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersStorage.swift; sourceTree = "<group>"; };
 		FCE0AAC329D733CC00308EF3 /* RacketsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacketsStorage.swift; sourceTree = "<group>"; };
 		FCE0AAC929D7365300308EF3 /* LoggerProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerProfile.swift; sourceTree = "<group>"; };
@@ -942,6 +950,7 @@
 			isa = PBXGroup;
 			children = (
 				65D8249E1C6E652000E2918C /* RacketTableViewCell.swift */,
+				FCCBFF8929E0471200068479 /* RacketCellViewModel.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -950,6 +959,7 @@
 			isa = PBXGroup;
 			children = (
 				65653D2C1ED0A7FD00A9DBBB /* StringTableViewCell.swift */,
+				FCCBFF8B29E04E8B00068479 /* StringCellViewModel.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -963,6 +973,16 @@
 			);
 			name = Style;
 			path = "Styòle";
+			sourceTree = "<group>";
+		};
+		FCCBFF8D29E0706B00068479 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				FCCBFF8E29E0709800068479 /* FirebaseError.swift */,
+				FCCBFF9029E070B600068479 /* FirebaseUser.swift */,
+				656A4BB81E17FD43009E97EB /* FirebaseService.swift */,
+			);
+			path = Firebase;
 			sourceTree = "<group>";
 		};
 		FCE0AAC829D7364400308EF3 /* Logger */ = {
@@ -996,8 +1016,8 @@
 		FCE0AAD329D7395A00308EF3 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				FCCBFF8D29E0706B00068479 /* Firebase */,
 				FCE0AAC829D7364400308EF3 /* Logger */,
-				656A4BB81E17FD43009E97EB /* FirebaseService.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -1383,6 +1403,7 @@
 				6569A3FF1E99390B00A444BB /* MatchesViewModel.swift in Sources */,
 				FCCBFF5229DF1E9B00068479 /* ProfileDIContainer.swift in Sources */,
 				65D206861EE162A3004A8150 /* ActivitiesCoordinator.swift in Sources */,
+				FCCBFF8F29E0709800068479 /* FirebaseError.swift in Sources */,
 				FCBDFA0C29D73111008A7FD6 /* UserEntity.swift in Sources */,
 				FCF6D8B729DACAE500DBCD4B /* Match.swift in Sources */,
 				FC1F3D2329DC8894006FAD8B /* UIColor+.swift in Sources */,
@@ -1394,8 +1415,10 @@
 				FCBDFA0A29D73111008A7FD6 /* StringsEntity.swift in Sources */,
 				FCF6D8CD29DB012500DBCD4B /* RacketsFetchUseCase.swift in Sources */,
 				FCF6D8DF29DB17D000DBCD4B /* StringsFetchUseCase.swift in Sources */,
+				FCCBFF9129E070B600068479 /* FirebaseUser.swift in Sources */,
 				FCE0AAD829D73ACF00308EF3 /* GripSize.swift in Sources */,
 				656A4BB51E143659009E97EB /* AlertView.swift in Sources */,
+				FCCBFF8A29E0471200068479 /* RacketCellViewModel.swift in Sources */,
 				FCBDF9FE29D72EB7008A7FD6 /* StringsStorage.swift in Sources */,
 				FCBDFA0E29D73111008A7FD6 /* MatchEntity.swift in Sources */,
 				65D206801EDF43B0004A8150 /* StatsCoordinator.swift in Sources */,
@@ -1430,6 +1453,7 @@
 				FCBDFA0829D73111008A7FD6 /* PracticeEntity.swift in Sources */,
 				FCF6D8D229DB07F700DBCD4B /* RacketCreateUseCase.swift in Sources */,
 				65C2CB141F26A1550095D954 /* StringFormCoordinator.swift in Sources */,
+				FCCBFF8C29E04E8B00068479 /* StringCellViewModel.swift in Sources */,
 				65D824A81C6F589100E2918C /* ProfileViewController.swift in Sources */,
 				FC1F3D2A29DDC664006FAD8B /* UINavigationControllerType.swift in Sources */,
 				65C2CB121F255B500095D954 /* RacketFormCoordinator.swift in Sources */,

@@ -6,9 +6,21 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-import Bond
+import Combine
 
-class BaseViewModel {
-    let isLoading = Observable<Bool>(false)
-    let errorMessage = Observable<String?>(nil)
+protocol BaseViewModelType {
+    var errorMessage: AnyPublisher<String, Never> { get }
+    var errorMessageSubject: PassthroughSubject<String, Never> { get }
+
+    var isLoading: AnyPublisher<Bool, Never> { get }
+    var isLoadingSubject: PassthroughSubject<Bool, Never> { get }
+}
+
+class BaseViewModel: BaseViewModelType {
+
+    var errorMessage: AnyPublisher<String, Never> { errorMessageSubject.eraseToAnyPublisher() }
+    let errorMessageSubject = PassthroughSubject<String, Never>()
+
+    var isLoading: AnyPublisher<Bool, Never> { isLoadingSubject.eraseToAnyPublisher() }
+    let isLoadingSubject = PassthroughSubject<Bool, Never>()
 }

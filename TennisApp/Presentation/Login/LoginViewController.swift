@@ -7,7 +7,6 @@
 //
 
 import Bond
-import Firebase
 import ReactiveKit
 import UIKit
 
@@ -35,7 +34,7 @@ final class LoginViewController: BaseViewController, Bindable, StoryboardInstant
 
     var viewModel: LoginViewModel!
 
-    func getViewModel() -> BaseViewModel? {
+    func getViewModel() -> BaseViewModel {
         viewModel
     }
 
@@ -49,6 +48,10 @@ final class LoginViewController: BaseViewController, Bindable, StoryboardInstant
         super.viewDidLoad()
 
         self.backgroundView?.image = self.backgroundView?.image?.applyMenuEffect()
+
+        self.bindViewModel()
+        self.bindLoader()
+        self.bindAlertMessage()
     }
 
     func bindViewModel() {
@@ -85,12 +88,7 @@ final class LoginViewController: BaseViewController, Bindable, StoryboardInstant
             guard let userInput = prompt.textFields?.first?.text, !userInput.isEmpty else {
                 return
             }
-            Auth.auth().sendPasswordReset(withEmail: userInput) { (error) in
-                if let error {
-                    print(error.localizedDescription)
-                    return
-                }
-            }
+            FirebaseService.shared.sendPasswordReset(withEmail: userInput)
         }
         prompt.addTextField(configurationHandler: nil)
         prompt.addAction(okAction)

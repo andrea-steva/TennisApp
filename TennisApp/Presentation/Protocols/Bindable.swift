@@ -6,55 +6,40 @@
 //  Copyright © 2017 Andrea Stevanato. All rights reserved.
 //
 
+import Combine
 import UIKit
 
 protocol Bindable {
-    func getViewModel() -> BaseViewModel?
-    func bindViewModel()
+    func getViewModel() -> BaseViewModel
     func bindLoader()
-    func bindAlertError()
+    func bindAlertMessage()
 }
 
 extension Bindable where Self: BaseViewController {
 
-    func getViewModel() -> BaseViewModel? {
-        nil
-    }
-
-    func bindViewModel() {
-    }
-
     func bindLoader() {
-        guard let viewModel = self.getViewModel() else {
-            return
-        }
-        _ = viewModel.isLoading.observeNext(with: { value in
+        let viewModel = self.getViewModel()
+
+        viewModel.isLoading.sink { [weak self] value in
+            guard let self else { return }
             if value {
                 self.showHUD()
             } else {
                 self.hideHUD()
             }
-        })
-
-        _ = viewModel.errorMessage.observeNext { (message) in
-            if let message {
-                AlertView.showWarning(self.localizer.get(LocalizationKeys.genericAlertTitle),
-                                      message: message,
-                                      controller: self)
-            }
         }
+        .store(in: &subscriptions)
     }
 
-    func bindAlertError() {
-        guard let viewModel = self.getViewModel() else {
-            return
+    func bindAlertMessage() {
+        let viewModel = self.getViewModel()
+
+        viewModel.errorMessage.sink { [weak self] message in
+            guard let self else { return }
+            AlertView.showWarning(self.localizer.get(LocalizationKeys.genericAlertTitle),
+                                  message: message,
+                                  controller: self)
         }
-        _ = viewModel.errorMessage.observeNext { (message) in
-            if let message {
-                AlertView.showWarning(self.localizer.get(LocalizationKeys.genericAlertTitle),
-                                      message: message,
-                                      controller: self)
-            }
-        }
+        .store(in: &subscriptions)
     }
 }

@@ -6,11 +6,10 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
+import Combine
 import UIKit
 
 final class RacketsViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, StoryboardInstantiable {
-
-    static let RacketCellReuseId = "racket_cell"
 
     // MARK: IBOutlets
 
@@ -42,10 +41,14 @@ final class RacketsViewController: BaseViewController, UITableViewDataSource, UI
     }
 
     private func setupObservers() {
-        _ = viewModel.reloadView.observeNext(with: { [weak self] _ in
-            self?.tableView.reloadData()
-            self?.tableView.refreshControl?.endRefreshing()
-        })
+        viewModel.reloadViewData
+            .sink(receiveCompletion: { _ in
+                // Handle the error
+            }, receiveValue: { [weak self] _ in
+                self?.tableView.reloadData()
+                self?.tableView.refreshControl?.endRefreshing()
+            })
+            .store(in: &subscriptions)
     }
 
     // MARK: Refresh Control
@@ -77,8 +80,12 @@ final class RacketsViewController: BaseViewController, UITableViewDataSource, UI
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: RacketsViewController.RacketCellReuseId, for: indexPath) as! RacketTableViewCell
-        cell.setRacket(viewModel.racket(forIndex: indexPath.row))
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RacketTableViewCell.reuseIdentifier,
+                                                       for: indexPath) as? RacketTableViewCell else {
+            assertionFailure("Cannot dequeue RacketTableViewCell")
+            return UITableViewCell()
+        }
+        cell.setup(with: viewModel.getRacket(forIndex: indexPath.row))
         return cell
     }
 

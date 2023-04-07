@@ -33,9 +33,14 @@ final class SettingsViewController: BaseViewController, StoryboardInstantiable {
                               message: "Are you sure to want to logout?") { [weak self] (userCancelAction) in
             guard let self else { return }
             if !userCancelAction {
-                self.viewModel.performLogout(completion: { (_, _) in
-                    self.viewModel.userDidlogout()
-                })
+                self.viewModel.performLogout { result in
+                    switch result {
+                    case .success:
+                        self.viewModel.userDidlogout()
+                    case .failure:
+                        break
+                    }
+                }
             }
         }
     }
