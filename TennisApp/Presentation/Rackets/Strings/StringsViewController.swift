@@ -6,6 +6,7 @@
 //  Copyright © 2017 Andrea Stevanato. All rights reserved.
 //
 
+import Combine
 import UIKit
 
 final class StringsViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, StoryboardInstantiable {
@@ -15,6 +16,8 @@ final class StringsViewController: BaseViewController, UITableViewDataSource, UI
     // MARK: IBOutlets
 
     @IBOutlet private var tableView: UITableView!
+
+    // MARK: Properties
 
     // MARK: ViewModel
 
@@ -38,10 +41,15 @@ final class StringsViewController: BaseViewController, UITableViewDataSource, UI
         self.viewModel.fetchStrings()
     }
 
-    func setupObservers() {
-        _ = viewModel.reloadView.observeNext(with: { [weak self] _ in
-            self?.tableView.reloadData()
-        })
+    private func setupObservers() {
+        viewModel.reloadViewData
+            .sink(receiveCompletion: { _ in
+                // Handle the error
+            }, receiveValue: { [weak self] _ in
+                self?.tableView.reloadData()
+                self?.tableView.refreshControl?.endRefreshing()
+            })
+            .store(in: &subscriptions)
     }
 
     // MARK: UITableViewDataSource
@@ -61,8 +69,12 @@ final class StringsViewController: BaseViewController, UITableViewDataSource, UI
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: StringsViewController.StringsCellReuseId, for: indexPath) as! StringTableViewCell
-        cell.setString(viewModel.string(forIndex: indexPath.row))
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: StringTableViewCell.reuseIdentifier,
+                                                       for: indexPath) as? StringTableViewCell else {
+            assertionFailure("Cannot dequeue StringTableViewCell")
+            return UITableViewCell()
+        }
+        cell.setup(with: viewModel.getString(forIndex: indexPath.row))
         return cell
     }
 

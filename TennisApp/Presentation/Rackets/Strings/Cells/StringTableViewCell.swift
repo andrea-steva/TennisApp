@@ -10,6 +10,10 @@ import UIKit
 
 final class StringTableViewCell: UITableViewCell {
 
+    // MARK: Reuse Identifier
+
+    static let reuseIdentifier = String(describing: StringTableViewCell.self)
+
     // MARK: IBAction
 
     @IBOutlet private var stringNameLabel: UILabel!
@@ -23,13 +27,9 @@ final class StringTableViewCell: UITableViewCell {
         stringNameLabel.textColor = Style.Colors.lightColor
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    // MARK: Setup cell
 
-        // Configure the view for the selected state
-    }
-
-    func setString(_ string: Strings) {
-        stringNameLabel.text = "\(string.manufacter) - \(string.model)"
+    func setup(with viewModel: StringCellViewModelType) {
+        stringNameLabel.text = "\(viewModel.manufacter) - \(viewModel.model)"
     }
 }

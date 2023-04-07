@@ -7,7 +7,6 @@
 //
 
 import Bond
-import Firebase
 
 protocol SignUpViewModelCoordinatorDelegate: AnyObject {
     func signUpViewModelRegisterUser(viewModel: SignUpViewModel)
@@ -37,37 +36,33 @@ final class SignUpViewModel: BaseViewModel {
             return
         }
 
-        self.isLoading.value = true
-        Auth.auth().createUser(withEmail: email, password: password) { (response, error) in
-            self.isLoading.value = false
-            if let error {
-                self.errorMessage.value = error.localizedDescription
+        self.isLoadingSubject.send(true)
+        FirebaseService.shared.createUser(withEmail: email, password: password) { result in
+            self.isLoadingSubject.send(false)
+            switch result {
+            case .success(let user):
+                self.setDisplayName(user)
+            case .failure(let error):
+                self.errorMessageSubject.send(error.localizedDescription)
                 Log.error(error.localizedDescription)
-                return
             }
-            guard let user = response?.user else {
-                return
-            }
-            self.setDisplayName(user)
         }
     }
 
-    private func setDisplayName(_ user: Firebase.User) {
+    private func setDisplayName(_ user: FirebaseUser) {
         var displayName = self.displayName.value
         if let emailUserName = user.email?.components(separatedBy: "@").first {
             displayName = emailUserName
         }
-
-        let changeRequest = user.createProfileChangeRequest()
-        changeRequest.displayName = displayName
-        changeRequest.commitChanges { error in
-            if let error {
+        let updatedUser = FirebaseUser(providerID: user.providerID, displayName: displayName,
+                                       photoURL: user.photoURL, email: user.email)
+        FirebaseService.shared.createProfileChangeRequest(user: updatedUser) { result in
+            switch result {
+            case .success:
+                self.coordinatorDelegate?.signUpViewModelRegisterUser(viewModel: self)
+            case .failure(let error):
                 Log.error(error.localizedDescription)
-                return
             }
-            FirebaseService.sharedInstance.signedIn(Auth.auth().currentUser)
-
-            self.coordinatorDelegate?.signUpViewModelRegisterUser(viewModel: self)
         }
     }
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2017 Andrea Stevanato. All rights reserved.
 //
 
-import Bond
+import Combine
 
 protocol StringsViewModelCoordinatorDelegate: AnyObject {
     func stringViewModelDidEnd(_ viewModel: StringsViewModel)
@@ -19,14 +19,22 @@ final class StringsViewModel: BaseViewModel {
 
     weak var coordinatorDelegate: StringsViewModelCoordinatorDelegate?
 
-    // MARK: Properties
-
-    let reloadView = Observable(false)
+    // MARK: Use Cases
 
     private let stringsFetchUseCase: StringsFetchUseCase
     private let stringDeleteUseCase: StringsDeleteUseCase
 
+    // MARK: Data source
+
     var strings: [Strings] = []
+
+    // MARK: Output
+
+    var reloadViewData: AnyPublisher<Result<Void, Error>, Never> {
+        reloadStringsSubject.eraseToAnyPublisher()
+    }
+
+    private let reloadStringsSubject = PassthroughSubject<Result<Void, Error>, Never>()
 
     // MARK: Methods
 
@@ -36,11 +44,12 @@ final class StringsViewModel: BaseViewModel {
     }
 
     func fetchStrings() {
-        stringsFetchUseCase.execute(page: 0, pageSize: 0) { result in
+        stringsFetchUseCase.execute(page: 0, pageSize: 0) { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let strings):
                 self.strings = strings
-                self.reloadView.value = true
+                self.reloadStringsSubject.send(.success(()))
             case .failure(let error):
                 Log.error(error.localizedDescription)
             }
@@ -51,16 +60,17 @@ final class StringsViewModel: BaseViewModel {
         strings.count
     }
 
-    func string(forIndex index: Int) -> Strings {
-        strings[index]
+    func getString(forIndex index: Int) -> StringCellViewModel {
+        StringCellViewModel(string: strings[index])
     }
 
     func deleteString(forIndex index: Int) {
-        stringDeleteUseCase.execute(string: strings[index], completion: { result in
+        stringDeleteUseCase.execute(string: strings[index], completion: { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success:
                 self.strings.remove(at: index)
-                self.reloadView.value = true
+                self.reloadStringsSubject.send(.success(()))
             case .failure(let error):
                 Log.error(error.localizedDescription)
             }

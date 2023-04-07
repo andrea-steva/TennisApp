@@ -7,7 +7,6 @@
 //
 
 import Bond
-import Firebase
 import ReactiveKit
 import UIKit
 
@@ -36,7 +35,7 @@ final class SignUpViewController: BaseViewController, Bindable, StoryboardInstan
 
     var viewModel = SignUpViewModel()
 
-    func getViewModel() -> BaseViewModel? {
+    func getViewModel() -> BaseViewModel {
         viewModel
     }
 

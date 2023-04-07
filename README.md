@@ -31,17 +31,19 @@ brew install swiftlint
 + [X] Remove FontAwesome
 + [X] Remove MBProgressHUD
 + [X] Use TabBarController instead of RESideMenu
++ [X] CRUD operation for Racket
++ [X] `FirebaseService` add `Result` type instead of completion block
 + [~] Add DI containers
 + [~] Create repositories
 + [~] Create UseCases
-+ [X] CRUD operation for Racket
 + [~] CRUD operation for User
 + [~] Check Utilities folder
++ [~] Use Combine instead of Bond
 + [] Add DTO to decouple domain model from CoreDataStorage
 + [] Entity relationships
-+ [] Use Combine instead of Bond
 + [] Check forms (Eureka)
 + [] Add builder to convert form to Model (formValues -> ´Rackets´)
+
 
 
 ## ✒️ Author

@@ -26,7 +26,7 @@ final class AppCoordinator: Coordinator,
     private let tabBarController: UITabBarController
 
     var isLoggedIn: Bool {
-        (FirebaseService.sharedInstance.currentUser != nil ? true : false)
+        (FirebaseService.shared.currentUser != nil ? true : false)
     }
 
     // MARK: Tab bar item coordinators
@@ -45,7 +45,7 @@ final class AppCoordinator: Coordinator,
     }
 
     func start() {
-        showActivities()
+        showLogin()
         return
 
 //        if isLoggedIn {

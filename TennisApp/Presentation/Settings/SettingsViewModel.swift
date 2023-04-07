@@ -18,12 +18,15 @@ final class SettingsViewModel: BaseViewModel {
 
     // MARK: Methods
 
-    func performLogout(completion: (_ success: Bool, _ error: String?) -> Void) {
-        FirebaseService.sharedInstance.signOut { (success, error) in
-            if let errorMessage = error {
-                Log.error(errorMessage)
+    func performLogout(completion: @escaping (Result<Bool, Error>) -> Void) {
+        FirebaseService.shared.signOut { result in
+            switch result {
+            case .success(let success):
+                completion(.success(success))
+            case .failure(let error):
+                self.errorMessageSubject.send(error.localizedDescription)
+                completion(.failure(error))
             }
-            completion(success, error)
         }
     }
 

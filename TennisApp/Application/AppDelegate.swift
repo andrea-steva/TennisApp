@@ -6,7 +6,6 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-import Firebase
 import UIKit
 
 class AppDelegate: UIResponder, UIApplicationDelegate {

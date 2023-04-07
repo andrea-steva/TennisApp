@@ -21,7 +21,7 @@ final class AlertView {
         kTitleFont: Style.Fonts.get(.regular, size: .extraLarge),
         kTextFont: Style.Fonts.get(.regular, size: .normal),
         kButtonFont: Style.Fonts.get(.bold, size: .large),
-        showCloseButton: false
+        showCloseButton: true
     )
 
     static func showWarning(_ title: String?, message: String, controller: UIViewController) {

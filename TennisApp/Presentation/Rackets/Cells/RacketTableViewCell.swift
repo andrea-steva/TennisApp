@@ -10,6 +10,10 @@ import UIKit
 
 final class RacketTableViewCell: UITableViewCell {
 
+    // MARK: Reuse Identifier
+
+    static let reuseIdentifier = String(describing: RacketTableViewCell.self)
+
     // MARK: IBAction
 
     @IBOutlet private var racketNameLabel: UILabel!
@@ -23,13 +27,9 @@ final class RacketTableViewCell: UITableViewCell {
         racketNameLabel.textColor = Style.Colors.lightColor
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    // MARK: Setup cell
 
-        // Configure the view for the selected state
-    }
-
-    func setRacket(_ racket: Racket) {
-        racketNameLabel.text = "\(racket.manufacter) - \(racket.model)"
+    func setup(with viewModel: RacketCellViewModelType) {
+        racketNameLabel.text = "\(viewModel.manufacter) - \(viewModel.model)"
     }
 }
