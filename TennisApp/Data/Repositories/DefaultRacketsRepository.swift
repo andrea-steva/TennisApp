@@ -58,4 +58,9 @@ final class DefaultRacketsRepository: RacketsRepository {
     func deleteRackets(completion: ((Result<Bool, Error>) -> Void)?) {
         racketsLocalStorage.deleteAll(completion: completion)
     }
+
+    //TODO Create method to delete single racket
+    func deleteRacket(racket: Racket, completion: ((Result<Bool, Error>) -> Void)?) {
+        racketsLocalStorage.deleteAll(completion: completion)
+    }
 }

@@ -52,9 +52,9 @@ final class RacketFormViewModel: BaseViewModel {
         }
     }
 
-    func updateRacket(formValues: [String: Any?]) {
+    func updateRacket(racket: Racket, formValues: [String: Any?]) {
         // TODO update racket properties from formValues (add helper on ´Rackets´)
-        racketUpdateUseCase.execute(racket: Racket(form: formValues)) { result in
+        racketUpdateUseCase.execute(racket: Racket(racket: racket, form: formValues)) { result in
             switch result {
             case .success(let success):
                 Log.debug("Update racket \(success)")

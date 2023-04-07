@@ -19,7 +19,7 @@ final class RacketsCoordinator: TabBarItemCoordinator,
     
     // MARK: Properties
 
-    private let container = RacketsDIContainer()
+    private let appDIContainer: AppDIContainer
     weak var delegate: RacketsCoordinatorDelegate?
     
     // MARK: Controllers
@@ -34,13 +34,15 @@ final class RacketsCoordinator: TabBarItemCoordinator,
     
     // MARK: Coordinator
     
-    init() {
+    init(appDIContainer: AppDIContainer) {
+        self.appDIContainer = appDIContainer
         self.racketsViewController = RacketsViewController.instantiateViewController()
         self.navigationController = UINavigationController(rootViewController: racketsViewController)
     }
     
     func start() -> UIViewController {
-        racketsViewController.viewModel = RacketsViewModel(racketsFetchUseCase: container.makeRacketsFetchUseCase())
+        racketsViewController.viewModel = RacketsViewModel(racketsFetchUseCase: appDIContainer.racketsDIContainer.makeRacketsFetchUseCase(),
+                                                           racketDeleteUseCase: appDIContainer.racketsDIContainer.makeRacketDeleteUseCase())
         racketsViewController.viewModel.coordinatorDelegate = self
         return navigationController as! UIViewController
     }
@@ -48,7 +50,7 @@ final class RacketsCoordinator: TabBarItemCoordinator,
     // MARK: RacketsViewModelCoordinatorDelegate
     
     func racketsViewModelToStrings(viewModel: RacketsViewModel) {
-        stringsCoordinator = StringsCoordinator(navigationController: navigationController)
+        stringsCoordinator = StringsCoordinator(container: appDIContainer.stringsDIContainer, navigationController: navigationController)
         stringsCoordinator?.delegate = self
         stringsCoordinator?.start()
     }

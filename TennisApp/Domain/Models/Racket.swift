@@ -13,7 +13,7 @@ struct Racket {
     var identifier: String
     var manufacter: String
     var model: String
-    var weight: Float
+    var weight: Int32
     var gripSize: GripSize
     var image: Data?
     var purchaseDate: Date?
@@ -22,13 +22,24 @@ struct Racket {
 }
 
 extension Racket {
+
     init(form: [String: Any?]) {
         self.identifier = UUID().uuidString
-        self.manufacter = ""
-        self.model = ""
-        self.weight = 0.0
-        self.gripSize = .one
+        self.manufacter = form["manufacter"] as? String ?? ""
+        self.model = form["model"] as? String ?? ""
+        self.weight = Int32(form["weight"] as? String ?? "0") ?? 0
+        self.gripSize = GripSize(rawValue: form["weight"] as? String ?? "1") ?? .one
         self.image = nil
-        self.purchaseDate = Date()
+        self.purchaseDate = form["purchaseDate"] as? Date ?? Date()
+    }
+
+    init(racket: Racket, form: [String: Any?]) {
+        self.identifier = racket.identifier
+        self.manufacter = form["manufacter"] as? String ?? ""
+        self.model = form["model"] as? String ?? ""
+        self.weight = Int32(form["weight"] as? String ?? "0") ?? 0
+        self.gripSize = GripSize(rawValue: form["weight"] as? String ?? "1") ?? .one
+        self.image = nil
+        self.purchaseDate = form["purchaseDate"] as? Date ?? Date()
     }
 }

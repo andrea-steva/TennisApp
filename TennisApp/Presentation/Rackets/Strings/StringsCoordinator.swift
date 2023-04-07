@@ -16,16 +16,19 @@ class StringsCoordinator: Coordinator, StringsViewModelCoordinatorDelegate, Stri
     
     // MARK: Properties
 
-    private let container = StringsDIContainer()
     weak var delegate: StringsCoordinatorDelegate?
+
+    private let container: StringsDIContainer
     private let navigationController: UINavigationControllerType
-    private let stringsViewController: StringsViewController!
+    private let stringsViewController: StringsViewController
 
     private var stringFormCoordinator: StringFormCoordinator?
     
     // MARK: Coordinator
     
-    init(navigationController: UINavigationControllerType) {
+    init(container: StringsDIContainer,
+         navigationController: UINavigationControllerType) {
+        self.container = container
         self.navigationController = navigationController
         self.stringsViewController = StringsViewController.instantiateViewController()
     }
