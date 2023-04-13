@@ -9,7 +9,7 @@
 protocol StatsViewModelCoordinatorDelegate: AnyObject {
 }
 
-final class StatsViewModel: BaseViewModel {
+final class StatsViewModel {
 
     // MARK: Coordinator
 

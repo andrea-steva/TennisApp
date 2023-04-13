@@ -6,14 +6,16 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-import Bond
-import ReactiveKit
+import Combine
 import UIKit
 
-final class SignUpViewController: BaseViewController, Bindable, StoryboardInstantiable {
+final class SignUpViewController: UIViewController, Bindable, StoryboardInstantiable,
+                                  BackgroundBlurrable, Localizable, LoadingIndicator, Alertable {
 
     // MARK: IBOutlets
 
+    // swiftlint:disable:next private_outlet
+    @IBOutlet var backgroundView: UIImageView!
     @IBOutlet private var displayNameField: UITextField!
     @IBOutlet private var emailField: UITextField!
     @IBOutlet private var passwordField: UITextField!
@@ -31,35 +33,65 @@ final class SignUpViewController: BaseViewController, Bindable, StoryboardInstan
         }
     }
 
+    // MARK: Properties
+
+    var loadingIndicator: UIActivityIndicatorView?
+    var subscriptions = Set<AnyCancellable>()
+    let localizer = Localizer()
+
     // MARK: ViewModel
 
-    var viewModel = SignUpViewModel()
+    var viewModel: SignUpViewModelType = SignUpViewModel()
 
-    func getViewModel() -> BaseViewModel {
-        viewModel
-    }
+    func getViewModel() -> BindableViewModelType { viewModel }
 
     // MARK: View Management
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.backgroundView?.image = self.backgroundView?.image?.applyMenuEffect()
+        self.setBackgroundBlurEffect()
+        self.setupBindinds()
     }
 
-    func bindViewModel() {
+    private func setupBindinds() {
+        viewModel.displayNamePublisher
+            .compactMap { $0 }
+            .assign(to: \.text, on: displayNameField)
+            .store(in: &subscriptions)
 
-        viewModel.displayName.bidirectionalBind(to: displayNameField.reactive.text)
-        viewModel.email.bidirectionalBind(to: emailField.reactive.text)
-        viewModel.password.bidirectionalBind(to: passwordField.reactive.text)
+        displayNameField.textPublisher
+            .sink(receiveValue: { value in
+                self.viewModel.displayName = value
+            })
+            .store(in: &subscriptions)
 
-        combineLatest(emailField.reactive.text, passwordField.reactive.text, displayNameField.reactive.text) { (email, pass, name) -> Bool in
-            guard let email, let pass, let name else {
-                return false
-            }
-            return !email.isEmpty && !pass.isEmpty && !name.isEmpty
-        }
-        .bind(to: signUpButton.reactive.isEnabled)
+        viewModel.emailPublisher
+            .compactMap { $0 }
+            .assign(to: \.text, on: emailField)
+            .store(in: &subscriptions)
+
+        emailField.textPublisher
+            .sink(receiveValue: { value in
+                self.viewModel.email = value
+            })
+            .store(in: &subscriptions)
+
+        viewModel.passwordPublisher
+            .compactMap { $0 }
+            .assign(to: \.text, on: passwordField)
+            .store(in: &subscriptions)
+
+        passwordField.textPublisher
+            .sink(receiveValue: { value in
+                self.viewModel.password = value
+            })
+            .store(in: &subscriptions)
+
+        viewModel.isSubmitEnabled
+            .receive(on: RunLoop.main)
+            .assign(to: \.isEnabled, on: signUpButton)
+            .store(in: &subscriptions)
     }
 
     // MARK: Actions

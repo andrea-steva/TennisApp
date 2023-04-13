@@ -25,6 +25,8 @@ final class ProfileHeaderView: GSKStretchyHeaderView {
     @IBOutlet private var userNameLabel: UILabel!
     @IBOutlet private var navigationTitleLabel: UILabel!
 
+    private let viewModel = ProfileHeaderViewModel()
+
     // MARK: Methods
 
     override func awakeFromNib() {
@@ -32,10 +34,7 @@ final class ProfileHeaderView: GSKStretchyHeaderView {
 
         self.minimumContentHeight = 64.0
 
-//        if let profileImageURL = FirebaseService.shared.userPhotoURL {
-//            self.userImageView.af_setImage(withURL: profileImageURL)
-//        }
-        if let displayName = FirebaseService.shared.currentUser?.displayName {
+        if let displayName = self.viewModel.displayName {
             self.userNameLabel.text = displayName
             self.navigationTitleLabel.text = displayName
         }

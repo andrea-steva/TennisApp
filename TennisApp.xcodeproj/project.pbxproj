@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		09EC0178D4E79F7F6D639467 /* Pods_TennisApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D1AE1094934F1BDA5C2436 /* Pods_TennisApp.framework */; };
 		6507CA681C6D065A00B7AD5C /* SwiftUIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA671C6D065A00B7AD5C /* SwiftUIImageEffects.swift */; };
-		6507CA6F1C6D118000B7AD5C /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA6E1C6D118000B7AD5C /* BaseViewModel.swift */; };
-		6507CA711C6D119E00B7AD5C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA701C6D119E00B7AD5C /* BaseViewController.swift */; };
+		6507CA6F1C6D118000B7AD5C /* BindableViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA6E1C6D118000B7AD5C /* BindableViewModelType.swift */; };
 		65653D201ED0747C00A9DBBB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65653D1F1ED0747C00A9DBBB /* main.swift */; };
 		65653D241ED081D000A9DBBB /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65653D231ED081D000A9DBBB /* Date+.swift */; };
 		65653D261ED0820800A9DBBB /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65653D251ED0820800A9DBBB /* UIView+.swift */; };
@@ -20,7 +19,6 @@
 		6569A3E01E990A3A00A444BB /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6569A3DF1E990A3A00A444BB /* Bindable.swift */; };
 		6569A3FF1E99390B00A444BB /* MatchesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6569A3FE1E99390B00A444BB /* MatchesViewModel.swift */; };
 		6569A4061E9A28E400A444BB /* CGSize+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6569A4051E9A28E400A444BB /* CGSize+.swift */; };
-		656A4BB51E143659009E97EB /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A4BB41E143659009E97EB /* AlertView.swift */; };
 		656A4BB91E17FD43009E97EB /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A4BB81E17FD43009E97EB /* FirebaseService.swift */; };
 		657234881E114DD40050F319 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657234871E114DD40050F319 /* Logger.swift */; };
 		6572348A1E11726B0050F319 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 657234891E11726B0050F319 /* GoogleService-Info.plist */; };
@@ -93,6 +91,9 @@
 		65FB52C51C6DEC0B003A6DAE /* ActivitiesContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB52C41C6DEC0B003A6DAE /* ActivitiesContainerViewController.swift */; };
 		65FB52D81C6DF252003A6DAE /* RacketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB52D71C6DF252003A6DAE /* RacketsViewController.swift */; };
 		7BFA3483FF9EBB75834AD60E /* Pods_TennisAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D70E6022E2EA16F5BB6726CF /* Pods_TennisAppTests.framework */; };
+		FC0B2B7529E6A50A00011730 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0B2B7429E6A50A00011730 /* UITextField+.swift */; };
+		FC0B2B7729E6B3DF00011730 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0B2B7629E6B3DF00011730 /* Alertable.swift */; };
+		FC0B2B7929E70BBB00011730 /* BackgroundBlurrable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0B2B7829E70BBB00011730 /* BackgroundBlurrable.swift */; };
 		FC1F3D1929DC7C7A006FAD8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6569A3E61E990BAF00A444BB /* LaunchScreen.storyboard */; };
 		FC1F3D1A29DC7C7A006FAD8B /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6569A3E81E990BAF00A444BB /* LoginViewController.storyboard */; };
 		FC1F3D1C29DC7C7A006FAD8B /* ActivitiesContainerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6569A3EA1E990BAF00A444BB /* ActivitiesContainerViewController.storyboard */; };
@@ -106,6 +107,11 @@
 		FC1F3D2A29DDC664006FAD8B /* UINavigationControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F3D2929DDC664006FAD8B /* UINavigationControllerType.swift */; };
 		FC1F3D2C29DDD354006FAD8B /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F3D2B29DDD354006FAD8B /* LoadingIndicator.swift */; };
 		FC1F3D2E29DDD667006FAD8B /* TabBarItemCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F3D2D29DDD667006FAD8B /* TabBarItemCoordinator.swift */; };
+		FC40E93E29E818AB0089717D /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC40E93D29E818AB0089717D /* Localizable.swift */; };
+		FC40E94029E843120089717D /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC40E93F29E843120089717D /* ProfileHeaderViewModel.swift */; };
+		FC40E94529E852AD0089717D /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC40E94429E852AD0089717D /* SettingsTableViewCell.swift */; };
+		FC40E94729E8540A0089717D /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC40E94629E8540A0089717D /* SettingsItem.swift */; };
+		FC40E94929E85D5C0089717D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC40E94829E85D5C0089717D /* Colors.xcassets */; };
 		FCB8AABC29DF0A8D00148DB9 /* Parchment in Frameworks */ = {isa = PBXBuildFile; productRef = FCB8AABB29DF0A8D00148DB9 /* Parchment */; };
 		FCBDF9FE29D72EB7008A7FD6 /* StringsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBDF9FD29D72EB7008A7FD6 /* StringsStorage.swift */; };
 		FCBDFA0829D73111008A7FD6 /* PracticeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBDFA0029D73111008A7FD6 /* PracticeEntity.swift */; };
@@ -153,7 +159,6 @@
 		FCE0AAE429D73F2A00308EF3 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FCE0AAE329D73F2A00308EF3 /* IQKeyboardManagerSwift */; };
 		FCE0AAEA29D73FB900308EF3 /* Eureka in Frameworks */ = {isa = PBXBuildFile; productRef = FCE0AAE929D73FB900308EF3 /* Eureka */; };
 		FCE0AAED29D7403100308EF3 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = FCE0AAEC29D7403100308EF3 /* Charts */; };
-		FCE0AAF229D741AA00308EF3 /* Bond in Frameworks */ = {isa = PBXBuildFile; productRef = FCE0AAF129D741AA00308EF3 /* Bond */; };
 		FCF6D8AD29DAC56200DBCD4B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8AC29DAC56200DBCD4B /* Strings.swift */; };
 		FCF6D8AF29DAC78900DBCD4B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8AE29DAC78900DBCD4B /* User.swift */; };
 		FCF6D8B129DAC7A300DBCD4B /* Racket.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8B029DAC7A300DBCD4B /* Racket.swift */; };
@@ -215,8 +220,7 @@
 		26C33F3D6C7F65404097A424 /* Pods-TennisApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TennisApp/Pods-TennisApp.debug.xcconfig"; sourceTree = "<group>"; };
 		484A4B75F1A567AF0F9C3F4C /* Pods-TennisAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TennisAppTests/Pods-TennisAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6507CA671C6D065A00B7AD5C /* SwiftUIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIImageEffects.swift; sourceTree = "<group>"; };
-		6507CA6E1C6D118000B7AD5C /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
-		6507CA701C6D119E00B7AD5C /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		6507CA6E1C6D118000B7AD5C /* BindableViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindableViewModelType.swift; sourceTree = "<group>"; };
 		65653D1F1ED0747C00A9DBBB /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		65653D231ED081D000A9DBBB /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		65653D251ED0820800A9DBBB /* UIView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -234,7 +238,6 @@
 		6569A3F21E990BAF00A444BB /* StatsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StatsViewController.storyboard; sourceTree = "<group>"; };
 		6569A3FE1E99390B00A444BB /* MatchesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesViewModel.swift; sourceTree = "<group>"; };
 		6569A4051E9A28E400A444BB /* CGSize+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGSize+.swift"; sourceTree = "<group>"; };
-		656A4BB41E143659009E97EB /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		656A4BB81E17FD43009E97EB /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseService.swift; path = TennisApp/Infrastructure/Firebase/FirebaseService.swift; sourceTree = SOURCE_ROOT; };
 		657234871E114DD40050F319 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		657234891E11726B0050F319 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -316,11 +319,19 @@
 		9246E445FB094E36A048BFB1 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4917D93343A4A2925621DB1 /* Pods-TennisAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TennisAppTests/Pods-TennisAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		D70E6022E2EA16F5BB6726CF /* Pods_TennisAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TennisAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC0B2B7429E6A50A00011730 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		FC0B2B7629E6B3DF00011730 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
+		FC0B2B7829E70BBB00011730 /* BackgroundBlurrable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundBlurrable.swift; sourceTree = "<group>"; };
 		FC1F3D2229DC8894006FAD8B /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		FC1F3D2429DC88BC006FAD8B /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		FC1F3D2929DDC664006FAD8B /* UINavigationControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerType.swift; sourceTree = "<group>"; };
 		FC1F3D2B29DDD354006FAD8B /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		FC1F3D2D29DDD667006FAD8B /* TabBarItemCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemCoordinator.swift; sourceTree = "<group>"; };
+		FC40E93D29E818AB0089717D /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		FC40E93F29E843120089717D /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
+		FC40E94429E852AD0089717D /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		FC40E94629E8540A0089717D /* SettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItem.swift; sourceTree = "<group>"; };
+		FC40E94829E85D5C0089717D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FCBDF9FD29D72EB7008A7FD6 /* StringsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsStorage.swift; sourceTree = "<group>"; };
 		FCBDFA0029D73111008A7FD6 /* PracticeEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeEntity.swift; sourceTree = "<group>"; };
 		FCBDFA0129D73111008A7FD6 /* FitnessEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitnessEntity.swift; sourceTree = "<group>"; };
@@ -408,7 +419,6 @@
 				FCE0AAED29D7403100308EF3 /* Charts in Frameworks */,
 				FCE0AAEA29D73FB900308EF3 /* Eureka in Frameworks */,
 				FCCBFF7F29E012FD00068479 /* ImageRow in Frameworks */,
-				FCE0AAF229D741AA00308EF3 /* Bond in Frameworks */,
 				09EC0178D4E79F7F6D639467 /* Pods_TennisApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,10 +459,14 @@
 		6569A3DE1E990A3A00A444BB /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				FC0B2B7629E6B3DF00011730 /* Alertable.swift */,
+				FC0B2B7829E70BBB00011730 /* BackgroundBlurrable.swift */,
 				6569A3DF1E990A3A00A444BB /* Bindable.swift */,
+				6507CA6E1C6D118000B7AD5C /* BindableViewModelType.swift */,
 				65F05AB21ECE332100EFA322 /* Coordinator.swift */,
 				FC1F3D2D29DDD667006FAD8B /* TabBarItemCoordinator.swift */,
 				FC1F3D2B29DDD354006FAD8B /* LoadingIndicator.swift */,
+				FC40E93D29E818AB0089717D /* Localizable.swift */,
 				FC1F3D2929DDC664006FAD8B /* UINavigationControllerType.swift */,
 				FCF6D8E829DC5EB100DBCD4B /* StoryBoardInstantiable.swift */,
 			);
@@ -522,7 +536,6 @@
 		65B04DE51C6CA74400011439 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				656A4BB41E143659009E97EB /* AlertView.swift */,
 				65B04E241C6CC01000011439 /* Localizer.swift */,
 				65B04E221C6CBEEF00011439 /* CalendarEventsBuilder.swift */,
 			);
@@ -663,6 +676,8 @@
 				65D206831EE0BBD4004A8150 /* SettingsCoordinator.swift */,
 				65D824A91C6F589B00E2918C /* SettingsViewController.swift */,
 				6589FC991E26F71300C25F31 /* SettingsViewModel.swift */,
+				FC40E94329E8508F0089717D /* Cells */,
+				FC40E94629E8540A0089717D /* SettingsItem.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -689,12 +704,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FC40E94329E8508F0089717D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FC40E94429E852AD0089717D /* SettingsTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		FC62B15029D724F9000B79D0 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				FCE0AAD929D73AFB00308EF3 /* TabBarItems.swift */,
-				6507CA701C6D119E00B7AD5C /* BaseViewController.swift */,
-				6507CA6E1C6D118000B7AD5C /* BaseViewModel.swift */,
 				65C511EF1C948EBC0051D645 /* Login */,
 				65F05AAB1ECE329000EFA322 /* SignUp */,
 				65D824981C6E37D200E2918C /* Activitites */,
@@ -775,6 +796,7 @@
 				65B04DF01C6CA86400011439 /* LatoFont */,
 				65B04DED1C6CA83500011439 /* Images */,
 				65B04DA91C6CA02300011439 /* Assets.xcassets */,
+				FC40E94829E85D5C0089717D /* Colors.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -871,6 +893,7 @@
 				FC1F3D2429DC88BC006FAD8B /* UIImage+.swift */,
 				FCCBFF6729E00C8900068479 /* UITableView+.swift */,
 				65653D251ED0820800A9DBBB /* UIView+.swift */,
+				FC0B2B7429E6A50A00011730 /* UITextField+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1094,6 +1117,7 @@
 			children = (
 				65C511E71C938C740051D645 /* ProfileHeaderView.xib */,
 				65C511E91C938DCA0051D645 /* ProfileHeaderView.swift */,
+				FC40E93F29E843120089717D /* ProfileHeaderViewModel.swift */,
 			);
 			path = ProfileHeader;
 			sourceTree = "<group>";
@@ -1122,7 +1146,6 @@
 				FCE0AAE329D73F2A00308EF3 /* IQKeyboardManagerSwift */,
 				FCE0AAE929D73FB900308EF3 /* Eureka */,
 				FCE0AAEC29D7403100308EF3 /* Charts */,
-				FCE0AAF129D741AA00308EF3 /* Bond */,
 				FCB8AABB29DF0A8D00148DB9 /* Parchment */,
 				FCCBFF7E29E012FD00068479 /* ImageRow */,
 			);
@@ -1187,7 +1210,6 @@
 				FCE0AAE229D73F2A00308EF3 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				FCE0AAE829D73FB900308EF3 /* XCRemoteSwiftPackageReference "Eureka" */,
 				FCE0AAEB29D7403100308EF3 /* XCRemoteSwiftPackageReference "Charts" */,
-				FCE0AAF029D741AA00308EF3 /* XCRemoteSwiftPackageReference "Bond" */,
 				FCB8AABA29DF0A8D00148DB9 /* XCRemoteSwiftPackageReference "Parchment" */,
 				FCCBFF7D29E012FD00068479 /* XCRemoteSwiftPackageReference "ImageRow" */,
 			);
@@ -1243,6 +1265,7 @@
 				65B04E151C6CA86400011439 /* Lato-Thin.ttf in Resources */,
 				65FB52C11C6DE60C003A6DAE /* court_clay.jpg in Resources */,
 				65FB52C31C6DE60C003A6DAE /* court_hard_b.jpg in Resources */,
+				FC40E94929E85D5C0089717D /* Colors.xcassets in Resources */,
 				65B04E101C6CA86400011439 /* Lato-Medium.ttf in Resources */,
 				65B04E161C6CA86400011439 /* Lato-ThinItalic.ttf in Resources */,
 				65B04E091C6CA86400011439 /* Lato-Hairline.ttf in Resources */,
@@ -1312,7 +1335,6 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1325,7 +1347,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1366,7 +1387,6 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1379,7 +1399,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1399,7 +1418,7 @@
 				6589FC981E26F6A600C25F31 /* StatsViewModel.swift in Sources */,
 				FCF6D8C329DAD2DC00DBCD4B /* AppCoreDataModel.xcdatamodeld in Sources */,
 				FCE0AADA29D73AFB00308EF3 /* TabBarItems.swift in Sources */,
-				6507CA6F1C6D118000B7AD5C /* BaseViewModel.swift in Sources */,
+				6507CA6F1C6D118000B7AD5C /* BindableViewModelType.swift in Sources */,
 				6569A3FF1E99390B00A444BB /* MatchesViewModel.swift in Sources */,
 				FCCBFF5229DF1E9B00068479 /* ProfileDIContainer.swift in Sources */,
 				65D206861EE162A3004A8150 /* ActivitiesCoordinator.swift in Sources */,
@@ -1408,7 +1427,6 @@
 				FCF6D8B729DACAE500DBCD4B /* Match.swift in Sources */,
 				FC1F3D2329DC8894006FAD8B /* UIColor+.swift in Sources */,
 				FCBDFA0F29D73111008A7FD6 /* RacketEntity.swift in Sources */,
-				6507CA711C6D119E00B7AD5C /* BaseViewController.swift in Sources */,
 				FCCBFF7A29E0108000068479 /* Activities.swift in Sources */,
 				FCE0AAC229D7338100308EF3 /* UsersStorage.swift in Sources */,
 				65B04E211C6CBDC200011439 /* UserDefaultsStorage.swift in Sources */,
@@ -1417,7 +1435,6 @@
 				FCF6D8DF29DB17D000DBCD4B /* StringsFetchUseCase.swift in Sources */,
 				FCCBFF9129E070B600068479 /* FirebaseUser.swift in Sources */,
 				FCE0AAD829D73ACF00308EF3 /* GripSize.swift in Sources */,
-				656A4BB51E143659009E97EB /* AlertView.swift in Sources */,
 				FCCBFF8A29E0471200068479 /* RacketCellViewModel.swift in Sources */,
 				FCBDF9FE29D72EB7008A7FD6 /* StringsStorage.swift in Sources */,
 				FCBDFA0E29D73111008A7FD6 /* MatchEntity.swift in Sources */,
@@ -1427,6 +1444,7 @@
 				65F05AB51ECE334800EFA322 /* AppCoordinator.swift in Sources */,
 				65C511F41C948F0A0051D645 /* LoginViewModel.swift in Sources */,
 				65F05AB11ECE329000EFA322 /* SignUpViewModel.swift in Sources */,
+				FC40E94729E8540A0089717D /* SettingsItem.swift in Sources */,
 				FCE0AACA29D7365300308EF3 /* LoggerProfile.swift in Sources */,
 				65F05AB01ECE329000EFA322 /* SignUpViewController.swift in Sources */,
 				65ECE30D1C708CC6004EE2C9 /* RacketsViewModel.swift in Sources */,
@@ -1451,6 +1469,7 @@
 				FC1F3D2C29DDD354006FAD8B /* LoadingIndicator.swift in Sources */,
 				FCCBFF5429DF1EBA00068479 /* StatsDIContainer.swift in Sources */,
 				FCBDFA0829D73111008A7FD6 /* PracticeEntity.swift in Sources */,
+				FC40E93E29E818AB0089717D /* Localizable.swift in Sources */,
 				FCF6D8D229DB07F700DBCD4B /* RacketCreateUseCase.swift in Sources */,
 				65C2CB141F26A1550095D954 /* StringFormCoordinator.swift in Sources */,
 				FCCBFF8C29E04E8B00068479 /* StringCellViewModel.swift in Sources */,
@@ -1468,6 +1487,7 @@
 				FCE0AACC29D7367800308EF3 /* Log.swift in Sources */,
 				65F05AAA1ECE328200EFA322 /* LoginCoordinator.swift in Sources */,
 				65FB52D81C6DF252003A6DAE /* RacketsViewController.swift in Sources */,
+				FC40E94529E852AD0089717D /* SettingsTableViewCell.swift in Sources */,
 				6507CA681C6D065A00B7AD5C /* SwiftUIImageEffects.swift in Sources */,
 				65D824A21C6E6C6E00E2918C /* StatsViewController.swift in Sources */,
 				65D8249D1C6E38BE00E2918C /* MatchesViewController.swift in Sources */,
@@ -1479,8 +1499,10 @@
 				65653D301ED0A7FD00A9DBBB /* StringsViewModel.swift in Sources */,
 				657234881E114DD40050F319 /* Logger.swift in Sources */,
 				FCF6D8BB29DACDF500DBCD4B /* UsersRepository.swift in Sources */,
+				FC40E94029E843120089717D /* ProfileHeaderViewModel.swift in Sources */,
 				FCF6D8CB29DB001A00DBCD4B /* DefaultRacketsRepository.swift in Sources */,
 				65D206821EE0BACF004A8150 /* ProfileCoordinator.swift in Sources */,
+				FC0B2B7529E6A50A00011730 /* UITextField+.swift in Sources */,
 				FCF6D8E929DC5EB100DBCD4B /* StoryBoardInstantiable.swift in Sources */,
 				FCCBFF8829E0250E00068479 /* FontType.swift in Sources */,
 				65B04E231C6CBEEF00011439 /* CalendarEventsBuilder.swift in Sources */,
@@ -1495,10 +1517,12 @@
 				FCF6D8B529DACA8300DBCD4B /* MatchScore.swift in Sources */,
 				FCF6D8E429DC502100DBCD4B /* RacketsDIContainer.swift in Sources */,
 				65D2068E1EE1980F004A8150 /* StringFormViewModel.swift in Sources */,
+				FC0B2B7729E6B3DF00011730 /* Alertable.swift in Sources */,
 				FCF6D8D729DB15C500DBCD4B /* StringsRepository.swift in Sources */,
 				FCF6D8E729DC590C00DBCD4B /* StringsDIContainer.swift in Sources */,
 				65653D261ED0820800A9DBBB /* UIView+.swift in Sources */,
 				FCF6D8D929DB161000DBCD4B /* DefaultStringsRepository.swift in Sources */,
+				FC0B2B7929E70BBB00011730 /* BackgroundBlurrable.swift in Sources */,
 				6589FC961E26F69000C25F31 /* ProfileViewModel.swift in Sources */,
 				FCF6D8C929DAFD7300DBCD4B /* RacketsCoreDataStorage.swift in Sources */,
 				FCCBFF5629DF1ECE00068479 /* SettingsDIContainer.swift in Sources */,
@@ -1677,7 +1701,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "TennisApp/Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -1699,6 +1723,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.as.TennisApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TennisApp/Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -1817,14 +1842,6 @@
 				minimumVersion = 4.0.0;
 			};
 		};
-		FCE0AAF029D741AA00308EF3 /* XCRemoteSwiftPackageReference "Bond" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/DeclarativeHub/Bond";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1852,11 +1869,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FCE0AAEB29D7403100308EF3 /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = Charts;
-		};
-		FCE0AAF129D741AA00308EF3 /* Bond */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FCE0AAF029D741AA00308EF3 /* XCRemoteSwiftPackageReference "Bond" */;
-			productName = Bond;
 		};
 /* End XCSwiftPackageProductDependency section */
 

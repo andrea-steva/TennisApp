@@ -8,13 +8,20 @@
 
 import UIKit
 
-final class ProfileViewController: BaseViewController, UITableViewDataSource, UITabBarDelegate, StoryboardInstantiable {
+final class ProfileViewController: UIViewController, UITableViewDataSource, UITabBarDelegate,
+                                   StoryboardInstantiable, BackgroundBlurrable, Localizable {
 
     static let ProfileCellReuseId = "profile_cell"
 
     // MARK: IBOutlets
 
+    // swiftlint:disable:next private_outlet
+    @IBOutlet var backgroundView: UIImageView!
     @IBOutlet private var tableView: UITableView!
+
+    // MARK: Properties
+
+    let localizer = Localizer()
 
     // MARK: ViewModel
 
@@ -22,12 +29,11 @@ final class ProfileViewController: BaseViewController, UITableViewDataSource, UI
 
     // MARK: View Management
 
-    override func localizedTitleString() -> String {
-        LocalizationKeys.menuProfile
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.title = localizer.get(LocalizationKeys.menuProfile)
+        self.setBackgroundBlurEffect()
 
         if let headerView = Bundle.main.loadNibNamed("ProfileHeaderView", owner: self, options: nil)?.first as? ProfileHeaderView {
             self.tableView.addSubview(headerView)

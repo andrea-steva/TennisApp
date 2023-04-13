@@ -6,13 +6,16 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
-import Bond
-import ReactiveKit
+import Combine
 import UIKit
 
-final class LoginViewController: BaseViewController, Bindable, StoryboardInstantiable {
+final class LoginViewController: UIViewController, Bindable, StoryboardInstantiable,
+                                 BackgroundBlurrable, Localizable, LoadingIndicator, Alertable {
 
     // MARK: IBOutlets
+
+    // swiftlint:disable:next private_outlet
+    @IBOutlet var backgroundView: UIImageView!
 
     @IBOutlet private var emailLoginButton: UIButton! {
         didSet {
@@ -30,13 +33,17 @@ final class LoginViewController: BaseViewController, Bindable, StoryboardInstant
     @IBOutlet private var emailField: UITextField!
     @IBOutlet private var passwordField: UITextField!
 
+    // MARK: Properties
+
+    let localizer = Localizer()
+    var loadingIndicator: UIActivityIndicatorView?
+    var subscriptions = Set<AnyCancellable>()
+
     // MARK: ViewModel
 
-    var viewModel: LoginViewModel!
+    var viewModel: LoginViewModelType!
 
-    func getViewModel() -> BaseViewModel {
-        viewModel
-    }
+    func getViewModel() -> BindableViewModelType { viewModel }
 
     // MARK: View Management
 
@@ -47,25 +54,43 @@ final class LoginViewController: BaseViewController, Bindable, StoryboardInstant
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.backgroundView?.image = self.backgroundView?.image?.applyMenuEffect()
+        self.title = ""
 
-        self.bindViewModel()
+        self.setBackgroundBlurEffect()
+
+        self.setupBindinds()
         self.bindLoader()
         self.bindAlertMessage()
     }
 
-    func bindViewModel() {
+    private func setupBindinds() {
+        // Bidirectional bind view model and UITextiField
+        viewModel.emailPublisher
+            .compactMap { $0 }
+            .assign(to: \.text, on: emailField)
+            .store(in: &subscriptions)
 
-        viewModel.email.bidirectionalBind(to: emailField.reactive.text)
-        viewModel.password.bidirectionalBind(to: passwordField.reactive.text)
+        emailField.textPublisher
+            .sink(receiveValue: { value in
+                self.viewModel.email = value
+            })
+            .store(in: &subscriptions)
 
-        combineLatest(emailField.reactive.text, passwordField.reactive.text) { email, pass in
-            guard let email, let pass else {
-                return false
-            }
-            return !email.isEmpty && !pass.isEmpty
-        }
-        .bind(to: emailLoginButton.reactive.isEnabled)
+        viewModel.passwordPublisher
+            .compactMap { $0 }
+            .assign(to: \.text, on: passwordField)
+            .store(in: &subscriptions)
+
+        passwordField.textPublisher
+            .sink(receiveValue: { value in
+                self.viewModel.password = value
+            })
+            .store(in: &subscriptions)
+
+        viewModel.isSubmitEnabled
+            .receive(on: RunLoop.main)
+            .assign(to: \.isEnabled, on: emailLoginButton)
+            .store(in: &subscriptions)
     }
 
     // MARK: IBAction
@@ -88,7 +113,7 @@ final class LoginViewController: BaseViewController, Bindable, StoryboardInstant
             guard let userInput = prompt.textFields?.first?.text, !userInput.isEmpty else {
                 return
             }
-            FirebaseService.shared.sendPasswordReset(withEmail: userInput)
+            self.viewModel.sendPasswordReset(userInput)
         }
         prompt.addTextField(configurationHandler: nil)
         prompt.addAction(okAction)

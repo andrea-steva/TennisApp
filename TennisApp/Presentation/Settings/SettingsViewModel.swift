@@ -6,26 +6,63 @@
 //  Copyright © 2017 Andrea Stevanato. All rights reserved.
 //
 
+import Combine
+
 protocol SettingsViewModelCoordinatorDelegate: AnyObject {
     func viewModelDidLogout(viewModel: SettingsViewModel)
 }
 
-final class SettingsViewModel: BaseViewModel {
+protocol SettingsViewModelType {
+    var coordinatorDelegate: SettingsViewModelCoordinatorDelegate? { get set }
+
+    func numberOfSettings() -> Int
+    func getSettingsFor(index: Int) -> SettingsItem
+    
+    func performLogout(completion: ((Result<Bool, Error>) -> Void)? )
+}
+
+final class SettingsViewModel: SettingsViewModelType {
 
     // MARK: Coordinator
 
     weak var coordinatorDelegate: SettingsViewModelCoordinatorDelegate?
 
+    // MARK: Properties
+
+    let errorMessageSubject = PassthroughSubject<String, Never>()
+    let isLoadingSubject = PassthroughSubject<Bool, Never>()
+
+    private let firebaseService: FirebaseServiceType
+
+    private var settings: [SettingsItem]
+
     // MARK: Methods
 
-    func performLogout(completion: @escaping (Result<Bool, Error>) -> Void) {
-        FirebaseService.shared.signOut { result in
+    init(firebaseService: FirebaseServiceType = FirebaseService.shared) {
+        self.firebaseService = firebaseService
+        self.settings = [.general, .support, .logout]
+    }
+
+    func numberOfSettings() -> Int {
+        settings.count
+    }
+
+    func getSettingsFor(index: Int) -> SettingsItem {
+        SettingsItem(rawValue: index)!
+    }
+
+    func performLogout(completion: ((Result<Bool, Error>) -> Void)?) {
+        isLoadingSubject.send(true)
+        firebaseService.signOut { [weak self] result in
+            guard let self else { return }
+            self.isLoadingSubject.send(false)
             switch result {
             case .success(let success):
-                completion(.success(success))
+                completion?(.success(success))
+                self.userDidlogout()
             case .failure(let error):
                 self.errorMessageSubject.send(error.localizedDescription)
-                completion(.failure(error))
+                completion?(.failure(error))
             }
         }
     }

@@ -8,40 +8,78 @@
 
 import UIKit
 
-final class SettingsViewController: BaseViewController, StoryboardInstantiable {
+final class SettingsViewController: UIViewController, StoryboardInstantiable,
+                                    UITableViewDataSource, UITableViewDelegate,
+                                    BackgroundBlurrable, Localizable, Alertable {
 
     // MARK: IBActions
 
+    // swiftlint:disable:next private_outlet
+    @IBOutlet var backgroundView: UIImageView!
+    @IBOutlet private var tableView: UITableView!
+
+    // MARK: Properties
+
+    let localizer = Localizer()
+
     // MARK: ViewModel
 
-    var viewModel: SettingsViewModel!
+    var viewModel: SettingsViewModelType!
 
     // MARK: View Management
 
-    override func localizedTitleString() -> String {
-        LocalizationKeys.menuSettings
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.title = localizer.get(LocalizationKeys.menuSettings)
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+
+        self.setBackgroundBlurEffect()
+
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+    }
+
+    // MARK: UITableViewDataSource
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: SettingsTableViewCell.reuseIdentifier)
+
+        let settings = viewModel.getSettingsFor(index: indexPath.row)
+        cell.backgroundColor = .clear
+        cell.textLabel?.text = settings.title
+
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.numberOfSettings()
+    }
+
+    // MARK: UITableViewDelegate
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let settings = viewModel.getSettingsFor(index: indexPath.row)
+        switch settings {
+        case .general:
+            break
+        case .support:
+            break
+        case .logout:
+            performLogout()
+        }
     }
 
     // MARK: Logout
 
-    func sideMenuUserLogout() {
-        AlertView.showConfirm(localizer.get(LocalizationKeys.genericAlertTitle),
-                              message: "Are you sure to want to logout?") { [weak self] (userCancelAction) in
-            guard let self else { return }
-            if !userCancelAction {
-                self.viewModel.performLogout { result in
-                    switch result {
-                    case .success:
-                        self.viewModel.userDidlogout()
-                    case .failure:
-                        break
-                    }
-                }
-            }
-        }
+    private func performLogout() {
+        self.showAlert(title: localizer.get(LocalizationKeys.genericAlertTitle),
+                       message: "Are you sure to want to logout?",
+                       confirmAction: { _ in
+            self.viewModel.performLogout(completion: nil)
+        })
     }
 }

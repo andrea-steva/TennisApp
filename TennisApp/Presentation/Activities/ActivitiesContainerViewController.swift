@@ -9,21 +9,24 @@
 import Parchment
 import UIKit
 
-final class ActivitiesContainerViewController: BaseViewController, StoryboardInstantiable {
+final class ActivitiesContainerViewController: UIViewController, StoryboardInstantiable,
+                                               BackgroundBlurrable, Localizable {
 
-    // MARK: Property
+    // swiftlint:disable:next private_outlet
+    @IBOutlet var backgroundView: UIImageView!
 
+    // MARK: Properties
+
+    let localizer = Localizer()
     let pagingViewController = PagingViewController()
 
     // MARK: View Management
-
-    override func localizedTitleString() -> String {
-        LocalizationKeys.menuHome
-    }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = localizer.get(LocalizationKeys.menuHome)
+        setBackgroundBlurEffect()
         setupPagingViewController()
     }
 

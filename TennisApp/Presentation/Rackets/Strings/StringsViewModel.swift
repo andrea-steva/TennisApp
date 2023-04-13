@@ -13,7 +13,7 @@ protocol StringsViewModelCoordinatorDelegate: AnyObject {
     func stringViewModelToStringForm(string: Strings?)
 }
 
-final class StringsViewModel: BaseViewModel {
+final class StringsViewModel {
 
     // MARK: Coordinator
 

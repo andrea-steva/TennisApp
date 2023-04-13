@@ -9,15 +9,21 @@
 import Combine
 import UIKit
 
-final class StringsViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, StoryboardInstantiable {
+final class StringsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,
+                                   StoryboardInstantiable, Localizable, Alertable {
 
     static let StringsCellReuseId = "string_cell"
 
     // MARK: IBOutlets
 
+    // swiftlint:disable:next private_outlet
+    @IBOutlet var backgroundView: UIImageView!
     @IBOutlet private var tableView: UITableView!
 
     // MARK: Properties
+
+    private(set) var subscriptions = Set<AnyCancellable>()
+    let localizer = Localizer()
 
     // MARK: ViewModel
 
@@ -25,12 +31,10 @@ final class StringsViewController: BaseViewController, UITableViewDataSource, UI
 
     // MARK: View Management
 
-    override func localizedTitleString() -> String {
-        LocalizationKeys.menuStrings
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.title = localizer.get(LocalizationKeys.menuStrings)
 
         self.setupObservers()
     }
@@ -104,13 +108,11 @@ final class StringsViewController: BaseViewController, UITableViewDataSource, UI
         editAction.backgroundColor = Style.Colors.primaryColor
 
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (_, _, _) in
-            AlertView.showConfirm(self.localizer.get(LocalizationKeys.genericAlertTitle),
-                                  message: "Are you sure to delete the string?",
-                                  completionBlock: { (userCancelAction) in
-                if !userCancelAction {
-                    self.viewModel.deleteString(forIndex: indexPath.row)
-                    self.tableView.setEditing(false, animated: true)
-                }
+            self.showAlert(title: self.localizer.get(LocalizationKeys.genericAlertTitle),
+                           message: "Are you sure to delete the string?",
+                           confirmAction: { _ in
+                self.viewModel.deleteString(forIndex: indexPath.row)
+                self.tableView.setEditing(false, animated: true)
             })
         }
 

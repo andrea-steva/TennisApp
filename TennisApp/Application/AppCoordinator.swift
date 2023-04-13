@@ -18,16 +18,15 @@ final class AppCoordinator: Coordinator,
 
     // MARK: Properties
 
+    var loginCoordinator: LoginCoordinator?
     let appDIContainer = AppDIContainer()
-    var coordinators = [String: Coordinator]()
     let localizer = Localizer()
+    let firebaseService: FirebaseServiceType = FirebaseService.shared
 
     private let window: UIWindow
     private let tabBarController: UITabBarController
 
-    var isLoggedIn: Bool {
-        (FirebaseService.shared.currentUser != nil ? true : false)
-    }
+    var isLoggedIn: Bool { firebaseService.isLoggedIn() }
 
     // MARK: Tab bar item coordinators
 
@@ -45,7 +44,7 @@ final class AppCoordinator: Coordinator,
     }
 
     func start() {
-        showLogin()
+        showActivities()
         return
 
 //        if isLoggedIn {
@@ -56,10 +55,9 @@ final class AppCoordinator: Coordinator,
     }
 
     private func showLogin() {
-        let loginCoordinator = LoginCoordinator(window: window)
-        loginCoordinator.delegate = self
-        loginCoordinator.start()
-        coordinators["login"] = loginCoordinator
+        loginCoordinator = LoginCoordinator(window: window)
+        loginCoordinator?.delegate = self
+        loginCoordinator?.start()
     }
 
     private func showActivities() {
@@ -104,7 +102,7 @@ final class AppCoordinator: Coordinator,
     // MARK: LoginCoordinatorDelegate
 
     func loginCoordinatorDidFinish(loginCoordinator: LoginCoordinator) {
-        coordinators["login"] = nil
+        self.loginCoordinator = nil
         showActivities()
     }
 
@@ -122,7 +120,8 @@ final class AppCoordinator: Coordinator,
     func profileCoordinatorDidFinish(profileCoordinator: ProfileCoordinator) {
     }
 
-    func settingsCoordinatorDidFinish(settingsCoordinator: SettingsCoordinator) {
+    func settingsCoordinatorUserLogout(settingsCoordinator: SettingsCoordinator) {
+        self.showLogin()
     }
 
     deinit {

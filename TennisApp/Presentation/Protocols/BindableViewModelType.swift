@@ -2,13 +2,13 @@
 //  BaseViewModel.swift
 //  TennisApp
 //
-//  Created by Andrea Stevanato on 11/02/16.
-//  Copyright © 2016 Andrea Stevanato. All rights reserved.
+//  Created by Andrea Stevanato on 13/04/23.
+//  Copyright © 2023 Andrea Stevanato. All rights reserved.
 //
 
 import Combine
 
-protocol BaseViewModelType {
+protocol BindableViewModelType {
     var errorMessage: AnyPublisher<String, Never> { get }
     var errorMessageSubject: PassthroughSubject<String, Never> { get }
 
@@ -16,11 +16,7 @@ protocol BaseViewModelType {
     var isLoadingSubject: PassthroughSubject<Bool, Never> { get }
 }
 
-class BaseViewModel: BaseViewModelType {
-
-    var errorMessage: AnyPublisher<String, Never> { errorMessageSubject.eraseToAnyPublisher() }
-    let errorMessageSubject = PassthroughSubject<String, Never>()
-
+extension BindableViewModelType {
     var isLoading: AnyPublisher<Bool, Never> { isLoadingSubject.eraseToAnyPublisher() }
-    let isLoadingSubject = PassthroughSubject<Bool, Never>()
+    var errorMessage: AnyPublisher<String, Never> { errorMessageSubject.eraseToAnyPublisher() }
 }

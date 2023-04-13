@@ -9,13 +9,19 @@
 import Combine
 import UIKit
 
-final class RacketsViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, StoryboardInstantiable {
+final class RacketsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,
+                                   StoryboardInstantiable, BackgroundBlurrable, Localizable, Alertable {
 
     // MARK: IBOutlets
 
+    // swiftlint:disable:next private_outlet
+    @IBOutlet var backgroundView: UIImageView!
     @IBOutlet private var tableView: UITableView!
 
     // MARK: Properties
+
+    private(set) var subscriptions = Set<AnyCancellable>()
+    let localizer = Localizer()
 
     // MARK: ViewModel
 
@@ -23,13 +29,11 @@ final class RacketsViewController: BaseViewController, UITableViewDataSource, UI
 
     // MARK: View Management
 
-    override func localizedTitleString() -> String {
-        LocalizationKeys.menuRackets
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = localizer.get(LocalizationKeys.menuRackets)
+        self.setBackgroundBlurEffect()
         self.setupObservers()
         self.addPullToRefresh()
     }
@@ -115,13 +119,11 @@ final class RacketsViewController: BaseViewController, UITableViewDataSource, UI
         editAction.backgroundColor = Style.Colors.primaryColor
 
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (_, _, _) in
-            AlertView.showConfirm(self.localizer.get(LocalizationKeys.genericAlertTitle),
-                                  message: "Are you sure to delete the racket?",
-                                  completionBlock: { (userCancelAction) in
-                if !userCancelAction {
-                    self.viewModel.deleteRacket(forIndex: indexPath.row)
-                    self.tableView.setEditing(false, animated: true)
-                }
+            self.showAlert(title: self.localizer.get(LocalizationKeys.genericAlertTitle),
+                           message: "Are you sure to delete the racket?",
+                           confirmAction: { _ in
+                self.viewModel.deleteRacket(forIndex: indexPath.row)
+                self.tableView.setEditing(false, animated: true)
             })
         }
 

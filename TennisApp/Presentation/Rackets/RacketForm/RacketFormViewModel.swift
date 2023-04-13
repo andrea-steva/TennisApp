@@ -10,7 +10,7 @@ protocol RacketFormViewModelCoordinatorDelegate: AnyObject {
     func racketFormViewModelSaveRacket()
 }
 
-final class RacketFormViewModel: BaseViewModel {
+final class RacketFormViewModel {
 
     // MARK: Coordinator
 

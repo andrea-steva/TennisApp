@@ -8,9 +8,17 @@
 
 import UIKit
 
-class StatsViewController: BaseViewController, StoryboardInstantiable {
+class StatsViewController: UIViewController, StoryboardInstantiable,
+                           BackgroundBlurrable, Localizable {
 
     // MARK: IBOutlets
+
+    // swiftlint:disable:next private_outlet
+    @IBOutlet var backgroundView: UIImageView!
+
+    // MARK: Properties
+
+    let localizer = Localizer()
 
     // MARK: ViewModel
 
@@ -18,11 +26,10 @@ class StatsViewController: BaseViewController, StoryboardInstantiable {
 
     // MARK: View Management
 
-    override func localizedTitleString() -> String {
-        LocalizationKeys.menuStats
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.title = localizer.get(LocalizationKeys.menuStats)
+        self.setBackgroundBlurEffect()
     }
 }

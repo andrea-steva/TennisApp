@@ -33,12 +33,13 @@ brew install swiftlint
 + [X] Use TabBarController instead of RESideMenu
 + [X] CRUD operation for Racket
 + [X] `FirebaseService` add `Result` type instead of completion block
++ [X] Use Combine instead of Bond
++ [X] Remove `SCLAlertView`
 + [~] Add DI containers
 + [~] Create repositories
 + [~] Create UseCases
 + [~] CRUD operation for User
 + [~] Check Utilities folder
-+ [~] Use Combine instead of Bond
 + [] Add DTO to decouple domain model from CoreDataStorage
 + [] Entity relationships
 + [] Check forms (Eureka)

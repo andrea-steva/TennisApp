@@ -9,7 +9,7 @@
 protocol ProfileViewModelCoordinatorDelegate: AnyObject {
 }
 
-final class ProfileViewModel: BaseViewModel {
+final class ProfileViewModel {
 
     // MARK: Coordinator
 

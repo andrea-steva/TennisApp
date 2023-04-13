@@ -9,37 +9,36 @@
 import Combine
 import UIKit
 
-protocol Bindable {
-    func getViewModel() -> BaseViewModel
+protocol Bindable: AnyObject {
+    var subscriptions: Set<AnyCancellable> { get set }
+
+    func getViewModel() -> BindableViewModelType
     func bindLoader()
     func bindAlertMessage()
 }
 
-extension Bindable where Self: BaseViewController {
+extension Bindable where Self: UIViewController, Self: Localizable, Self: LoadingIndicator, Self: Alertable {
 
     func bindLoader() {
-        let viewModel = self.getViewModel()
-
-        viewModel.isLoading.sink { [weak self] value in
-            guard let self else { return }
-            if value {
-                self.showHUD()
-            } else {
-                self.hideHUD()
+        self.getViewModel().isLoading
+            .sink { [weak self] value in
+                guard let self else { return }
+                if value {
+                    self.showHUD()
+                } else {
+                    self.hideHUD()
+                }
             }
-        }
-        .store(in: &subscriptions)
+            .store(in: &subscriptions)
     }
 
     func bindAlertMessage() {
-        let viewModel = self.getViewModel()
-
-        viewModel.errorMessage.sink { [weak self] message in
-            guard let self else { return }
-            AlertView.showWarning(self.localizer.get(LocalizationKeys.genericAlertTitle),
-                                  message: message,
-                                  controller: self)
-        }
-        .store(in: &subscriptions)
+        self.getViewModel().errorMessage
+            .sink { [weak self] message in
+                guard let self else { return }
+                self.showAlert(title: self.localizer.get(LocalizationKeys.genericAlertTitle),
+                               message: message)
+            }
+            .store(in: &subscriptions)
     }
 }

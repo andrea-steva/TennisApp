@@ -17,9 +17,9 @@ struct Style {
         appearance.tintColor = Style.Colors.lightColor
         appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Style.Colors.lightColor,
                                           NSAttributedString.Key.font: Style.Fonts.get(.light, size: .navigationBar)]
-        // appearance.barTintColor = Style.Colors.navigationBarColor
+        appearance.barTintColor = Style.Colors.navigationBarColor
         appearance.shadowImage = UIImage.imageWithColor(UIColor.clear)
-        // appearance.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        appearance.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         appearance.isTranslucent = false
     }
 
@@ -54,10 +54,8 @@ struct Style {
 
     struct Colors {
 
-        static var primaryColor = UIColor(hexRgba: "EB7116FF")
-        static let primaryPressedColor = UIColor(hexRgba: "EB7116FF").withAlphaComponent(0.6)
-        static var primaryDarkColor = UIColor(hexRgba: "60800AFF")
-        static let primaryDarkPressedColor = primaryDarkColor.withAlphaComponent(0.6)
+        static let primaryColor = UIColor(named: "primaryColor") ?? .clear
+        static let primaryPressedColor = UIColor(named: "primaryPressedColor") ?? .clear
 
         static var courtClay = UIColor(hexRgba: "EB7116FF")
         static var courtHardB = UIColor(hexRgba: "2867A5FF")

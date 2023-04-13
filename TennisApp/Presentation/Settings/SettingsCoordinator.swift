@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SettingsCoordinatorDelegate: AnyObject {
-    func settingsCoordinatorDidFinish(settingsCoordinator: SettingsCoordinator)
+    func settingsCoordinatorUserLogout(settingsCoordinator: SettingsCoordinator)
 }
 
 final class SettingsCoordinator: TabBarItemCoordinator,
@@ -40,7 +40,7 @@ final class SettingsCoordinator: TabBarItemCoordinator,
     // MARK: SettingsViewModelCoordinatorDelegate
 
     func viewModelDidLogout(viewModel: SettingsViewModel) {
-        self.delegate?.settingsCoordinatorDidFinish(settingsCoordinator: self)
+        self.delegate?.settingsCoordinatorUserLogout(settingsCoordinator: self)
     }
 
     deinit {
