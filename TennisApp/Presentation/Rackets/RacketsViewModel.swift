@@ -13,7 +13,7 @@ protocol RacketsViewModelCoordinatorDelegate: AnyObject {
     func racketsViewModelToRacketForm(racket: Racket?)
 }
 
-final class RacketsViewModel: BaseViewModel {
+final class RacketsViewModel {
 
     // MARK: Coordinator
 

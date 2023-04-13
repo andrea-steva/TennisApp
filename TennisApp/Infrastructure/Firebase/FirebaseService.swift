@@ -9,7 +9,20 @@
 import Firebase
 import Foundation
 
-final class FirebaseService {
+protocol FirebaseServiceType {
+    func isLoggedIn() -> Bool
+    func getDisplayName() -> String?
+    func createUser(withEmail email: String, password: String,
+                    completion: @escaping (Result<FirebaseUser, Error>) -> Void)
+    func signOut(completion: @escaping (Result<Bool, Error>) -> Void)
+    func signIn(withEmail email: String, password: String,
+                completion: @escaping (Result<URL, Error>) -> Void)
+    func sendPasswordReset(withEmail email: String)
+    func createProfileChangeRequest(user: FirebaseUser,
+                                    completion: @escaping (Result<Bool, Error>) -> Void)
+}
+
+final class FirebaseService: FirebaseServiceType {
 
     struct NotificationKeys {
         static let signedIn = "signed_in"
@@ -21,7 +34,7 @@ final class FirebaseService {
 
     // MARK: Properties
 
-    var currentUser: Firebase.User?
+    private(set) var currentUser: Firebase.User?
 
     // MARK: Methods
 
@@ -33,6 +46,14 @@ final class FirebaseService {
     private func postSignedIn() {
         let notificationName = Notification.Name(rawValue: FirebaseService.NotificationKeys.signedIn)
         NotificationCenter.default.post(name: notificationName, object: nil, userInfo: nil)
+    }
+
+    func isLoggedIn() -> Bool {
+        self.currentUser != nil ? true : false
+    }
+
+    func getDisplayName() -> String? {
+        self.currentUser?.displayName
     }
 
     func createUser(withEmail email: String, password: String,

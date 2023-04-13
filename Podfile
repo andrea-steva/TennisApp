@@ -10,8 +10,6 @@ def shared_pods
   pod 'Firebase/Auth'
 
 	pod 'GSKStretchyHeaderView', '1.0.4'
-  pod 'SCLAlertView', :git => 'https://github.com/vikmeup/SCLAlertView-Swift.git', :branch => 'master'
-
 end
 
 target "TennisApp" do

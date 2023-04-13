@@ -14,7 +14,7 @@ final class RacketTableViewCell: UITableViewCell {
 
     static let reuseIdentifier = String(describing: RacketTableViewCell.self)
 
-    // MARK: IBAction
+    // MARK: IBOutlets
 
     @IBOutlet private var racketNameLabel: UILabel!
 

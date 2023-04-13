@@ -6,5 +6,5 @@
 //  Copyright © 2017 Andrea Stevanato. All rights reserved.
 //
 
-final class MatchesViewModel: BaseViewModel {
+final class MatchesViewModel {
 }

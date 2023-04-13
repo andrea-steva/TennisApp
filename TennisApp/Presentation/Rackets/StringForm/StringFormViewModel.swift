@@ -10,7 +10,7 @@ protocol StringFormViewModelCoordinatorDelegate: AnyObject {
     func stringFormViewModelSaveString()
 }
 
-final class StringFormViewModel: BaseViewModel {
+final class StringFormViewModel {
 
     // MARK: Coordinator
 
