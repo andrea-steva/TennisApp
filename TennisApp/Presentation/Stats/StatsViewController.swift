@@ -30,6 +30,9 @@ class StatsViewController: UIViewController, StoryboardInstantiable,
         super.viewDidLoad()
 
         self.title = localizer.get(LocalizationKeys.menuStats)
+        self.navigationController?.navigationBar.scrollEdgeAppearance = Style.getUINavigationBarAppearance()
+        self.navigationController?.navigationBar.standardAppearance = Style.getUINavigationBarAppearance()
+
         self.setBackgroundBlurEffect()
     }
 }

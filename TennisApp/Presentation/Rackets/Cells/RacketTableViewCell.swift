@@ -23,8 +23,8 @@ final class RacketTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        racketNameLabel.font = Style.Fonts.get(.regular, size: .normal)
-        racketNameLabel.textColor = Style.Colors.lightColor
+        racketNameLabel.font = Fonts.get(.regular, size: .normal)
+        racketNameLabel.textColor = Colors.lightColor
     }
 
     // MARK: Setup cell

@@ -33,15 +33,28 @@ final class RacketsViewController: UIViewController, UITableViewDataSource, UITa
         super.viewDidLoad()
 
         self.title = localizer.get(LocalizationKeys.menuRackets)
+        self.navigationItem.rightBarButtonItems = setupRightBarButtonItem()
+
+        self.navigationController?.navigationBar.scrollEdgeAppearance = Style.getUINavigationBarAppearance()
+        self.navigationController?.navigationBar.standardAppearance = Style.getUINavigationBarAppearance()
+
         self.setBackgroundBlurEffect()
         self.setupObservers()
         self.addPullToRefresh()
+
+        self.viewModel.fetchRackets()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
 
-        self.viewModel.fetchRackets()
+    private func setupRightBarButtonItem() -> [UIBarButtonItem] {
+        let buttons = [
+            UIBarButtonItem(title: "Add Racket", style: .plain, target: self, action: #selector(didTapOnAddRacketButton)),
+            UIBarButtonItem(title: "Strings", style: .plain, target: self, action: #selector(didTapOnStringsButton))
+        ]
+        return buttons
     }
 
     private func setupObservers() {
@@ -106,7 +119,7 @@ final class RacketsViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = UIView()
         if section == 0 {
-            footerView.backgroundColor = Style.Colors.grayColor
+            footerView.backgroundColor = Colors.grayColor
         }
         return footerView
     }
@@ -116,7 +129,7 @@ final class RacketsViewController: UIViewController, UITableViewDataSource, UITa
             self.viewModel.toRacketForm(index: indexPath.row)
             self.tableView.setEditing(false, animated: true)
         }
-        editAction.backgroundColor = Style.Colors.primaryColor
+        editAction.backgroundColor = Colors.primaryColor
 
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (_, _, _) in
             self.showAlert(title: self.localizer.get(LocalizationKeys.genericAlertTitle),

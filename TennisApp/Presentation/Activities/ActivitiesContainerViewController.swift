@@ -21,11 +21,14 @@ final class ActivitiesContainerViewController: UIViewController, StoryboardInsta
     let pagingViewController = PagingViewController()
 
     // MARK: View Management
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = localizer.get(LocalizationKeys.menuHome)
+        self.navigationController?.navigationBar.scrollEdgeAppearance = Style.getUINavigationBarAppearance()
+        self.navigationController?.navigationBar.standardAppearance = Style.getUINavigationBarAppearance()
+
         setBackgroundBlurEffect()
         setupPagingViewController()
     }
@@ -34,8 +37,10 @@ final class ActivitiesContainerViewController: UIViewController, StoryboardInsta
         pagingViewController.dataSource = self
         pagingViewController.select(index: 0)
 
-        pagingViewController.selectedTextColor = Style.Colors.primaryColor
-        pagingViewController.indicatorColor = Style.Colors.primaryColor
+        pagingViewController.selectedTextColor = Colors.primaryColor
+        pagingViewController.font = Fonts.get(.light, size: .normal)
+        pagingViewController.selectedFont = Fonts.get(.bold, size: .normal)
+        pagingViewController.indicatorColor = Colors.primaryColor
         pagingViewController.menuInteraction = .swipe
         pagingViewController.indicatorOptions = .visible(height: 5,
                                                          zIndex: Int.max,
@@ -76,17 +81,9 @@ extension ActivitiesContainerViewController: PagingViewControllerDataSource {
     }
 
     func pagingViewController(_: PagingViewController, pagingItemAt index: Int) -> PagingItem {
-        var title = ""
-        switch Activities(rawValue: index) {
-        case .match:
-            title = "Matches"
-        case .practice:
-            title = "Practice"
-        case .fitness:
-            title = "Fitness"
-        case .none:
-            break
+        guard let page = Activities(rawValue: index) else {
+            return PagingIndexItem(index: 0, title: "")
         }
-        return PagingIndexItem(index: index, title: title)
+        return PagingIndexItem(index: index, title: page.title)
     }
 }

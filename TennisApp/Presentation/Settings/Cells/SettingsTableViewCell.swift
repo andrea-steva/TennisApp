@@ -12,11 +12,19 @@ final class SettingsTableViewCell: UITableViewCell {
 
     // MARK: Reuse Identifier
 
-    static let reuseIdentifier = String(describing: RacketTableViewCell.self)
+    static let reuseIdentifier = String(describing: SettingsTableViewCell.self)
 
     // MARK: View Management
 
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        textLabel?.font = Fonts.get(.regular, size: .normal)
+    }
+
+    func setup(settings: SettingsItem) {
+        imageView?.image = UIImage(systemName: settings.iconName)
+        imageView?.tintColor = Colors.primaryColor
+        textLabel?.text = settings.title
     }
 }

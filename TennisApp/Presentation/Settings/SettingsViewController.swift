@@ -32,24 +32,39 @@ final class SettingsViewController: UIViewController, StoryboardInstantiable,
         super.viewDidLoad()
 
         self.title = localizer.get(LocalizationKeys.menuSettings)
-        self.navigationController?.navigationBar.tintColor = .white
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.scrollEdgeAppearance = Style.getUINavigationBarAppearance()
+        self.navigationController?.navigationBar.standardAppearance = Style.getUINavigationBarAppearance()
 
         self.setBackgroundBlurEffect()
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.tableFooterView = buildFooterView()
+    }
+
+    private func buildFooterView() -> UIView {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40))
+        footerView.backgroundColor = UIColor.clear
+        let footerLabel = UILabel(frame: CGRect(x: 20, y: 0, width: footerView.frame.width, height: 40))
+        footerLabel.numberOfLines = 2
+        footerLabel.backgroundColor = UIColor.clear
+        footerLabel.textColor = Colors.lightColor
+        footerLabel.font = Fonts.get(.light, size: .normal)
+        footerLabel.text = viewModel.getFooterText()
+        footerView.addSubview(footerLabel)
+        return footerView
     }
 
     // MARK: UITableViewDataSource
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: SettingsTableViewCell.reuseIdentifier)
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.reuseIdentifier,
+                                                       for: indexPath) as? SettingsTableViewCell else {
+            assertionFailure("Cannot dequeue SettingsTableViewCell")
+            return UITableViewCell()
+        }
         let settings = viewModel.getSettingsFor(index: indexPath.row)
-        cell.backgroundColor = .clear
-        cell.textLabel?.text = settings.title
-
+        cell.setup(settings: settings)
         return cell
     }
 

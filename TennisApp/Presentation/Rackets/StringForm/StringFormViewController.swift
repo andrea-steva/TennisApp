@@ -26,6 +26,8 @@ final class StringFormViewController: FormViewController, StoryboardInstantiable
         super.viewDidLoad()
 
         self.title = localizer.get(LocalizationKeys.stringsAddString)
+        self.navigationController?.navigationBar.scrollEdgeAppearance = Style.getUINavigationBarAppearance()
+        self.navigationController?.navigationBar.standardAppearance = Style.getUINavigationBarAppearance()
 
         createForm()
     }
@@ -42,12 +44,18 @@ final class StringFormViewController: FormViewController, StoryboardInstantiable
         <<< AlertRow<String>("manufacter") {
             $0.add(rule: RuleRequired())
             $0.title = "Manufacter"
+            $0.cellSetup { cell, _ in
+                cell.textLabel?.font = Fonts.get(.regular, size: .normal)
+            }
             $0.options = RacketBrand.allCases.map { $0.rawValue }
             $0.value = string?.manufacter ?? "Wilson"
         }
         <<< TextRow("model") {
             $0.add(rule: RuleRequired())
             $0.title = "Model"
+            $0.cellSetup { cell, _ in
+                cell.textLabel?.font = Fonts.get(.regular, size: .normal)
+            }
             $0.placeholder = "ProStaff 97S"
             $0.value = string?.model ?? ""
         }

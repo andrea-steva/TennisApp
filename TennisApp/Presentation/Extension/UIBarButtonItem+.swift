@@ -13,11 +13,19 @@ extension UIBarButtonItem {
     convenience init(iconName: String, selector: Selector, target: Any) {
         // swiftlint:disable:next force_unwrapping
         var icon = UIImage(systemName: iconName)!
-        icon = icon.tint(TennisApp.Style.Colors.primaryColor)
+        icon = icon.tint(TennisApp.Colors.primaryColor)
 
         self.init(image: icon,
                   style: UIBarButtonItem.Style.plain,
                   target: target, action: selector)
+    }
+
+    func setTitleFont(font: UIFont) {
+        [.normal, .highlighted].forEach {
+            self.setTitleTextAttributes([
+                NSAttributedString.Key.font: font
+            ], for: $0)
+        }
     }
 
     static func negativeSpacer(_ width: CGFloat) -> UIBarButtonItem {

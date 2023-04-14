@@ -23,9 +23,9 @@ final class LoginViewController: UIViewController, Bindable, StoryboardInstantia
             emailLoginButton.layer.masksToBounds = true
 
             emailLoginButton.backgroundColor = UIColor.clear
-            emailLoginButton.setBackgroundImage(UIImage.imageWithColor(Style.Colors.primaryColor), for: .normal)
-            emailLoginButton.setBackgroundImage(UIImage.imageWithColor(Style.Colors.primaryPressedColor), for: .highlighted)
-            emailLoginButton.setBackgroundImage(UIImage.imageWithColor(Style.Colors.primaryPressedColor), for: .disabled)
+            emailLoginButton.setBackgroundImage(UIImage.imageWithColor(Colors.primaryColor), for: .normal)
+            emailLoginButton.setBackgroundImage(UIImage.imageWithColor(Colors.primaryPressedColor), for: .highlighted)
+            emailLoginButton.setBackgroundImage(UIImage.imageWithColor(Colors.primaryPressedColor), for: .disabled)
             emailLoginButton.setTitle(localizer.get(LocalizationKeys.loginButton), for: .normal)
         }
     }
@@ -115,8 +115,11 @@ final class LoginViewController: UIViewController, Bindable, StoryboardInstantia
             }
             self.viewModel.sendPasswordReset(userInput)
         }
+
         prompt.addTextField(configurationHandler: nil)
         prompt.addAction(okAction)
+        prompt.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+
         present(prompt, animated: true, completion: nil)
     }
 }

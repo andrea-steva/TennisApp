@@ -23,8 +23,8 @@ final class StringTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        stringNameLabel.font = Style.Fonts.get(.regular, size: .normal)
-        stringNameLabel.textColor = Style.Colors.lightColor
+        stringNameLabel.font = Fonts.get(.regular, size: .normal)
+        stringNameLabel.textColor = Colors.lightColor
     }
 
     // MARK: Setup cell

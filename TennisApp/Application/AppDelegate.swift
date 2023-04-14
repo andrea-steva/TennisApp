@@ -25,10 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mainCoordinator = coordinator
 
         Log.initialize()
-
-        Style.setupNavigationBarStyle()
-        Style.setupTextFieldStyle()
-        Style.setupSearchBarStyle()
+        Style.setup()
 
         return true
     }

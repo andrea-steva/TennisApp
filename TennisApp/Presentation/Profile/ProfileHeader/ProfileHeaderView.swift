@@ -18,8 +18,9 @@ final class ProfileHeaderView: GSKStretchyHeaderView {
     @IBOutlet private var userImageView: UIImageView! {
         didSet {
             userImageView.layer.cornerRadius = 20.0
-            userImageView.layer.borderColor = Style.Colors.lightColor.cgColor
-            userImageView.layer.borderWidth = 5.0        }
+            userImageView.layer.borderColor = Colors.lightColor.cgColor
+            userImageView.layer.borderWidth = 5.0
+        }
     }
 
     @IBOutlet private var userNameLabel: UILabel!

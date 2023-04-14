@@ -12,4 +12,15 @@ enum Activities: Int, CaseIterable {
     case match
     case practice
     case fitness
+
+    var title: String {
+        switch self {
+        case .match:
+            return "Matches"
+        case .practice:
+            return "Practice"
+        case .fitness:
+            return "Fitness"
+        }
+    }
 }
