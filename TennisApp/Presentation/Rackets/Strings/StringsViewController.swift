@@ -35,14 +35,25 @@ final class StringsViewController: UIViewController, UITableViewDataSource, UITa
         super.viewDidLoad()
 
         self.title = localizer.get(LocalizationKeys.menuStrings)
+        self.navigationItem.rightBarButtonItems = setupRightBarButtonItem()
+
+        self.navigationController?.navigationBar.scrollEdgeAppearance = Style.getUINavigationBarAppearance()
+        self.navigationController?.navigationBar.standardAppearance = Style.getUINavigationBarAppearance()
 
         self.setupObservers()
+
+        self.viewModel.fetchStrings()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
 
-        self.viewModel.fetchStrings()
+    private func setupRightBarButtonItem() -> [UIBarButtonItem] {
+        let buttons = [
+            UIBarButtonItem(title: "Add String", style: .plain, target: self, action: #selector(didTapOnAddStringButton))
+        ]
+        return buttons
     }
 
     private func setupObservers() {
@@ -95,7 +106,7 @@ final class StringsViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = UIView()
         if section == 0 {
-            footerView.backgroundColor = Style.Colors.grayColor
+            footerView.backgroundColor = Colors.grayColor
         }
         return footerView
     }
@@ -105,7 +116,7 @@ final class StringsViewController: UIViewController, UITableViewDataSource, UITa
             self.viewModel.toStringForm(index: indexPath.row)
             self.tableView.setEditing(false, animated: true)
         }
-        editAction.backgroundColor = Style.Colors.primaryColor
+        editAction.backgroundColor = Colors.primaryColor
 
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (_, _, _) in
             self.showAlert(title: self.localizer.get(LocalizationKeys.genericAlertTitle),

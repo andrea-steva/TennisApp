@@ -68,30 +68,30 @@ final class AppCoordinator: Coordinator,
     private func configureTabBarControllers() {
         let activitiesViewController = activitiesCoordinator.start()
         activitiesCoordinator.delegate = self
-        activitiesViewController.tabBarItem = UITabBarItem(title: localizer.get(LocalizationKeys.menuHome),
-                                                           image: UIImage(systemName: "house"), tag: 0)
+        activitiesViewController.tabBarItem = UITabBarItem(title: localizer.get(TabBarItem.activities.title),
+                                                           image: UIImage(systemName: TabBarItem.activities.iconName), tag: 0)
 
         let racketsViewController = racketsCoordinator.start()
         racketsCoordinator.delegate = self
-        racketsViewController.tabBarItem = UITabBarItem(title: localizer.get(LocalizationKeys.menuRackets),
-                                                        image: UIImage(systemName: "gear"), tag: 1)
+        racketsViewController.tabBarItem = UITabBarItem(title: localizer.get(TabBarItem.rackets.title),
+                                                        image: UIImage(systemName: TabBarItem.rackets.iconName), tag: 1)
 
         let statsViewController = statsCoordinator.start()
         statsCoordinator.delegate = self
-        statsViewController.tabBarItem = UITabBarItem(title: localizer.get(LocalizationKeys.menuStats),
-                                                      image: UIImage(systemName: "chart.bar.fill"), tag: 2)
+        statsViewController.tabBarItem = UITabBarItem(title: localizer.get(TabBarItem.stats.title),
+                                                      image: UIImage(systemName: TabBarItem.stats.iconName), tag: 2)
 
         let profileViewController = profileCoordinator.start()
         profileCoordinator.delegate = self
-        profileViewController.tabBarItem = UITabBarItem(title: localizer.get(LocalizationKeys.menuProfile),
-                                                        image: UIImage(systemName: "person"), tag: 3)
+        profileViewController.tabBarItem = UITabBarItem(title: localizer.get(TabBarItem.profile.title),
+                                                        image: UIImage(systemName: TabBarItem.profile.iconName), tag: 3)
 
         let settingsViewController = settingsCoordinator.start()
         settingsCoordinator.delegate = self
-        settingsViewController.tabBarItem = UITabBarItem(title: localizer.get(LocalizationKeys.menuSettings),
-                                                         image: UIImage(systemName: "slider.horizontal.3"), tag: 3)
+        settingsViewController.tabBarItem = UITabBarItem(title: localizer.get(TabBarItem.settings.title),
+                                                         image: UIImage(systemName: TabBarItem.settings.iconName), tag: 3)
 
-        tabBarController.tabBar.tintColor = Style.Colors.primaryColor
+        tabBarController.tabBar.tintColor = Colors.primaryColor
         tabBarController.viewControllers = [activitiesViewController,
                                             racketsViewController,
                                             statsViewController,

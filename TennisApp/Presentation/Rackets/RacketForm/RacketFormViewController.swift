@@ -27,6 +27,9 @@ final class RacketFormViewController: FormViewController, StoryboardInstantiable
 
         self.title = localizer.get(LocalizationKeys.racketsAddRacket)
 
+        self.navigationController?.navigationBar.scrollEdgeAppearance = Style.getUINavigationBarAppearance()
+        self.navigationController?.navigationBar.standardAppearance = Style.getUINavigationBarAppearance()
+
         createForm()
     }
 
@@ -41,33 +44,51 @@ final class RacketFormViewController: FormViewController, StoryboardInstantiable
         form +++ Section("Your racket information")
             <<< AlertRow<String>("manufacter") {
                 $0.add(rule: RuleRequired())
+                $0.cellSetup { cell, _ in
+                    cell.textLabel?.font = Fonts.get(.regular, size: .normal)
+                }
                 $0.title = "Manufacter"
                 $0.options = RacketBrand.allCases.map { $0.rawValue }
                 $0.value = racket?.manufacter ?? ""
             }
             <<< TextRow("model") {
                 $0.add(rule: RuleRequired())
+                $0.cellSetup { cell, _ in
+                    cell.textLabel?.font = Fonts.get(.regular, size: .normal)
+                }
                 $0.title = "Model"
                 $0.placeholder = "ProStaff 97S"
                 $0.value = racket?.model ?? ""
             }
             <<< AlertRow<String>("gripSize") {
                 $0.title = "Grip Size"
+                $0.cellSetup { cell, _ in
+                    cell.textLabel?.font = Fonts.get(.regular, size: .normal)
+                }
                 $0.options = ["1", "2", "3", "4", "5"]
                 $0.value = racket?.gripSize.rawValue ?? ""
             }
             <<< IntRow("weight") {
                 $0.title = "Weight"
+                $0.cellSetup { cell, _ in
+                    cell.textLabel?.font = Fonts.get(.regular, size: .normal)
+                }
                 $0.placeholder = "0"
                 $0.value = Int(racket?.weight ?? 0)
             }
             <<< DateRow("purchaseDate") {
                 $0.add(rule: RuleRequired())
+                $0.cellSetup { cell, _ in
+                    cell.textLabel?.font = Fonts.get(.regular, size: .normal)
+                }
                 $0.title = "Purchase Date"
                 $0.value = racket?.purchaseDate ?? Date()
             }
             <<< ImageRow("image") {
                 $0.title = "Image"
+                $0.cellSetup { cell, _ in
+                    cell.textLabel?.font = Fonts.get(.regular, size: .normal)
+                }
         }
     }
 

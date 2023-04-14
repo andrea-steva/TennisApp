@@ -15,6 +15,7 @@ enum FontSize {
     case large
     case extraLarge
     case navigationBar
+    case navigationBarLargeTitle
 
     /**
      Get font size value based on FontSize and DeviceType
@@ -29,6 +30,7 @@ enum FontSize {
         let largeSize: CGFloat = 18
         let extraLargeSize: CGFloat = 22
         let navigationBarSize: CGFloat = 26
+        let navigationBarLargeTitleSize: CGFloat = 35
 
         var standardSize: CGFloat = normalSize
 
@@ -45,6 +47,8 @@ enum FontSize {
             standardSize = extraLargeSize
         case .navigationBar:
             standardSize = navigationBarSize
+        case .navigationBarLargeTitle:
+            standardSize = navigationBarLargeTitleSize
         }
 
         return standardSize

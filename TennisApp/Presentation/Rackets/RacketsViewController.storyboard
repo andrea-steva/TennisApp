@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Nfb-NL-XuQ">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
@@ -16,14 +16,14 @@
                         <viewControllerLayoutGuide type="bottom" id="DCd-1o-4Z4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ob6-TS-Jwd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="court_hard_b" translatesAutoresizingMaskIntoConstraints="NO" id="OWV-jg-3W4">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="684"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="ta4-Aa-3JF">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="684"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RacketTableViewCell" rowHeight="150" id="teR-Oj-YNg" customClass="RacketTableViewCell" customModule="TennisApp" customModuleProvider="target">
@@ -89,20 +89,7 @@
                             <constraint firstItem="ta4-Aa-3JF" firstAttribute="leading" secondItem="ob6-TS-Jwd" secondAttribute="leading" id="jNk-xU-rHz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="9Hd-21-E2g">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="Xuu-Zu-9jw">
-                                <connections>
-                                    <action selector="didTapOnAddRacketButton:" destination="Nfb-NL-XuQ" id="krl-c6-8qt"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Strings" id="Vod-1f-DVM">
-                                <connections>
-                                    <action selector="didTapOnStringsButton:" destination="Nfb-NL-XuQ" id="39I-VD-EcV"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="9Hd-21-E2g"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="backgroundView" destination="OWV-jg-3W4" id="YfP-0D-WzU"/>
@@ -115,7 +102,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="court_hard_b" width="533.5" height="300"/>
+        <image name="court_hard_b" width="533.33331298828125" height="300"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

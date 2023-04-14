@@ -33,6 +33,9 @@ final class ProfileViewController: UIViewController, UITableViewDataSource, UITa
         super.viewDidLoad()
 
         self.title = localizer.get(LocalizationKeys.menuProfile)
+        self.navigationController?.navigationBar.scrollEdgeAppearance = Style.getUINavigationBarAppearance()
+        self.navigationController?.navigationBar.standardAppearance = Style.getUINavigationBarAppearance()
+
         self.setBackgroundBlurEffect()
 
         if let headerView = Bundle.main.loadNibNamed("ProfileHeaderView", owner: self, options: nil)?.first as? ProfileHeaderView {

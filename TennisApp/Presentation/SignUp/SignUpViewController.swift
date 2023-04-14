@@ -26,9 +26,9 @@ final class SignUpViewController: UIViewController, Bindable, StoryboardInstanti
             signUpButton.layer.masksToBounds = true
 
             signUpButton.backgroundColor = UIColor.clear
-            signUpButton.setBackgroundImage(UIImage.imageWithColor(Style.Colors.primaryColor), for: .normal)
-            signUpButton.setBackgroundImage(UIImage.imageWithColor(Style.Colors.primaryPressedColor), for: .highlighted)
-            signUpButton.setBackgroundImage(UIImage.imageWithColor(Style.Colors.primaryPressedColor), for: .disabled)
+            signUpButton.setBackgroundImage(UIImage.imageWithColor(Colors.primaryColor), for: .normal)
+            signUpButton.setBackgroundImage(UIImage.imageWithColor(Colors.primaryPressedColor), for: .highlighted)
+            signUpButton.setBackgroundImage(UIImage.imageWithColor(Colors.primaryPressedColor), for: .disabled)
             signUpButton.setTitle(localizer.get(LocalizationKeys.signupButton), for: .normal)
         }
     }

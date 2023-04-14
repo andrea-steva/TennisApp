@@ -8,7 +8,7 @@ To run the project, clone the repo, open with Xcode and run from `TennisApp` tar
 
 + Xcode 14+
 + Swift 5.7+
-+ Deployment target iOS 13+
++ Deployment target iOS 14+
 
 ## ⚙️ Tools
 
@@ -44,6 +44,7 @@ brew install swiftlint
 + [] Entity relationships
 + [] Check forms (Eureka)
 + [] Add builder to convert form to Model (formValues -> ´Rackets´)
++ [] Use [Modern cell configuration](https://developer.apple.com/videos/play/wwdc2020/10027/)
 
 
 

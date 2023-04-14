@@ -23,4 +23,15 @@ enum SettingsItem: Int, CaseIterable {
             return "Logout"
         }
     }
+
+    var iconName: String {
+        switch self {
+        case .general:
+            return "gear"
+        case .support:
+            return "message"
+        case .logout:
+            return "person.crop.circle.badge.xmark"
+        }
+    }
 }

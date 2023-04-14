@@ -7,6 +7,7 @@
 //
 
 import Combine
+import Foundation
 
 protocol SettingsViewModelCoordinatorDelegate: AnyObject {
     func viewModelDidLogout(viewModel: SettingsViewModel)
@@ -15,9 +16,9 @@ protocol SettingsViewModelCoordinatorDelegate: AnyObject {
 protocol SettingsViewModelType {
     var coordinatorDelegate: SettingsViewModelCoordinatorDelegate? { get set }
 
+    func getFooterText() -> String
     func numberOfSettings() -> Int
     func getSettingsFor(index: Int) -> SettingsItem
-    
     func performLogout(completion: ((Result<Bool, Error>) -> Void)? )
 }
 
@@ -33,14 +34,23 @@ final class SettingsViewModel: SettingsViewModelType {
     let isLoadingSubject = PassthroughSubject<Bool, Never>()
 
     private let firebaseService: FirebaseServiceType
+    private let bundle: BundleType
 
     private var settings: [SettingsItem]
 
     // MARK: Methods
 
-    init(firebaseService: FirebaseServiceType = FirebaseService.shared) {
+    init(firebaseService: FirebaseServiceType = FirebaseService.shared, bundle: BundleType = Bundle.main) {
         self.firebaseService = firebaseService
+        self.bundle = bundle
         self.settings = [.general, .support, .logout]
+    }
+
+    func getFooterText() -> String {
+        """
+        \(bundle.appDisplayName) \(bundle.appVersion) (\(bundle.appBuildNumber)), Made in Italy 🇮🇹
+        © 2023 Andrea Stevanato
+        """
     }
 
     func numberOfSettings() -> Int {
@@ -48,6 +58,7 @@ final class SettingsViewModel: SettingsViewModelType {
     }
 
     func getSettingsFor(index: Int) -> SettingsItem {
+        // swiftlint:disable:next force_unwrapping
         SettingsItem(rawValue: index)!
     }
 
