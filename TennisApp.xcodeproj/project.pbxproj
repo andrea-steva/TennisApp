@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09EC0178D4E79F7F6D639467 /* Pods_TennisApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D1AE1094934F1BDA5C2436 /* Pods_TennisApp.framework */; };
 		6507CA681C6D065A00B7AD5C /* SwiftUIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA671C6D065A00B7AD5C /* SwiftUIImageEffects.swift */; };
 		6507CA6F1C6D118000B7AD5C /* BindableViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507CA6E1C6D118000B7AD5C /* BindableViewModelType.swift */; };
 		65653D201ED0747C00A9DBBB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65653D1F1ED0747C00A9DBBB /* main.swift */; };
@@ -89,7 +88,6 @@
 		65FB52C31C6DE60C003A6DAE /* court_hard_b.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65FB52C01C6DE60C003A6DAE /* court_hard_b.jpg */; };
 		65FB52C51C6DEC0B003A6DAE /* ActivitiesContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB52C41C6DEC0B003A6DAE /* ActivitiesContainerViewController.swift */; };
 		65FB52D81C6DF252003A6DAE /* RacketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FB52D71C6DF252003A6DAE /* RacketsViewController.swift */; };
-		7BFA3483FF9EBB75834AD60E /* Pods_TennisAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D70E6022E2EA16F5BB6726CF /* Pods_TennisAppTests.framework */; };
 		FC0B2B7529E6A50A00011730 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0B2B7429E6A50A00011730 /* UITextField+.swift */; };
 		FC0B2B7729E6B3DF00011730 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0B2B7629E6B3DF00011730 /* Alertable.swift */; };
 		FC0B2B7929E70BBB00011730 /* BackgroundBlurrable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0B2B7829E70BBB00011730 /* BackgroundBlurrable.swift */; };
@@ -112,11 +110,6 @@
 		FC40E94729E8540A0089717D /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC40E94629E8540A0089717D /* SettingsItem.swift */; };
 		FC40E94929E85D5C0089717D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC40E94829E85D5C0089717D /* Colors.xcassets */; };
 		FC40E98E29E988C00089717D /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC40E98D29E988BF0089717D /* Bundle.swift */; };
-		FC40E99429E9ABA20089717D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC40E98F29E9ABA20089717D /* Colors.swift */; };
-		FC40E99529E9ABA20089717D /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC40E99029E9ABA20089717D /* FontSize.swift */; };
-		FC40E99629E9ABA20089717D /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC40E99129E9ABA20089717D /* Style.swift */; };
-		FC40E99729E9ABA20089717D /* FontType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC40E99229E9ABA20089717D /* FontType.swift */; };
-		FC40E99829E9ABA20089717D /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC40E99329E9ABA20089717D /* Fonts.swift */; };
 		FCB8AABC29DF0A8D00148DB9 /* Parchment in Frameworks */ = {isa = PBXBuildFile; productRef = FCB8AABB29DF0A8D00148DB9 /* Parchment */; };
 		FCBDF9FE29D72EB7008A7FD6 /* StringsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBDF9FD29D72EB7008A7FD6 /* StringsStorage.swift */; };
 		FCBDFA0829D73111008A7FD6 /* PracticeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBDFA0029D73111008A7FD6 /* PracticeEntity.swift */; };
@@ -150,6 +143,12 @@
 		FCCBFF8C29E04E8B00068479 /* StringCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBFF8B29E04E8B00068479 /* StringCellViewModel.swift */; };
 		FCCBFF8F29E0709800068479 /* FirebaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBFF8E29E0709800068479 /* FirebaseError.swift */; };
 		FCCBFF9129E070B600068479 /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBFF9029E070B600068479 /* FirebaseUser.swift */; };
+		FCCDB7A629ED74D800941D52 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FCCDB7A529ED74D800941D52 /* FirebaseAuth */; };
+		FCCDB7AD29ED852500941D52 /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCDB7A829ED852500941D52 /* FontSize.swift */; };
+		FCCDB7AE29ED852500941D52 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCDB7A929ED852500941D52 /* Fonts.swift */; };
+		FCCDB7AF29ED852500941D52 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCDB7AA29ED852500941D52 /* Style.swift */; };
+		FCCDB7B029ED852500941D52 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCDB7AB29ED852500941D52 /* Colors.swift */; };
+		FCCDB7B129ED852500941D52 /* FontType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCDB7AC29ED852500941D52 /* FontType.swift */; };
 		FCE0AAC229D7338100308EF3 /* UsersStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AAC129D7338100308EF3 /* UsersStorage.swift */; };
 		FCE0AAC429D733CC00308EF3 /* RacketsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AAC329D733CC00308EF3 /* RacketsStorage.swift */; };
 		FCE0AACA29D7365300308EF3 /* LoggerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AAC929D7365300308EF3 /* LoggerProfile.swift */; };
@@ -219,9 +218,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		17D1AE1094934F1BDA5C2436 /* Pods_TennisApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TennisApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		26C33F3D6C7F65404097A424 /* Pods-TennisApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TennisApp/Pods-TennisApp.debug.xcconfig"; sourceTree = "<group>"; };
-		484A4B75F1A567AF0F9C3F4C /* Pods-TennisAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TennisAppTests/Pods-TennisAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6507CA671C6D065A00B7AD5C /* SwiftUIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIImageEffects.swift; sourceTree = "<group>"; };
 		6507CA6E1C6D118000B7AD5C /* BindableViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindableViewModelType.swift; sourceTree = "<group>"; };
 		65653D1F1ED0747C00A9DBBB /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -317,10 +313,7 @@
 		65FB52C41C6DEC0B003A6DAE /* ActivitiesContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesContainerViewController.swift; sourceTree = "<group>"; };
 		65FB52D71C6DF252003A6DAE /* RacketsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketsViewController.swift; sourceTree = "<group>"; };
 		65FB52D91C6DF7EE003A6DAE /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "TennisApp/Bridging-Header.h"; sourceTree = "<group>"; };
-		887DC7EA41CD5C29A829E5C7 /* Pods-TennisApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TennisApp/Pods-TennisApp.release.xcconfig"; sourceTree = "<group>"; };
 		9246E445FB094E36A048BFB1 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C4917D93343A4A2925621DB1 /* Pods-TennisAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TennisAppTests/Pods-TennisAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		D70E6022E2EA16F5BB6726CF /* Pods_TennisAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TennisAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC0B2B7429E6A50A00011730 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		FC0B2B7629E6B3DF00011730 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 		FC0B2B7829E70BBB00011730 /* BackgroundBlurrable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundBlurrable.swift; sourceTree = "<group>"; };
@@ -335,11 +328,6 @@
 		FC40E94629E8540A0089717D /* SettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItem.swift; sourceTree = "<group>"; };
 		FC40E94829E85D5C0089717D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FC40E98D29E988BF0089717D /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
-		FC40E98F29E9ABA20089717D /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = TennisApp/Presentation/Style/Colors.swift; sourceTree = SOURCE_ROOT; };
-		FC40E99029E9ABA20089717D /* FontSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FontSize.swift; path = TennisApp/Presentation/Style/FontSize.swift; sourceTree = SOURCE_ROOT; };
-		FC40E99129E9ABA20089717D /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Style.swift; path = TennisApp/Presentation/Style/Style.swift; sourceTree = SOURCE_ROOT; };
-		FC40E99229E9ABA20089717D /* FontType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FontType.swift; path = TennisApp/Presentation/Style/FontType.swift; sourceTree = SOURCE_ROOT; };
-		FC40E99329E9ABA20089717D /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fonts.swift; path = TennisApp/Presentation/Style/Fonts.swift; sourceTree = SOURCE_ROOT; };
 		FCBDF9FD29D72EB7008A7FD6 /* StringsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsStorage.swift; sourceTree = "<group>"; };
 		FCBDFA0029D73111008A7FD6 /* PracticeEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeEntity.swift; sourceTree = "<group>"; };
 		FCBDFA0129D73111008A7FD6 /* FitnessEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitnessEntity.swift; sourceTree = "<group>"; };
@@ -371,6 +359,11 @@
 		FCCBFF8B29E04E8B00068479 /* StringCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCellViewModel.swift; sourceTree = "<group>"; };
 		FCCBFF8E29E0709800068479 /* FirebaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseError.swift; sourceTree = "<group>"; };
 		FCCBFF9029E070B600068479 /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
+		FCCDB7A829ED852500941D52 /* FontSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
+		FCCDB7A929ED852500941D52 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		FCCDB7AA29ED852500941D52 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		FCCDB7AB29ED852500941D52 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		FCCDB7AC29ED852500941D52 /* FontType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontType.swift; sourceTree = "<group>"; };
 		FCE0AAC129D7338100308EF3 /* UsersStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersStorage.swift; sourceTree = "<group>"; };
 		FCE0AAC329D733CC00308EF3 /* RacketsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacketsStorage.swift; sourceTree = "<group>"; };
 		FCE0AAC929D7365300308EF3 /* LoggerProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerProfile.swift; sourceTree = "<group>"; };
@@ -425,7 +418,7 @@
 				FCE0AAED29D7403100308EF3 /* Charts in Frameworks */,
 				FCE0AAEA29D73FB900308EF3 /* Eureka in Frameworks */,
 				FCCBFF7F29E012FD00068479 /* ImageRow in Frameworks */,
-				09EC0178D4E79F7F6D639467 /* Pods_TennisApp.framework in Frameworks */,
+				FCCDB7A629ED74D800941D52 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,7 +426,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BFA3483FF9EBB75834AD60E /* Pods_TennisAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,8 +436,6 @@
 			isa = PBXGroup;
 			children = (
 				9246E445FB094E36A048BFB1 /* Pods.framework */,
-				17D1AE1094934F1BDA5C2436 /* Pods_TennisApp.framework */,
-				D70E6022E2EA16F5BB6726CF /* Pods_TennisAppTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -488,7 +478,6 @@
 				65B04DB61C6CA02300011439 /* TennisAppTests */,
 				65B04DA01C6CA02300011439 /* Products */,
 				0303B36F1A585C2AC46A506F /* Frameworks */,
-				D548C0B49C67EE2041E74F80 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -699,17 +688,6 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
-		D548C0B49C67EE2041E74F80 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				26C33F3D6C7F65404097A424 /* Pods-TennisApp.debug.xcconfig */,
-				887DC7EA41CD5C29A829E5C7 /* Pods-TennisApp.release.xcconfig */,
-				484A4B75F1A567AF0F9C3F4C /* Pods-TennisAppTests.debug.xcconfig */,
-				C4917D93343A4A2925621DB1 /* Pods-TennisAppTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		FC40E94329E8508F0089717D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -740,7 +718,7 @@
 				65D824A61C6F587D00E2918C /* Settings */,
 				FCBDFA1029D73143008A7FD6 /* Extension */,
 				6569A3DE1E990A3A00A444BB /* Protocols */,
-				FCCBFF8429E024B700068479 /* Style */,
+				FCCDB7A729ED852500941D52 /* Style */,
 				65B04DE51C6CA74400011439 /* Utilities */,
 			);
 			path = Presentation;
@@ -1002,19 +980,6 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		FCCBFF8429E024B700068479 /* Style */ = {
-			isa = PBXGroup;
-			children = (
-				FC40E98F29E9ABA20089717D /* Colors.swift */,
-				FC40E99329E9ABA20089717D /* Fonts.swift */,
-				FC40E99029E9ABA20089717D /* FontSize.swift */,
-				FC40E99229E9ABA20089717D /* FontType.swift */,
-				FC40E99129E9ABA20089717D /* Style.swift */,
-			);
-			name = Style;
-			path = "Styòle";
-			sourceTree = "<group>";
-		};
 		FCCBFF8D29E0706B00068479 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
@@ -1023,6 +988,18 @@
 				656A4BB81E17FD43009E97EB /* FirebaseService.swift */,
 			);
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		FCCDB7A729ED852500941D52 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				FCCDB7A829ED852500941D52 /* FontSize.swift */,
+				FCCDB7A929ED852500941D52 /* Fonts.swift */,
+				FCCDB7AA29ED852500941D52 /* Style.swift */,
+				FCCDB7AB29ED852500941D52 /* Colors.swift */,
+				FCCDB7AC29ED852500941D52 /* FontType.swift */,
+			);
+			path = Style;
 			sourceTree = "<group>";
 		};
 		FCE0AAC829D7364400308EF3 /* Logger */ = {
@@ -1146,11 +1123,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65B04DC71C6CA02300011439 /* Build configuration list for PBXNativeTarget "TennisApp" */;
 			buildPhases = (
-				0403EA7FA4D434161A2C8B61 /* [CP] Check Pods Manifest.lock */,
 				65B04D9B1C6CA02300011439 /* Sources */,
 				65B04D9C1C6CA02300011439 /* Frameworks */,
 				65B04D9D1C6CA02300011439 /* Resources */,
-				7579BFFBD2CD76E70E46DDEF /* [CP] Embed Pods Frameworks */,
 				6572348B1E1173E00050F319 /* Swift Lint Build Phase */,
 				6564660D1FABE23700FB0875 /* Embed Frameworks */,
 			);
@@ -1165,6 +1140,7 @@
 				FCE0AAEC29D7403100308EF3 /* Charts */,
 				FCB8AABB29DF0A8D00148DB9 /* Parchment */,
 				FCCBFF7E29E012FD00068479 /* ImageRow */,
+				FCCDB7A529ED74D800941D52 /* FirebaseAuth */,
 			);
 			productName = TennisApp;
 			productReference = 65B04D9F1C6CA02300011439 /* TennisApp.app */;
@@ -1174,11 +1150,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65B04DCA1C6CA02300011439 /* Build configuration list for PBXNativeTarget "TennisAppTests" */;
 			buildPhases = (
-				7655A69CC6970E9B0647D3FE /* [CP] Check Pods Manifest.lock */,
 				65B04DAF1C6CA02300011439 /* Sources */,
 				65B04DB01C6CA02300011439 /* Frameworks */,
 				65B04DB11C6CA02300011439 /* Resources */,
-				E307FEB725C47C2FE1AEAAD4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1229,6 +1203,7 @@
 				FCE0AAEB29D7403100308EF3 /* XCRemoteSwiftPackageReference "Charts" */,
 				FCB8AABA29DF0A8D00148DB9 /* XCRemoteSwiftPackageReference "Parchment" */,
 				FCCBFF7D29E012FD00068479 /* XCRemoteSwiftPackageReference "ImageRow" */,
+				FCCDB7A429ED74D800941D52 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 65B04DA01C6CA02300011439 /* Products */;
 			projectDirPath = "";
@@ -1304,24 +1279,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0403EA7FA4D434161A2C8B61 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TennisApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6572348B1E1173E00050F319 /* Swift Lint Build Phase */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -1336,92 +1293,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Adds support for Apple Silicon brew directory\nexport PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n    echo \"Running SwiftLint\" >/dev/null;\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		7579BFFBD2CD76E70E46DDEF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TennisApp/Pods-TennisApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FirebaseAuth/FirebaseAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseCoreInternal/FirebaseCoreInternal.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseInstallations/FirebaseInstallations.framework",
-				"${BUILT_PRODUCTS_DIR}/GSKStretchyHeaderView/GSKStretchyHeaderView.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseAuth.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreInternal.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseInstallations.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GSKStretchyHeaderView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TennisApp/Pods-TennisApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7655A69CC6970E9B0647D3FE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TennisAppTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E307FEB725C47C2FE1AEAAD4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TennisAppTests/Pods-TennisAppTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FirebaseAuth/FirebaseAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseCoreInternal/FirebaseCoreInternal.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseInstallations/FirebaseInstallations.framework",
-				"${BUILT_PRODUCTS_DIR}/GSKStretchyHeaderView/GSKStretchyHeaderView.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseAuth.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreInternal.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseInstallations.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GSKStretchyHeaderView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TennisAppTests/Pods-TennisAppTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1448,10 +1319,10 @@
 				FCE0AAC229D7338100308EF3 /* UsersStorage.swift in Sources */,
 				65B04E211C6CBDC200011439 /* UserDefaultsStorage.swift in Sources */,
 				FCBDFA0A29D73111008A7FD6 /* StringsEntity.swift in Sources */,
+				FCCDB7AE29ED852500941D52 /* Fonts.swift in Sources */,
 				FCF6D8CD29DB012500DBCD4B /* RacketsFetchUseCase.swift in Sources */,
 				FCF6D8DF29DB17D000DBCD4B /* StringsFetchUseCase.swift in Sources */,
 				FCCBFF9129E070B600068479 /* FirebaseUser.swift in Sources */,
-				FC40E99429E9ABA20089717D /* Colors.swift in Sources */,
 				FCE0AAD829D73ACF00308EF3 /* GripSize.swift in Sources */,
 				FCCBFF8A29E0471200068479 /* RacketCellViewModel.swift in Sources */,
 				FCBDF9FE29D72EB7008A7FD6 /* StringsStorage.swift in Sources */,
@@ -1460,6 +1331,7 @@
 				656A4BB91E17FD43009E97EB /* FirebaseService.swift in Sources */,
 				FCF6D8AD29DAC56200DBCD4B /* Strings.swift in Sources */,
 				65F05AB51ECE334800EFA322 /* AppCoordinator.swift in Sources */,
+				FCCDB7B029ED852500941D52 /* Colors.swift in Sources */,
 				65C511F41C948F0A0051D645 /* LoginViewModel.swift in Sources */,
 				65F05AB11ECE329000EFA322 /* SignUpViewModel.swift in Sources */,
 				FC40E94729E8540A0089717D /* SettingsItem.swift in Sources */,
@@ -1472,8 +1344,8 @@
 				FCCBFF5029DF184000068479 /* AppDIContainer.swift in Sources */,
 				FCF6D8DB29DB173400DBCD4B /* StringsCreateUseCase.swift in Sources */,
 				65D206931EE19820004A8150 /* RacketFormViewModel.swift in Sources */,
+				FCCDB7AF29ED852500941D52 /* Style.swift in Sources */,
 				65D2068D1EE1980F004A8150 /* StringFormViewController.swift in Sources */,
-				FC40E99629E9ABA20089717D /* Style.swift in Sources */,
 				FCCBFF7729E00FD000068479 /* PracticeViewController.swift in Sources */,
 				65C511EA1C938DCA0051D645 /* ProfileHeaderView.swift in Sources */,
 				FCCBFF7429E00FD000068479 /* FitnessViewModel.swift in Sources */,
@@ -1489,6 +1361,7 @@
 				FCCBFF5429DF1EBA00068479 /* StatsDIContainer.swift in Sources */,
 				FCBDFA0829D73111008A7FD6 /* PracticeEntity.swift in Sources */,
 				FC40E93E29E818AB0089717D /* Localizable.swift in Sources */,
+				FCCDB7B129ED852500941D52 /* FontType.swift in Sources */,
 				FCF6D8D229DB07F700DBCD4B /* RacketCreateUseCase.swift in Sources */,
 				65C2CB141F26A1550095D954 /* StringFormCoordinator.swift in Sources */,
 				FCCBFF8C29E04E8B00068479 /* StringCellViewModel.swift in Sources */,
@@ -1521,6 +1394,7 @@
 				FC40E94029E843120089717D /* ProfileHeaderViewModel.swift in Sources */,
 				FCF6D8CB29DB001A00DBCD4B /* DefaultRacketsRepository.swift in Sources */,
 				65D206821EE0BACF004A8150 /* ProfileCoordinator.swift in Sources */,
+				FCCDB7AD29ED852500941D52 /* FontSize.swift in Sources */,
 				FC0B2B7529E6A50A00011730 /* UITextField+.swift in Sources */,
 				FCF6D8E929DC5EB100DBCD4B /* StoryBoardInstantiable.swift in Sources */,
 				65B04E231C6CBEEF00011439 /* CalendarEventsBuilder.swift in Sources */,
@@ -1534,7 +1408,6 @@
 				65653D2F1ED0A7FD00A9DBBB /* StringsViewController.swift in Sources */,
 				FCF6D8B529DACA8300DBCD4B /* MatchScore.swift in Sources */,
 				FCF6D8E429DC502100DBCD4B /* RacketsDIContainer.swift in Sources */,
-				FC40E99529E9ABA20089717D /* FontSize.swift in Sources */,
 				65D2068E1EE1980F004A8150 /* StringFormViewModel.swift in Sources */,
 				FC0B2B7729E6B3DF00011730 /* Alertable.swift in Sources */,
 				FCF6D8D729DB15C500DBCD4B /* StringsRepository.swift in Sources */,
@@ -1552,8 +1425,6 @@
 				FCE0AAD129D7372000308EF3 /* LoggerNull.swift in Sources */,
 				FCF6D8BD29DACE3D00DBCD4B /* DefaultUsersRepository.swift in Sources */,
 				65653D311ED0A7FD00A9DBBB /* StringTableViewCell.swift in Sources */,
-				FC40E99729E9ABA20089717D /* FontType.swift in Sources */,
-				FC40E99829E9ABA20089717D /* Fonts.swift in Sources */,
 				FCBDFA0B29D73111008A7FD6 /* MatchScoreEntity.swift in Sources */,
 				65B04E251C6CC01000011439 /* Localizer.swift in Sources */,
 				6589FC9A1E26F71300C25F31 /* SettingsViewModel.swift in Sources */,
@@ -1706,7 +1577,6 @@
 		};
 		65B04DC81C6CA02300011439 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26C33F3D6C7F65404097A424 /* Pods-TennisApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1731,7 +1601,6 @@
 		};
 		65B04DC91C6CA02300011439 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 887DC7EA41CD5C29A829E5C7 /* Pods-TennisApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1756,7 +1625,6 @@
 		};
 		65B04DCB1C6CA02300011439 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 484A4B75F1A567AF0F9C3F4C /* Pods-TennisAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = A2VGE7F94S;
@@ -1776,7 +1644,6 @@
 		};
 		65B04DCC1C6CA02300011439 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C4917D93343A4A2925621DB1 /* Pods-TennisAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = A2VGE7F94S;
@@ -1844,6 +1711,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		FCCDB7A429ED74D800941D52 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 		FCE0AAE229D73F2A00308EF3 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
@@ -1880,6 +1755,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FCCBFF7D29E012FD00068479 /* XCRemoteSwiftPackageReference "ImageRow" */;
 			productName = ImageRow;
+		};
+		FCCDB7A529ED74D800941D52 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FCCDB7A429ED74D800941D52 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 		FCE0AAE329D73F2A00308EF3 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;

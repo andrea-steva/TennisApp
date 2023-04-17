@@ -23,9 +23,14 @@ struct Style {
 
     private static func setupNavigationBarStyle() {
         let appearance = UINavigationBar.appearance()
+
+        // Make the Navigation Bar background transparent
+        appearance.setBackgroundImage(UIImage(), for: .default)
+        appearance.shadowImage = UIImage()
+        appearance.isTranslucent = true
         appearance.tintColor = Colors.lightColor
+
         appearance.prefersLargeTitles = true
-        appearance.isTranslucent = false
     }
     private static func setupTabBarItemAppearance() {
         let appearance = UITabBarItem.appearance()
