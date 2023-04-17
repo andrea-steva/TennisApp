@@ -19,7 +19,7 @@ class StringFormCoordinator: Coordinator, StringFormViewModelCoordinatorDelegate
     private let container = StringsDIContainer()
     weak var delegate: StringFormCoordinatorDelegate?
     private let navigationController: UINavigationControllerType
-    private let formVC: StringFormViewController
+    private let stringsFromViewController: StringFormViewController
     private var string: Strings?
 
     // MARK: Coordinator
@@ -27,15 +27,15 @@ class StringFormCoordinator: Coordinator, StringFormViewModelCoordinatorDelegate
     init(navigationController: UINavigationControllerType, string: Strings?) {
         self.navigationController = navigationController
         self.string = string
-        self.formVC = StringFormViewController.instantiateViewController()
+        self.stringsFromViewController = StringFormViewController.instantiateViewController()
     }
 
     func start() {
-        formVC.viewModel = StringFormViewModel(stringsCreateUseCase: container.makeStringsCreateUseCase(),
-                                               stringsUpdateUseCase: container.makeStringsUpdateUseCase(),
-                                               string: string)
-        formVC.viewModel.coordinatorDelegate = self
-        self.navigationController.pushViewController(formVC, animated: true)
+        stringsFromViewController.viewModel = StringFormViewModel(stringsCreateUseCase: container.makeStringsCreateUseCase(),
+                                                                  stringsUpdateUseCase: container.makeStringsUpdateUseCase(),
+                                                                  string: string)
+        stringsFromViewController.viewModel.coordinatorDelegate = self
+        self.navigationController.pushViewController(stringsFromViewController, animated: true)
     }
 
     // MARK: StringFormViewModelCoordinatorDelegate

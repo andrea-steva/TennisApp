@@ -67,7 +67,6 @@ included: # paths to include during linting. `--path` is ignored if present.
     - TennisAppTests
 
 excluded: # paths to ignore during linting. Takes precedence over `included`.
-    - Pods
 
 # These properties are marked as error by default.
 force_try: warning
