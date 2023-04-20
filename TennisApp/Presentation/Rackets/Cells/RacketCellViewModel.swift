@@ -15,6 +15,7 @@ protocol RacketCellViewModelType {
     var gripSize: GripSize { get }
     var image: Data? { get }
     var purchaseDate: Date? { get }
+    var strings: [Strings] { get }
 }
 
 final class RacketCellViewModel: RacketCellViewModelType {
@@ -25,6 +26,7 @@ final class RacketCellViewModel: RacketCellViewModelType {
     let gripSize: GripSize
     let image: Data?
     let purchaseDate: Date?
+    let strings: [Strings]
 
     init(racket: Racket) {
         self.manufacter = racket.manufacter
@@ -33,5 +35,6 @@ final class RacketCellViewModel: RacketCellViewModelType {
         self.gripSize = racket.gripSize
         self.image = racket.image
         self.purchaseDate = racket.purchaseDate
+        self.strings = racket.strings
     }
 }

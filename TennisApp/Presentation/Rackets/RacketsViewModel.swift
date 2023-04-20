@@ -9,7 +9,7 @@
 import Combine
 
 protocol RacketsViewModelCoordinatorDelegate: AnyObject {
-    func racketsViewModelToStrings(viewModel: RacketsViewModel)
+    func racketsViewModelToStrings(racket: Racket)
     func racketsViewModelToRacketForm(racket: Racket?)
 }
 
@@ -45,7 +45,7 @@ final class RacketsViewModel {
     }
 
     func fetchRackets() {
-        racketsFetchUseCase.execute(page: 0, pageSize: 0) { [weak self] result in
+        racketsFetchUseCase.execute { [weak self] result in
             guard let self else { return }
             switch result {
             case .success(let rackets):
@@ -80,8 +80,9 @@ final class RacketsViewModel {
 
     // MARK: Coordinator Flow
 
-    func toStrings() {
-        self.coordinatorDelegate?.racketsViewModelToStrings(viewModel: self)
+    func toRacketStrings(index: Int) {
+        let racket = rackets[index]
+        self.coordinatorDelegate?.racketsViewModelToStrings(racket: racket)
     }
 
     func toRacketForm(index: Int) {

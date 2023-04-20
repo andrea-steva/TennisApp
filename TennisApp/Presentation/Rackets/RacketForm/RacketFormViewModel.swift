@@ -18,8 +18,7 @@ final class RacketFormViewModel {
 
     // MARK: Properties
 
-    private let racketCreateUseCase: RacketCreateUseCase
-    private let racketUpdateUseCase: RacketUpdateUseCase
+    private let racketSaveUseCase: RacketSaveUseCase
     private let racket: Racket?
 
     var isUpdate: Bool {
@@ -28,11 +27,9 @@ final class RacketFormViewModel {
 
     // MARK: Methods
 
-    init(racketCreateUseCase: RacketCreateUseCase,
-         racketUpdateUseCase: RacketUpdateUseCase,
+    init(racketSaveUseCase: RacketSaveUseCase,
          racket: Racket?) {
-        self.racketCreateUseCase = racketCreateUseCase
-        self.racketUpdateUseCase = racketUpdateUseCase
+        self.racketSaveUseCase = racketSaveUseCase
         self.racket = racket
     }
 
@@ -41,7 +38,7 @@ final class RacketFormViewModel {
     }
 
     func createRacket(formValues: [String: Any?]) {
-        racketCreateUseCase.execute(racket: Racket(form: formValues)) { result in
+        racketSaveUseCase.execute(racket: Racket(racket: nil, form: formValues)) { result in
             switch result {
             case .success(let success):
                 Log.debug("Create racket \(success)")
@@ -52,7 +49,7 @@ final class RacketFormViewModel {
     }
 
     func updateRacket(racket: Racket, formValues: [String: Any?]) {
-        racketUpdateUseCase.execute(racket: Racket(racket: racket, form: formValues)) { result in
+        racketSaveUseCase.execute(racket: Racket(racket: racket, form: formValues)) { result in
             switch result {
             case .success(let success):
                 Log.debug("Update racket \(success)")

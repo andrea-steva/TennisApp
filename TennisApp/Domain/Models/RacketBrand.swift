@@ -11,10 +11,10 @@ import Foundation
 enum RacketBrand: String, CaseIterable {
     case babolat = "Babolat"
     case dunlop = "Dunlop"
-    case head = "Head"
-    case yonex = "Yonex"
+    case head = "HEAD"
     case prince = "Prince"
     case prokennex = "ProKennex"
     case tecnifibre = "Tecnifibre"
     case wilson = "Wilson"
+    case yonex = "Yonex"
 }

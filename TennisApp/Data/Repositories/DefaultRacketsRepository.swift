@@ -33,7 +33,7 @@ final class DefaultRacketsRepository: RacketsRepository {
         }
     }
 
-    func create(racket: Racket, completion: @escaping (Result<Bool, Error>) -> Void) {
+    func save(racket: Racket, completion: @escaping (Result<Bool, Error>) -> Void) {
         racketsLocalStorage.save(rackets: [racket]) { result in
             switch result {
             case .success(let result):
@@ -42,10 +42,6 @@ final class DefaultRacketsRepository: RacketsRepository {
                 completion(.failure(error))
             }
         }
-    }
-
-    func update(racket: Racket, completion: @escaping (Result<Bool, Error>) -> Void) {
-        racketsLocalStorage.save(rackets: [racket], completion: completion)
     }
 
     func delete(racket: Racket, completion: ((Result<Bool, Error>) -> Void)?) {

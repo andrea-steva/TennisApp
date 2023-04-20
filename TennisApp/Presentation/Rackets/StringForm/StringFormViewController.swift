@@ -18,7 +18,7 @@ final class StringFormViewController: FormViewController, StoryboardInstantiable
 
     // MARK: ViewModel
 
-    var viewModel: StringFormViewModel!
+    var viewModel: StringFormViewModelType!
 
     // MARK: Methods
 
@@ -33,43 +33,14 @@ final class StringFormViewController: FormViewController, StoryboardInstantiable
     }
 
     func createForm() {
-        let string = viewModel.getString()
-
-        ImageRow.defaultCellUpdate = { cell, _ in
-            cell.accessoryView?.layer.cornerRadius = 17
-            cell.accessoryView?.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
-        }
-
-        form +++ Section("Your string information")
-        <<< AlertRow<String>("manufacter") {
-            $0.add(rule: RuleRequired())
-            $0.title = "Manufacter"
-            $0.cellSetup { cell, _ in
-                cell.textLabel?.font = Fonts.get(.regular, size: .normal)
-            }
-            $0.options = RacketBrand.allCases.map { $0.rawValue }
-            $0.value = string?.manufacter ?? "Wilson"
-        }
-        <<< TextRow("model") {
-            $0.add(rule: RuleRequired())
-            $0.title = "Model"
-            $0.cellSetup { cell, _ in
-                cell.textLabel?.font = Fonts.get(.regular, size: .normal)
-            }
-            $0.placeholder = "ProStaff 97S"
-            $0.value = string?.model ?? ""
-        }
+        self.form = FormFactory().build(.string(string: viewModel.getString()))
     }
 
     @IBAction private func didTapOnSaveButton(_ sender: AnyObject) {
         let formValues = form.values()
         Log.debug(formValues.description)
+        viewModel.send(formValues: formValues)
 
-        if let string = viewModel.getString(), viewModel.isUpdate {
-            viewModel.updateStrings(string: string, formValues: formValues)
-        } else {
-            viewModel.createStrings(formValues: formValues)
-        }
         _ = self.navigationController?.popViewController(animated: true)
     }
 }

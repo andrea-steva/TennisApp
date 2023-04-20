@@ -41,18 +41,17 @@ final class RacketsViewController: UIViewController, UITableViewDataSource, UITa
         self.setBackgroundBlurEffect()
         self.setupObservers()
         self.addPullToRefresh()
-
-        self.viewModel.fetchRackets()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        self.viewModel.fetchRackets()
     }
 
     private func setupRightBarButtonItem() -> [UIBarButtonItem] {
         let buttons = [
-            UIBarButtonItem(title: "Add Racket", style: .plain, target: self, action: #selector(didTapOnAddRacketButton)),
-            UIBarButtonItem(title: "Strings", style: .plain, target: self, action: #selector(didTapOnStringsButton))
+            UIBarButtonItem(title: "Add Racket", style: .plain, target: self, action: #selector(didTapOnAddRacketButton))
         ]
         return buttons
     }
@@ -125,6 +124,12 @@ final class RacketsViewController: UIViewController, UITableViewDataSource, UITa
     }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let stringsAction = UIContextualAction(style: .normal, title: "Strings") { (_, _, _) in
+            self.viewModel.toRacketStrings(index: indexPath.row)
+            self.tableView.setEditing(false, animated: true)
+        }
+        stringsAction.backgroundColor = .blue
+
         let editAction = UIContextualAction(style: .normal, title: "Edit") { (_, _, _) in
             self.viewModel.toRacketForm(index: indexPath.row)
             self.tableView.setEditing(false, animated: true)
@@ -140,16 +145,12 @@ final class RacketsViewController: UIViewController, UITableViewDataSource, UITa
             })
         }
 
-        return UISwipeActionsConfiguration(actions: [editAction, deleteAction])
+        return UISwipeActionsConfiguration(actions: [stringsAction, editAction, deleteAction])
     }
 
-    // MARK: IBActions
+    // MARK: Actions
 
-    @IBAction private func didTapOnStringsButton(_ sender: AnyObject) {
-        self.viewModel.toStrings()
-    }
-
-    @IBAction private func didTapOnAddRacketButton(_ sender: AnyObject) {
+    @objc private func didTapOnAddRacketButton(_ sender: AnyObject) {
         self.viewModel.toEmptyRacketForm()
     }
 }

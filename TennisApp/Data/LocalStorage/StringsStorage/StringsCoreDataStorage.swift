@@ -13,30 +13,45 @@ final class StringsCoreDataStorage: StringsLocalStorage {
 
     private let coreDataStorage: CoreDataStorage
 
-    init(coreDataStorage: CoreDataStorage = CoreDataStorage()) {
+    init(coreDataStorage: CoreDataStorage = CoreDataStorage.shared) {
         self.coreDataStorage = coreDataStorage
     }
 
-    // MARK: UsersLocalStorage
+    // MARK: Strings Local Storage
 
-    func fetch(completion: @escaping (Result<[Strings], CoreDataStorageError>) -> Void) {
+    func fetch(forRacket racket: Racket, completion: @escaping (Result<[Strings], CoreDataStorageError>) -> Void) {
         do {
-            let request: NSFetchRequest = StringsEntity.fetchRequest()
-            let result = try coreDataStorage.managedContext.fetch(request).compactMap {
-                $0.toDomain()
+            let racketRequest: NSFetchRequest = RacketEntity.fetchRequest()
+            racketRequest.predicate = NSPredicate(format: "identifier == %@", racket.identifier)
+
+            let racketResult = try coreDataStorage.managedContext.fetch(racketRequest)
+            guard let racketEntity = racketResult.first else {
+                completion(.success([]))
+                return
             }
-            completion(.success(result))
+
+            let strings = racketEntity.strings?.compactMap { ($0 as? StringsEntity)?.toDomain() } ?? []
+            completion(.success(strings))
         } catch {
             completion(.failure(CoreDataStorageError.readError(error)))
         }
     }
 
-    func save(strings: [Strings], completion: ((Result<Bool, Error>) -> Void)?) {
+    func save(string: Strings, forRacket racket: Racket, completion: ((Result<Bool, Error>) -> Void)?) {
         do {
-            for singleStrings in strings {
-                _ = StringsEntity(strings: singleStrings, insertInto: coreDataStorage.managedContext)
+            let request: NSFetchRequest = RacketEntity.fetchRequest()
+            request.predicate = NSPredicate(format: "identifier == %@", racket.identifier)
+
+            let result = try coreDataStorage.managedContext.fetch(request)
+            guard let racketEntity = result.first else {
+                completion?(.failure(CoreDataStorageError.notFound))
+                return
             }
+
+            let stringEntity = StringsEntity(strings: string, insertInto: coreDataStorage.managedContext)
+            racketEntity.addToStrings(stringEntity)
             try coreDataStorage.saveContext()
+
             completion?(.success(true))
         } catch {
             completion?(.failure(CoreDataStorageError.saveError(error)))

@@ -22,8 +22,8 @@ final class DefaultStringsRepository: StringsRepository {
 
     // MARK: Methods
 
-    func fetch(completion: @escaping (Result<[Strings], Error>) -> Void) {
-        stringsLocalStorage.fetch { result in
+    func fetch(forRacket racket: Racket, completion: @escaping (Result<[Strings], Error>) -> Void) {
+        stringsLocalStorage.fetch(forRacket: racket) { result in
             switch result {
             case .success(let strings):
                 completion(.success(strings))
@@ -33,19 +33,8 @@ final class DefaultStringsRepository: StringsRepository {
         }
     }
 
-    func create(string: Strings, completion: @escaping (Result<Bool, Error>) -> Void) {
-        stringsLocalStorage.save(strings: [string]) { result in
-            switch result {
-            case .success(let result):
-                completion(.success(result))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
-    }
-
-    func update(string: Strings, completion: @escaping (Result<Bool, Error>) -> Void) {
-        stringsLocalStorage.save(strings: [string]) { result in
+    func save(string: Strings, forRacket racket: Racket, completion: @escaping (Result<Bool, Error>) -> Void) {
+        stringsLocalStorage.save(string: string, forRacket: racket) { result in
             switch result {
             case .success(let result):
                 completion(.success(result))

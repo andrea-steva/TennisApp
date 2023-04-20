@@ -20,10 +20,10 @@ extension StringsEntity {
         Strings(identifier: self.identifier ?? "",
                 manufacter: self.manufacter ?? "",
                 model: self.model ?? "",
-                price: self.price ?? "",
                 gauge: self.gauge ?? "",
                 duration: self.duration,
-                tension: self.tension)
+                tension: self.tension,
+                price: self.price)
     }
 }
 

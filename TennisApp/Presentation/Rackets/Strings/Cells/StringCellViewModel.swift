@@ -13,8 +13,8 @@ protocol StringCellViewModelType {
     var model: String { get }
     var price: String { get }
     var gauge: String { get }
-    var duration: Float { get }
-    var tension: Float { get }
+    var duration: Double { get }
+    var tension: Double { get }
 }
 
 final class StringCellViewModel: StringCellViewModelType {
@@ -23,13 +23,13 @@ final class StringCellViewModel: StringCellViewModelType {
     let model: String
     let price: String
     let gauge: String
-    let duration: Float
-    let tension: Float
+    let duration: Double
+    let tension: Double
 
     init(string: Strings) {
         self.manufacter = string.manufacter
         self.model = string.model
-        self.price = string.price
+        self.price = String(string.price)
         self.gauge = string.gauge
         self.duration = string.duration
         self.tension = string.tension

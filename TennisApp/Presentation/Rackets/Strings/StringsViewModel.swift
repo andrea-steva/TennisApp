@@ -10,7 +10,7 @@ import Combine
 
 protocol StringsViewModelCoordinatorDelegate: AnyObject {
     func stringViewModelDidEnd(_ viewModel: StringsViewModel)
-    func stringViewModelToStringForm(string: Strings?)
+    func stringViewModelToStringForm(string: Strings?, racket: Racket)
 }
 
 final class StringsViewModel {
@@ -28,6 +28,10 @@ final class StringsViewModel {
 
     var strings: [Strings] = []
 
+    // MARK: Properties
+
+    var racket: Racket
+
     // MARK: Output
 
     var reloadViewData: AnyPublisher<Result<Void, Error>, Never> {
@@ -38,13 +42,16 @@ final class StringsViewModel {
 
     // MARK: Methods
 
-    init(stringsFetchUseCase: StringsFetchUseCase, stringDeleteUseCase: StringsDeleteUseCase) {
+    init(stringsFetchUseCase: StringsFetchUseCase,
+         stringDeleteUseCase: StringsDeleteUseCase,
+         racket: Racket) {
         self.stringsFetchUseCase = stringsFetchUseCase
         self.stringDeleteUseCase = stringDeleteUseCase
+        self.racket = racket
     }
 
     func fetchStrings() {
-        stringsFetchUseCase.execute(page: 0, pageSize: 0) { [weak self] result in
+        stringsFetchUseCase.execute(racket: racket) { [weak self] result in
             guard let self else { return }
             switch result {
             case .success(let strings):
@@ -84,10 +91,10 @@ final class StringsViewModel {
     }
 
     func toStringForm(index: Int) {
-        self.coordinatorDelegate?.stringViewModelToStringForm(string: strings[index])
+        self.coordinatorDelegate?.stringViewModelToStringForm(string: strings[index], racket: racket)
     }
 
     func toEmptyStringForm() {
-        self.coordinatorDelegate?.stringViewModelToStringForm(string: nil)
+        self.coordinatorDelegate?.stringViewModelToStringForm(string: nil, racket: racket)
     }
 }

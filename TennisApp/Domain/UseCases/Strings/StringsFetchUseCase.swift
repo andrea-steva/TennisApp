@@ -10,8 +10,7 @@ import Foundation
 
 /// Represents the use case where `Strings` are fetched
 protocol StringsFetchUseCase {
-    func execute(page: Int,
-                 pageSize: Int,
+    func execute(racket: Racket,
                  completion: @escaping (Result<[Strings], Error>) -> Void)
 }
 
@@ -29,10 +28,9 @@ final class DefaultStringsFetchUseCase: StringsFetchUseCase {
 
     // MARK: Use case execution
 
-    func execute(page: Int,
-                 pageSize: Int,
+    func execute(racket: Racket,
                  completion: @escaping (Result<[Strings], Error>) -> Void) {
-        stringsRepository.fetch { result in
+        stringsRepository.fetch(forRacket: racket) { result in
             switch result {
             case .success(let strings):
                 completion(.success(strings))
