@@ -10,9 +10,7 @@ import Foundation
 
 /// Represents the use case where `Rackets` are fetched
 protocol RacketsFetchUseCase {
-    func execute(page: Int,
-                 pageSize: Int,
-                 completion: @escaping (Result<[Racket], Error>) -> Void)
+    func execute(completion: @escaping (Result<[Racket], Error>) -> Void)
 }
 
 final class DefaultRacketsFetchUseCase: RacketsFetchUseCase {
@@ -29,9 +27,7 @@ final class DefaultRacketsFetchUseCase: RacketsFetchUseCase {
 
     // MARK: Use case execution
 
-    func execute(page: Int,
-                 pageSize: Int,
-                 completion: @escaping (Result<[Racket], Error>) -> Void) {
+    func execute(completion: @escaping (Result<[Racket], Error>) -> Void) {
         racketsRepository.fetch { result in
             switch result {
             case .success(let rackets):

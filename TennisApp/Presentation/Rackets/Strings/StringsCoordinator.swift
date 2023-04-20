@@ -20,6 +20,7 @@ class StringsCoordinator: Coordinator, StringsViewModelCoordinatorDelegate, Stri
 
     private let container: StringsDIContainer
     private let navigationController: UINavigationControllerType
+    private let racket: Racket
     private let stringsViewController: StringsViewController
 
     private var stringFormCoordinator: StringFormCoordinator?
@@ -27,15 +28,18 @@ class StringsCoordinator: Coordinator, StringsViewModelCoordinatorDelegate, Stri
     // MARK: Coordinator
 
     init(container: StringsDIContainer,
-         navigationController: UINavigationControllerType) {
+         navigationController: UINavigationControllerType,
+         racket: Racket) {
         self.container = container
         self.navigationController = navigationController
+        self.racket = racket
         self.stringsViewController = StringsViewController.instantiateViewController()
     }
 
     func start() {
         let viewModel = StringsViewModel(stringsFetchUseCase: container.makeStringsFetchUseCase(),
-                                         stringDeleteUseCase: container.makeStringsDeleteUseCase())
+                                         stringDeleteUseCase: container.makeStringsDeleteUseCase(),
+                                         racket: racket)
         viewModel.coordinatorDelegate = self
         stringsViewController.viewModel = viewModel
         navigationController.pushViewController(stringsViewController, animated: true)
@@ -47,8 +51,10 @@ class StringsCoordinator: Coordinator, StringsViewModelCoordinatorDelegate, Stri
         delegate?.stringsCoordinatorDidFinish(racketsCoordinator: self)
     }
 
-    func stringViewModelToStringForm(string: Strings?) {
-        stringFormCoordinator = StringFormCoordinator(navigationController: navigationController, string: string)
+    func stringViewModelToStringForm(string: Strings?, racket: Racket) {
+        stringFormCoordinator = StringFormCoordinator(navigationController: navigationController,
+                                                      racket: racket,
+                                                      string: string)
         stringFormCoordinator?.delegate = self
         stringFormCoordinator?.start()
     }

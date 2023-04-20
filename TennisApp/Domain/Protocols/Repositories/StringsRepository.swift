@@ -12,16 +12,14 @@ import Foundation
 protocol StringsRepository {
 
     /// Fetch `Strings` from local storage
+    /// - Parameters:
+    ///   - racket: The racket
     /// - Parameter completion: The completion handler for the operation. Returns an array of `Strings` or a `Error`
-    func fetch(completion: @escaping (Result<[Strings], Error>) -> Void)
+    func fetch(forRacket racket: Racket, completion: @escaping (Result<[Strings], Error>) -> Void)
 
-    /// Create a single `Strings`
+    /// Save (create or update) a single `Strings`
     /// - Parameter completion: The completion handler for the operation. Returns an array of `Strings` or a `Error`
-    func create(string: Strings, completion: @escaping (Result<Bool, Error>) -> Void)
-
-    /// Update a single `Strings`
-    /// - Parameter completion: The completion handler for the operation. Returns an array of `Strings` or a `Error`
-    func update(string: Strings, completion: @escaping (Result<Bool, Error>) -> Void)
+    func save(string: Strings, forRacket racket: Racket, completion: @escaping (Result<Bool, Error>) -> Void)
 
     /// Delete a single `Strings`
     /// - Parameters:

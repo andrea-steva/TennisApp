@@ -20,12 +20,8 @@ final class StringsDIContainer {
         DefaultStringsFetchUseCase(stringsRepository: makeStringsRepository())
     }
 
-    func makeStringsCreateUseCase() -> StringsCreateUseCase {
-        DefaultStringsCreateUseCase(stringsRepository: makeStringsRepository())
-    }
-
-    func makeStringsUpdateUseCase() -> StringsUpdateUseCase {
-        DefaultStringsUpdateUseCase(stringsRepository: makeStringsRepository())
+    func makeStringsSaveUseCase() -> StringsSaveUseCase {
+        DefaultStringsSaveUseCase(stringsRepository: makeStringsRepository())
     }
 
     func makeStringsDeleteUseCase() -> StringsDeleteUseCase {

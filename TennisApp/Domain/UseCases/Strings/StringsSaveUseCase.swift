@@ -1,5 +1,5 @@
 //
-//  StringsUpdateUseCase.swift
+//  StringsSaveUseCase.swift
 //  TennisApp
 //
 //  Created by Andrea Stevanato on 03/04/23.
@@ -8,12 +8,13 @@
 
 import Foundation
 
-protocol StringsUpdateUseCase {
+protocol StringsSaveUseCase {
     func execute(string: Strings,
+                 racket: Racket,
                  completion: @escaping (Result<Bool, Error>) -> Void)
 }
 
-final class DefaultStringsUpdateUseCase: StringsUpdateUseCase {
+final class DefaultStringsSaveUseCase: StringsSaveUseCase {
 
     // MARK: Properties
 
@@ -28,7 +29,8 @@ final class DefaultStringsUpdateUseCase: StringsUpdateUseCase {
     // MARK: Use case execution
 
     func execute(string: Strings,
+                 racket: Racket,
                  completion: @escaping (Result<Bool, Error>) -> Void) {
-        stringsRepository.update(string: string, completion: completion)
+        stringsRepository.save(string: string, forRacket: racket, completion: completion)
     }
 }

@@ -49,8 +49,10 @@ final class RacketsCoordinator: TabBarItemCoordinator,
 
     // MARK: RacketsViewModelCoordinatorDelegate
 
-    func racketsViewModelToStrings(viewModel: RacketsViewModel) {
-        stringsCoordinator = StringsCoordinator(container: appDIContainer.stringsDIContainer, navigationController: navigationController)
+    func racketsViewModelToStrings(racket: Racket) {
+        stringsCoordinator = StringsCoordinator(container: appDIContainer.stringsDIContainer,
+                                                navigationController: navigationController,
+                                                racket: racket)
         stringsCoordinator?.delegate = self
         stringsCoordinator?.start()
     }

@@ -31,8 +31,7 @@ class RacketFormCoordinator: Coordinator, RacketFormViewModelCoordinatorDelegate
 
     func start() {
         let racketFormViewController = RacketFormViewController.instantiateViewController()
-        racketFormViewController.viewModel = RacketFormViewModel(racketCreateUseCase: container.makeRacketCreateUseCase(),
-                                                                 racketUpdateUseCase: container.makeRacketUpdateUseCase(),
+        racketFormViewController.viewModel = RacketFormViewModel(racketSaveUseCase: container.makeRacketSaveUseCase(),
                                                                  racket: racket)
         racketFormViewController.viewModel.coordinatorDelegate = self
         self.navigationController.pushViewController(racketFormViewController, animated: true)

@@ -13,7 +13,7 @@ final class UsersCoreDataStorage: UsersLocalStorage {
 
     private let coreDataStorage: CoreDataStorage
 
-    init(coreDataStorage: CoreDataStorage = CoreDataStorage()) {
+    init(coreDataStorage: CoreDataStorage = CoreDataStorage.shared) {
         self.coreDataStorage = coreDataStorage
     }
 

@@ -28,7 +28,7 @@ struct Style {
         appearance.setBackgroundImage(UIImage(), for: .default)
         appearance.shadowImage = UIImage()
         appearance.isTranslucent = true
-        appearance.tintColor = Colors.lightColor
+        appearance.tintColor = Colors.primaryColor
 
         appearance.prefersLargeTitles = true
     }

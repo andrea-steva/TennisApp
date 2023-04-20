@@ -10,7 +10,7 @@ import Combine
 import UIKit
 
 final class StringsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,
-                                   StoryboardInstantiable, Localizable, Alertable {
+                                   StoryboardInstantiable, Localizable, Alertable, BackgroundBlurrable {
 
     static let StringsCellReuseId = "string_cell"
 
@@ -40,13 +40,14 @@ final class StringsViewController: UIViewController, UITableViewDataSource, UITa
         self.navigationController?.navigationBar.scrollEdgeAppearance = Style.getUINavigationBarAppearance()
         self.navigationController?.navigationBar.standardAppearance = Style.getUINavigationBarAppearance()
 
+        self.setBackgroundBlurEffect()
         self.setupObservers()
-
-        self.viewModel.fetchStrings()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        self.viewModel.fetchStrings()
     }
 
     private func setupRightBarButtonItem() -> [UIBarButtonItem] {

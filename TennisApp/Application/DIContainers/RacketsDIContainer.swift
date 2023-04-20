@@ -20,12 +20,8 @@ final class RacketsDIContainer {
         DefaultRacketsFetchUseCase(racketsRepository: makeRacketsRepository())
     }
 
-    func makeRacketCreateUseCase() -> RacketCreateUseCase {
-        DefaultRacketCreateUseCase(racketsRepository: makeRacketsRepository())
-    }
-
-    func makeRacketUpdateUseCase() -> RacketUpdateUseCase {
-        DefaultRacketUpdateUseCase(racketsRepository: makeRacketsRepository())
+    func makeRacketSaveUseCase() -> RacketSaveUseCase {
+        DefaultRacketSaveUseCase(racketsRepository: makeRacketsRepository())
     }
 
     func makeRacketDeleteUseCase() -> RacketDeleteUseCase {

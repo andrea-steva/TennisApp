@@ -17,11 +17,7 @@ protocol RacketsRepository {
 
     /// Create
     /// - Parameter completion: The completion handler for the operation. Returns an array of `Racket` or a `Error`
-    func create(racket: Racket, completion: @escaping (Result<Bool, Error>) -> Void)
-
-    /// Update
-    /// - Parameter completion: The completion handler for the operation. Returns an array of `Racket` or a `Error`
-    func update(racket: Racket, completion: @escaping (Result<Bool, Error>) -> Void)
+    func save(racket: Racket, completion: @escaping (Result<Bool, Error>) -> Void)
 
     /// Delete a single `Racket`
     /// - Parameters:

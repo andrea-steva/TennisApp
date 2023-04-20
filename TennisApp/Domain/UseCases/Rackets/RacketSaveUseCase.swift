@@ -1,5 +1,5 @@
 //
-//  RacketCreateUseCase.swift
+//  RacketSaveUseCase.swift
 //  TennisApp
 //
 //  Created by Andrea Stevanato on 03/04/23.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol RacketCreateUseCase {
+protocol RacketSaveUseCase {
     func execute(racket: Racket,
                  completion: @escaping (Result<Bool, Error>) -> Void)
 }
 
-final class DefaultRacketCreateUseCase: RacketCreateUseCase {
+final class DefaultRacketSaveUseCase: RacketSaveUseCase {
 
     // MARK: Properties
 
@@ -29,6 +29,6 @@ final class DefaultRacketCreateUseCase: RacketCreateUseCase {
 
     func execute(racket: Racket,
                  completion: @escaping (Result<Bool, Error>) -> Void) {
-        racketsRepository.create(racket: racket, completion: completion)
+        racketsRepository.save(racket: racket, completion: completion)
     }
 }

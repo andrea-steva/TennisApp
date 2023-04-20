@@ -10,15 +10,18 @@ import Foundation
 
 protocol StringsLocalStorage {
 
-    /// Fetch strings from local storage
-    /// - Parameter completion: A completion handler. Returns an array of `Strings` or an `Error`
-    func fetch(completion: @escaping (Result<[Strings], CoreDataStorageError>) -> Void)
-
-    /// Save strings on local storage
+    /// Fetch strings for a Racket from local storage
     /// - Parameters:
-    ///   - strings: The array of rackets to save
+    ///   - racket: The racket
+    ///   - completion: A completion handler. Returns an array of `Strings` or an `Error`
+    func fetch(forRacket racket: Racket, completion: @escaping (Result<[Strings], CoreDataStorageError>) -> Void)
+
+    /// Save string on local storage
+    /// - Parameters:
+    ///   - string: The string to save
+    ///   - racket: The racket
     ///   - completion: The completion handler for the operation
-    func save(strings: [Strings], completion: ((Result<Bool, Error>) -> Void)?)
+    func save(string: Strings, forRacket racket: Racket, completion: ((Result<Bool, Error>) -> Void)?)
 
     /// Delete strings from local storage
     /// - Parameters:

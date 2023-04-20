@@ -10,12 +10,17 @@ import CoreData
 import Foundation
 
 enum CoreDataStorageError: Error {
+    case notFound
     case readError(Error)
     case saveError(Error)
     case deleteError(Error)
 }
 
 class CoreDataStorage {
+
+    // MARK: Shared Instance
+
+    static let shared = CoreDataStorage()
 
     let modelName: String
 

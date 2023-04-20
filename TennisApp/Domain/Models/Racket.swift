@@ -6,7 +6,7 @@
 //  Copyright © 2023 Andrea Stevanato. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 /// The racket domain model
 struct Racket {
@@ -17,29 +17,23 @@ struct Racket {
     var gripSize: GripSize
     var image: Data?
     var purchaseDate: Date?
+    var sport: Sport
+    var price: Double
 
-    // Add relationships
+    var strings: [Strings] = []
 }
 
 extension Racket {
 
-    init(form: [String: Any?]) {
-        self.identifier = UUID().uuidString
+    init(racket: Racket?, form: [String: Any?]) {
+        self.identifier = racket?.identifier ?? UUID().uuidString
         self.manufacter = form["manufacter"] as? String ?? ""
         self.model = form["model"] as? String ?? ""
-        self.weight = Int32(form["weight"] as? String ?? "0") ?? 0
-        self.gripSize = GripSize(rawValue: form["weight"] as? String ?? "1") ?? .one
-        self.image = nil
+        self.weight = Int32(form["weight"] as? Int ?? 0)
+        self.gripSize = GripSize(rawValue: form["gripSize"] as? String ?? "1") ?? .one
+        self.image = (form["image"] as? UIImage)?.jpegData(compressionQuality: 80)
         self.purchaseDate = form["purchaseDate"] as? Date ?? Date()
-    }
-
-    init(racket: Racket, form: [String: Any?]) {
-        self.identifier = racket.identifier
-        self.manufacter = form["manufacter"] as? String ?? ""
-        self.model = form["model"] as? String ?? ""
-        self.weight = Int32(form["weight"] as? String ?? "0") ?? 0
-        self.gripSize = GripSize(rawValue: form["weight"] as? String ?? "1") ?? .one
-        self.image = nil
-        self.purchaseDate = form["purchaseDate"] as? Date ?? Date()
+        self.sport = Sport(rawValue: form["sport"] as? String ?? "Tennis") ?? .tennis
+        self.price = form["price"] as? Double ?? 0
     }
 }

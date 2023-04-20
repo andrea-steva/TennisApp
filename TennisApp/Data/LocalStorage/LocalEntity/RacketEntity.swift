@@ -9,12 +9,6 @@
 import CoreData
 import Foundation
 
-//    // MARK: Relationship
-//
-//    // let user = LinkingObjects(fromType: UserEntity.self, property: "rackets")
-//    var strings = List<StringsEntity>()
-//
-
 // MARK: - Mappings to domain
 
 extension RacketEntity {
@@ -25,8 +19,11 @@ extension RacketEntity {
                model: self.model ?? "",
                weight: self.weight,
                gripSize: GripSize(rawValue: self.gripSize ?? "") ?? GripSize.one,
-               image: nil,
-               purchaseDate: Date())
+               image: self.image,
+               purchaseDate: self.purchaseDate,
+               sport: Sport(rawValue: self.sport ?? "") ?? Sport.tennis,
+               price: self.price,
+               strings: self.strings?.allObjects.compactMap { ($0 as? StringsEntity)?.toDomain() } ?? [])
     }
 }
 
@@ -40,5 +37,7 @@ extension RacketEntity {
         gripSize = racket.gripSize.rawValue
         image = racket.image
         purchaseDate = racket.purchaseDate
+        sport = racket.sport.rawValue
+        price = racket.price
     }
 }

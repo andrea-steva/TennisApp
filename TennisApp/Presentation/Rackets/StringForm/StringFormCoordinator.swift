@@ -21,19 +21,27 @@ class StringFormCoordinator: Coordinator, StringFormViewModelCoordinatorDelegate
     private let navigationController: UINavigationControllerType
     private let stringsFromViewController: StringFormViewController
     private var string: Strings?
+    private let racket: Racket
 
     // MARK: Coordinator
 
-    init(navigationController: UINavigationControllerType, string: Strings?) {
+    init(navigationController: UINavigationControllerType, racket: Racket, string: Strings?) {
         self.navigationController = navigationController
+        self.racket = racket
         self.string = string
         self.stringsFromViewController = StringFormViewController.instantiateViewController()
     }
 
     func start() {
-        stringsFromViewController.viewModel = StringFormViewModel(stringsCreateUseCase: container.makeStringsCreateUseCase(),
-                                                                  stringsUpdateUseCase: container.makeStringsUpdateUseCase(),
-                                                                  string: string)
+        if let string = self.string {
+            stringsFromViewController.viewModel = StringFormUpdateViewModel(stringsSaveUseCase: container.makeStringsSaveUseCase(),
+                                                                            racket: racket,
+                                                                            string: string)
+        } else {
+            stringsFromViewController.viewModel = StringFormCreateViewModel(stringsSaveUseCase: container.makeStringsSaveUseCase(),
+                                                                            racket: racket)
+        }
+
         stringsFromViewController.viewModel.coordinatorDelegate = self
         self.navigationController.pushViewController(stringsFromViewController, animated: true)
     }
