@@ -94,7 +94,7 @@ struct FormFactory {
             $0.cellSetup { cell, _ in
                 cell.textLabel?.font = Fonts.get(.regular, size: .normal)
             }
-            $0.value = racket?.image != nil ? UIImage(data: racket!.image!) : nil
+            $0.value = racket?.image
         }
         <<< DecimalRow("price") {
             $0.title = "Price"

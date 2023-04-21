@@ -36,7 +36,7 @@
     <entity name="RacketEntity" representedClassName="RacketEntity" syncable="YES" codeGenerationType="class">
         <attribute name="gripSize" optional="YES" attributeType="String"/>
         <attribute name="identifier" optional="YES" attributeType="String"/>
-        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary"/>
         <attribute name="manufacter" optional="YES" attributeType="String"/>
         <attribute name="model" optional="YES" attributeType="String"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>

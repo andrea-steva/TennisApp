@@ -6,14 +6,14 @@
 //  Copyright © 2023 Andrea Stevanato. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol RacketCellViewModelType {
     var manufacter: String { get }
     var model: String { get }
     var weight: Int32 { get }
     var gripSize: GripSize { get }
-    var image: Data? { get }
+    var image: UIImage? { get }
     var purchaseDate: Date? { get }
     var strings: [Strings] { get }
 }
@@ -24,7 +24,7 @@ final class RacketCellViewModel: RacketCellViewModelType {
     let model: String
     let weight: Int32
     let gripSize: GripSize
-    let image: Data?
+    let image: UIImage?
     let purchaseDate: Date?
     let strings: [Strings]
 

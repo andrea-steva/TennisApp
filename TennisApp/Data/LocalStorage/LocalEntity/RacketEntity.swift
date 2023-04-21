@@ -19,7 +19,7 @@ extension RacketEntity {
                model: self.model ?? "",
                weight: self.weight,
                gripSize: GripSize(rawValue: self.gripSize ?? "") ?? GripSize.one,
-               image: self.image,
+               imageData: self.imageData,
                purchaseDate: self.purchaseDate,
                sport: Sport(rawValue: self.sport ?? "") ?? Sport.tennis,
                price: self.price,
@@ -35,7 +35,7 @@ extension RacketEntity {
         model = racket.model
         weight = racket.weight
         gripSize = racket.gripSize.rawValue
-        image = racket.image
+        imageData = racket.imageData
         purchaseDate = racket.purchaseDate
         sport = racket.sport.rawValue
         price = racket.price

@@ -34,7 +34,7 @@ final class RacketsCoreDataStorageTests: XCTestCase {
                         XCTAssertEqual(racket.model, "Model 0")
                         XCTAssertEqual(racket.weight, 340)
                         XCTAssertEqual(racket.gripSize, .three)
-                        XCTAssertNotNil(racket.image)
+                        XCTAssertNotNil(racket.imageData)
                         XCTAssertNotNil(racket.purchaseDate)
                         XCTAssertEqual(racket.sport, .tennis)
                         XCTAssertEqual(racket.price, 200, accuracy: 0.01)
@@ -60,7 +60,7 @@ private extension RacketsCoreDataStorageTests {
                    model: "Model \(index)",
                    weight: 340,
                    gripSize: .three,
-                   image: Data(repeating: 0, count: 10),
+                   imageData: Data(repeating: 0, count: 10),
                    purchaseDate: Date(),
                    sport: .tennis,
                    price: 200)

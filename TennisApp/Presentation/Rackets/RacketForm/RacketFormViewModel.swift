@@ -38,7 +38,7 @@ final class RacketFormViewModel {
     }
 
     func createRacket(formValues: [String: Any?]) {
-        racketSaveUseCase.execute(racket: Racket(racket: nil, form: formValues)) { result in
+        racketSaveUseCase.execute(racket: Racket(racket: nil, formData: formValues)) { result in
             switch result {
             case .success(let success):
                 Log.debug("Create racket \(success)")
@@ -49,7 +49,7 @@ final class RacketFormViewModel {
     }
 
     func updateRacket(racket: Racket, formValues: [String: Any?]) {
-        racketSaveUseCase.execute(racket: Racket(racket: racket, form: formValues)) { result in
+        racketSaveUseCase.execute(racket: Racket(racket: racket, formData: formValues)) { result in
             switch result {
             case .success(let success):
                 Log.debug("Update racket \(success)")
