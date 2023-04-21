@@ -757,9 +757,7 @@
 		FC62B15329D72762000B79D0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FCE0AAD529D73A9100308EF3 /* RacketBrand.swift */,
-				FCCDB7BD29F141B200941D52 /* StringsBrand.swift */,
-				FCE0AAD729D73ACF00308EF3 /* GripSize.swift */,
+				FCCDB7BF29F2BA3500941D52 /* Enums */,
 				FCF6D8B829DACAEC00DBCD4B /* Fitness.swift */,
 				FCF6D8B629DACAE500DBCD4B /* Match.swift */,
 				FCF6D8B429DACA8300DBCD4B /* MatchScore.swift */,
@@ -767,7 +765,6 @@
 				FCF6D8B029DAC7A300DBCD4B /* Racket.swift */,
 				FCF6D8AC29DAC56200DBCD4B /* Strings.swift */,
 				FCF6D8AE29DAC78900DBCD4B /* User.swift */,
-				FCCDB7B229EFEBD700941D52 /* Sport.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1022,6 +1019,17 @@
 				FCCDB7B929F044E100941D52 /* FormFactory.swift */,
 			);
 			path = FormsFactory;
+			sourceTree = "<group>";
+		};
+		FCCDB7BF29F2BA3500941D52 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				FCE0AAD529D73A9100308EF3 /* RacketBrand.swift */,
+				FCCDB7BD29F141B200941D52 /* StringsBrand.swift */,
+				FCCDB7B229EFEBD700941D52 /* Sport.swift */,
+				FCE0AAD729D73ACF00308EF3 /* GripSize.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		FCE0AAC829D7364400308EF3 /* Logger */ = {

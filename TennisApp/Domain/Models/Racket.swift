@@ -15,7 +15,7 @@ struct Racket {
     var model: String
     var weight: Int32
     var gripSize: GripSize
-    var image: Data?
+    var imageData: Data?
     var purchaseDate: Date?
     var sport: Sport
     var price: Double
@@ -25,15 +25,23 @@ struct Racket {
 
 extension Racket {
 
-    init(racket: Racket?, form: [String: Any?]) {
+    init(racket: Racket?, formData: [String: Any?]) {
         self.identifier = racket?.identifier ?? UUID().uuidString
-        self.manufacter = form["manufacter"] as? String ?? ""
-        self.model = form["model"] as? String ?? ""
-        self.weight = Int32(form["weight"] as? Int ?? 0)
-        self.gripSize = GripSize(rawValue: form["gripSize"] as? String ?? "1") ?? .one
-        self.image = (form["image"] as? UIImage)?.jpegData(compressionQuality: 80)
-        self.purchaseDate = form["purchaseDate"] as? Date ?? Date()
-        self.sport = Sport(rawValue: form["sport"] as? String ?? "Tennis") ?? .tennis
-        self.price = form["price"] as? Double ?? 0
+        self.manufacter = formData["manufacter"] as? String ?? ""
+        self.model = formData["model"] as? String ?? ""
+        self.weight = Int32(formData["weight"] as? Int ?? 0)
+        self.gripSize = GripSize(rawValue: formData["gripSize"] as? String ?? "") ?? .one
+        self.imageData = (formData["image"] as? UIImage)?.jpegData(compressionQuality: 80)
+        self.purchaseDate = formData["purchaseDate"] as? Date
+        self.sport = Sport(rawValue: formData["sport"] as? String ?? "") ?? .tennis
+        self.price = formData["price"] as? Double ?? 0
+    }
+}
+
+extension Racket {
+
+    var image: UIImage? {
+        guard let imageData else { return nil }
+        return UIImage(data: imageData)
     }
 }
