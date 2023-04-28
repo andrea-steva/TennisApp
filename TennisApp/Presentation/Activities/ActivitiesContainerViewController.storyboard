@@ -22,30 +22,24 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="court_clay" translatesAutoresizingMaskIntoConstraints="NO" id="em1-90-SAS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
                             </imageView>
-                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7m-s1-8Hk">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="u7O-D0-X65" firstAttribute="top" secondItem="em1-90-SAS" secondAttribute="bottom" id="6Ra-iy-QD1"/>
-                            <constraint firstItem="c7m-s1-8Hk" firstAttribute="top" secondItem="PXP-lA-Lr2" secondAttribute="top" id="B6k-z1-9Lm"/>
-                            <constraint firstAttribute="bottom" secondItem="c7m-s1-8Hk" secondAttribute="bottom" id="KcC-e1-ZrG"/>
-                            <constraint firstAttribute="trailing" secondItem="c7m-s1-8Hk" secondAttribute="trailing" id="Xdm-nr-xn8"/>
-                            <constraint firstItem="c7m-s1-8Hk" firstAttribute="leading" secondItem="PXP-lA-Lr2" secondAttribute="leading" id="dHf-NU-1gf"/>
                             <constraint firstItem="em1-90-SAS" firstAttribute="top" secondItem="PXP-lA-Lr2" secondAttribute="top" id="phg-Bl-H6J"/>
                             <constraint firstAttribute="trailing" secondItem="em1-90-SAS" secondAttribute="trailing" id="wOL-mb-GSQ"/>
                             <constraint firstItem="em1-90-SAS" firstAttribute="leading" secondItem="PXP-lA-Lr2" secondAttribute="leading" id="wzC-Jw-Y6P"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ufz-tM-Xl0"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="backgroundView" destination="em1-90-SAS" id="Ztr-3R-03e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WGD-XN-EM9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="493.60000000000002" y="170.68965517241381"/>
+            <point key="canvasLocation" x="484" y="73"/>
         </scene>
     </scenes>
     <resources>

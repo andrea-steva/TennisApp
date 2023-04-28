@@ -19,12 +19,12 @@ struct Fitness {
 
     // MARK: Stored Attributes
 
-    var activityId: String
-    var title: String
-    var notes: String = ""
-    var date: Date
-    var place: String = ""
-    var timeSpent: Float = 0
+    var identifier: String
+    var description: String
+    var notes: String
+    var place: String
+    var timeSpent: Double
+    var date: Date?
 
     var fitnessType: FitnessType = .running
 

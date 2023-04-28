@@ -108,9 +108,9 @@
 import Accelerate
 import UIKit
 
-public extension UIImage {
+extension UIImage {
 
-    func applyMenuEffect() -> UIImage? {
+    func applyStandardEffect() -> UIImage? {
         applyBlurWithRadius(8, tintColor: UIColor(white: 0.15, alpha: 0.50), saturationDeltaFactor: 1.8)
     }
 

@@ -48,7 +48,7 @@ final class StringsCoreDataStorage: StringsLocalStorage {
                 return
             }
 
-            let stringEntity = StringsEntity(strings: string, insertInto: coreDataStorage.managedContext)
+            let stringEntity = StringsEntity(string: string, insertInto: coreDataStorage.managedContext)
             racketEntity.addToStrings(stringEntity)
             try coreDataStorage.saveContext()
 

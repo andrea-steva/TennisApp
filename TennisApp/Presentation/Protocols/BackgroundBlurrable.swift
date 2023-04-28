@@ -16,6 +16,6 @@ protocol BackgroundBlurrable {
 
 extension BackgroundBlurrable where Self: UIViewController {
     func setBackgroundBlurEffect() {
-        backgroundView.image = backgroundView.image?.applyMenuEffect()
+        backgroundView.image = backgroundView.image?.applyStandardEffect()
     }
 }

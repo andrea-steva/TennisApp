@@ -9,22 +9,35 @@
 
 import Foundation
 
-public extension Date {
+extension Date {
 
-    // MARK: NSDate Manipulation
+    var isInTheFuture: Bool { self > Date() }
+    var isInThePast: Bool { self < Date() }
 
-    /**
-     Returns a new NSDate object representing the date calculated by adding the amount specified to self date
+    struct Formatter {
 
-     :param: seconds number of seconds to add
-     :param: minutes number of minutes to add
-     :param: hours number of hours to add
-     :param: days number of days to add
-     :param: weeks number of weeks to add
-     :param: months number of months to add
-     :param: years number of years to add
-     :returns: the NSDate computed
-     */
+        static let ddMMyyyy: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-MM-yyyy"
+            return formatter
+        }()
+    }
+
+    /// Date formatted as `yyyy-MM-dd HH:mm:ss`  (30-05-2027)
+    var formattedyyyyMMddHHmmss: String { Date.Formatter.ddMMyyyy.string(from: self) }
+
+    // MARK: Date Manipulation
+
+    /// Returns a new Date object representing the date calculated by adding the amount specified to self date
+    /// - Parameters:
+    ///   - seconds: number of seconds to add
+    ///   - minutes: number of minutes to add
+    ///   - hours: number of hours to add
+    ///   - days: number of days to add
+    ///   - weeks: number of weeks to add
+    ///   - months: number of months to add
+    ///   - years: number of years to add
+    /// - Returns: The new date
      func add(_ seconds: Int = 0, minutes: Int = 0, hours: Int = 0, days: Int = 0, weeks: Int = 0, months: Int = 0, years: Int = 0) -> Date {
         let calendar = Calendar.current
 
@@ -71,95 +84,40 @@ public extension Date {
         return date
     }
 
-    /**
-     Returns a new NSDate object representing the date calculated by adding an amount of seconds to self date
-
-     :param: seconds number of seconds to add
-     :returns: the NSDate computed
-     */
     func addSeconds (_ seconds: Int) -> Date {
         add(seconds)
     }
 
-    /**
-     Returns a new NSDate object representing the date calculated by adding an amount of minutes to self date
-
-     :param: minutes number of minutes to add
-     :returns: the NSDate computed
-     */
     func addMinutes (_ minutes: Int) -> Date {
         add(minutes: minutes)
     }
 
-    /**
-     Returns a new NSDate object representing the date calculated by adding an amount of hours to self date
-
-     :param: hours number of hours to add
-     :returns: the NSDate computed
-     */
     func addHours(_ hours: Int) -> Date {
         add(hours: hours)
     }
 
-    /**
-     Returns a new NSDate object representing the date calculated by adding an amount of days to self date
-
-     :param: days number of days to add
-     :returns: the NSDate computed
-     */
     func addDays(_ days: Int) -> Date {
         add(days: days)
     }
 
-    /**
-     Returns a new NSDate object representing the date calculated by adding an amount of weeks to self date
-
-     :param: weeks number of weeks to add
-     :returns: the NSDate computed
-     */
     func addWeeks(_ weeks: Int) -> Date {
         add(weeks: weeks)
     }
-
-    /**
-     Returns a new NSDate object representing the date calculated by adding an amount of months to self date
-
-     :param: months number of months to add
-     :returns: the NSDate computed
-     */
 
     func addMonths(_ months: Int) -> Date {
         add(months: months)
     }
 
-    /**
-     Returns a new NSDate object representing the date calculated by adding an amount of years to self date
-
-     :param: years number of year to add
-     :returns: the NSDate computed
-     */
     func addYears(_ years: Int) -> Date {
         add(years: years)
     }
 
     // MARK: Date comparison
 
-    /**
-     Checks if self is after input NSDate
-
-     :param: date NSDate to compare
-     :returns: True if self is after the input NSDate, false otherwise
-     */
     func isAfter(_ date: Date) -> Bool {
         (self.compare(date) == ComparisonResult.orderedDescending)
     }
 
-    /**
-     Checks if self is before input NSDate
-
-     :param: date NSDate to compare
-     :returns: True if self is before the input NSDate, false otherwise
-     */
     func isBefore(_ date: Date) -> Bool {
         (self.compare(date) == ComparisonResult.orderedAscending)
     }

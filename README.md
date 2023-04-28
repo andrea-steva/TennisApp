@@ -47,7 +47,6 @@ brew install swiftlint
 + [] Use [Modern cell configuration](https://developer.apple.com/videos/play/wwdc2020/10027/)
 
 
-
 ## ✒️ Author
 
 Andrea Stevanato

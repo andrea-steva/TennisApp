@@ -17,17 +17,19 @@ struct Strings {
     var duration: Double
     var tension: Double
     var price: Double
+    var inUse: Bool
 }
 
 extension Strings {
 
-    init(string: Strings?, form: [String: Any?]) {
+    init(string: Strings?, formData: [String: Any?]) {
         self.identifier = string?.identifier ?? UUID().uuidString
-        self.manufacter = form["manufacter"] as? String ?? ""
-        self.model = form["model"] as? String ?? ""
-        self.gauge = form["gauce"] as? String ?? ""
-        self.duration = form["duration"] as? Double ?? 0
-        self.tension = form["tension"] as? Double ?? 0
-        self.price = form["price"] as? Double ?? 0
+        self.manufacter = formData[StringForm.Keys.manufacter] as? String ?? ""
+        self.model = formData[StringForm.Keys.model] as? String ?? ""
+        self.gauge = formData[StringForm.Keys.gauge] as? String ?? ""
+        self.duration = formData[StringForm.Keys.duration] as? Double ?? 0
+        self.tension = formData[StringForm.Keys.tension] as? Double ?? 0
+        self.price = formData[StringForm.Keys.price] as? Double ?? 0
+        self.inUse = formData[StringForm.Keys.inUse] as? Bool ?? false
     }
 }

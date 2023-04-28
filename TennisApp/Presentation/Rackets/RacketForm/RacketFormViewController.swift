@@ -34,7 +34,7 @@ final class RacketFormViewController: FormViewController, StoryboardInstantiable
     }
 
     func createForm() {
-        self.form = FormFactory().build(.racket(racket: viewModel.getRacket()))
+        self.form = FormFactory().create(.racket(racket: viewModel.getRacket()))
     }
 
     @IBAction private func didTapOnSaveButton(_ sender: AnyObject) {

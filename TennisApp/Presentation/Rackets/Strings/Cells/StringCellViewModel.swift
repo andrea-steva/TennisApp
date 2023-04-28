@@ -15,6 +15,7 @@ protocol StringCellViewModelType {
     var gauge: String { get }
     var duration: Double { get }
     var tension: Double { get }
+    var inUse: Bool { get }
 }
 
 final class StringCellViewModel: StringCellViewModelType {
@@ -25,6 +26,7 @@ final class StringCellViewModel: StringCellViewModelType {
     let gauge: String
     let duration: Double
     let tension: Double
+    let inUse: Bool
 
     init(string: Strings) {
         self.manufacter = string.manufacter
@@ -33,5 +35,6 @@ final class StringCellViewModel: StringCellViewModelType {
         self.gauge = string.gauge
         self.duration = string.duration
         self.tension = string.tension
+        self.inUse = string.inUse
     }
 }
