@@ -16,7 +16,9 @@ final class RacketTableViewCell: UITableViewCell {
 
     // MARK: IBOutlets
 
-    @IBOutlet private var racketNameLabel: UILabel!
+    @IBOutlet private var backgroundImageView: UIImageView!
+    @IBOutlet private var racketTitleLabel: UILabel!
+    @IBOutlet private var racketInfoLabel: UILabel!
     @IBOutlet private var stringsCounterLabel: UILabel!
 
     // MARK: View Management
@@ -24,17 +26,32 @@ final class RacketTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        racketNameLabel.font = Fonts.get(.regular, size: .normal)
-        racketNameLabel.textColor = Colors.lightColor
+        racketTitleLabel.font = Fonts.get(.regular, size: .extraLarge)
+        racketTitleLabel.textColor = Colors.lightColor
+
+        racketInfoLabel.font = Fonts.get(.regular, size: .normal)
+        racketInfoLabel.textColor = Colors.lightColor
 
         stringsCounterLabel.font = Fonts.get(.light, size: .normal)
         stringsCounterLabel.textColor = Colors.lightColor
+        stringsCounterLabel.text = ""
     }
 
     // MARK: Setup cell
 
     func setup(with viewModel: RacketCellViewModelType) {
-        stringsCounterLabel.text = "Strings: \(viewModel.strings.count)"
-        racketNameLabel.text = "\(viewModel.manufacter) - \(viewModel.model) - \(viewModel.gripSize)"
+        racketTitleLabel.text = "\(viewModel.manufacter) \(viewModel.model)"
+
+        if viewModel.sport == .tennis {
+            stringsCounterLabel.text = "Strings: \(viewModel.strings.count)"
+        }
+
+        let description = "\(viewModel.sport.rawValue) - Grip: \(viewModel.gripSize) - Weight: \(viewModel.weight)" +
+        "\nPurchased date: \(viewModel.purchaseDate?.formattedyyyyMMddHHmmss ?? "")"
+        racketInfoLabel.text = description
+
+        if let image = viewModel.image?.aspectFittedToHeight(250) {
+            backgroundImageView.image = image
+        }
     }
 }

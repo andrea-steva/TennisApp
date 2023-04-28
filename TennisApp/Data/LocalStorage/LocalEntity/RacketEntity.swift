@@ -23,6 +23,7 @@ extension RacketEntity {
                purchaseDate: self.purchaseDate,
                sport: Sport(rawValue: self.sport ?? "") ?? Sport.tennis,
                price: self.price,
+               inUse: self.inUse,
                strings: self.strings?.allObjects.compactMap { ($0 as? StringsEntity)?.toDomain() } ?? [])
     }
 }
@@ -39,5 +40,6 @@ extension RacketEntity {
         purchaseDate = racket.purchaseDate
         sport = racket.sport.rawValue
         price = racket.price
+        inUse = racket.inUse
     }
 }

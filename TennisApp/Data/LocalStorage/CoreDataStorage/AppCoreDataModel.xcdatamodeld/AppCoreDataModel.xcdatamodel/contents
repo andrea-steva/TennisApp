@@ -6,7 +6,7 @@
         <attribute name="identifier" optional="YES" attributeType="String"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
         <attribute name="place" optional="YES" attributeType="String"/>
-        <attribute name="timespent" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="timespent" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <entity name="MatchEntity" representedClassName="MatchEntity" syncable="YES" codeGenerationType="class">
@@ -17,7 +17,7 @@
         <attribute name="place" optional="YES" attributeType="String"/>
         <attribute name="playerA" optional="YES" attributeType="String"/>
         <attribute name="playerB" optional="YES" attributeType="String"/>
-        <attribute name="timeSpent" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="timeSpent" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <entity name="MatchScoreEntity" representedClassName="MatchScoreEntity" syncable="YES" codeGenerationType="class">
@@ -30,13 +30,14 @@
         <attribute name="notes" optional="YES" attributeType="String"/>
         <attribute name="place" optional="YES" attributeType="String"/>
         <attribute name="practiceType" optional="YES" attributeType="String"/>
-        <attribute name="timeSpent" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="timeSpent" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <entity name="RacketEntity" representedClassName="RacketEntity" syncable="YES" codeGenerationType="class">
         <attribute name="gripSize" optional="YES" attributeType="String"/>
         <attribute name="identifier" optional="YES" attributeType="String"/>
         <attribute name="imageData" optional="YES" attributeType="Binary"/>
+        <attribute name="inUse" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="manufacter" optional="YES" attributeType="String"/>
         <attribute name="model" optional="YES" attributeType="String"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -54,6 +55,7 @@
         <attribute name="duration" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="gauge" optional="YES" attributeType="String"/>
         <attribute name="identifier" optional="YES" attributeType="String"/>
+        <attribute name="inUse" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="manufacter" optional="YES" attributeType="String"/>
         <attribute name="model" optional="YES" attributeType="String"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>

@@ -104,6 +104,8 @@
 		FC1F3D2A29DDC664006FAD8B /* UINavigationControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F3D2929DDC664006FAD8B /* UINavigationControllerType.swift */; };
 		FC1F3D2C29DDD354006FAD8B /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F3D2B29DDD354006FAD8B /* LoadingIndicator.swift */; };
 		FC1F3D2E29DDD667006FAD8B /* TabBarItemCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F3D2D29DDD667006FAD8B /* TabBarItemCoordinator.swift */; };
+		FC2DF3C929FAC8150011AD99 /* StringForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2DF3C829FAC8150011AD99 /* StringForm.swift */; };
+		FC2DF3CB29FAC8BB0011AD99 /* RacketForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2DF3CA29FAC8BB0011AD99 /* RacketForm.swift */; };
 		FC40E93E29E818AB0089717D /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC40E93D29E818AB0089717D /* Localizable.swift */; };
 		FC40E94029E843120089717D /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC40E93F29E843120089717D /* ProfileHeaderViewModel.swift */; };
 		FC40E94529E852AD0089717D /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC40E94429E852AD0089717D /* SettingsTableViewCell.swift */; };
@@ -326,6 +328,8 @@
 		FC1F3D2929DDC664006FAD8B /* UINavigationControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerType.swift; sourceTree = "<group>"; };
 		FC1F3D2B29DDD354006FAD8B /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		FC1F3D2D29DDD667006FAD8B /* TabBarItemCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemCoordinator.swift; sourceTree = "<group>"; };
+		FC2DF3C829FAC8150011AD99 /* StringForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringForm.swift; sourceTree = "<group>"; };
+		FC2DF3CA29FAC8BB0011AD99 /* RacketForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacketForm.swift; sourceTree = "<group>"; };
 		FC40E93D29E818AB0089717D /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		FC40E93F29E843120089717D /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
 		FC40E94429E852AD0089717D /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -718,7 +722,7 @@
 		FC62B15029D724F9000B79D0 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				FCCDB7B829F044C700941D52 /* FormsFactory */,
+				FCCDB7B829F044C700941D52 /* Forms */,
 				FCE0AAD929D73AFB00308EF3 /* TabBarItem.swift */,
 				65C511EF1C948EBC0051D645 /* Login */,
 				65F05AAB1ECE329000EFA322 /* SignUp */,
@@ -1013,12 +1017,14 @@
 			path = Style;
 			sourceTree = "<group>";
 		};
-		FCCDB7B829F044C700941D52 /* FormsFactory */ = {
+		FCCDB7B829F044C700941D52 /* Forms */ = {
 			isa = PBXGroup;
 			children = (
 				FCCDB7B929F044E100941D52 /* FormFactory.swift */,
+				FC2DF3CA29FAC8BB0011AD99 /* RacketForm.swift */,
+				FC2DF3C829FAC8150011AD99 /* StringForm.swift */,
 			);
-			path = FormsFactory;
+			path = Forms;
 			sourceTree = "<group>";
 		};
 		FCCDB7BF29F2BA3500941D52 /* Enums */ = {
@@ -1389,6 +1395,7 @@
 				65653D201ED0747C00A9DBBB /* main.swift in Sources */,
 				65653D241ED081D000A9DBBB /* Date+.swift in Sources */,
 				FC1F3D2C29DDD354006FAD8B /* LoadingIndicator.swift in Sources */,
+				FC2DF3CB29FAC8BB0011AD99 /* RacketForm.swift in Sources */,
 				FCCBFF5429DF1EBA00068479 /* StatsDIContainer.swift in Sources */,
 				FCBDFA0829D73111008A7FD6 /* PracticeEntity.swift in Sources */,
 				FC40E93E29E818AB0089717D /* Localizable.swift in Sources */,
@@ -1455,6 +1462,7 @@
 				FCF6D8C729DAD80C00DBCD4B /* RacketsRepository.swift in Sources */,
 				FCCBFF7529E00FD000068479 /* FitnessViewController.swift in Sources */,
 				FCE0AAD129D7372000308EF3 /* LoggerNull.swift in Sources */,
+				FC2DF3C929FAC8150011AD99 /* StringForm.swift in Sources */,
 				FCF6D8BD29DACE3D00DBCD4B /* DefaultUsersRepository.swift in Sources */,
 				65653D311ED0A7FD00A9DBBB /* StringTableViewCell.swift in Sources */,
 				FCBDFA0B29D73111008A7FD6 /* MatchScoreEntity.swift in Sources */,

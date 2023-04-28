@@ -33,7 +33,7 @@ final class StringFormViewController: FormViewController, StoryboardInstantiable
     }
 
     func createForm() {
-        self.form = FormFactory().build(.string(string: viewModel.getString()))
+        self.form = FormFactory().create(.string(string: viewModel.getString()))
     }
 
     @IBAction private func didTapOnSaveButton(_ sender: AnyObject) {

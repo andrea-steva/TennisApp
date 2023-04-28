@@ -28,13 +28,6 @@ final class DefaultRacketsFetchUseCase: RacketsFetchUseCase {
     // MARK: Use case execution
 
     func execute(completion: @escaping (Result<[Racket], Error>) -> Void) {
-        racketsRepository.fetch { result in
-            switch result {
-            case .success(let rackets):
-                completion(.success(rackets))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+        racketsRepository.fetch(completion: completion)
     }
 }

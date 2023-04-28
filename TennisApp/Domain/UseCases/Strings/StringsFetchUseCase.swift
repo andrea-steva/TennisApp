@@ -30,13 +30,6 @@ final class DefaultStringsFetchUseCase: StringsFetchUseCase {
 
     func execute(racket: Racket,
                  completion: @escaping (Result<[Strings], Error>) -> Void) {
-        stringsRepository.fetch(forRacket: racket) { result in
-            switch result {
-            case .success(let strings):
-                completion(.success(strings))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+        stringsRepository.fetch(forRacket: racket, completion: completion)
     }
 }

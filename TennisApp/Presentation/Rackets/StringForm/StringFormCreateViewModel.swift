@@ -32,7 +32,7 @@ final class StringFormCreateViewModel: StringFormViewModelType {
     func getString() -> Strings? { nil }
 
     func send(formValues: [String: Any?]) {
-        stringsSaveUseCase.execute(string: Strings(string: nil, form: formValues), racket: self.racket) { result in
+        stringsSaveUseCase.execute(string: Strings(string: nil, formData: formValues), racket: self.racket) { result in
             switch result {
             case .success(let success):
                 Log.debug("Create strings \(success)")

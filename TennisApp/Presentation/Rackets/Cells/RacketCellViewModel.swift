@@ -16,6 +16,8 @@ protocol RacketCellViewModelType {
     var image: UIImage? { get }
     var purchaseDate: Date? { get }
     var strings: [Strings] { get }
+    var sport: Sport { get }
+    var inUse: Bool { get }
 }
 
 final class RacketCellViewModel: RacketCellViewModelType {
@@ -27,6 +29,8 @@ final class RacketCellViewModel: RacketCellViewModelType {
     let image: UIImage?
     let purchaseDate: Date?
     let strings: [Strings]
+    let sport: Sport
+    let inUse: Bool
 
     init(racket: Racket) {
         self.manufacter = racket.manufacter
@@ -36,5 +40,7 @@ final class RacketCellViewModel: RacketCellViewModelType {
         self.image = racket.image
         self.purchaseDate = racket.purchaseDate
         self.strings = racket.strings
+        self.sport = racket.sport
+        self.inUse = racket.inUse
     }
 }

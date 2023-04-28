@@ -31,5 +31,6 @@ final class StringTableViewCell: UITableViewCell {
 
     func setup(with viewModel: StringCellViewModelType) {
         stringNameLabel.text = "\(viewModel.manufacter) - \(viewModel.model)"
+        + " - \(viewModel.tension) - \(viewModel.gauge) - \(viewModel.duration)"
     }
 }

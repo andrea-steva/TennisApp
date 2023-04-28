@@ -31,7 +31,7 @@ final class StringFormUpdateViewModel: StringFormViewModelType {
     func getString() -> Strings? { string }
 
     func send(formValues: [String: Any?]) {
-        stringsSaveUseCase.execute(string: Strings(string: string, form: formValues),
+        stringsSaveUseCase.execute(string: Strings(string: string, formData: formValues),
                                    racket: racket) { result in
             switch result {
             case .success(let success):

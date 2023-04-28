@@ -23,19 +23,21 @@ extension StringsEntity {
                 gauge: self.gauge ?? "",
                 duration: self.duration,
                 tension: self.tension,
-                price: self.price)
+                price: self.price,
+                inUse: self.inUse)
     }
 }
 
 extension StringsEntity {
-    convenience init(strings: Strings, insertInto context: NSManagedObjectContext) {
+    convenience init(string: Strings, insertInto context: NSManagedObjectContext) {
         self.init(context: context)
-        identifier = strings.identifier
-        model = strings.model
-        manufacter = strings.manufacter
-        price = strings.price
-        gauge = strings.gauge
-        duration = strings.duration
-        tension = strings.tension
+        identifier = string.identifier
+        model = string.model
+        manufacter = string.manufacter
+        price = string.price
+        gauge = string.gauge
+        duration = string.duration
+        tension = string.tension
+        inUse = string.inUse
     }
 }

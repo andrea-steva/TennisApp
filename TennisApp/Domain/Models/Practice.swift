@@ -11,7 +11,7 @@ import Foundation
 /// The practice domain object
 struct Practice {
 
-    enum PracticeType: Int {
+    enum PracticeType: String {
         case forehand
         case backhand
         case service
@@ -20,15 +20,15 @@ struct Practice {
 
     // MARK: Stored Attributes
 
-    var activityId: String
-    var title: String
+    var identifier: String
+    var description: String
     var notes: String
-    var date: Date
     var place: String
-    var timeSpent: Float
+    var date: Date?
+    var timeSpent: Double
     var practiceType: PracticeType
 
     // MARK: Relationship
 
-    let user: User
+    let user: User?
 }
