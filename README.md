@@ -23,6 +23,19 @@ brew install swiftlint
 
 ## 🔨 TODO / Improvements
 
++ [] Implementing Modern Collection Views (https://swiftsenpai.com/development/uicollectionview-list-basic/) instead of UITableView
++ [] Add DTO to decouple domain model from CoreDataStorage
++ [] Entity relationships
++ [] Check forms (Eureka)
++ [] Add builder to convert form to Model (formValues -> ´Rackets´)
++ [] Use [Modern cell configuration](https://developer.apple.com/videos/play/wwdc2020/10027/)
++ [] See https://github.com/AvdLee/StockAnalyzerApp for Terms and Privacy
++ [] Convert repository with async/await
++ [~] Create repositories
++ [X~] Create UseCases
++ [~] CRUD operation for User
++ [~] Check Utilities folder
++ [X] Add DI containers
 + [X] Create domain model
 + [X] Rename RealmStorage protocols
 + [X] Remove Realm and use CoreData
@@ -35,16 +48,6 @@ brew install swiftlint
 + [X] `FirebaseService` add `Result` type instead of completion block
 + [X] Use Combine instead of Bond
 + [X] Remove `SCLAlertView`
-+ [~] Add DI containers
-+ [~] Create repositories
-+ [~] Create UseCases
-+ [~] CRUD operation for User
-+ [~] Check Utilities folder
-+ [] Add DTO to decouple domain model from CoreDataStorage
-+ [] Entity relationships
-+ [] Check forms (Eureka)
-+ [] Add builder to convert form to Model (formValues -> ´Rackets´)
-+ [] Use [Modern cell configuration](https://developer.apple.com/videos/play/wwdc2020/10027/)
 
 
 ## ✒️ Author

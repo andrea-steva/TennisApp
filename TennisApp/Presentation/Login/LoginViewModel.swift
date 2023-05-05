@@ -46,10 +46,10 @@ final class LoginViewModel: LoginViewModelType {
     let errorMessageSubject = PassthroughSubject<String, Never>()
     let isLoadingSubject = PassthroughSubject<Bool, Never>()
 
-    @Published var email = "email"
+    @Published var email = ""
     var emailPublisher: Published<String>.Publisher { $email }
 
-    @Published var password = "password"
+    @Published var password = ""
     var passwordPublisher: Published<String>.Publisher { $password }
 
     @Published var profileImageURL: URL?

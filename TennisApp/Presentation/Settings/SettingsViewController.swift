@@ -83,8 +83,11 @@ final class SettingsViewController: UIViewController, StoryboardInstantiable,
             break
         case .support:
             break
+        case .review:
+            break
         case .logout:
             performLogout()
+
         }
     }
 

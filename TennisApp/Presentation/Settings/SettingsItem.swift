@@ -11,6 +11,7 @@ import Foundation
 enum SettingsItem: Int, CaseIterable {
     case general
     case support
+    case review
     case logout
 
     var title: String {
@@ -19,6 +20,8 @@ enum SettingsItem: Int, CaseIterable {
             return "General"
         case .support:
             return "Support"
+        case .review:
+            return "Write a review"
         case .logout:
             return "Logout"
         }
@@ -30,6 +33,8 @@ enum SettingsItem: Int, CaseIterable {
             return "gear"
         case .support:
             return "message"
+        case .review:
+            return "star.square"
         case .logout:
             return "person.crop.circle.badge.xmark"
         }

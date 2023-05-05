@@ -24,7 +24,8 @@ extension RacketEntity {
                sport: Sport(rawValue: self.sport ?? "") ?? Sport.tennis,
                price: self.price,
                inUse: self.inUse,
-               strings: self.strings?.allObjects.compactMap { ($0 as? StringsEntity)?.toDomain() } ?? [])
+               strings: self.strings?.allObjects.compactMap { ($0 as? StringsEntity)?.toDomain() } ?? [],
+               user: self.user?.toDomain())
     }
 }
 

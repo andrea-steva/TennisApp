@@ -18,30 +18,23 @@ final class LoginCoordinator: Coordinator,
 
     // MARK: Properties
 
+    private let appDIContainer: AppDIContainer
     weak var delegate: LoginCoordinatorDelegate?
-
-    private weak var window: UIWindow!
-
-    private let navigationController: UINavigationController = {
-        let navigationController = UINavigationController()
-        navigationController.navigationBar.isTranslucent = true
-        navigationController.setNavigationBarHidden(true, animated: false)
-        return navigationController
-    }()
+    private let navigationController: UINavigationController
 
     let loginViewController: LoginViewController
     var signUpCoordinator: SignUpCoordinator?
 
     // MARK: Coordinator
 
-    init(window: UIWindow) {
-        self.window = window
+    init(appDIContainer: AppDIContainer,
+         navigationController: UINavigationController) {
+        self.appDIContainer = appDIContainer
+        self.navigationController = navigationController
         self.loginViewController = LoginViewController.instantiateViewController()
     }
 
     func start() {
-        window.rootViewController = navigationController
-
         loginViewController.viewModel = LoginViewModel()
         loginViewController.viewModel.coordinatorDelegate = self
         navigationController.pushViewController(self.loginViewController, animated: true)
@@ -54,7 +47,7 @@ final class LoginCoordinator: Coordinator,
     }
 
     func loginViewModelToSignUp(viewModel: LoginViewModel) {
-        signUpCoordinator = SignUpCoordinator(navigationController: navigationController)
+        signUpCoordinator = SignUpCoordinator(appDIContainer: appDIContainer, navigationController: navigationController)
         signUpCoordinator?.delegate = self
         signUpCoordinator?.start()
     }

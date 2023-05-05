@@ -10,14 +10,14 @@ import Foundation
 
 /// Strings domain model
 struct Strings {
-    var identifier: String
-    var manufacter: String
-    var model: String
-    var gauge: String
-    var duration: Double
-    var tension: Double
-    var price: Double
-    var inUse: Bool
+    let identifier: String
+    let manufacter: String
+    let model: String
+    let gauge: String
+    let duration: Double
+    let tension: Double
+    let price: Double
+    let inUse: Bool
 }
 
 extension Strings {

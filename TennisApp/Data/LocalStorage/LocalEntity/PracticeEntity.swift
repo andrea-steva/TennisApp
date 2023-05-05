@@ -16,7 +16,7 @@ extension PracticeEntity {
 
     func toDomain() -> Practice {
         Practice(identifier: self.identifier ?? "",
-                 description: self.title ?? "",
+                 name: self.name ?? "",
                  notes: self.notes ?? "",
                  place: self.place ?? "",
                  date: self.date,
@@ -30,7 +30,7 @@ extension PracticeEntity {
     convenience init(practice: Practice, insertInto context: NSManagedObjectContext) {
         self.init(context: context)
         identifier = practice.identifier
-        title = practice.description
+        name = practice.name
         notes = practice.notes
         place = practice.place
         date = practice.date

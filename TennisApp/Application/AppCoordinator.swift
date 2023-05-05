@@ -10,6 +10,7 @@ import UIKit
 
 final class AppCoordinator: Coordinator,
                             LoginCoordinatorDelegate,
+                            SignUpCoordinatorDelegate,
                             ActivitiesCoordinatorDelegate,
                             RacketsCoordinatorDelegate,
                             StatsCoordinatorDelegate,
@@ -19,22 +20,28 @@ final class AppCoordinator: Coordinator,
     // MARK: Properties
 
     var loginCoordinator: LoginCoordinator?
+    var signUpCoordinator: SignUpCoordinator?
+
     let appDIContainer = AppDIContainer()
     let localizer = Localizer()
-    let firebaseService: FirebaseServiceType = FirebaseService.shared
 
     private let window: UIWindow
     private let tabBarController: UITabBarController
 
-    var isLoggedIn: Bool { firebaseService.isLoggedIn() }
+    private let navigationController: UINavigationController = {
+        let navigationController = UINavigationController()
+        navigationController.navigationBar.isTranslucent = true
+        navigationController.setNavigationBarHidden(true, animated: false)
+        return navigationController
+    }()
 
     // MARK: Tab bar item coordinators
 
-    lazy var activitiesCoordinator: ActivitiesCoordinator = ActivitiesCoordinator(appDIContainer: appDIContainer)
-    lazy var racketsCoordinator: RacketsCoordinator = RacketsCoordinator(appDIContainer: appDIContainer)
-    lazy var statsCoordinator: StatsCoordinator = StatsCoordinator(appDIContainer: appDIContainer)
-    lazy var profileCoordinator: ProfileCoordinator = ProfileCoordinator(appDIContainer: appDIContainer)
-    lazy var settingsCoordinator: SettingsCoordinator = SettingsCoordinator(appDIContainer: appDIContainer)
+    lazy var activitiesCoordinator: ActivitiesCoordinator = ActivitiesCoordinator(container: appDIContainer.activitiesDIContainer)
+    lazy var racketsCoordinator: RacketsCoordinator = RacketsCoordinator(container: (appDIContainer.racketsDIContainer, appDIContainer.stringsDIContainer))
+    lazy var statsCoordinator: StatsCoordinator = StatsCoordinator(container: appDIContainer.statsDIContainer)
+    lazy var profileCoordinator: ProfileCoordinator = ProfileCoordinator(container: appDIContainer.profileDIContainer)
+    lazy var settingsCoordinator: SettingsCoordinator = SettingsCoordinator(container: appDIContainer.settingsDIContainer)
 
     // MARK: Coordinator
 
@@ -44,20 +51,31 @@ final class AppCoordinator: Coordinator,
     }
 
     func start() {
-        showActivities()
-        return
-
-//        if isLoggedIn {
-//            showActivities()
-//        } else {
-//            showLogin()
-//        }
+        DefaultUserPrimaryFetchUseCase(usersRepository:
+                                        DefaultUsersRepository(usersLocalStorage: UsersCoreDataStorage())).execute { result in
+            switch result {
+            case .success(let user):
+                Log.info("Show activities for \(user.firstName) \(user.lastName)")
+                self.showActivities()
+            case .failure:
+                Log.error("Main user not found")
+                self.showSignUp()
+            }
+        }
     }
 
     private func showLogin() {
-        loginCoordinator = LoginCoordinator(window: window)
+        window.rootViewController = navigationController
+        loginCoordinator = LoginCoordinator(appDIContainer: appDIContainer, navigationController: navigationController)
         loginCoordinator?.delegate = self
         loginCoordinator?.start()
+    }
+
+    private func showSignUp() {
+        window.rootViewController = navigationController
+        signUpCoordinator = SignUpCoordinator(appDIContainer: appDIContainer, navigationController: navigationController)
+        signUpCoordinator?.delegate = self
+        signUpCoordinator?.start()
     }
 
     private func showActivities() {
@@ -91,6 +109,12 @@ final class AppCoordinator: Coordinator,
         settingsViewController.tabBarItem = UITabBarItem(title: localizer.get(TabBarItem.settings.title),
                                                          image: UIImage(systemName: TabBarItem.settings.iconName), tag: 3)
 
+        // To fix dark mode on tab bar
+        if #available(iOS 15, *) {
+           let tabBarAppearance = UITabBarAppearance()
+            tabBarController.tabBar.standardAppearance = tabBarAppearance
+            tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
+        }
         tabBarController.tabBar.tintColor = Colors.primaryColor
         tabBarController.viewControllers = [activitiesViewController,
                                             racketsViewController,
@@ -103,6 +127,13 @@ final class AppCoordinator: Coordinator,
 
     func loginCoordinatorDidFinish(loginCoordinator: LoginCoordinator) {
         self.loginCoordinator = nil
+        showActivities()
+    }
+
+    // MARK: SignUpCoordinatorDelegate
+
+    func signUpCoordinatorDidFinish(signUpCoordinator: SignUpCoordinator) {
+        self.signUpCoordinator = nil
         showActivities()
     }
 
@@ -121,7 +152,7 @@ final class AppCoordinator: Coordinator,
     }
 
     func settingsCoordinatorUserLogout(settingsCoordinator: SettingsCoordinator) {
-        self.showLogin()
+        self.showSignUp()
     }
 
     deinit {

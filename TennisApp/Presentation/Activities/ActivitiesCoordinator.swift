@@ -18,14 +18,14 @@ final class ActivitiesCoordinator: TabBarItemCoordinator {
 
     weak var delegate: ActivitiesCoordinatorDelegate?
 
-    private let appDIContainer: AppDIContainer
+    private let container: ActivitiesDIContainer
     private let activitiesContainerViewController: ActivitiesContainerViewController
     private let navigationController: UINavigationControllerType
 
     // MARK: Coordinator
 
-    init(appDIContainer: AppDIContainer) {
-        self.appDIContainer = appDIContainer
+    init(container: ActivitiesDIContainer) {
+        self.container = container
         self.activitiesContainerViewController = ActivitiesContainerViewController.instantiateViewController()
         self.navigationController = UINavigationController(rootViewController: activitiesContainerViewController)
     }

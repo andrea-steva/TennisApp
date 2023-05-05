@@ -29,7 +29,9 @@ extension UserEntity {
              backhandType: self.backhandType ?? "",
              handType: self.handType ?? "",
              ranking: self.ranking ?? "",
-             profileImage: self.profileImage)
+             profileImage: self.profileImage,
+             isPrimary: self.isPrimary,
+             rackets: self.rackets?.allObjects.compactMap { ($0 as? RacketEntity)?.toDomain() } ?? [])
     }
 }
 
@@ -45,5 +47,6 @@ extension UserEntity {
         handType = user.handType
         ranking = user.ranking
         profileImage = user.profileImage
+        isPrimary = user.isPrimary
     }
 }
