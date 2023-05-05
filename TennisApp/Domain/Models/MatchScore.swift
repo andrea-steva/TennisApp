@@ -12,12 +12,13 @@ struct MatchScore {
 
     // MARK: Stored Attributes
 
-    var gamePlayerA: Int = 0
-    var gamePlayerB: Int = 0
+    let setIndex: Int
+    let gamePlayerA: Int
+    let gamePlayerB: Int
 
     // MARK: Relationship
 
-    let match: Match
+//     let match: Match
 
     // MARK: Methods
 

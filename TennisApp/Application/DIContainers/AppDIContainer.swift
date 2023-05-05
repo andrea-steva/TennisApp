@@ -9,6 +9,9 @@
 import Foundation
 
 final class AppDIContainer {
+    private(set) lazy var loginDIContainer = LoginDIContainer()
+    private(set) lazy var signUpDIContainer = SignUpDIContainer()
+    private(set) lazy var activitiesDIContainer = ActivitiesDIContainer()
     private(set) lazy var racketsDIContainer = RacketsDIContainer()
     private(set) lazy var stringsDIContainer = StringsDIContainer()
     private(set) lazy var statsDIContainer = StatsDIContainer()

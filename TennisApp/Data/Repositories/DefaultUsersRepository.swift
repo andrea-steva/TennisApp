@@ -33,6 +33,10 @@ final class DefaultUsersRepository: UsersRepository {
         }
     }
 
+    func save(user: User, completion: @escaping (Result<Bool, Error>) -> Void) {
+        usersLocalStorage.save(users: [user], completion: completion)
+    }
+
     func deleteUsers(completion: ((Result<Bool, Error>) -> Void)?) {
         usersLocalStorage.deleteAll(completion: completion)
     }

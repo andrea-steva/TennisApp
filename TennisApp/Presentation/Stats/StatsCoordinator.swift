@@ -19,14 +19,14 @@ final class StatsCoordinator: TabBarItemCoordinator,
 
     weak var delegate: StatsCoordinatorDelegate?
 
-    private let appDIContainer: AppDIContainer
+    private let container: StatsDIContainer
     private let navigationController: UINavigationControllerType
     private let statsViewController: StatsViewController
 
     // MARK: Coordinator
 
-    init(appDIContainer: AppDIContainer) {
-        self.appDIContainer = appDIContainer
+    init(container: StatsDIContainer) {
+        self.container = container
         self.statsViewController = StatsViewController.instantiateViewController()
         self.navigationController = UINavigationController(rootViewController: statsViewController)
     }

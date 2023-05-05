@@ -9,4 +9,20 @@
 import Foundation
 
 final class ProfileDIContainer {
+    
+    // MARK: Local Storage
+
+    private lazy var usersCoreDataStorage = UsersCoreDataStorage()
+
+    // MARK: UseCases
+
+    func makeUserPrimaryFetchUseCase() -> UserPrimaryFetchUseCase {
+        DefaultUserPrimaryFetchUseCase(usersRepository: makeUsersRepository())
+    }
+
+    // MARK: Repositories
+
+    private func makeUsersRepository() -> UsersRepository {
+        DefaultUsersRepository(usersLocalStorage: usersCoreDataStorage)
+    }
 }

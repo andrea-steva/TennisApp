@@ -17,19 +17,24 @@ final class SignUpCoordinator: Coordinator,
 
     // MARK: Properties
 
+    private let appDIContainer: AppDIContainer
     weak var delegate: SignUpCoordinatorDelegate?
+
     private let navigationController: UINavigationController
     private let signUpViewController: SignUpViewController
 
     // MARK: Coordinator
 
-    init(navigationController: UINavigationController) {
+    init(appDIContainer: AppDIContainer,
+         navigationController: UINavigationController) {
+        self.appDIContainer = appDIContainer
         self.navigationController = navigationController
         self.signUpViewController = SignUpViewController.instantiateViewController()
     }
 
     func start() {
-        let viewModel = SignUpViewModel()
+        let viewModel = SignUpViewModel(firebaseService: FirebaseService.shared,
+                                        userSaveUserCase: appDIContainer.signUpDIContainer.makeUserSaveUse())
         viewModel.coordinatorDelegate = self
         signUpViewController.viewModel = viewModel
         navigationController.pushViewController(signUpViewController, animated: true)

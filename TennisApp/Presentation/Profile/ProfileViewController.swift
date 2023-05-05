@@ -6,6 +6,7 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
+import Combine
 import UIKit
 
 final class ProfileViewController: UIViewController, UITableViewDataSource, UITabBarDelegate,
@@ -21,6 +22,8 @@ final class ProfileViewController: UIViewController, UITableViewDataSource, UITa
 
     // MARK: Properties
 
+    private(set) var subscriptions = Set<AnyCancellable>()
+    private var headerView: ProfileHeaderView?
     let localizer = Localizer()
 
     // MARK: ViewModel
@@ -38,9 +41,27 @@ final class ProfileViewController: UIViewController, UITableViewDataSource, UITa
 
         self.setBackgroundBlurEffect()
 
+        self.setupObservers()
+
         if let headerView = Bundle.main.loadNibNamed("ProfileHeaderView", owner: self, options: nil)?.first as? ProfileHeaderView {
+            self.headerView = headerView
             self.tableView.addSubview(headerView)
         }
+
+        viewModel.fetchPrimaryUser()
+    }
+
+    private func setupObservers() {
+        viewModel.reloadViewData
+            .sink(receiveCompletion: { _ in
+                // Handle the error
+            }, receiveValue: { [weak self] _ in
+                if let userViewModel = self?.viewModel.getUserViewModel() {
+                    self?.headerView?.setup(with: userViewModel)
+                }
+                self?.tableView.reloadData()
+            })
+            .store(in: &subscriptions)
     }
 
     // MARK: UITableViewDataSource
@@ -50,7 +71,7 @@ final class ProfileViewController: UIViewController, UITableViewDataSource, UITa
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
+        1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

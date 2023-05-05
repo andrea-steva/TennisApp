@@ -10,7 +10,7 @@ import Foundation
 
 struct Match {
 
-    enum MatchType: Int {
+    enum MatchType: String {
         case single
         case double
         case mixed
@@ -19,26 +19,25 @@ struct Match {
 
     // MARK: Stored Attributes
 
-    var identifier: String
-    var description: String
-    var notes: String
-    var place: String
-    var timeSpent: Double
-    var date: Date?
+    let identifier: String
+    let name: String
+    let notes: String
+    let place: String
+    let timeSpent: Double
+    let date: Date?
 
-    var playerNameA: String
-    var playerNameAB: String
-    var matchType: MatchType = .single
+    let playerNameA: String
+    let playerNameB: String
+    let matchType: MatchType
 
     // MARK: Relationship
 
-    let user: User
-    var scores: [MatchScore]
+    let user: User?
+    let scores: [MatchScore]
 
     // MARK: Init
 
     func isMatchWon() -> Bool {
-
         var countGamePlayerA = 0
         var countGamePlayerB = 0
         for score in self.scores {

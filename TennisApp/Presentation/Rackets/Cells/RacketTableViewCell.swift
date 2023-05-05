@@ -35,6 +35,17 @@ final class RacketTableViewCell: UITableViewCell {
         stringsCounterLabel.font = Fonts.get(.light, size: .normal)
         stringsCounterLabel.textColor = Colors.lightColor
         stringsCounterLabel.text = ""
+
+        backgroundImageView.image = nil
+        contentView.backgroundColor = Colors.courtHardPurple
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        let margins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        contentView.frame = contentView.frame.inset(by: margins)
+        contentView.layer.cornerRadius = 10
     }
 
     // MARK: Setup cell

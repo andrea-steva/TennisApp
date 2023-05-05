@@ -36,14 +36,14 @@ final class SettingsViewModel: SettingsViewModelType {
     private let firebaseService: FirebaseServiceType
     private let bundle: BundleType
 
-    private var settings: [SettingsItem]
+    private var settings: [SettingsItem] = [.general, .support, .review, .logout]
 
     // MARK: Methods
 
-    init(firebaseService: FirebaseServiceType = FirebaseService.shared, bundle: BundleType = Bundle.main) {
+    init(firebaseService: FirebaseServiceType = FirebaseService.shared,
+         bundle: BundleType = Bundle.main) {
         self.firebaseService = firebaseService
         self.bundle = bundle
-        self.settings = [.general, .support, .logout]
     }
 
     func getFooterText() -> String {

@@ -24,15 +24,15 @@ final class ProfileHeaderView: UIView {
 
     @IBOutlet private var userNameLabel: UILabel!
 
-    private let viewModel = ProfileHeaderViewModel()
-
     // MARK: Methods
 
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
 
-        if let displayName = self.viewModel.displayName {
-            self.userNameLabel.text = displayName
-        }
+    // MARK: Setup cell
+
+    func setup(with viewModel: ProfileHeaderViewModelType) {
+        userNameLabel.text = "\(viewModel.firstName) \(viewModel.lastName)"
     }
 }

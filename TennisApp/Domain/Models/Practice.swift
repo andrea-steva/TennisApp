@@ -20,13 +20,13 @@ struct Practice {
 
     // MARK: Stored Attributes
 
-    var identifier: String
-    var description: String
-    var notes: String
-    var place: String
-    var date: Date?
-    var timeSpent: Double
-    var practiceType: PracticeType
+    let identifier: String
+    let name: String
+    let notes: String
+    let place: String
+    let date: Date?
+    let timeSpent: Double
+    let practiceType: PracticeType
 
     // MARK: Relationship
 

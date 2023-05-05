@@ -10,18 +10,19 @@ import UIKit
 
 /// The racket domain model
 struct Racket {
-    var identifier: String
-    var manufacter: String
-    var model: String
-    var weight: Int32
-    var gripSize: GripSize
-    var imageData: Data?
-    var purchaseDate: Date?
-    var sport: Sport
-    var price: Double
-    var inUse: Bool
+    let identifier: String
+    let manufacter: String
+    let model: String
+    let weight: Int32
+    let gripSize: GripSize
+    let imageData: Data?
+    let purchaseDate: Date?
+    let sport: Sport
+    let price: Double
+    let inUse: Bool
 
-    var strings: [Strings] = []
+    let strings: [Strings]
+    let user: User?
 }
 
 extension Racket {
@@ -37,6 +38,8 @@ extension Racket {
         self.sport = Sport(rawValue: formData[RacketForm.Keys.sport] as? String ?? "") ?? .tennis
         self.price = formData[RacketForm.Keys.price] as? Double ?? 0
         self.inUse = formData[RacketForm.Keys.inUse] as? Bool ?? false
+        self.strings = []
+        self.user = nil
     }
 }
 

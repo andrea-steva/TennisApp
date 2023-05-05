@@ -10,7 +10,7 @@ import Foundation
 
 struct Fitness {
 
-    enum FitnessType: Int {
+    enum FitnessType: String {
         case running
         case uppperBody
         case downBody
@@ -19,16 +19,16 @@ struct Fitness {
 
     // MARK: Stored Attributes
 
-    var identifier: String
-    var description: String
-    var notes: String
-    var place: String
-    var timeSpent: Double
-    var date: Date?
+    let identifier: String
+    let name: String
+    let notes: String
+    let place: String
+    let timeSpent: Double
+    let date: Date?
 
-    var fitnessType: FitnessType = .running
+    let fitnessType: FitnessType
 
     // MARK: Relationship
 
-    let user: User
+    let user: User?
 }

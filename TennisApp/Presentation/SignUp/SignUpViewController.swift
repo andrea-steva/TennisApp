@@ -16,7 +16,8 @@ final class SignUpViewController: UIViewController, Bindable, StoryboardInstanti
 
     // swiftlint:disable:next private_outlet
     @IBOutlet var backgroundView: UIImageView!
-    @IBOutlet private var displayNameField: UITextField!
+    @IBOutlet private var firstNameTextField: UITextField!
+    @IBOutlet private var lastNameTextField: UITextField!
     @IBOutlet private var emailField: UITextField!
     @IBOutlet private var passwordField: UITextField!
 
@@ -41,7 +42,7 @@ final class SignUpViewController: UIViewController, Bindable, StoryboardInstanti
 
     // MARK: ViewModel
 
-    var viewModel: SignUpViewModelType = SignUpViewModel()
+    var viewModel: SignUpViewModelType!
 
     func getViewModel() -> BindableViewModelType { viewModel }
 
@@ -55,14 +56,23 @@ final class SignUpViewController: UIViewController, Bindable, StoryboardInstanti
     }
 
     private func setupBindinds() {
-        viewModel.displayNamePublisher
+        viewModel.firstNamePublisher
             .compactMap { $0 }
-            .assign(to: \.text, on: displayNameField)
+            .assign(to: \.text, on: firstNameTextField)
+            .store(in: &subscriptions)
+        firstNameTextField.textPublisher
+            .sink(receiveValue: { value in
+                self.viewModel.firstName = value
+            })
             .store(in: &subscriptions)
 
-        displayNameField.textPublisher
+        viewModel.lastNamePublisher
+            .compactMap { $0 }
+            .assign(to: \.text, on: lastNameTextField)
+            .store(in: &subscriptions)
+        lastNameTextField.textPublisher
             .sink(receiveValue: { value in
-                self.viewModel.displayName = value
+                self.viewModel.lastName = value
             })
             .store(in: &subscriptions)
 
@@ -70,7 +80,6 @@ final class SignUpViewController: UIViewController, Bindable, StoryboardInstanti
             .compactMap { $0 }
             .assign(to: \.text, on: emailField)
             .store(in: &subscriptions)
-
         emailField.textPublisher
             .sink(receiveValue: { value in
                 self.viewModel.email = value
@@ -81,7 +90,6 @@ final class SignUpViewController: UIViewController, Bindable, StoryboardInstanti
             .compactMap { $0 }
             .assign(to: \.text, on: passwordField)
             .store(in: &subscriptions)
-
         passwordField.textPublisher
             .sink(receiveValue: { value in
                 self.viewModel.password = value

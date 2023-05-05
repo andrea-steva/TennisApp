@@ -19,7 +19,10 @@ final class RacketsCoordinator: TabBarItemCoordinator,
 
     // MARK: Properties
 
-    private let appDIContainer: AppDIContainer
+    typealias RacketsCoordinatorContainer = (rackets: RacketsDIContainer, strings: StringsDIContainer)
+    
+    private let container: RacketsCoordinatorContainer
+
     weak var delegate: RacketsCoordinatorDelegate?
 
     // MARK: Controllers
@@ -34,15 +37,15 @@ final class RacketsCoordinator: TabBarItemCoordinator,
 
     // MARK: Coordinator
 
-    init(appDIContainer: AppDIContainer) {
-        self.appDIContainer = appDIContainer
+    init(container: RacketsCoordinatorContainer) {
+        self.container = container
         self.racketsViewController = RacketsViewController.instantiateViewController()
         self.navigationController = UINavigationController(rootViewController: racketsViewController)
     }
 
     func start() -> UIViewController {
-        racketsViewController.viewModel = RacketsViewModel(racketsFetchUseCase: appDIContainer.racketsDIContainer.makeRacketsFetchUseCase(),
-                                                           racketDeleteUseCase: appDIContainer.racketsDIContainer.makeRacketDeleteUseCase())
+        racketsViewController.viewModel = RacketsViewModel(racketsFetchUseCase: container.rackets.makeRacketsFetchUseCase(),
+                                                           racketDeleteUseCase: container.rackets.makeRacketDeleteUseCase())
         racketsViewController.viewModel.coordinatorDelegate = self
         return navigationController as! UIViewController
     }
@@ -50,7 +53,7 @@ final class RacketsCoordinator: TabBarItemCoordinator,
     // MARK: RacketsViewModelCoordinatorDelegate
 
     func racketsViewModelToStrings(racket: Racket) {
-        stringsCoordinator = StringsCoordinator(container: appDIContainer.stringsDIContainer,
+        stringsCoordinator = StringsCoordinator(container: container.strings,
                                                 navigationController: navigationController,
                                                 racket: racket)
         stringsCoordinator?.delegate = self

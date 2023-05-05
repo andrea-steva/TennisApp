@@ -34,9 +34,8 @@ struct RacketForm {
         let form = Form()
 
         form +++ Section("Your racket information")
-        <<< AlertRow<String>(Self.Keys.sport) {
-            $0.selectorTitle = "Type"
-            $0.title = "Type"
+        <<< SegmentedRow<String>(Self.Keys.sport) {
+            $0.title = "Sport"
             $0.cellSetup { cell, _ in
                 cell.textLabel?.font = Fonts.get(.regular, size: .normal)
             }

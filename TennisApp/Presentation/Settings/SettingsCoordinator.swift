@@ -19,14 +19,14 @@ final class SettingsCoordinator: TabBarItemCoordinator,
 
     weak var delegate: SettingsCoordinatorDelegate?
 
-    private let appDIContainer: AppDIContainer
+    private let container: SettingsDIContainer
     private var navigationController: UINavigationControllerType
     private var settingsViewController: SettingsViewController
 
     // MARK: Coordinator
 
-    init(appDIContainer: AppDIContainer) {
-        self.appDIContainer = appDIContainer
+    init(container: SettingsDIContainer) {
+        self.container = container
         self.settingsViewController = SettingsViewController.instantiateViewController()
         self.navigationController = UINavigationController(rootViewController: settingsViewController)
     }
