@@ -63,12 +63,8 @@ final class StringsViewModel {
         }
     }
 
-    func numberOfStrings() -> Int {
-        strings.count
-    }
-
-    func getString(forIndex index: Int) -> StringCellViewModel {
-        StringCellViewModel(string: strings[index])
+    func getStringViewModels() -> [StringViewModel] {
+        strings.map { StringViewModel(string: $0) }
     }
 
     func deleteString(forIndex index: Int) {
