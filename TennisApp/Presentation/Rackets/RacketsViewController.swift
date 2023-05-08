@@ -12,10 +12,6 @@ import UIKit
 final class RacketsViewController: UIViewController, StoryboardInstantiable, BackgroundBlurrable,
                                    Localizable, Alertable {
 
-    enum RacketsSection: Hashable {
-        case main
-    }
-
     // MARK: IBOutlets
 
     // swiftlint:disable:next private_outlet
@@ -24,7 +20,7 @@ final class RacketsViewController: UIViewController, StoryboardInstantiable, Bac
     // MARK: Properties
 
     private var collectionView: UICollectionView!
-    private var dataSource: UICollectionViewDiffableDataSource<RacketsSection, RacketViewModel>!
+    private var dataSource: UICollectionViewDiffableDataSource<CollectionSection, RacketViewModel>!
 
     private(set) var subscriptions = Set<AnyCancellable>()
     let localizer = Localizer()
@@ -118,8 +114,8 @@ final class RacketsViewController: UIViewController, StoryboardInstantiable, Bac
             cell.contentConfiguration = content
         }
 
-        dataSource = UICollectionViewDiffableDataSource<RacketsSection, RacketViewModel>(collectionView: collectionView,
-                                                                                         cellProvider: { collectionView, indexPath, itemIdentifier in
+        dataSource = UICollectionViewDiffableDataSource<CollectionSection, RacketViewModel>(collectionView: collectionView,
+                                                                                            cellProvider: { collectionView, indexPath, itemIdentifier in
             collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
         })
     }
@@ -153,8 +149,8 @@ final class RacketsViewController: UIViewController, StoryboardInstantiable, Bac
     }
 
     private func applySnapshot() {
-        var snapshot = NSDiffableDataSourceSnapshot<RacketsSection, RacketViewModel>()
-        snapshot.appendSections([RacketsSection.main])
+        var snapshot = NSDiffableDataSourceSnapshot<CollectionSection, RacketViewModel>()
+        snapshot.appendSections([.main])
         snapshot.appendItems(self.viewModel.getRacketViewModels())
         if snapshot.itemIdentifiers.isEmpty {
             self.collectionView.setEmptyMessage("No rackets saved")

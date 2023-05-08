@@ -18,7 +18,7 @@ final class ActivitiesContainerViewController: UIViewController, StoryboardInsta
     // MARK: Properties
 
     let localizer = Localizer()
-    let pagingViewController = PagingViewController()
+    var pagingViewController: PagingViewController!
 
     // MARK: View Management
 
@@ -34,7 +34,6 @@ final class ActivitiesContainerViewController: UIViewController, StoryboardInsta
     }
 
     private func setupPagingViewController() {
-        pagingViewController.dataSource = self
         pagingViewController.select(index: 0)
 
         pagingViewController.selectedTextColor = Colors.primaryColor
@@ -58,32 +57,5 @@ final class ActivitiesContainerViewController: UIViewController, StoryboardInsta
             pagingViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             pagingViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         ])
-    }
-}
-
-extension ActivitiesContainerViewController: PagingViewControllerDataSource {
-
-    func numberOfViewControllers(in pagingViewController: PagingViewController) -> Int {
-        Activities.allCases.count
-    }
-
-    func pagingViewController(_ pagingViewController: PagingViewController, viewControllerAt index: Int) -> UIViewController {
-        switch Activities(rawValue: index) {
-        case .match:
-            return MatchesViewController.instantiateViewController()
-        case .practice:
-            return PracticeViewController.instantiateViewController()
-        case .fitness:
-            return FitnessViewController.instantiateViewController()
-        case .none:
-            return UIViewController()
-        }
-    }
-
-    func pagingViewController(_: PagingViewController, pagingItemAt index: Int) -> PagingItem {
-        guard let page = Activities(rawValue: index) else {
-            return PagingIndexItem(index: 0, title: "")
-        }
-        return PagingIndexItem(index: index, title: page.title)
     }
 }

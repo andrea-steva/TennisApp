@@ -12,10 +12,6 @@ import UIKit
 final class StringsViewController: UIViewController, StoryboardInstantiable, Localizable,
                                    Alertable, BackgroundBlurrable {
 
-    enum StringsSection: Hashable {
-        case main
-    }
-
     // MARK: IBOutlets
 
     // swiftlint:disable:next private_outlet
@@ -24,7 +20,7 @@ final class StringsViewController: UIViewController, StoryboardInstantiable, Loc
     // MARK: Properties
 
     private var collectionView: UICollectionView!
-    private var dataSource: UICollectionViewDiffableDataSource<StringsSection, StringViewModel>!
+    private var dataSource: UICollectionViewDiffableDataSource<CollectionSection, StringViewModel>!
 
     private(set) var subscriptions = Set<AnyCancellable>()
     let localizer = Localizer()
@@ -116,8 +112,8 @@ final class StringsViewController: UIViewController, StoryboardInstantiable, Loc
             cell.contentConfiguration = content
         }
 
-        dataSource = UICollectionViewDiffableDataSource<StringsSection, StringViewModel>(collectionView: collectionView,
-                                                                                         cellProvider: { collectionView, indexPath, itemIdentifier in
+        dataSource = UICollectionViewDiffableDataSource<CollectionSection, StringViewModel>(collectionView: collectionView,
+                                                                                            cellProvider: { collectionView, indexPath, itemIdentifier in
             collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
         })
     }
@@ -144,8 +140,8 @@ final class StringsViewController: UIViewController, StoryboardInstantiable, Loc
     }
 
     private func applySnapshot() {
-        var snapshot = NSDiffableDataSourceSnapshot<StringsSection, StringViewModel>()
-        snapshot.appendSections([StringsSection.main])
+        var snapshot = NSDiffableDataSourceSnapshot<CollectionSection, StringViewModel>()
+        snapshot.appendSections([.main])
         snapshot.appendItems(self.viewModel.getStringViewModels())
         if snapshot.itemIdentifiers.isEmpty {
             self.collectionView.setEmptyMessage("No Strings saved")

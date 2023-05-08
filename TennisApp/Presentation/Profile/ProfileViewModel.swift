@@ -28,10 +28,10 @@ final class ProfileViewModel {
     // MARK: Output
 
     var reloadViewData: AnyPublisher<Result<Void, Error>, Never> {
-        reloadSubject.eraseToAnyPublisher()
+        reloadViewDataSubject.eraseToAnyPublisher()
     }
 
-    private let reloadSubject = PassthroughSubject<Result<Void, Error>, Never>()
+    private let reloadViewDataSubject = PassthroughSubject<Result<Void, Error>, Never>()
 
     // MARK: Methods
 
@@ -45,7 +45,7 @@ final class ProfileViewModel {
             switch result {
             case .success(let user):
                 self.user = user
-                self.reloadSubject.send(.success(()))
+                self.reloadViewDataSubject.send(.success(()))
             case .failure(let error):
                 Log.error(error.localizedDescription)
             }

@@ -35,10 +35,10 @@ final class StringsViewModel {
     // MARK: Output
 
     var reloadViewData: AnyPublisher<Result<Void, Error>, Never> {
-        reloadStringsSubject.eraseToAnyPublisher()
+        reloadViewDataSubject.eraseToAnyPublisher()
     }
 
-    private let reloadStringsSubject = PassthroughSubject<Result<Void, Error>, Never>()
+    private let reloadViewDataSubject = PassthroughSubject<Result<Void, Error>, Never>()
 
     // MARK: Methods
 
@@ -56,7 +56,7 @@ final class StringsViewModel {
             switch result {
             case .success(let strings):
                 self.strings = strings
-                self.reloadStringsSubject.send(.success(()))
+                self.reloadViewDataSubject.send(.success(()))
             case .failure(let error):
                 Log.error(error.localizedDescription)
             }
@@ -73,7 +73,7 @@ final class StringsViewModel {
             switch result {
             case .success:
                 self.strings.remove(at: index)
-                self.reloadStringsSubject.send(.success(()))
+                self.reloadViewDataSubject.send(.success(()))
             case .failure(let error):
                 Log.error(error.localizedDescription)
             }

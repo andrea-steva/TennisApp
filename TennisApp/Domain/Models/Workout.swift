@@ -1,5 +1,5 @@
 //
-//  Fitness.swift
+//  Workout.swift
 //  TennisApp
 //
 //  Created by Andrea Stevanato on 03/04/23.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct Fitness {
+struct Workout {
 
-    enum FitnessType: String {
+    enum WorkoutType: String {
         case running
         case uppperBody
         case downBody
@@ -26,7 +26,7 @@ struct Fitness {
     let timeSpent: Double
     let date: Date?
 
-    let fitnessType: FitnessType
+    let workoutType: WorkoutType
 
     // MARK: Relationship
 

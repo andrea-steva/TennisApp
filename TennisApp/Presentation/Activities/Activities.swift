@@ -11,7 +11,7 @@ import Foundation
 enum Activities: Int, CaseIterable {
     case match
     case practice
-    case fitness
+    case workout
 
     var title: String {
         switch self {
@@ -19,8 +19,8 @@ enum Activities: Int, CaseIterable {
             return "Matches"
         case .practice:
             return "Practice"
-        case .fitness:
-            return "Fitness"
+        case .workout:
+            return "Workout"
         }
     }
 }
