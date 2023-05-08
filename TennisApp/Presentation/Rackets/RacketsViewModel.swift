@@ -57,12 +57,8 @@ final class RacketsViewModel {
         }
     }
 
-    func numberOfRackets() -> Int {
-        rackets.count
-    }
-
-    func getRacket(forIndex index: Int) -> RacketCellViewModelType {
-        RacketCellViewModel(racket: rackets[index])
+    func getRacketViewModels() -> [RacketViewModel] {
+        rackets.map { RacketViewModel(racket: $0) }
     }
 
     func deleteRacket(forIndex index: Int) {

@@ -1,5 +1,5 @@
 //
-//  RacketCellViewModel.swift
+//  RacketViewModel.swift
 //  TennisApp
 //
 //  Created by Andrea Stevanato on 07/04/23.
@@ -8,7 +8,9 @@
 
 import UIKit
 
-protocol RacketCellViewModelType {
+protocol RacketViewModelType: UIContentConfiguration, Hashable {
+    var identifier: UUID { get }
+
     var manufacter: String { get }
     var model: String { get }
     var weight: Int32 { get }
@@ -20,7 +22,41 @@ protocol RacketCellViewModelType {
     var inUse: Bool { get }
 }
 
-final class RacketCellViewModel: RacketCellViewModelType {
+struct RacketViewModel: RacketViewModelType {
+
+    // MARK: UIContentConfiguration
+
+    func makeContentView() -> UIView & UIContentView {
+        RacketContentView(configuration: self)
+    }
+
+    func updated(for state: UIConfigurationState) -> Self {
+        // Perform update on parameters that does not related to cell's data itesm
+        guard let state = state as? UICellConfigurationState else {
+            return self
+        }
+
+        let updatedConfiguration = self
+        if state.isSelected {
+        } else {
+        }
+
+        return updatedConfiguration
+    }
+
+    // MARK: Hashable and Equatable
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(identifier)
+    }
+
+    static func == (lhs: RacketViewModel, rhs: RacketViewModel) -> Bool {
+        lhs.identifier == rhs.identifier
+    }
+
+    // MARK: Properties
+
+    let identifier = UUID()
 
     let manufacter: String
     let model: String

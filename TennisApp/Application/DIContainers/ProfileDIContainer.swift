@@ -9,7 +9,7 @@
 import Foundation
 
 final class ProfileDIContainer {
-    
+
     // MARK: Local Storage
 
     private lazy var usersCoreDataStorage = UsersCoreDataStorage()

@@ -70,7 +70,7 @@
 		65D206921EE19820004A8150 /* RacketFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D206901EE19820004A8150 /* RacketFormViewController.swift */; };
 		65D206931EE19820004A8150 /* RacketFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D206911EE19820004A8150 /* RacketFormViewModel.swift */; };
 		65D8249D1C6E38BE00E2918C /* MatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8249C1C6E38BE00E2918C /* MatchesViewController.swift */; };
-		65D8249F1C6E652000E2918C /* RacketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8249E1C6E652000E2918C /* RacketTableViewCell.swift */; };
+		65D8249F1C6E652000E2918C /* RacketContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D8249E1C6E652000E2918C /* RacketContentView.swift */; };
 		65D824A21C6E6C6E00E2918C /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D824A11C6E6C6E00E2918C /* StatsViewController.swift */; };
 		65D824A41C6F4A1600E2918C /* court_hard_g.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65D824A31C6F4A1600E2918C /* court_hard_g.jpg */; };
 		65D824A81C6F589100E2918C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D824A71C6F589100E2918C /* ProfileViewController.swift */; };
@@ -146,7 +146,7 @@
 		FCCBFF7F29E012FD00068479 /* ImageRow in Frameworks */ = {isa = PBXBuildFile; productRef = FCCBFF7E29E012FD00068479 /* ImageRow */; };
 		FCCBFF8129E01E6400068479 /* CGRect+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBFF8029E01E6400068479 /* CGRect+.swift */; };
 		FCCBFF8329E01EB500068479 /* UIBarButtonItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBFF8229E01EB500068479 /* UIBarButtonItem+.swift */; };
-		FCCBFF8A29E0471200068479 /* RacketCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBFF8929E0471200068479 /* RacketCellViewModel.swift */; };
+		FCCBFF8A29E0471200068479 /* RacketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBFF8929E0471200068479 /* RacketViewModel.swift */; };
 		FCCBFF8C29E04E8B00068479 /* StringCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBFF8B29E04E8B00068479 /* StringCellViewModel.swift */; };
 		FCCBFF8F29E0709800068479 /* FirebaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBFF8E29E0709800068479 /* FirebaseError.swift */; };
 		FCCBFF9129E070B600068479 /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBFF9029E070B600068479 /* FirebaseUser.swift */; };
@@ -163,6 +163,10 @@
 		FCCDB7BC29F12F6C00941D52 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCDB7BB29F12F6C00941D52 /* String+.swift */; };
 		FCCDB7BE29F141B200941D52 /* StringsBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCDB7BD29F141B200941D52 /* StringsBrand.swift */; };
 		FCD769DF2A0288F8008FDE81 /* ActivitiesDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD769DE2A0288F8008FDE81 /* ActivitiesDIContainer.swift */; };
+		FCD769E12A055339008FDE81 /* RacketContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCD769E02A055339008FDE81 /* RacketContentView.xib */; };
+		FCD769E32A090A8F008FDE81 /* RacketListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD769E22A090A8F008FDE81 /* RacketListCell.swift */; };
+		FCD769E52A090E17008FDE81 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD769E42A090E17008FDE81 /* UICollectionView+.swift */; };
+		FCD769E72A0929DE008FDE81 /* UIContextualAction+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD769E62A0929DD008FDE81 /* UIContextualAction+.swift */; };
 		FCE0AAC229D7338100308EF3 /* UsersStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AAC129D7338100308EF3 /* UsersStorage.swift */; };
 		FCE0AAC429D733CC00308EF3 /* RacketsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AAC329D733CC00308EF3 /* RacketsStorage.swift */; };
 		FCE0AACA29D7365300308EF3 /* LoggerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AAC929D7365300308EF3 /* LoggerProfile.swift */; };
@@ -306,7 +310,7 @@
 		65D206901EE19820004A8150 /* RacketFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketFormViewController.swift; sourceTree = "<group>"; };
 		65D206911EE19820004A8150 /* RacketFormViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketFormViewModel.swift; sourceTree = "<group>"; };
 		65D8249C1C6E38BE00E2918C /* MatchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesViewController.swift; sourceTree = "<group>"; };
-		65D8249E1C6E652000E2918C /* RacketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketTableViewCell.swift; sourceTree = "<group>"; };
+		65D8249E1C6E652000E2918C /* RacketContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacketContentView.swift; sourceTree = "<group>"; };
 		65D824A11C6E6C6E00E2918C /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		65D824A31C6F4A1600E2918C /* court_hard_g.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = court_hard_g.jpg; sourceTree = "<group>"; };
 		65D824A71C6F589100E2918C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -374,7 +378,7 @@
 		FCCBFF7929E0108000068479 /* Activities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activities.swift; sourceTree = "<group>"; };
 		FCCBFF8029E01E6400068479 /* CGRect+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+.swift"; sourceTree = "<group>"; };
 		FCCBFF8229E01EB500068479 /* UIBarButtonItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+.swift"; sourceTree = "<group>"; };
-		FCCBFF8929E0471200068479 /* RacketCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacketCellViewModel.swift; sourceTree = "<group>"; };
+		FCCBFF8929E0471200068479 /* RacketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacketViewModel.swift; sourceTree = "<group>"; };
 		FCCBFF8B29E04E8B00068479 /* StringCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCellViewModel.swift; sourceTree = "<group>"; };
 		FCCBFF8E29E0709800068479 /* FirebaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseError.swift; sourceTree = "<group>"; };
 		FCCBFF9029E070B600068479 /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
@@ -390,6 +394,10 @@
 		FCCDB7BB29F12F6C00941D52 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		FCCDB7BD29F141B200941D52 /* StringsBrand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsBrand.swift; sourceTree = "<group>"; };
 		FCD769DE2A0288F8008FDE81 /* ActivitiesDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesDIContainer.swift; sourceTree = "<group>"; };
+		FCD769E02A055339008FDE81 /* RacketContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RacketContentView.xib; sourceTree = "<group>"; };
+		FCD769E22A090A8F008FDE81 /* RacketListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacketListCell.swift; sourceTree = "<group>"; };
+		FCD769E42A090E17008FDE81 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
+		FCD769E62A0929DD008FDE81 /* UIContextualAction+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIContextualAction+.swift"; sourceTree = "<group>"; };
 		FCE0AAC129D7338100308EF3 /* UsersStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersStorage.swift; sourceTree = "<group>"; };
 		FCE0AAC329D733CC00308EF3 /* RacketsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacketsStorage.swift; sourceTree = "<group>"; };
 		FCE0AAC929D7365300308EF3 /* LoggerProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerProfile.swift; sourceTree = "<group>"; };
@@ -921,6 +929,8 @@
 				FCCBFF8229E01EB500068479 /* UIBarButtonItem+.swift */,
 				FC1F3D2229DC8894006FAD8B /* UIColor+.swift */,
 				FC1F3D2429DC88BC006FAD8B /* UIImage+.swift */,
+				FCD769E42A090E17008FDE81 /* UICollectionView+.swift */,
+				FCD769E62A0929DD008FDE81 /* UIContextualAction+.swift */,
 				FCCBFF6729E00C8900068479 /* UITableView+.swift */,
 				65653D251ED0820800A9DBBB /* UIView+.swift */,
 				FC0B2B7429E6A50A00011730 /* UITextField+.swift */,
@@ -1002,8 +1012,10 @@
 		FCCBFF7B29E0120400068479 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				65D8249E1C6E652000E2918C /* RacketTableViewCell.swift */,
-				FCCBFF8929E0471200068479 /* RacketCellViewModel.swift */,
+				FCD769E22A090A8F008FDE81 /* RacketListCell.swift */,
+				FCCBFF8929E0471200068479 /* RacketViewModel.swift */,
+				65D8249E1C6E652000E2918C /* RacketContentView.swift */,
+				FCD769E02A055339008FDE81 /* RacketContentView.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1308,6 +1320,7 @@
 				FCF6D8ED29DC6D8800DBCD4B /* RacketFormViewController.storyboard in Resources */,
 				FC1F3D1E29DC7C7A006FAD8B /* StringsViewController.storyboard in Resources */,
 				65EE6A3A1C8B9EAA001AF3F2 /* court_hard_p.jpg in Resources */,
+				FCD769E12A055339008FDE81 /* RacketContentView.xib in Resources */,
 				FC1F3D1C29DC7C7A006FAD8B /* ActivitiesContainerViewController.storyboard in Resources */,
 				FCCBFF7629E00FD000068479 /* PracticeViewController.storyboard in Resources */,
 				65B04E181C6CA86400011439 /* README.txt in Resources */,
@@ -1374,6 +1387,7 @@
 				FCBDFA0C29D73111008A7FD6 /* UserEntity.swift in Sources */,
 				FCD769DF2A0288F8008FDE81 /* ActivitiesDIContainer.swift in Sources */,
 				FCF6D8B729DACAE500DBCD4B /* Match.swift in Sources */,
+				FCD769E52A090E17008FDE81 /* UICollectionView+.swift in Sources */,
 				FC1F3D2329DC8894006FAD8B /* UIColor+.swift in Sources */,
 				FCBDFA0F29D73111008A7FD6 /* RacketEntity.swift in Sources */,
 				FCCBFF7A29E0108000068479 /* Activities.swift in Sources */,
@@ -1384,9 +1398,10 @@
 				FCCDB7AE29ED852500941D52 /* Fonts.swift in Sources */,
 				FCF6D8CD29DB012500DBCD4B /* RacketsFetchUseCase.swift in Sources */,
 				FCF6D8DF29DB17D000DBCD4B /* StringsFetchUseCase.swift in Sources */,
+				FCD769E32A090A8F008FDE81 /* RacketListCell.swift in Sources */,
 				FCCBFF9129E070B600068479 /* FirebaseUser.swift in Sources */,
 				FCE0AAD829D73ACF00308EF3 /* GripSize.swift in Sources */,
-				FCCBFF8A29E0471200068479 /* RacketCellViewModel.swift in Sources */,
+				FCCBFF8A29E0471200068479 /* RacketViewModel.swift in Sources */,
 				FCBDF9FE29D72EB7008A7FD6 /* StringsStorage.swift in Sources */,
 				FCBDFA0E29D73111008A7FD6 /* MatchEntity.swift in Sources */,
 				65D206801EDF43B0004A8150 /* StatsCoordinator.swift in Sources */,
@@ -1413,12 +1428,13 @@
 				65C511EA1C938DCA0051D645 /* ProfileHeaderView.swift in Sources */,
 				FCCBFF7429E00FD000068479 /* FitnessViewModel.swift in Sources */,
 				FCCDB7BE29F141B200941D52 /* StringsBrand.swift in Sources */,
+				FCD769E72A0929DE008FDE81 /* UIContextualAction+.swift in Sources */,
 				FCF6D8B929DACAED00DBCD4B /* Fitness.swift in Sources */,
 				6569A4061E9A28E400A444BB /* CGSize+.swift in Sources */,
 				FC1F3D2E29DDD667006FAD8B /* TabBarItemCoordinator.swift in Sources */,
 				FCF6D8D429DB133C00DBCD4B /* StringsCoreDataStorage.swift in Sources */,
 				FCE0AAC429D733CC00308EF3 /* RacketsStorage.swift in Sources */,
-				65D8249F1C6E652000E2918C /* RacketTableViewCell.swift in Sources */,
+				65D8249F1C6E652000E2918C /* RacketContentView.swift in Sources */,
 				65653D201ED0747C00A9DBBB /* main.swift in Sources */,
 				65653D241ED081D000A9DBBB /* Date+.swift in Sources */,
 				FC1F3D2C29DDD354006FAD8B /* LoadingIndicator.swift in Sources */,

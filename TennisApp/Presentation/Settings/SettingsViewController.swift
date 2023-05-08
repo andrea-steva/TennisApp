@@ -87,7 +87,6 @@ final class SettingsViewController: UIViewController, StoryboardInstantiable,
             break
         case .logout:
             performLogout()
-
         }
     }
 
