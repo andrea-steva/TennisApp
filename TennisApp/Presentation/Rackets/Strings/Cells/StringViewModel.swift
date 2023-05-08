@@ -1,14 +1,16 @@
 //
-//  StringCellViewModel.swift
+//  StringViewModel.swift
 //  TennisApp
 //
 //  Created by Andrea Stevanato on 07/04/23.
 //  Copyright © 2023 Andrea Stevanato. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-protocol StringCellViewModelType {
+protocol StringViewModelType: UIContentConfiguration, Hashable {
+    var identifier: UUID { get }
+
     var manufacter: String { get }
     var model: String { get }
     var price: String { get }
@@ -18,7 +20,31 @@ protocol StringCellViewModelType {
     var inUse: Bool { get }
 }
 
-final class StringCellViewModel: StringCellViewModelType {
+struct StringViewModel: StringViewModelType {
+
+    // MARK: UIContentConfiguration
+
+    func makeContentView() -> UIView & UIContentView {
+        StringContentView(configuration: self)
+    }
+
+    func updated(for state: UIConfigurationState) -> Self {
+        // Perform update on parameters that does not related to cell's data itesm
+        guard let state = state as? UICellConfigurationState else {
+            return self
+        }
+
+        let updatedConfiguration = self
+        if state.isSelected {
+        } else {
+        }
+
+        return updatedConfiguration
+    }
+
+    // MARK: Properties
+
+    let identifier = UUID()
 
     let manufacter: String
     let model: String

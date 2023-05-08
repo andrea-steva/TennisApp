@@ -9,8 +9,8 @@
 import Combine
 import UIKit
 
-final class RacketsViewController: UIViewController,
-                                   StoryboardInstantiable, BackgroundBlurrable, Localizable, Alertable {
+final class RacketsViewController: UIViewController, StoryboardInstantiable, BackgroundBlurrable,
+                                   Localizable, Alertable {
 
     enum RacketsSection: Hashable {
         case main
@@ -21,10 +21,9 @@ final class RacketsViewController: UIViewController,
     // swiftlint:disable:next private_outlet
     @IBOutlet var backgroundView: UIImageView!
 
-    private var collectionView: UICollectionView!
-
     // MARK: Properties
 
+    private var collectionView: UICollectionView!
     private var dataSource: UICollectionViewDiffableDataSource<RacketsSection, RacketViewModel>!
 
     private(set) var subscriptions = Set<AnyCancellable>()

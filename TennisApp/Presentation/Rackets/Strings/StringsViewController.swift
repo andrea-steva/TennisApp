@@ -9,18 +9,22 @@
 import Combine
 import UIKit
 
-final class StringsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,
-                                   StoryboardInstantiable, Localizable, Alertable, BackgroundBlurrable {
+final class StringsViewController: UIViewController, StoryboardInstantiable, Localizable,
+                                   Alertable, BackgroundBlurrable {
 
-    static let StringsCellReuseId = "string_cell"
+    enum StringsSection: Hashable {
+        case main
+    }
 
     // MARK: IBOutlets
 
     // swiftlint:disable:next private_outlet
     @IBOutlet var backgroundView: UIImageView!
-    @IBOutlet private var tableView: UITableView!
 
     // MARK: Properties
+
+    private var collectionView: UICollectionView!
+    private var dataSource: UICollectionViewDiffableDataSource<StringsSection, StringViewModel>!
 
     private(set) var subscriptions = Set<AnyCancellable>()
     let localizer = Localizer()
@@ -39,6 +43,9 @@ final class StringsViewController: UIViewController, UITableViewDataSource, UITa
 
         self.navigationController?.navigationBar.scrollEdgeAppearance = Style.getUINavigationBarAppearance()
         self.navigationController?.navigationBar.standardAppearance = Style.getUINavigationBarAppearance()
+
+        self.setupCollectionsView()
+        self.configureDataSource()
 
         self.setBackgroundBlurEffect()
         self.setupObservers()
@@ -62,78 +69,102 @@ final class StringsViewController: UIViewController, UITableViewDataSource, UITa
             .sink(receiveCompletion: { _ in
                 // Handle the error
             }, receiveValue: { [weak self] _ in
-                self?.tableView.reloadData()
-                self?.tableView.refreshControl?.endRefreshing()
+                guard let self else { return }
+
+                self.collectionView.refreshControl?.endRefreshing()
+                self.applySnapshot()
             })
             .store(in: &subscriptions)
     }
 
-    // MARK: UITableViewDataSource
+    // MARK: Setup collections view
 
-    func numberOfSections(in tableView: UITableView) -> Int {
-        1
+    private func setupCollectionsView() {
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
+        collectionView.delegate = self
+        collectionView.backgroundColor = .clear
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+
+        view.addSubview(collectionView)
+
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0.0),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0.0)
+        ])
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let stringsCount = viewModel.numberOfStrings()
-        if stringsCount == 0 {
-            self.tableView.setEmptyMessage("No strings saved")
-        } else {
-            self.tableView.restore()
+    private func createLayout() -> UICollectionViewLayout {
+        var config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        config.backgroundColor = .clear
+
+        config.trailingSwipeActionsConfigurationProvider = { [weak self] (indexPath) in
+            guard let self else { return UISwipeActionsConfiguration(actions: []) }
+            return self.configureTrailingSwipeActions(indexPath: indexPath)
         }
-        return stringsCount
+        return UICollectionViewCompositionalLayout.list(using: config)
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: StringTableViewCell.reuseIdentifier,
-                                                       for: indexPath) as? StringTableViewCell else {
-            assertionFailure("Cannot dequeue StringTableViewCell")
-            return UITableViewCell()
+    private func configureDataSource() {
+
+        let cellRegistration = UICollectionView.CellRegistration<StringListCell, StringViewModel> { (cell, _, string) in
+            let content = cell.defaultContentConfiguration()
+            cell.string = string
+            cell.contentConfiguration = content
         }
-        cell.setup(with: viewModel.getString(forIndex: indexPath.row))
-        return cell
+
+        dataSource = UICollectionViewDiffableDataSource<StringsSection, StringViewModel>(collectionView: collectionView,
+                                                                                         cellProvider: { collectionView, indexPath, itemIdentifier in
+            collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
+        })
     }
 
-    // MARK: UITableViewDelegate
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        0.5
-    }
-
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footerView = UIView()
-        if section == 0 {
-            footerView.backgroundColor = Colors.grayColor
+    private func configureTrailingSwipeActions(indexPath: IndexPath) -> UISwipeActionsConfiguration {
+        let editAction = UIContextualAction(style: .normal, title: nil) {  (_, _, completion) in
+            self.viewModel.toStringForm(index: indexPath.item)
+            completion(true)
         }
-        return footerView
-    }
-
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let editAction = UIContextualAction(style: .normal, title: "Edit") {  (_, _, _) in
-            self.viewModel.toStringForm(index: indexPath.row)
-            self.tableView.setEditing(false, animated: true)
-        }
+        editAction.setTitle(title: "Edit", font: Fonts.get(.regular, size: .normal))
         editAction.backgroundColor = Colors.primaryColor
 
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (_, _, _) in
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) {  (_, _, completion) in
             self.showAlert(title: self.localizer.get(LocalizationKeys.genericAlertTitle),
                            message: "Are you sure to delete the string?",
                            confirmAction: { _ in
-                self.viewModel.deleteString(forIndex: indexPath.row)
-                self.tableView.setEditing(false, animated: true)
+                self.viewModel.deleteString(forIndex: indexPath.item)
+                completion(true)
             })
         }
+        deleteAction.setTitle(title: "Delete", font: Fonts.get(.regular, size: .normal))
 
         return UISwipeActionsConfiguration(actions: [editAction, deleteAction])
+    }
+
+    private func applySnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot<StringsSection, StringViewModel>()
+        snapshot.appendSections([StringsSection.main])
+        snapshot.appendItems(self.viewModel.getStringViewModels())
+        if snapshot.itemIdentifiers.isEmpty {
+            self.collectionView.setEmptyMessage("No Strings saved")
+        } else {
+            self.collectionView.restore()
+        }
+        self.dataSource.apply(snapshot, animatingDifferences: false)
     }
 
     // MARK: IBAction
 
     @IBAction private func didTapOnAddStringButton(_ sender: AnyObject) {
         self.viewModel.toEmptyStringForm()
+    }
+}
+
+extension StringsViewController: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
 }
