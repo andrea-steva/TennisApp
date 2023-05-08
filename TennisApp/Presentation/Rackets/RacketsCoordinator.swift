@@ -20,7 +20,7 @@ final class RacketsCoordinator: TabBarItemCoordinator,
     // MARK: Properties
 
     typealias RacketsCoordinatorContainer = (rackets: RacketsDIContainer, strings: StringsDIContainer)
-    
+
     private let container: RacketsCoordinatorContainer
 
     weak var delegate: RacketsCoordinatorDelegate?
