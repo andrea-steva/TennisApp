@@ -31,10 +31,10 @@ final class RacketsViewModel {
     // MARK: Output
 
     var reloadViewData: AnyPublisher<Result<Void, Error>, Never> {
-        reloadRacketsSubject.eraseToAnyPublisher()
+        reloadViewDataSubject.eraseToAnyPublisher()
     }
 
-    private let reloadRacketsSubject = PassthroughSubject<Result<Void, Error>, Never>()
+    private let reloadViewDataSubject = PassthroughSubject<Result<Void, Error>, Never>()
 
     // MARK: Methods
 
@@ -50,7 +50,7 @@ final class RacketsViewModel {
             switch result {
             case .success(let rackets):
                 self.rackets = rackets
-                self.reloadRacketsSubject.send(.success(()))
+                self.reloadViewDataSubject.send(.success(()))
             case .failure(let error):
                 Log.error(error.localizedDescription)
             }
@@ -67,7 +67,7 @@ final class RacketsViewModel {
             switch result {
             case .success:
                 self.rackets.remove(at: index)
-                self.reloadRacketsSubject.send(.success(()))
+                self.reloadViewDataSubject.send(.success(()))
             case .failure(let error):
                 Log.error(error.localizedDescription)
             }
