@@ -19,12 +19,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="court_hard_g" translatesAutoresizingMaskIntoConstraints="NO" id="KjG-LL-BLh">
-                                <rect key="frame" x="0.0" y="50" width="375" height="728"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KjG-LL-BLh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9sv-fZ-nOg">
                                 <rect key="frame" x="0.0" y="50" width="375" height="728"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="profile_cell" id="YAI-T9-Tb8">
                                         <rect key="frame" x="0.0" y="50" width="375" height="150"/>
@@ -46,7 +46,7 @@
                             <constraint firstItem="KjG-LL-BLh" firstAttribute="leading" secondItem="Zs2-h5-Jwv" secondAttribute="leading" id="6q7-9z-8kf"/>
                             <constraint firstItem="aCI-cG-yZH" firstAttribute="top" secondItem="9sv-fZ-nOg" secondAttribute="bottom" id="AUz-FW-T1Q"/>
                             <constraint firstItem="9sv-fZ-nOg" firstAttribute="top" secondItem="kdE-Hv-PBH" secondAttribute="bottom" id="Avz-Mc-lzB"/>
-                            <constraint firstItem="KjG-LL-BLh" firstAttribute="top" secondItem="kdE-Hv-PBH" secondAttribute="bottom" id="KQc-GB-XJj"/>
+                            <constraint firstItem="KjG-LL-BLh" firstAttribute="top" secondItem="Zs2-h5-Jwv" secondAttribute="top" id="KQc-GB-XJj"/>
                             <constraint firstItem="9sv-fZ-nOg" firstAttribute="leading" secondItem="Zs2-h5-Jwv" secondAttribute="leading" id="Ngc-oO-fk5"/>
                             <constraint firstAttribute="trailing" secondItem="9sv-fZ-nOg" secondAttribute="trailing" id="ctd-LH-Qae"/>
                             <constraint firstAttribute="trailing" secondItem="KjG-LL-BLh" secondAttribute="trailing" id="odm-oy-iRg"/>
@@ -64,7 +64,4 @@
             <point key="canvasLocation" x="-215" y="346"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="court_hard_g" width="533.33331298828125" height="333.33334350585938"/>
-    </resources>
 </document>

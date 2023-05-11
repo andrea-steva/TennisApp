@@ -14,6 +14,8 @@ enum SettingsItem: Int, CaseIterable {
     case review
     case logout
 
+    private var designLibrary: DesignLibraryProvider { DesignLibrary() }
+
     var title: String {
         switch self {
         case .general:
@@ -30,13 +32,13 @@ enum SettingsItem: Int, CaseIterable {
     var iconName: String {
         switch self {
         case .general:
-            return "gear"
+            return designLibrary.symbol.settings.general
         case .support:
-            return "message"
+            return designLibrary.symbol.settings.support
         case .review:
-            return "star.square"
+            return designLibrary.symbol.settings.review
         case .logout:
-            return "person.crop.circle.badge.xmark"
+            return designLibrary.symbol.settings.logout
         }
     }
 }

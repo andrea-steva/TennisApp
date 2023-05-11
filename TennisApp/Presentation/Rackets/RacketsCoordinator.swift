@@ -40,7 +40,10 @@ final class RacketsCoordinator: TabBarItemCoordinator,
     init(container: RacketsCoordinatorContainer) {
         self.container = container
         self.racketsViewController = RacketsViewController.instantiateViewController()
-        self.navigationController = UINavigationController(rootViewController: racketsViewController)
+        self.navigationController = NavigationControllerBuilder(rootViewController: racketsViewController)
+            .setStandardAppearance()
+            .setScrollEdgeAppearance()
+            .build()
     }
 
     func start() -> UIViewController {

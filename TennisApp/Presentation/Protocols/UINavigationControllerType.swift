@@ -10,9 +10,11 @@ import UIKit
 
 protocol UINavigationControllerType: AnyObject {
     var viewControllers: [UIViewController] { get }
+    var navigationBar: UINavigationBar { get }
 
     func pushViewController(_ viewController: UIViewController, animated: Bool)
     func popViewController(animated: Bool) -> UIViewController?
+    func setNavigationBarHidden(_ hidden: Bool, animated: Bool)
 }
 
 extension UINavigationController: UINavigationControllerType {}

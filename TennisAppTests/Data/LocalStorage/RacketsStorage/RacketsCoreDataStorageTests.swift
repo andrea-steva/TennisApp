@@ -38,6 +38,9 @@ final class RacketsCoreDataStorageTests: XCTestCase {
                         XCTAssertNotNil(racket.purchaseDate)
                         XCTAssertEqual(racket.sport, .tennis)
                         XCTAssertEqual(racket.price, 200, accuracy: 0.01)
+                        XCTAssertTrue(racket.inUse)
+                        XCTAssertTrue(racket.strings.isEmpty)
+                        XCTAssertNil(racket.user)
 
                         expectation.fulfill()
                     }
@@ -63,7 +66,10 @@ private extension RacketsCoreDataStorageTests {
                    imageData: Data(repeating: 0, count: 10),
                    purchaseDate: Date(),
                    sport: .tennis,
-                   price: 200)
+                   price: 200,
+                   inUse: true,
+                   strings: [],
+                   user: nil)
         }
     }
 

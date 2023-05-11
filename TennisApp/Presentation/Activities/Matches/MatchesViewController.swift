@@ -9,7 +9,7 @@
 import Combine
 import UIKit
 
-final class MatchesViewController: UIViewController, StoryboardInstantiable, Localizable, Alertable {
+final class MatchesViewController: UIViewController, StoryboardInstantiable, Alertable {
 
     // MARK: Properties
 
@@ -17,7 +17,8 @@ final class MatchesViewController: UIViewController, StoryboardInstantiable, Loc
     private var dataSource: UICollectionViewDiffableDataSource<CollectionSection, MatchViewModel>!
 
     private(set) var subscriptions = Set<AnyCancellable>()
-    let localizer = Localizer()
+
+    private let designLibrary: DesignLibraryProvider = DesignLibrary()
 
     // MARK: ViewModel
 
@@ -30,7 +31,7 @@ final class MatchesViewController: UIViewController, StoryboardInstantiable, Loc
 
         self.navigationItem.rightBarButtonItems = setupRightBarButtonItem()
 
-        self.title = localizer.get(LocalizationKeys.menuRackets)
+        self.title = Localization.Menu.rackets
         self.navigationItem.rightBarButtonItems = setupRightBarButtonItem()
 
         self.setupCollectionsView()
@@ -115,23 +116,23 @@ final class MatchesViewController: UIViewController, StoryboardInstantiable, Loc
         let stringsAction = UIContextualAction(style: .normal, title: nil) { (_, _, completion) in
             completion(true)
         }
-        stringsAction.setTitle(title: "Strings", font: Fonts.get(.regular, size: .normal))
+        stringsAction.setTitle(title: "Strings", font: designLibrary.font.textNormalSize.regular)
         stringsAction.backgroundColor = .systemGray
 
         let editAction = UIContextualAction(style: .normal, title: nil) { (_, _, completion) in
             completion(true)
         }
-        editAction.setTitle(title: "Edit", font: Fonts.get(.regular, size: .normal))
-        editAction.backgroundColor = Colors.primaryColor
+        editAction.setTitle(title: "Edit", font: designLibrary.font.textNormalSize.regular)
+        editAction.backgroundColor = designLibrary.color.background.editAction
 
         let deleteAction = UIContextualAction(style: .destructive, title: nil) {  (_, _, completion) in
-            self.showAlert(title: self.localizer.get(LocalizationKeys.genericAlertTitle),
+            self.showAlert(title: Localization.genericAlertTitle,
                            message: "Are you sure to delete the racket?",
                            confirmAction: { _ in
                 completion(true)
             })
         }
-        deleteAction.setTitle(title: "Delete", font: Fonts.get(.regular, size: .normal))
+        deleteAction.setTitle(title: "Delete", font: designLibrary.font.textNormalSize.regular)
 
         return UISwipeActionsConfiguration(actions: [stringsAction, editAction, deleteAction])
     }
@@ -141,7 +142,7 @@ final class MatchesViewController: UIViewController, StoryboardInstantiable, Loc
         snapshot.appendSections([.main])
         snapshot.appendItems(self.viewModel.getMatchesViewModels())
         if snapshot.itemIdentifiers.isEmpty {
-            self.collectionView.setEmptyMessage("No matches saved")
+            self.collectionView.setEmptyMessage("No matches saved", font: designLibrary.font.textNormalSize.bold)
         } else {
             self.collectionView.restore()
         }

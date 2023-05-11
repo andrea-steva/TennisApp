@@ -10,7 +10,7 @@ import Combine
 import UIKit
 
 final class ProfileViewController: UIViewController, UITableViewDataSource, UITabBarDelegate,
-                                   StoryboardInstantiable, BackgroundBlurrable, Localizable {
+                                   StoryboardInstantiable, BackgroundBlurrable {
 
     static let ProfileCellReuseId = "profile_cell"
 
@@ -24,7 +24,7 @@ final class ProfileViewController: UIViewController, UITableViewDataSource, UITa
 
     private(set) var subscriptions = Set<AnyCancellable>()
     private var headerView: ProfileHeaderView?
-    let localizer = Localizer()
+    private let designLibrary: DesignLibraryProvider = DesignLibrary()
 
     // MARK: ViewModel
 
@@ -35,9 +35,8 @@ final class ProfileViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = localizer.get(LocalizationKeys.menuProfile)
-        self.navigationController?.navigationBar.scrollEdgeAppearance = Style.getUINavigationBarAppearance()
-        self.navigationController?.navigationBar.standardAppearance = Style.getUINavigationBarAppearance()
+        self.backgroundView.image = UIImage(named: designLibrary.miscellaneous.asset.profileBackground)
+        self.title = Localization.Menu.profile
 
         self.setBackgroundBlurEffect()
 

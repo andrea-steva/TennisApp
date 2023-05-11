@@ -10,14 +10,15 @@ import Parchment
 import UIKit
 
 final class ActivitiesContainerViewController: UIViewController, StoryboardInstantiable,
-                                               BackgroundBlurrable, Localizable {
+                                               BackgroundBlurrable {
 
     // swiftlint:disable:next private_outlet
     @IBOutlet var backgroundView: UIImageView!
 
     // MARK: Properties
 
-    let localizer = Localizer()
+    private let designLibrary: DesignLibraryProvider = DesignLibrary()
+
     var pagingViewController: PagingViewController!
 
     // MARK: View Management
@@ -25,9 +26,8 @@ final class ActivitiesContainerViewController: UIViewController, StoryboardInsta
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = localizer.get(LocalizationKeys.menuHome)
-        self.navigationController?.navigationBar.scrollEdgeAppearance = Style.getUINavigationBarAppearance()
-        self.navigationController?.navigationBar.standardAppearance = Style.getUINavigationBarAppearance()
+        self.backgroundView.image = UIImage(named: designLibrary.miscellaneous.asset.activitiesBackground)
+        self.title = Localization.Menu.activities
 
         setBackgroundBlurEffect()
         setupPagingViewController()
@@ -36,10 +36,10 @@ final class ActivitiesContainerViewController: UIViewController, StoryboardInsta
     private func setupPagingViewController() {
         pagingViewController.select(index: 0)
 
-        pagingViewController.selectedTextColor = Colors.primaryColor
-        pagingViewController.font = Fonts.get(.light, size: .normal)
-        pagingViewController.selectedFont = Fonts.get(.bold, size: .normal)
-        pagingViewController.indicatorColor = Colors.primaryColor
+        pagingViewController.selectedTextColor = designLibrary.color.text.brandPrimary
+        pagingViewController.font = designLibrary.font.textNormalSize.light
+        pagingViewController.selectedFont = designLibrary.font.textNormalSize.bold
+        pagingViewController.indicatorColor = designLibrary.color.text.brandPrimary
         pagingViewController.menuInteraction = .swipe
         pagingViewController.indicatorOptions = .visible(height: 5,
                                                          zIndex: Int.max,

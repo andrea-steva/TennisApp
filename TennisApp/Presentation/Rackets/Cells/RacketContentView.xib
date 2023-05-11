@@ -23,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="court_hard_p.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Lui-Zx-vox">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lui-Zx-vox">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AlH-ox-h2P" userLabel="Container Stack">
@@ -101,7 +101,6 @@
         </view>
     </objects>
     <resources>
-        <image name="court_hard_p.jpg" width="915.75" height="514.5"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

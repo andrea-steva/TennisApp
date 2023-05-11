@@ -10,7 +10,7 @@ import Combine
 import UIKit
 
 final class LoginViewController: UIViewController, Bindable, StoryboardInstantiable,
-                                 BackgroundBlurrable, Localizable, LoadingIndicator, Alertable {
+                                 BackgroundBlurrable, LoadingIndicator, Alertable {
 
     // MARK: IBOutlets
 
@@ -19,14 +19,14 @@ final class LoginViewController: UIViewController, Bindable, StoryboardInstantia
 
     @IBOutlet private var emailLoginButton: UIButton! {
         didSet {
-            emailLoginButton.layer.cornerRadius = 5.0
+            emailLoginButton.layer.cornerRadius = designLibrary.miscellaneous.cornerRadius.button
             emailLoginButton.layer.masksToBounds = true
 
             emailLoginButton.backgroundColor = UIColor.clear
-            emailLoginButton.setBackgroundImage(UIImage.imageWithColor(Colors.primaryColor), for: .normal)
-            emailLoginButton.setBackgroundImage(UIImage.imageWithColor(Colors.primaryPressedColor), for: .highlighted)
-            emailLoginButton.setBackgroundImage(UIImage.imageWithColor(Colors.primaryPressedColor), for: .disabled)
-            emailLoginButton.setTitle(localizer.get(LocalizationKeys.loginButton), for: .normal)
+            emailLoginButton.setBackgroundImage(UIImage.imageWithColor(designLibrary.color.background.buttonPrimary), for: .normal)
+            emailLoginButton.setBackgroundImage(UIImage.imageWithColor(designLibrary.color.background.buttonPressed), for: .highlighted)
+            emailLoginButton.setBackgroundImage(UIImage.imageWithColor(designLibrary.color.background.buttonDisabled), for: .disabled)
+            emailLoginButton.setTitle(Localization.loginButton, for: .normal)
         }
     }
 
@@ -35,7 +35,8 @@ final class LoginViewController: UIViewController, Bindable, StoryboardInstantia
 
     // MARK: Properties
 
-    let localizer = Localizer()
+    private  let designLibrary: DesignLibraryProvider = DesignLibrary()
+
     var loadingIndicator: UIActivityIndicatorView?
     var subscriptions = Set<AnyCancellable>()
 
@@ -54,7 +55,7 @@ final class LoginViewController: UIViewController, Bindable, StoryboardInstantia
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = ""
+        self.backgroundView.image = UIImage(named: designLibrary.miscellaneous.asset.loginBackground)
 
         self.setBackgroundBlurEffect()
 

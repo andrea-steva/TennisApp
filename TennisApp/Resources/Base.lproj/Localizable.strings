@@ -8,13 +8,18 @@
 
 "appName" = "Tennis Diary";
 
-"menu.home" = "Activities";
+"menu.activities" = "Activities";
 "menu.rackets" = "Rackets";
 "menu.strings" = "Strings";
 "menu.stats" = "Stats";
 "menu.profile" = "Profile";
 "menu.settings" = "Settings";
-"menu.logout" = "Logout";
+
+"logout" = "Logout";
+
+"match" = "Match";
+"practice" = "Practice";
+"workout" = "Workout";
 
 "generic.done" = "Done";
 "generic.cancel" = "Cancel";

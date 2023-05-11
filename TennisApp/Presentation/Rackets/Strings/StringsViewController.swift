@@ -9,8 +9,7 @@
 import Combine
 import UIKit
 
-final class StringsViewController: UIViewController, StoryboardInstantiable, Localizable,
-                                   Alertable, BackgroundBlurrable {
+final class StringsViewController: UIViewController, StoryboardInstantiable, Alertable, BackgroundBlurrable {
 
     // MARK: IBOutlets
 
@@ -23,7 +22,8 @@ final class StringsViewController: UIViewController, StoryboardInstantiable, Loc
     private var dataSource: UICollectionViewDiffableDataSource<CollectionSection, StringViewModel>!
 
     private(set) var subscriptions = Set<AnyCancellable>()
-    let localizer = Localizer()
+
+    private  let designLibrary: DesignLibraryProvider = DesignLibrary()
 
     // MARK: ViewModel
 
@@ -34,11 +34,9 @@ final class StringsViewController: UIViewController, StoryboardInstantiable, Loc
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = localizer.get(LocalizationKeys.menuStrings)
+        self.backgroundView.image = UIImage(named: designLibrary.miscellaneous.asset.stringsBackground)
+        self.title = Localization.Menu.strings
         self.navigationItem.rightBarButtonItems = setupRightBarButtonItem()
-
-        self.navigationController?.navigationBar.scrollEdgeAppearance = Style.getUINavigationBarAppearance()
-        self.navigationController?.navigationBar.standardAppearance = Style.getUINavigationBarAppearance()
 
         self.setupCollectionsView()
         self.configureDataSource()
@@ -55,7 +53,7 @@ final class StringsViewController: UIViewController, StoryboardInstantiable, Loc
 
     private func setupRightBarButtonItem() -> [UIBarButtonItem] {
         let buttons = [
-            UIBarButtonItem(title: "Add String", style: .plain, target: self, action: #selector(didTapOnAddStringButton))
+            UIBarButtonItem(title: Localization.stringsAddString, style: .plain, target: self, action: #selector(didTapOnAddStringButton))
         ]
         return buttons
     }
@@ -123,18 +121,18 @@ final class StringsViewController: UIViewController, StoryboardInstantiable, Loc
             self.viewModel.toStringForm(index: indexPath.item)
             completion(true)
         }
-        editAction.setTitle(title: "Edit", font: Fonts.get(.regular, size: .normal))
-        editAction.backgroundColor = Colors.primaryColor
+        editAction.setTitle(title: "Edit", font: designLibrary.font.textNormalSize.regular)
+        editAction.backgroundColor = designLibrary.color.background.editAction
 
         let deleteAction = UIContextualAction(style: .destructive, title: nil) {  (_, _, completion) in
-            self.showAlert(title: self.localizer.get(LocalizationKeys.genericAlertTitle),
+            self.showAlert(title: Localization.genericAlertTitle,
                            message: "Are you sure to delete the string?",
                            confirmAction: { _ in
                 self.viewModel.deleteString(forIndex: indexPath.item)
                 completion(true)
             })
         }
-        deleteAction.setTitle(title: "Delete", font: Fonts.get(.regular, size: .normal))
+        deleteAction.setTitle(title: "Delete", font: designLibrary.font.textNormalSize.regular)
 
         return UISwipeActionsConfiguration(actions: [editAction, deleteAction])
     }
@@ -144,7 +142,7 @@ final class StringsViewController: UIViewController, StoryboardInstantiable, Loc
         snapshot.appendSections([.main])
         snapshot.appendItems(self.viewModel.getStringViewModels())
         if snapshot.itemIdentifiers.isEmpty {
-            self.collectionView.setEmptyMessage("No Strings saved")
+            self.collectionView.setEmptyMessage("No Strings saved", font: designLibrary.font.textNormalSize.bold)
         } else {
             self.collectionView.restore()
         }

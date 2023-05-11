@@ -18,7 +18,9 @@ final class RacketContentView: UIView, UIContentView {
     @IBOutlet private var racketInfoLabel: UILabel!
     @IBOutlet private var stringsCounterLabel: UILabel!
 
-    // MARK: View Management
+    // MARK: Properties
+
+    private var designLibrary: DesignLibraryProvider = DesignLibrary()
 
     private var currentConfiguration: RacketViewModel!
 
@@ -29,6 +31,8 @@ final class RacketContentView: UIView, UIContentView {
             apply(configuration: newConfig)
         }
     }
+
+    // MARK: Methods
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -56,14 +60,14 @@ final class RacketContentView: UIView, UIContentView {
     }
 
     private func setupAppearance() {
-        racketTitleLabel.font = Fonts.get(.regular, size: .extraLarge)
-        racketTitleLabel.textColor = Colors.lightColor
+        racketTitleLabel.font = designLibrary.font.textNormalSize.regular
+        racketTitleLabel.textColor = designLibrary.color.text.light
 
-        racketInfoLabel.font = Fonts.get(.regular, size: .normal)
-        racketInfoLabel.textColor = Colors.lightColor
+        racketInfoLabel.font = designLibrary.font.textNormalSize.regular
+        racketInfoLabel.textColor = designLibrary.color.text.light
 
-        stringsCounterLabel.font = Fonts.get(.light, size: .normal)
-        stringsCounterLabel.textColor = Colors.lightColor
+        stringsCounterLabel.font = designLibrary.font.textNormalSize.light
+        stringsCounterLabel.textColor = designLibrary.color.text.light
         stringsCounterLabel.text = ""
     }
 

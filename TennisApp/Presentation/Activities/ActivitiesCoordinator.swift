@@ -30,7 +30,10 @@ final class ActivitiesCoordinator: TabBarItemCoordinator {
         self.container = container
         self.pagingViewController = PagingViewController()
         self.activitiesContainerViewController = ActivitiesContainerViewController.instantiateViewController()
-        self.navigationController = UINavigationController(rootViewController: activitiesContainerViewController)
+        self.navigationController = NavigationControllerBuilder(rootViewController: activitiesContainerViewController)
+            .setStandardAppearance()
+            .setScrollEdgeAppearance()
+            .build()
     }
 
     func start() -> UIViewController {
@@ -53,12 +56,13 @@ extension ActivitiesCoordinator: PagingViewControllerDataSource {
     func pagingViewController(_ pagingViewController: PagingViewController, viewControllerAt index: Int) -> UIViewController {
         switch Activities(rawValue: index) {
         case .match:
-            return MatchesCoordinator().start()
+            return MatchesCoordinator(navigationController: self.navigationController).start()
         case .practice:
-            return PracticesCoordinator().start()
+            return PracticesCoordinator(navigationController: self.navigationController).start()
         case .workout:
-            return WorkoutsCoordinator().start()
+            return WorkoutsCoordinator(navigationController: self.navigationController).start()
         case .none:
+            assertionFailure()
             return UIViewController()
         }
     }

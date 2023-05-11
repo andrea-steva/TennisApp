@@ -16,11 +16,11 @@ enum Activities: Int, CaseIterable {
     var title: String {
         switch self {
         case .match:
-            return "Matches"
+            return Localization.match
         case .practice:
-            return "Practice"
+            return Localization.practice
         case .workout:
-            return "Workout"
+            return Localization.workout
         }
     }
 }

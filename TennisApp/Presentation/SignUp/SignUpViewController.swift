@@ -10,7 +10,7 @@ import Combine
 import UIKit
 
 final class SignUpViewController: UIViewController, Bindable, StoryboardInstantiable,
-                                  BackgroundBlurrable, Localizable, LoadingIndicator, Alertable {
+                                  BackgroundBlurrable, LoadingIndicator, Alertable {
 
     // MARK: IBOutlets
 
@@ -23,14 +23,14 @@ final class SignUpViewController: UIViewController, Bindable, StoryboardInstanti
 
     @IBOutlet private var signUpButton: UIButton! {
         didSet {
-            signUpButton.layer.cornerRadius = 5.0
+            signUpButton.layer.cornerRadius = designLibrary.miscellaneous.cornerRadius.button
             signUpButton.layer.masksToBounds = true
 
             signUpButton.backgroundColor = UIColor.clear
-            signUpButton.setBackgroundImage(UIImage.imageWithColor(Colors.primaryColor), for: .normal)
-            signUpButton.setBackgroundImage(UIImage.imageWithColor(Colors.primaryPressedColor), for: .highlighted)
-            signUpButton.setBackgroundImage(UIImage.imageWithColor(Colors.primaryPressedColor), for: .disabled)
-            signUpButton.setTitle(localizer.get(LocalizationKeys.signupButton), for: .normal)
+            signUpButton.setBackgroundImage(UIImage.imageWithColor(designLibrary.color.background.buttonPrimary), for: .normal)
+            signUpButton.setBackgroundImage(UIImage.imageWithColor(designLibrary.color.background.buttonPressed), for: .highlighted)
+            signUpButton.setBackgroundImage(UIImage.imageWithColor(designLibrary.color.background.buttonDisabled), for: .disabled)
+            signUpButton.setTitle(Localization.signupButton, for: .normal)
         }
     }
 
@@ -38,7 +38,8 @@ final class SignUpViewController: UIViewController, Bindable, StoryboardInstanti
 
     var loadingIndicator: UIActivityIndicatorView?
     var subscriptions = Set<AnyCancellable>()
-    let localizer = Localizer()
+
+    private let designLibrary: DesignLibraryProvider = DesignLibrary()
 
     // MARK: ViewModel
 
@@ -50,6 +51,8 @@ final class SignUpViewController: UIViewController, Bindable, StoryboardInstanti
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.backgroundView.image = UIImage(named: designLibrary.miscellaneous.asset.signUpBackground)
 
         self.setBackgroundBlurEffect()
         self.setupBindinds()

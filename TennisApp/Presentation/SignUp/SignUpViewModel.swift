@@ -85,6 +85,7 @@ final class SignUpViewModel: SignUpViewModelType {
             self.isLoadingSubject.send(false)
             switch result {
             case .success(let success):
+                self.coordinatorDelegate?.signUpViewModelRegisterUser(viewModel: self)
                 Log.info("User created with \(success) identifier \(user.identifier)")
 
             case .failure(let error):
