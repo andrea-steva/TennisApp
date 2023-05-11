@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_background_3" translatesAutoresizingMaskIntoConstraints="NO" id="2kW-Nq-tTR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2kW-Nq-tTR">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="UXn-x0-mfE">
@@ -112,7 +112,4 @@
             <point key="canvasLocation" x="568.79999999999995" y="274.8768472906404"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="menu_background_3" width="312.66665649414062" height="555.66668701171875"/>
-    </resources>
 </document>

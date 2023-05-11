@@ -9,7 +9,7 @@
 import UIKit
 
 class StatsViewController: UIViewController, StoryboardInstantiable,
-                           BackgroundBlurrable, Localizable {
+                           BackgroundBlurrable {
 
     // MARK: IBOutlets
 
@@ -18,7 +18,7 @@ class StatsViewController: UIViewController, StoryboardInstantiable,
 
     // MARK: Properties
 
-    let localizer = Localizer()
+    private let designLibrary: DesignLibraryProvider = DesignLibrary()
 
     // MARK: ViewModel
 
@@ -29,9 +29,8 @@ class StatsViewController: UIViewController, StoryboardInstantiable,
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = localizer.get(LocalizationKeys.menuStats)
-        self.navigationController?.navigationBar.scrollEdgeAppearance = Style.getUINavigationBarAppearance()
-        self.navigationController?.navigationBar.standardAppearance = Style.getUINavigationBarAppearance()
+        self.backgroundView.image = UIImage(named: designLibrary.miscellaneous.asset.statsBackground)
+        self.title = Localization.Menu.stats
 
         self.setBackgroundBlurEffect()
     }

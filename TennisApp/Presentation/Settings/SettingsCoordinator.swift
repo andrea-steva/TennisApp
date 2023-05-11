@@ -28,7 +28,10 @@ final class SettingsCoordinator: TabBarItemCoordinator,
     init(container: SettingsDIContainer) {
         self.container = container
         self.settingsViewController = SettingsViewController.instantiateViewController()
-        self.navigationController = UINavigationController(rootViewController: settingsViewController)
+        self.navigationController = NavigationControllerBuilder(rootViewController: settingsViewController)
+            .setStandardAppearance()
+            .setScrollEdgeAppearance()
+            .build()
     }
 
     func start() -> UIViewController {

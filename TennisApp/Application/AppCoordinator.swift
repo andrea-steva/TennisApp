@@ -22,17 +22,17 @@ final class AppCoordinator: Coordinator,
     var loginCoordinator: LoginCoordinator?
     var signUpCoordinator: SignUpCoordinator?
 
-    let appDIContainer = AppDIContainer()
-    let localizer = Localizer()
+    private let appDIContainer = AppDIContainer()
+    private let designLibrary: DesignLibraryProvider = DesignLibrary()
 
     private let window: UIWindow
     private let tabBarController: UITabBarController
 
     private let navigationController: UINavigationController = {
-        let navigationController = UINavigationController()
-        navigationController.navigationBar.isTranslucent = true
-        navigationController.setNavigationBarHidden(true, animated: false)
-        return navigationController
+        NavigationControllerBuilder()
+            .setNavigationBar(isTranslucent: true)
+            .setNavigationBarHidden(true, animated: false)
+            .build() as! UINavigationController
     }()
 
     // MARK: Tab bar item coordinators
@@ -51,6 +51,9 @@ final class AppCoordinator: Coordinator,
     }
 
     func start() {
+        UITabBarItem.customTabBarItemAppearance(font: designLibrary.font.tabBarItemFont.standard)
+        UINavigationBar.customNavigationBarAppearance(tintColor: designLibrary.color.text.brandPrimary)
+
         DefaultUserPrimaryFetchUseCase(usersRepository:
                                         DefaultUsersRepository(usersLocalStorage: UsersCoreDataStorage())).execute { result in
             switch result {
@@ -86,28 +89,28 @@ final class AppCoordinator: Coordinator,
     private func configureTabBarControllers() {
         let activitiesViewController = activitiesCoordinator.start()
         activitiesCoordinator.delegate = self
-        activitiesViewController.tabBarItem = UITabBarItem(title: localizer.get(TabBarItem.activities.title),
-                                                           image: UIImage(systemName: TabBarItem.activities.iconName), tag: 0)
+        activitiesViewController.tabBarItem = UITabBarItem(title: Localization.Menu.activities,
+                                                           image: UIImage(systemName: designLibrary.symbol.tabBar.activities), tag: 0)
 
         let racketsViewController = racketsCoordinator.start()
         racketsCoordinator.delegate = self
-        racketsViewController.tabBarItem = UITabBarItem(title: localizer.get(TabBarItem.rackets.title),
-                                                        image: UIImage(systemName: TabBarItem.rackets.iconName), tag: 1)
+        racketsViewController.tabBarItem = UITabBarItem(title: Localization.Menu.rackets,
+                                                        image: UIImage(systemName: designLibrary.symbol.tabBar.rackets), tag: 1)
 
         let statsViewController = statsCoordinator.start()
         statsCoordinator.delegate = self
-        statsViewController.tabBarItem = UITabBarItem(title: localizer.get(TabBarItem.stats.title),
-                                                      image: UIImage(systemName: TabBarItem.stats.iconName), tag: 2)
+        statsViewController.tabBarItem = UITabBarItem(title: Localization.Menu.stats,
+                                                      image: UIImage(systemName: designLibrary.symbol.tabBar.stats), tag: 2)
 
         let profileViewController = profileCoordinator.start()
         profileCoordinator.delegate = self
-        profileViewController.tabBarItem = UITabBarItem(title: localizer.get(TabBarItem.profile.title),
-                                                        image: UIImage(systemName: TabBarItem.profile.iconName), tag: 3)
+        profileViewController.tabBarItem = UITabBarItem(title: Localization.Menu.profile,
+                                                        image: UIImage(systemName: designLibrary.symbol.tabBar.profile), tag: 3)
 
         let settingsViewController = settingsCoordinator.start()
         settingsCoordinator.delegate = self
-        settingsViewController.tabBarItem = UITabBarItem(title: localizer.get(TabBarItem.settings.title),
-                                                         image: UIImage(systemName: TabBarItem.settings.iconName), tag: 3)
+        settingsViewController.tabBarItem = UITabBarItem(title: Localization.Menu.settings,
+                                                         image: UIImage(systemName: designLibrary.symbol.tabBar.settings), tag: 3)
 
         // To fix dark mode on tab bar
         if #available(iOS 15, *) {
@@ -115,7 +118,7 @@ final class AppCoordinator: Coordinator,
             tabBarController.tabBar.standardAppearance = tabBarAppearance
             tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
         }
-        tabBarController.tabBar.tintColor = Colors.primaryColor
+        tabBarController.tabBar.tintColor = designLibrary.color.text.brandPrimary
         tabBarController.viewControllers = [activitiesViewController,
                                             racketsViewController,
                                             statsViewController,

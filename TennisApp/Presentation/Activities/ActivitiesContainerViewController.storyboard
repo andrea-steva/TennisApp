@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="court_clay" translatesAutoresizingMaskIntoConstraints="NO" id="em1-90-SAS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="em1-90-SAS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
                             </imageView>
                         </subviews>
@@ -42,7 +42,4 @@
             <point key="canvasLocation" x="484" y="73"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="court_clay" width="833.33331298828125" height="555.66668701171875"/>
-    </resources>
 </document>

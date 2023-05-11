@@ -12,6 +12,8 @@ import UIKit
 
 struct RacketForm {
 
+    private let designLibrary: DesignLibraryProvider = DesignLibrary()
+
     struct Keys {
         static let sport = "sport"
         static let manufacter = "manufacter"
@@ -31,13 +33,15 @@ struct RacketForm {
             cell.accessoryView?.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         }
 
+        let labelFont = designLibrary.font.textNormalSize.regular
+
         let form = Form()
 
         form +++ Section("Your racket information")
         <<< SegmentedRow<String>(Self.Keys.sport) {
             $0.title = "Sport"
             $0.cellSetup { cell, _ in
-                cell.textLabel?.font = Fonts.get(.regular, size: .normal)
+                cell.textLabel?.font = labelFont
             }
             $0.options = Sport.allCases.map { $0.rawValue.capitalizeFirstLetter }
             $0.value = racket?.sport.rawValue ?? ""
@@ -47,7 +51,7 @@ struct RacketForm {
             $0.title = "Manufacter"
             $0.add(rule: RuleRequired())
             $0.cellSetup { cell, _ in
-                cell.textLabel?.font = Fonts.get(.regular, size: .normal)
+                cell.textLabel?.font = labelFont
             }
             $0.options = RacketBrand.allCases.map { $0.rawValue }
             $0.value = racket?.manufacter ?? ""
@@ -55,7 +59,8 @@ struct RacketForm {
         <<< TextRow(Self.Keys.model) {
             $0.add(rule: RuleRequired())
             $0.cellSetup { cell, _ in
-                cell.textLabel?.font = Fonts.get(.regular, size: .normal)
+                cell.textLabel?.font = labelFont
+                cell.titleLabel?.font = labelFont
             }
             $0.title = "Model"
             $0.placeholder = "ProStaff 97S"
@@ -65,7 +70,7 @@ struct RacketForm {
             $0.selectorTitle = "Grip Size"
             $0.title = "Grip Size"
             $0.cellSetup { cell, _ in
-                cell.textLabel?.font = Fonts.get(.regular, size: .normal)
+                cell.textLabel?.font = labelFont
             }
             $0.options = GripSize.allCases.map { $0.rawValue }
             $0.value = racket?.gripSize.rawValue ?? ""
@@ -73,7 +78,8 @@ struct RacketForm {
         <<< IntRow(Self.Keys.weight) {
             $0.title = "Weight"
             $0.cellSetup { cell, _ in
-                cell.textLabel?.font = Fonts.get(.regular, size: .normal)
+                cell.textLabel?.font = labelFont
+                cell.titleLabel?.font = labelFont
             }
             $0.placeholder = "0"
             $0.value = Int(racket?.weight ?? 0)
@@ -81,7 +87,7 @@ struct RacketForm {
         <<< DateRow(Self.Keys.purchaseDate) {
             $0.add(rule: RuleRequired())
             $0.cellSetup { cell, _ in
-                cell.textLabel?.font = Fonts.get(.regular, size: .normal)
+                cell.textLabel?.font = labelFont
             }
             $0.title = "Purchase Date"
             $0.value = racket?.purchaseDate ?? Date()
@@ -89,21 +95,22 @@ struct RacketForm {
         <<< ImageRow(Self.Keys.image) {
             $0.title = "Image"
             $0.cellSetup { cell, _ in
-                cell.textLabel?.font = Fonts.get(.regular, size: .normal)
+                cell.textLabel?.font = labelFont
             }
             $0.value = racket?.image
         }
         <<< DecimalRow(Self.Keys.price) {
             $0.title = "Price"
             $0.cellSetup { cell, _ in
-                cell.textLabel?.font = Fonts.get(.regular, size: .normal)
+                cell.textLabel?.font = labelFont
+                cell.titleLabel?.font = labelFont
             }
             $0.value = Double(racket?.price ?? 0)
         }
         <<< SwitchRow(Self.Keys.inUse) {
             $0.title = "In use"
             $0.cellSetup { cell, _ in
-                cell.textLabel?.font = Fonts.get(.regular, size: .normal)
+                cell.textLabel?.font = labelFont
             }
         }
 

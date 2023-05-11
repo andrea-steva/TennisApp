@@ -28,7 +28,10 @@ final class ProfileCoordinator: TabBarItemCoordinator,
     init(container: ProfileDIContainer) {
         self.container = container
         self.profileViewController = ProfileViewController.instantiateViewController()
-        self.navigationController = UINavigationController(rootViewController: profileViewController)
+        self.navigationController = NavigationControllerBuilder(rootViewController: profileViewController)
+            .setStandardAppearance()
+            .setScrollEdgeAppearance()
+            .build()
     }
 
     func start() -> UIViewController {

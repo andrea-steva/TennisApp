@@ -10,7 +10,7 @@ import UIKit
 
 final class SettingsViewController: UIViewController, StoryboardInstantiable,
                                     UITableViewDataSource, UITableViewDelegate,
-                                    BackgroundBlurrable, Localizable, Alertable {
+                                    BackgroundBlurrable, Alertable {
 
     // MARK: IBActions
 
@@ -20,7 +20,7 @@ final class SettingsViewController: UIViewController, StoryboardInstantiable,
 
     // MARK: Properties
 
-    let localizer = Localizer()
+    private  let designLibrary: DesignLibraryProvider = DesignLibrary()
 
     // MARK: ViewModel
 
@@ -31,9 +31,8 @@ final class SettingsViewController: UIViewController, StoryboardInstantiable,
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = localizer.get(LocalizationKeys.menuSettings)
-        self.navigationController?.navigationBar.scrollEdgeAppearance = Style.getUINavigationBarAppearance()
-        self.navigationController?.navigationBar.standardAppearance = Style.getUINavigationBarAppearance()
+        self.backgroundView.image = UIImage(named: designLibrary.miscellaneous.asset.settingsBackground)
+        self.title = Localization.Menu.settings
 
         self.setBackgroundBlurEffect()
 
@@ -48,8 +47,8 @@ final class SettingsViewController: UIViewController, StoryboardInstantiable,
         let footerLabel = UILabel(frame: CGRect(x: 20, y: 0, width: footerView.frame.width, height: 40))
         footerLabel.numberOfLines = 2
         footerLabel.backgroundColor = UIColor.clear
-        footerLabel.textColor = Colors.lightColor
-        footerLabel.font = Fonts.get(.light, size: .normal)
+        footerLabel.textColor = designLibrary.color.text.light
+        footerLabel.font = designLibrary.font.textNormalSize.light
         footerLabel.text = viewModel.getFooterText()
         footerView.addSubview(footerLabel)
         return footerView
@@ -93,7 +92,7 @@ final class SettingsViewController: UIViewController, StoryboardInstantiable,
     // MARK: Logout
 
     private func performLogout() {
-        self.showAlert(title: localizer.get(LocalizationKeys.genericAlertTitle),
+        self.showAlert(title: Localization.genericAlertTitle,
                        message: "Are you sure to want to logout?",
                        confirmAction: { _ in
             self.viewModel.performLogout(completion: nil)

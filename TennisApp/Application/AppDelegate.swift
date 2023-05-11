@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mainCoordinator = coordinator
 
         Log.initialize()
-        Style.setup()
 
         return true
     }

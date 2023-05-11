@@ -17,17 +17,23 @@ final class ProfileHeaderView: UIView {
     @IBOutlet private var userImageView: UIImageView! {
         didSet {
             userImageView.layer.cornerRadius = 20.0
-            userImageView.layer.borderColor = Colors.lightColor.cgColor
+            userImageView.layer.borderColor = designLibrary.color.text.light.cgColor
             userImageView.layer.borderWidth = 5.0
         }
     }
 
     @IBOutlet private var userNameLabel: UILabel!
 
+    // MARK: Properties
+
+    private let designLibrary: DesignLibraryProvider = DesignLibrary()
+
     // MARK: Methods
 
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        backgroundImageView.image = UIImage(named: designLibrary.miscellaneous.asset.racketsBackground)
     }
 
     // MARK: Setup cell

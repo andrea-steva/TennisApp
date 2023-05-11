@@ -17,7 +17,7 @@ protocol Bindable: AnyObject {
     func bindAlertMessage()
 }
 
-extension Bindable where Self: UIViewController, Self: Localizable, Self: LoadingIndicator, Self: Alertable {
+extension Bindable where Self: UIViewController, Self: LoadingIndicator, Self: Alertable {
 
     func bindLoader() {
         self.getViewModel().isLoading
@@ -36,7 +36,7 @@ extension Bindable where Self: UIViewController, Self: Localizable, Self: Loadin
         self.getViewModel().errorMessage
             .sink { [weak self] message in
                 guard let self else { return }
-                self.showAlert(title: self.localizer.get(LocalizationKeys.genericAlertTitle),
+                self.showAlert(title: "Alert",
                                message: message)
             }
             .store(in: &subscriptions)

@@ -19,15 +19,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="court_grass" translatesAutoresizingMaskIntoConstraints="NO" id="QOm-oZ-szW">
-                                <rect key="frame" x="0.0" y="50" width="375" height="728"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QOm-oZ-szW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="QOm-oZ-szW" firstAttribute="leading" secondItem="UNj-Zr-ug7" secondAttribute="leading" id="EPQ-bL-t7B"/>
                             <constraint firstAttribute="trailing" secondItem="QOm-oZ-szW" secondAttribute="trailing" id="UuU-ti-e34"/>
-                            <constraint firstItem="QOm-oZ-szW" firstAttribute="top" secondItem="GBt-dA-GGM" secondAttribute="bottom" id="al9-wi-0XV"/>
+                            <constraint firstItem="QOm-oZ-szW" firstAttribute="top" secondItem="UNj-Zr-ug7" secondAttribute="top" id="al9-wi-0XV"/>
                             <constraint firstItem="SR2-uW-6qq" firstAttribute="top" secondItem="QOm-oZ-szW" secondAttribute="bottom" id="dsy-B3-oMm"/>
                         </constraints>
                     </view>
@@ -41,7 +41,4 @@
             <point key="canvasLocation" x="-263" y="309"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="court_grass" width="466.66665649414062" height="300"/>
-    </resources>
 </document>

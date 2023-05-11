@@ -14,13 +14,7 @@ final class MatchesViewModel {
 
     // MARK: Data Source
 
-    private var matches: [Match] = [ Match(identifier: "1",
-                                           name: "",
-                                           notes: "",
-                                           place: "",
-                                           timeSpent: 1,
-                                           date: nil, playerNameA: "", playerNameB: "", matchType: .single, user: nil, scores: [])
-    ]
+    private var matches: [Match] = []
 
     // MARK: Output
 

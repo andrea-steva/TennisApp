@@ -14,17 +14,21 @@ final class SettingsTableViewCell: UITableViewCell {
 
     static let reuseIdentifier = String(describing: SettingsTableViewCell.self)
 
+    // MARK: Properties
+
+    private let designLibrary: DesignLibraryProvider = DesignLibrary()
+
     // MARK: View Management
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        textLabel?.font = Fonts.get(.regular, size: .normal)
+        textLabel?.font = designLibrary.font.textNormalSize.regular
     }
 
     func setup(settings: SettingsItem) {
         imageView?.image = UIImage(systemName: settings.iconName)
-        imageView?.tintColor = Colors.primaryColor
+        imageView?.tintColor = designLibrary.color.text.brandPrimary
         textLabel?.text = settings.title
     }
 }

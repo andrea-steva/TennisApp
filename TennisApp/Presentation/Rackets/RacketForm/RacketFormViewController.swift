@@ -14,8 +14,6 @@ final class RacketFormViewController: FormViewController, StoryboardInstantiable
 
     // MARK: Properties
 
-    let localizer = Localizer()
-
     // MARK: ViewModel
 
     var viewModel: RacketFormViewModel!
@@ -25,10 +23,7 @@ final class RacketFormViewController: FormViewController, StoryboardInstantiable
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = localizer.get(LocalizationKeys.racketsAddRacket)
-
-        self.navigationController?.navigationBar.scrollEdgeAppearance = Style.getUINavigationBarAppearance()
-        self.navigationController?.navigationBar.standardAppearance = Style.getUINavigationBarAppearance()
+        self.title = Localization.racketsAddRacket
 
         createForm()
     }

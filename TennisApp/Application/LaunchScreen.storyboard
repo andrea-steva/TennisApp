@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Nmx-LZ-Gd2">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="Nmx-LZ-Gd2">
                                 <rect key="frame" x="137.66666666666666" y="356" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="L4a-YX-m8v"/>
@@ -40,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="60" height="60"/>
+        <image name="launchScreen" width="60" height="60"/>
     </resources>
 </document>

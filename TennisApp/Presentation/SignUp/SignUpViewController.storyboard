@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_background_3" translatesAutoresizingMaskIntoConstraints="NO" id="PNq-xN-3qp">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PNq-xN-3qp">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="AQ0-MF-sCW">
@@ -103,7 +103,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="PNq-xN-3qp" secondAttribute="bottom" id="2Gz-x4-IKb"/>
-                            <constraint firstItem="AQ0-MF-sCW" firstAttribute="top" secondItem="tZ1-gH-R63" secondAttribute="bottom" id="8vF-WF-D93"/>
+                            <constraint firstItem="AQ0-MF-sCW" firstAttribute="top" secondItem="FlY-7G-P9f" secondAttribute="top" id="8vF-WF-D93"/>
                             <constraint firstItem="PNq-xN-3qp" firstAttribute="top" secondItem="2Qe-Xs-4Tr" secondAttribute="top" id="MBJ-Sc-z8x"/>
                             <constraint firstItem="AQ0-MF-sCW" firstAttribute="trailing" secondItem="FlY-7G-P9f" secondAttribute="trailing" id="YDr-Si-1dR"/>
                             <constraint firstItem="AQ0-MF-sCW" firstAttribute="leading" secondItem="FlY-7G-P9f" secondAttribute="leading" id="i19-Ne-wYR"/>
@@ -126,7 +126,4 @@
             <point key="canvasLocation" x="338.39999999999998" y="62.068965517241381"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="menu_background_3" width="312.66665649414062" height="555.66668701171875"/>
-    </resources>
 </document>

@@ -19,14 +19,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="court_hard_b" translatesAutoresizingMaskIntoConstraints="NO" id="OWV-jg-3W4">
-                                <rect key="frame" x="0.0" y="94" width="375" height="684"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OWV-jg-3W4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="OWV-jg-3W4" secondAttribute="trailing" id="04T-8i-99j"/>
-                            <constraint firstItem="OWV-jg-3W4" firstAttribute="top" secondItem="U6f-JD-Aq8" secondAttribute="bottom" id="GQa-Vf-FNn"/>
+                            <constraint firstItem="OWV-jg-3W4" firstAttribute="top" secondItem="ob6-TS-Jwd" secondAttribute="top" id="4Ca-qT-H7Y"/>
                             <constraint firstItem="DCd-1o-4Z4" firstAttribute="top" secondItem="OWV-jg-3W4" secondAttribute="bottom" id="VhO-gB-aiD"/>
                             <constraint firstItem="OWV-jg-3W4" firstAttribute="leading" secondItem="ob6-TS-Jwd" secondAttribute="leading" id="h6v-Zo-pwr"/>
                         </constraints>
@@ -42,7 +42,4 @@
             <point key="canvasLocation" x="631.20000000000005" y="361.33004926108379"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="court_hard_b" width="533.33331298828125" height="300"/>
-    </resources>
 </document>

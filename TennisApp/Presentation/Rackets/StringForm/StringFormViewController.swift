@@ -14,8 +14,6 @@ final class StringFormViewController: FormViewController, StoryboardInstantiable
 
     // MARK: Properties
 
-    let localizer = Localizer()
-
     // MARK: ViewModel
 
     var viewModel: StringFormViewModelType!
@@ -25,9 +23,7 @@ final class StringFormViewController: FormViewController, StoryboardInstantiable
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = localizer.get(LocalizationKeys.stringsAddString)
-        self.navigationController?.navigationBar.scrollEdgeAppearance = Style.getUINavigationBarAppearance()
-        self.navigationController?.navigationBar.standardAppearance = Style.getUINavigationBarAppearance()
+        self.title = Localization.stringsAddString
 
         createForm()
     }

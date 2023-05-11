@@ -23,18 +23,20 @@ brew install swiftlint
 
 ## 🔨 TODO / Improvements
 
-+ [] Implementing Modern Collection Views (https://swiftsenpai.com/development/uicollectionview-list-basic/) instead of UITableView
++ [] Add forms for activities
++ [] Complete SignUp page
 + [] Add DTO to decouple domain model from CoreDataStorage
 + [] Entity relationships
-+ [] Check forms (Eureka)
 + [] Add builder to convert form to Model (formValues -> ´Rackets´)
-+ [] Use [Modern cell configuration](https://developer.apple.com/videos/play/wwdc2020/10027/)
-+ [] See https://github.com/AvdLee/StockAnalyzerApp for Terms and Privacy
 + [] Convert repository with async/await
++ [] See https://github.com/AvdLee/StockAnalyzerApp for Terms and Privacy
++ [~] Implementing Modern Collection Views (https://swiftsenpai.com/development/uicollectionview-list-basic/) instead of UITableView
++ [~] Use [Modern cell configuration](https://developer.apple.com/videos/play/wwdc2020/10027/)
 + [~] Create repositories
-+ [X~] Create UseCases
-+ [~] CRUD operation for User
-+ [~] Check Utilities folder
++ [~] Create UseCases
++ [~] CRUD operation for User, Match and others
++ [X] Add Design Library
++ [X] Refactor localization
 + [X] Add DI containers
 + [X] Create domain model
 + [X] Rename RealmStorage protocols

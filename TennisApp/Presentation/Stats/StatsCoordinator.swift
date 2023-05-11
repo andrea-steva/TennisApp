@@ -28,7 +28,10 @@ final class StatsCoordinator: TabBarItemCoordinator,
     init(container: StatsDIContainer) {
         self.container = container
         self.statsViewController = StatsViewController.instantiateViewController()
-        self.navigationController = UINavigationController(rootViewController: statsViewController)
+        self.navigationController = NavigationControllerBuilder(rootViewController: statsViewController)
+            .setStandardAppearance()
+            .setScrollEdgeAppearance()
+            .build()
     }
 
     func start() -> UIViewController {

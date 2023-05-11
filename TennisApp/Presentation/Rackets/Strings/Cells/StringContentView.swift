@@ -17,6 +17,8 @@ final class StringContentView: UIView, UIContentView {
 
     // MARK: View Management
 
+    private let designLibrary: DesignLibraryProvider = DesignLibrary()
+
     private var currentConfiguration: StringViewModel!
 
     var configuration: UIContentConfiguration {
@@ -53,8 +55,8 @@ final class StringContentView: UIView, UIContentView {
     }
 
     private func setupAppearance() {
-        stringNameLabel.font = Fonts.get(.regular, size: .normal)
-        stringNameLabel.textColor = Colors.lightColor
+        stringNameLabel.font = designLibrary.font.textNormalSize.regular
+        stringNameLabel.textColor = designLibrary.color.text.light
     }
 
     private func apply(configuration: StringViewModel) {

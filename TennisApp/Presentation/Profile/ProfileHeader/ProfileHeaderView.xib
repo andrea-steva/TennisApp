@@ -13,7 +13,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="237"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="court_hard_g" translatesAutoresizingMaskIntoConstraints="NO" id="aMv-3S-oxx">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aMv-3S-oxx">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="237"/>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_gray" translatesAutoresizingMaskIntoConstraints="NO" id="IDV-kH-KIc">
@@ -63,7 +63,6 @@
         </view>
     </objects>
     <resources>
-        <image name="court_hard_g" width="533.5" height="333.5"/>
         <image name="placeholder_gray" width="266" height="266"/>
     </resources>
 </document>

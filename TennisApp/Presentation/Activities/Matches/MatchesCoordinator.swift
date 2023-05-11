@@ -12,14 +12,14 @@ final class MatchesCoordinator: TabBarItemCoordinator {
 
     // MARK: Properties
 
-    private var matchesViewController: MatchesViewController
     private let navigationController: UINavigationControllerType
+    private let matchesViewController: MatchesViewController
 
     // MARK: Coordinator
 
-    init() {
+    init(navigationController: UINavigationControllerType) {
+        self.navigationController = navigationController
         self.matchesViewController = MatchesViewController.instantiateViewController()
-        self.navigationController = UINavigationController(rootViewController: matchesViewController)
     }
 
     func start() -> UIViewController {
