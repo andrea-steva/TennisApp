@@ -27,7 +27,7 @@ final class ActivitiesContainerViewController: UIViewController, StoryboardInsta
         super.viewDidLoad()
 
         self.backgroundView.image = UIImage(named: designLibrary.miscellaneous.asset.activitiesBackground)
-        self.title = Localization.Menu.activities
+        self.title = Localization.TabBar.activities
 
         setBackgroundBlurEffect()
         setupPagingViewController()

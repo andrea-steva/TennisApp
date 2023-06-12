@@ -30,11 +30,11 @@ brew install swiftlint
 + [] Add builder to convert form to Model (formValues -> ´Rackets´)
 + [] Convert repository with async/await
 + [] See https://github.com/AvdLee/StockAnalyzerApp for Terms and Privacy
-+ [~] Implementing Modern Collection Views (https://swiftsenpai.com/development/uicollectionview-list-basic/) instead of UITableView
 + [~] Use [Modern cell configuration](https://developer.apple.com/videos/play/wwdc2020/10027/)
 + [~] Create repositories
 + [~] Create UseCases
 + [~] CRUD operation for User, Match and others
++ [X] Implementing Modern Collection Views (https://swiftsenpai.com/development/uicollectionview-list-basic/) instead of UITableView
 + [X] Add Design Library
 + [X] Refactor localization
 + [X] Add DI containers

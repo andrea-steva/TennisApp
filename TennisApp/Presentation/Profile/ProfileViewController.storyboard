@@ -22,33 +22,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KjG-LL-BLh">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9sv-fZ-nOg">
-                                <rect key="frame" x="0.0" y="50" width="375" height="728"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="profile_cell" id="YAI-T9-Tb8">
-                                        <rect key="frame" x="0.0" y="50" width="375" height="150"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YAI-T9-Tb8" id="l5O-lX-F31">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="8k1-7N-qs7" id="HMM-XH-ubR"/>
-                                    <outlet property="delegate" destination="8k1-7N-qs7" id="aTM-Cl-MLt"/>
-                                </connections>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="KjG-LL-BLh" firstAttribute="leading" secondItem="Zs2-h5-Jwv" secondAttribute="leading" id="6q7-9z-8kf"/>
-                            <constraint firstItem="aCI-cG-yZH" firstAttribute="top" secondItem="9sv-fZ-nOg" secondAttribute="bottom" id="AUz-FW-T1Q"/>
-                            <constraint firstItem="9sv-fZ-nOg" firstAttribute="top" secondItem="kdE-Hv-PBH" secondAttribute="bottom" id="Avz-Mc-lzB"/>
                             <constraint firstItem="KjG-LL-BLh" firstAttribute="top" secondItem="Zs2-h5-Jwv" secondAttribute="top" id="KQc-GB-XJj"/>
-                            <constraint firstItem="9sv-fZ-nOg" firstAttribute="leading" secondItem="Zs2-h5-Jwv" secondAttribute="leading" id="Ngc-oO-fk5"/>
-                            <constraint firstAttribute="trailing" secondItem="9sv-fZ-nOg" secondAttribute="trailing" id="ctd-LH-Qae"/>
                             <constraint firstAttribute="trailing" secondItem="KjG-LL-BLh" secondAttribute="trailing" id="odm-oy-iRg"/>
                             <constraint firstItem="aCI-cG-yZH" firstAttribute="top" secondItem="KjG-LL-BLh" secondAttribute="bottom" id="tYg-ky-J0l"/>
                         </constraints>
@@ -56,7 +34,6 @@
                     <navigationItem key="navigationItem" id="NCc-Fi-Lzq"/>
                     <connections>
                         <outlet property="backgroundView" destination="KjG-LL-BLh" id="LIK-pm-EFg"/>
-                        <outlet property="tableView" destination="9sv-fZ-nOg" id="9kW-I9-qcf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fth-tW-gik" userLabel="First Responder" sceneMemberID="firstResponder"/>

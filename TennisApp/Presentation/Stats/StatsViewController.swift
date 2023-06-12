@@ -30,7 +30,7 @@ class StatsViewController: UIViewController, StoryboardInstantiable,
         super.viewDidLoad()
 
         self.backgroundView.image = UIImage(named: designLibrary.miscellaneous.asset.statsBackground)
-        self.title = Localization.Menu.stats
+        self.title = Localization.TabBar.stats
 
         self.setBackgroundBlurEffect()
     }

@@ -8,19 +8,19 @@
 
 import UIKit
 
-final class SettingsViewController: UIViewController, StoryboardInstantiable,
-                                    UITableViewDataSource, UITableViewDelegate,
-                                    BackgroundBlurrable, Alertable {
+final class SettingsViewController: UIViewController, StoryboardInstantiable, BackgroundBlurrable, Alertable {
 
     // MARK: IBActions
 
     // swiftlint:disable:next private_outlet
     @IBOutlet var backgroundView: UIImageView!
-    @IBOutlet private var tableView: UITableView!
 
     // MARK: Properties
 
-    private  let designLibrary: DesignLibraryProvider = DesignLibrary()
+    private var collectionView: UICollectionView!
+    private var dataSource: UICollectionViewDiffableDataSource<CollectionSection, SettingsItem>!
+
+    private let designLibrary: DesignLibraryProvider = DesignLibrary()
 
     // MARK: ViewModel
 
@@ -32,52 +32,103 @@ final class SettingsViewController: UIViewController, StoryboardInstantiable,
         super.viewDidLoad()
 
         self.backgroundView.image = UIImage(named: designLibrary.miscellaneous.asset.settingsBackground)
-        self.title = Localization.Menu.settings
+        self.title = Localization.TabBar.settings
 
         self.setBackgroundBlurEffect()
 
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.tableFooterView = buildFooterView()
+        self.setupCollectionsView()
+        self.configureDataSource()
+        self.applySnapshot()
     }
 
-    private func buildFooterView() -> UIView {
-        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40))
-        footerView.backgroundColor = UIColor.clear
-        let footerLabel = UILabel(frame: CGRect(x: 20, y: 0, width: footerView.frame.width, height: 40))
-        footerLabel.numberOfLines = 2
-        footerLabel.backgroundColor = UIColor.clear
-        footerLabel.textColor = designLibrary.color.text.light
-        footerLabel.font = designLibrary.font.textNormalSize.light
-        footerLabel.text = viewModel.getFooterText()
-        footerView.addSubview(footerLabel)
-        return footerView
+    // MARK: Setup collections view
+
+    private func setupCollectionsView() {
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
+        collectionView.delegate = self
+        collectionView.backgroundColor = .clear
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+
+        view.addSubview(collectionView)
+
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0.0),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0.0)
+        ])
     }
 
-    // MARK: UITableViewDataSource
+    private func createLayout() -> UICollectionViewLayout {
+        var config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        config.footerMode = .supplementary
+        config.backgroundColor = .clear
+        return UICollectionViewCompositionalLayout.list(using: config)
+    }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.reuseIdentifier,
-                                                       for: indexPath) as? SettingsTableViewCell else {
-            assertionFailure("Cannot dequeue SettingsTableViewCell")
-            return UITableViewCell()
+    private func configureDataSource() {
+        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, SettingsItem> { (cell, _, item) in
+
+            var content = cell.defaultContentConfiguration()
+            content.image = UIImage(systemName: item.iconName)
+            content.imageProperties.tintColor = self.designLibrary.color.text.brandPrimary
+            content.text = item.title
+            content.textProperties.font = self.designLibrary.font.textNormalSize.regular
+
+            cell.contentConfiguration = content
         }
-        let settings = viewModel.getSettingsFor(index: indexPath.row)
-        cell.setup(settings: settings)
-        return cell
+
+        let footerRegistration = UICollectionView.SupplementaryRegistration
+        <UICollectionViewListCell>(elementKind: UICollectionView.elementKindSectionFooter) { [weak self] (footerView, _, _) in
+            guard let self else { return }
+
+            var configuration = footerView.defaultContentConfiguration()
+            configuration.text = self.viewModel.getFooterText()
+            configuration.textProperties.color = designLibrary.color.text.light
+            configuration.textProperties.font = designLibrary.font.textNormalSize.light
+
+            footerView.contentConfiguration = configuration
+        }
+
+        dataSource = UICollectionViewDiffableDataSource<CollectionSection, SettingsItem>(collectionView: collectionView,
+                                                                                         cellProvider: { collectionView, indexPath, identifier in
+            collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: identifier)
+        })
+
+        dataSource.supplementaryViewProvider = { (collectionView, _, indexPath) -> UICollectionReusableView? in
+            collectionView.dequeueConfiguredReusableSupplementary(using: footerRegistration, for: indexPath)
+        }
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.numberOfSettings()
+    private func applySnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot<CollectionSection, SettingsItem>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(self.viewModel.getSettings())
+        self.dataSource.apply(snapshot, animatingDifferences: false)
     }
 
-    // MARK: UITableViewDelegate
+    // MARK: Logout
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+    private func performLogout() {
+        self.showAlert(title: Localization.Generic.genericAlertTitle,
+                       message: "Are you sure to want to logout?",
+                       confirmAction: { _ in
+            self.viewModel.performLogout(completion: nil)
+        })
+    }
+}
 
-        let settings = viewModel.getSettingsFor(index: indexPath.row)
-        switch settings {
+extension SettingsViewController: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        guard let settingsItem = dataSource.itemIdentifier(for: indexPath) else {
+            return
+        }
+
+        switch settingsItem {
         case .general:
             break
         case .support:
@@ -87,15 +138,5 @@ final class SettingsViewController: UIViewController, StoryboardInstantiable,
         case .logout:
             performLogout()
         }
-    }
-
-    // MARK: Logout
-
-    private func performLogout() {
-        self.showAlert(title: Localization.genericAlertTitle,
-                       message: "Are you sure to want to logout?",
-                       confirmAction: { _ in
-            self.viewModel.performLogout(completion: nil)
-        })
     }
 }

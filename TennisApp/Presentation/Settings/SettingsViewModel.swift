@@ -17,8 +17,7 @@ protocol SettingsViewModelType {
     var coordinatorDelegate: SettingsViewModelCoordinatorDelegate? { get set }
 
     func getFooterText() -> String
-    func numberOfSettings() -> Int
-    func getSettingsFor(index: Int) -> SettingsItem
+    func getSettings() -> [SettingsItem]
     func performLogout(completion: ((Result<Bool, Error>) -> Void)? )
 }
 
@@ -53,13 +52,8 @@ final class SettingsViewModel: SettingsViewModelType {
         """
     }
 
-    func numberOfSettings() -> Int {
-        settings.count
-    }
-
-    func getSettingsFor(index: Int) -> SettingsItem {
-        // swiftlint:disable:next force_unwrapping
-        SettingsItem(rawValue: index)!
+    func getSettings() -> [SettingsItem] {
+        settings
     }
 
     func performLogout(completion: ((Result<Bool, Error>) -> Void)?) {

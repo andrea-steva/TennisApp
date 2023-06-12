@@ -13,6 +13,13 @@ struct LoggerNull: LoggerProfile {
 
     let loggerProfileId = "com.logger.null"
 
-    func writeLog(level: String, message: String, file: String, line: Int, function: String) {
-    }
+    func writeLog(
+        level: LogLevels,
+        message: String,
+        subsystem: String,
+        category: String,
+        file: String,
+        line: Int,
+        function: String
+    ) {}
 }

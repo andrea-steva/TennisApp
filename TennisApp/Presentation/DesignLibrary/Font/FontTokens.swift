@@ -33,9 +33,9 @@ protocol TextNormalSizeFontProvider {
 }
 
 struct TextNormalSizeFont: TextNormalSizeFontProvider {
-    let regular = UIFont.custom(.regular, size: .normal)
-    let bold = UIFont.custom(.bold, size: .normal)
-    let light = UIFont.custom(.light, size: .normal)
+    let regular = UIFont.custom(.regular, size: .body)
+    let bold = UIFont.custom(.bold, size: .body)
+    let light = UIFont.custom(.light, size: .body)
 }
 
 // MARK: Forms
@@ -46,8 +46,8 @@ protocol FormsFontProvider {
 }
 
 struct FormsFont: FormsFontProvider {
-    let title = UIFont.custom(.regular, size: .extraLarge)
-    let body = UIFont.custom(.regular, size: .normal)
+    let title = UIFont.custom(.regular, size: .headline)
+    let body = UIFont.custom(.regular, size: .body)
 }
 
 // MARK: Button
@@ -57,7 +57,7 @@ protocol ButtonFontProvider {
 }
 
 struct ButtonFont: ButtonFontProvider {
-    let standard = UIFont.custom(.regular, size: .normal)
+    let standard = UIFont.custom(.regular, size: .body)
 }
 
 // MARK: TabBarItem
@@ -67,7 +67,7 @@ protocol TabBarItemFontProvider {
 }
 
 struct TabBarItemFont: TabBarItemFontProvider {
-    let standard = UIFont.custom(.regular, size: .normal)
+    let standard = UIFont.custom(.regular, size: .body)
 }
 
 // MARK: NavigationBar
@@ -79,7 +79,7 @@ protocol NavigationBarFontProvider {
 }
 
 struct NavigationBarFont: NavigationBarFontProvider {
-    let buttons = UIFont.custom(.regular, size: .normal)
+    let buttons = UIFont.custom(.regular, size: .body)
     let standardTitle = UIFont.custom(.light, size: .navigationBar)
     let largeTitle = UIFont.custom(.light, size: .navigationBarLargeTitle)
 }

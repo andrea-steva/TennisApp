@@ -19,7 +19,15 @@ protocol LoggerProfile {
     /// - Parameters:
     ///   - level: The log level
     ///   - message: The message
-    func writeLog(level: String, message: String, file: String, line: Int, function: String)
+    func writeLog(
+        level: LogLevels,
+        message: String,
+        subsystem: String,
+        category: String,
+        file: String,
+        line: Int,
+        function: String
+    )
 }
 
 extension LoggerProfile {

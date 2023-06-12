@@ -29,6 +29,8 @@
 "generic.emptyDataSetTitle" = "Nessun elemento";
 "generic.notAvailable" = "Non disponibile";
 "generic.alertTitle" = "Avviso";
+"generic.edit" = "Modifica";
+"generic.delete" = "Elimina";
 
 "dialog.unableToLocalize" = "Localizzazione non riuscita";
 "dialog.checkConnection" = "Controlla la tua connessione di rete o di non essere in modalità Aereo";

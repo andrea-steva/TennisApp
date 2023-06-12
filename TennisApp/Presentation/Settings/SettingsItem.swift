@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum SettingsItem: Int, CaseIterable {
+enum SettingsItem: Int, CaseIterable, Hashable {
     case general
     case support
     case review
