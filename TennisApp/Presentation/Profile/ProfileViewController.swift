@@ -9,22 +9,21 @@
 import Combine
 import UIKit
 
-final class ProfileViewController: UIViewController, UITableViewDataSource, UITabBarDelegate,
-                                   StoryboardInstantiable, BackgroundBlurrable {
-
-    static let ProfileCellReuseId = "profile_cell"
+final class ProfileViewController: UIViewController, StoryboardInstantiable, BackgroundBlurrable {
 
     // MARK: IBOutlets
 
     // swiftlint:disable:next private_outlet
     @IBOutlet var backgroundView: UIImageView!
-    @IBOutlet private var tableView: UITableView!
 
     // MARK: Properties
 
     private(set) var subscriptions = Set<AnyCancellable>()
-    private var headerView: ProfileHeaderView?
+
     private let designLibrary: DesignLibraryProvider = DesignLibrary()
+
+    private var collectionView: UICollectionView!
+    private var dataSource: UICollectionViewDiffableDataSource<CollectionSection, ProfileHeaderViewModel>!
 
     // MARK: ViewModel
 
@@ -35,19 +34,15 @@ final class ProfileViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = Localization.TabBar.profile
         self.backgroundView.image = UIImage(named: designLibrary.miscellaneous.asset.profileBackground)
-        self.title = Localization.Menu.profile
-
         self.setBackgroundBlurEffect()
 
         self.setupObservers()
+        self.setupCollectionsView()
+        self.configureDataSource()
 
-        if let headerView = Bundle.main.loadNibNamed("ProfileHeaderView", owner: self, options: nil)?.first as? ProfileHeaderView {
-            self.headerView = headerView
-            self.tableView.addSubview(headerView)
-        }
-
-        viewModel.fetchPrimaryUser()
+        self.viewModel.fetchPrimaryUser()
     }
 
     private func setupObservers() {
@@ -55,32 +50,56 @@ final class ProfileViewController: UIViewController, UITableViewDataSource, UITa
             .sink(receiveCompletion: { _ in
                 // Handle the error
             }, receiveValue: { [weak self] _ in
-                if let userViewModel = self?.viewModel.getUserViewModel() {
-                    self?.headerView?.setup(with: userViewModel)
-                }
-                self?.tableView.reloadData()
+                self?.applySnapshot()
             })
             .store(in: &subscriptions)
     }
 
-    // MARK: UITableViewDataSource
+    // MARK: Setup collections view
 
-    func numberOfSections(in tableView: UITableView) -> Int {
-        1
+    private func setupCollectionsView() {
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
+        collectionView.backgroundColor = .clear
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+
+        view.addSubview(collectionView)
+
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0.0),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0.0)
+        ])
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+    private func createLayout() -> UICollectionViewLayout {
+        var config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        config.backgroundColor = .clear
+        return UICollectionViewCompositionalLayout.list(using: config)
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ProfileViewController.ProfileCellReuseId, for: indexPath)
-        return cell
+    private func configureDataSource() {
+        let cellRegistration = UICollectionView.CellRegistration<ProfileHeaderListCell, ProfileHeaderViewModel> { (cell, _, item) in
+
+            let content = cell.defaultContentConfiguration()
+            cell.profileHeader = item
+            cell.contentConfiguration = content
+        }
+
+        dataSource = UICollectionViewDiffableDataSource<CollectionSection, ProfileHeaderViewModel>(collectionView: collectionView,
+                                                                                                   cellProvider: { collectionView, indexPath, identifier in
+            collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: identifier)
+        })
     }
 
-    // MARK: UITableViewDelegate
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+    private func applySnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot<CollectionSection, ProfileHeaderViewModel>()
+        snapshot.appendSections([.main])
+        if let item = self.viewModel.getUserViewModel() {
+            snapshot.appendItems([item])
+        }
+        self.dataSource.apply(snapshot, animatingDifferences: false)
     }
 }

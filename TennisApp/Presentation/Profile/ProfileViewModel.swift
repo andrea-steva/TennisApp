@@ -52,7 +52,7 @@ final class ProfileViewModel {
         }
     }
 
-    func getUserViewModel() -> ProfileHeaderViewModelType? {
+    func getUserViewModel() -> ProfileHeaderViewModel? {
         guard let user else {
             return nil
         }

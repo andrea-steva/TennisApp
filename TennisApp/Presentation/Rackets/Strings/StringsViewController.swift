@@ -35,7 +35,7 @@ final class StringsViewController: UIViewController, StoryboardInstantiable, Ale
         super.viewDidLoad()
 
         self.backgroundView.image = UIImage(named: designLibrary.miscellaneous.asset.stringsBackground)
-        self.title = Localization.Menu.strings
+        self.title = Localization.TabBar.strings
         self.navigationItem.rightBarButtonItems = setupRightBarButtonItem()
 
         self.setupCollectionsView()
@@ -75,10 +75,10 @@ final class StringsViewController: UIViewController, StoryboardInstantiable, Ale
 
     private func setupCollectionsView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
-        collectionView.delegate = self
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.delegate = self
 
         view.addSubview(collectionView)
 
@@ -121,18 +121,18 @@ final class StringsViewController: UIViewController, StoryboardInstantiable, Ale
             self.viewModel.toStringForm(index: indexPath.item)
             completion(true)
         }
-        editAction.setTitle(title: "Edit", font: designLibrary.font.textNormalSize.regular)
+        editAction.setTitle(title: Localization.Generic.edit, font: designLibrary.font.textNormalSize.regular)
         editAction.backgroundColor = designLibrary.color.background.editAction
 
         let deleteAction = UIContextualAction(style: .destructive, title: nil) {  (_, _, completion) in
-            self.showAlert(title: Localization.genericAlertTitle,
+            self.showAlert(title: Localization.Generic.genericAlertTitle,
                            message: "Are you sure to delete the string?",
                            confirmAction: { _ in
                 self.viewModel.deleteString(forIndex: indexPath.item)
                 completion(true)
             })
         }
-        deleteAction.setTitle(title: "Delete", font: designLibrary.font.textNormalSize.regular)
+        deleteAction.setTitle(title: Localization.Generic.delete, font: designLibrary.font.textNormalSize.regular)
 
         return UISwipeActionsConfiguration(actions: [editAction, deleteAction])
     }

@@ -87,38 +87,39 @@ final class AppCoordinator: Coordinator,
     }
 
     private func configureTabBarControllers() {
-        let activitiesViewController = activitiesCoordinator.start()
-        activitiesCoordinator.delegate = self
-        activitiesViewController.tabBarItem = UITabBarItem(title: Localization.Menu.activities,
-                                                           image: UIImage(systemName: designLibrary.symbol.tabBar.activities), tag: 0)
-
-        let racketsViewController = racketsCoordinator.start()
-        racketsCoordinator.delegate = self
-        racketsViewController.tabBarItem = UITabBarItem(title: Localization.Menu.rackets,
-                                                        image: UIImage(systemName: designLibrary.symbol.tabBar.rackets), tag: 1)
-
-        let statsViewController = statsCoordinator.start()
-        statsCoordinator.delegate = self
-        statsViewController.tabBarItem = UITabBarItem(title: Localization.Menu.stats,
-                                                      image: UIImage(systemName: designLibrary.symbol.tabBar.stats), tag: 2)
-
-        let profileViewController = profileCoordinator.start()
-        profileCoordinator.delegate = self
-        profileViewController.tabBarItem = UITabBarItem(title: Localization.Menu.profile,
-                                                        image: UIImage(systemName: designLibrary.symbol.tabBar.profile), tag: 3)
-
-        let settingsViewController = settingsCoordinator.start()
-        settingsCoordinator.delegate = self
-        settingsViewController.tabBarItem = UITabBarItem(title: Localization.Menu.settings,
-                                                         image: UIImage(systemName: designLibrary.symbol.tabBar.settings), tag: 3)
-
         // To fix dark mode on tab bar
         if #available(iOS 15, *) {
-           let tabBarAppearance = UITabBarAppearance()
+            let tabBarAppearance = UITabBarAppearance()
             tabBarController.tabBar.standardAppearance = tabBarAppearance
             tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
         }
         tabBarController.tabBar.tintColor = designLibrary.color.text.brandPrimary
+
+        let activitiesViewController = activitiesCoordinator.start()
+        activitiesCoordinator.delegate = self
+        activitiesViewController.tabBarItem = UITabBarItem(title: Localization.TabBar.activities,
+                                                           image: UIImage(systemName: designLibrary.symbol.tabBar.activities), tag: 0)
+
+        let racketsViewController = racketsCoordinator.start()
+        racketsCoordinator.delegate = self
+        racketsViewController.tabBarItem = UITabBarItem(title: Localization.TabBar.rackets,
+                                                        image: UIImage(systemName: designLibrary.symbol.tabBar.rackets), tag: 1)
+
+        let statsViewController = statsCoordinator.start()
+        statsCoordinator.delegate = self
+        statsViewController.tabBarItem = UITabBarItem(title: Localization.TabBar.stats,
+                                                      image: UIImage(systemName: designLibrary.symbol.tabBar.stats), tag: 2)
+
+        let profileViewController = profileCoordinator.start()
+        profileCoordinator.delegate = self
+        profileViewController.tabBarItem = UITabBarItem(title: Localization.TabBar.profile,
+                                                        image: UIImage(systemName: designLibrary.symbol.tabBar.profile), tag: 3)
+
+        let settingsViewController = settingsCoordinator.start()
+        settingsCoordinator.delegate = self
+        settingsViewController.tabBarItem = UITabBarItem(title: Localization.TabBar.settings,
+                                                         image: UIImage(systemName: designLibrary.symbol.tabBar.settings), tag: 3)
+
         tabBarController.viewControllers = [activitiesViewController,
                                             racketsViewController,
                                             statsViewController,

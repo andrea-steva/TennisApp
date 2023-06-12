@@ -17,7 +17,7 @@ enum LogLevels: String, CaseIterable {
     case trace
 }
 
-protocol Logger {
+protocol LoggerType {
 
     /// The list of logger profile
     static var loggers: [LogLevels: [LoggerProfile]] { get set }
@@ -30,10 +30,18 @@ protocol Logger {
     ///   - file: The file path
     ///   - line: The file line
     ///   - function: The function called
-    static func writeLog(logLevel: LogLevels, message: String, file: String, line: Int, function: String)
+    static func writeLog(
+        logLevel: LogLevels,
+        message: String,
+        subsystem: String,
+        category: String,
+        file: String,
+        line: Int,
+        function: String
+    )
 }
 
-extension Logger {
+extension LoggerType {
 
     static func setLogLevel(logLevel: LogLevels, loggerProfile: LoggerProfile) {
         if loggers[logLevel] != nil {

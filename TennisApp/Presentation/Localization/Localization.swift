@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// https://github.com/dylanvelezGL/ios-localization-guidelines
 protocol Localized {
     associatedtype Strings
 }
@@ -17,7 +18,7 @@ struct Localization {
         static let appName = "appName".localized
     }
 
-    struct Menu {
+    struct TabBar {
         static let activities = "menu.activities".localized
         static let rackets = "menu.rackets".localized
         static let strings = "menu.strings".localized
@@ -26,20 +27,23 @@ struct Localization {
         static let settings = "menu.settings".localized
     }
 
+    struct Generic {
+        static let genericDone = "generic.done".localized
+        static let genericCancel = "generic.cancel".localized
+        static let genericError = "generic.error".localized
+        static let genericOk = "generic.ok".localized
+        static let genericYes = "generic.yes".localized
+        static let genericAlertTitle = "generic.alertTitle".localized
+        static let logout = "logout".localized
+        static let dialogUnableToLocalize = "dialog.unableToLocalize".localized
+        static let dialogCheckConnection = "dialog.checkConnection".localized
+        static let edit = "generic.edit".localized
+        static let delete = "generic.delete".localized
+    }
+
     static let match = "match".localized
     static let practice = "practice".localized
     static let workout = "workout".localized
-
-    static let genericDone = "generic.done".localized
-    static let genericCancel = "generic.cancel".localized
-    static let genericError = "generic.error".localized
-    static let genericOk = "generic.ok".localized
-    static let genericYes = "generic.yes".localized
-    static let genericAlertTitle = "generic.alertTitle".localized
-    static let logout = "logout".localized
-
-    static let dialogUnableToLocalize = "dialog.unableToLocalize".localized
-    static let dialogCheckConnection = "dialog.checkConnection".localized
 
     static let loginButton = "login.button.title".localized
     static let signupButton = "signup.button.title".localized
