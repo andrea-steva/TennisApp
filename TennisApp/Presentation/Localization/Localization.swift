@@ -35,8 +35,6 @@ struct Localization {
         static let genericYes = "generic.yes".localized
         static let genericAlertTitle = "generic.alertTitle".localized
         static let logout = "logout".localized
-        static let dialogUnableToLocalize = "dialog.unableToLocalize".localized
-        static let dialogCheckConnection = "dialog.checkConnection".localized
         static let edit = "generic.edit".localized
         static let delete = "generic.delete".localized
     }
