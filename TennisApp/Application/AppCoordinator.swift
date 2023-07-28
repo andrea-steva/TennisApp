@@ -54,6 +54,9 @@ final class AppCoordinator: Coordinator,
         UITabBarItem.customTabBarItemAppearance(font: designLibrary.font.tabBarItemFont.standard)
         UINavigationBar.customNavigationBarAppearance(tintColor: designLibrary.color.text.brandPrimary)
 
+        self.showActivities()
+        return
+
         DefaultUserPrimaryFetchUseCase(usersRepository:
                                         DefaultUsersRepository(usersLocalStorage: UsersCoreDataStorage())).execute { result in
             switch result {

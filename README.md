@@ -6,9 +6,9 @@ To run the project, clone the repo, open with Xcode and run from `TennisApp` tar
 
 ## 📌 Requirements
 
-+ Xcode 14+
++ Xcode 15+
 + Swift 5.7+
-+ Deployment target iOS 14+
++ Deployment target iOS 15+
 
 ## ⚙️ Tools
 
@@ -34,6 +34,7 @@ brew install swiftlint
 + [~] Create repositories
 + [~] Create UseCases
 + [~] CRUD operation for User, Match and others
++ [~] Settings View in SwiftUI
 + [X] Implementing Modern Collection Views (https://swiftsenpai.com/development/uicollectionview-list-basic/) instead of UITableView
 + [X] Add Design Library
 + [X] Refactor localization
@@ -51,6 +52,23 @@ brew install swiftlint
 + [X] Use Combine instead of Bond
 + [X] Remove `SCLAlertView`
 
+## 📰 Articles, resources
+
+### UIKit equivalent in SwiftUI
+
++ https://fuckingswiftui.com/
+
+### Combine + MVVC
+
++ https://betterprogramming.pub/uikit-mvvm-combine-912c80c02262
++ https://betterprogramming.pub/form-validation-in-uikit-made-easy-with-combine-dd8245bacb6c
+
+### Architecture 
+
++ Clean architecture apps:
+    + https://github.com/rcaos/TVToday
+    + https://github.com/petros-efthymiou/Mobile-iOS-Microservices-Architecture
+    + https://github.com/petros-efthymiou/iOS-Pragmatic-Clean-Architecture
 
 ## ✒️ Author
 

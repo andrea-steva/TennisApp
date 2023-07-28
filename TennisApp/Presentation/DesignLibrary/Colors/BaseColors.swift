@@ -23,15 +23,15 @@ protocol BaseColorsProvider {
 }
 
 struct BaseColors: BaseColorsProvider {
-    let brandPrimary = UIColor(named: "primaryColor") ?? .clear
+    let brandPrimary = UIColor(resource: .primary)
     let light = UIColor.white
     let dark = UIColor.black
     let white = UIColor.white
     let black = UIColor.black
 
-    var courtClay = UIColor(named: "courtClay") ?? .clear
-    var courtHardBlue = UIColor(named: "courtHardBlue") ?? .clear
-    var courtHardGreen = UIColor(named: "courtHardGreen") ?? .clear
-    var courtHardPurple = UIColor(named: "courtHardPurple") ?? .clear
-    var courtGrass = UIColor(named: "courtGrass") ?? .clear
+    var courtClay = UIColor(resource: .courtClay)
+    var courtHardBlue = UIColor(resource: .courtHardBlue)
+    var courtHardGreen = UIColor(resource: .courtHardGreen)
+    var courtHardPurple = UIColor(resource: .courtHardPurple)
+    var courtGrass = UIColor(resource: .courtGrass)
 }

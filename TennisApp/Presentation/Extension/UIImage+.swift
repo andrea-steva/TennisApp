@@ -12,6 +12,15 @@ import UIKit
 
 extension UIImage {
 
+    static func safeImage(named: String) -> UIImage {
+        guard let image = UIImage(named: named) else {
+            assertionFailure("No image with name \(named) could be found.")
+            return UIImage()
+        }
+
+        return image
+    }
+
     convenience init?(view: UIView) {
         let renderer = UIGraphicsImageRenderer(bounds: view.bounds)
         let image = renderer.image { rendererContext in
