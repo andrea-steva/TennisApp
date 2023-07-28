@@ -6,6 +6,7 @@
 //  Copyright © 2016 Andrea Stevanato. All rights reserved.
 //
 
+import SwiftUI
 import UIKit
 
 final class SettingsViewController: UIViewController, StoryboardInstantiable, BackgroundBlurrable, Alertable {
@@ -17,14 +18,11 @@ final class SettingsViewController: UIViewController, StoryboardInstantiable, Ba
 
     // MARK: Properties
 
-    private var collectionView: UICollectionView!
-    private var dataSource: UICollectionViewDiffableDataSource<CollectionSection, SettingsItem>!
-
     private let designLibrary: DesignLibraryProvider = DesignLibrary()
 
     // MARK: ViewModel
 
-    var viewModel: SettingsViewModelType!
+    var viewModel: SettingsViewModel!
 
     // MARK: View Management
 
@@ -35,108 +33,22 @@ final class SettingsViewController: UIViewController, StoryboardInstantiable, Ba
         self.title = Localization.TabBar.settings
 
         self.setBackgroundBlurEffect()
-
-        self.setupCollectionsView()
-        self.configureDataSource()
-        self.applySnapshot()
+        self.setupView()
     }
 
-    // MARK: Setup collections view
+    // MARK: Setup hosting controller
 
-    private func setupCollectionsView() {
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
-        collectionView.delegate = self
-        collectionView.backgroundColor = .clear
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.showsHorizontalScrollIndicator = false
-
-        view.addSubview(collectionView)
-
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
+    private func setupView() {
+        let hostingController = UIHostingController(rootView: SettingsView(viewModel: viewModel))
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        hostingController.view.backgroundColor = .clear
+        addChild(hostingController)
+        view.addSubview(hostingController.view)
+        hostingController.didMove(toParent: self)
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0.0),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0.0)
-        ])
-    }
-
-    private func createLayout() -> UICollectionViewLayout {
-        var config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
-        config.footerMode = .supplementary
-        config.backgroundColor = .clear
-        return UICollectionViewCompositionalLayout.list(using: config)
-    }
-
-    private func configureDataSource() {
-        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, SettingsItem> { (cell, _, item) in
-
-            var content = cell.defaultContentConfiguration()
-            content.image = UIImage(systemName: item.iconName)
-            content.imageProperties.tintColor = self.designLibrary.color.text.brandPrimary
-            content.text = item.title
-            content.textProperties.font = self.designLibrary.font.textNormalSize.regular
-
-            cell.contentConfiguration = content
-        }
-
-        let footerRegistration = UICollectionView.SupplementaryRegistration
-        <UICollectionViewListCell>(elementKind: UICollectionView.elementKindSectionFooter) { [weak self] (footerView, _, _) in
-            guard let self else { return }
-
-            var configuration = footerView.defaultContentConfiguration()
-            configuration.text = self.viewModel.getFooterText()
-            configuration.textProperties.color = designLibrary.color.text.light
-            configuration.textProperties.font = designLibrary.font.textNormalSize.light
-
-            footerView.contentConfiguration = configuration
-        }
-
-        dataSource = UICollectionViewDiffableDataSource<CollectionSection, SettingsItem>(collectionView: collectionView,
-                                                                                         cellProvider: { collectionView, indexPath, identifier in
-            collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: identifier)
-        })
-
-        dataSource.supplementaryViewProvider = { (collectionView, _, indexPath) -> UICollectionReusableView? in
-            collectionView.dequeueConfiguredReusableSupplementary(using: footerRegistration, for: indexPath)
-        }
-    }
-
-    private func applySnapshot() {
-        var snapshot = NSDiffableDataSourceSnapshot<CollectionSection, SettingsItem>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(self.viewModel.getSettings())
-        self.dataSource.apply(snapshot, animatingDifferences: false)
-    }
-
-    // MARK: Logout
-
-    private func performLogout() {
-        self.showAlert(title: Localization.Generic.genericAlertTitle,
-                       message: "Are you sure to want to logout?",
-                       confirmAction: { _ in
-            self.viewModel.performLogout(completion: nil)
-        })
-    }
-}
-
-extension SettingsViewController: UICollectionViewDelegate {
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        guard let settingsItem = dataSource.itemIdentifier(for: indexPath) else {
-            return
-        }
-
-        switch settingsItem {
-        case .general:
-            break
-        case .support:
-            break
-        case .review:
-            break
-        case .logout:
-            performLogout()
-        }
+            hostingController.view.topAnchor.constraint(equalTo: view.topAnchor),
+            hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
     }
 }
