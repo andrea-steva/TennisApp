@@ -108,6 +108,7 @@
 		FC4A8AA92A0CE2F50078F211 /* NavigationControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A8AA82A0CE2F50078F211 /* NavigationControllerBuilder.swift */; };
 		FC4A8AAD2A0CECC60078F211 /* NavigationControllerBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A8AAC2A0CECC60078F211 /* NavigationControllerBuilderTests.swift */; };
 		FC4A8AAF2A0CEF1D0078F211 /* UINavigationBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A8AAE2A0CEF1D0078F211 /* UINavigationBar+.swift */; };
+		FC739A3A2A73F6CD00E16D7E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC739A392A73F6CD00E16D7E /* SettingsView.swift */; };
 		FCA724542A09320200D32891 /* StringListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA724532A09320200D32891 /* StringListCell.swift */; };
 		FCA724562A09324000D32891 /* StringContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCA724552A09324000D32891 /* StringContentView.xib */; };
 		FCA724582A09327000D32891 /* StringContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA724572A09327000D32891 /* StringContentView.swift */; };
@@ -347,6 +348,7 @@
 		FC4A8AA82A0CE2F50078F211 /* NavigationControllerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerBuilder.swift; sourceTree = "<group>"; };
 		FC4A8AAC2A0CECC60078F211 /* NavigationControllerBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerBuilderTests.swift; sourceTree = "<group>"; };
 		FC4A8AAE2A0CEF1D0078F211 /* UINavigationBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+.swift"; sourceTree = "<group>"; };
+		FC739A392A73F6CD00E16D7E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FCA724532A09320200D32891 /* StringListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringListCell.swift; sourceTree = "<group>"; };
 		FCA724552A09324000D32891 /* StringContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StringContentView.xib; sourceTree = "<group>"; };
 		FCA724572A09327000D32891 /* StringContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringContentView.swift; sourceTree = "<group>"; };
@@ -695,6 +697,7 @@
 				6569A3F01E990BAF00A444BB /* SettingsViewController.storyboard */,
 				65D206831EE0BBD4004A8150 /* SettingsCoordinator.swift */,
 				65D824A91C6F589B00E2918C /* SettingsViewController.swift */,
+				FC739A392A73F6CD00E16D7E /* SettingsView.swift */,
 				6589FC991E26F71300C25F31 /* SettingsViewModel.swift */,
 				FC40E94629E8540A0089717D /* SettingsItem.swift */,
 			);
@@ -1488,6 +1491,7 @@
 				65ECE30D1C708CC6004EE2C9 /* RacketsViewModel.swift in Sources */,
 				FCCBFF5829DF227100068479 /* RacketDeleteUseCase.swift in Sources */,
 				FCA7245F2A093C3D00D32891 /* PracticeListCell.swift in Sources */,
+				FC739A3A2A73F6CD00E16D7E /* SettingsView.swift in Sources */,
 				FC1F3D2529DC88BC006FAD8B /* UIImage+.swift in Sources */,
 				FCCBFF8129E01E6400068479 /* CGRect+.swift in Sources */,
 				FCCBFF5029DF184000068479 /* AppDIContainer.swift in Sources */,
@@ -1683,7 +1687,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1735,7 +1739,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -1755,7 +1759,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = TennisApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Tennis Diary";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1782,7 +1786,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = TennisApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Tennis Diary";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1803,7 +1807,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = A2VGE7F94S;
 				INFOPLIST_FILE = TennisAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1823,7 +1827,7 @@
 				DEVELOPMENT_TEAM = A2VGE7F94S;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = TennisAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
