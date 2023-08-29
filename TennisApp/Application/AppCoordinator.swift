@@ -32,7 +32,7 @@ final class AppCoordinator: Coordinator,
         NavigationControllerBuilder()
             .setNavigationBar(isTranslucent: true)
             .setNavigationBarHidden(true, animated: false)
-            .build() as! UINavigationController
+            .build()
     }()
 
     // MARK: Tab bar item coordinators

@@ -22,7 +22,7 @@ final class ActivitiesCoordinator: TabBarItemCoordinator {
     private let container: ActivitiesDIContainer
     private let activitiesContainerViewController: ActivitiesContainerViewController
     private let pagingViewController: PagingViewController
-    private let navigationController: UINavigationControllerType
+    private let navigationController: UINavigationController
 
     // MARK: Coordinator
 
@@ -39,7 +39,7 @@ final class ActivitiesCoordinator: TabBarItemCoordinator {
     func start() -> UIViewController {
         self.activitiesContainerViewController.pagingViewController = pagingViewController
         self.pagingViewController.dataSource = self
-        return navigationController as! UIViewController
+        return navigationController
     }
 
     deinit {

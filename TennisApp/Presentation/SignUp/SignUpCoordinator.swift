@@ -29,14 +29,15 @@ final class SignUpCoordinator: Coordinator,
          navigationController: UINavigationController) {
         self.appDIContainer = appDIContainer
         self.navigationController = navigationController
-        self.signUpViewController = SignUpViewController.instantiateViewController()
+
+        let viewModel = SignUpViewModel(userSaveUserCase: appDIContainer.signUpDIContainer.makeUserSaveUse())
+        self.signUpViewController = SignUpViewController.instantiateViewController(creator: { coder in
+            SignUpViewController(coder: coder, viewModel: viewModel)
+        })
     }
 
     func start() {
-        let viewModel = SignUpViewModel(firebaseService: FirebaseService.shared,
-                                        userSaveUserCase: appDIContainer.signUpDIContainer.makeUserSaveUse())
-        viewModel.coordinatorDelegate = self
-        signUpViewController.viewModel = viewModel
+        signUpViewController.viewModel.coordinatorDelegate = self
         navigationController.pushViewController(signUpViewController, animated: true)
     }
 

@@ -7,111 +7,46 @@
 //
 
 import Combine
+import SwiftUI
 import UIKit
 
-final class SignUpViewController: UIViewController, Bindable, StoryboardInstantiable,
-                                  BackgroundBlurrable, LoadingIndicator, Alertable {
-
-    // MARK: IBOutlets
-
-    // swiftlint:disable:next private_outlet
-    @IBOutlet var backgroundView: UIImageView!
-    @IBOutlet private var firstNameTextField: UITextField!
-    @IBOutlet private var lastNameTextField: UITextField!
-    @IBOutlet private var emailField: UITextField!
-    @IBOutlet private var passwordField: UITextField!
-
-    @IBOutlet private var signUpButton: UIButton! {
-        didSet {
-            signUpButton.layer.cornerRadius = designLibrary.miscellaneous.cornerRadius.button
-            signUpButton.layer.masksToBounds = true
-
-            signUpButton.backgroundColor = UIColor.clear
-            signUpButton.setBackgroundImage(UIImage.imageWithColor(designLibrary.color.background.buttonPrimary), for: .normal)
-            signUpButton.setBackgroundImage(UIImage.imageWithColor(designLibrary.color.background.buttonPressed), for: .highlighted)
-            signUpButton.setBackgroundImage(UIImage.imageWithColor(designLibrary.color.background.buttonDisabled), for: .disabled)
-            signUpButton.setTitle(Localization.signupButton, for: .normal)
-        }
-    }
-
-    // MARK: Properties
-
-    var loadingIndicator: UIActivityIndicatorView?
-    var subscriptions = Set<AnyCancellable>()
-
-    private let designLibrary: DesignLibraryProvider = DesignLibrary()
+final class SignUpViewController: UIViewController, StoryboardInstantiable {
 
     // MARK: ViewModel
 
-    var viewModel: SignUpViewModelType!
+    var viewModel: SignUpViewModel
 
-    func getViewModel() -> BindableViewModelType { viewModel }
+    // MARK: Init
+
+    init?(coder: NSCoder, viewModel: SignUpViewModel) {
+        self.viewModel = viewModel
+        super.init(coder: coder)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("Missing view model.")
+    }
 
     // MARK: View Management
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.backgroundView.image = UIImage(named: designLibrary.miscellaneous.asset.signUpBackground)
-
-        self.setBackgroundBlurEffect()
-        self.setupBindinds()
+        self.setupView()
     }
 
-    private func setupBindinds() {
-        viewModel.firstNamePublisher
-            .compactMap { $0 }
-            .assign(to: \.text, on: firstNameTextField)
-            .store(in: &subscriptions)
-        firstNameTextField.textPublisher
-            .sink(receiveValue: { value in
-                self.viewModel.firstName = value
-            })
-            .store(in: &subscriptions)
+    // MARK: Setup hosting controller
 
-        viewModel.lastNamePublisher
-            .compactMap { $0 }
-            .assign(to: \.text, on: lastNameTextField)
-            .store(in: &subscriptions)
-        lastNameTextField.textPublisher
-            .sink(receiveValue: { value in
-                self.viewModel.lastName = value
-            })
-            .store(in: &subscriptions)
-
-        viewModel.emailPublisher
-            .compactMap { $0 }
-            .assign(to: \.text, on: emailField)
-            .store(in: &subscriptions)
-        emailField.textPublisher
-            .sink(receiveValue: { value in
-                self.viewModel.email = value
-            })
-            .store(in: &subscriptions)
-
-        viewModel.passwordPublisher
-            .compactMap { $0 }
-            .assign(to: \.text, on: passwordField)
-            .store(in: &subscriptions)
-        passwordField.textPublisher
-            .sink(receiveValue: { value in
-                self.viewModel.password = value
-            })
-            .store(in: &subscriptions)
-
-        viewModel.isSubmitEnabled
-            .receive(on: RunLoop.main)
-            .assign(to: \.isEnabled, on: signUpButton)
-            .store(in: &subscriptions)
-    }
-
-    // MARK: Actions
-
-    @IBAction private func dismissController(_ sender: AnyObject) {
-        self.viewModel.backLogin()
-    }
-
-    @IBAction private func didTapSignUp(_ sender: AnyObject) {
-        self.viewModel.signUp()
+    private func setupView() {
+        let hostingController = UIHostingController(rootView: SignUpView(viewModel: viewModel))
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        addChild(hostingController)
+        view.addSubview(hostingController.view)
+        hostingController.didMove(toParent: self)
+        NSLayoutConstraint.activate([
+            hostingController.view.topAnchor.constraint(equalTo: view.topAnchor),
+            hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
     }
 }

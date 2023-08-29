@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol StringFormCoordinatorDelegate: AnyObject {
     func stringFormCoordinatorDidFinish(stringFormCoordinator: StringFormCoordinator)
@@ -18,14 +19,14 @@ class StringFormCoordinator: Coordinator, StringFormViewModelCoordinatorDelegate
 
     private let container = StringsDIContainer()
     weak var delegate: StringFormCoordinatorDelegate?
-    private let navigationController: UINavigationControllerType
+    private let navigationController: UINavigationController
     private let stringsFromViewController: StringFormViewController
     private var string: Strings?
     private let racket: Racket
 
     // MARK: Coordinator
 
-    init(navigationController: UINavigationControllerType, racket: Racket, string: Strings?) {
+    init(navigationController: UINavigationController, racket: Racket, string: Strings?) {
         self.navigationController = navigationController
         self.racket = racket
         self.string = string
