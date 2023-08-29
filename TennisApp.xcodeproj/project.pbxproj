@@ -91,7 +91,6 @@
 		FC1F3D2129DC7C7A006FAD8B /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6569A3F01E990BAF00A444BB /* SettingsViewController.storyboard */; };
 		FC1F3D2329DC8894006FAD8B /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F3D2229DC8894006FAD8B /* UIColor+.swift */; };
 		FC1F3D2529DC88BC006FAD8B /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F3D2429DC88BC006FAD8B /* UIImage+.swift */; };
-		FC1F3D2A29DDC664006FAD8B /* UINavigationControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F3D2929DDC664006FAD8B /* UINavigationControllerType.swift */; };
 		FC1F3D2C29DDD354006FAD8B /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F3D2B29DDD354006FAD8B /* LoadingIndicator.swift */; };
 		FC1F3D2E29DDD667006FAD8B /* TabBarItemCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F3D2D29DDD667006FAD8B /* TabBarItemCoordinator.swift */; };
 		FC2DF3C929FAC8150011AD99 /* StringForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2DF3C829FAC8150011AD99 /* StringForm.swift */; };
@@ -128,6 +127,8 @@
 		FCA724772A09549C00D32891 /* WorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA724762A09549C00D32891 /* WorkoutViewModel.swift */; };
 		FCA724792A0954ED00D32891 /* WorkoutContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA724782A0954ED00D32891 /* WorkoutContentView.swift */; };
 		FCA7247B2A0954F500D32891 /* WorkoutContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCA7247A2A0954F500D32891 /* WorkoutContentView.xib */; };
+		FCB4CD942A9CD09900E2C898 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4CD932A9CD09900E2C898 /* SignUpView.swift */; };
+		FCB4CD962A9CD17200E2C898 /* AppIconProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB4CD952A9CD17200E2C898 /* AppIconProvider.swift */; };
 		FCB8AABC29DF0A8D00148DB9 /* Parchment in Frameworks */ = {isa = PBXBuildFile; productRef = FCB8AABB29DF0A8D00148DB9 /* Parchment */; };
 		FCBDF9FE29D72EB7008A7FD6 /* StringsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBDF9FD29D72EB7008A7FD6 /* StringsStorage.swift */; };
 		FCBDFA0829D73111008A7FD6 /* PracticeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBDFA0029D73111008A7FD6 /* PracticeEntity.swift */; };
@@ -330,7 +331,6 @@
 		FC199B6E2A01691D00D98ED5 /* LoginDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDIContainer.swift; sourceTree = "<group>"; };
 		FC1F3D2229DC8894006FAD8B /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		FC1F3D2429DC88BC006FAD8B /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
-		FC1F3D2929DDC664006FAD8B /* UINavigationControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerType.swift; sourceTree = "<group>"; };
 		FC1F3D2B29DDD354006FAD8B /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		FC1F3D2D29DDD667006FAD8B /* TabBarItemCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemCoordinator.swift; sourceTree = "<group>"; };
 		FC2DF3C829FAC8150011AD99 /* StringForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringForm.swift; sourceTree = "<group>"; };
@@ -368,6 +368,8 @@
 		FCA724762A09549C00D32891 /* WorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewModel.swift; sourceTree = "<group>"; };
 		FCA724782A0954ED00D32891 /* WorkoutContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutContentView.swift; sourceTree = "<group>"; };
 		FCA7247A2A0954F500D32891 /* WorkoutContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutContentView.xib; sourceTree = "<group>"; };
+		FCB4CD932A9CD09900E2C898 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		FCB4CD952A9CD17200E2C898 /* AppIconProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconProvider.swift; sourceTree = "<group>"; };
 		FCBDF9FD29D72EB7008A7FD6 /* StringsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsStorage.swift; sourceTree = "<group>"; };
 		FCBDFA0029D73111008A7FD6 /* PracticeEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeEntity.swift; sourceTree = "<group>"; };
 		FCBDFA0129D73111008A7FD6 /* WorkoutEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutEntity.swift; sourceTree = "<group>"; };
@@ -508,7 +510,6 @@
 				6507CA6E1C6D118000B7AD5C /* BindableViewModelType.swift */,
 				FC40E98D29E988BF0089717D /* Bundle.swift */,
 				FC1F3D2B29DDD354006FAD8B /* LoadingIndicator.swift */,
-				FC1F3D2929DDC664006FAD8B /* UINavigationControllerType.swift */,
 				FCF6D8E829DC5EB100DBCD4B /* StoryBoardInstantiable.swift */,
 			);
 			path = Protocols;
@@ -710,6 +711,7 @@
 				65F05AAC1ECE329000EFA322 /* SignUpCoordinator.swift */,
 				FCF6D8EE29DC6F1E00DBCD4B /* SignUpViewController.storyboard */,
 				65F05AAD1ECE329000EFA322 /* SignUpViewController.swift */,
+				FCB4CD932A9CD09900E2C898 /* SignUpView.swift */,
 				65F05AAE1ECE329000EFA322 /* SignUpViewModel.swift */,
 			);
 			path = SignUp;
@@ -792,6 +794,7 @@
 				6569A3DE1E990A3A00A444BB /* Protocols */,
 				FCCDB7A729ED852500941D52 /* DesignLibrary */,
 				65B04DE51C6CA74400011439 /* Localization */,
+				FCB4CD952A9CD17200E2C898 /* AppIconProvider.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -1448,6 +1451,7 @@
 				6589FC981E26F6A600C25F31 /* StatsViewModel.swift in Sources */,
 				FCF6D8C329DAD2DC00DBCD4B /* AppCoreDataModel.xcdatamodeld in Sources */,
 				6507CA6F1C6D118000B7AD5C /* BindableViewModelType.swift in Sources */,
+				FCB4CD962A9CD17200E2C898 /* AppIconProvider.swift in Sources */,
 				6569A3FF1E99390B00A444BB /* MatchesViewModel.swift in Sources */,
 				FCCBFF5229DF1E9B00068479 /* ProfileDIContainer.swift in Sources */,
 				FCA724612A093C4A00D32891 /* WorkoutListCell.swift in Sources */,
@@ -1477,6 +1481,7 @@
 				FCBDF9FE29D72EB7008A7FD6 /* StringsStorage.swift in Sources */,
 				FCBDFA0E29D73111008A7FD6 /* MatchEntity.swift in Sources */,
 				65D206801EDF43B0004A8150 /* StatsCoordinator.swift in Sources */,
+				FCB4CD942A9CD09900E2C898 /* SignUpView.swift in Sources */,
 				FCCDB7BC29F12F6C00941D52 /* String+.swift in Sources */,
 				FCD2CE7C2A0D47F3005D89AE /* SymbolTokens.swift in Sources */,
 				656A4BB91E17FD43009E97EB /* FirebaseService.swift in Sources */,
@@ -1526,7 +1531,6 @@
 				65C2CB141F26A1550095D954 /* StringFormCoordinator.swift in Sources */,
 				FCCBFF8C29E04E8B00068479 /* StringViewModel.swift in Sources */,
 				65D824A81C6F589100E2918C /* ProfileViewController.swift in Sources */,
-				FC1F3D2A29DDC664006FAD8B /* UINavigationControllerType.swift in Sources */,
 				65C2CB121F255B500095D954 /* RacketFormCoordinator.swift in Sources */,
 				FCE0AACF29D7371000308EF3 /* LoggerConsole.swift in Sources */,
 				FC199B6D2A01690700D98ED5 /* SignUpDIContainer.swift in Sources */,

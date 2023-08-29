@@ -26,15 +26,15 @@ struct User {
 
 extension User {
 
-    init(firstName: String, lastName: String, age: Int, ranking: String) {
+    init(firstName: String, lastName: String) {
         self.identifier = UUID().uuidString
         self.firstName = firstName
         self.lastName = lastName
-        self.age = age
+        self.age = 0
         self.email = ""
         self.backhandType = ""
         self.handType = ""
-        self.ranking = ranking
+        self.ranking = ""
         self.profileImage = nil
         self.isPrimary = true
         self.rackets = []

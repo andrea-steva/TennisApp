@@ -27,7 +27,7 @@ final class RacketsCoordinator: TabBarItemCoordinator,
 
     // MARK: Controllers
 
-    private let navigationController: UINavigationControllerType
+    private let navigationController: UINavigationController
     private let racketsViewController: RacketsViewController
 
     // MARK: Coordinators
@@ -50,7 +50,7 @@ final class RacketsCoordinator: TabBarItemCoordinator,
         racketsViewController.viewModel = RacketsViewModel(racketsFetchUseCase: container.rackets.makeRacketsFetchUseCase(),
                                                            racketDeleteUseCase: container.rackets.makeRacketDeleteUseCase())
         racketsViewController.viewModel.coordinatorDelegate = self
-        return navigationController as! UIViewController
+        return navigationController
     }
 
     // MARK: RacketsViewModelCoordinatorDelegate

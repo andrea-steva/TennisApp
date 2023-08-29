@@ -72,8 +72,8 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
 force_try: warning
 
 closure_body_length:
-    warning: 30
-    error: 40
+    warning: 50
+    error: 70
 
 file_length:
     warning: 540

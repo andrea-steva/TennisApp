@@ -12,12 +12,12 @@ final class PracticesCoordinator: TabBarItemCoordinator {
 
     // MARK: Properties
 
-    private let navigationController: UINavigationControllerType
+    private let navigationController: UINavigationController
     private let practicesViewController: PracticesViewController
 
     // MARK: Coordinator
 
-    init(navigationController: UINavigationControllerType) {
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         self.practicesViewController = PracticesViewController.instantiateViewController()
     }

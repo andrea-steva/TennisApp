@@ -18,6 +18,12 @@
         }
       }
     },
+    "Email" : {
+
+    },
+    "First name" : {
+
+    },
     "generic.alertTitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -187,6 +193,9 @@
           }
         }
       }
+    },
+    "Last name" : {
+
     },
     "login.button.title" : {
       "extractionState" : "manual",
@@ -425,6 +434,9 @@
           }
         }
       }
+    },
+    "Sign In" : {
+
     },
     "signup.button.title" : {
       "extractionState" : "manual",

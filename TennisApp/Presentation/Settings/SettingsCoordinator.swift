@@ -20,14 +20,16 @@ final class SettingsCoordinator: TabBarItemCoordinator,
     weak var delegate: SettingsCoordinatorDelegate?
 
     private let container: SettingsDIContainer
-    private var navigationController: UINavigationControllerType
+    private var navigationController: UINavigationController
     private var settingsViewController: SettingsViewController
 
     // MARK: Coordinator
 
     init(container: SettingsDIContainer) {
         self.container = container
-        self.settingsViewController = SettingsViewController.instantiateViewController()
+        self.settingsViewController = SettingsViewController.instantiateViewController(creator: { coder in
+            SettingsViewController(coder: coder, viewModel: SettingsViewModel())
+        })
         self.navigationController = NavigationControllerBuilder(rootViewController: settingsViewController)
             .setStandardAppearance()
             .setScrollEdgeAppearance()
@@ -35,9 +37,8 @@ final class SettingsCoordinator: TabBarItemCoordinator,
     }
 
     func start() -> UIViewController {
-        settingsViewController.viewModel = SettingsViewModel()
         settingsViewController.viewModel.coordinatorDelegate = self
-        return navigationController as! UIViewController
+        return navigationController
     }
 
     // MARK: SettingsViewModelCoordinatorDelegate

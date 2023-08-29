@@ -12,12 +12,12 @@ final class WorkoutsCoordinator: TabBarItemCoordinator {
 
     // MARK: Properties
 
-    private let navigationController: UINavigationControllerType
+    private let navigationController: UINavigationController
     private let workoutsViewController: WorkoutsViewController
 
     // MARK: Coordinator
 
-    init(navigationController: UINavigationControllerType) {
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         self.workoutsViewController = WorkoutsViewController.instantiateViewController()
     }

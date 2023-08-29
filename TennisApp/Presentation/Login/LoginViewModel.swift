@@ -41,8 +41,6 @@ final class LoginViewModel: LoginViewModelType {
 
     // MARK: Properties
 
-    private let firebaseService: FirebaseServiceType
-
     let errorMessageSubject = PassthroughSubject<String, Never>()
     let isLoadingSubject = PassthroughSubject<Bool, Never>()
 
@@ -63,30 +61,14 @@ final class LoginViewModel: LoginViewModelType {
 
     // MARK: Methods
 
-    init(firebaseService: FirebaseServiceType = FirebaseService.shared) {
-        self.firebaseService = firebaseService
-    }
-
     func toSignUp() {
         self.coordinatorDelegate?.loginViewModelToSignUp(viewModel: self)
     }
 
     func signIn() {
-        self.isLoadingSubject.send(true)
-        firebaseService.signIn(withEmail: email, password: password) { result in
-            self.isLoadingSubject.send(false)
-            switch result {
-            case .success(let profileImageURL):
-                self.profileImageURL = profileImageURL
-                self.coordinatorDelegate?.loginViewModelDidLogin(viewModel: self)
-            case .failure(let error):
-                self.errorMessageSubject.send(error.localizedDescription)
-                Log.error(error.localizedDescription)
-            }
-        }
+        self.coordinatorDelegate?.loginViewModelDidLogin(viewModel: self)
     }
 
     func sendPasswordReset(_ email: String) {
-        firebaseService.sendPasswordReset(withEmail: email)
     }
 }

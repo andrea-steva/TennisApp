@@ -20,7 +20,7 @@ final class StatsCoordinator: TabBarItemCoordinator,
     weak var delegate: StatsCoordinatorDelegate?
 
     private let container: StatsDIContainer
-    private let navigationController: UINavigationControllerType
+    private let navigationController: UINavigationController
     private let statsViewController: StatsViewController
 
     // MARK: Coordinator
@@ -37,7 +37,7 @@ final class StatsCoordinator: TabBarItemCoordinator,
     func start() -> UIViewController {
         statsViewController.viewModel = StatsViewModel()
         statsViewController.viewModel.coordinatorDelegate = self
-        return navigationController as! UIViewController
+        return navigationController
     }
 
     deinit {

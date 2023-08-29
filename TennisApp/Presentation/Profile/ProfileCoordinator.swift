@@ -20,7 +20,7 @@ final class ProfileCoordinator: TabBarItemCoordinator,
     weak var delegate: ProfileCoordinatorDelegate?
 
     private let container: ProfileDIContainer
-    private let navigationController: UINavigationControllerType
+    private let navigationController: UINavigationController
     private let profileViewController: ProfileViewController
 
     // MARK: Coordinator
@@ -37,7 +37,7 @@ final class ProfileCoordinator: TabBarItemCoordinator,
     func start() -> UIViewController {
         profileViewController.viewModel = ProfileViewModel(userPrimaryFetchUseCase: container.makeUserPrimaryFetchUseCase())
         profileViewController.viewModel.coordinatorDelegate = self
-        return navigationController as! UIViewController
+        return navigationController
     }
 
     deinit {

@@ -34,7 +34,8 @@ brew install swiftlint
 + [~] Create repositories
 + [~] Create UseCases
 + [~] CRUD operation for User, Match and others
-+ [~] Settings View in SwiftUI
++ [X] Settings View in **SwiftUI**
++ [X] SignUp view in **SwiftUI**
 + [X] Implementing Modern Collection Views (https://swiftsenpai.com/development/uicollectionview-list-basic/) instead of UITableView
 + [X] Add Design Library
 + [X] Refactor localization

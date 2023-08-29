@@ -19,7 +19,7 @@ class StringsCoordinator: Coordinator, StringsViewModelCoordinatorDelegate, Stri
     weak var delegate: StringsCoordinatorDelegate?
 
     private let container: StringsDIContainer
-    private let navigationController: UINavigationControllerType
+    private let navigationController: UINavigationController
     private let racket: Racket
     private let stringsViewController: StringsViewController
 
@@ -28,7 +28,7 @@ class StringsCoordinator: Coordinator, StringsViewModelCoordinatorDelegate, Stri
     // MARK: Coordinator
 
     init(container: StringsDIContainer,
-         navigationController: UINavigationControllerType,
+         navigationController: UINavigationController,
          racket: Racket) {
         self.container = container
         self.navigationController = navigationController

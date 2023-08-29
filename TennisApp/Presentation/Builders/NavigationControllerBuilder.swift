@@ -11,7 +11,7 @@ import UIKit
 struct NavigationControllerBuilder {
 
     private let designLibrary: DesignLibraryProvider = DesignLibrary()
-    private var navigationController: UINavigationControllerType
+    private var navigationController: UINavigationController
 
     init() {
         self.navigationController = UINavigationController()
@@ -41,7 +41,7 @@ struct NavigationControllerBuilder {
         return self
     }
 
-    func build() -> UINavigationControllerType {
+    func build() -> UINavigationController {
         self.navigationController
     }
 

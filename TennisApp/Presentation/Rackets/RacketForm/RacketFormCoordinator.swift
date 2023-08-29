@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol RacketFormCoordinatorDelegate: AnyObject {
     func racketFormCoordinatorDidFinish(racketFormCoordinator: RacketFormCoordinator)
@@ -19,12 +20,12 @@ class RacketFormCoordinator: Coordinator, RacketFormViewModelCoordinatorDelegate
     private let container = RacketsDIContainer()
     weak var delegate: RacketFormCoordinatorDelegate?
 
-    private let navigationController: UINavigationControllerType
+    private let navigationController: UINavigationController
     private var racket: Racket?
 
     // MARK: Coordinator
 
-    init(navigationController: UINavigationControllerType, racket: Racket?) {
+    init(navigationController: UINavigationController, racket: Racket?) {
         self.navigationController = navigationController
         self.racket = racket
     }

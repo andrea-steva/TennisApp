@@ -22,7 +22,18 @@ final class SettingsViewController: UIViewController, StoryboardInstantiable, Ba
 
     // MARK: ViewModel
 
-    var viewModel: SettingsViewModel!
+    var viewModel: SettingsViewModel
+
+    // MARK: Init
+
+    init?(coder: NSCoder, viewModel: SettingsViewModel) {
+        self.viewModel = viewModel
+        super.init(coder: coder)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("Missing view model.")
+    }
 
     // MARK: View Management
 
