@@ -44,22 +44,6 @@ final class SettingsViewController: UIViewController, StoryboardInstantiable, Ba
         self.title = Localization.TabBar.settings
 
         self.setBackgroundBlurEffect()
-        self.setupView()
-    }
-
-    // MARK: Setup hosting controller
-
-    private func setupView() {
-        let hostingController = UIHostingController(rootView: SettingsView(viewModel: viewModel))
-        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
-        hostingController.view.backgroundColor = .clear
-        addChild(hostingController)
-        view.addSubview(hostingController.view)
-        hostingController.didMove(toParent: self)
-        NSLayoutConstraint.activate([
-            hostingController.view.topAnchor.constraint(equalTo: view.topAnchor),
-            hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
+        self.setupSwiftUI(rootView: SettingsView(viewModel: viewModel))
     }
 }
