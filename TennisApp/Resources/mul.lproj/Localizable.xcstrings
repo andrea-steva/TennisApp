@@ -18,9 +18,6 @@
         }
       }
     },
-    "Email" : {
-
-    },
     "First name" : {
 
     },
@@ -471,6 +468,9 @@
           }
         }
       }
+    },
+    "Type" : {
+
     },
     "workout" : {
       "extractionState" : "manual",

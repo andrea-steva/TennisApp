@@ -58,7 +58,6 @@ opt_in_rules: # some rules are turned off by default, so you need to opt-in
     - discouraged_none_name
 
 analyzer_rules: # Rules run by `swiftlint analyze`
-    - unused_capture_list
     - unused_declaration
     - unused_import
 

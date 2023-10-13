@@ -107,7 +107,10 @@
 		FC4A8AA92A0CE2F50078F211 /* NavigationControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A8AA82A0CE2F50078F211 /* NavigationControllerBuilder.swift */; };
 		FC4A8AAD2A0CECC60078F211 /* NavigationControllerBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A8AAC2A0CECC60078F211 /* NavigationControllerBuilderTests.swift */; };
 		FC4A8AAF2A0CEF1D0078F211 /* UINavigationBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A8AAE2A0CEF1D0078F211 /* UINavigationBar+.swift */; };
+		FC56D9972AD98628007DB2BB /* StatsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC56D9962AD98628007DB2BB /* StatsContainerView.swift */; };
 		FC739A3A2A73F6CD00E16D7E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC739A392A73F6CD00E16D7E /* SettingsView.swift */; };
+		FC9CE4232AD97AB900F91451 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9CE4222AD97AB900F91451 /* UIViewController+.swift */; };
+		FC9CE4262AD97E5800F91451 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9CE4252AD97E5800F91451 /* BarChartView.swift */; };
 		FCA724542A09320200D32891 /* StringListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA724532A09320200D32891 /* StringListCell.swift */; };
 		FCA724562A09324000D32891 /* StringContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCA724552A09324000D32891 /* StringContentView.xib */; };
 		FCA724582A09327000D32891 /* StringContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA724572A09327000D32891 /* StringContentView.swift */; };
@@ -186,7 +189,6 @@
 		FCE0AAD829D73ACF00308EF3 /* GripSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE0AAD729D73ACF00308EF3 /* GripSize.swift */; };
 		FCE0AAE429D73F2A00308EF3 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FCE0AAE329D73F2A00308EF3 /* IQKeyboardManagerSwift */; };
 		FCE0AAEA29D73FB900308EF3 /* Eureka in Frameworks */ = {isa = PBXBuildFile; productRef = FCE0AAE929D73FB900308EF3 /* Eureka */; };
-		FCE0AAED29D7403100308EF3 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = FCE0AAEC29D7403100308EF3 /* Charts */; };
 		FCF6D8AD29DAC56200DBCD4B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8AC29DAC56200DBCD4B /* Strings.swift */; };
 		FCF6D8AF29DAC78900DBCD4B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8AE29DAC78900DBCD4B /* User.swift */; };
 		FCF6D8B129DAC7A300DBCD4B /* Racket.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D8B029DAC7A300DBCD4B /* Racket.swift */; };
@@ -348,7 +350,10 @@
 		FC4A8AA82A0CE2F50078F211 /* NavigationControllerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerBuilder.swift; sourceTree = "<group>"; };
 		FC4A8AAC2A0CECC60078F211 /* NavigationControllerBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerBuilderTests.swift; sourceTree = "<group>"; };
 		FC4A8AAE2A0CEF1D0078F211 /* UINavigationBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+.swift"; sourceTree = "<group>"; };
+		FC56D9962AD98628007DB2BB /* StatsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsContainerView.swift; sourceTree = "<group>"; };
 		FC739A392A73F6CD00E16D7E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FC9CE4222AD97AB900F91451 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		FC9CE4252AD97E5800F91451 /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		FCA724532A09320200D32891 /* StringListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringListCell.swift; sourceTree = "<group>"; };
 		FCA724552A09324000D32891 /* StringContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StringContentView.xib; sourceTree = "<group>"; };
 		FCA724572A09327000D32891 /* StringContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringContentView.swift; sourceTree = "<group>"; };
@@ -463,7 +468,6 @@
 			files = (
 				FCE0AAE429D73F2A00308EF3 /* IQKeyboardManagerSwift in Frameworks */,
 				FCB8AABC29DF0A8D00148DB9 /* Parchment in Frameworks */,
-				FCE0AAED29D7403100308EF3 /* Charts in Frameworks */,
 				FCE0AAEA29D73FB900308EF3 /* Eureka in Frameworks */,
 				FCCBFF7F29E012FD00068479 /* ImageRow in Frameworks */,
 				FCCDB7A629ED74D800941D52 /* FirebaseAuth in Frameworks */,
@@ -675,6 +679,8 @@
 				6569A3F21E990BAF00A444BB /* StatsViewController.storyboard */,
 				65D824A11C6E6C6E00E2918C /* StatsViewController.swift */,
 				6589FC971E26F6A600C25F31 /* StatsViewModel.swift */,
+				FC56D9962AD98628007DB2BB /* StatsContainerView.swift */,
+				FC9CE4242AD97D7700F91451 /* Charts */,
 			);
 			name = Stats;
 			path = TennisApp/Presentation/Stats;
@@ -879,6 +885,14 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		FC9CE4242AD97D7700F91451 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				FC9CE4252AD97E5800F91451 /* BarChartView.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
 		FCA724592A093BF600D32891 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -996,6 +1010,7 @@
 				FC4A8AAE2A0CEF1D0078F211 /* UINavigationBar+.swift */,
 				FCCDB7AA29ED852500941D52 /* UITabBarItem+.swift */,
 				65653D251ED0820800A9DBBB /* UIView+.swift */,
+				FC9CE4222AD97AB900F91451 /* UIViewController+.swift */,
 				FC0B2B7429E6A50A00011730 /* UITextField+.swift */,
 			);
 			path = Extension;
@@ -1290,7 +1305,6 @@
 			packageProductDependencies = (
 				FCE0AAE329D73F2A00308EF3 /* IQKeyboardManagerSwift */,
 				FCE0AAE929D73FB900308EF3 /* Eureka */,
-				FCE0AAEC29D7403100308EF3 /* Charts */,
 				FCB8AABB29DF0A8D00148DB9 /* Parchment */,
 				FCCBFF7E29E012FD00068479 /* ImageRow */,
 				FCCDB7A529ED74D800941D52 /* FirebaseAuth */,
@@ -1353,7 +1367,6 @@
 			packageReferences = (
 				FCE0AAE229D73F2A00308EF3 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				FCE0AAE829D73FB900308EF3 /* XCRemoteSwiftPackageReference "Eureka" */,
-				FCE0AAEB29D7403100308EF3 /* XCRemoteSwiftPackageReference "Charts" */,
 				FCB8AABA29DF0A8D00148DB9 /* XCRemoteSwiftPackageReference "Parchment" */,
 				FCCBFF7D29E012FD00068479 /* XCRemoteSwiftPackageReference "ImageRow" */,
 				FCCDB7A429ED74D800941D52 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
@@ -1460,6 +1473,7 @@
 				FCCBFF8F29E0709800068479 /* FirebaseError.swift in Sources */,
 				FCBDFA0C29D73111008A7FD6 /* UserEntity.swift in Sources */,
 				FCD769DF2A0288F8008FDE81 /* ActivitiesDIContainer.swift in Sources */,
+				FC9CE4232AD97AB900F91451 /* UIViewController+.swift in Sources */,
 				FCF6D8B729DACAE500DBCD4B /* Match.swift in Sources */,
 				FCD769E52A090E17008FDE81 /* UICollectionView+.swift in Sources */,
 				FC1F3D2329DC8894006FAD8B /* UIColor+.swift in Sources */,
@@ -1471,6 +1485,7 @@
 				FCCDB7B729F0433C00941D52 /* StringFormViewModelType.swift in Sources */,
 				FCBDFA0A29D73111008A7FD6 /* StringsEntity.swift in Sources */,
 				FCCDB7AE29ED852500941D52 /* CustomFont.swift in Sources */,
+				FC56D9972AD98628007DB2BB /* StatsContainerView.swift in Sources */,
 				FCF6D8CD29DB012500DBCD4B /* RacketsFetchUseCase.swift in Sources */,
 				FCF6D8DF29DB17D000DBCD4B /* StringsFetchUseCase.swift in Sources */,
 				FCA724672A093DFB00D32891 /* MatchContentView.swift in Sources */,
@@ -1599,6 +1614,7 @@
 				FCCBFF7529E00FD000068479 /* WorkoutsViewController.swift in Sources */,
 				FCE0AAD129D7372000308EF3 /* LoggerNull.swift in Sources */,
 				FC2DF3C929FAC8150011AD99 /* StringForm.swift in Sources */,
+				FC9CE4262AD97E5800F91451 /* BarChartView.swift in Sources */,
 				FCF6D8BD29DACE3D00DBCD4B /* DefaultUsersRepository.swift in Sources */,
 				FCBDFA0B29D73111008A7FD6 /* MatchScoreEntity.swift in Sources */,
 				65B04E251C6CC01000011439 /* Localization.swift in Sources */,
@@ -1917,14 +1933,6 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		FCE0AAEB29D7403100308EF3 /* XCRemoteSwiftPackageReference "Charts" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielgindi/Charts";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1952,11 +1960,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FCE0AAE829D73FB900308EF3 /* XCRemoteSwiftPackageReference "Eureka" */;
 			productName = Eureka;
-		};
-		FCE0AAEC29D7403100308EF3 /* Charts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FCE0AAEB29D7403100308EF3 /* XCRemoteSwiftPackageReference "Charts" */;
-			productName = Charts;
 		};
 /* End XCSwiftPackageProductDependency section */
 

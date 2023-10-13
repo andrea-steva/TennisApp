@@ -33,5 +33,6 @@ class StatsViewController: UIViewController, StoryboardInstantiable,
         self.title = Localization.TabBar.stats
 
         self.setBackgroundBlurEffect()
+        self.setupSwiftUI(rootView: StatsContainerView())
     }
 }
