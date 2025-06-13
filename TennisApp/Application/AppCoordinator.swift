@@ -90,12 +90,9 @@ final class AppCoordinator: Coordinator,
     }
 
     private func configureTabBarControllers() {
-        // To fix dark mode on tab bar
-        if #available(iOS 15, *) {
-            let tabBarAppearance = UITabBarAppearance()
-            tabBarController.tabBar.standardAppearance = tabBarAppearance
-            tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
-        }
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarController.tabBar.standardAppearance = tabBarAppearance
+        tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
         tabBarController.tabBar.tintColor = designLibrary.color.text.brandPrimary
 
         let activitiesViewController = activitiesCoordinator.start()

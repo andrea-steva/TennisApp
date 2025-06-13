@@ -6,9 +6,9 @@ To run the project, clone the repo, open with Xcode and run from `TennisApp` tar
 
 ## 📌 Requirements
 
-+ Xcode 15+
-+ Swift 5.7+
-+ Deployment target iOS 15+
++ Xcode 16+
++ Swift 5.9+
++ Deployment target iOS 18+
 
 ## ⚙️ Tools
 

@@ -45,7 +45,7 @@ final class SettingsViewModel: SettingsViewModelType {
     func getFooterText() -> String {
         """
         \(bundle.appDisplayName) \(bundle.appVersion) (\(bundle.appBuildNumber)), Made in Italy 🇮🇹
-        © 2023 Andrea Stevanato
+        © \(Calendar.current.component(.year, from: Date())) Andrea Stevanato
         """
     }
 

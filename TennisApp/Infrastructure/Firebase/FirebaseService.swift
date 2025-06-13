@@ -7,6 +7,7 @@
 //
 
 import Firebase
+import FirebaseAuth
 import Foundation
 
 protocol FirebaseServiceType {
@@ -34,7 +35,7 @@ final class FirebaseService: FirebaseServiceType {
 
     // MARK: Properties
 
-    private(set) var currentUser: Firebase.User?
+    private(set) var currentUser: FirebaseAuth.User?
 
     // MARK: Methods
 

@@ -9,9 +9,9 @@
 import UIKit
 
 enum FontType: String, CaseIterable {
-    case bold = "Lato-Bold"
-    case regular = "Lato-Regular"
-    case light = "Lato-Light"
+    case bold
+    case regular
+    case light
 }
 
 /// https://developer.apple.com/design/human-interface-guidelines/typography#iOS-iPadOS-Dynamic-Type-sizes
@@ -36,6 +36,18 @@ extension UIFont {
     }
 
     static func custom(_ type: FontType, size: FontSize) -> UIFont {
-        UIFont(name: type.rawValue, size: size.rawValue) ?? UIFont.systemFont(ofSize: size.rawValue)
+        UIFont.rounded(ofSize: size.rawValue, weight: .regular)
+    }
+
+    class func rounded(ofSize size: CGFloat, weight: UIFont.Weight) -> UIFont {
+        let systemFont = UIFont.systemFont(ofSize: size, weight: weight)
+        let font: UIFont
+
+        if let descriptor = systemFont.fontDescriptor.withDesign(.rounded) {
+            font = UIFont(descriptor: descriptor, size: size)
+        } else {
+            font = systemFont
+        }
+        return font
     }
 }

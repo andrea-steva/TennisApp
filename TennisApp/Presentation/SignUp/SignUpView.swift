@@ -70,5 +70,7 @@ struct SignUpView: View {
 }
 
 #Preview {
-    SignUpView(viewModel: SignUpViewModel(userSaveUserCase: DefaultUserSaveUserCase(usersRepository: DefaultUsersRepository(usersLocalStorage: UsersCoreDataStorage()))))
+    SignUpView(viewModel: SignUpViewModel(userSaveUserCase:
+                                            DefaultUserSaveUserCase(usersRepository:
+                                                                        DefaultUsersRepository(usersLocalStorage: UsersCoreDataStorage()))))
 }
