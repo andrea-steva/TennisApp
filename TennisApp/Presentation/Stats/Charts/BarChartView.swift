@@ -48,7 +48,6 @@ struct BarChartView: View {
         .backgroundStyle(.white)
         .padding()
     }
-
 }
 
 #Preview {
