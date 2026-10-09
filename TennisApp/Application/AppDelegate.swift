@@ -10,22 +10,19 @@ import UIKit
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-
-    private var mainCoordinator: Coordinator?
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-        window = UIWindow()
-        // swiftlint:disable:next force_unwrapping
-        let coordinator = AppCoordinator(window: window!)
-        coordinator.start()
-        window?.makeKeyAndVisible()
-
-        mainCoordinator = coordinator
-
         Log.initialize()
 
         return true
+    }
+
+    // MARK: UISceneSession Lifecycle
+
+    func application(_ application: UIApplication,
+                     configurationForConnecting connectingSceneSession: UISceneSession,
+                     options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        let configuration = UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+        configuration.delegateClass = SceneDelegate.self
+        return configuration
     }
 }
