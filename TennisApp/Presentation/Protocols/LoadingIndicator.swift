@@ -16,7 +16,7 @@ extension LoadingIndicator where Self: UIViewController {
 
     func showHUD() {
         DispatchQueue.main.async {
-            if self.loadingIndicator == nil, let window = UIApplication.shared.windows.first {
+            if self.loadingIndicator == nil, let window = self.view.window {
                 let frame = UIScreen.main.bounds
                 let loadingIndicator = UIActivityIndicatorView(frame: frame)
                 loadingIndicator.style = .large
