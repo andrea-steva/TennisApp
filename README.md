@@ -37,11 +37,17 @@ TennisApp/
 
 ### Dependency flow
 
-```
-ViewController ──> ViewModel ──> UseCase ──> Repository (protocol) ──> LocalStorage (protocol) ──> Core Data
-     ▲                │                          ▲                         ▲
-     │ Combine        │ coordinatorDelegate      │ Default*Repository      │ *CoreDataStorage
-     └────────────────┘──> Coordinator           (Data layer)              (Data layer)
+```mermaid
+flowchart LR
+    VC[ViewController] --> VM[ViewModel]
+    VM -- Combine --> VC
+    VM -- coordinatorDelegate --> C[Coordinator]
+    VM --> UC[UseCase]
+    UC --> R["Repository (protocol)"]
+    R --> LS["LocalStorage (protocol)"]
+    LS --> CD[(Core Data)]
+    DR["Default*Repository (Data layer)"] -. implements .-> R
+    CDS["*CoreDataStorage (Data layer)"] -. implements .-> LS
 ```
 
 Dependencies point inwards: `Domain` defines the protocols (`RacketsRepository`, `RacketsFetchUseCase`, …) and the `Data` layer implements them.
