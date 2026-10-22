@@ -1,5 +1,16 @@
 # Tennis app
-  
+
+> [!WARNING]
+> **This project is archived and no longer maintained.**
+>
+> Started in 2016, TennisApp was a personal playground: over the years I used it to learn new things, try out architectural patterns (Clean Architecture, MVVM + Coordinators, DI containers) and experiment with frameworks and APIs (Combine, Core Data, SwiftUI inside UIKit, modern collection views). Expect unfinished features and work-in-progress code. This proof of concept hasn't been actively developed for many years and would now need to be rethought from a different perspective.
+
+## 📸 Screenshots
+
+| Login | Activities | Rackets | Racket form |
+| :---: | :---: | :---: | :---: |
+| <img src="Screenshots/login.webp" width="200" alt="Login"> | <img src="Screenshots/activities.webp" width="200" alt="Activities"> | <img src="Screenshots/rackets.webp" width="200" alt="Rackets"> | <img src="Screenshots/racket-form.webp" width="200" alt="Racket form"> |
+
 ## 📱 TennisApp
 
 To run the project, clone the repo, open with Xcode and run from `TennisApp` target. To run unit tests type `CMD + U`
