@@ -15,6 +15,8 @@
 
 To run the project, clone the repo, open with Xcode and run from `TennisApp` target. To run unit tests type `CMD + U`
 
+`TennisApp/GoogleService-Info.plist` contains placeholder values: to use Firebase Authentication, replace it with the file downloaded from your own Firebase project.
+
 ## 📌 Requirements
 
 + Xcode 16+
