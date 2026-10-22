@@ -59,14 +59,19 @@ final class AppCoordinator: Coordinator,
 
         DefaultUserPrimaryFetchUseCase(usersRepository:
                                         DefaultUsersRepository(usersLocalStorage: UsersCoreDataStorage())).execute { result in
-            switch result {
-            case .success(let user):
-                Log.info("Show activities for \(user.firstName) \(user.lastName)")
-                self.showActivities()
-            case .failure:
-                Log.error("Main user not found")
-                self.showSignUp()
-            }
+
+            self.showActivities()
+            return
+
+            // FIXME: skip signup, go directly to activities for now
+            // switch result {
+            // case .success(let user):
+            //     Log.info("Show activities for \(user.firstName) \(user.lastName)")
+            //     self.showActivities()
+            // case .failure:
+            //     Log.error("Main user not found")
+            //     self.showSignUp()
+            // }
         }
     }
 
